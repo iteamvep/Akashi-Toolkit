@@ -59,17 +59,11 @@ public class SettingActivity extends BaseDayNightModeActivity {
         private DropDownPreference mDropDownPreference;
 
         @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-
-            getPreferenceManager().setSharedPreferencesName(Settings.XML_NAME);
-        }
-
-        @Override
         public void onCreatePreferences(Bundle bundle, String s) {
+            getPreferenceManager().setSharedPreferencesName(Settings.XML_NAME);
+            getPreferenceManager().setSharedPreferencesMode(MODE_PRIVATE);
+
             setPreferencesFromResource(R.xml.settings, null);
-
-
             mDropDownPreference = (DropDownPreference) findPreference(Settings.NIGHT_MODE);
         }
 
