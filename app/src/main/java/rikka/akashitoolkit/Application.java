@@ -1,8 +1,8 @@
 package rikka.akashitoolkit;
 
-import android.support.v7.preference.PreferenceManager;
 
 import moe.xing.daynightmode.DayNightMode;
+import rikka.akashitoolkit.support.Settings;
 
 /**
  * Created by Rikka on 2016/3/6.
@@ -12,8 +12,10 @@ public class Application extends android.app.Application {
     public void onCreate() {
         super.onCreate();
 
-        DayNightMode.setSystemNightMode(this,
-                Integer.parseInt(
-                        PreferenceManager.getDefaultSharedPreferences(this).getString("night_mode", "0")));
+        DayNightMode.setSystemNightMode(
+                this,
+                Settings.instance(this)
+                        .getIntFromString(Settings.NIGHT_MODE, 0)
+        );
     }
 }

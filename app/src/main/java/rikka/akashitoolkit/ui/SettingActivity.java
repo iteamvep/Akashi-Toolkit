@@ -8,6 +8,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.preference.Preference;
+import android.support.v7.preference.PreferenceManager;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,6 +16,7 @@ import android.view.View;
 
 import moe.xing.daynightmode.BaseDayNightModeActivity;
 import rikka.akashitoolkit.R;
+import rikka.akashitoolkit.support.Settings;
 import rikka.materialpreference.DropDownPreference;
 import rikka.materialpreference.PreferenceFragment;
 
@@ -57,10 +59,18 @@ public class SettingActivity extends BaseDayNightModeActivity {
         private DropDownPreference mDropDownPreference;
 
         @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+
+            getPreferenceManager().setSharedPreferencesName(Settings.XML_NAME);
+        }
+
+        @Override
         public void onCreatePreferences(Bundle bundle, String s) {
             setPreferencesFromResource(R.xml.settings, null);
 
-            mDropDownPreference = (DropDownPreference) findPreference("night_mode");
+
+            mDropDownPreference = (DropDownPreference) findPreference(Settings.NIGHT_MODE);
         }
 
         @Override
@@ -79,7 +89,7 @@ public class SettingActivity extends BaseDayNightModeActivity {
 
         @Override
         public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-            if (key.equals("night_mode")) {
+            if (key.equals(Settings.NIGHT_MODE)) {
                 int mode = Integer.parseInt(
                         (String) mDropDownPreference.getSelectedValue());
 
