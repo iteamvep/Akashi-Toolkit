@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Akashi Toolkit</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="home">Home</string>
+    <string name="official_twitter">Official Twitter</string>
+    <string name="about">About</string>
+    <string name="Setting">Settings</string>
+    <string name="maps">Map</string>
+    <string name="setting">Setting</string>
+
+    <string name="night_mode">Night mode</string>
+    <string name="night_mode_off">Off</string>
+    <string name="night_mode_on">On</string>
+    <string name="night_mode_auto">Auto</string>
+
+
+</resources>
