@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:card_view="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        card_view:cardBackgroundColor="@color/cardBackground"
+        card_view:cardCornerRadius="2dp"
+        card_view:cardElevation="2dp"
+        card_view:cardMaxElevation="4dp">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp">
+
+            <ImageView
+                android:id="@+id/image_twitter_avatar"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="0.16"
+                android:contentDescription="@null"
+                android:padding="12dp"
+                tools:src="@mipmap/ic_launcher"
+                android:scaleType="center"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="0.84"
+                android:layout_marginLeft="12dp"
+                android:layout_marginStart="12dp">
+
+                <TextView
+                    android:id="@+id/text_quest_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="A1 はじめての「編成」！"
+                    android:textAppearance="@style/TextAppearance.AppCompat"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/text_quest_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:textSize="12sp"
+                    android:layout_marginTop="2dp"
+                    tools:text="2隻以上の艦で編成される「艦隊」を編成せよ！" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="0.25"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="12dp"
+                            android:layout_height="match_parent"
+                            android:contentDescription="@null"
+                            android:padding="12dp"
+                            tools:src="@mipmap/ic_launcher"
+                            android:scaleType="centerInside"/>
+
+                        <TextView
+                            android:id="@+id/text_quest_reward_0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="12sp"
+                            android:gravity="center_vertical"
+                            tools:text="0"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="0.25"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="12dp"
+                            android:layout_height="match_parent"
+                            android:contentDescription="@null"
+                            android:padding="12dp"
+                            tools:src="@mipmap/ic_launcher"
+                            android:scaleType="centerInside"/>
+
+                        <TextView
+                            android:id="@+id/text_quest_reward_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="12sp"
+                            android:gravity="center_vertical"
+                            tools:text="0"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="0.25"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="12dp"
+                            android:layout_height="match_parent"
+                            android:contentDescription="@null"
+                            android:padding="12dp"
+                            tools:src="@mipmap/ic_launcher"
+                            android:scaleType="centerInside"/>
+
+                        <TextView
+                            android:id="@+id/text_quest_reward_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="12sp"
+                            android:gravity="center_vertical"
+                            tools:text="0"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="0.25"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="12dp"
+                            android:layout_height="match_parent"
+                            android:contentDescription="@null"
+                            android:padding="12dp"
+                            tools:src="@mipmap/ic_launcher"
+                            android:scaleType="centerInside"/>
+
+                        <TextView
+                            android:id="@+id/text_quest_reward_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="12sp"
+                            android:gravity="center_vertical"
+                            tools:text="0"/>
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/text_quest_reward_4"
+                        android:layout_weight="0.25"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="12sp"
+                        android:gravity="center_vertical|right|end"
+                        tools:text="什么也没有"/>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+</LinearLayout>

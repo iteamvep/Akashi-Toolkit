@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import rikka.akashitoolkit.R;
+import rikka.akashitoolkit.adapter.QuestAdapter;
 import rikka.akashitoolkit.adapter.TwitterAdapter;
 
 /**
@@ -22,7 +23,7 @@ public class DataFragment extends Fragment {
         View view = inflater.inflate(R.layout.content_recycler, container, false);
 
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
-        recyclerView.setAdapter(new TwitterAdapter());
+        recyclerView.setAdapter(new QuestAdapter());
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         layoutManager.setAutoMeasureEnabled(false);
         recyclerView.setLayoutManager(layoutManager);

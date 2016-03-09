@@ -24,6 +24,8 @@ public class MainActivity extends BaseActivity
     private NavigationView mNavigationView;
     private DrawerLayout mDrawerLayout;
 
+    private int mLastDrawerItemId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +49,7 @@ public class MainActivity extends BaseActivity
         toggle.syncState();
 
         if (savedInstanceState == null) {
-            switchFragment(new HomeFragment());
+            switchFragment(new HomeFragment(), R.id.nav_home);
         }
     }
 
@@ -86,24 +88,39 @@ public class MainActivity extends BaseActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.nav_home) {
-            switchFragment(new HomeFragment());
-        } else if (id == R.id.nav_twitter) {
-            switchFragment(new TwitterFragment());
-        } else if (id == R.id.nav_maps) {
-            switchFragment(new DataDisplayFragment());
-        } else if (id == R.id.nav_settings) {
-            startActivity(new Intent(this, SettingActivity.class));
-        } else if (id == R.id.nav_about) {
-            startActivity(new Intent(this, AboutActivity.class));
+
+        switch (id) {
+            case R.id.nav_home:
+                switchFragment(new HomeFragment(), R.id.nav_home);
+                break;
+            case R.id.nav_twitter:
+                switchFragment(new TwitterFragment(), R.id.nav_twitter);
+                break;
+            case R.id.nav_maps:
+                switchFragment(new DataDisplayFragment(), R.id.nav_maps);
+                break;
+            case R.id.nav_quest:
+                switchFragment(new DataDisplayFragment(), R.id.nav_maps);
+                break;
+
+            case R.id.nav_settings:
+                startActivity(new Intent(this, SettingActivity.class));
+                break;
+            case R.id.nav_about:
+                startActivity(new Intent(this, AboutActivity.class));
+                break;
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
+        mDrawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
 
-    public void switchFragment(Fragment fragment) {
+    public void switchFragment(Fragment fragment, int id) {
+        if (mLastDrawerItemId == id) {
+            return;
+        }
+
+        mLastDrawerItemId = id;
         getSupportFragmentManager().beginTransaction()
                 .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
                 .replace(R.id.fragment_container, fragment).commit();

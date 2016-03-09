@@ -73,6 +73,19 @@
                     android:textAppearance="@style/TextAppearance.AppCompat"
                     tools:text="现在舰队收藏运营镇守府正在对本周【3/11星期五】将要进行的舰队收藏全服务器共通维护/更新进行着准备。本次维护/更新中，除去各位舰娘的【白色情人节与提督的回礼】限定语音外，中部海域方面将开辟【新作战海域】。尽请期待！" />
 
+                <ImageView
+                    android:id="@+id/image_twitter_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:layout_width="240dp"
+                    android:maxWidth="240dp"
+                    android:layout_marginTop="8dp"
+                    android:visibility="visible"
+                    tools:visibility="visible"
+                    tools:src="@mipmap/ic_launcher"
+                    android:scaleType="centerInside"
+                    android:contentDescription="@null"/>
+
                 <TextView android:id="@+id/text_twitter_time"
                           android:layout_width="wrap_content"
                           android:layout_height="wrap_content"

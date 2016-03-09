@@ -1,15 +1,29 @@
 package rikka.akashitoolkit.ui.fragments;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.drawable.GlideDrawable;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.animation.GlideAnimation;
+import com.bumptech.glide.request.target.Target;
+import com.bumptech.glide.request.target.ViewTarget;
+import com.google.gson.Gson;
+
+import java.io.ByteArrayInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -26,6 +40,7 @@ import rikka.akashitoolkit.adapter.TwitterAdapter;
 import rikka.akashitoolkit.model.Twitter;
 import rikka.akashitoolkit.network.RetrofitAPI;
 import rikka.akashitoolkit.ui.MainActivity;
+import rikka.akashitoolkit.utils.Utils;
 
 /**
  * Created by Rikka on 2016/3/6.
@@ -35,6 +50,7 @@ public class TwitterFragment extends Fragment {
 
     private static final int TAB_LAYOUT_VISIBILITY = View.GONE;
     private static final String TWITTER_API = "http://t.kcwiki.moe";
+    private static final String CACHE_TWITTER_JSON_NAME = "/json/twitter.json";
 
     private RecyclerView mRecyclerView;
     private TwitterAdapter mTwitterAdapter;
@@ -71,11 +87,59 @@ public class TwitterFragment extends Fragment {
             }
         }, 500);
 
+        loadFromCache();
 
         return view;
     }
 
-    // TODO save result to local, load local file first
+    private void loadFromCache() {
+        Twitter twitter = null;
+        try {
+            Gson gson = new Gson();
+            twitter = gson.fromJson(
+                    new FileReader(getActivity().getCacheDir().getAbsolutePath() + CACHE_TWITTER_JSON_NAME),
+                    Twitter.class);
+
+            updateDate(twitter);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        if (twitter != null) {
+            updateDate(twitter);
+        }
+    }
+
+    private void updateDate(Twitter source) {
+        List<TwitterAdapter.DataModel> data = new ArrayList<>();
+
+        for (Twitter.PostsEntity entity:
+                source.getPosts()) {
+            TwitterAdapter.DataModel item = new TwitterAdapter.DataModel();
+            String content = entity.getContent();
+
+            Pattern r = Pattern.compile("<p>[\\w\\W]+?</p>");
+            Matcher m = r.matcher(content);
+
+            int i = 0;
+            while (m.find()) {
+                if (i == 0) {
+                    item.setText(
+                           cutString(m.group(), "<p>", "</p>"));
+                } else {
+                    item.setTranslated(
+                            cutString(m.group(), "<p>", "</p>"));
+                }
+                i ++;
+            }
+
+            item.setDate(entity.getDate());
+
+            data.add(item);
+        }
+        mTwitterAdapter.setData(data);
+    }
+
     private void refresh(int json, int count) {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(TWITTER_API)
@@ -90,31 +154,12 @@ public class TwitterFragment extends Fragment {
             public void onResponse(Call<Twitter> call, Response<Twitter> response) {
                 mSwipeRefreshLayout.setRefreshing(false);
 
-                List<TwitterAdapter.DataModel> data = new ArrayList<>();
-
-                for (Twitter.PostsEntity entity:
-                        response.body().getPosts()) {
-                    TwitterAdapter.DataModel item = new TwitterAdapter.DataModel();
-                    String content = entity.getContent();
-
-                    Pattern r = Pattern.compile("<p>[\\w\\W]+?<br />");
-                    Matcher m = r.matcher(content);
-
-                    int i = 0;
-                    while (m.find()) {
-                        if (i == 0) {
-                            item.setText(cutString(m.group(), "<p>", "<br />"));
-                        } else {
-                            item.setTranslated(cutString(m.group(), "<p>", "<br />"));
-                        }
-                        i ++;
-                    }
-
-                    item.setDate(entity.getDate());
-
-                    data.add(item);
-                }
-                mTwitterAdapter.setData(data);
+                updateDate(response.body());
+                // save result to local
+                Gson gson = new Gson();
+                Utils.writeStreamToCacheFile(getActivity(),
+                        new ByteArrayInputStream(gson.toJson(response.body()).getBytes()),
+                        CACHE_TWITTER_JSON_NAME);
             }
 
             @Override
@@ -128,4 +173,6 @@ public class TwitterFragment extends Fragment {
         int len = string.length();
         return string.substring(a.length(), len - b.length());
     }
+
+
 }

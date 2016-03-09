@@ -16,5 +16,6 @@
     <string name="night_mode_off">Off</string>
     <string name="night_mode_on">On</string>
     <string name="night_mode_auto">Auto</string>
+    <string name="quest">Quest</string>
 
 </resources>

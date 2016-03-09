@@ -36,12 +36,13 @@ public class DataDisplayFragment extends Fragment {
         tabLayout.setVisibility(TAB_LAYOUT_VISIBILITY);
 
         ViewPagerAdapter adapter = new ViewPagerAdapter(getFragmentManager());
-        adapter.addFragment(new DataFragment(), "Test");
-        adapter.addFragment(new DataFragment(), "Test2");
-        adapter.addFragment(new DataFragment(), "Test3");
-        adapter.addFragment(new DataFragment(), "Test4");
-        adapter.addFragment(new DataFragment(), "Test5");
-        adapter.addFragment(new DataFragment(), "Test6");
+        adapter.addFragment(new DataFragment(), "編成");
+        adapter.addFragment(new DataFragment(), "出擊");
+        adapter.addFragment(new DataFragment(), "演習");
+        adapter.addFragment(new DataFragment(), "遠征");
+        adapter.addFragment(new DataFragment(), "補給/入渠");
+        adapter.addFragment(new DataFragment(), "工廠");
+        adapter.addFragment(new DataFragment(), "改裝");
         viewPager.setAdapter(adapter);
 
         tabLayout.setupWithViewPager(viewPager);

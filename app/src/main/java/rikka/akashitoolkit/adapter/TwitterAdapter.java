@@ -1,6 +1,11 @@
 package rikka.akashitoolkit.adapter;
 
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,16 +13,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-
 import java.util.List;
 
 import rikka.akashitoolkit.R;
-import rikka.akashitoolkit.model.Twitter;
 
 /**
  * Created by Rikka on 2016/3/6.
  */
 public class TwitterAdapter extends RecyclerView.Adapter<TwitterAdapter.ViewHolder> {
+    private static final String TAG = "TwitterAdapter";
+
     public static class DataModel {
         public String text;
         public String translated;
@@ -68,8 +73,28 @@ public class TwitterAdapter extends RecyclerView.Adapter<TwitterAdapter.ViewHold
                 .into(holder.mAvatar);
 
         holder.mName.setText("「艦これ」開発/運営");
-        holder.mText.setText(mData.get(position).getText());
-        holder.mTextTranslate.setText(mData.get(position).getTranslated());
+        holder.mText.setText(
+                Html.fromHtml(
+                        mData.get(position).getText()
+                ));
+        holder.mText.setMovementMethod(LinkMovementMethod.getInstance());
+
+        if (mData.get(position).getTranslated() == null) {
+            holder.mTextTranslate.setVisibility(View.GONE);
+        } else {
+            holder.mTextTranslate.setText(
+                    Html.fromHtml(
+                            mData.get(position).getTranslated(),
+                            new ImageLoader(holder.mImage),
+                            null
+                    ));
+            holder.mTextTranslate.setMovementMethod(LinkMovementMethod.getInstance());
+
+            if (position == 24) {
+                Log.d(TAG, String.format("%s", mData.get(position).getTranslated()));
+            }
+        }
+
         holder.mTime.setText(mData.get(position).getDate());
     }
 
@@ -84,6 +109,7 @@ public class TwitterAdapter extends RecyclerView.Adapter<TwitterAdapter.ViewHold
         protected TextView mText;
         protected TextView mTextTranslate;
         protected TextView mTime;
+        protected ImageView mImage;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -93,6 +119,35 @@ public class TwitterAdapter extends RecyclerView.Adapter<TwitterAdapter.ViewHold
             mText = (TextView) itemView.findViewById(R.id.text_twitter_content);
             mTextTranslate = (TextView) itemView.findViewById(R.id.text_twitter_content_translated);
             mTime = (TextView) itemView.findViewById(R.id.text_twitter_time);
+            mImage = (ImageView) itemView.findViewById(R.id.image_twitter_content);
         }
+    }
+
+    protected class ImageLoader implements Html.ImageGetter {
+        private ImageView mImageView;
+
+        public ImageLoader(ImageView target) {
+            this.mImageView = target;
+        }
+
+        @Override
+        public Drawable getDrawable(String source) {
+            mImageView.setVisibility(View.VISIBLE);
+
+            Glide.with(mImageView.getContext())
+                    .load(source)
+                    .crossFade()
+                    .into(mImageView);
+
+            return new ColorDrawable(0);
+        }
+    }
+
+    @Override
+    public void onViewDetachedFromWindow(ViewHolder holder) {
+        Glide.clear(holder.mAvatar);
+        Glide.clear(holder.mImage);
+        //holder.mAvatar = null;
+        //holder.mImage = null;
     }
 }
