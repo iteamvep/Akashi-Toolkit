@@ -82,6 +82,8 @@ public class TwitterAdapter extends RecyclerView.Adapter<TwitterAdapter.ViewHold
         if (mData.get(position).getTranslated() == null) {
             holder.mTextTranslate.setVisibility(View.GONE);
         } else {
+            holder.mTextTranslate.setVisibility(View.VISIBLE);
+
             holder.mTextTranslate.setText(
                     Html.fromHtml(
                             mData.get(position).getTranslated(),
@@ -89,10 +91,6 @@ public class TwitterAdapter extends RecyclerView.Adapter<TwitterAdapter.ViewHold
                             null
                     ));
             holder.mTextTranslate.setMovementMethod(LinkMovementMethod.getInstance());
-
-            if (position == 24) {
-                Log.d(TAG, String.format("%s", mData.get(position).getTranslated()));
-            }
         }
 
         holder.mTime.setText(mData.get(position).getDate());
