@@ -71,10 +71,16 @@ public class Twitter {
     }
 
     public static class PostsEntity {
+        private int id;
         private String type;
         private String status;
         private String content;
         private String date;
+        private String modified;
+
+        public void setId(int id) {
+            this.id = id;
+        }
 
         public void setType(String type) {
             this.type = type;
@@ -92,6 +98,14 @@ public class Twitter {
             this.date = date;
         }
 
+        public void setModified(String modified) {
+            this.modified = modified;
+        }
+
+        public int getId() {
+            return id;
+        }
+
         public String getType() {
             return type;
         }
@@ -106,6 +120,10 @@ public class Twitter {
 
         public String getDate() {
             return date;
+        }
+
+        public String getModified() {
+            return modified;
         }
     }
 }

@@ -1,12 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
                   xmlns:app="http://schemas.android.com/apk/res-auto">
+    <PreferenceCategory
+        android:title="@string/category_general">
 
-    <rikka.materialpreference.DropDownPreference
-        android:key="night_mode"
-        android:title="@string/night_mode"
-        app:myEntries="@array/night_mode"
-        app:myEntryValues="@array/night_mode_value"
-        android:defaultValue="1"/>
+        <rikka.materialpreference.DropDownPreference
+            android:key="night_mode"
+            android:title="@string/night_mode"
+            app:myEntries="@array/night_mode"
+            app:myEntryValues="@array/night_mode_value"
+            android:defaultValue="1"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/category_twitter">
+
+        <rikka.materialpreference.EditTextPreference
+            android:key="twitter_count"
+            android:title="@string/twitter_count"
+            android:defaultValue="30">
+        </rikka.materialpreference.EditTextPreference>
+
+        <rikka.materialpreference.DropDownPreference
+            android:key="twitter_display_language"
+            android:title="@string/twitter_display_language"
+            app:myEntries="@array/twitter_display_language"
+            app:myEntryValues="@array/twitter_display_language_value"
+            android:defaultValue="1"/>
+
+    </PreferenceCategory>
 
 </PreferenceScreen>

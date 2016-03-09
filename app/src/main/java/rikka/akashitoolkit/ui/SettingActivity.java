@@ -16,6 +16,8 @@ import android.view.View;
 
 import moe.xing.daynightmode.BaseDayNightModeActivity;
 import rikka.akashitoolkit.R;
+import rikka.akashitoolkit.otto.BusProvider;
+import rikka.akashitoolkit.otto.PreferenceChangedAction;
 import rikka.akashitoolkit.support.Settings;
 import rikka.materialpreference.DropDownPreference;
 import rikka.materialpreference.PreferenceFragment;
@@ -89,6 +91,9 @@ public class SettingActivity extends BaseDayNightModeActivity {
 
                 ((BaseDayNightModeActivity) getActivity()).setNightMode(mode);
             }
+
+            BusProvider.instance()
+                    .post(new PreferenceChangedAction(key));
         }
     }
 

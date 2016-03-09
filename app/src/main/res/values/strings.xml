@@ -17,5 +17,17 @@
     <string name="night_mode_on">On</string>
     <string name="night_mode_auto">Auto</string>
     <string name="quest">Quest</string>
+    <string name="refresh_fail">Refresh failed</string>
+    <string name="new_twitter">%d new tweets</string>
+
+    <string name="action_refresh">refresh</string>
+
+    <string name="category_general">General</string>
+    <string name="category_twitter">Official Twitter</string>
+    <string name="twitter_count">Twitter count</string>
+    <string name="twitter_display_language">Display language</string>
+    <string name="twitter_display_language_both">Both</string>
+    <string name="twitter_display_language_ja">Original (Japanese)</string>
+    <string name="twitter_display_language_zh">Translated (Simplified Chinese)</string>
 
 </resources>

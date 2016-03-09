@@ -5,4 +5,6 @@
     <color name="colorAccent">#536dfe</color>
 
     <color name="cardBackground">@color/cardview_light_background</color>
+    
+    <color name="preference_fallback_accent_color">@color/colorAccent</color>
 </resources>

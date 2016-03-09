@@ -9,9 +9,11 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 
 import rikka.akashitoolkit.R;
+import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.ui.fragments.DataDisplayFragment;
 import rikka.akashitoolkit.ui.fragments.HomeFragment;
 import rikka.akashitoolkit.ui.fragments.TwitterFragment;
@@ -49,7 +51,12 @@ public class MainActivity extends BaseActivity
         toggle.syncState();
 
         if (savedInstanceState == null) {
-            switchFragment(new HomeFragment(), R.id.nav_home);
+            int id = Settings
+                    .instance(this)
+                    .getInt(Settings.LAST_DRAWER_ITEM_ID, R.id.nav_home);
+
+            mNavigationView.setCheckedItem(id);
+            selectDrawerItem(id);
         }
     }
 
@@ -65,6 +72,11 @@ public class MainActivity extends BaseActivity
         } else {
             super.onBackPressed();
         }
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        return super.onPrepareOptionsMenu(menu);
     }
 
     /*@Override
@@ -91,16 +103,10 @@ public class MainActivity extends BaseActivity
 
         switch (id) {
             case R.id.nav_home:
-                switchFragment(new HomeFragment(), R.id.nav_home);
-                break;
             case R.id.nav_twitter:
-                switchFragment(new TwitterFragment(), R.id.nav_twitter);
-                break;
             case R.id.nav_maps:
-                switchFragment(new DataDisplayFragment(), R.id.nav_maps);
-                break;
             case R.id.nav_quest:
-                switchFragment(new DataDisplayFragment(), R.id.nav_maps);
+                selectDrawerItem(id);
                 break;
 
             case R.id.nav_settings:
@@ -115,6 +121,24 @@ public class MainActivity extends BaseActivity
         return true;
     }
 
+    public void selectDrawerItem(int id) {
+        switch (id) {
+            case R.id.nav_home:
+                switchFragment(new HomeFragment(), R.id.nav_home);
+                break;
+            case R.id.nav_twitter:
+                switchFragment(new TwitterFragment(), R.id.nav_twitter);
+                break;
+            case R.id.nav_maps:
+                switchFragment(new DataDisplayFragment(), R.id.nav_maps);
+                break;
+            case R.id.nav_quest:
+                switchFragment(new DataDisplayFragment(), R.id.nav_maps);
+                break;
+        }
+    }
+
+
     public void switchFragment(Fragment fragment, int id) {
         if (mLastDrawerItemId == id) {
             return;
@@ -124,5 +148,8 @@ public class MainActivity extends BaseActivity
         getSupportFragmentManager().beginTransaction()
                 .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
                 .replace(R.id.fragment_container, fragment).commit();
+
+        Settings.instance(this)
+                .putInt(Settings.LAST_DRAWER_ITEM_ID, id);
     }
 }

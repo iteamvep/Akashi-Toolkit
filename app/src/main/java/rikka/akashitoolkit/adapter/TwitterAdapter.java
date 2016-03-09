@@ -13,6 +13,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import rikka.akashitoolkit.R;
@@ -24,9 +26,15 @@ public class TwitterAdapter extends RecyclerView.Adapter<TwitterAdapter.ViewHold
     private static final String TAG = "TwitterAdapter";
 
     public static class DataModel {
+        public int id;
         public String text;
         public String translated;
         public String date;
+        public String modified;
+
+        public int getId() {
+            return id;
+        }
 
         public String getText() {
             return text;
@@ -40,6 +48,14 @@ public class TwitterAdapter extends RecyclerView.Adapter<TwitterAdapter.ViewHold
             return date;
         }
 
+        public String getModified() {
+            return modified;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
+
         public void setText(String text) {
             this.text = text;
         }
@@ -51,12 +67,34 @@ public class TwitterAdapter extends RecyclerView.Adapter<TwitterAdapter.ViewHold
         public void setDate(String date) {
             this.date = date;
         }
+
+        public void setModified(String modified) {
+            this.modified = modified;
+        }
     }
     private List<DataModel> mData;
+    private int mMaxItem;
+    private int mLanguage;
+
+    public void setLanguage(int language) {
+        mLanguage = language;
+    }
+
+    public void setMaxItem(int maxItem) {
+        mMaxItem = maxItem;
+    }
+
+    public List<DataModel> getData() {
+        return mData;
+    }
 
     public void setData(List<DataModel> data) {
         mData = data;
-        notifyDataSetChanged();
+        //notifyDataSetChanged();
+    }
+
+    public TwitterAdapter() {
+        mData = new ArrayList<>();
     }
 
     @Override
@@ -73,13 +111,20 @@ public class TwitterAdapter extends RecyclerView.Adapter<TwitterAdapter.ViewHold
                 .into(holder.mAvatar);
 
         holder.mName.setText("「艦これ」開発/運営");
-        holder.mText.setText(
-                Html.fromHtml(
-                        mData.get(position).getText()
-                ));
-        holder.mText.setMovementMethod(LinkMovementMethod.getInstance());
 
-        if (mData.get(position).getTranslated() == null) {
+        if (mLanguage == 2) {
+            holder.mText.setVisibility(View.GONE);
+        }
+        else {
+            holder.mText.setVisibility(View.VISIBLE);
+            holder.mText.setText(
+                    Html.fromHtml(
+                            mData.get(position).getText()
+                    ));
+            holder.mText.setMovementMethod(LinkMovementMethod.getInstance());
+        }
+
+        if (mData.get(position).getTranslated() == null || mLanguage == 1) {
             holder.mTextTranslate.setVisibility(View.GONE);
         } else {
             holder.mTextTranslate.setVisibility(View.VISIBLE);
@@ -98,7 +143,8 @@ public class TwitterAdapter extends RecyclerView.Adapter<TwitterAdapter.ViewHold
 
     @Override
     public int getItemCount() {
-        return mData != null ? mData.size() : 0;
+        int count = mData != null ? mData.size() : 0;
+        return count > mMaxItem ? mMaxItem : count;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
