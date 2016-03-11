@@ -297,7 +297,7 @@ public class TwitterFragment extends BaseFragmet {
             mRecyclerView.post(new Runnable() {
                 @Override
                 public void run() {
-                    refresh();
+                    loadFromCache();
                 }
             });
         } else if (action.getKey().equals(Settings.TWITTER_LANGUAGE)) {

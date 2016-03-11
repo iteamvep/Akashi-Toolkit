@@ -18,11 +18,9 @@ import android.view.MenuItem;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.support.Settings;
-import rikka.akashitoolkit.ui.fragments.BaseFragmet;
 import rikka.akashitoolkit.ui.fragments.DataDisplayFragment;
 import rikka.akashitoolkit.ui.fragments.HomeFragment;
 import rikka.akashitoolkit.ui.fragments.TwitterFragment;
@@ -89,6 +87,16 @@ public class MainActivity extends BaseActivity
             trans.commit();
 
         } else {
+            switch (id) {
+                case R.id.nav_home:
+                case R.id.nav_twitter:
+                case R.id.nav_maps:
+                case R.id.nav_quest:
+                    break;
+                default:
+                    id = R.id.nav_home;
+            }
+
             mNavigationView.setCheckedItem(id);
             selectDrawerItem(id);
         }
@@ -170,7 +178,7 @@ public class MainActivity extends BaseActivity
                 .putInt(Settings.LAST_DRAWER_ITEM_ID, id);
 
         Fragment to = mFragmentMap.get(id);
-        if (mFragmentMap.get(id) == null) {
+        if (to == null) {
             to = instanceFragment(id);
             mFragmentMap.put(id, to);
         }
@@ -189,7 +197,7 @@ public class MainActivity extends BaseActivity
             case R.id.nav_quest:
                 return new DataDisplayFragment();
         }
-        return null;
+        return new HomeFragment();
     }
 
     private void findFragmentByNavId(Map<Integer, Fragment> map, int id) {

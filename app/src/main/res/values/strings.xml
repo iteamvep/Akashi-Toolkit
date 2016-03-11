@@ -20,7 +20,7 @@
     <string name="refresh_fail">Refresh failed</string>
     <string name="new_twitter">%d new tweets</string>
 
-    <string name="action_refresh">refresh</string>
+    <string name="action_refresh">Refresh</string>
 
     <string name="category_general">General</string>
     <string name="category_twitter">Official Twitter</string>

@@ -19,7 +19,8 @@
         <rikka.materialpreference.EditTextPreference
             android:key="twitter_count"
             android:title="@string/twitter_count"
-            android:defaultValue="30">
+            android:defaultValue="30"
+            app:textInputType="number">
         </rikka.materialpreference.EditTextPreference>
 
         <rikka.materialpreference.DropDownPreference
