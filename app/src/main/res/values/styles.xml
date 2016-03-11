@@ -10,6 +10,11 @@
         <item name="preferenceTheme">@style/PreferenceTheme.Material</item>
     </style>
 
+    <style name="AppTheme.NavigationView">
+        <item name="colorPrimary">@color/colorAccent</item>
+        <item name="colorPrimaryDark">@color/colorAccent</item>
+    </style>
+
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>

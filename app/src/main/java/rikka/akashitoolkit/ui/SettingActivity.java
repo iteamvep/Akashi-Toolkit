@@ -1,6 +1,7 @@
 package rikka.akashitoolkit.ui;
 
 import android.content.SharedPreferences;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -44,6 +45,11 @@ public class SettingActivity extends BaseDayNightModeActivity {
             getFragmentManager().beginTransaction().replace(R.id.fragment,
                     fragment).commit();
         }
+    }
+
+    @Override
+    public boolean shouldOverrideBackTransition() {
+        return true;
     }
 
     @Override

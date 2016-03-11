@@ -12,7 +12,7 @@ public class Application extends android.app.Application {
     public void onCreate() {
         super.onCreate();
 
-        DayNightMode.setSystemNightMode(
+        DayNightMode.setDefaultNightMode(
                 this,
                 Settings.instance(this)
                         .getIntFromString(Settings.NIGHT_MODE, 0)
