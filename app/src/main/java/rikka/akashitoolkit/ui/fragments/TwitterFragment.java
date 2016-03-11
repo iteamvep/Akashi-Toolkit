@@ -1,13 +1,14 @@
 package rikka.akashitoolkit.ui.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -45,7 +46,7 @@ import rikka.akashitoolkit.utils.Utils;
 /**
  * Created by Rikka on 2016/3/6.
  */
-public class TwitterFragment extends Fragment {
+public class TwitterFragment extends BaseFragmet {
     private static final String TAG = "TwitterFragment";
 
     private static final int TAB_LAYOUT_VISIBILITY = View.GONE;
@@ -76,14 +77,14 @@ public class TwitterFragment extends Fragment {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.main, menu);
+        inflater.inflate(R.menu.twitter, menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_refresh:
-                if (mSwipeRefreshLayout.isRefreshing()) {
+                if (!mSwipeRefreshLayout.isRefreshing()) {
                     refresh();
                 }
                 return true;
@@ -91,14 +92,17 @@ public class TwitterFragment extends Fragment {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onShow() {
+        MainActivity activity = ((MainActivity) getActivity());
+        activity.getTabLayout().setVisibility(TAB_LAYOUT_VISIBILITY);
+        activity.getSupportActionBar().setTitle(getString(R.string.official_twitter));
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.content_swipe_refresh, container, false);
-
-        MainActivity activity = ((MainActivity) getActivity());
-        activity.getTabLayout().setVisibility(TAB_LAYOUT_VISIBILITY);
-        activity.getSupportActionBar().setTitle(getString(R.string.official_twitter));
 
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         mTwitterAdapter = new TwitterAdapter();
@@ -119,18 +123,25 @@ public class TwitterFragment extends Fragment {
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                refresh(1, 30);
-            }
-        });
-        mSwipeRefreshLayout.postDelayed(new Runnable() {
-            @Override
-            public void run() {
                 refresh();
             }
-        }, 500);
+        });
         mSwipeRefreshLayout.setColorSchemeColors(ContextCompat.getColor(getActivity(), R.color.colorAccent));
 
         loadFromCache();
+
+        if (savedInstanceState == null) {
+            mSwipeRefreshLayout.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    refresh();
+                }
+            }, 500);
+        }
+
+        if (!isHiddenBeforeSaveInstanceState()) {
+            onShow();
+        }
 
         return view;
     }
@@ -144,8 +155,7 @@ public class TwitterFragment extends Fragment {
                     Twitter.class);
 
             updateDate(twitter, false);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+        } catch (FileNotFoundException ignored) {
         }
 
         if (twitter != null) {
@@ -213,11 +223,14 @@ public class TwitterFragment extends Fragment {
         if (animate) {
             mTwitterAdapter.notifyItemRangeInserted(0, added);
             mTwitterAdapter.notifyItemRangeChanged(added, modified);
-            if (added > 0) {
+            if (added > 0 && mRecyclerView.getScrollY() <= 50) {
                 mRecyclerView.scrollToPosition(0);
 
-                Snackbar.make(mSwipeRefreshLayout, String.format(getString(R.string.new_twitter), added), Snackbar.LENGTH_SHORT)
-                        .show();
+                showSnackbar(String.format(getString(R.string.new_twitter), added), Snackbar.LENGTH_SHORT);
+            }
+
+            if (added == 0) {
+                showSnackbar(R.string.no_new_tweet, Snackbar.LENGTH_SHORT);
             }
         }
         else {
@@ -230,6 +243,8 @@ public class TwitterFragment extends Fragment {
         refresh(1,
                 Settings.instance(getContext())
                         .getIntFromString(Settings.TWITTER_COUNT, 30));
+
+        Log.d(TAG, "start refresh");
     }
 
     private void refresh(int json, int count) {
@@ -257,8 +272,7 @@ public class TwitterFragment extends Fragment {
             public void onFailure(Call<Twitter> call, Throwable t) {
                 mSwipeRefreshLayout.setRefreshing(false);
 
-                Snackbar.make(mSwipeRefreshLayout, R.string.refresh_fail, Snackbar.LENGTH_SHORT)
-                        .show();
+                showSnackbar(R.string.refresh_fail, Snackbar.LENGTH_SHORT);
             }
         });
     }
@@ -278,6 +292,7 @@ public class TwitterFragment extends Fragment {
                             .getIntFromString(Settings.TWITTER_COUNT, 30));
 
             mTwitterAdapter.getData().clear();
+            mTwitterAdapter.notifyDataSetChanged();
 
             mRecyclerView.post(new Runnable() {
                 @Override

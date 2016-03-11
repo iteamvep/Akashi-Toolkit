@@ -2,9 +2,13 @@ package rikka.akashitoolkit.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.StringRes;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -12,8 +16,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.support.Settings;
+import rikka.akashitoolkit.ui.fragments.BaseFragmet;
 import rikka.akashitoolkit.ui.fragments.DataDisplayFragment;
 import rikka.akashitoolkit.ui.fragments.HomeFragment;
 import rikka.akashitoolkit.ui.fragments.TwitterFragment;
@@ -25,6 +34,9 @@ public class MainActivity extends BaseActivity
     private TabLayout mTabLayout;
     private NavigationView mNavigationView;
     private DrawerLayout mDrawerLayout;
+    private CoordinatorLayout mCoordinatorLayout;
+
+    private Map<Integer, Fragment> mFragmentMap;
 
     private int mLastDrawerItemId;
 
@@ -35,6 +47,8 @@ public class MainActivity extends BaseActivity
 
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
+
+        mCoordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinatorLayout);
 
         mTabLayout = (TabLayout) findViewById(R.id.tab_layout);
         mTabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
@@ -50,11 +64,31 @@ public class MainActivity extends BaseActivity
         mDrawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
-        if (savedInstanceState == null) {
-            int id = Settings
-                    .instance(this)
-                    .getInt(Settings.LAST_DRAWER_ITEM_ID, R.id.nav_home);
+        mFragmentMap = new HashMap<>();
 
+        int id = Settings
+                .instance(this)
+                .getInt(Settings.LAST_DRAWER_ITEM_ID, R.id.nav_home);
+
+        if (savedInstanceState != null) {
+            findFragmentByNavId(mFragmentMap, R.id.nav_home);
+            findFragmentByNavId(mFragmentMap, R.id.nav_twitter);
+            findFragmentByNavId(mFragmentMap, R.id.nav_maps);
+            findFragmentByNavId(mFragmentMap, R.id.nav_quest);
+
+            mLastDrawerItemId = id;
+
+            FragmentTransaction trans = getSupportFragmentManager()
+                    .beginTransaction();
+
+            for (Map.Entry<Integer, Fragment> entry : mFragmentMap.entrySet()) {
+                if (entry.getKey() != id) {
+                    trans.hide(entry.getValue());
+                }
+            }
+            trans.commit();
+
+        } else {
             mNavigationView.setCheckedItem(id);
             selectDrawerItem(id);
         }
@@ -121,35 +155,79 @@ public class MainActivity extends BaseActivity
         return true;
     }
 
-    public void selectDrawerItem(int id) {
-        switch (id) {
-            case R.id.nav_home:
-                switchFragment(new HomeFragment(), R.id.nav_home);
-                break;
-            case R.id.nav_twitter:
-                switchFragment(new TwitterFragment(), R.id.nav_twitter);
-                break;
-            case R.id.nav_maps:
-                switchFragment(new DataDisplayFragment(), R.id.nav_maps);
-                break;
-            case R.id.nav_quest:
-                switchFragment(new DataDisplayFragment(), R.id.nav_maps);
-                break;
-        }
+    private String genrateFragmentTAG(int id) {
+        return String.format("%s %d", "FragmentTag", id);
     }
 
-
-    public void switchFragment(Fragment fragment, int id) {
+    private void selectDrawerItem(int id) {
         if (mLastDrawerItemId == id) {
             return;
         }
 
+        Fragment from = mFragmentMap.get(mLastDrawerItemId);
         mLastDrawerItemId = id;
-        getSupportFragmentManager().beginTransaction()
-                .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
-                .replace(R.id.fragment_container, fragment).commit();
-
         Settings.instance(this)
                 .putInt(Settings.LAST_DRAWER_ITEM_ID, id);
+
+        Fragment to = mFragmentMap.get(id);
+        if (mFragmentMap.get(id) == null) {
+            to = instanceFragment(id);
+            mFragmentMap.put(id, to);
+        }
+
+        switchFragment(from, to, genrateFragmentTAG(id));
+    }
+
+    private Fragment instanceFragment(int id) {
+        switch (id) {
+            case R.id.nav_home:
+                return new HomeFragment();
+            case R.id.nav_twitter:
+                return new TwitterFragment();
+            case R.id.nav_maps:
+                return new DataDisplayFragment();
+            case R.id.nav_quest:
+                return new DataDisplayFragment();
+        }
+        return null;
+    }
+
+    private void findFragmentByNavId(Map<Integer, Fragment> map, int id) {
+        Fragment fragment = getSupportFragmentManager().findFragmentByTag(genrateFragmentTAG(id));
+        if (fragment != null) {
+            map.put(id, fragment);
+            /*getSupportFragmentManager().beginTransaction()
+                    .hide(fragment)
+                    .commit();*/
+        }
+    }
+
+    private void switchFragment(Fragment from, Fragment to, String tag) {
+        FragmentTransaction transaction = getSupportFragmentManager()
+                .beginTransaction()
+                .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out);
+
+        if (from != null) {
+            transaction.hide(from);
+        }
+
+        if (!to.isAdded()) {
+            transaction
+                    .add(R.id.fragment_container, to, tag);
+        } else {
+            transaction.show(to);
+        }
+
+        transaction.commit();
+    }
+
+    public void showSnackbar(@StringRes int resId, @Snackbar.Duration int duration) {
+        Snackbar.make(mCoordinatorLayout, resId, duration)
+                .show();
+    }
+
+    public void showSnackbar(CharSequence text, @Snackbar.Duration int duration) {
+        Snackbar.make(mCoordinatorLayout, text, duration)
+                .show();
     }
 }

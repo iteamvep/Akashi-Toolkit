@@ -188,10 +188,9 @@ public class TwitterAdapter extends RecyclerView.Adapter<TwitterAdapter.ViewHold
     }
 
     @Override
-    public void onViewDetachedFromWindow(ViewHolder holder) {
+    public void onViewRecycled(ViewHolder holder) {
         Glide.clear(holder.mAvatar);
         Glide.clear(holder.mImage);
-        //holder.mAvatar = null;
-        //holder.mImage = null;
     }
+
 }

@@ -9,7 +9,7 @@
             android:title="@string/night_mode"
             app:myEntries="@array/night_mode"
             app:myEntryValues="@array/night_mode_value"
-            android:defaultValue="1"/>
+            android:defaultValue="0"/>
 
     </PreferenceCategory>
 

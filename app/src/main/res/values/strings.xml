@@ -29,5 +29,6 @@
     <string name="twitter_display_language_both">Both</string>
     <string name="twitter_display_language_ja">Original (Japanese)</string>
     <string name="twitter_display_language_zh">Translated (Simplified Chinese)</string>
+    <string name="no_new_tweet">No new tweet</string>
 
 </resources>
