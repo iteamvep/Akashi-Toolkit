@@ -73,6 +73,7 @@ public class MainActivity extends BaseActivity
             findFragmentByNavId(mFragmentMap, R.id.nav_twitter);
             findFragmentByNavId(mFragmentMap, R.id.nav_maps);
             findFragmentByNavId(mFragmentMap, R.id.nav_quest);
+            findFragmentByNavId(mFragmentMap, R.id.nav_ship);
 
             mLastDrawerItemId = id;
 
@@ -92,6 +93,7 @@ public class MainActivity extends BaseActivity
                 case R.id.nav_twitter:
                 case R.id.nav_maps:
                 case R.id.nav_quest:
+                case R.id.nav_ship:
                     break;
                 default:
                     id = R.id.nav_home;
@@ -148,6 +150,7 @@ public class MainActivity extends BaseActivity
             case R.id.nav_twitter:
             case R.id.nav_maps:
             case R.id.nav_quest:
+            case R.id.nav_ship:
                 selectDrawerItem(id);
                 break;
 
@@ -195,6 +198,8 @@ public class MainActivity extends BaseActivity
             case R.id.nav_maps:
                 return new DataDisplayFragment();
             case R.id.nav_quest:
+                return new DataDisplayFragment();
+            case R.id.nav_ship:
                 return new DataDisplayFragment();
         }
         return new HomeFragment();

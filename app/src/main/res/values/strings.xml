@@ -30,5 +30,6 @@
     <string name="twitter_display_language_ja">Original (Japanese)</string>
     <string name="twitter_display_language_zh">Translated (Simplified Chinese)</string>
     <string name="no_new_tweet">No new tweet</string>
+    <string name="ship">Ship</string>
 
 </resources>

@@ -6,6 +6,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.preference.Preference;
@@ -49,17 +50,16 @@ public class SettingActivity extends BaseDayNightModeActivity {
 
     @Override
     public boolean shouldOverrideBackTransition() {
-        return true;
+        return false;
     }
 
-    @Override
+    /*@Override
     public void onBackPressed() {
-        finish();
-
         if (shouldOverrideBackTransition()) {
             overridePendingTransition(0, moe.xing.daynightmode.R.anim.activity_close_exit);
         }
-    }
+        ActivityCompat.finishAfterTransition(this);
+    }*/
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

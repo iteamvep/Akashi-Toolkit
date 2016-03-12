@@ -32,7 +32,7 @@ public class DataDisplayFragment extends BaseFragmet {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.content_viewpager, container, false);
         mViewPager = (ViewPager) view.findViewById(R.id.view_pager);
-        setupViewPager(mViewPager);
+        mViewPager.setAdapter(getAdapter());
 
         if (!isHiddenBeforeSaveInstanceState()) {
             onShow();
@@ -41,15 +41,16 @@ public class DataDisplayFragment extends BaseFragmet {
         return view;
     }
 
-    private void setupViewPager(ViewPager viewPager) {
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getFragmentManager());
-        adapter.addFragment(new DataFragment(), "編成");
-        adapter.addFragment(new DataFragment(), "出擊");
-        adapter.addFragment(new DataFragment(), "演習");
-        adapter.addFragment(new DataFragment(), "遠征");
-        adapter.addFragment(new DataFragment(), "補給/入渠");
-        adapter.addFragment(new DataFragment(), "工廠");
-        adapter.addFragment(new DataFragment(), "改裝");
-        viewPager.setAdapter(adapter);
+    private ViewPagerAdapter getAdapter() {
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager());
+        adapter.addFragment(DataFragment.class, "編成");
+        adapter.addFragment(DataFragment.class, "出擊");
+        adapter.addFragment(DataFragment.class, "演習");
+        adapter.addFragment(DataFragment.class, "遠征");
+        adapter.addFragment(DataFragment.class, "補給/入渠");
+        adapter.addFragment(DataFragment.class, "工廠");
+        adapter.addFragment(DataFragment.class, "改裝");
+
+        return adapter;
     }
 }
