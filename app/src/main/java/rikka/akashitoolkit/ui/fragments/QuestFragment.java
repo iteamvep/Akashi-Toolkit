@@ -16,14 +16,20 @@ import rikka.akashitoolkit.adapter.TwitterAdapter;
 /**
  * Created by Rikka on 2016/3/6.
  */
-public class DataFragment extends Fragment {
+public class QuestFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.content_recycler, container, false);
 
+        int type = 0;
+        Bundle args = getArguments();
+        if (args != null) {
+            type = args.getInt("TYPE") + 1;
+        }
+
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
-        recyclerView.setAdapter(new QuestAdapter());
+        recyclerView.setAdapter(new QuestAdapter(getContext(), type));
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         layoutManager.setAutoMeasureEnabled(false);
         recyclerView.setLayoutManager(layoutManager);

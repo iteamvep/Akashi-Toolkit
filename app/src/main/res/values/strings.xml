@@ -32,4 +32,8 @@
     <string name="no_new_tweet">No new tweet</string>
     <string name="ship">Ship</string>
 
+    <string name="quest_reward">Reward</string>
+    <string name="quest_require">Require</string>
+    <string name="quest_consume">Consume</string>
+
 </resources>

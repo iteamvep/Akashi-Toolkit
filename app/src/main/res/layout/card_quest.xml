@@ -7,6 +7,7 @@
               android:layout_height="wrap_content">
 
     <android.support.v7.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
@@ -30,12 +31,14 @@
             android:paddingBottom="8dp">
 
             <ImageView
-                android:id="@+id/image_twitter_avatar"
+                android:id="@+id/image_quest_avatar"
                 android:layout_width="0dp"
                 android:layout_height="48dp"
                 android:layout_weight="0.16"
                 android:contentDescription="@null"
                 android:padding="12dp"
+                android:visibility="gone"
+                tools:visibility="gone"
                 tools:src="@mipmap/ic_launcher"
                 android:scaleType="center"/>
 
@@ -44,8 +47,10 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_weight="0.84"
-                android:layout_marginLeft="12dp"
-                android:layout_marginStart="12dp">
+                android:layout_marginLeft="4dp"
+                android:layout_marginStart="4dp">
+                <!--android:layout_marginLeft="12dp"
+                android:layout_marginStart="12dp"-->
 
                 <TextView
                     android:id="@+id/text_quest_name"
@@ -64,108 +69,73 @@
                     android:layout_marginTop="2dp"
                     tools:text="2隻以上の艦で編成される「艦隊」を編成せよ！" />
 
+                <!--<LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/quest_consume"
+                        android:maxWidth="60dp"/>
+
+                    <include
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginStart="12dp"
+                        layout="@layout/card_quest_consume"/>
+
+                </LinearLayout>-->
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:orientation="horizontal"
                     android:layout_marginTop="8dp">
 
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_weight="0.25"
-                        android:layout_height="match_parent">
-
-                        <ImageView
-                            android:layout_width="12dp"
-                            android:layout_height="match_parent"
-                            android:contentDescription="@null"
-                            android:padding="12dp"
-                            tools:src="@mipmap/ic_launcher"
-                            android:scaleType="centerInside"/>
-
-                        <TextView
-                            android:id="@+id/text_quest_reward_0"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="12sp"
-                            android:gravity="center_vertical"
-                            tools:text="0"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_weight="0.25"
-                        android:layout_height="match_parent">
-
-                        <ImageView
-                            android:layout_width="12dp"
-                            android:layout_height="match_parent"
-                            android:contentDescription="@null"
-                            android:padding="12dp"
-                            tools:src="@mipmap/ic_launcher"
-                            android:scaleType="centerInside"/>
-
-                        <TextView
-                            android:id="@+id/text_quest_reward_1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="12sp"
-                            android:gravity="center_vertical"
-                            tools:text="0"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_weight="0.25"
-                        android:layout_height="match_parent">
-
-                        <ImageView
-                            android:layout_width="12dp"
-                            android:layout_height="match_parent"
-                            android:contentDescription="@null"
-                            android:padding="12dp"
-                            tools:src="@mipmap/ic_launcher"
-                            android:scaleType="centerInside"/>
-
-                        <TextView
-                            android:id="@+id/text_quest_reward_2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="12sp"
-                            android:gravity="center_vertical"
-                            tools:text="0"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_weight="0.25"
-                        android:layout_height="match_parent">
-
-                        <ImageView
-                            android:layout_width="12dp"
-                            android:layout_height="match_parent"
-                            android:contentDescription="@null"
-                            android:padding="12dp"
-                            tools:src="@mipmap/ic_launcher"
-                            android:scaleType="centerInside"/>
-
-                        <TextView
-                            android:id="@+id/text_quest_reward_3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="12sp"
-                            android:gravity="center_vertical"
-                            tools:text="0"/>
-                    </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/quest_require"
+                        android:minWidth="48dp"
+                        android:textSize="12sp"/>
 
                     <TextView
-                        android:id="@+id/text_quest_reward_4"
-                        android:layout_weight="0.25"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:textSize="12sp"
-                        android:gravity="center_vertical|right|end"
-                        tools:text="什么也没有"/>
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginStart="12dp"
+                        tools:text="配置2艘以上舰船"
+                        android:textSize="12sp"/>
+
                 </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="4dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/quest_reward"
+                        android:minWidth="48dp"
+                        android:textSize="12sp"/>
+
+                    <include
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginStart="12dp"
+                        layout="@layout/card_quest_reward"/>
+
+                </LinearLayout>
+
+
             </LinearLayout>
 
         </LinearLayout>

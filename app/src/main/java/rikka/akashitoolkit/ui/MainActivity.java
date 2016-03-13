@@ -21,7 +21,7 @@ import java.util.Map;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.support.Settings;
-import rikka.akashitoolkit.ui.fragments.DataDisplayFragment;
+import rikka.akashitoolkit.ui.fragments.QuestDisplayFragment;
 import rikka.akashitoolkit.ui.fragments.HomeFragment;
 import rikka.akashitoolkit.ui.fragments.TwitterFragment;
 
@@ -196,11 +196,11 @@ public class MainActivity extends BaseActivity
             case R.id.nav_twitter:
                 return new TwitterFragment();
             case R.id.nav_maps:
-                return new DataDisplayFragment();
+                return new QuestDisplayFragment();
             case R.id.nav_quest:
-                return new DataDisplayFragment();
+                return new QuestDisplayFragment();
             case R.id.nav_ship:
-                return new DataDisplayFragment();
+                return new QuestDisplayFragment();
         }
         return new HomeFragment();
     }

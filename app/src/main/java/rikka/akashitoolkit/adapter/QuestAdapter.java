@@ -1,56 +1,89 @@
 package rikka.akashitoolkit.adapter;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.LinearLayout;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import rikka.akashitoolkit.R;
+import rikka.akashitoolkit.staticdata.QuestList;
 
 /**
  * Created by Rikka on 2016/3/9.
  */
-public class QuestAdapter extends RecyclerView.Adapter<QuestAdapter.ViewHolder>{
+public class QuestAdapter extends RecyclerView.Adapter<ViewHolder.Quest> {
+    private static final int[] CARD_BACKGROUND = {
+            R.color.questCardBackground0,
+            R.color.questCardBackground1,
+            R.color.questCardBackground2,
+            R.color.questCardBackground3,
+            R.color.questCardBackground4,
+            R.color.questCardBackground5,
+            R.color.questCardBackground6
+    };
+
+    private List<QuestList.Quest> mData;
+    private int mType;
+    private int count;
+    private boolean[] mExpaned;
+
+    public QuestAdapter(Context context, int type) {
+        mType = type;
+        List<QuestList.Quest> data = QuestList.get(context);
+        mData = new ArrayList<>();
+
+        for (QuestList.Quest item :
+                data) {
+            if (item.getType() == type) {
+                mData.add(item);
+            }
+        }
+    }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder.Quest onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_quest, parent, false);
-        return new ViewHolder(itemView);
+        return new ViewHolder.Quest(itemView);
 }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.mName.setText("A1 はじめての「編成」！");
-        holder.mDetail.setText("2隻以上の艦で編成される「艦隊」を編成せよ！");
-        holder.mReward[0].setText("0");
-        holder.mReward[1].setText("0");
-        holder.mReward[2].setText("0");
-        holder.mReward[3].setText("0");
-        holder.mReward[4].setText("并没有其他的");
+    public void onBindViewHolder(ViewHolder.Quest holder, int position) {
+        //holder.mCardView.setCardBackgroundColor(ContextCompat.getColor(holder.mCardView.getContext(), CARD_BACKGROUND[mType - 1]));
+        holder.mName.setText(String.format("%s %s", mData.get(position).getCode(), mData.get(position).getTitle()));
+        holder.mDetail.setText(mData.get(position).getContent());
+
+        setRewardText(holder, position, 0);
+        setRewardText(holder, position, 1);
+        setRewardText(holder, position, 2);
+        setRewardText(holder, position, 3);
+
+        holder.mRewardText[4].setText(mData.get(position).getAwardOther());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+    }
+
+    private void setRewardText(ViewHolder.Quest holder, int position, int id) {
+        String text = mData.get(position).getAward(id);
+        if (text != null &&text.length() > 0) {
+            ((LinearLayout)holder.mRewardText[id].getParent()).setVisibility(View.VISIBLE);
+            holder.mRewardText[id].setText(text);
+        } else {
+            ((LinearLayout)holder.mRewardText[id].getParent()).setVisibility(View.GONE);
+        }
     }
 
     @Override
     public int getItemCount() {
-        return 10;
-    }
-
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        protected TextView mName;
-        protected TextView mDetail;
-        protected TextView mReward[];
-
-        public ViewHolder(View itemView) {
-            super(itemView);
-
-            mName = (TextView) itemView.findViewById(R.id.text_quest_name);
-            mDetail = (TextView) itemView.findViewById(R.id.text_quest_detail);
-            mReward = new TextView[5];
-            mReward[0] = (TextView) itemView.findViewById(R.id.text_quest_reward_0);
-            mReward[1] = (TextView) itemView.findViewById(R.id.text_quest_reward_1);
-            mReward[2] = (TextView) itemView.findViewById(R.id.text_quest_reward_2);
-            mReward[3] = (TextView) itemView.findViewById(R.id.text_quest_reward_3);
-            mReward[4] = (TextView) itemView.findViewById(R.id.text_quest_reward_4);
-        }
+        return mData.size();
     }
 }

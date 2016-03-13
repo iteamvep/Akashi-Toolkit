@@ -9,4 +9,12 @@
     <color name="preference_fallback_accent_color">@color/colorAccent</color>
 
     <color name="background">@color/material_grey_50</color>
+
+    <color name="questCardBackground0">#A5D6A7</color>
+    <color name="questCardBackground1">#EF9A9A</color>
+    <color name="questCardBackground2">#C5E1A5</color>
+    <color name="questCardBackground3">#80CBC4</color>
+    <color name="questCardBackground4">#FFCC80</color>
+    <color name="questCardBackground5">#BCAAA4</color>
+    <color name="questCardBackground6">#B39DDB</color>
 </resources>

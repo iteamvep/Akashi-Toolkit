@@ -1,5 +1,6 @@
 package rikka.akashitoolkit.adapter;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -16,6 +17,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     private final List<Class> mClasses = new ArrayList<>();
     private final Map<Integer, Fragment> mFragment = new HashMap<>();
     private final List<String> mTitle = new ArrayList<>();
+    private final List<Bundle> mArgs = new ArrayList<>();
 
     public ViewPagerAdapter(FragmentManager fm) {
         super(fm);
@@ -24,6 +26,13 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     public void addFragment(Class c, String title) {
         mClasses.add(c);
         mTitle.add(title);
+        mArgs.add(null);
+    }
+
+    public void addFragment(Class c, Bundle args, String title) {
+        mClasses.add(c);
+        mTitle.add(title);
+        mArgs.add(args);
     }
 
     @Override
@@ -34,6 +43,9 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
         } else {
             try {
                 fragment = (Fragment) mClasses.get(position).newInstance();
+                if (mArgs.get(position) != null) {
+                    fragment.setArguments(mArgs.get(position));
+                }
                 mFragment.put(position, fragment);
                 return fragment;
             } catch (Exception e) {

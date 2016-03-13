@@ -2,4 +2,12 @@
 <resources>
     <color name="cardBackground">@color/cardview_dark_background</color>
     <color name="background">@color/material_grey_850</color>
+
+    <color name="questCardBackground0">#C8E6C9</color>
+    <color name="questCardBackground1">#EF9A9A</color>
+    <color name="questCardBackground2">#C5E1A5</color>
+    <color name="questCardBackground3">#80CBC4</color>
+    <color name="questCardBackground4">#FFCC80</color>
+    <color name="questCardBackground5">#BCAAA4</color>
+    <color name="questCardBackground6">#B39DDB</color>
 </resources>

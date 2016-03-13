@@ -14,7 +14,7 @@ import rikka.akashitoolkit.ui.MainActivity;
 /**
  * Created by Rikka on 2016/3/6.
  */
-public class DataDisplayFragment extends BaseFragmet {
+public class QuestDisplayFragment extends BaseFragmet {
     private static final int TAB_LAYOUT_VISIBILITY = View.VISIBLE;
 
     private ViewPager mViewPager;
@@ -43,14 +43,20 @@ public class DataDisplayFragment extends BaseFragmet {
 
     private ViewPagerAdapter getAdapter() {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager());
-        adapter.addFragment(DataFragment.class, "編成");
-        adapter.addFragment(DataFragment.class, "出擊");
-        adapter.addFragment(DataFragment.class, "演習");
-        adapter.addFragment(DataFragment.class, "遠征");
-        adapter.addFragment(DataFragment.class, "補給/入渠");
-        adapter.addFragment(DataFragment.class, "工廠");
-        adapter.addFragment(DataFragment.class, "改裝");
+        adapter.addFragment(QuestFragment.class, genrateArgs(0), "編成");
+        adapter.addFragment(QuestFragment.class, genrateArgs(1), "出擊");
+        adapter.addFragment(QuestFragment.class, genrateArgs(2), "演習");
+        adapter.addFragment(QuestFragment.class, genrateArgs(3), "遠征");
+        adapter.addFragment(QuestFragment.class, genrateArgs(4), "補給/入渠");
+        adapter.addFragment(QuestFragment.class, genrateArgs(5), "工廠");
+        adapter.addFragment(QuestFragment.class, genrateArgs(6), "改裝");
 
         return adapter;
+    }
+
+    private Bundle genrateArgs(int type) {
+        Bundle bundle = new Bundle();
+        bundle.putInt("TYPE", type);
+        return bundle;
     }
 }
