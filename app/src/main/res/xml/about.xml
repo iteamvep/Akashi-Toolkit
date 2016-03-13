@@ -2,7 +2,7 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <Preference
         android:title="版本"
-        android:summary="只是用来看看效果的 0.0.1 (只有Twitter和任务)"/>
+        android:summary="只是用来看看效果的 0.0.2 (只有Twitter和任务)"/>
 
     <Preference
         android:title="数据来源"
