@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <Preference
+        android:title="版本"
+        android:summary="只是用来看看效果的 0.0.1 (只有Twitter和任务)"/>
+
+    <Preference
+        android:title="数据来源"
+        android:summary="kcwiki 舰娘百科">
+
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="http://zh.kcwiki.moe/wiki/%E8%88%B0%E5%A8%98%E7%99%BE%E7%A7%91"/>
+
+    </Preference>
+
+    <Preference
+        android:title="打滚求开发"
+        android:summary="程序员、设计师什么的都可以啦qwq">
+
+    </Preference>
+
+    <Preference
+        android:title="Telegram 群组"
+        android:summary="https://telegram.me/joinchat/BwTlLwgLKRzQV_IcySMISw">
+
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="https://telegram.me/joinchat/BwTlLwgLKRzQV_IcySMISw"/>
+
+    </Preference>
+
+    <Preference
+        android:title="QQ群"
+        android:summary="437033068">
+
+    </Preference>
+
+    <Preference
+        android:title="源码"
+        android:summary="https://github.com/YubariNavalArsenal/Akashi-Toolkit">
+
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="https://github.com/YubariNavalArsenal/Akashi-Toolkit"/>
+
+    </Preference>
+
+</PreferenceScreen>

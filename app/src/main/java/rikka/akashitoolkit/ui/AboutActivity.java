@@ -1,5 +1,6 @@
 package rikka.akashitoolkit.ui;
 
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -11,6 +12,9 @@ import android.view.MenuItem;
 import android.view.View;
 
 import rikka.akashitoolkit.R;
+import rikka.akashitoolkit.support.Settings;
+import rikka.materialpreference.DropDownPreference;
+import rikka.materialpreference.PreferenceFragment;
 
 public class AboutActivity extends AppCompatActivity {
 
@@ -27,6 +31,13 @@ public class AboutActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        if (savedInstanceState == null) {
+            About fragment = new About();
+
+            getFragmentManager().beginTransaction().replace(R.id.fragment,
+                    fragment).commit();
+        }
     }
 
     @Override
@@ -38,5 +49,12 @@ public class AboutActivity extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public static class About extends PreferenceFragment {
+        @Override
+        public void onCreatePreferences(Bundle bundle, String s) {
+            setPreferencesFromResource(R.xml.about, null);
+        }
     }
 }

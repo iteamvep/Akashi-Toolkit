@@ -24,7 +24,7 @@ public class QuestDisplayFragment extends BaseFragmet {
         MainActivity activity = ((MainActivity) getActivity());
         activity.getTabLayout().setVisibility(TAB_LAYOUT_VISIBILITY);
         activity.getTabLayout().setupWithViewPager(mViewPager);
-        //activity.getSupportActionBar().setTitle(getString(R.string.app_name));
+        activity.getSupportActionBar().setTitle(getString(R.string.quest));
     }
 
     @Nullable
