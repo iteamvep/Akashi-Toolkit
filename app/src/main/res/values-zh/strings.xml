@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Akashi Toolkit</string>
+
+    <string name="navigation_drawer_open">打开抽屉</string>
+    <string name="navigation_drawer_close">关闭抽屉</string>
+
+    <string name="action_settings">设置</string>
+    <string name="home">主页</string>
+    <string name="official_twitter">官推</string>
+    <string name="about">关于</string>
+    <string name="maps">海域</string>
+    <string name="setting">设置</string>
+
+    <string name="night_mode">夜间模式</string>
+    <string name="night_mode_off">关闭</string>
+    <string name="night_mode_on">开启</string>
+    <string name="night_mode_auto">自动</string>
+    <string name="quest">任务</string>
+    <string name="refresh_fail">刷新失败</string>
+    <string name="new_twitter">%d 条新推文</string>
+
+    <string name="action_refresh">刷新</string>
+
+    <string name="category_general">通用</string>
+    <string name="category_twitter">官推</string>
+    <string name="twitter_count">推文数量</string>
+    <string name="twitter_display_language">显示语言</string>
+    <string name="twitter_display_language_both">原文及翻译</string>
+    <string name="twitter_display_language_ja">原文 (日语)</string>
+    <string name="twitter_display_language_zh">翻译 (简体中文)</string>
+    <string name="no_new_tweet">没有新推文</string>
+    <string name="ship">舰娘</string>
+
+    <string name="quest_reward">奖励</string>
+    <string name="quest_require">条件</string>
+    <string name="quest_consume">消耗</string>
+</resources>
