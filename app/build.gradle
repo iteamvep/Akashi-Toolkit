@@ -11,7 +11,7 @@ android {
         versionCode 1
         versionName "0.0.1"
 
-        generatedDensities = []
+        //generatedDensities = []
     }
 
     buildTypes {
@@ -21,9 +21,9 @@ android {
         }
     }
 
-    aaptOptions {
+    /*aaptOptions {
         additionalParameters "--no-version-vectors"
-    }
+    }*/
 }
 
 dependencies {

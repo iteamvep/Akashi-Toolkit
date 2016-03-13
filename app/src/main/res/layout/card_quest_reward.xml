@@ -23,7 +23,7 @@
                 android:layout_height="match_parent"
                 android:contentDescription="@null"
                 android:scaleType="fitCenter"
-                app:srcCompat="@drawable/res_fuel"/>
+                android:src="@drawable/res_fuel"/>
 
             <TextView
                 android:id="@+id/text_quest_reward_0"
@@ -46,7 +46,7 @@
                 android:layout_height="match_parent"
                 android:contentDescription="@null"
                 android:scaleType="fitCenter"
-                app:srcCompat="@drawable/res_ammo"/>
+                android:src="@drawable/res_ammo"/>
 
             <TextView
                 android:id="@+id/text_quest_reward_1"
@@ -69,7 +69,7 @@
                 android:layout_height="match_parent"
                 android:contentDescription="@null"
                 android:scaleType="fitCenter"
-                app:srcCompat="@drawable/res_steel"/>
+                android:src="@drawable/res_steel"/>
 
             <TextView
                 android:id="@+id/text_quest_reward_2"
@@ -92,7 +92,7 @@
                 android:layout_height="match_parent"
                 android:contentDescription="@null"
                 android:scaleType="fitCenter"
-                app:srcCompat="@drawable/res_aluminum"/>
+                android:src="@drawable/res_aluminum"/>
 
             <TextView
                 android:id="@+id/text_quest_reward_3"
