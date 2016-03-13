@@ -19,7 +19,7 @@ public class Application extends android.app.Application {
                         .getIntFromString(Settings.NIGHT_MODE, 0)
         );
 
-        //CrashHandler.init(getApplicationContext());
-        //CrashHandler.register();
+        CrashHandler.init(getApplicationContext());
+        CrashHandler.register();
     }
 }

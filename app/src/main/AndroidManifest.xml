@@ -35,6 +35,16 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
+        <activity
+            android:name=".ui.SendReportActivity"
+            android:theme="@style/Transparent">
+            <intent-filter>
+                <action android:name="rikka.akashitoolkit.SEND_LOG" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>

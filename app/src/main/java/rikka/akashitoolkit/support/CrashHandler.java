@@ -10,13 +10,14 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 
 import rikka.akashitoolkit.BuildConfig;
+import rikka.akashitoolkit.ui.SendReportActivity;
 
 /**
  * Created by Rikka on 2016/3/13.
  */
 public class CrashHandler implements Thread.UncaughtExceptionHandler {
-    public static String CRASH_DIR;
-    public static String CRASH_LOG;
+    /*public static String CRASH_DIR;
+    public static String CRASH_LOG;*/
 
     private static String ANDROID = Build.VERSION.RELEASE;
     private static String MODEL = Build.MODEL;
@@ -34,8 +35,8 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
             PackageInfo info = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
             VERSION = info.versionName;
 
-            CRASH_DIR = context.getFilesDir().getAbsolutePath() + "/";
-            CRASH_LOG = CRASH_DIR + "last_crash.log";
+            /*CRASH_DIR = context.getFilesDir().getAbsolutePath() + "/";
+            CRASH_LOG = CRASH_DIR + "last_crash.log";*/
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -54,7 +55,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
 
     @Override
     public void uncaughtException(Thread thread, Throwable throwable) {
-        File f = new File(CRASH_LOG);
+        /*File f = new File(CRASH_LOG);
         if (f.exists()) {
             f.delete();
         } else {
@@ -79,7 +80,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
         p.write("App Version: " + VERSION + "\n");
         p.write("*********************\n");
         throwable.printStackTrace(p);
-        p.close();
+        p.close();*/
 
         StringBuilder sb = new StringBuilder();
         sb.append("Android Version: ").append(ANDROID).append("\n");
@@ -92,9 +93,9 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
         sb.append(sw.toString());
 
         Intent intent = new Intent();
-        intent.setAction("rikka.searchbyimage.SEND_LOG");
+        intent.setAction("rikka.akashitoolkit.SEND_LOG");
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        //intent.putExtra(SendReportActivity.EXTRA_EMAIL_BODY, sb.toString());
+        intent.putExtra(SendReportActivity.EXTRA_EMAIL_BODY, sb.toString());
         mContext.startActivity(intent);
 
         /*if (mPrevious != null) {
