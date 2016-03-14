@@ -32,7 +32,7 @@
         android:id="@+id/nav_id">
         <item
             android:id="@+id/nav_settings"
-            android:title="@string/Setting"/>
+            android:title="@string/setting"/>
         <item
             android:id="@+id/nav_about"
             android:title="@string/about"/>
