@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:foreground="?android:attr/selectableItemBackground"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="4dp"
         android:layout_marginBottom="2dp"
         android:layout_marginLeft="4dp"
         android:layout_marginRight="4dp"
@@ -58,37 +58,16 @@
                     android:layout_height="wrap_content"
                     tools:text="A1 はじめての「編成」！"
                     android:textAppearance="@style/TextAppearance.AppCompat"
-                    android:textSize="14sp" />
+                    android:textSize="@dimen/card_font_large" />
 
                 <TextView
                     android:id="@+id/text_quest_detail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@null"
-                    android:textSize="12sp"
-                    android:layout_marginTop="2dp"
+                    android:textSize="@dimen/card_font_normal"
+                    android:layout_marginTop="12dp"
                     tools:text="2隻以上の艦で編成される「艦隊」を編成せよ！" />
-
-                <!--<LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="8dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/quest_consume"
-                        android:maxWidth="60dp"/>
-
-                    <include
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="12dp"
-                        android:layout_marginStart="12dp"
-                        layout="@layout/card_quest_consume"/>
-
-                </LinearLayout>-->
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -100,8 +79,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/quest_require"
-                        android:minWidth="48dp"
-                        android:textSize="12sp"/>
+                        android:minWidth="@dimen/card_quest_subtitle_min_width"
+                        android:textSize="@dimen/card_font_normal"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -109,7 +88,7 @@
                         android:layout_marginLeft="12dp"
                         android:layout_marginStart="12dp"
                         tools:text="配置2艘以上舰船"
-                        android:textSize="12sp"/>
+                        android:textSize="@dimen/card_font_normal"/>
 
                 </LinearLayout>
 
@@ -123,8 +102,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/quest_reward"
-                        android:minWidth="48dp"
-                        android:textSize="12sp"/>
+                        android:minWidth="@dimen/card_quest_subtitle_min_width"
+                        android:textSize="@dimen/card_font_normal"/>
 
                     <include
                         android:layout_width="match_parent"
