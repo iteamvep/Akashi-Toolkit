@@ -16,6 +16,7 @@ public class ViewHolder {
         protected CardView mCardView;
         protected TextView mName;
         protected TextView mDetail;
+        protected TextView mRequire;
         protected TextView mRewardText[];
 
         public Quest(View itemView) {
@@ -24,6 +25,7 @@ public class ViewHolder {
             mCardView = (CardView) itemView.findViewById(R.id.cardView);
             mName = (TextView) itemView.findViewById(R.id.text_quest_name);
             mDetail = (TextView) itemView.findViewById(R.id.text_quest_detail);
+            mRequire = (TextView) itemView.findViewById(R.id.text_quest_require);
             mRewardText = new TextView[5];
             mRewardText[0] = (TextView) itemView.findViewById(R.id.text_quest_reward_0);
             mRewardText[1] = (TextView) itemView.findViewById(R.id.text_quest_reward_1);

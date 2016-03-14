@@ -56,6 +56,7 @@ public class QuestAdapter extends RecyclerView.Adapter<ViewHolder.Quest> {
         //holder.mCardView.setCardBackgroundColor(ContextCompat.getColor(holder.mCardView.getContext(), CARD_BACKGROUND[mType - 1]));
         holder.mName.setText(String.format("%s %s", mData.get(position).getCode(), mData.get(position).getTitle()));
         holder.mDetail.setText(mData.get(position).getContent());
+        holder.mRequire.setText(mData.get(position).getRequire());
 
         setRewardText(holder, position, 0);
         setRewardText(holder, position, 1);

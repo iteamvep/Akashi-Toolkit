@@ -23,12 +23,21 @@ public class QuestList {
         private String code;
         private String title;
         private String content;
+        private String require;
         private String[] award;
         private String awardOther;
         private int unlockIndex;
 
         public Quest() {
             award = new String[4];
+        }
+
+        public String getRequire() {
+            return require;
+        }
+
+        public void setRequire(String require) {
+            this.require = require;
         }
 
         public String getCode() {
@@ -149,7 +158,7 @@ public class QuestList {
                             int index = Integer.parseInt(attrValue);
                             item.setIndex(index);
 
-                            StringBuilder code = new StringBuilder();
+                            /*StringBuilder code = new StringBuilder();
                             code.append((char) ('A' + (index / 1000 - 1)));
                             switch (index % 1000 / 100) {
                                 case 1:
@@ -163,10 +172,13 @@ public class QuestList {
                                     break;
                             }
                             code.append(Integer.toString(index % 100));
-                            item.setCode(code.toString());
+                            item.setCode(code.toString());*/
                             break;
                         case "type":
                             item.setType(Integer.parseInt(attrValue));
+                            break;
+                        case "code":
+                            item.setCode(attrValue);
                             break;
                         case "period":
                             item.setPeriod(Integer.parseInt(attrValue));
@@ -177,6 +189,9 @@ public class QuestList {
                             break;
                         case "content":
                             item.setContent(attrValue);
+                            break;
+                        case "require":
+                            item.setRequire(attrValue);
                             break;
 
                         case "awardRanLiao":

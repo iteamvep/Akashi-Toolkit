@@ -110,9 +110,11 @@ public class MainActivity extends BaseActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
+        if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
+            mDrawerLayout.closeDrawer(GravityCompat.START);
+        } else if (mLastDrawerItemId != R.id.nav_home) {
+            selectDrawerItem(R.id.nav_home);
+            mNavigationView.setCheckedItem(R.id.nav_home);
         } else {
             super.onBackPressed();
         }
@@ -162,7 +164,9 @@ public class MainActivity extends BaseActivity
                 break;
         }
 
-        mDrawerLayout.closeDrawer(GravityCompat.START);
+        if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
+            mDrawerLayout.closeDrawer(GravityCompat.START);
+        }
         return true;
     }
 

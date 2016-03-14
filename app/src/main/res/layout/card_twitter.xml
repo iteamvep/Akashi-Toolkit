@@ -1,100 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:card_view="http://schemas.android.com/apk/res-auto"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content">
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:layout_marginTop="4dp"
+    android:layout_marginBottom="4dp"
+    android:layout_marginLeft="4dp"
+    android:layout_marginRight="4dp"
+    card_view:cardBackgroundColor="@color/cardBackground"
+    card_view:cardCornerRadius="2dp"
+    card_view:cardElevation="2dp"
+    card_view:cardMaxElevation="4dp">
 
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:foreground="?android:attr/selectableItemBackground"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="4dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginRight="4dp"
-        card_view:cardBackgroundColor="@color/cardBackground"
-        card_view:cardCornerRadius="2dp"
-        card_view:cardElevation="2dp"
-        card_view:cardMaxElevation="4dp">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp">
+
+        <ImageView
+            android:id="@+id/image_twitter_avatar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:contentDescription="@null"
+            tools:src="@mipmap/ic_launcher"
+            android:scaleType="fitStart"/>
 
         <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:orientation="horizontal"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp">
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="0.8"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp">
+
+            <TextView android:id="@+id/text_twitter_name"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      tools:text="「艦これ」開発/運営"
+                      android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/text_twitter_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:textSize="14sp"
+                android:layout_marginTop="8dp"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                tools:text="現在「艦これ」運営鎮守府では、今週【3/11(金)】実施予定の「艦これ」稼働全サーバ群共通メンテナンスの準備を進めています。同メンテナンスに伴うアップデートでは、多彩な艦娘【ホワイトデー提督のお返しボイス】と、中部海域方面に【新作戦海域】を実装予定です！お楽しみに！" />
+
+            <TextView
+                android:id="@+id/text_twitter_content_translated"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:textSize="14sp"
+                android:layout_marginTop="8dp"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                tools:text="现在舰队收藏运营镇守府正在对本周【3/11星期五】将要进行的舰队收藏全服务器共通维护/更新进行着准备。本次维护/更新中，除去各位舰娘的【白色情人节与提督的回礼】限定语音外，中部海域方面将开辟【新作战海域】。尽请期待！" />
 
             <ImageView
-                android:id="@+id/image_twitter_avatar"
-                android:layout_width="0dp"
+                android:id="@+id/image_twitter_content"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.2"
-                android:contentDescription="@null"
+                tools:layout_width="240dp"
+                android:maxWidth="240dp"
+                android:layout_marginTop="8dp"
+                android:visibility="gone"
+                tools:visibility="visible"
                 tools:src="@mipmap/ic_launcher"
-                android:scaleType="fitStart"/>
+                android:scaleType="centerInside"
+                android:contentDescription="@null"/>
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_weight="0.8"
-                android:layout_marginLeft="16dp"
-                android:layout_marginStart="16dp">
-
-                <TextView android:id="@+id/text_twitter_name"
-                          android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          tools:text="「艦これ」開発/運営"
-                          android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/text_twitter_content"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:textSize="14sp"
-                    android:layout_marginTop="8dp"
-                    android:textAppearance="@style/TextAppearance.AppCompat"
-                    tools:text="現在「艦これ」運営鎮守府では、今週【3/11(金)】実施予定の「艦これ」稼働全サーバ群共通メンテナンスの準備を進めています。同メンテナンスに伴うアップデートでは、多彩な艦娘【ホワイトデー提督のお返しボイス】と、中部海域方面に【新作戦海域】を実装予定です！お楽しみに！" />
-
-                <TextView
-                    android:id="@+id/text_twitter_content_translated"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:textSize="14sp"
-                    android:layout_marginTop="8dp"
-                    android:textAppearance="@style/TextAppearance.AppCompat"
-                    tools:text="现在舰队收藏运营镇守府正在对本周【3/11星期五】将要进行的舰队收藏全服务器共通维护/更新进行着准备。本次维护/更新中，除去各位舰娘的【白色情人节与提督的回礼】限定语音外，中部海域方面将开辟【新作战海域】。尽请期待！" />
-
-                <ImageView
-                    android:id="@+id/image_twitter_content"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    tools:layout_width="240dp"
-                    android:maxWidth="240dp"
-                    android:layout_marginTop="8dp"
-                    android:visibility="gone"
-                    tools:visibility="visible"
-                    tools:src="@mipmap/ic_launcher"
-                    android:scaleType="centerInside"
-                    android:contentDescription="@null"/>
-
-                <TextView android:id="@+id/text_twitter_time"
-                          android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:layout_gravity="end|bottom"
-                          android:layout_marginTop="16dp"
-                          tools:text="2016-03-06 09:37:53"
-                          android:textSize="12sp" />
-            </LinearLayout>
-
+            <TextView android:id="@+id/text_twitter_time"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_gravity="end|bottom"
+                      android:layout_marginTop="16dp"
+                      tools:text="2016-03-06 09:37:53"
+                      android:textSize="12sp" />
         </LinearLayout>
 
-    </android.support.v7.widget.CardView>
-</LinearLayout>
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>
