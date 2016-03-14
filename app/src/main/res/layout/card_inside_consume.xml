@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:showIn="@layout/card_expedition">
+
+    <include layout="@layout/card_inside_numbers"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="12dp"
+            android:layout_height="match_parent"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_alarm_24dp"/>
+
+        <TextView
+            android:id="@+id/text_quest_reward_4"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="2dp"
+            android:paddingStart="2dp"
+            android:textSize="@dimen/card_font_normal"
+            android:gravity="center_vertical"
+            tools:text="15:00"/>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="card_quest_subtitle_min_width">48dp</dimen>
+</resources>

@@ -25,6 +25,11 @@
             android:id="@+id/nav_ship"
             android:icon="@drawable/ic_nav_quest_24dp"
             android:title="@string/ship"/>
+
+        <item
+            android:id="@+id/nav_expedition"
+            android:icon="@drawable/ic_nav_expedition_24dp"
+            android:title="@string/expedition"/>
     </group>
 
     <group

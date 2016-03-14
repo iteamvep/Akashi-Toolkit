@@ -21,6 +21,7 @@ import java.util.Map;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.support.Settings;
+import rikka.akashitoolkit.ui.fragments.ExpeditionDisplayFragment;
 import rikka.akashitoolkit.ui.fragments.QuestDisplayFragment;
 import rikka.akashitoolkit.ui.fragments.HomeFragment;
 import rikka.akashitoolkit.ui.fragments.TwitterFragment;
@@ -74,6 +75,7 @@ public class MainActivity extends BaseActivity
             findFragmentByNavId(mFragmentMap, R.id.nav_maps);
             findFragmentByNavId(mFragmentMap, R.id.nav_quest);
             findFragmentByNavId(mFragmentMap, R.id.nav_ship);
+            findFragmentByNavId(mFragmentMap, R.id.nav_expedition);
 
             mLastDrawerItemId = id;
 
@@ -94,6 +96,7 @@ public class MainActivity extends BaseActivity
                 case R.id.nav_maps:
                 case R.id.nav_quest:
                 case R.id.nav_ship:
+                case R.id.nav_expedition:
                     break;
                 default:
                     id = R.id.nav_home;
@@ -153,6 +156,7 @@ public class MainActivity extends BaseActivity
             case R.id.nav_maps:
             case R.id.nav_quest:
             case R.id.nav_ship:
+            case R.id.nav_expedition:
                 selectDrawerItem(id);
                 break;
 
@@ -205,6 +209,8 @@ public class MainActivity extends BaseActivity
                 return new QuestDisplayFragment();
             case R.id.nav_ship:
                 return new QuestDisplayFragment();
+            case R.id.nav_expedition:
+                return new ExpeditionDisplayFragment();
         }
         return new HomeFragment();
     }

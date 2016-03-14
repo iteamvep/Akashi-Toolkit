@@ -34,5 +34,8 @@
     <string name="quest_reward">Reward</string>
     <string name="quest_require">Require</string>
     <string name="quest_consume">Consume</string>
+    <string name="expedition">Expedition</string>
+    <string name="expedition_flagship_format">Flagship lv: %s</string>
+    <string name="expedition_flagship_total">Total lv: %s</string>
 
 </resources>
