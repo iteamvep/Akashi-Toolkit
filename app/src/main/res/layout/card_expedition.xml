@@ -98,7 +98,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="12dp"
                     android:layout_marginStart="12dp"
-                    tools:text="旗舰等级: 1\n合计等级:10\n最低2隻。艦種自由／「駆×2」"
+                    android:lineSpacingExtra="1dp"
+                    tools:text="最低2隻。艦種自由／「駆×2」\n旗舰等级: 1\n合计等级:10"
                     android:textSize="@dimen/card_font_normal"/>
 
             </LinearLayout>

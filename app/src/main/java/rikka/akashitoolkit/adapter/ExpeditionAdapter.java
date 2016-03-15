@@ -69,15 +69,15 @@ public class ExpeditionAdapter extends RecyclerView.Adapter<ViewHolder.Expeditio
 
     private String formatRequire(Context context, String base, String flagShip, String total) {
         StringBuilder sb = new StringBuilder();
+        sb.append(base);
+
         if (flagShip != null && !flagShip.equals("0")) {
-            sb.append(String.format(context.getString(R.string.expedition_flagship_format), flagShip)).append('\n');
+            sb.append('\n').append(String.format(context.getString(R.string.expedition_flagship_format), flagShip));
         }
 
         if (total != null && !total.equals("0")) {
-            sb.append(String.format(context.getString(R.string.expedition_flagship_total), total)).append('\n');
+            sb.append('\n').append(String.format(context.getString(R.string.expedition_flagship_total), total));
         }
-
-        sb.append(base);
 
         return sb.toString();
     }

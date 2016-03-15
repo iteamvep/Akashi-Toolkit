@@ -3,6 +3,7 @@ package rikka.akashitoolkit.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.StringRes;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
@@ -31,6 +32,7 @@ public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private Toolbar mToolbar;
+    private AppBarLayout mAppBarLayout;
     private TabLayout mTabLayout;
     private NavigationView mNavigationView;
     private DrawerLayout mDrawerLayout;
@@ -47,6 +49,8 @@ public class MainActivity extends BaseActivity
 
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
+
+        mAppBarLayout = (AppBarLayout) findViewById(R.id.appBarLayout);
 
         mCoordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinatorLayout);
 
@@ -198,6 +202,10 @@ public class MainActivity extends BaseActivity
     private void selectDrawerItem(int id) {
         if (mLastDrawerItemId == id) {
             return;
+        }
+
+        if (id == R.id.nav_home) {
+            mAppBarLayout.setExpanded(true);
         }
 
         Fragment from = mFragmentMap.get(mLastDrawerItemId);
