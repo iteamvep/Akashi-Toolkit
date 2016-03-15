@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <Preference
-        android:title="版本"
-        android:summary="只是用来看看效果的 0.0.2 (只有Twitter和任务)"/>
+        android:key="check"
+        android:title="@string/check_update"
+        android:summary="@string/check_update_summary"/>
+
+    <Preference
+        android:key="version"
+        android:title="@string/version"/>
 
     <Preference
         android:title="数据来源"
@@ -22,7 +27,7 @@
 
     <Preference
         android:title="Telegram 群组"
-        android:summary="https://telegram.me/joinchat/BwTlLwgLKRzQV_IcySMISw">
+        android:summary="点击加入 (如果有兴趣加入开发)">
 
         <intent
             android:action="android.intent.action.VIEW"
@@ -31,8 +36,9 @@
     </Preference>
 
     <Preference
+        android:key="qq_group"
         android:title="QQ群"
-        android:summary="437033068">
+        android:summary="437033068 (点击复制) (加群以获取最新的测试版本)">
 
     </Preference>
 

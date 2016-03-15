@@ -25,6 +25,7 @@ import rikka.akashitoolkit.ui.fragments.ExpeditionDisplayFragment;
 import rikka.akashitoolkit.ui.fragments.QuestDisplayFragment;
 import rikka.akashitoolkit.ui.fragments.HomeFragment;
 import rikka.akashitoolkit.ui.fragments.TwitterFragment;
+import rikka.akashitoolkit.utils.UpdateCheck;
 
 public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -105,6 +106,22 @@ public class MainActivity extends BaseActivity
             mNavigationView.setCheckedItem(id);
             selectDrawerItem(id);
         }
+
+        mCoordinatorLayout.post(new Runnable() {
+            @Override
+            public void run() {
+                if (Settings.instance(MainActivity.this).getIntFromString(Settings.UPDATE_CHECK_PERIOD, 0) == 0) {
+                    UpdateCheck.instance().check(MainActivity.this, false);
+
+                }
+            }
+        });
+    }
+
+    @Override
+    protected void onStop() {
+        UpdateCheck.instance().recycle();
+        super.onStop();
     }
 
     public TabLayout getTabLayout() {

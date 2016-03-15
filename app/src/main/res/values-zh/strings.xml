@@ -39,4 +39,15 @@
 
     <string name="expedition_flagship_format">旗舰等级: %s</string>
     <string name="expedition_flagship_total">合计等级: %s</string>
+
+    <string name="version_format" formatted="false">%s (%d)</string>
+    <string name="version">版本</string>
+    <string name="check_update">检查更新</string>
+    <string name="check_update_summary">获取大致是每周一次的更新</string>
+
+    <string name="category_update">更新检查</string>
+    <string name="update_check_period">更新检查周期</string>
+    <string name="every_time_open_app">每次打开app</string>
+    <string name="manually">手动</string>
+
 </resources>

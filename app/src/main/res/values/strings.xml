@@ -35,7 +35,18 @@
     <string name="quest_require">Require</string>
     <string name="quest_consume">Consume</string>
     <string name="expedition">Expedition</string>
+
     <string name="expedition_flagship_format">Flagship lv: %s</string>
     <string name="expedition_flagship_total">Total lv: %s</string>
+
+    <string name="version_format" formatted="false">%s (%d)</string>
+    <string name="version">Version</string>
+    <string name="check_update">Check update</string>
+    <string name="check_update_summary">Get weekly update</string>
+
+    <string name="category_update">Update check</string>
+    <string name="update_check_period">Update check period</string>
+    <string name="every_time_open_app">Every time open app</string>
+    <string name="manually">Manually</string>
 
 </resources>
