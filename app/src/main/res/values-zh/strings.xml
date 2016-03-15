@@ -49,5 +49,6 @@
     <string name="update_check_period">更新检查周期</string>
     <string name="every_time_open_app">每次打开app</string>
     <string name="manually">手动</string>
+    <string name="no_translated">(翻译待补全)</string>
 
 </resources>
