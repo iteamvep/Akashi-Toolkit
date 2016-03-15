@@ -147,7 +147,7 @@ public class TwitterFragment extends BaseFragmet {
     }
 
     private void loadFromCache() {
-        Twitter twitter = null;
+        Twitter twitter;
         try {
             Gson gson = new Gson();
             twitter = gson.fromJson(
@@ -158,9 +158,9 @@ public class TwitterFragment extends BaseFragmet {
         } catch (FileNotFoundException ignored) {
         }
 
-        if (twitter != null) {
+        /*if (twitter != null) {
             updateDate(twitter, false);
-        }
+        }*/
     }
 
     private void updateDate(Twitter source, boolean animate) {
@@ -187,11 +187,17 @@ public class TwitterFragment extends BaseFragmet {
 
             int i = 0;
             while (m.find()) {
+                if (entity.getId() == 9141) {
+                    Log.d("OAQ", Integer.toString(i) + " " + m.group());
+                }
+
                 if (i == 0) {
                     item.setText(
                             cutString(m.group(), "<p>", "</p>"));
                 } else {
                     item.setTranslated(
+                            // bad way
+                            (i > 1 ? item.getTranslated() + "\n" : "") +
                             cutString(m.group(), "<p>", "</p>"));
                 }
                 i ++;
