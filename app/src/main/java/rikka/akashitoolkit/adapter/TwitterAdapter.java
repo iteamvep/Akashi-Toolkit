@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.signature.StringSignature;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -112,6 +113,7 @@ public class TwitterAdapter extends RecyclerView.Adapter<TwitterAdapter.ViewHold
     public void onBindViewHolder(ViewHolder holder, int position) {
         Glide.with(holder.mAvatar.getContext())
                 .load("http://static.kcwiki.moe/KanColleStaffAvatar.png")
+                .signature(new StringSignature(String.valueOf(System.currentTimeMillis() / (1000 * 60 * 60 * 24))))
                 .crossFade()
                 .into(holder.mAvatar);
 
@@ -124,12 +126,18 @@ public class TwitterAdapter extends RecyclerView.Adapter<TwitterAdapter.ViewHold
         holder.mTvContent.setMovementMethod(LinkMovementMethod.getInstance());
 
         String translated = mData.get(position).getTranslated();
-        holder.mTvContentTranslated.setText(
-                Html.fromHtml(
-                        TextUtils.isEmpty(translated) ? holder.mTvContentTranslated.getContext().getString(R.string.no_translated) : translated,
-                        new ImageLoader(holder.mImage),
-                        null
-                ));
+        if (TextUtils.isEmpty(translated)) {
+            holder.mTvContentTranslated.setText(holder.mTvContentTranslated.getContext().getString(R.string.no_translated));
+            holder.mTvContentTranslated.setEnabled(false);
+        } else {
+            holder.mTvContentTranslated.setText(
+                    Html.fromHtml(
+                            translated,
+                            new ImageLoader(holder.mImage),
+                            null
+                    ));
+            holder.mTvContentTranslated.setEnabled(true);
+        }
         holder.mTvContentTranslated.setMovementMethod(LinkMovementMethod.getInstance());
 
         switch (mLanguage) {

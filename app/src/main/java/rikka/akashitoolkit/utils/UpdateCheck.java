@@ -13,6 +13,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.model.CheckUpdate;
 import rikka.akashitoolkit.network.RetrofitAPI;
 
@@ -71,8 +72,8 @@ public class UpdateCheck {
                 }
 
                 if (response.body().getVersionCode() > versionCode) {
-                    new AlertDialog.Builder(mContext)
-                            .setTitle(String.format("有新版本啦 (%s)", response.body().getVersionName()))
+                    new AlertDialog.Builder(mContext, R.style.AppTheme_Dialog_Alert)
+                            .setTitle(String.format("有新版本啦 (%s - %d)", response.body().getVersionName(), response.body().getVersionCode()))
                             .setMessage(String.format("更新内容:\n%s", response.body().getChange()))
                             .setPositiveButton("去下载", new DialogInterface.OnClickListener() {
                                 @Override
