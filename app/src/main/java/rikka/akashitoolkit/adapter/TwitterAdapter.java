@@ -4,8 +4,8 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
+import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +18,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import rikka.akashitoolkit.R;
+
+import static rikka.akashitoolkit.support.ApiConstParam.TwitterContentLanguage.JP_AND_ZH;
+import static rikka.akashitoolkit.support.ApiConstParam.TwitterContentLanguage.ONLY_JP;
+import static rikka.akashitoolkit.support.ApiConstParam.TwitterContentLanguage.ONLY_ZH;
 
 /**
  * Created by Rikka on 2016/3/6.
@@ -72,6 +76,7 @@ public class TwitterAdapter extends RecyclerView.Adapter<TwitterAdapter.ViewHold
             this.modified = modified;
         }
     }
+
     private List<DataModel> mData;
     private int mMaxItem;
     private int mLanguage;
@@ -112,30 +117,34 @@ public class TwitterAdapter extends RecyclerView.Adapter<TwitterAdapter.ViewHold
 
         holder.mName.setText("「艦これ」開発/運営");
 
-        if (mLanguage == 2) {
-            holder.mText.setVisibility(View.GONE);
-        }
-        else {
-            holder.mText.setVisibility(View.VISIBLE);
-            holder.mText.setText(
-                    Html.fromHtml(
-                            mData.get(position).getText()
-                    ));
-            holder.mText.setMovementMethod(LinkMovementMethod.getInstance());
-        }
+        holder.mTvContent.setText(
+                Html.fromHtml(
+                        mData.get(position).getText()
+                ));
+        holder.mTvContent.setMovementMethod(LinkMovementMethod.getInstance());
 
-        if (mData.get(position).getTranslated() == null || mLanguage == 1) {
-            holder.mTextTranslate.setVisibility(View.GONE);
-        } else {
-            holder.mTextTranslate.setVisibility(View.VISIBLE);
+        String translated = mData.get(position).getTranslated();
+        holder.mTvContentTranslated.setText(
+                Html.fromHtml(
+                        TextUtils.isEmpty(translated) ? holder.mTvContentTranslated.getContext().getString(R.string.no_translated) : translated,
+                        new ImageLoader(holder.mImage),
+                        null
+                ));
+        holder.mTvContentTranslated.setMovementMethod(LinkMovementMethod.getInstance());
 
-            holder.mTextTranslate.setText(
-                    Html.fromHtml(
-                            mData.get(position).getTranslated(),
-                            new ImageLoader(holder.mImage),
-                            null
-                    ));
-            holder.mTextTranslate.setMovementMethod(LinkMovementMethod.getInstance());
+        switch (mLanguage) {
+            case JP_AND_ZH:
+                holder.mTvContent.setVisibility(View.VISIBLE);
+                holder.mTvContentTranslated.setVisibility(View.VISIBLE);
+                break;
+            case ONLY_JP:
+                holder.mTvContent.setVisibility(View.VISIBLE);
+                holder.mTvContentTranslated.setVisibility(View.GONE);
+                break;
+            case ONLY_ZH:
+                holder.mTvContent.setVisibility(View.GONE);
+                holder.mTvContentTranslated.setVisibility(View.VISIBLE);
+                break;
         }
 
         holder.mTime.setText(mData.get(position).getDate());
@@ -150,8 +159,8 @@ public class TwitterAdapter extends RecyclerView.Adapter<TwitterAdapter.ViewHold
     public class ViewHolder extends RecyclerView.ViewHolder {
         protected ImageView mAvatar;
         protected TextView mName;
-        protected TextView mText;
-        protected TextView mTextTranslate;
+        protected TextView mTvContent;
+        protected TextView mTvContentTranslated;
         protected TextView mTime;
         protected ImageView mImage;
 
@@ -160,8 +169,8 @@ public class TwitterAdapter extends RecyclerView.Adapter<TwitterAdapter.ViewHold
 
             mAvatar = (ImageView) itemView.findViewById(R.id.image_twitter_avatar);
             mName = (TextView) itemView.findViewById(R.id.text_twitter_name);
-            mText = (TextView) itemView.findViewById(R.id.text_twitter_content);
-            mTextTranslate = (TextView) itemView.findViewById(R.id.text_twitter_content_translated);
+            mTvContent = (TextView) itemView.findViewById(R.id.text_twitter_content);
+            mTvContentTranslated = (TextView) itemView.findViewById(R.id.text_twitter_content_translated);
             mTime = (TextView) itemView.findViewById(R.id.text_twitter_time);
             mImage = (ImageView) itemView.findViewById(R.id.image_twitter_content);
         }

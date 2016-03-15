@@ -48,5 +48,6 @@
     <string name="update_check_period">Update check period</string>
     <string name="every_time_open_app">Every time open app</string>
     <string name="manually">Manually</string>
+    <string name="no_translated">没有翻译</string>
 
 </resources>
