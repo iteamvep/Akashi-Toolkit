@@ -187,10 +187,6 @@ public class TwitterFragment extends BaseFragmet {
 
             int i = 0;
             while (m.find()) {
-                if (entity.getId() == 9141) {
-                    Log.d("OAQ", Integer.toString(i) + " " + m.group());
-                }
-
                 if (i == 0) {
                     item.setText(
                             cutString(m.group(), "<p>", "</p>"));
