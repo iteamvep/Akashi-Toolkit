@@ -110,14 +110,14 @@ public class ButtonCardView extends FrameLayout {
             button.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    hide(100);
+                    hide();
                 }
             });
         }
         return this;
     }
 
-    public void hide(final int endDelay) {
+    public void hide() {
         animate()
                 .translationX(((View) getParent()).getWidth())
                 .setInterpolator(new AccelerateDecelerateInterpolator())
@@ -129,12 +129,12 @@ public class ButtonCardView extends FrameLayout {
 
                     @Override
                     public void onAnimationEnd(Animator animation) {
-                        postDelayed(new Runnable() {
+                        post(new Runnable() {
                             @Override
                             public void run() {
                                 setVisibility(View.GONE);
                             }
-                        }, endDelay);
+                        });
 
                     }
 
