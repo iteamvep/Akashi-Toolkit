@@ -8,7 +8,9 @@
     <dimen name="fab_margin">16dp</dimen>
 
     <!-- Card font sizes -->
+    <dimen name="card_font_title">18sp</dimen>
     <dimen name="card_font_large">16sp</dimen>
     <dimen name="card_font_normal">14sp</dimen>
     <dimen name="card_quest_subtitle_min_width">60dp</dimen>
+    <dimen name="card_font_small">12sp</dimen>
 </resources>

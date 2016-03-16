@@ -110,22 +110,6 @@ public class MainActivity extends BaseActivity
             mNavigationView.setCheckedItem(id);
             selectDrawerItem(id);
         }
-
-        mCoordinatorLayout.post(new Runnable() {
-            @Override
-            public void run() {
-                if (Settings.instance(MainActivity.this).getIntFromString(Settings.UPDATE_CHECK_PERIOD, 0) == 0) {
-                    UpdateCheck.instance().check(MainActivity.this, false);
-
-                }
-            }
-        });
-    }
-
-    @Override
-    protected void onStop() {
-        UpdateCheck.instance().recycle();
-        super.onStop();
     }
 
     public TabLayout getTabLayout() {

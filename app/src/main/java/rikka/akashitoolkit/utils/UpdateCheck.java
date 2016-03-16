@@ -38,11 +38,27 @@ public class UpdateCheck {
     public void recycle() {
         if (mCall != null && mCall.isExecuted()) {
             mCall.cancel();
-            return;
         }
 
         mCall = null;
         mContext = null;
+    }
+
+    public void check(final Context context, Callback<CheckUpdate> callback) {
+        if (mCall != null && mCall.isExecuted()) {
+            return;
+        }
+
+        mContext = context;
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        RetrofitAPI.CheckUpdateService service = retrofit.create(RetrofitAPI.CheckUpdateService.class);
+        mCall = service.get();
+        mCall.enqueue(callback);
     }
 
     // so bad..
