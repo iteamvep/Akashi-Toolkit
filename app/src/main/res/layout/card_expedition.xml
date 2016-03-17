@@ -49,7 +49,7 @@
             android:layout_marginStart="12dp"-->
 
             <TextView
-                android:id="@+id/text_quest_name"
+                android:id="@+id/text_card_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="練習航海"
@@ -67,7 +67,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/quest_consume"
                     android:minWidth="@dimen/card_quest_subtitle_min_width"
-                    android:textSize="@dimen/card_font_normal"/>
+                    android:textSize="@dimen/card_font_medium"/>
 
                 <include
                     android:id="@+id/include_expedition_consume"
@@ -90,7 +90,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/quest_require"
                     android:minWidth="@dimen/card_quest_subtitle_min_width"
-                    android:textSize="@dimen/card_font_normal"/>
+                    android:textSize="@dimen/card_font_medium"/>
 
                 <TextView
                     android:id="@+id/text_quest_require"
@@ -100,7 +100,7 @@
                     android:layout_marginStart="12dp"
                     android:lineSpacingExtra="1dp"
                     tools:text="最低2隻。艦種自由／「駆×2」\n旗舰等级: 1\n合计等级:10"
-                    android:textSize="@dimen/card_font_normal"/>
+                    android:textSize="@dimen/card_font_medium"/>
 
             </LinearLayout>
 
@@ -115,7 +115,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/quest_reward"
                     android:minWidth="@dimen/card_quest_subtitle_min_width"
-                    android:textSize="@dimen/card_font_normal"/>
+                    android:textSize="@dimen/card_font_medium"/>
 
                 <include
                     android:id="@+id/include_expedition_reward"

@@ -52,64 +52,26 @@
                 android:id="@+id/text_card_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="A1 はじめての「編成」！"
+                tools:text="12.7cm連装砲"
                 android:textAppearance="@style/TextAppearance.AppCompat"
                 android:textSize="@dimen/card_font_large" />
 
             <TextView
-                android:id="@+id/text_quest_detail"
-                android:layout_width="match_parent"
+                android:id="@+id/text_card_item_improve_type"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@null"
-                android:textSize="@dimen/card_font_medium"
-                android:layout_marginTop="8dp"
-                tools:text="2隻以上の艦で編成される「艦隊」を編成せよ！" />
+                android:layout_marginTop="2dp"
+                tools:text="小口径主砲"
+                android:textSize="@dimen/card_font_medium" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/text_card_item_improve_ship"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="4dp">
+                android:layout_marginTop="4dp"
+                tools:text="二号舰娘: 无"
+                android:textSize="@dimen/card_font_medium" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/quest_require"
-                    android:minWidth="@dimen/card_quest_subtitle_min_width"
-                    android:textSize="@dimen/card_font_medium"/>
-
-                <TextView
-                    android:id="@+id/text_quest_require"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginStart="12dp"
-                    tools:text="配置2艘以上舰船"
-                    android:textSize="@dimen/card_font_medium"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="4dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/quest_reward"
-                    android:minWidth="@dimen/card_quest_subtitle_min_width"
-                    android:textSize="@dimen/card_font_medium"/>
-
-                <include
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginStart="12dp"
-                    layout="@layout/card_inside_reward"/>
-
-            </LinearLayout>
 
         </LinearLayout>
 

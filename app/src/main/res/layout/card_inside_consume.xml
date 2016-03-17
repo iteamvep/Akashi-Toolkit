@@ -26,7 +26,7 @@
             android:layout_height="match_parent"
             android:paddingLeft="2dp"
             android:paddingStart="2dp"
-            android:textSize="@dimen/card_font_normal"
+            android:textSize="@dimen/card_font_medium"
             android:gravity="center_vertical"
             tools:text="15:00"/>
     </LinearLayout>

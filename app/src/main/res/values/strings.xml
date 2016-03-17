@@ -49,5 +49,6 @@
     <string name="every_time_open_app">Every view home (show in home)</string>
     <string name="manually">Manually</string>
     <string name="no_translated">(No translation right now)</string>
+    <string name="item_improvement">Item Improvement</string>
 
 </resources>

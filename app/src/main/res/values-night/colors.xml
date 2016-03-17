@@ -3,6 +3,9 @@
     <color name="cardBackground">@color/cardview_dark_background</color>
     <color name="background">@color/material_grey_850</color>
 
+    <color name="colorAccent">#8c9eff</color>
+
+
     <color name="questCardBackground0">#C8E6C9</color>
     <color name="questCardBackground1">#EF9A9A</color>
     <color name="questCardBackground2">#C5E1A5</color>

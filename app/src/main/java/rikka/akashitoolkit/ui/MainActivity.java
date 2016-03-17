@@ -23,10 +23,10 @@ import java.util.Map;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.ui.fragments.ExpeditionDisplayFragment;
+import rikka.akashitoolkit.ui.fragments.ItemImprovementDisplayFragment;
 import rikka.akashitoolkit.ui.fragments.QuestDisplayFragment;
 import rikka.akashitoolkit.ui.fragments.HomeFragment;
 import rikka.akashitoolkit.ui.fragments.TwitterFragment;
-import rikka.akashitoolkit.utils.UpdateCheck;
 
 public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -77,7 +77,7 @@ public class MainActivity extends BaseActivity
         if (savedInstanceState != null) {
             findFragmentByNavId(mFragmentMap, R.id.nav_home);
             findFragmentByNavId(mFragmentMap, R.id.nav_twitter);
-            findFragmentByNavId(mFragmentMap, R.id.nav_maps);
+            findFragmentByNavId(mFragmentMap, R.id.nav_item_improve);
             findFragmentByNavId(mFragmentMap, R.id.nav_quest);
             findFragmentByNavId(mFragmentMap, R.id.nav_ship);
             findFragmentByNavId(mFragmentMap, R.id.nav_expedition);
@@ -98,7 +98,7 @@ public class MainActivity extends BaseActivity
             switch (id) {
                 case R.id.nav_home:
                 case R.id.nav_twitter:
-                case R.id.nav_maps:
+                case R.id.nav_item_improve:
                 case R.id.nav_quest:
                 case R.id.nav_ship:
                 case R.id.nav_expedition:
@@ -158,7 +158,7 @@ public class MainActivity extends BaseActivity
         switch (id) {
             case R.id.nav_home:
             case R.id.nav_twitter:
-            case R.id.nav_maps:
+            case R.id.nav_item_improve:
             case R.id.nav_quest:
             case R.id.nav_ship:
             case R.id.nav_expedition:
@@ -212,8 +212,8 @@ public class MainActivity extends BaseActivity
                 return new HomeFragment();
             case R.id.nav_twitter:
                 return new TwitterFragment();
-            case R.id.nav_maps:
-                return new QuestDisplayFragment();
+            case R.id.nav_item_improve:
+                return new ItemImprovementDisplayFragment();
             case R.id.nav_quest:
                 return new QuestDisplayFragment();
             case R.id.nav_ship:

@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import rikka.akashitoolkit.R;
+import rikka.akashitoolkit.model.ItemImprovement;
 import rikka.akashitoolkit.staticdata.ExpeditionList;
 
 /**
