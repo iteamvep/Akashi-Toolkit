@@ -50,5 +50,6 @@
     <string name="every_time_open_app">每次访问首页 (显示在首页)</string>
     <string name="manually">手动</string>
     <string name="no_translated">(翻译待补全)</string>
+    <string name="item_improvement">改修</string>
 
 </resources>
