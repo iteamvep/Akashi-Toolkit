@@ -17,6 +17,8 @@ import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
 import android.widget.LinearLayout;
 
+import com.avos.avoscloud.AVAnalytics;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -43,12 +45,16 @@ public class HomeFragment extends BaseFragmet {
         MainActivity activity = ((MainActivity) getActivity());
         activity.getTabLayout().setVisibility(TAB_LAYOUT_VISIBILITY);
         activity.getSupportActionBar().setTitle(getString(R.string.app_name));
+
+        AVAnalytics.onFragmentStart("HomeFragment");
     }
 
     @Override
     public void onHide() {
         super.onHide();
         mSwipeRefreshLayout.setRefreshing(false);
+
+        AVAnalytics.onFragmentEnd("HomeFragment");
     }
 
     @Override

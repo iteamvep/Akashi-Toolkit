@@ -24,7 +24,7 @@ import rikka.akashitoolkit.support.Settings;
 import rikka.materialpreference.DropDownPreference;
 import rikka.materialpreference.PreferenceFragment;
 
-public class SettingActivity extends BaseDayNightModeActivity {
+public class SettingActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

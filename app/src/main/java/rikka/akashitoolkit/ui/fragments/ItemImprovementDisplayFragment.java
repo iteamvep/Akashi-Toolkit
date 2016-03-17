@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.avos.avoscloud.AVAnalytics;
+
 import java.text.DateFormatSymbols;
 import java.util.Calendar;
 import java.util.Locale;
@@ -26,12 +28,21 @@ public class ItemImprovementDisplayFragment  extends BaseFragmet {
     private int mDay;
 
     @Override
+    public void onHide() {
+        super.onHide();
+
+        AVAnalytics.onFragmentEnd("ItemImprovementDisplayFragment");
+    }
+
+    @Override
     public void onShow() {
         MainActivity activity = ((MainActivity) getActivity());
         activity.getTabLayout().setVisibility(TAB_LAYOUT_VISIBILITY);
         activity.getTabLayout().setupWithViewPager(mViewPager);
         activity.getSupportActionBar().setTitle(getString(R.string.item_improvement));
         mViewPager.setCurrentItem(mDay);
+
+        AVAnalytics.onFragmentStart("ItemImprovementDisplayFragment");
     }
 
     @Nullable

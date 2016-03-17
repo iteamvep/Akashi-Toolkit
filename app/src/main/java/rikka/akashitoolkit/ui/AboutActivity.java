@@ -16,7 +16,7 @@ import rikka.akashitoolkit.utils.ClipBoardUtils;
 import rikka.akashitoolkit.utils.UpdateCheck;
 import rikka.materialpreference.PreferenceFragment;
 
-public class AboutActivity extends AppCompatActivity {
+public class AboutActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.avos.avoscloud.AVAnalytics;
+
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.ViewPagerAdapter;
 import rikka.akashitoolkit.ui.MainActivity;
@@ -20,11 +22,20 @@ public class QuestDisplayFragment extends BaseFragmet {
     private ViewPager mViewPager;
 
     @Override
+    public void onHide() {
+        super.onHide();
+
+        AVAnalytics.onFragmentEnd("QuestDisplayFragment");
+    }
+
+    @Override
     public void onShow() {
         MainActivity activity = ((MainActivity) getActivity());
         activity.getTabLayout().setVisibility(TAB_LAYOUT_VISIBILITY);
         activity.getTabLayout().setupWithViewPager(mViewPager);
         activity.getSupportActionBar().setTitle(getString(R.string.quest));
+
+        AVAnalytics.onFragmentStart("QuestDisplayFragment");
     }
 
     @Nullable

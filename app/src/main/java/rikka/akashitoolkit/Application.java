@@ -1,6 +1,9 @@
 package rikka.akashitoolkit;
 
 
+import com.avos.avoscloud.AVAnalytics;
+import com.avos.avoscloud.AVOSCloud;
+
 import moe.xing.daynightmode.DayNightMode;
 import rikka.akashitoolkit.support.CrashHandler;
 import rikka.akashitoolkit.support.Settings;
@@ -23,5 +26,8 @@ public class Application extends android.app.Application {
             CrashHandler.init(getApplicationContext());
             CrashHandler.register();
         }
+
+        AVOSCloud.initialize(this, "q6Sj083vVxS6XrNgGD09w9kX-gzGzoHsz", "M9EUfoOVEnm9P5yoGXhAbwly");
+        AVAnalytics.enableCrashReport(this, true);
     }
 }

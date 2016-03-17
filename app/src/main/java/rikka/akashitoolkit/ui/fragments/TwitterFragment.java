@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.avos.avoscloud.AVAnalytics;
 import com.google.gson.Gson;
 import com.squareup.otto.Subscribe;
 
@@ -59,6 +60,22 @@ public class TwitterFragment extends BaseFragmet {
     private SwipeRefreshLayout mSwipeRefreshLayout;
 
     @Override
+    public void onShow() {
+        MainActivity activity = ((MainActivity) getActivity());
+        activity.getTabLayout().setVisibility(TAB_LAYOUT_VISIBILITY);
+        activity.getSupportActionBar().setTitle(getString(R.string.official_twitter));
+
+        AVAnalytics.onFragmentStart("TwitterFragment");
+    }
+
+    @Override
+    public void onHide() {
+        super.onHide();
+
+        AVAnalytics.onFragmentEnd("TwitterFragment");
+    }
+
+    @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -90,13 +107,6 @@ public class TwitterFragment extends BaseFragmet {
                 return true;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onShow() {
-        MainActivity activity = ((MainActivity) getActivity());
-        activity.getTabLayout().setVisibility(TAB_LAYOUT_VISIBILITY);
-        activity.getSupportActionBar().setTitle(getString(R.string.official_twitter));
     }
 
     @Nullable
