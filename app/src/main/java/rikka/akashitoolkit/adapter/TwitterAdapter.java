@@ -81,6 +81,14 @@ public class TwitterAdapter extends RecyclerView.Adapter<TwitterAdapter.ViewHold
     private List<DataModel> mData;
     private int mMaxItem;
     private int mLanguage;
+    private String mAvatarUrl;
+
+    public void setAvatarUrl(String avatarUrl) {
+        if (avatarUrl.length() > 0 && !avatarUrl.equals(mAvatarUrl)) {
+            mAvatarUrl = avatarUrl;
+            notifyDataSetChanged();
+        }
+    }
 
     public void setLanguage(int language) {
         mLanguage = language;
@@ -111,11 +119,17 @@ public class TwitterAdapter extends RecyclerView.Adapter<TwitterAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Glide.with(holder.mAvatar.getContext())
-                .load("http://static.kcwiki.moe/KanColleStaffAvatar.png")
-                .signature(new StringSignature(String.valueOf(System.currentTimeMillis() / (1000 * 60 * 60 * 24))))
-                .crossFade()
-                .into(holder.mAvatar);
+        if (mAvatarUrl != null) {
+            Glide.with(holder.mAvatar.getContext())
+                    .load(mAvatarUrl)
+                    .crossFade()
+                    .into(holder.mAvatar);
+        }
+        /*Glide.with(holder.mAvatar.getContext())
+                    .load("http://static.kcwiki.moe/KanColleStaffAvatar.png")
+                    .signature(new StringSignature(String.valueOf(System.currentTimeMillis() / (1000 * 60 * 60 * 24))))
+                    .crossFade()
+                    .into(holder.mAvatar);*/
 
         holder.mName.setText("「艦これ」開発/運営");
 

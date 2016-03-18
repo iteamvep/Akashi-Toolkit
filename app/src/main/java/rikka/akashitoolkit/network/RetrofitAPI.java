@@ -1,5 +1,6 @@
 package rikka.akashitoolkit.network;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
@@ -15,6 +16,9 @@ public class RetrofitAPI {
         Call<Twitter> get(
                 @Query("json") int json,
                 @Query("count") int count);
+
+        @GET("/image_url.txt")
+        Call<ResponseBody> getAvatarUrl();
     }
 
     public interface CheckUpdateService {

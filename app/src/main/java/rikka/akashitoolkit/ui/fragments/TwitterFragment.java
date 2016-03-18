@@ -1,6 +1,5 @@
 package rikka.akashitoolkit.ui.fragments;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
@@ -23,11 +22,13 @@ import com.squareup.otto.Subscribe;
 import java.io.ByteArrayInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -51,7 +52,6 @@ public class TwitterFragment extends BaseFragmet {
     private static final String TAG = "TwitterFragment";
 
     private static final int TAB_LAYOUT_VISIBILITY = View.GONE;
-    private static final String TWITTER_API = "http://t.kcwiki.moe";
     private static final String CACHE_TWITTER_JSON_NAME = "/json/twitter.json";
     private String CACHE_DIR;
 
@@ -125,6 +125,10 @@ public class TwitterFragment extends BaseFragmet {
                 .instance(getContext())
                 .getIntFromString(Settings.TWITTER_LANGUAGE, 0));
 
+        mTwitterAdapter.setAvatarUrl(Settings
+                .instance(getContext())
+                .getString(Settings.TWITTER_AVATAR_URL, ""));
+
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         //layoutManager.setAutoMeasureEnabled(false);
         mRecyclerView.setLayoutManager(layoutManager);
@@ -164,16 +168,16 @@ public class TwitterFragment extends BaseFragmet {
                     new FileReader(CACHE_DIR + CACHE_TWITTER_JSON_NAME),
                     Twitter.class);
 
-            updateDate(twitter, false);
+            updateData(twitter, false);
         } catch (FileNotFoundException ignored) {
         }
 
         /*if (twitter != null) {
-            updateDate(twitter, false);
+            updateData(twitter, false);
         }*/
     }
 
-    private void updateDate(Twitter source, boolean animate) {
+    private void updateData(Twitter source, boolean animate) {
         List<TwitterAdapter.DataModel> data;
         int id = 0;
 
@@ -259,9 +263,36 @@ public class TwitterFragment extends BaseFragmet {
         Log.d(TAG, "start refresh");
     }
 
-    private void refresh(int json, int count) {
+    private void refresh(final int json, final int count) {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(TWITTER_API)
+                .baseUrl("http://static.kcwiki.moe")
+                .build();
+
+        RetrofitAPI.TwitterService service = retrofit.create(RetrofitAPI.TwitterService.class);
+        Call<ResponseBody> call = service.getAvatarUrl();
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                _refresh(json, count);
+
+                try {
+                    mTwitterAdapter.setAvatarUrl(response.body().string());
+                    Settings.instance(getContext()).putString(Settings.TWITTER_AVATAR_URL, response.body().string());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                _refresh(json, count);
+            }
+        });
+    }
+
+    private void _refresh(int json, int count) {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://t.kcwiki.moe")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -273,7 +304,7 @@ public class TwitterFragment extends BaseFragmet {
             public void onResponse(Call<Twitter> call, Response<Twitter> response) {
                 mSwipeRefreshLayout.setRefreshing(false);
 
-                updateDate(response.body(), true);
+                updateData(response.body(), true);
                 // save result to local
                 Gson gson = new Gson();
                 Utils.writeStreamToFile(new ByteArrayInputStream(gson.toJson(response.body()).getBytes()),
