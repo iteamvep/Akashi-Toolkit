@@ -57,7 +57,7 @@ public class UpdateCheck {
                 .build();
 
         RetrofitAPI.CheckUpdateService service = retrofit.create(RetrofitAPI.CheckUpdateService.class);
-        mCall = service.get();
+        mCall = service.get(2);
         mCall.enqueue(callback);
     }
 
@@ -75,7 +75,7 @@ public class UpdateCheck {
                 .build();
 
         RetrofitAPI.CheckUpdateService service = retrofit.create(RetrofitAPI.CheckUpdateService.class);
-        mCall = service.get();
+        mCall = service.get(2);
         mCall.enqueue(new Callback<CheckUpdate>() {
             @Override
             public void onResponse(Call<CheckUpdate> call, final Response<CheckUpdate> response) {
@@ -87,14 +87,14 @@ public class UpdateCheck {
                     return;
                 }
 
-                if (response.body().getVersionCode() > versionCode) {
+                if (response.body().getUpdate().getVersionCode() > versionCode) {
                     new AlertDialog.Builder(mContext, R.style.AppTheme_Dialog_Alert)
-                            .setTitle(String.format("有新版本啦 (%s - %d)", response.body().getVersionName(), response.body().getVersionCode()))
-                            .setMessage(String.format("更新内容:\n%s", response.body().getChange()))
+                            .setTitle(String.format("有新版本啦 (%s - %d)", response.body().getUpdate().getVersionName(), response.body().getUpdate().getVersionCode()))
+                            .setMessage(String.format("更新内容:\n%s", response.body().getUpdate().getChange()))
                             .setPositiveButton("去下载", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(response.body().getUrl()));
+                                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(response.body().getUpdate().getUrl()));
                                     mContext.startActivity(intent);
                                 }
                             })

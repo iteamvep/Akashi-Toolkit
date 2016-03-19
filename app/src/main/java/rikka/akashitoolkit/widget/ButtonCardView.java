@@ -3,13 +3,11 @@ package rikka.akashitoolkit.widget;
 import android.animation.Animator;
 import android.content.Context;
 import android.content.res.Resources;
-import android.support.v7.widget.CardView;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
-import android.view.animation.AccelerateInterpolator;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
@@ -119,7 +117,7 @@ public class ButtonCardView extends FrameLayout {
 
     public void hide() {
         animate()
-                .translationX(((View) getParent()).getWidth())
+                .translationX(getWidth())
                 .setInterpolator(new AccelerateDecelerateInterpolator())
                 .setListener(new Animator.AnimatorListener() {
                     @Override

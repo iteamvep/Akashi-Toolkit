@@ -23,6 +23,7 @@ public class RetrofitAPI {
 
     public interface CheckUpdateService {
         @GET("/Akashi/info.php")
-        Call<CheckUpdate> get();
+        Call<CheckUpdate> get(
+                @Query("api_version") int api_version);
     }
 }

@@ -87,20 +87,7 @@ public class HomeFragment extends BaseFragmet {
 
         mLinearLayout = (LinearLayout) view.findViewById(R.id.linearLayout);
 
-        mLinearLayout.addView(new ButtonCardView(getContext())
-                        .setTitle("一些提示")
-                        .addButton("知道啦")
-                        .setMessage("现在主页下拉可以检查更新")
-        );
-        mLinearLayout.addView(new ButtonCardView(getContext())
-                .setTitle("这条用来卖萌的")
-                .setMessage("比如保存有没有点过“知道了”还没有做..")
-                .addButton("我不是")
-                .addButton("我是accent颜色", null, true, false)
-        );
-
-
-
+        addLoaclCard();
 
         if (!isHiddenBeforeSaveInstanceState()) {
             onShow();
@@ -111,6 +98,20 @@ public class HomeFragment extends BaseFragmet {
         }*/
 
         return view;
+    }
+
+    private void addLoaclCard() {
+        mLinearLayout.addView(new ButtonCardView(getContext())
+                        .setTitle("一些提示")
+                        .addButton("知道啦")
+                        .setMessage("主页下拉可以检查更新和获取来自服务器的消息")
+        );
+        /*mLinearLayout.addView(new ButtonCardView(getContext())
+                        .setTitle("这条用来卖萌的")
+                        .setMessage("比如保存有没有点过“知道了”还没有做..")
+                        .addButton("我不是")
+                        .addButton("我是accent颜色", null, true, false)
+        );*/
     }
 
     private void refresh() {
@@ -127,22 +128,41 @@ public class HomeFragment extends BaseFragmet {
                     return;
                 }
 
-                if (response.body().getVersionCode() > versionCode || BuildConfig.DEBUG) {
+                for (final CheckUpdate.MessagesEntity entity:
+                        response.body().getMessages()) {
+
+                    ButtonCardView card = new ButtonCardView(getContext())
+                            .setTitle(entity.getTitle())
+                            .setMessage(entity.getMessage())
+                            .addButton("知道啦");
+
+                    if (entity.getType() == 1) {
+                        card.addButton(entity.getAction_name() != null ? entity.getAction_name() : "打开链接", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(entity.getLink())));
+                            }
+                        }, true, false);
+                    }
+                    mLinearLayout.addView(card);
+                }
+
+                if (response.body().getUpdate().getVersionCode() > versionCode || BuildConfig.DEBUG) {
                     if (mButtonCardView == null || mButtonCardView.getVisibility() != View.VISIBLE) {
                         mButtonCardView = new ButtonCardView(getContext());
                         mButtonCardView.addButton("才不要", true);
                         mButtonCardView.addButton("去下载", new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(response.body().getUrl()));
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(response.body().getUpdate().getUrl()));
                                 getContext().startActivity(intent);
                             }
                         }, true, false);
                         mLinearLayout.addView(mButtonCardView, 0);
                     }
 
-                    mButtonCardView.setMessage(String.format("更新内容:\n%s", response.body().getChange()));
-                    mButtonCardView.setTitle(String.format("有新版本啦 (%s - %d)", response.body().getVersionName(), response.body().getVersionCode()));
+                    mButtonCardView.setMessage(String.format("更新内容:\n%s", response.body().getUpdate().getChange()));
+                    mButtonCardView.setTitle(String.format("有新版本啦 (%s - %d)", response.body().getUpdate().getVersionName(), response.body().getUpdate().getVersionCode()));
                 }
 
                 UpdateCheck.instance().recycle();
