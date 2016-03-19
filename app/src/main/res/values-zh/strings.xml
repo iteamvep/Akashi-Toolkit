@@ -45,11 +45,21 @@
     <string name="check_update">检查更新</string>
     <string name="check_update_summary">获取大致是每周一次的更新</string>
 
-    <string name="category_update">更新检查</string>
-    <string name="update_check_period">更新检查周期</string>
+    <string name="category_update">更新和消息</string>
+    <string name="update_check_channel">更新通道</string>
     <string name="every_time_open_app">每次访问首页 (显示在首页)</string>
     <string name="manually">手动</string>
     <string name="no_translated">(翻译待补全)</string>
     <string name="item_improvement">改修</string>
-
+    <string name="reset_read">重置已读</string>
+    <string name="got_it">知道啦</string>
+    <string name="not_now">才不要</string>
+    <string name="ignore_update">才不要 (忽略本次升级)</string>
+    <string name="download">去下载</string>
+    <string name="reset_read_summary">重置已读消息包括升级提示</string>
+    <string name="read_status_reseted">已读消息已重置</string>
+    <string name="stable">稳定版 (每周更新)</string>
+    <string name="latest">最新版 (可能有更多问题)</string>
+    <string name="please_refresh">请手动刷新</string>
+    <string name="open_link">打开链接</string>
 </resources>

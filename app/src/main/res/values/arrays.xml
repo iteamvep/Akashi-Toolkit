@@ -24,12 +24,12 @@
         <item>2</item>
     </string-array>
 
-    <string-array name="update_check_period">
-        <item>@string/every_time_open_app</item>
-        <item>@string/manually</item>
+    <string-array name="update_check_channel">
+        <item>@string/stable</item>
+        <item>@string/latest</item>
     </string-array>
 
-    <string-array name="update_check_period_value" translatable="false">
+    <string-array name="update_check_channel_value" translatable="false">
         <item>0</item>
         <item>1</item>
     </string-array>

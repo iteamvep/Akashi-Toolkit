@@ -15,11 +15,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import moe.xing.daynightmode.BaseDayNightModeActivity;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.PreferenceChangedAction;
+import rikka.akashitoolkit.otto.ReadStatusResetAction;
 import rikka.akashitoolkit.support.Settings;
 import rikka.materialpreference.DropDownPreference;
 import rikka.materialpreference.PreferenceFragment;
@@ -82,6 +84,21 @@ public class SettingActivity extends BaseActivity {
 
             setPreferencesFromResource(R.xml.settings, null);
             mDropDownPreference = (DropDownPreference) findPreference(Settings.NIGHT_MODE);
+
+            findPreference("reset_read").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                @Override
+                public boolean onPreferenceClick(Preference preference) {
+                    Settings.instance(getActivity())
+                            .putString(Settings.MESSAGE_READ_STATUS, "");
+
+                    Toast.makeText(getActivity(), R.string.read_status_reseted, Toast.LENGTH_SHORT).show();
+
+                    BusProvider.instance()
+                            .post(new ReadStatusResetAction());
+
+                    return false;
+                }
+            });
         }
 
         @Override

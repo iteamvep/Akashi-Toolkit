@@ -80,11 +80,16 @@ public class CheckUpdate {
     }
 
     public static class MessagesEntity {
+        private int id;
         private String title;
         private String message;
         private int type;
         private String link;
         private String action_name;
+
+        public void setId(int id) {
+            this.id = id;
+        }
 
         public void setTitle(String title) {
             this.title = title;
@@ -104,6 +109,10 @@ public class CheckUpdate {
 
         public void setAction_name(String action_name) {
             this.action_name = action_name;
+        }
+
+        public int getId() {
+            return id;
         }
 
         public String getTitle() {

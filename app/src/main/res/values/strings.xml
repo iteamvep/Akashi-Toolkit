@@ -44,11 +44,22 @@
     <string name="check_update">Check update</string>
     <string name="check_update_summary">Get weekly update</string>
 
-    <string name="category_update">Update check</string>
-    <string name="update_check_period">Update check period</string>
+    <string name="category_update">Update &amp; message</string>
+    <string name="update_check_channel">Update channel</string>
     <string name="every_time_open_app">Every view home (show in home)</string>
     <string name="manually">Manually</string>
     <string name="no_translated">(No translation right now)</string>
     <string name="item_improvement">Item Improvement</string>
+    <string name="reset_read">Reset read</string>
+    <string name="got_it">Got it</string>
+    <string name="not_now">Not now</string>
+    <string name="ignore_update">Ignore this update</string>
+    <string name="download">Go download</string>
+    <string name="reset_read_summary">Reset read messages including update notification</string>
+    <string name="read_status_reseted">Read status reseted</string>
+    <string name="stable">Stable (weekly)</string>
+    <string name="latest">Latest (maybe more problems)</string>
+    <string name="please_refresh">Please refresh manually</string>
+    <string name="open_link">Open link</string>
 
 </resources>

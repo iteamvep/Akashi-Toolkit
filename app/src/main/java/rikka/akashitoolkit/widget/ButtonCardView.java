@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import rikka.akashitoolkit.R;
+import rikka.akashitoolkit.model.MessageReadStatus;
 
 /**
  * Created by Rikka on 2016/3/16.
@@ -117,7 +118,8 @@ public class ButtonCardView extends FrameLayout {
 
     public void hide() {
         animate()
-                .translationX(getWidth())
+                .translationX(getWidth() * 1.2f)
+                .setDuration(150)
                 .setInterpolator(new AccelerateDecelerateInterpolator())
                 .setListener(new Animator.AnimatorListener() {
                     @Override

@@ -20,6 +20,16 @@
     </Preference>
 
     <Preference
+        android:title="SVG 图标来源"
+        android:summary="edwardaaaa">
+
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="https://github.com/edwardaaaa"/>
+
+    </Preference>
+
+    <Preference
         android:title="打滚求开发"
         android:summary="程序员、设计师什么的都可以啦qwq">
 

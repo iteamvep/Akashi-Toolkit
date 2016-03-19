@@ -24,6 +24,7 @@ public class RetrofitAPI {
     public interface CheckUpdateService {
         @GET("/Akashi/info.php")
         Call<CheckUpdate> get(
-                @Query("api_version") int api_version);
+                @Query("api_version") int api_version,
+                @Query("channel") int channel);
     }
 }

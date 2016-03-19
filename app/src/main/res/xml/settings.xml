@@ -36,11 +36,16 @@
         android:title="@string/category_update">
 
         <rikka.materialpreference.DropDownPreference
-            android:key="update_check"
-            android:title="@string/update_check_period"
-            app:myEntries="@array/update_check_period"
-            app:myEntryValues="@array/update_check_period_value"
+            android:key="update_check_channel"
+            android:title="@string/update_check_channel"
+            app:myEntries="@array/update_check_channel"
+            app:myEntryValues="@array/update_check_channel_value"
             android:defaultValue="0"/>
+
+        <Preference
+            android:key="reset_read"
+            android:title="@string/reset_read"
+            android:summary="@string/reset_read_summary"/>
 
     </PreferenceCategory>
 

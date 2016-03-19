@@ -3,6 +3,8 @@ package rikka.akashitoolkit.support;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.google.gson.Gson;
+
 /**
  * Created by Rikka on 2016/3/8.
  */
@@ -15,7 +17,8 @@ public class Settings {
     public static final String TWITTER_AVATAR_URL = "twitter_avatar_url";
     public static final String TWITTER_LANGUAGE = "twitter_display_language";
     public static final String LAST_DRAWER_ITEM_ID = "last_drawer_item_id";
-    public static final String UPDATE_CHECK_PERIOD = "update_check";
+    public static final String UPDATE_CHECK_CHANNEL = "update_check_channel";
+    public static final String MESSAGE_READ_STATUS = "message_read_status";
 
     private static Settings sInstance;
     private SharedPreferences mPrefs;
@@ -78,5 +81,18 @@ public class Settings {
 
     public int getIntFromString(String key, int defValue) {
         return Integer.parseInt(mPrefs.getString(key, Integer.toString(defValue)));
+    }
+
+    public Settings putGSON(String key, Object obj) {
+        mPrefs.edit()
+                .putString(key, new Gson().toJson(obj))
+                .apply();
+
+        return this;
+    }
+
+    public <T> T getGSON(String key, Class<T> c) {
+        T t = new Gson().fromJson(mPrefs.getString(key, ""), c);
+        return t;
     }
 }
