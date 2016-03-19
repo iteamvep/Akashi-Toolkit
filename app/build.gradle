@@ -8,8 +8,8 @@ android {
         applicationId "rikka.akashitoolkit"
         minSdkVersion 15
         targetSdkVersion 23
-        versionCode 7
-        versionName "0.0.7-alpha"
+        versionCode 8
+        versionName "0.0.8"
 
         //generatedDensities = []
     }
@@ -39,7 +39,6 @@ android {
             if (output.outputFile != null && output.outputFile.name.endsWith('.apk')) {
                 output.outputFile = file("${output.outputFile.parent}/akashitoolkit" +
                         //*"-${variant.buildType.name.toLowerCase()}" +*/
-                        "-alpha" +
                         "-${variant.versionCode}" +
                         ".apk")
             }

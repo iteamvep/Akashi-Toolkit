@@ -61,5 +61,6 @@
     <string name="latest">Latest (maybe more problems)</string>
     <string name="please_refresh">Please refresh manually</string>
     <string name="open_link">Open link</string>
+    <string name="todo_card_format" formatted="false">Current version: %s\n%s</string>
 
 </resources>

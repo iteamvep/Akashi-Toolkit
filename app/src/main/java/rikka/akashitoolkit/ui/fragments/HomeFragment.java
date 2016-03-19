@@ -176,10 +176,14 @@ public class HomeFragment extends BaseFragmet {
             return;
         }
 
-        ButtonCardView card = new ButtonCardView(getContext())
-                .setTitle("一些提示")
+        ButtonCardView card;
+        card = new ButtonCardView(getContext())
+                .setTitle("欢迎使用AkashiToolkit！")
                 .addButton(R.string.got_it)
-                .setMessage("主页下拉可以检查更新和获取来自服务器的消息");
+                .setMessage("AkashiToolkit是一个舰队Collection的wiki类手机App，目前由Yūbari Kaigun Kokusho开发，kcwiki舰娘百科提供数据支持。\n" +
+                        "目前应用的各项功能正在逐渐添加和完善中，我们会在每周六晚发布一个Akashi Toolkit的正式版本，保证每周的更新。\n" +
+                        "如果您想体验测试版，在设置-更新通道中选择测试版。\n" +
+                        "关注我们的最新消息 微博@kcwiki舰娘百科");
 
         mLinearLayout.addView(card);
         mMessageCardView.put(-1, card);
@@ -193,6 +197,17 @@ public class HomeFragment extends BaseFragmet {
         UpdateCheck.instance().check(getContext(), new Callback<CheckUpdate>() {
             @Override
             public void onResponse(Call<CheckUpdate> call, final Response<CheckUpdate> response) {
+                int versionCode;
+                String versionName;
+
+                try {
+                    versionCode = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0).versionCode;
+                    versionName = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0).versionName;
+                } catch (PackageManager.NameNotFoundException e) {
+                    e.printStackTrace();
+                    return;
+                }
+
                 for (final CheckUpdate.MessagesEntity entity :
                         response.body().getMessages()) {
                     if (checkId(entity.getId())) {
@@ -207,26 +222,28 @@ public class HomeFragment extends BaseFragmet {
                                 .setMessage(entity.getMessage())
                                 .addButton(R.string.got_it);
 
-                        if (entity.getType() == 1) {
-                            card.addButton(entity.getAction_name() != null ? entity.getAction_name() : getContext().getString(R.string.open_link), new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(entity.getLink())));
-                                }
-                            }, true, false);
+                        switch (entity.getType()) {
+                            case 1:
+                                card.addButton(entity.getAction_name() != null ? entity.getAction_name() : getContext().getString(R.string.open_link), new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(entity.getLink())));
+                                    }
+                                }, true, false);
+                                break;
+                            case 2:
+                                card.setMessage(String.format(
+                                                getContext().getString(R.string.todo_card_format),
+                                                versionName,
+                                                entity.getMessage()
+                                        )
+                                );
+                                break;
                         }
 
                         mMessageCardView.put(entity.getId(), card);
                         mLinearLayout.addView(card);
                     }
-                }
-
-                int versionCode;
-                try {
-                    versionCode = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0).versionCode;
-                } catch (PackageManager.NameNotFoundException e) {
-                    e.printStackTrace();
-                    return;
                 }
 
                 final CheckUpdate.UpdateEntity entity = response.body().getUpdate();
