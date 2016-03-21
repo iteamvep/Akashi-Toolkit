@@ -327,7 +327,7 @@ public class TwitterFragment extends BaseFragmet {
 
 
     @Subscribe
-    public void preferenChanged(PreferenceChangedAction action) {
+    public void preferenceChanged(PreferenceChangedAction action) {
         if (action.getKey().equals(Settings.TWITTER_COUNT)) {
             mTwitterAdapter.setMaxItem(
                     Settings

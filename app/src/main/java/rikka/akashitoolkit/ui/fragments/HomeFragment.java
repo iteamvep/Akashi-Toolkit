@@ -299,7 +299,7 @@ public class HomeFragment extends BaseFragmet {
     }
 
     @Subscribe
-    public void preferenChanged(PreferenceChangedAction action) {
+    public void preferenceChanged(PreferenceChangedAction action) {
         if (action.getKey().equals(Settings.UPDATE_CHECK_CHANNEL)) {
             /*int count = mLinearLayout.getChildCount();
             for (int i = 0; i < count; i++) {

@@ -40,7 +40,7 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
-        <activity
+        <!--<activity
             android:name=".ui.SendReportActivity"
             android:theme="@style/Transparent">
             <intent-filter>
@@ -48,7 +48,7 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-        </activity>
+        </activity>-->
 
     </application>
 
