@@ -276,8 +276,9 @@ public class TwitterFragment extends BaseFragmet {
                 _refresh(json, count);
 
                 try {
-                    mTwitterAdapter.setAvatarUrl(response.body().string());
-                    Settings.instance(getContext()).putString(Settings.TWITTER_AVATAR_URL, response.body().string());
+                    String url = response.body().string();
+                    mTwitterAdapter.setAvatarUrl(url);
+                    Settings.instance(getContext()).putString(Settings.TWITTER_AVATAR_URL, url);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
