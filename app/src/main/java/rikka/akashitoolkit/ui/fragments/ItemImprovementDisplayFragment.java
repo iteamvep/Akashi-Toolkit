@@ -60,7 +60,14 @@ public class ItemImprovementDisplayFragment  extends BaseFragmet {
     }
 
     private ViewPagerAdapter getAdapter() {
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager());
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager()) {
+            @Override
+            public Bundle getArgs(int position) {
+                Bundle bundle = new Bundle();
+                bundle.putInt("TYPE", position);
+                return bundle;
+            }
+        };
 
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeZone(TimeZone.getTimeZone("GMT+9:00"));
@@ -70,13 +77,13 @@ public class ItemImprovementDisplayFragment  extends BaseFragmet {
         DateFormatSymbols symbols = new DateFormatSymbols(Locale.getDefault());
         String[] dayNames = symbols.getShortWeekdays();
 
-        adapter.addFragment(ItemImprovementFragment.class, genrateArgs(0), getDayName(dayNames, 0, mDay));
-        adapter.addFragment(ItemImprovementFragment.class, genrateArgs(1), getDayName(dayNames, 1, mDay));
-        adapter.addFragment(ItemImprovementFragment.class, genrateArgs(2), getDayName(dayNames, 2, mDay));
-        adapter.addFragment(ItemImprovementFragment.class, genrateArgs(3), getDayName(dayNames, 3, mDay));
-        adapter.addFragment(ItemImprovementFragment.class, genrateArgs(4), getDayName(dayNames, 4, mDay));
-        adapter.addFragment(ItemImprovementFragment.class, genrateArgs(5), getDayName(dayNames, 5, mDay));
-        adapter.addFragment(ItemImprovementFragment.class, genrateArgs(6), getDayName(dayNames, 6, mDay));
+        adapter.addFragment(ItemImprovementFragment.class, getDayName(dayNames, 0, mDay));
+        adapter.addFragment(ItemImprovementFragment.class, getDayName(dayNames, 1, mDay));
+        adapter.addFragment(ItemImprovementFragment.class, getDayName(dayNames, 2, mDay));
+        adapter.addFragment(ItemImprovementFragment.class, getDayName(dayNames, 3, mDay));
+        adapter.addFragment(ItemImprovementFragment.class, getDayName(dayNames, 4, mDay));
+        adapter.addFragment(ItemImprovementFragment.class, getDayName(dayNames, 5, mDay));
+        adapter.addFragment(ItemImprovementFragment.class, getDayName(dayNames, 6, mDay));
 
 
         return adapter;
@@ -84,14 +91,8 @@ public class ItemImprovementDisplayFragment  extends BaseFragmet {
 
     private String getDayName(String[] dayNames, int day, int cur) {
         if (day == cur) {
-            return dayNames[day + 1] + " (今日)";
+            return dayNames[day + 1] + " " + getString(R.string.today);
         }
         return dayNames[day + 1];
-    }
-
-    private Bundle genrateArgs(int type) {
-        Bundle bundle = new Bundle();
-        bundle.putInt("TYPE", type);
-        return bundle;
     }
 }

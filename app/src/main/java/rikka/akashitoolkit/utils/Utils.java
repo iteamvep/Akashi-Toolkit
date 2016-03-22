@@ -1,6 +1,7 @@
 package rikka.akashitoolkit.utils;
 
 import android.content.Context;
+import android.content.res.Resources;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -38,5 +39,9 @@ public class Utils {
             e.printStackTrace();
         }
         return file;
+    }
+
+    public static int dpToPx(int dp) {
+        return (int) (dp * Resources.getSystem().getDisplayMetrics().density);
     }
 }

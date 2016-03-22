@@ -54,6 +54,7 @@ public class HomeFragment extends BaseFragmet {
         MainActivity activity = ((MainActivity) getActivity());
         activity.getTabLayout().setVisibility(TAB_LAYOUT_VISIBILITY);
         activity.getSupportActionBar().setTitle(getString(R.string.app_name));
+        activity.setRightDrawerLocked(true);
 
         AVAnalytics.onFragmentStart("HomeFragment");
     }

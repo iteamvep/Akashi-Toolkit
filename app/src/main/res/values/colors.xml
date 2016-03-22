@@ -4,11 +4,14 @@
     <color name="colorPrimaryDark">#C2185B</color>
     <color name="colorAccent">#536dfe</color>
 
-    <color name="cardBackground">@color/cardview_light_background</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="grey_50">#FFFAFAFA</color>
+    <color name="grey_200">#FFEEEEEE</color>
+
+    <color name="background">@color/grey_50</color>
+    <color name="cardBackground">@color/white</color>
     
     <color name="preference_fallback_accent_color">@color/colorAccent</color>
-
-    <color name="background">@color/material_grey_50</color>
 
     <color name="questCardBackground0">#A5D6A7</color>
     <color name="questCardBackground1">#EF9A9A</color>

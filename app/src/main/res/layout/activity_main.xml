@@ -59,4 +59,24 @@
         app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/drawer_main"/>
 
+    <android.support.design.internal.ScrimInsetsFrameLayout
+        android:id="@+id/nav_view_right_out"
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:fitsSystemWindows="false"
+        app:insetForeground="#4000"
+        android:background="@color/cardBackground"
+        android:fillViewport="false">
+
+        <rikka.akashitoolkit.widget.SimpleDrawerView
+            android:id="@+id/nav_view_right"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        </rikka.akashitoolkit.widget.SimpleDrawerView>
+
+    </android.support.design.internal.ScrimInsetsFrameLayout>
+
 </android.support.v4.widget.DrawerLayout>

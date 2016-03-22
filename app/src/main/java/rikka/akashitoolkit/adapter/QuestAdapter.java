@@ -29,19 +29,86 @@ public class QuestAdapter extends RecyclerView.Adapter<ViewHolder.Quest> {
 
     private List<QuestList.Quest> mData;
     private int mType;
+    private int mFilterFlag;
     private int count;
+    private String mKeyword;
     private boolean[] mExpaned;
 
     public QuestAdapter(Context context, int type) {
+        this(context, type, -1);
+    }
+
+    public QuestAdapter(Context context, int type, int flag) {
         mType = type;
-        List<QuestList.Quest> data = QuestList.get(context);
         mData = new ArrayList<>();
+        mFilterFlag = flag;
+    }
+
+    public void rebuildDataList(Context context) {
+        List<QuestList.Quest> data = QuestList.get(context);
+        mData.clear();
 
         for (QuestList.Quest item :
                 data) {
-            if (item.getType() == type) {
+            if (check(item)) {
                 mData.add(item);
             }
+        }
+
+        notifyDataSetChanged();
+    }
+
+    private boolean check(QuestList.Quest item) {
+        if (mType == 0 || item.getType() == mType) {
+            if (mFilterFlag == 0) {
+                return false;
+            }
+
+            if (mFilterFlag == -1 || (mFilterFlag & 1 << (item.getPeriod() - 1)) > 0) {
+                if (mKeyword == null) {
+                    return true;
+                }
+
+                if (mKeyword.length() == 0) {
+                    return false;
+                }
+
+                if (item.getTitle().contains(mKeyword) ||
+                        item.getCode().contains(mKeyword) ||
+                        item.getContent().contains(mKeyword) ||
+                        item.getRequire().contains(mKeyword)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public void setFilterFlag(Context context, int filterFlag) {
+        if (mFilterFlag == filterFlag) {
+            return;
+        }
+
+        mFilterFlag = filterFlag;
+        rebuildDataList(context);
+    }
+
+    public void setKeyword(Context context, String keyword) {
+        if (mKeyword != null && mKeyword.equals(keyword)) {
+            return;
+        }
+
+        mKeyword = keyword;
+        rebuildDataList(context);
+    }
+
+    private void setRewardText(ViewHolder.Quest holder, int position, int id) {
+        String text = mData.get(position).getAward(id);
+        if (text != null &&text.length() > 0) {
+            ((LinearLayout)holder.mRewardText[id].getParent()).setVisibility(View.VISIBLE);
+            holder.mRewardText[id].setText(text);
+        } else {
+            ((LinearLayout)holder.mRewardText[id].getParent()).setVisibility(View.GONE);
         }
     }
 
@@ -49,7 +116,7 @@ public class QuestAdapter extends RecyclerView.Adapter<ViewHolder.Quest> {
     public ViewHolder.Quest onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_quest, parent, false);
         return new ViewHolder.Quest(itemView);
-}
+    }
 
     @Override
     public void onBindViewHolder(ViewHolder.Quest holder, int position) {
@@ -71,16 +138,6 @@ public class QuestAdapter extends RecyclerView.Adapter<ViewHolder.Quest> {
 
             }
         });
-    }
-
-    private void setRewardText(ViewHolder.Quest holder, int position, int id) {
-        String text = mData.get(position).getAward(id);
-        if (text != null &&text.length() > 0) {
-            ((LinearLayout)holder.mRewardText[id].getParent()).setVisibility(View.VISIBLE);
-            holder.mRewardText[id].setText(text);
-        } else {
-            ((LinearLayout)holder.mRewardText[id].getParent()).setVisibility(View.GONE);
-        }
     }
 
     @Override

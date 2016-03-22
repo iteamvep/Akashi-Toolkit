@@ -64,6 +64,7 @@ public class TwitterFragment extends BaseFragmet {
         MainActivity activity = ((MainActivity) getActivity());
         activity.getTabLayout().setVisibility(TAB_LAYOUT_VISIBILITY);
         activity.getSupportActionBar().setTitle(getString(R.string.official_twitter));
+        activity.setRightDrawerLocked(true);
 
         AVAnalytics.onFragmentStart("TwitterFragment");
     }

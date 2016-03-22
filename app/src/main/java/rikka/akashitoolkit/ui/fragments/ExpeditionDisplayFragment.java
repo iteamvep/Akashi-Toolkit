@@ -27,6 +27,7 @@ public class ExpeditionDisplayFragment extends BaseFragmet {
         activity.getTabLayout().setVisibility(TAB_LAYOUT_VISIBILITY);
         activity.getTabLayout().setupWithViewPager(mViewPager);
         activity.getSupportActionBar().setTitle(getString(R.string.expedition));
+        activity.setRightDrawerLocked(true);
 
         AVAnalytics.onFragmentStart("ExpeditionDisplayFragment");
     }
@@ -53,19 +54,20 @@ public class ExpeditionDisplayFragment extends BaseFragmet {
     }
 
     private ViewPagerAdapter getAdapter() {
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager());
-        adapter.addFragment(ExpeditionFragment.class, genrateArgs(0), "镇守府海域");
-        adapter.addFragment(ExpeditionFragment.class, genrateArgs(1), "南西诸岛海域");
-        adapter.addFragment(ExpeditionFragment.class, genrateArgs(2), "北方海域");
-        adapter.addFragment(ExpeditionFragment.class, genrateArgs(3), "西方海域");
-        adapter.addFragment(ExpeditionFragment.class, genrateArgs(4), "南方海域");
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager()) {
+            @Override
+            public Bundle getArgs(int position) {
+                Bundle bundle = new Bundle();
+                bundle.putInt("TYPE", position);
+                return bundle;
+            }
+        };
+        adapter.addFragment(ExpeditionFragment.class, "镇守府海域");
+        adapter.addFragment(ExpeditionFragment.class, "南西诸岛海域");
+        adapter.addFragment(ExpeditionFragment.class, "北方海域");
+        adapter.addFragment(ExpeditionFragment.class, "西方海域");
+        adapter.addFragment(ExpeditionFragment.class, "南方海域");
 
         return adapter;
-    }
-
-    private Bundle genrateArgs(int type) {
-        Bundle bundle = new Bundle();
-        bundle.putInt("TYPE", type);
-        return bundle;
     }
 }

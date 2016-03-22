@@ -3,6 +3,7 @@ package rikka.akashitoolkit.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.StringRes;
+import android.support.design.internal.ScrimInsetsFrameLayout;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.NavigationView;
@@ -14,7 +15,6 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 
 import java.util.HashMap;
@@ -27,6 +27,7 @@ import rikka.akashitoolkit.ui.fragments.ItemImprovementDisplayFragment;
 import rikka.akashitoolkit.ui.fragments.QuestDisplayFragment;
 import rikka.akashitoolkit.ui.fragments.HomeFragment;
 import rikka.akashitoolkit.ui.fragments.TwitterFragment;
+import rikka.akashitoolkit.widget.SimpleDrawerView;
 
 public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -35,12 +36,14 @@ public class MainActivity extends BaseActivity
     private AppBarLayout mAppBarLayout;
     private TabLayout mTabLayout;
     private NavigationView mNavigationView;
+    private ScrimInsetsFrameLayout mNavigationViewRight;
     private DrawerLayout mDrawerLayout;
     private CoordinatorLayout mCoordinatorLayout;
 
     private Map<Integer, Fragment> mFragmentMap;
 
     private int mLastDrawerItemId;
+    private SimpleDrawerView mRightDrawerContent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +63,9 @@ public class MainActivity extends BaseActivity
         mNavigationView = (NavigationView) findViewById(R.id.nav_view);
         mNavigationView.setNavigationItemSelectedListener(this);
         mNavigationView.setCheckedItem(R.id.nav_home);
+
+        mNavigationViewRight = (ScrimInsetsFrameLayout) findViewById(R.id.nav_view_right_out);
+        mRightDrawerContent = (SimpleDrawerView) findViewById(R.id.nav_view_right);
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
@@ -112,6 +118,18 @@ public class MainActivity extends BaseActivity
         }
     }
 
+    public SimpleDrawerView getRightDrawerContent() {
+        return mRightDrawerContent;
+    }
+
+    public DrawerLayout getDrawerLayout() {
+        return mDrawerLayout;
+    }
+
+    public void setRightDrawerLocked(boolean locked) {
+        mDrawerLayout.setDrawerLockMode(locked ? DrawerLayout.LOCK_MODE_LOCKED_CLOSED : DrawerLayout.LOCK_MODE_UNDEFINED, GravityCompat.END);
+    }
+
     public TabLayout getTabLayout() {
         return mTabLayout;
     }
@@ -120,6 +138,8 @@ public class MainActivity extends BaseActivity
     public void onBackPressed() {
         if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
             mDrawerLayout.closeDrawer(GravityCompat.START);
+        } else if (mDrawerLayout.isDrawerOpen(GravityCompat.END)) {
+            mDrawerLayout.closeDrawer(GravityCompat.END);
         } else if (mLastDrawerItemId != R.id.nav_home) {
             selectDrawerItem(R.id.nav_home);
             mNavigationView.setCheckedItem(R.id.nav_home);
@@ -127,28 +147,6 @@ public class MainActivity extends BaseActivity
             super.onBackPressed();
         }
     }
-
-    @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        return super.onPrepareOptionsMenu(menu);
-    }
-
-    /*@Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }*/
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -179,7 +177,7 @@ public class MainActivity extends BaseActivity
         return true;
     }
 
-    private String genrateFragmentTAG(int id) {
+    private String generateFragmentTAG(int id) {
         return String.format("%s %d", "FragmentTag", id);
     }
 
@@ -203,7 +201,7 @@ public class MainActivity extends BaseActivity
             mFragmentMap.put(id, to);
         }
 
-        switchFragment(from, to, genrateFragmentTAG(id));
+        switchFragment(from, to, generateFragmentTAG(id));
     }
 
     private Fragment instanceFragment(int id) {
@@ -225,12 +223,9 @@ public class MainActivity extends BaseActivity
     }
 
     private void findFragmentByNavId(Map<Integer, Fragment> map, int id) {
-        Fragment fragment = getSupportFragmentManager().findFragmentByTag(genrateFragmentTAG(id));
+        Fragment fragment = getSupportFragmentManager().findFragmentByTag(generateFragmentTAG(id));
         if (fragment != null) {
             map.put(id, fragment);
-            /*getSupportFragmentManager().beginTransaction()
-                    .hide(fragment)
-                    .commit();*/
         }
     }
 

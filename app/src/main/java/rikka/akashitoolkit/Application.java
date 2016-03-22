@@ -27,7 +27,9 @@ public class Application extends android.app.Application {
             CrashHandler.register();
         }*/
 
-        AVOSCloud.initialize(this, "q6Sj083vVxS6XrNgGD09w9kX-gzGzoHsz", "M9EUfoOVEnm9P5yoGXhAbwly");
-        AVAnalytics.enableCrashReport(this, true);
+        if (!BuildConfig.DEBUG) {
+            AVOSCloud.initialize(this, "q6Sj083vVxS6XrNgGD09w9kX-gzGzoHsz", "M9EUfoOVEnm9P5yoGXhAbwly");
+            AVAnalytics.enableCrashReport(this, true);
+        }
     }
 }
