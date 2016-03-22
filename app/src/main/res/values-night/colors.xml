@@ -3,6 +3,8 @@
     <color name="cardBackground">@color/cardview_dark_background</color>
     <color name="background">@color/material_grey_850</color>
 
+    <color name="colorPrimary">@color/material_grey_900</color>
+    <color name="colorPrimaryDark">#141414</color>
     <color name="colorAccent">#8c9eff</color>
 
 

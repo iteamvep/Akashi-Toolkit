@@ -19,6 +19,7 @@ public class Settings {
     public static final String LAST_DRAWER_ITEM_ID = "last_drawer_item_id";
     public static final String UPDATE_CHECK_CHANNEL = "update_check_channel";
     public static final String MESSAGE_READ_STATUS = "message_read_status";
+    public static final String QUEST_FILTER = "quest_filter";
 
     private static Settings sInstance;
     private SharedPreferences mPrefs;

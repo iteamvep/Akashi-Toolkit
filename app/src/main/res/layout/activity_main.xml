@@ -66,7 +66,7 @@
         android:layout_gravity="end"
         android:fitsSystemWindows="false"
         app:insetForeground="#4000"
-        android:background="@color/cardBackground"
+        android:background="@color/background"
         android:fillViewport="false">
 
         <rikka.akashitoolkit.widget.SimpleDrawerView

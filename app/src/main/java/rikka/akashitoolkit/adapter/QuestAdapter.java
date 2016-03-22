@@ -74,7 +74,7 @@ public class QuestAdapter extends RecyclerView.Adapter<ViewHolder.Quest> {
                 }
 
                 if (item.getTitle().contains(mKeyword) ||
-                        item.getCode().contains(mKeyword) ||
+                        item.getCode().contains(mKeyword.toUpperCase()) ||
                         item.getContent().contains(mKeyword) ||
                         item.getRequire().contains(mKeyword)) {
                     return true;

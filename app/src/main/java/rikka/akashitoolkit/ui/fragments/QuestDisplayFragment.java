@@ -19,6 +19,7 @@ import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.ViewPagerAdapter;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.QuestAction;
+import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.ui.MainActivity;
 import rikka.akashitoolkit.widget.CheckBoxGroup;
 
@@ -34,6 +35,8 @@ public class QuestDisplayFragment extends BaseFragmet implements CheckBoxGroup.O
     private MainActivity mActivity;
     private int mType;
     private int mFlag = -1;
+    private String mKeyword;
+    private boolean mIsSearching;
 
     @Override
     public void onHide() {
@@ -44,7 +47,9 @@ public class QuestDisplayFragment extends BaseFragmet implements CheckBoxGroup.O
 
     @Override
     public void onShow() {
-        mFlag = 1 + 2 + 4 + 8;
+        mFlag = Settings
+                .instance(getContext())
+                .getInt(Settings.QUEST_FILTER, 1 + 2 + 4 + 8);
 
         setUpViewPager(0);
 
@@ -72,16 +77,23 @@ public class QuestDisplayFragment extends BaseFragmet implements CheckBoxGroup.O
     public void onCheckedChanged(View view, int checked) {
         if (mType == 0) {
             mFlag = checked;
+            Settings
+                    .instance(getContext())
+                    .putInt(Settings.QUEST_FILTER, mFlag);
 
-            /*for (int i = 0; i < mViewPagerAdapter[0].getCount(); i++) {
-                QuestFragment fragment = (QuestFragment) mViewPagerAdapter[0].getItem(i, false);
-                if (fragment != null) {
-                    fragment.getAdapter().setFilterFlag(getContext(), checked);
-                }
-            }*/
             BusProvider.instance().post(new QuestAction.FilterChanged(checked));
         }
     }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putString("KEYWORD", mKeyword);
+        outState.putBoolean("SEARCHING", mIsSearching);
+    }
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -100,6 +112,8 @@ public class QuestDisplayFragment extends BaseFragmet implements CheckBoxGroup.O
                     @Override
                     public boolean onMenuItemActionExpand(MenuItem item) {
                         setUpViewPager(1);
+
+                        mIsSearching = true;
                         return true;
                     }
 
@@ -122,14 +136,16 @@ public class QuestDisplayFragment extends BaseFragmet implements CheckBoxGroup.O
             @Override
             public boolean onQueryTextChange(String newText) {
                 BusProvider.instance().post(new QuestAction.KeywordChanged(newText));
+                mKeyword = newText;
                 return false;
             }
         });
 
-        /*if (serachString != null) {
+        if (mIsSearching) {
+            String keyword = mKeyword;
             item.expandActionView();
-            mSearchView.setQuery(serachString, false);
-        }*/
+            mSearchView.setQuery(keyword, false);
+        }
     }
 
     @Override
@@ -153,6 +169,11 @@ public class QuestDisplayFragment extends BaseFragmet implements CheckBoxGroup.O
         mViewPagerAdapter = new ViewPagerAdapter[2];
         mViewPagerAdapter[0] = getAdapter(0);
         mViewPagerAdapter[1] = getAdapter(1);
+
+        if (savedInstanceState != null) {
+            mKeyword = savedInstanceState.getString("KEYWORD");
+            mIsSearching = savedInstanceState.getBoolean("SEARCHING");
+        }
 
         if (!isHiddenBeforeSaveInstanceState()) {
             onShow();
