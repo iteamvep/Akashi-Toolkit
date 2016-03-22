@@ -67,7 +67,7 @@ public class UpdateCheck {
     }
 
     // so bad..
-    public void check(final Context context, final boolean callByUser) {
+    public void check(Context context, final boolean callByUser) {
         if (mCall != null && mCall.isExecuted()) {
             return;
         }
