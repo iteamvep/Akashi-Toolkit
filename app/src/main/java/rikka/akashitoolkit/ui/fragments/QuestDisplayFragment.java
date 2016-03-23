@@ -37,6 +37,7 @@ public class QuestDisplayFragment extends BaseFragmet implements CheckBoxGroup.O
     private int mFlag = -1;
     private String mKeyword;
     private boolean mIsSearching;
+    private boolean mOnShowFromCreateView;
 
     @Override
     public void onHide() {
@@ -51,7 +52,11 @@ public class QuestDisplayFragment extends BaseFragmet implements CheckBoxGroup.O
                 .instance(getContext())
                 .getInt(Settings.QUEST_FILTER, 1 + 2 + 4 + 8);
 
-        setUpViewPager(0);
+        if (!mOnShowFromCreateView) {
+            mIsSearching = false;
+        }
+
+        setUpViewPager(mIsSearching ? 1 : 0);
 
         mActivity.getTabLayout().setVisibility(TAB_LAYOUT_VISIBILITY);
         mActivity.getTabLayout().setupWithViewPager(mViewPager);
@@ -69,6 +74,8 @@ public class QuestDisplayFragment extends BaseFragmet implements CheckBoxGroup.O
         cbg.setOnCheckedChangeListener(this);
         cbg.setChecked(mFlag);
         mActivity.getRightDrawerContent().addView(cbg);
+
+        mOnShowFromCreateView = false;
 
         AVAnalytics.onFragmentStart("QuestDisplayFragment");
     }
@@ -92,8 +99,6 @@ public class QuestDisplayFragment extends BaseFragmet implements CheckBoxGroup.O
         outState.putString("KEYWORD", mKeyword);
         outState.putBoolean("SEARCHING", mIsSearching);
     }
-
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -176,6 +181,7 @@ public class QuestDisplayFragment extends BaseFragmet implements CheckBoxGroup.O
         }
 
         if (!isHiddenBeforeSaveInstanceState()) {
+            mOnShowFromCreateView = true;
             onShow();
         }
 
