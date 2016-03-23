@@ -14,6 +14,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
+import rikka.akashitoolkit.adapter.ViewHolder;
 import rikka.akashitoolkit.model.Item;
 
 /**
@@ -39,5 +40,15 @@ public class ItemList {
             }
         }
         return sList;
+    }
+
+    public static Item findItemById(Context context, int id) {
+        for (Item item:
+             get(context)) {
+            if (item.getId() == id) {
+                return item;
+            }
+        }
+        return null;
     }
 }

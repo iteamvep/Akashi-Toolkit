@@ -51,7 +51,9 @@
         </activity>
         -->
 
-        <activity android:name=".ui.ItemDisplayActivity">
+        <activity
+            android:name=".ui.ItemDisplayActivity"
+            android:theme="@style/AppTheme.NoActionBar">
         </activity>
     </application>
 

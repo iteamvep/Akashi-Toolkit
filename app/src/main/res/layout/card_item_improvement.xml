@@ -61,6 +61,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
                 tools:text="小口径主砲"
+                android:visibility="gone"
                 android:textSize="@dimen/card_font_medium" />
 
             <TextView
