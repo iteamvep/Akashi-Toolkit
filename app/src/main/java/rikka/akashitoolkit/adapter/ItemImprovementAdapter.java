@@ -1,6 +1,7 @@
 package rikka.akashitoolkit.adapter;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -58,6 +59,16 @@ public class ItemImprovementAdapter extends RecyclerView.Adapter<ViewHolder.Item
         holder.mName.setText(mData.get(position).getName());
         holder.mType.setText(mData.get(position).getType());
         holder.mShip.setText("二号舰娘: " + mDataShip.get(position));
+
+        Resources resources = holder.mType.getContext().getResources();
+        int resourceId = resources.getIdentifier(String.format("item_type_%d", mData.get(position).getIcon()), "drawable",
+                holder.mType.getContext().getPackageName());
+
+        holder.mImageView.setImageResource(resourceId);
+        /*Resources resources = holder.mType.getContext().getResources();
+        int resourceId = resources.getIdentifier(String.format("item_type_%d", mData.get(position).getIcon()), "drawable",
+                holder.mType.getContext().getPackageName());*/
+        //holder.mType.setCompoundDrawables(holder.mType.getContext().getResources().getDrawable(R.drawable.item_type_1, null), null, null, null);
     }
 
     @Override

@@ -17,6 +17,11 @@
             android:title="@string/item_improvement"/>
 
         <item
+            android:id="@+id/nav_item"
+            android:icon="@drawable/ic_nav_map_24dp"
+            android:title="@string/item"/>
+
+        <item
             android:id="@+id/nav_quest"
             android:icon="@drawable/ic_nav_quest_24dp"
             android:title="@string/quest"/>

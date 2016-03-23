@@ -10,14 +10,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import rikka.akashitoolkit.R;
-import rikka.akashitoolkit.adapter.ItemImprovementAdapter;
-import rikka.akashitoolkit.adapter.QuestAdapter;
+import rikka.akashitoolkit.adapter.ItemAdapter;
 import rikka.materialpreference.BaseRecyclerViewItemDecoration;
 
 /**
- * Created by Rikka on 2016/3/17.
+ * Created by Rikka on 2016/3/23.
  */
-public class ItemImprovementFragment extends Fragment {
+public class ItemFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -30,7 +29,7 @@ public class ItemImprovementFragment extends Fragment {
         }
 
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
-        recyclerView.setAdapter(new ItemImprovementAdapter(getContext(), type));
+        recyclerView.setAdapter(new ItemAdapter(getContext()));
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         layoutManager.setAutoMeasureEnabled(false);
         recyclerView.setLayoutManager(layoutManager);

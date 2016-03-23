@@ -3,6 +3,7 @@ package rikka.akashitoolkit.adapter;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import rikka.akashitoolkit.R;
@@ -63,18 +64,30 @@ public class ViewHolder {
     }
 
     public static class ItemImprovement extends RecyclerView.ViewHolder {
-        protected CardView mCardView;
+        //protected CardView mCardView;
         protected TextView mName;
         protected TextView mType;
         protected TextView mShip;
+        protected ImageView mImageView;
 
         public ItemImprovement(View itemView) {
             super(itemView);
 
-            mCardView = (CardView) itemView.findViewById(R.id.cardView);
+            //mCardView = (CardView) itemView.findViewById(R.id.cardView);
             mName = (TextView) itemView.findViewById(R.id.text_card_title);
             mType = (TextView) itemView.findViewById(R.id.text_card_item_improve_type);
             mShip = (TextView) itemView.findViewById(R.id.text_card_item_improve_ship);
+            mImageView = (ImageView) itemView.findViewById(R.id.imageView);
+        }
+    }
+
+    public static class Item extends RecyclerView.ViewHolder {
+        protected TextView mName;
+
+        public Item(View itemView) {
+            super(itemView);
+
+            mName = (TextView) itemView.findViewById(R.id.textView);
         }
     }
 }

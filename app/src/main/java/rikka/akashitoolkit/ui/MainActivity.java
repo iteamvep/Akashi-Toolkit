@@ -23,6 +23,7 @@ import java.util.Map;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.ui.fragments.ExpeditionDisplayFragment;
+import rikka.akashitoolkit.ui.fragments.ItemDisplayFragment;
 import rikka.akashitoolkit.ui.fragments.ItemImprovementDisplayFragment;
 import rikka.akashitoolkit.ui.fragments.QuestDisplayFragment;
 import rikka.akashitoolkit.ui.fragments.HomeFragment;
@@ -84,6 +85,7 @@ public class MainActivity extends BaseActivity
             findFragmentByNavId(mFragmentMap, R.id.nav_home);
             findFragmentByNavId(mFragmentMap, R.id.nav_twitter);
             findFragmentByNavId(mFragmentMap, R.id.nav_item_improve);
+            findFragmentByNavId(mFragmentMap, R.id.nav_item);
             findFragmentByNavId(mFragmentMap, R.id.nav_quest);
             findFragmentByNavId(mFragmentMap, R.id.nav_ship);
             findFragmentByNavId(mFragmentMap, R.id.nav_expedition);
@@ -105,6 +107,7 @@ public class MainActivity extends BaseActivity
                 case R.id.nav_home:
                 case R.id.nav_twitter:
                 case R.id.nav_item_improve:
+                case R.id.nav_item:
                 case R.id.nav_quest:
                 case R.id.nav_ship:
                 case R.id.nav_expedition:
@@ -157,6 +160,7 @@ public class MainActivity extends BaseActivity
             case R.id.nav_home:
             case R.id.nav_twitter:
             case R.id.nav_item_improve:
+            case R.id.nav_item:
             case R.id.nav_quest:
             case R.id.nav_ship:
             case R.id.nav_expedition:
@@ -212,6 +216,8 @@ public class MainActivity extends BaseActivity
                 return new TwitterFragment();
             case R.id.nav_item_improve:
                 return new ItemImprovementDisplayFragment();
+            case R.id.nav_item:
+                return new ItemDisplayFragment();
             case R.id.nav_quest:
                 return new QuestDisplayFragment();
             case R.id.nav_ship:

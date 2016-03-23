@@ -1,0 +1,5324 @@
+[
+    {
+        "id": 1,
+        "stars": 1,
+        "rarity": 1,
+        "subType": 101,
+        "icon": 56,
+        "name": "12cm単装砲",
+        "attr": {
+            "range": 1,
+            "fire": 1,
+            "aa": 1,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 48,
+        "stars": 48,
+        "rarity": 1,
+        "subType": 101,
+        "icon": 86,
+        "name": "12.7cm単装高角砲",
+        "attr": {
+            "range": 1,
+            "fire": 1,
+            "aa": 3,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 78,
+        "stars": 78,
+        "rarity": 1,
+        "subType": 101,
+        "icon": 56,
+        "name": "12.7cm単装砲",
+        "attr": {
+            "range": 1,
+            "fire": 2,
+            "aa": 0,
+            "acc": 1,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 2,
+        "stars": 2,
+        "rarity": 1,
+        "subType": 101,
+        "icon": 56,
+        "name": "12.7cm連装砲",
+        "attr": {
+            "range": 1,
+            "fire": 2,
+            "aa": 2,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 91,
+        "stars": 91,
+        "rarity": 2,
+        "subType": 101,
+        "icon": 86,
+        "name": "12.7cm連装高角砲(後期型)",
+        "attr": {
+            "range": 1,
+            "fire": 2,
+            "aa": 5,
+            "acc": 1,
+            "as": 1,
+            "dodge": 1,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 3,
+        "stars": 3,
+        "rarity": 2,
+        "subType": 101,
+        "icon": 86,
+        "name": "10cm連装高角砲",
+        "attr": {
+            "range": 1,
+            "fire": 2,
+            "aa": 7,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 63,
+        "stars": 63,
+        "rarity": 2,
+        "subType": 101,
+        "icon": 56,
+        "name": "12.7cm連装砲B型改二",
+        "attr": {
+            "range": 1,
+            "fire": 3,
+            "aa": 2,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 147,
+        "stars": 147,
+        "rarity": 3,
+        "subType": 0,
+        "icon": 0,
+        "name": "120mm連装砲",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 122,
+        "stars": 122,
+        "rarity": 4,
+        "subType": 101,
+        "icon": 56,
+        "name": "10cm高角砲＋高射装置",
+        "attr": {
+            "range": 1,
+            "fire": 3,
+            "aa": 10,
+            "acc": 1,
+            "as": 0,
+            "dodge": 1,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 4,
+        "stars": 4,
+        "rarity": 1,
+        "subType": 102,
+        "icon": 58,
+        "name": "14cm単装砲",
+        "attr": {
+            "range": 2,
+            "fire": 2,
+            "aa": 0,
+            "acc": 1,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 119,
+        "stars": 119,
+        "rarity": 2,
+        "subType": 102,
+        "icon": 58,
+        "name": "14cm連装砲",
+        "attr": {
+            "range": 2,
+            "fire": 3,
+            "aa": 0,
+            "acc": 2,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 65,
+        "stars": 65,
+        "rarity": 3,
+        "subType": 102,
+        "icon": 58,
+        "name": "15.2cm連装砲",
+        "attr": {
+            "range": 2,
+            "fire": 4,
+            "aa": 3,
+            "acc": 3,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 5,
+        "stars": 5,
+        "rarity": 1,
+        "subType": 102,
+        "icon": 58,
+        "name": "15.5cm三連装砲(主砲)",
+        "attr": {
+            "range": 2,
+            "fire": 7,
+            "aa": 4,
+            "acc": 1,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 6,
+        "stars": 6,
+        "rarity": 1,
+        "subType": 102,
+        "icon": 58,
+        "name": "20.3cm連装砲",
+        "attr": {
+            "range": 2,
+            "fire": 8,
+            "aa": 3,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 90,
+        "stars": 90,
+        "rarity": 2,
+        "subType": 102,
+        "icon": 58,
+        "name": "20.3cm(2号)連装砲",
+        "attr": {
+            "range": 2,
+            "fire": 9,
+            "aa": 3,
+            "acc": 1,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 50,
+        "stars": 50,
+        "rarity": 3,
+        "subType": 102,
+        "icon": 58,
+        "name": "20.3cm(3号)連装砲",
+        "attr": {
+            "range": 2,
+            "fire": 10,
+            "aa": 4,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 123,
+        "stars": 123,
+        "rarity": 4,
+        "subType": 102,
+        "icon": 58,
+        "name": "SKC34 20.3cm連装砲",
+        "attr": {
+            "range": 2,
+            "fire": 10,
+            "aa": 2,
+            "acc": 3,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 139,
+        "stars": 139,
+        "rarity": 4,
+        "subType": 0,
+        "icon": 0,
+        "name": "15.2cm連装砲改",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {
+            "rank": "2015.4.1.500,2015.5.1.500,2015.7.1.500,2015.9.21.500,2015.12.1.500"
+        },
+        "remark": {}
+    },
+    {
+        "id": 7,
+        "stars": 7,
+        "rarity": 1,
+        "subType": 103,
+        "icon": 60,
+        "name": "35.6cm連装砲",
+        "attr": {
+            "range": 3,
+            "fire": 15,
+            "aa": 4,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 104,
+        "stars": 104,
+        "rarity": 3,
+        "subType": 103,
+        "icon": 60,
+        "name": "35.6cm連装砲(ダズル迷彩)",
+        "attr": {
+            "range": 3,
+            "fire": 15,
+            "aa": 5,
+            "acc": 1,
+            "as": 0,
+            "dodge": 1,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 76,
+        "stars": 76,
+        "rarity": 1,
+        "subType": 103,
+        "icon": 60,
+        "name": "38cm連装砲",
+        "attr": {
+            "range": 3,
+            "fire": 16,
+            "aa": 1,
+            "acc": 1,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 114,
+        "stars": 114,
+        "rarity": 3,
+        "subType": 103,
+        "icon": 60,
+        "name": "38cm連装砲改",
+        "attr": {
+            "range": 3,
+            "fire": 17,
+            "aa": 2,
+            "acc": 3,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 103,
+        "stars": 103,
+        "rarity": 5,
+        "subType": 103,
+        "icon": 60,
+        "name": "試製35.6cm三連装砲",
+        "attr": {
+            "range": 3,
+            "fire": 18,
+            "aa": 5,
+            "acc": 2,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {
+            "rank": "2014.6.1.5,2014.7.1.500,2014.8.1.500,2014.9.21.500,2015.5.21.100,2016.2.21.100",
+            "quest": "1040.1,2027.1",
+            "event": "2015.春.E1（丙）.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 133,
+        "stars": 133,
+        "rarity": 5,
+        "subType": 103,
+        "icon": 60,
+        "name": "381mm/50 三連装砲",
+        "attr": {
+            "range": 4,
+            "fire": 20,
+            "aa": 2,
+            "acc": 3,
+            "as": 0,
+            "dodge": 1,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {
+            "rank": "2015.3.1.500",
+            "event": "2015.春.E5（丙）.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 8,
+        "stars": 8,
+        "rarity": 2,
+        "subType": 103,
+        "icon": 60,
+        "name": "41cm連装砲",
+        "attr": {
+            "range": 3,
+            "fire": 20,
+            "aa": 4,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 105,
+        "stars": 105,
+        "rarity": 5,
+        "subType": 103,
+        "icon": 60,
+        "name": "試製41cm三連装砲",
+        "attr": {
+            "range": 3,
+            "fire": 22,
+            "aa": 5,
+            "acc": 2,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {
+            "rank": "2014.8.1.5,2014.9.1.20,2014.10.21.500,2014.11.1.100,2015.2.1.100,2015.5.1.20,2016.2.6.20",
+            "event": "2014.夏.E3.1,2014.夏.E6.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 117,
+        "stars": 117,
+        "rarity": 5,
+        "subType": 103,
+        "icon": 60,
+        "name": "試製46cm連装砲",
+        "attr": {
+            "range": 4,
+            "fire": 23,
+            "aa": 4,
+            "acc": 1,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {
+            "rank": "2014.9.1.100,2014.10.1.20,2014.11.1.500,2015.1.1.500,2015.6.21.500,2015.7.21.100,2015.11.101.500,2016.1.1.5,2016.1.21.500",
+            "event": "2015.春.E1（乙）.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 9,
+        "stars": 9,
+        "rarity": 3,
+        "subType": 103,
+        "icon": 60,
+        "name": "46cm連装砲",
+        "attr": {
+            "range": 4,
+            "fire": 26,
+            "aa": 5,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 128,
+        "stars": 128,
+        "rarity": 5,
+        "subType": 103,
+        "icon": 60,
+        "name": "試製51cm連装砲",
+        "attr": {
+            "range": 4,
+            "fire": 30,
+            "aa": 5,
+            "acc": 1,
+            "as": 0,
+            "dodge": 1,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {
+            "rank": "2015.6.1.20,2015.7.1.20,2015.9.1.100,2015.10.1.5,2015.11.1.100,2016.1.1.20",
+            "event": "2015.冬.E2（甲）.1,2015.春.E1（甲）.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 36,
+        "stars": 36,
+        "rarity": 2,
+        "subType": 104,
+        "icon": 80,
+        "name": "九一式徹甲弾",
+        "attr": {
+            "range": 0,
+            "fire": 8,
+            "aa": 0,
+            "acc": 1,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 116,
+        "stars": 116,
+        "rarity": 4,
+        "subType": 104,
+        "icon": 80,
+        "name": "一式徹甲弾",
+        "attr": {
+            "range": 0,
+            "fire": 9,
+            "aa": 0,
+            "acc": 2,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {
+            "quest": "2031.1,2032.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 137,
+        "stars": 137,
+        "rarity": 5,
+        "subType": 0,
+        "icon": 0,
+        "name": "381mm/50 三連装砲改",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {
+            "event": "2015.春.E4（甲乙）.1,2015.春.E5（甲乙）.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 161,
+        "stars": 161,
+        "rarity": 5,
+        "subType": 0,
+        "icon": 0,
+        "name": "16inch三連装砲 Mk.7",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {
+            "rank": "2015.12.1.500,2016.1.1.100,2016.2.1.5",
+            "event": "2016.冬.E1（甲）.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 162,
+        "stars": 162,
+        "rarity": 4,
+        "subType": 0,
+        "icon": 0,
+        "name": "203mm/53 連装砲",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 11,
+        "stars": 11,
+        "rarity": 1,
+        "subType": 205,
+        "icon": 62,
+        "name": "15.2cm単装砲",
+        "attr": {
+            "range": 2,
+            "fire": 2,
+            "aa": 0,
+            "acc": 1,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 66,
+        "stars": 66,
+        "rarity": 4,
+        "subType": 205,
+        "icon": 86,
+        "name": "8cm高角砲",
+        "attr": {
+            "range": 1,
+            "fire": 1,
+            "aa": 6,
+            "acc": 2,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 130,
+        "stars": 130,
+        "rarity": 4,
+        "subType": 205,
+        "icon": 86,
+        "name": "12.7cm高角砲＋高射装置",
+        "attr": {
+            "range": 1,
+            "fire": 1,
+            "aa": 8,
+            "acc": 1,
+            "as": 0,
+            "dodge": 1,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 71,
+        "stars": 71,
+        "rarity": 4,
+        "subType": 205,
+        "icon": 86,
+        "name": "10cm連装高角砲(砲架)",
+        "attr": {
+            "range": 1,
+            "fire": 1,
+            "aa": 7,
+            "acc": 1,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 10,
+        "stars": 10,
+        "rarity": 1,
+        "subType": 205,
+        "icon": 86,
+        "name": "12.7cm連装高角砲",
+        "attr": {
+            "range": 1,
+            "fire": 2,
+            "aa": 4,
+            "acc": 1,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 77,
+        "stars": 77,
+        "rarity": 1,
+        "subType": 205,
+        "icon": 62,
+        "name": "15cm連装副砲",
+        "attr": {
+            "range": 2,
+            "fire": 4,
+            "aa": 2,
+            "acc": 2,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 12,
+        "stars": 12,
+        "rarity": 2,
+        "subType": 205,
+        "icon": 62,
+        "name": "15.5cm三連装砲(副砲) ",
+        "attr": {
+            "range": 2,
+            "fire": 7,
+            "aa": 3,
+            "acc": 2,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 134,
+        "stars": 134,
+        "rarity": 4,
+        "subType": 0,
+        "icon": 0,
+        "name": "OTO 152mm三連装速射砲",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {
+            "event": "2015.春.E3（甲乙）.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 135,
+        "stars": 135,
+        "rarity": 4,
+        "subType": 0,
+        "icon": 0,
+        "name": "90mm単装高角砲",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {
+            "event": "2015.春.E4（甲乙）.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 160,
+        "stars": 160,
+        "rarity": 4,
+        "subType": 0,
+        "icon": 0,
+        "name": "10.5cm連装砲",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 13,
+        "stars": 13,
+        "rarity": 1,
+        "subType": 306,
+        "icon": 64,
+        "name": "61cm三連装魚雷",
+        "attr": {
+            "range": 1,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 5,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 14,
+        "stars": 14,
+        "rarity": 1,
+        "subType": 306,
+        "icon": 64,
+        "name": "61cm四連装魚雷",
+        "attr": {
+            "range": 1,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 7,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 125,
+        "stars": 125,
+        "rarity": 3,
+        "subType": 306,
+        "icon": 64,
+        "name": "61cm三連装(酸素)魚雷",
+        "attr": {
+            "range": 1,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 1,
+            "torpedo": 8,
+            "armor": 1,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 15,
+        "stars": 15,
+        "rarity": 2,
+        "subType": 306,
+        "icon": 64,
+        "name": "61cm四連装(酸素)魚雷",
+        "attr": {
+            "range": 1,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 10,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 58,
+        "stars": 58,
+        "rarity": 3,
+        "subType": 306,
+        "icon": 64,
+        "name": "61cm五連装(酸素)魚雷",
+        "attr": {
+            "range": 1,
+            "fire": 0,
+            "aa": 0,
+            "acc": 1,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 12,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 67,
+        "stars": 67,
+        "rarity": 2,
+        "subType": 306,
+        "icon": 64,
+        "name": "53cm艦首(酸素)魚雷",
+        "attr": {
+            "range": 1,
+            "fire": 0,
+            "aa": 0,
+            "acc": 2,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 15,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {
+            "rank": "2014.1.1.3",
+            "event": "2013.秋.E3.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 127,
+        "stars": 127,
+        "rarity": 5,
+        "subType": 307,
+        "icon": 64,
+        "name": "試製FaT仕様九五式酸素魚雷改",
+        "attr": {
+            "range": 1,
+            "fire": 0,
+            "aa": 0,
+            "acc": 7,
+            "as": 0,
+            "dodge": 2,
+            "torpedo": 14,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 95,
+        "stars": 95,
+        "rarity": 3,
+        "subType": 307,
+        "icon": 64,
+        "name": "潜水艦53cm艦首魚雷(8門)",
+        "attr": {
+            "range": 1,
+            "fire": 0,
+            "aa": 0,
+            "acc": 3,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 16,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {
+            "quest": "4013.1,4014.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 41,
+        "stars": 41,
+        "rarity": 2,
+        "subType": 407,
+        "icon": 64,
+        "name": "甲標的 甲",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 12,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {
+            "zh": "装备后可进行开幕雷击",
+            "ja": "装備時開幕雷撃"
+        }
+    },
+    {
+        "id": 68,
+        "stars": 68,
+        "rarity": 2,
+        "subType": 408,
+        "icon": 94,
+        "name": "大発動艇",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {
+            "zh": "装备后可增加远征收益5%（最大20%）",
+            "ja": "遠征報酬+5%（+20%まで累積あり）"
+        }
+    },
+    {
+        "id": 166,
+        "stars": 166,
+        "rarity": 3,
+        "subType": 0,
+        "icon": 0,
+        "name": "大発動艇(八九式中戦車 陸戦隊)",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {
+            "rank": "2016.2.1.500"
+        },
+        "remark": {
+            "zh": "装备后可增加远征收益2%（最大20%）",
+            "ja": "遠征報酬+2%（+20%まで累積あり）"
+        }
+    },
+    {
+        "id": 167,
+        "stars": 167,
+        "rarity": 4,
+        "subType": 0,
+        "icon": 0,
+        "name": "特二式内火艇",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {
+            "zh": "装备后可增加远征收益1%（最大20%）",
+            "ja": "遠征報酬+1%（+20%まで累積あり）"
+        }
+    },
+    {
+        "id": 16,
+        "stars": 16,
+        "rarity": 1,
+        "subType": 509,
+        "icon": 70,
+        "name": "九七式艦攻",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 4,
+            "dodge": 0,
+            "torpedo": 5,
+            "armor": 0,
+            "search": 1,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 82,
+        "stars": 82,
+        "rarity": 3,
+        "subType": 509,
+        "icon": 70,
+        "name": "九七式艦攻(九三一空)",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 7,
+            "dodge": 0,
+            "torpedo": 6,
+            "armor": 0,
+            "search": 2,
+            "bomb": 0
+        },
+        "get": {
+            "rank": "2014.2.21.500,2014.3.21.100,2014.4.101.500,2014.7.21.100,2015.2.21.500"
+        },
+        "remark": {}
+    },
+    {
+        "id": 17,
+        "stars": 17,
+        "rarity": 2,
+        "subType": 509,
+        "icon": 70,
+        "name": "天山",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 3,
+            "dodge": 0,
+            "torpedo": 7,
+            "armor": 0,
+            "search": 1,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 98,
+        "stars": 98,
+        "rarity": 3,
+        "subType": 509,
+        "icon": 70,
+        "name": "九七式艦攻(熟練)",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 2,
+            "as": 5,
+            "dodge": 0,
+            "torpedo": 8,
+            "armor": 0,
+            "search": 2,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 83,
+        "stars": 83,
+        "rarity": 3,
+        "subType": 509,
+        "icon": 70,
+        "name": "天山(九三一空)",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 8,
+            "dodge": 0,
+            "torpedo": 9,
+            "armor": 0,
+            "search": 2,
+            "bomb": 0
+        },
+        "get": {
+            "rank": "2014.2.1.20,2014.3.1.20,2014.4.1.100,2014.6.1.500,2014.7.1.20,2015.2.1.20,2015.8.21.500"
+        },
+        "remark": {}
+    },
+    {
+        "id": 18,
+        "stars": 18,
+        "rarity": 3,
+        "subType": 509,
+        "icon": 70,
+        "name": "流星",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 4,
+            "dodge": 0,
+            "torpedo": 10,
+            "armor": 0,
+            "search": 1,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 112,
+        "stars": 112,
+        "rarity": 3,
+        "subType": 509,
+        "icon": 70,
+        "name": "天山(六〇一空)",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 1,
+            "as": 4,
+            "dodge": 0,
+            "torpedo": 10,
+            "armor": 0,
+            "search": 2,
+            "bomb": 0
+        },
+        "get": {
+            "rank": "2014.11.21.500",
+            "event": "2015.冬.E2（丙）.1,2015.春.E3（乙丙）.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 93,
+        "stars": 93,
+        "rarity": 5,
+        "subType": 509,
+        "icon": 70,
+        "name": "九七式艦攻(友永隊)",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 1,
+            "acc": 3,
+            "as": 5,
+            "dodge": 0,
+            "torpedo": 11,
+            "armor": 0,
+            "search": 4,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 52,
+        "stars": 52,
+        "rarity": 4,
+        "subType": 509,
+        "icon": 70,
+        "name": "流星改",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 3,
+            "dodge": 0,
+            "torpedo": 13,
+            "armor": 0,
+            "search": 2,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 113,
+        "stars": 113,
+        "rarity": 4,
+        "subType": 509,
+        "icon": 70,
+        "name": "流星(六〇一空)",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 1,
+            "as": 5,
+            "dodge": 0,
+            "torpedo": 13,
+            "armor": 0,
+            "search": 3,
+            "bomb": 0
+        },
+        "get": {
+            "rank": "2014.10.1.5,2014.11.1.20,2014.12.1.500",
+            "event": "2015.冬.E2（甲乙）.1,2015.春.E3（甲）.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 94,
+        "stars": 94,
+        "rarity": 5,
+        "subType": 509,
+        "icon": 70,
+        "name": "天山一二型(友永隊)",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 1,
+            "acc": 3,
+            "as": 6,
+            "dodge": 0,
+            "torpedo": 14,
+            "armor": 0,
+            "search": 5,
+            "bomb": 0
+        },
+        "get": {
+            "quest": "6013.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 143,
+        "stars": 143,
+        "rarity": 4,
+        "subType": 0,
+        "icon": 0,
+        "name": "九七式艦攻(村田隊)",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {
+            "quest": "6019.1",
+            "event": "2015.夏.E3.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 144,
+        "stars": 144,
+        "rarity": 5,
+        "subType": 0,
+        "icon": 0,
+        "name": "天山一二型(村田隊)",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {
+            "quest": "31008.1,6020.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 19,
+        "stars": 19,
+        "rarity": 1,
+        "subType": 610,
+        "icon": 66,
+        "name": "九六式艦戦",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 2,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 20,
+        "stars": 20,
+        "rarity": 1,
+        "subType": 610,
+        "icon": 66,
+        "name": "零式艦戦21型",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 5,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 21,
+        "stars": 21,
+        "rarity": 2,
+        "subType": 610,
+        "icon": 66,
+        "name": "零式艦戦52型",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 6,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 96,
+        "stars": 96,
+        "rarity": 4,
+        "subType": 610,
+        "icon": 66,
+        "name": "零式艦戦21型(熟練)",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 8,
+            "acc": 2,
+            "as": 0,
+            "dodge": 2,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 1,
+            "bomb": 0
+        },
+        "get": {
+            "quest": "6022.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 55,
+        "stars": 55,
+        "rarity": 3,
+        "subType": 610,
+        "icon": 66,
+        "name": "紫電改二",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 9,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 109,
+        "stars": 109,
+        "rarity": 3,
+        "subType": 610,
+        "icon": 66,
+        "name": "零戦52型丙(六〇一空)",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 9,
+            "acc": 1,
+            "as": 0,
+            "dodge": 1,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {
+            "rank": "2014.12.21.500,2015.4.21.100",
+            "quest": "2054.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 22,
+        "stars": 22,
+        "rarity": 4,
+        "subType": 610,
+        "icon": 66,
+        "name": "烈風",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 10,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 110,
+        "stars": 110,
+        "rarity": 5,
+        "subType": 610,
+        "icon": 66,
+        "name": "烈風(六〇一空)",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 11,
+            "acc": 1,
+            "as": 0,
+            "dodge": 2,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {
+            "rank": "2014.11.1.5,2014.12.1.20",
+            "quest": "6015.1",
+            "event": "2015.冬.E1（甲乙）.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 53,
+        "stars": 53,
+        "rarity": 5,
+        "subType": 610,
+        "icon": 66,
+        "name": "烈風改",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 12,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {
+            "rank": "2015.4.1.20",
+            "event": "2014.春.E1.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 56,
+        "stars": 56,
+        "rarity": 5,
+        "subType": 610,
+        "icon": 66,
+        "name": "震電改",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 15,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {
+            "event": "2013.春.E4.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 152,
+        "stars": 152,
+        "rarity": 3,
+        "subType": 0,
+        "icon": 0,
+        "name": "零式艦戦52型(熟練)",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {
+            "quest": "6024.1,6025.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 153,
+        "stars": 153,
+        "rarity": 4,
+        "subType": 0,
+        "icon": 0,
+        "name": "零戦52型丙(付岩井小隊)",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {
+            "quest": "6026.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 155,
+        "stars": 155,
+        "rarity": 4,
+        "subType": 0,
+        "icon": 0,
+        "name": "零戦21型(付岩本小隊)",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {
+            "quest": "6028.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 156,
+        "stars": 156,
+        "rarity": 4,
+        "subType": 0,
+        "icon": 0,
+        "name": "零戦52型甲(付岩本小隊)",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {
+            "quest": "6029.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 157,
+        "stars": 157,
+        "rarity": 5,
+        "subType": 0,
+        "icon": 0,
+        "name": "零式艦戦53型(岩本隊)",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {
+            "quest": "6030.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 158,
+        "stars": 158,
+        "rarity": 4,
+        "subType": 0,
+        "icon": 0,
+        "name": "Bf109T改",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {
+            "event": "2015.秋.E4（乙）.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 159,
+        "stars": 159,
+        "rarity": 5,
+        "subType": 0,
+        "icon": 0,
+        "name": "Fw190T改",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {
+            "event": "2015.秋.E4（甲）.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 164,
+        "stars": 164,
+        "rarity": 4,
+        "subType": 0,
+        "icon": 0,
+        "name": "Ro.44水上戦闘機",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {
+            "rank": "2016.1.1.500"
+        },
+        "remark": {}
+    },
+    {
+        "id": 165,
+        "stars": 165,
+        "rarity": 2,
+        "subType": 0,
+        "icon": 0,
+        "name": "二式水戦改",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 60,
+        "stars": 60,
+        "rarity": 3,
+        "subType": 711,
+        "icon": 68,
+        "name": "零式艦戦62型(爆戦)",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 4,
+            "acc": 0,
+            "as": 3,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 4
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 23,
+        "stars": 23,
+        "rarity": 1,
+        "subType": 711,
+        "icon": 68,
+        "name": "九九式艦爆",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 3,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 5
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 97,
+        "stars": 97,
+        "rarity": 4,
+        "subType": 711,
+        "icon": 68,
+        "name": "九九式艦爆(熟練)",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 1,
+            "acc": 2,
+            "as": 4,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 2,
+            "bomb": 7
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 24,
+        "stars": 24,
+        "rarity": 2,
+        "subType": 711,
+        "icon": 68,
+        "name": "彗星",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 3,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 8
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 64,
+        "stars": 64,
+        "rarity": 3,
+        "subType": 711,
+        "icon": 68,
+        "name": "Ju87C改",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 1,
+            "as": 5,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 9
+        },
+        "get": {
+            "quest": "4006.1,4007.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 57,
+        "stars": 57,
+        "rarity": 3,
+        "subType": 711,
+        "icon": 68,
+        "name": "彗星一二型甲",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 3,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 1,
+            "bomb": 10
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 99,
+        "stars": 99,
+        "rarity": 5,
+        "subType": 711,
+        "icon": 68,
+        "name": "九九式艦爆(江草隊)",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 4,
+            "as": 5,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 3,
+            "bomb": 10
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 111,
+        "stars": 111,
+        "rarity": 3,
+        "subType": 711,
+        "icon": 68,
+        "name": "彗星(六〇一空)",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 1,
+            "as": 4,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 1,
+            "bomb": 11
+        },
+        "get": {
+            "event": "2015.春.E2（甲乙）.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 148,
+        "stars": 148,
+        "rarity": 5,
+        "subType": 0,
+        "icon": 0,
+        "name": "試製南山",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {
+            "rank": "2015.7.1.500,2015.8.1.20"
+        },
+        "remark": {}
+    },
+    {
+        "id": 100,
+        "stars": 100,
+        "rarity": 5,
+        "subType": 711,
+        "icon": 68,
+        "name": "彗星(江草隊)",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 1,
+            "acc": 4,
+            "as": 5,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 4,
+            "bomb": 13
+        },
+        "get": {
+            "quest": "6014.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 26,
+        "stars": 26,
+        "rarity": 2,
+        "subType": 712,
+        "icon": 74,
+        "name": "瑞雲",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 2,
+            "acc": 1,
+            "as": 4,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 6,
+            "bomb": 4
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 79,
+        "stars": 79,
+        "rarity": 3,
+        "subType": 712,
+        "icon": 74,
+        "name": "瑞雲(六三四空)",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 2,
+            "acc": 1,
+            "as": 5,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 6,
+            "bomb": 6
+        },
+        "get": {
+            "quest": "4010.1,4012.1,1060.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 80,
+        "stars": 80,
+        "rarity": 4,
+        "subType": 712,
+        "icon": 74,
+        "name": "瑞雲12型",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 3,
+            "acc": 1,
+            "as": 5,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 6,
+            "bomb": 7
+        },
+        "get": {
+            "rank": "2014.2.1.100,2014.3.4.500,2014.4.21.100,2014.5.21.500,2014.8.101.500,2015.1.21.500,2015.3.21.100,2015.10.21.500,2015.12.21.100"
+        },
+        "remark": {}
+    },
+    {
+        "id": 81,
+        "stars": 81,
+        "rarity": 3,
+        "subType": 712,
+        "icon": 74,
+        "name": "瑞雲12型(六三四空)",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 3,
+            "acc": 1,
+            "as": 6,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 7,
+            "bomb": 9
+        },
+        "get": {
+            "rank": "2014.3.1.3,2014.4.1.20,2014.5.1.20,2014.8.1.100,2015.1.1.20,2015.3.1.20,2015.10.1.20,2015.12.1.20"
+        },
+        "remark": {}
+    },
+    {
+        "id": 62,
+        "stars": 62,
+        "rarity": 5,
+        "subType": 712,
+        "icon": 74,
+        "name": "試製晴嵐",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 1,
+            "as": 6,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 6,
+            "bomb": 11
+        },
+        "get": {
+            "event": "2013.冬.E1.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 154,
+        "stars": 154,
+        "rarity": 5,
+        "subType": 0,
+        "icon": 0,
+        "name": "零戦62型(爆戦/岩井隊)",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {
+            "quest": "6027.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 163,
+        "stars": 163,
+        "rarity": 4,
+        "subType": 0,
+        "icon": 0,
+        "name": "Ro.43水偵",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {
+            "event": "2016.冬.E3（甲乙）.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 102,
+        "stars": 102,
+        "rarity": 4,
+        "subType": 813,
+        "icon": 74,
+        "name": "九八式水上偵察機(夜偵)",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 1,
+            "as": 1,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 3,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {
+            "zh": "夜战触接发动时，提升我方命中率以及火力",
+            "ja": "夜戦時に触接行動をし，味方艦隊の命中率、ダメージのみを上昇"
+        }
+    },
+    {
+        "id": 25,
+        "stars": 25,
+        "rarity": 1,
+        "subType": 813,
+        "icon": 74,
+        "name": "零式水上偵察機",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 1,
+            "acc": 1,
+            "as": 2,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 5,
+            "bomb": 1
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 115,
+        "stars": 115,
+        "rarity": 3,
+        "subType": 813,
+        "icon": 74,
+        "name": "Ar196改",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 1,
+            "acc": 2,
+            "as": 5,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 5,
+            "bomb": 1
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 59,
+        "stars": 59,
+        "rarity": 2,
+        "subType": 813,
+        "icon": 74,
+        "name": "零式水上観測機",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 2,
+            "acc": 2,
+            "as": 4,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 6,
+            "bomb": 1
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 118,
+        "stars": 118,
+        "rarity": 5,
+        "subType": 813,
+        "icon": 74,
+        "name": "紫雲",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 1,
+            "as": 2,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 8,
+            "bomb": 1
+        },
+        "get": {
+            "rank": "2014.9.1.500,2014.10.1.500,2014.12.1.100,2015.3.1.100,2015.4.1.500,2015.9.1.500,2016.2.1.500"
+        },
+        "remark": {}
+    },
+    {
+        "id": 61,
+        "stars": 61,
+        "rarity": 2,
+        "subType": 814,
+        "icon": 72,
+        "name": "二式艦上偵察機",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 1,
+            "acc": 3,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 7,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 54,
+        "stars": 54,
+        "rarity": 3,
+        "subType": 814,
+        "icon": 72,
+        "name": "彩雲",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 2,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 9,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {
+            "zh": "装备后可避免T不利",
+            "ja": "T字不利を反航戦にする"
+        }
+    },
+    {
+        "id": 138,
+        "stars": 138,
+        "rarity": 4,
+        "subType": 0,
+        "icon": 0,
+        "name": "二式大艇",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {
+            "event": "2015.春.E5（甲）.1,2015.春.E6（甲乙）.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 151,
+        "stars": 151,
+        "rarity": 5,
+        "subType": 0,
+        "icon": 0,
+        "name": "試製景雲(艦偵型)",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {
+            "rank": "2015.9.1.20,2015.10.1.500"
+        },
+        "remark": {}
+    },
+    {
+        "id": 70,
+        "stars": 70,
+        "rarity": 2,
+        "subType": 915,
+        "icon": 98,
+        "name": "三式指揮連絡機(対潜)",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 2,
+            "as": 7,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 1,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 69,
+        "stars": 69,
+        "rarity": 3,
+        "subType": 916,
+        "icon": 96,
+        "name": "カ号観測機",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 1,
+            "as": 9,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 27,
+        "stars": 27,
+        "rarity": 2,
+        "subType": 1017,
+        "icon": 76,
+        "name": "13号対空電探",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 2,
+            "acc": 1,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 3,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 106,
+        "stars": 106,
+        "rarity": 3,
+        "subType": 1017,
+        "icon": 76,
+        "name": "13号対空電探改",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 4,
+            "acc": 2,
+            "as": 0,
+            "dodge": 1,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 4,
+            "bomb": 0
+        },
+        "get": {
+            "event": "2014.夏.E3.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 28,
+        "stars": 28,
+        "rarity": 2,
+        "subType": 1017,
+        "icon": 76,
+        "name": "22号対水上電探",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 3,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 5,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 88,
+        "stars": 88,
+        "rarity": 4,
+        "subType": 1017,
+        "icon": 76,
+        "name": "22号対水上電探改四",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 8,
+            "as": 2,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 5,
+            "bomb": 0
+        },
+        "get": {
+            "rank": "2014.4.1.500,2014.5.1.500,2014.7.1.500,2014.12.1.5",
+            "quest": "1038.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 29,
+        "stars": 29,
+        "rarity": 3,
+        "subType": 1017,
+        "icon": 76,
+        "name": "33号対水上電探",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 5,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 7,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 30,
+        "stars": 30,
+        "rarity": 3,
+        "subType": 1018,
+        "icon": 76,
+        "name": "21号対空電探",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 4,
+            "acc": 2,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 4,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 89,
+        "stars": 89,
+        "rarity": 4,
+        "subType": 1018,
+        "icon": 76,
+        "name": "21号対空電探改",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 5,
+            "acc": 3,
+            "as": 0,
+            "dodge": 1,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 6,
+            "bomb": 0
+        },
+        "get": {
+            "rank": "2014.4.1.3,2014.5.1.3,2014.6.1.500,2014.8.1.100,2015.11.21.100"
+        },
+        "remark": {}
+    },
+    {
+        "id": 32,
+        "stars": 32,
+        "rarity": 5,
+        "subType": 1018,
+        "icon": 76,
+        "name": "14号対空電探",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 6,
+            "acc": 4,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 5,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 124,
+        "stars": 124,
+        "rarity": 5,
+        "subType": 1018,
+        "icon": 76,
+        "name": "FuMO25 レーダー",
+        "attr": {
+            "range": 0,
+            "fire": 3,
+            "aa": 7,
+            "acc": 10,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 9,
+            "bomb": 0
+        },
+        "get": {
+            "event": "2015.春.E6（甲）.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 31,
+        "stars": 31,
+        "rarity": 4,
+        "subType": 1018,
+        "icon": 76,
+        "name": "32号対水上電探",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 8,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 10,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 141,
+        "stars": 141,
+        "rarity": 5,
+        "subType": 0,
+        "icon": 0,
+        "name": "32号対水上電探改",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {
+            "rank": "2015.5.1.500,2015.7.1.5,2015.8.1.5"
+        },
+        "remark": {}
+    },
+    {
+        "id": 142,
+        "stars": 142,
+        "rarity": 5,
+        "subType": 0,
+        "icon": 0,
+        "name": "15m二重測距儀+21号電探改二",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {
+            "rank": "2015.6.1.100,2015.11.1.20"
+        },
+        "remark": {}
+    },
+    {
+        "id": 33,
+        "stars": 33,
+        "rarity": 1,
+        "subType": 1119,
+        "icon": 92,
+        "name": "改良型艦本式タービン",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 6,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 34,
+        "stars": 34,
+        "rarity": 2,
+        "subType": 1119,
+        "icon": 92,
+        "name": "強化型艦本式缶",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 10,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 87,
+        "stars": 87,
+        "rarity": 4,
+        "subType": 1119,
+        "icon": 92,
+        "name": "新型高温高圧缶",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 13,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {
+            "event": "2014.春.E4.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 37,
+        "stars": 37,
+        "rarity": 1,
+        "subType": 1220,
+        "icon": 84,
+        "name": "7.7mm機銃",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 2,
+            "acc": 0,
+            "as": 0,
+            "dodge": 1,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 38,
+        "stars": 38,
+        "rarity": 1,
+        "subType": 1220,
+        "icon": 84,
+        "name": "12.7mm単装機銃",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 3,
+            "acc": 0,
+            "as": 0,
+            "dodge": 1,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 39,
+        "stars": 39,
+        "rarity": 1,
+        "subType": 1220,
+        "icon": 84,
+        "name": "25mm連装機銃",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 5,
+            "acc": 0,
+            "as": 0,
+            "dodge": 1,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 40,
+        "stars": 40,
+        "rarity": 2,
+        "subType": 1220,
+        "icon": 84,
+        "name": "25mm三連装機銃",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 6,
+            "acc": 0,
+            "as": 0,
+            "dodge": 1,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 92,
+        "stars": 92,
+        "rarity": 1,
+        "subType": 1220,
+        "icon": 84,
+        "name": "毘式40mm連装機銃",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 6,
+            "acc": 0,
+            "as": 0,
+            "dodge": 1,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 51,
+        "stars": 51,
+        "rarity": 3,
+        "subType": 1220,
+        "icon": 84,
+        "name": "12cm30連装噴進砲",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 8,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 84,
+        "stars": 84,
+        "rarity": 4,
+        "subType": 1220,
+        "icon": 84,
+        "name": "2cm 四連装FlaK 38",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 7,
+            "acc": 1,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 85,
+        "stars": 85,
+        "rarity": 4,
+        "subType": 1220,
+        "icon": 84,
+        "name": "3.7cm FlaK M42",
+        "attr": {
+            "range": 0,
+            "fire": 1,
+            "aa": 8,
+            "acc": 1,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 131,
+        "stars": 131,
+        "rarity": 4,
+        "subType": 1220,
+        "icon": 84,
+        "name": "25mm三連装機銃 集中配備",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 9,
+            "acc": 0,
+            "as": 0,
+            "dodge": 1,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 35,
+        "stars": 35,
+        "rarity": 1,
+        "subType": 1221,
+        "icon": 78,
+        "name": "三式弾",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 5,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {
+            "quest": "2040.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 49,
+        "stars": 49,
+        "rarity": 2,
+        "subType": 0,
+        "icon": 0,
+        "name": "25mm単装機銃",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 44,
+        "stars": 44,
+        "rarity": 1,
+        "subType": 1322,
+        "icon": 88,
+        "name": "九四式爆雷投射機",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 5,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 45,
+        "stars": 45,
+        "rarity": 3,
+        "subType": 1322,
+        "icon": 88,
+        "name": "三式爆雷投射機",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 8,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 46,
+        "stars": 46,
+        "rarity": 1,
+        "subType": 1423,
+        "icon": 90,
+        "name": "九三式水中聴音機",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 1,
+            "as": 6,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 47,
+        "stars": 47,
+        "rarity": 3,
+        "subType": 1423,
+        "icon": 90,
+        "name": "三式水中探信儀",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 2,
+            "as": 10,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 149,
+        "stars": 149,
+        "rarity": 5,
+        "subType": 0,
+        "icon": 0,
+        "name": "四式水中聴音機",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {
+            "rank": "2015.8.1.500"
+        },
+        "remark": {}
+    },
+    {
+        "id": 132,
+        "stars": 132,
+        "rarity": 4,
+        "subType": 1423,
+        "icon": 90,
+        "name": "零式水中聴音機",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 1,
+            "as": 11,
+            "dodge": 1,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 1,
+            "bomb": 0
+        },
+        "get": {
+            "rank": "2015.2.1.500,2015.6.1.500,2015.9.1.5,2015.10.1.100"
+        },
+        "remark": {}
+    },
+    {
+        "id": 42,
+        "stars": 42,
+        "rarity": 1,
+        "subType": 1524,
+        "icon": 82,
+        "name": "応急修理要員",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {
+            "quest": "1010.1,1023.1,1025.1,1030.1,1032.1,1033.1,1091.1,2011.1,2016.1,2019.1,2029.1,4005.1",
+            "event": "2013.夏.E2.1,2013.秋.E3.1,2013.冬.E2.1,2014.春.E1.1,2014.夏.E2.1,2014.秋.E1.1,2015.冬.E2（乙丙）.1,2015.春.E3（乙丙）.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 43,
+        "stars": 43,
+        "rarity": 3,
+        "subType": 1524,
+        "icon": 82,
+        "name": "応急修理女神",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {
+            "event": "2013.春.E1.1,2013.夏.E2.1,2013.秋.E3.1,2014.春.E4.1,2014.夏.E4.1,2014.秋.E3.1,2015.春.E5（甲乙丙）.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 72,
+        "stars": 72,
+        "rarity": 3,
+        "subType": 1625,
+        "icon": 100,
+        "name": "増設バルジ(中型艦)",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 2,
+            "torpedo": 0,
+            "armor": 7,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 73,
+        "stars": 73,
+        "rarity": 2,
+        "subType": 1626,
+        "icon": 100,
+        "name": "増設バルジ(大型艦)",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 3,
+            "torpedo": 0,
+            "armor": 9,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 136,
+        "stars": 136,
+        "rarity": 4,
+        "subType": 0,
+        "icon": 0,
+        "name": "プリエーゼ式水中防御隔壁",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {
+            "event": "2015.春.E3（甲乙丙）.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 74,
+        "stars": 74,
+        "rarity": 1,
+        "subType": 1727,
+        "icon": 102,
+        "name": "探照灯",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 2,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 140,
+        "stars": 140,
+        "rarity": 3,
+        "subType": 0,
+        "icon": 0,
+        "name": "96式150cm探照灯",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 101,
+        "stars": 101,
+        "rarity": 2,
+        "subType": 1730,
+        "icon": 102,
+        "name": "照明弾",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 75,
+        "stars": 75,
+        "rarity": 1,
+        "subType": 1728,
+        "icon": 104,
+        "name": "ドラム缶(輸送用)",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {
+            "quest": "6011.3,6012.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 86,
+        "stars": 86,
+        "rarity": 3,
+        "subType": 1729,
+        "icon": 106,
+        "name": "艦艇修理施設",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {
+            "event": "2014.春.E4.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 108,
+        "stars": 108,
+        "rarity": 3,
+        "subType": 1731,
+        "icon": 106,
+        "name": "熟練艦載機整備員",
+        "attr": {
+            "range": 3,
+            "fire": 10,
+            "aa": 1,
+            "acc": 1,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 1,
+            "bomb": 0
+        },
+        "get": {
+            "quest": "2028.1",
+            "event": "2014.夏.E3.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 107,
+        "stars": 107,
+        "rarity": 3,
+        "subType": 1732,
+        "icon": 106,
+        "name": "艦隊司令部施設",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 1,
+            "acc": 1,
+            "as": 0,
+            "dodge": 1,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 1,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 120,
+        "stars": 120,
+        "rarity": 2,
+        "subType": 1733,
+        "icon": 102,
+        "name": "91式高射装置",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 2,
+            "acc": 0,
+            "as": 0,
+            "dodge": 1,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {
+            "quest": "4016.1",
+            "event": "2014.秋.E1.1,2014.秋.E2.1,2015.春.E2（甲）.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 121,
+        "stars": 121,
+        "rarity": 3,
+        "subType": 1733,
+        "icon": 102,
+        "name": "94式高射装置",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 3,
+            "acc": 0,
+            "as": 0,
+            "dodge": 1,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 126,
+        "stars": 126,
+        "rarity": 5,
+        "subType": 1734,
+        "icon": 102,
+        "name": "WG42(Wurfgerät 42)",
+        "attr": {
+            "range": 0,
+            "fire": 1,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {
+            "event": "2015.冬.E3（甲乙）.1,2015.春.E2（甲）.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 129,
+        "stars": 129,
+        "rarity": 4,
+        "subType": 1735,
+        "icon": 102,
+        "name": "熟練見張員",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 1,
+            "acc": 2,
+            "as": 0,
+            "dodge": 3,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 2,
+            "bomb": 0
+        },
+        "get": {
+            "rank": "2015.1.1.100",
+            "quest": "2407.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 145,
+        "stars": 145,
+        "rarity": 2,
+        "subType": 0,
+        "icon": 0,
+        "name": "戦闘糧食",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {
+            "quest": "31001.1,31002.1,31004.2,31009.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 150,
+        "stars": 150,
+        "rarity": 2,
+        "subType": 0,
+        "icon": 0,
+        "name": "秋刀魚の缶詰",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 146,
+        "stars": 146,
+        "rarity": 2,
+        "subType": 0,
+        "icon": 0,
+        "name": "洋上補給",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {
+            "quest": "31011.1"
+        },
+        "remark": {}
+    },
+    {
+        "id": 501,
+        "stars": 501,
+        "rarity": 0,
+        "subType": 101,
+        "icon": 0,
+        "name": "5inch単装砲",
+        "attr": {
+            "range": 1,
+            "fire": 1,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 502,
+        "stars": 502,
+        "rarity": 0,
+        "subType": 101,
+        "icon": 0,
+        "name": "5inch連装砲",
+        "attr": {
+            "range": 1,
+            "fire": 2,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 503,
+        "stars": 503,
+        "rarity": 2,
+        "subType": 101,
+        "icon": 0,
+        "name": "3inch単装高角砲",
+        "attr": {
+            "range": 1,
+            "fire": 1,
+            "aa": 1,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 550,
+        "stars": 550,
+        "rarity": 3,
+        "subType": 101,
+        "icon": 0,
+        "name": "5inch連装両用莢砲",
+        "attr": {
+            "range": 2,
+            "fire": 2,
+            "aa": 9,
+            "acc": 3,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 504,
+        "stars": 504,
+        "rarity": 0,
+        "subType": 102,
+        "icon": 0,
+        "name": "5inch単装高射砲",
+        "attr": {
+            "range": 2,
+            "fire": 2,
+            "aa": 2,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 505,
+        "stars": 505,
+        "rarity": 0,
+        "subType": 102,
+        "icon": 0,
+        "name": "8inch三連装砲",
+        "attr": {
+            "range": 2,
+            "fire": 8,
+            "aa": 2,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 506,
+        "stars": 506,
+        "rarity": 0,
+        "subType": 102,
+        "icon": 0,
+        "name": "6inch連装速射砲",
+        "attr": {
+            "range": 2,
+            "fire": 3,
+            "aa": 3,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 507,
+        "stars": 507,
+        "rarity": 0,
+        "subType": 103,
+        "icon": 0,
+        "name": "14inch連装砲",
+        "attr": {
+            "range": 3,
+            "fire": 10,
+            "aa": 4,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 508,
+        "stars": 508,
+        "rarity": 1,
+        "subType": 103,
+        "icon": 0,
+        "name": "16inch連装砲",
+        "attr": {
+            "range": 3,
+            "fire": 15,
+            "aa": 4,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 509,
+        "stars": 509,
+        "rarity": 2,
+        "subType": 103,
+        "icon": 0,
+        "name": "16inch三連装砲",
+        "attr": {
+            "range": 3,
+            "fire": 20,
+            "aa": 5,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 551,
+        "stars": 551,
+        "rarity": 4,
+        "subType": 103,
+        "icon": 0,
+        "name": "20inch連装砲",
+        "attr": {
+            "range": 3,
+            "fire": 27,
+            "aa": 4,
+            "acc": 3,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 552,
+        "stars": 552,
+        "rarity": 2,
+        "subType": 103,
+        "icon": 0,
+        "name": "15inch要塞砲",
+        "attr": {
+            "range": 3,
+            "fire": 13,
+            "aa": 0,
+            "acc": 4,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 3,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 536,
+        "stars": 536,
+        "rarity": 1,
+        "subType": 104,
+        "icon": 0,
+        "name": "劣化徹甲弾",
+        "attr": {
+            "range": 0,
+            "fire": 15,
+            "aa": 0,
+            "acc": 5,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 510,
+        "stars": 510,
+        "rarity": 0,
+        "subType": 205,
+        "icon": 0,
+        "name": "5inch単装高射砲",
+        "attr": {
+            "range": 1,
+            "fire": 1,
+            "aa": 2,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 511,
+        "stars": 511,
+        "rarity": 0,
+        "subType": 205,
+        "icon": 0,
+        "name": "6inch単装砲",
+        "attr": {
+            "range": 2,
+            "fire": 1,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 512,
+        "stars": 512,
+        "rarity": 1,
+        "subType": 205,
+        "icon": 0,
+        "name": "12.5inch連装副砲",
+        "attr": {
+            "range": 2,
+            "fire": 7,
+            "aa": 3,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 513,
+        "stars": 513,
+        "rarity": 0,
+        "subType": 306,
+        "icon": 0,
+        "name": "21inch魚雷前期型",
+        "attr": {
+            "range": 1,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 2,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 514,
+        "stars": 514,
+        "rarity": 0,
+        "subType": 306,
+        "icon": 0,
+        "name": "21inch魚雷後期型",
+        "attr": {
+            "range": 1,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 5,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 515,
+        "stars": 515,
+        "rarity": 1,
+        "subType": 306,
+        "icon": 0,
+        "name": "高速深海魚雷",
+        "attr": {
+            "range": 1,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 10,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 516,
+        "stars": 516,
+        "rarity": 0,
+        "subType": 509,
+        "icon": 0,
+        "name": "深海棲艦攻",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 2,
+            "dodge": 0,
+            "torpedo": 4,
+            "armor": 0,
+            "search": 5,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 517,
+        "stars": 517,
+        "rarity": 1,
+        "subType": 509,
+        "icon": 0,
+        "name": "深海棲艦攻 Mark.II",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 4,
+            "dodge": 0,
+            "torpedo": 6,
+            "armor": 0,
+            "search": 5,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 518,
+        "stars": 518,
+        "rarity": 2,
+        "subType": 509,
+        "icon": 0,
+        "name": "深海棲艦攻 Mark.III",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 4,
+            "acc": 0,
+            "as": 7,
+            "dodge": 0,
+            "torpedo": 11,
+            "armor": 0,
+            "search": 5,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 549,
+        "stars": 549,
+        "rarity": 3,
+        "subType": 509,
+        "icon": 0,
+        "name": "深海復讐艦攻",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 4,
+            "acc": 2,
+            "as": 5,
+            "dodge": 0,
+            "torpedo": 13,
+            "armor": 0,
+            "search": 5,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 519,
+        "stars": 519,
+        "rarity": 0,
+        "subType": 610,
+        "icon": 0,
+        "name": "深海棲艦戦",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 2,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 520,
+        "stars": 520,
+        "rarity": 0,
+        "subType": 610,
+        "icon": 0,
+        "name": "深海棲艦戦 Mark.II",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 5,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 521,
+        "stars": 521,
+        "rarity": 1,
+        "subType": 610,
+        "icon": 0,
+        "name": "深海棲艦戦 Mark.III",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 9,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 522,
+        "stars": 522,
+        "rarity": 3,
+        "subType": 610,
+        "icon": 0,
+        "name": "飛び魚艦戦",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 13,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 547,
+        "stars": 547,
+        "rarity": 3,
+        "subType": 610,
+        "icon": 0,
+        "name": "深海猫艦戦",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 10,
+            "acc": 1,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 523,
+        "stars": 523,
+        "rarity": 0,
+        "subType": 711,
+        "icon": 0,
+        "name": "深海棲艦爆",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 1,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 3
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 524,
+        "stars": 524,
+        "rarity": 1,
+        "subType": 711,
+        "icon": 0,
+        "name": "深海棲艦爆 Mark.II",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 2,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 6
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 546,
+        "stars": 546,
+        "rarity": 3,
+        "subType": 711,
+        "icon": 0,
+        "name": "飛び魚艦爆",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 8,
+            "acc": 0,
+            "as": 7,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 10
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 548,
+        "stars": 548,
+        "rarity": 3,
+        "subType": 711,
+        "icon": 0,
+        "name": "深海地獄艦爆",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 3,
+            "as": 4,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 3,
+            "bomb": 11
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 525,
+        "stars": 525,
+        "rarity": 0,
+        "subType": 813,
+        "icon": 0,
+        "name": "深海棲艦偵察機",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 1,
+            "acc": 0,
+            "as": 1,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 5,
+            "bomb": 1
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 526,
+        "stars": 526,
+        "rarity": 1,
+        "subType": 813,
+        "icon": 0,
+        "name": "飛び魚偵察機",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 2,
+            "acc": 0,
+            "as": 2,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 10,
+            "bomb": 4
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 527,
+        "stars": 527,
+        "rarity": 1,
+        "subType": 1017,
+        "icon": 0,
+        "name": "対空レーダ― Mark.I",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 5,
+            "acc": 5,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 5,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 528,
+        "stars": 528,
+        "rarity": 1,
+        "subType": 1017,
+        "icon": 0,
+        "name": "水上レーダ― Mark.I",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 10,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 5,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 529,
+        "stars": 529,
+        "rarity": 2,
+        "subType": 1017,
+        "icon": 0,
+        "name": "水上レーダ― Mark.II",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 15,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 10,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 530,
+        "stars": 530,
+        "rarity": 2,
+        "subType": 1018,
+        "icon": 0,
+        "name": "対空レーダ― Mark.II",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 10,
+            "acc": 5,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 10,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 531,
+        "stars": 531,
+        "rarity": 3,
+        "subType": 1018,
+        "icon": 0,
+        "name": "深海水上レーダー",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 5,
+            "acc": 24,
+            "as": 5,
+            "dodge": 3,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 16,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 532,
+        "stars": 532,
+        "rarity": 4,
+        "subType": 1018,
+        "icon": 0,
+        "name": "深海対空レーダー",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 18,
+            "acc": 16,
+            "as": 5,
+            "dodge": 2,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 12,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 533,
+        "stars": 533,
+        "rarity": 0,
+        "subType": 1119,
+        "icon": 0,
+        "name": "改良型深海タービン",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 10,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 534,
+        "stars": 534,
+        "rarity": 1,
+        "subType": 1119,
+        "icon": 0,
+        "name": "強化型深海缶",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 15,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 537,
+        "stars": 537,
+        "rarity": 0,
+        "subType": 1220,
+        "icon": 0,
+        "name": "12.7mm機銃",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 2,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 538,
+        "stars": 538,
+        "rarity": 0,
+        "subType": 1220,
+        "icon": 0,
+        "name": "20mm機銃",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 4,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 539,
+        "stars": 539,
+        "rarity": 1,
+        "subType": 1220,
+        "icon": 0,
+        "name": "40mm二連装機関砲",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 8,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 540,
+        "stars": 540,
+        "rarity": 2,
+        "subType": 1220,
+        "icon": 0,
+        "name": "40mm四連装機関砲",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 12,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 535,
+        "stars": 535,
+        "rarity": 0,
+        "subType": 1221,
+        "icon": 0,
+        "name": "対空散弾",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 10,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 541,
+        "stars": 541,
+        "rarity": 4,
+        "subType": 407,
+        "icon": 0,
+        "name": "深海烏賊魚雷",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 5,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 18,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 542,
+        "stars": 542,
+        "rarity": 2,
+        "subType": 1322,
+        "icon": 0,
+        "name": "深海爆雷投射機",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 7,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 544,
+        "stars": 544,
+        "rarity": 3,
+        "subType": 1322,
+        "icon": 0,
+        "name": "深海爆雷投射機 Mk.II",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 13,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 543,
+        "stars": 543,
+        "rarity": 2,
+        "subType": 1423,
+        "icon": 0,
+        "name": "深海ソナー",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 9,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 545,
+        "stars": 545,
+        "rarity": 3,
+        "subType": 1423,
+        "icon": 0,
+        "name": "深海ソナー Mk.II",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 16,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 553,
+        "stars": 553,
+        "rarity": 4,
+        "subType": 0,
+        "icon": 0,
+        "name": "4inch連装両用砲+CIC",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 554,
+        "stars": 554,
+        "rarity": 2,
+        "subType": 0,
+        "icon": 0,
+        "name": "深海水上攻撃機",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 555,
+        "stars": 555,
+        "rarity": 4,
+        "subType": 0,
+        "icon": 0,
+        "name": "深海水上攻撃機改",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 556,
+        "stars": 556,
+        "rarity": 4,
+        "subType": 0,
+        "icon": 0,
+        "name": "深海猫艦戦改",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 557,
+        "stars": 557,
+        "rarity": 4,
+        "subType": 0,
+        "icon": 0,
+        "name": "深海地獄艦爆改",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 558,
+        "stars": 558,
+        "rarity": 4,
+        "subType": 0,
+        "icon": 0,
+        "name": "深海復讐艦攻改",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 559,
+        "stars": 559,
+        "rarity": 3,
+        "subType": 0,
+        "icon": 0,
+        "name": "深海FCS+CIC",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 560,
+        "stars": 560,
+        "rarity": 1,
+        "subType": 0,
+        "icon": 0,
+        "name": "深海探照灯",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 561,
+        "stars": 561,
+        "rarity": 2,
+        "subType": 0,
+        "icon": 0,
+        "name": "深海解放陸爆",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 562,
+        "stars": 562,
+        "rarity": 3,
+        "subType": 0,
+        "icon": 0,
+        "name": "深海解放陸爆Ace",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 563,
+        "stars": 563,
+        "rarity": 4,
+        "subType": 0,
+        "icon": 0,
+        "name": "8inch長射程連装砲",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 564,
+        "stars": 564,
+        "rarity": 3,
+        "subType": 0,
+        "icon": 0,
+        "name": "深海水上偵察観測機",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 565,
+        "stars": 565,
+        "rarity": 2,
+        "subType": 0,
+        "icon": 0,
+        "name": "5inch沿岸設置砲",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 566,
+        "stars": 566,
+        "rarity": 3,
+        "subType": 0,
+        "icon": 0,
+        "name": "深海猫艦戦(爆装)",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    },
+    {
+        "id": 567,
+        "stars": 567,
+        "rarity": 3,
+        "subType": 0,
+        "icon": 0,
+        "name": "沿岸設置レーダー",
+        "attr": {
+            "range": 0,
+            "fire": 0,
+            "aa": 0,
+            "acc": 0,
+            "as": 0,
+            "dodge": 0,
+            "torpedo": 0,
+            "armor": 0,
+            "search": 0,
+            "bomb": 0
+        },
+        "get": {},
+        "remark": {}
+    }
+]
