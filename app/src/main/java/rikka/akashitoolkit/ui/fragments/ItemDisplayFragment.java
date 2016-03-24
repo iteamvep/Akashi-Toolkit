@@ -9,8 +9,11 @@ import android.view.ViewGroup;
 
 import com.avos.avoscloud.AVAnalytics;
 
+import java.util.Map;
+
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.ViewPagerAdapter;
+import rikka.akashitoolkit.staticdata.ItemTypeList;
 import rikka.akashitoolkit.ui.MainActivity;
 
 /**
@@ -62,7 +65,16 @@ public class ItemDisplayFragment extends BaseFragmet {
                 return bundle;
             }
         };
-        adapter.addFragment(ItemFragment.class, "全部");
+
+        for (int i = 0; i < ItemTypeList.getsParentList(getContext()).size(); i++) {
+            for (Map.Entry<String, Integer> entry:
+                    ItemTypeList.getsParentList(getContext()).entrySet()){
+                if (i == entry.getValue()) {
+                    adapter.addFragment(ItemFragment.class, entry.getKey());
+                }
+            }
+        }
+
 
         return adapter;
     }

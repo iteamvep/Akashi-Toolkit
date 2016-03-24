@@ -12,7 +12,9 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import rikka.akashitoolkit.model.ItemType;
 
@@ -23,6 +25,7 @@ public class ItemTypeList {
     private static final String FILE_NAME = "ItemType.json";
 
     private static List<ItemType> sList;
+    private static Map<String, Integer> sParentList;
 
     public static synchronized List<ItemType> get(Context context) {
         if (sList == null) {
@@ -33,12 +36,21 @@ public class ItemTypeList {
                 Reader reader = new InputStreamReader(ims);
                 Type listType = new TypeToken<ArrayList<ItemType>>() {}.getType();
                 sList = gson.fromJson(reader, listType);
+
+                generateParentList(context);
             } catch (IOException e) {
                 e.printStackTrace();
                 sList = new ArrayList<>();
             }
         }
         return sList;
+    }
+
+    public static synchronized Map<String, Integer> getsParentList(Context context) {
+        if (sParentList == null) {
+            get(context);
+        }
+        return sParentList;
     }
 
     public static ItemType findItemById(Context context, int id) {
@@ -49,5 +61,21 @@ public class ItemTypeList {
             }
         }
         return null;
+    }
+
+    private static void generateParentList(Context context) {
+        if (sParentList != null) {
+            return;
+        }
+
+        sParentList = new HashMap<>();
+
+        for (ItemType item:
+                get(context)) {
+
+            if (sParentList.get(item.getParent()) == null) {
+                sParentList.put(item.getParent(), sParentList.size());
+            }
+        }
     }
 }

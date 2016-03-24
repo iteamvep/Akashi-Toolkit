@@ -1,6 +1,7 @@
 package rikka.akashitoolkit.adapter;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.support.v7.widget.RecyclerView;
@@ -8,11 +9,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.model.Item;
 import rikka.akashitoolkit.staticdata.ItemList;
+import rikka.akashitoolkit.staticdata.ItemTypeList;
 import rikka.akashitoolkit.ui.ItemDisplayActivity;
 
 /**
@@ -21,10 +24,28 @@ import rikka.akashitoolkit.ui.ItemDisplayActivity;
 public class ItemAdapter extends RecyclerView.Adapter<ViewHolder.Item> {
     private List<Item> mData;
     private Activity mActivity;
+    private int mType;
 
-    public ItemAdapter(Activity activity) {
+    public ItemAdapter(Activity activity, int type) {
         mActivity = activity;
-        mData = ItemList.get(activity);
+        mType = type;
+        mData = new ArrayList<>();
+
+        rebuildDataList(activity);
+    }
+
+    public void rebuildDataList(Context context) {
+        mData.clear();
+
+        for (Item item :
+                ItemList.get(context)) {
+
+            if ((ItemTypeList.getsParentList(context).get(ItemTypeList.findItemById(context, item.getIcon()).getParent()) == mType)) {
+                mData.add(item);
+            }
+        }
+
+        notifyDataSetChanged();
     }
 
     @Override
