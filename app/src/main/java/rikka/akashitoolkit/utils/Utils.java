@@ -1,6 +1,7 @@
 package rikka.akashitoolkit.utils;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.content.res.Resources;
 
 import java.io.File;
@@ -43,5 +44,9 @@ public class Utils {
 
     public static int dpToPx(int dp) {
         return (int) (dp * Resources.getSystem().getDisplayMetrics().density);
+    }
+
+    public static boolean isNightMode(Resources resources) {
+        return ((resources.getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_YES) > 0);
     }
 }

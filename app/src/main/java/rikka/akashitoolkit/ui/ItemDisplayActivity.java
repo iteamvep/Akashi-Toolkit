@@ -2,11 +2,13 @@ package rikka.akashitoolkit.ui;
 
 import android.animation.Animator;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.TypedValue;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
@@ -17,6 +19,7 @@ import android.widget.TextView;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.model.Item;
 import rikka.akashitoolkit.staticdata.ItemList;
+import rikka.akashitoolkit.utils.Utils;
 
 public class ItemDisplayActivity extends AppCompatActivity {
     public static final String EXTRA_ITEM_ID = "EXTRA_ITEM_ID";
@@ -143,7 +146,14 @@ public class ItemDisplayActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_clear_24dp);
+
+        if (Utils.isNightMode(getResources())) {
+            getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_clear_24dp);
+            mToolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
+        } else {
+            getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_clear_24dp_dark);
+            mToolbar.setTitleTextColor(Color.parseColor("#000000"));
+        }
 
         if (mItem.getName() != null) {
             getSupportActionBar().setTitle(mItem.getName());
@@ -214,6 +224,7 @@ public class ItemDisplayActivity extends AppCompatActivity {
     private void addTextView(ViewGroup parent, String text) {
         TextView textView = new TextView(this);
         textView.setText(text);
+        textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
         parent.addView(textView);
     }
 
