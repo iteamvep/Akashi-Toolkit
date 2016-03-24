@@ -29,7 +29,7 @@ public class ItemFragment extends Fragment {
         }
 
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
-        recyclerView.setAdapter(new ItemAdapter(getContext()));
+        recyclerView.setAdapter(new ItemAdapter(getActivity()));
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         layoutManager.setAutoMeasureEnabled(false);
         recyclerView.setLayoutManager(layoutManager);

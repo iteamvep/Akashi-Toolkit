@@ -83,11 +83,13 @@ public class ViewHolder {
 
     public static class Item extends RecyclerView.ViewHolder {
         protected TextView mName;
+        protected ImageView mImageView;
 
         public Item(View itemView) {
             super(itemView);
 
             mName = (TextView) itemView.findViewById(R.id.textView);
+            mImageView = (ImageView) itemView.findViewById(R.id.imageView);
         }
     }
 }

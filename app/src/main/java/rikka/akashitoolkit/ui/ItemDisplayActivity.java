@@ -1,11 +1,16 @@
 package rikka.akashitoolkit.ui;
 
+import android.animation.Animator;
 import android.content.Intent;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.AccelerateInterpolator;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -15,48 +20,145 @@ import rikka.akashitoolkit.staticdata.ItemList;
 
 public class ItemDisplayActivity extends AppCompatActivity {
     public static final String EXTRA_ITEM_ID = "EXTRA_ITEM_ID";
+    public static final String EXTRA_START_Y = "EXTRA_START_Y";
+    public static final String EXTRA_START_HEIGHT = "EXTRA_START_HEIGHT";
+
+    private static final int ANIM_DURATION = 200;
+    private static final int ANIM_DURATION_EXIT = 200;
+    private static final int ANIM_DURATION_TEXT_FADE = 150;
 
     private Toolbar mToolbar;
     private LinearLayout mLinearLayout;
+    private CoordinatorLayout mCoordinatorLayout;
+    private AppBarLayout mAppBarLayout;
+    private Item mItem;
+
+    private int mItemHeight;
+    private int mItemY;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_item_display);
+
+        /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS);
+            getWindow().setEnterTransition(new Explode());
+            getWindow().setExitTransition(new Explode());
+        }*/
 
         int id;
         Intent intent = getIntent();
         if (intent.hasExtra(EXTRA_ITEM_ID)) {
             id = intent.getIntExtra(EXTRA_ITEM_ID, 0);
+            mItemY =  intent.getIntExtra(EXTRA_START_Y, 0);
+            mItemHeight = intent.getIntExtra(EXTRA_START_HEIGHT, 0);
         } else {
             finish();
             return;
         }
 
-        Item item = ItemList.findItemById(this, id);
+        setContentView(R.layout.activity_item_display);
 
+        mCoordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinatorLayout);
+        mLinearLayout = (LinearLayout) findViewById(R.id.linearLayout);
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        mAppBarLayout = (AppBarLayout) findViewById(R.id.appBarLayout);
+
+        mCoordinatorLayout.post(new Runnable() {
+            @Override
+            public void run() {
+                mCoordinatorLayout.setTranslationY(mItemY - mCoordinatorLayout.getHeight() / 2);
+                mCoordinatorLayout.setScaleY((float) mItemHeight / (mCoordinatorLayout.getHeight()));
+
+                mCoordinatorLayout
+                        .animate()
+                        .setDuration(ANIM_DURATION)
+                        .scaleY(1)
+                        .translationY(0)
+                        .setInterpolator(new AccelerateDecelerateInterpolator())
+                        .setListener(new Animator.AnimatorListener() {
+                            @Override
+                            public void onAnimationStart(Animator animation) {
+
+                            }
+
+                            @Override
+                            public void onAnimationEnd(Animator animation) {
+                                setViews();
+                            }
+
+                            @Override
+                            public void onAnimationCancel(Animator animation) {
+
+                            }
+
+                            @Override
+                            public void onAnimationRepeat(Animator animation) {
+
+                            }
+                        })
+                        .start();
+            }
+        });
+        /*mCoordinatorLayout.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+            @Override
+            public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+                mCoordinatorLayout.removeOnLayoutChangeListener(this);
+
+
+            }
+        });*/
+
+
+
+
+
+        mItem = ItemList.findItemById(this, id);
+    }
+
+    private void setViews() {
+        /*mCoordinatorLayout
+                        .setScaleY(0.5f);*/
+
+        mAppBarLayout
+                .setAlpha(0.2f);
+
+        mAppBarLayout
+                .animate()
+                .setDuration(ANIM_DURATION_TEXT_FADE)
+                .setInterpolator(new AccelerateDecelerateInterpolator())
+                .alpha(1)
+                .start();
+
+        mLinearLayout
+                .setAlpha(0.2f);
+        mLinearLayout
+                .animate()
+                .setDuration(ANIM_DURATION_TEXT_FADE)
+                .setInterpolator(new AccelerateDecelerateInterpolator())
+                .alpha(1)
+                .start();
+
         setSupportActionBar(mToolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_clear_24dp);
 
-        mLinearLayout = (LinearLayout) findViewById(R.id.linearLayout);
-
-        if (item.getName() != null) {
-            getSupportActionBar().setTitle(item.getName());
+        if (mItem.getName() != null) {
+            getSupportActionBar().setTitle(mItem.getName());
         }
-        addTextView(mLinearLayout, formatStars(item.getRarity()));
-        addAttrTextView(mLinearLayout, "火力", item.getAttr().getFire());
-        addAttrTextView(mLinearLayout, "对空", item.getAttr().getAa());
-        addAttrTextView(mLinearLayout, "命中", item.getAttr().getAcc());
-        addAttrTextView(mLinearLayout, "雷装", item.getAttr().getTorpedo());
-        addAttrTextView(mLinearLayout, "爆装", item.getAttr().getBomb());
-        addAttrTextView(mLinearLayout, "对潜", item.getAttr().getAs());
-        addAttrTextView(mLinearLayout, "回避", item.getAttr().getDodge());
-        addAttrTextView(mLinearLayout, "索敌", item.getAttr().getSearch());
-        addRangeTextView(mLinearLayout, "射程", item.getAttr().getRange());
+        addTextView(mLinearLayout, String.format("No. %d", mItem.getId()));
+        addTextView(mLinearLayout, formatStars(mItem.getRarity()));
+        addAttrTextView(mLinearLayout, "火力", mItem.getAttr().getFire());
+        addAttrTextView(mLinearLayout, "对空", mItem.getAttr().getAa());
+        addAttrTextView(mLinearLayout, "命中", mItem.getAttr().getAcc());
+        addAttrTextView(mLinearLayout, "雷装", mItem.getAttr().getTorpedo());
+        addAttrTextView(mLinearLayout, "爆装", mItem.getAttr().getBomb());
+        addAttrTextView(mLinearLayout, "对潜", mItem.getAttr().getAs());
+        addAttrTextView(mLinearLayout, "回避", mItem.getAttr().getDodge());
+        addAttrTextView(mLinearLayout, "索敌", mItem.getAttr().getSearch());
+        addRangeTextView(mLinearLayout, "射程", mItem.getAttr().getRange());
     }
 
     @Override
@@ -113,5 +215,59 @@ public class ItemDisplayActivity extends AppCompatActivity {
         TextView textView = new TextView(this);
         textView.setText(text);
         parent.addView(textView);
+    }
+
+    private void animExit() {
+        mCoordinatorLayout.removeAllViews();
+        mCoordinatorLayout.setScaleY(1);
+        mCoordinatorLayout.setTranslationY(0);
+        mCoordinatorLayout.setAlpha(1);
+
+        /*mCoordinatorLayout.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mCoordinatorLayout
+                        .animate()
+                        //.setStartDelay((int) (ANIM_DURATION_EXIT * 0.95))
+                        .setDuration((int) (ANIM_DURATION_EXIT * 0.2))
+                        .alpha(0.2f)
+                        .start();
+            }
+        }, (int) (ANIM_DURATION_EXIT * 0.8));*/
+
+        mCoordinatorLayout
+                .animate()
+                .setDuration(ANIM_DURATION_EXIT)
+                .scaleY((float) mItemHeight / mCoordinatorLayout.getHeight())
+                .translationY(mItemY - mCoordinatorLayout.getHeight() / 2)
+                .setInterpolator(new AccelerateInterpolator())
+                .setListener(new Animator.AnimatorListener() {
+                    @Override
+                    public void onAnimationStart(Animator animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        finish();
+                        overridePendingTransition(0, 0);
+                    }
+
+                    @Override
+                    public void onAnimationCancel(Animator animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animator animation) {
+
+                    }
+                })
+                .start();
+    }
+
+    @Override
+    public void onBackPressed() {
+        animExit();
     }
 }

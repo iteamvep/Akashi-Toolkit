@@ -62,7 +62,7 @@ public class ItemDisplayFragment extends BaseFragmet {
                 return bundle;
             }
         };
-        adapter.addFragment(ItemFragment.class, "数据的锅 没有图标和分类");
+        adapter.addFragment(ItemFragment.class, "全部");
 
         return adapter;
     }
