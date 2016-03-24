@@ -22,6 +22,7 @@ import android.widget.TextView;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.model.Item;
+import rikka.akashitoolkit.staticdata.ItemTypeList;
 import rikka.akashitoolkit.staticdata.ItemList;
 import rikka.akashitoolkit.utils.Utils;
 
@@ -177,7 +178,7 @@ public class ItemDisplayActivity extends AppCompatActivity {
         if (mItem.getName() != null) {
             getSupportActionBar().setTitle(mItem.getName());
         }
-        addTextView(mLinearLayout, String.format("No. %d", mItem.getId()));
+        addTextView(mLinearLayout, String.format("No. %d %s", mItem.getId(), ItemTypeList.findItemById(this, mItem.getIcon()).getName()));
         addTextView(mLinearLayout, formatStars(mItem.getRarity()));
         addAttrTextView(mLinearLayout, "火力", mItem.getAttr().getFire());
         addAttrTextView(mLinearLayout, "对空", mItem.getAttr().getAa());
