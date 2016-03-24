@@ -14,6 +14,12 @@
     <dimen name="card_quest_subtitle_min_width">60dp</dimen>
     <dimen name="card_font_small">12sp</dimen>
 
+    <!-- Card margin -->
+    <dimen name="card_home_margin_vertical">-2dp</dimen>
+    <dimen name="card_home_margin_horizontal">2dp</dimen>
+    <dimen name="card_twitter_margin_vertical">-2dp</dimen>
+    <dimen name="card_twitter_margin_horizontal">0dp</dimen>
+
     <!-- Right drawer -->
     <dimen name="drawer_header">56dp</dimen>
     <dimen name="drawer_item">48dp</dimen>

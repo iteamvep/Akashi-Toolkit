@@ -1,10 +1,14 @@
 package rikka.akashitoolkit.ui;
 
 import android.animation.Animator;
+import android.animation.ArgbEvaluator;
+import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -66,6 +70,21 @@ public class ItemDisplayActivity extends AppCompatActivity {
         mLinearLayout = (LinearLayout) findViewById(R.id.linearLayout);
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         mAppBarLayout = (AppBarLayout) findViewById(R.id.appBarLayout);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            colorAnimation(
+                    ContextCompat.getColor(this, android.R.color.transparent),
+                    ContextCompat.getColor(this, R.color.colorItemDisplayStatusBar),
+                    ANIM_DURATION,
+                    new ValueAnimator.AnimatorUpdateListener() {
+                        @Override
+                        public void onAnimationUpdate(ValueAnimator animator) {
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                                getWindow().setStatusBarColor((int) animator.getAnimatedValue());
+                            }
+                        }
+                    });
+        }
 
         mCoordinatorLayout.post(new Runnable() {
             @Override
@@ -229,6 +248,21 @@ public class ItemDisplayActivity extends AppCompatActivity {
     }
 
     private void animExit() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            colorAnimation(
+                    ContextCompat.getColor(this, R.color.colorItemDisplayStatusBar),
+                    ContextCompat.getColor(this, android.R.color.transparent),
+                    ANIM_DURATION_EXIT,
+                    new ValueAnimator.AnimatorUpdateListener() {
+                        @Override
+                        public void onAnimationUpdate(ValueAnimator animator) {
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                                getWindow().setStatusBarColor((int) animator.getAnimatedValue());
+                            }
+                        }
+                    });
+        }
+
         mCoordinatorLayout.removeAllViews();
         mCoordinatorLayout.setScaleY(1);
         mCoordinatorLayout.setTranslationY(0);
@@ -280,5 +314,12 @@ public class ItemDisplayActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         animExit();
+    }
+
+    void colorAnimation(int colorFrom, int colorTo, int duration, ValueAnimator.AnimatorUpdateListener listener) {
+        ValueAnimator colorAnimation = ValueAnimator.ofObject(new ArgbEvaluator(), colorFrom, colorTo);
+        colorAnimation.setDuration(duration);
+        colorAnimation.addUpdateListener(listener);
+        colorAnimation.start();
     }
 }

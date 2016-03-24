@@ -6,7 +6,7 @@
     <color name="colorPrimary">@color/material_grey_900</color>
     <color name="colorPrimaryDark">#141414</color>
     <color name="colorAccent">#8c9eff</color>
-
+    <color name="colorItemDisplayStatusBar">#141414</color>
 
     <color name="questCardBackground0">#C8E6C9</color>
     <color name="questCardBackground1">#EF9A9A</color>

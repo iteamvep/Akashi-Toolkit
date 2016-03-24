@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Card margin -->
+    <dimen name="card_home_margin_vertical">4dp</dimen>
+    <dimen name="card_home_margin_horizontal">8dp</dimen>
+    <dimen name="card_twitter_margin_vertical">4dp</dimen>
+    <dimen name="card_twitter_margin_horizontal">4dp</dimen>
+</resources>
