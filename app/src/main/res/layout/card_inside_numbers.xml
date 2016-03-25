@@ -25,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="2dp"
-            android:paddingStart="2dp"
+            android:paddingRight="2dp"
             android:textSize="@dimen/card_font_medium"
             android:gravity="center_vertical"
             tools:text="0"/>
@@ -48,7 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="2dp"
-            android:paddingStart="2dp"
+            android:paddingRight="2dp"
             android:textSize="@dimen/card_font_medium"
             android:gravity="center_vertical"
             tools:text="0"/>
@@ -71,7 +71,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="2dp"
-            android:paddingStart="2dp"
+            android:paddingRight="2dp"
             android:textSize="@dimen/card_font_medium"
             android:gravity="center_vertical"
             tools:text="0"/>
@@ -94,7 +94,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="2dp"
-            android:paddingStart="2dp"
+            android:paddingRight="2dp"
             android:textSize="@dimen/card_font_medium"
             android:gravity="center_vertical"
             tools:text="0"/>

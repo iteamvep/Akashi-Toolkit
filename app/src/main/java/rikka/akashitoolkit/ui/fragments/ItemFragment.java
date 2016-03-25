@@ -1,10 +1,12 @@
 package rikka.akashitoolkit.ui.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,8 +35,22 @@ public class ItemFragment extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         layoutManager.setAutoMeasureEnabled(false);
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.addItemDecoration(new BaseRecyclerViewItemDecoration(getContext()));
+        //recyclerView.addItemDecoration(new ItemDecoration(getContext()));
 
         return view;
     }
+
+    /*private class ItemDecoration extends BaseRecyclerViewItemDecoration {
+        public ItemDecoration(Context context) {
+            super(context);
+        }
+
+        @Override
+        public boolean canDraw(RecyclerView parent, View child, int childCount, int position) {
+            View view = parent.getChildAt(position + 1);
+            boolean result = view != null && child.findViewById(android.R.id.title) != null && child.findViewById(android.R.id.title).getVisibility() == View.VISIBLE;
+            Log.d("QAQ", Integer.toString(position) + " " + Boolean.toString(result));
+            return result;
+        }
+    }*/
 }

@@ -1,5 +1,6 @@
 package rikka.akashitoolkit.ui.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -30,7 +31,7 @@ public class ItemImprovementFragment extends Fragment {
         }
 
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
-        recyclerView.setAdapter(new ItemImprovementAdapter(getContext(), type));
+        recyclerView.setAdapter(new ItemImprovementAdapter(getActivity(), type));
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         layoutManager.setAutoMeasureEnabled(false);
         recyclerView.setLayoutManager(layoutManager);

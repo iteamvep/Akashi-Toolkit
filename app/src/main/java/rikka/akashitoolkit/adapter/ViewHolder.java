@@ -4,6 +4,7 @@ import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import rikka.akashitoolkit.R;
@@ -82,12 +83,22 @@ public class ViewHolder {
     }
 
     public static class Item extends RecyclerView.ViewHolder {
+        protected LinearLayout mLinearLayout;
+        protected View mDivider;
+        protected View mDummyView;
+        protected View mDummyView2;
         protected TextView mName;
+        protected TextView mTitle;
         protected ImageView mImageView;
 
         public Item(View itemView) {
             super(itemView);
 
+            mDivider = itemView.findViewById(R.id.divider);
+            mDummyView = itemView.findViewById(R.id.dummy_view);
+            mDummyView2 = itemView.findViewById(R.id.dummy_view2);
+            mLinearLayout = (LinearLayout) itemView.findViewById(R.id.linearLayout);
+            mTitle = (TextView) itemView.findViewById(android.R.id.title);
             mName = (TextView) itemView.findViewById(R.id.textView);
             mImageView = (ImageView) itemView.findViewById(R.id.imageView);
         }

@@ -123,7 +123,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="12dp"
                     android:layout_marginStart="12dp"
-                    layout="@layout/card_inside_reward"/>
+                    layout="@layout/card_inside_reward2"/>
 
             </LinearLayout>
 

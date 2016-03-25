@@ -1,9 +1,11 @@
 package rikka.akashitoolkit.adapter;
 
 import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -56,6 +58,23 @@ public class ItemAdapter extends RecyclerView.Adapter<ViewHolder.Item> {
 
     @Override
     public void onBindViewHolder(final ViewHolder.Item holder, final int position) {
+        String curType = ItemTypeList.findItemById(holder.mTitle.getContext(), mData.get(position).getIcon()).getName();
+        boolean showTitle = position <= 0 || !curType.equals(ItemTypeList.findItemById(holder.mTitle.getContext(), mData.get(position - 1).getIcon()).getName());
+
+        if (showTitle) {
+            holder.mTitle.setText(curType);
+            holder.mTitle.setVisibility(View.VISIBLE);
+        } else {
+            holder.mTitle.setVisibility(View.GONE);
+        }
+
+        boolean showDivider = position < mData.size() - 1
+                && curType.equals(ItemTypeList.findItemById(holder.mTitle.getContext(), mData.get(position + 1).getIcon()).getName());
+
+        holder.mDivider.setVisibility(showDivider ? View.VISIBLE : View.GONE);
+        holder.mDummyView.setVisibility(!showDivider ? View.VISIBLE : View.GONE);
+        holder.mDummyView2.setVisibility(showTitle && position != 0 ? View.VISIBLE : View.GONE);
+
         holder.mName.setText(mData.get(position).getName());
 
         Resources resources = holder.itemView.getContext().getResources();
@@ -63,23 +82,25 @@ public class ItemAdapter extends RecyclerView.Adapter<ViewHolder.Item> {
                 holder.itemView.getContext().getPackageName());
         holder.mImageView.setImageResource(resourceId);
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+        holder.mLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), ItemDisplayActivity.class);
                 intent.putExtra(ItemDisplayActivity.EXTRA_ITEM_ID, mData.get(position).getId());
 
-                int[] loaction = new int[2];
-                holder.itemView.getLocationOnScreen(loaction);
-                intent.putExtra(ItemDisplayActivity.EXTRA_START_Y, loaction[1]);
-                intent.putExtra(ItemDisplayActivity.EXTRA_START_HEIGHT, holder.itemView.getHeight());
+                int[] location = new int[2];
+                holder.mLinearLayout.getLocationOnScreen(location);
+                intent.putExtra(ItemDisplayActivity.EXTRA_START_Y, location[1]);
+                intent.putExtra(ItemDisplayActivity.EXTRA_START_HEIGHT, holder.mLinearLayout.getHeight());
                 /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     v.getContext().startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(mActivity).toBundle());
                 } else {
                     v.getContext().startActivity(intent);
                 }*/
-                v.getContext().startActivity(intent);
+                // API 16+.....
+                //v.getContext().startActivity(intent, ActivityOptions.makeCustomAnimation(v.getContext(), 0, 0).toBundle());
 
+                v.getContext().startActivity(intent);
                 mActivity.overridePendingTransition(0, 0);
             }
         });

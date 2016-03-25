@@ -1,34 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:tools="http://schemas.android.com/tools"
-              android:orientation="horizontal"
-              android:foreground="?attr/selectableItemBackground"
-              android:background="@color/cardBackground"
+              android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="@dimen/item_height"
-              android:paddingLeft="12dp"
-              android:paddingRight="12dp"
-              android:paddingTop="8dp"
-              android:paddingBottom="8dp">
+              android:layout_height="wrap_content">
+    <View
+        android:id="@+id/dummy_view2"
+        android:layout_width="match_parent"
+        android:layout_height="4dp">
+    </View>
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:contentDescription="@null"
-        android:src="@drawable/item_type_1"
-        android:scaleType="fitCenter"
-        android:layout_gravity="center_vertical"/>
-
-    <TextView
-        android:id="@+id/textView"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="12cm単装砲"
-        android:textAppearance="@style/TextAppearance.AppCompat"
-        android:gravity="center_vertical"
-        android:layout_gravity="center_vertical"/>
+        android:orientation="vertical"
+        android:background="@color/cardBackground"
+        android:elevation="2dp">
+
+        <TextView
+            android:id="@android:id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="?attr/colorAccent"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            tools:text="小口径主炮"/>
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/item_height"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:foreground="?attr/selectableItemBackground">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="@null"
+                android:src="@drawable/item_type_1"
+                android:scaleType="fitCenter"
+                android:layout_gravity="center_vertical"/>
+
+            <TextView
+                android:id="@+id/textView"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="12cm単装砲"
+                android:textSize="14sp"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="52dp"
+            android:layout_marginStart="52dp"
+            android:foreground="@drawable/line_divider">
+        </View>
+
+    </LinearLayout>
+
+
+    <View
+        android:id="@+id/dummy_view"
+        android:layout_width="match_parent"
+        android:layout_height="4dp">
+    </View>
 
 </LinearLayout>

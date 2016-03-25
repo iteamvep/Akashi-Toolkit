@@ -97,7 +97,7 @@ public class ExpeditionAdapter extends RecyclerView.Adapter<ViewHolder.Expeditio
         String text = mData.get(position).getCost(id);
         if (text != null &&text.length() > 0) {
             ((LinearLayout)holder.mConsumeText[id].getParent()).setVisibility(View.VISIBLE);
-            holder.mConsumeText[id].setText(text + "%");
+            holder.mConsumeText[id].setText(String.format("%s%%", text));
         } else {
             ((LinearLayout)holder.mConsumeText[id].getParent()).setVisibility(View.GONE);
         }
@@ -105,9 +105,10 @@ public class ExpeditionAdapter extends RecyclerView.Adapter<ViewHolder.Expeditio
 
     private void setRewardText(ViewHolder.Expedition holder, int position, int id) {
         String text = mData.get(position).getAward(id);
-        if (text != null &&text.length() > 0) {
+        if (text != null && text.length() > 0) {
             ((LinearLayout)holder.mRewardText[id].getParent()).setVisibility(View.VISIBLE);
-            holder.mRewardText[id].setText(text);
+            float rewardPreHour = Float.parseFloat(text) / (float) mData.get(position).getTime() * 60;
+            holder.mRewardText[id].setText(String.format("%s\n%d/h", text, (int) rewardPreHour));
         } else {
             ((LinearLayout)holder.mRewardText[id].getParent()).setVisibility(View.GONE);
         }
