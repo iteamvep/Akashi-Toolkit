@@ -22,6 +22,8 @@ import android.widget.TextView;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.model.Item;
+import rikka.akashitoolkit.model.ItemImprovement;
+import rikka.akashitoolkit.staticdata.ItemImprovementList;
 import rikka.akashitoolkit.staticdata.ItemTypeList;
 import rikka.akashitoolkit.staticdata.ItemList;
 import rikka.akashitoolkit.utils.Utils;
@@ -72,6 +74,145 @@ public class ItemDisplayActivity extends AppCompatActivity {
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         mAppBarLayout = (AppBarLayout) findViewById(R.id.appBarLayout);
 
+        if (savedInstanceState == null) {
+            animEnter();
+        } else {
+            setViews();
+        }
+
+
+        mItem = ItemList.findItemById(this, id);
+    }
+
+    private void setViews() {
+        mAppBarLayout
+                .setAlpha(0.2f);
+
+        mAppBarLayout
+                .animate()
+                .setDuration(ANIM_DURATION_TEXT_FADE)
+                .setInterpolator(new AccelerateDecelerateInterpolator())
+                .alpha(1)
+                .start();
+
+        mLinearLayout
+                .setAlpha(0.2f);
+        mLinearLayout
+                .animate()
+                .setDuration(ANIM_DURATION_TEXT_FADE)
+                .setInterpolator(new AccelerateDecelerateInterpolator())
+                .alpha(1)
+                .start();
+
+        setSupportActionBar(mToolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+
+        if (Utils.isNightMode(getResources())) {
+            getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_clear_24dp);
+            mToolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
+        } else {
+            getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_clear_24dp_dark);
+            mToolbar.setTitleTextColor(Color.parseColor("#000000"));
+        }
+
+        if (mItem.getName() != null) {
+            getSupportActionBar().setTitle(mItem.getName());
+        }
+
+        addTextView(mLinearLayout, String.format("No. %d %s", mItem.getId(), ItemTypeList.findItemById(this, mItem.getIcon()).getName()));
+        addTextView(mLinearLayout, formatStars(mItem.getRarity()));
+        addAttrTextView(mLinearLayout, "火力", mItem.getAttr().getFire());
+        addAttrTextView(mLinearLayout, "对空", mItem.getAttr().getAa());
+        addAttrTextView(mLinearLayout, "命中", mItem.getAttr().getAcc());
+        addAttrTextView(mLinearLayout, "雷装", mItem.getAttr().getTorpedo());
+        addAttrTextView(mLinearLayout, "爆装", mItem.getAttr().getBomb());
+        addAttrTextView(mLinearLayout, "对潜", mItem.getAttr().getAs());
+        addAttrTextView(mLinearLayout, "回避", mItem.getAttr().getDodge());
+        addAttrTextView(mLinearLayout, "索敌", mItem.getAttr().getSearch());
+        addRangeTextView(mLinearLayout, "射程", mItem.getAttr().getRange());
+        addTextView(mLinearLayout, formatItemImprovement());
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private static final String[] DAY = {"日", "一", "二", "三", "四", "五", "六"};
+
+    private String formatItemImprovement() {
+        StringBuilder sb = new StringBuilder();
+        ItemImprovement itemImprovement = ItemImprovementList.findItemById(this, mItem.getId());
+        if (itemImprovement == null || itemImprovement.getSecretary() == null) {
+            return "";
+        }
+
+        for (ItemImprovement.SecretaryEntity entry:
+                itemImprovement.getSecretary()) {
+            for (int i = 0; i < entry.getDay().size(); i++) {
+                sb.append(entry.getDay().get(i) ? DAY[i] : "__");
+            }
+            sb.append("    ").append(entry.getName()).append("\n");
+        }
+
+        return sb.toString();
+    }
+
+    private String formatStars(int value) {
+        String star = "";
+        while (value > 0) {
+            star += "★";
+            value --;
+        }
+        return star;
+    }
+
+    private void addRangeTextView(ViewGroup parent, String attrName, int value) {
+        if (value == 0) {
+            return;
+        }
+
+        addTextView(parent, formatRangeString(attrName, value));
+    }
+
+    private String formatRangeString(String attrName, int value) {
+        String range = "";
+        switch (value) {
+            case 1: range = "短"; break;
+            case 2: range = "中"; break;
+            case 3: range = "长"; break;
+            case 4: range = "超长"; break;
+        }
+        return String.format("%s: %s", attrName, range);
+    }
+
+    private void addAttrTextView(ViewGroup parent, String attrName, int value) {
+        if (value == 0) {
+            return;
+        }
+
+        addTextView(parent, formatAttrString(attrName, value));
+    }
+
+    private String formatAttrString(String attrName, int value) {
+        return String.format("%s: %s%d", attrName, value > 0 ? "+" : "", value);
+    }
+
+    private void addTextView(ViewGroup parent, String text) {
+        TextView textView = new TextView(this);
+        textView.setText(text);
+        textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+        parent.addView(textView);
+    }
+
+    private void animEnter() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             colorAnimation(
                     ContextCompat.getColor(this, android.R.color.transparent),
@@ -123,129 +264,6 @@ public class ItemDisplayActivity extends AppCompatActivity {
                         .start();
             }
         });
-        /*mCoordinatorLayout.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
-            @Override
-            public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
-                mCoordinatorLayout.removeOnLayoutChangeListener(this);
-
-
-            }
-        });*/
-
-
-
-
-
-        mItem = ItemList.findItemById(this, id);
-    }
-
-    private void setViews() {
-        /*mCoordinatorLayout
-                        .setScaleY(0.5f);*/
-
-        mAppBarLayout
-                .setAlpha(0.2f);
-
-        mAppBarLayout
-                .animate()
-                .setDuration(ANIM_DURATION_TEXT_FADE)
-                .setInterpolator(new AccelerateDecelerateInterpolator())
-                .alpha(1)
-                .start();
-
-        mLinearLayout
-                .setAlpha(0.2f);
-        mLinearLayout
-                .animate()
-                .setDuration(ANIM_DURATION_TEXT_FADE)
-                .setInterpolator(new AccelerateDecelerateInterpolator())
-                .alpha(1)
-                .start();
-
-        setSupportActionBar(mToolbar);
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
-
-        if (Utils.isNightMode(getResources())) {
-            getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_clear_24dp);
-            mToolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
-        } else {
-            getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_clear_24dp_dark);
-            mToolbar.setTitleTextColor(Color.parseColor("#000000"));
-        }
-
-        if (mItem.getName() != null) {
-            getSupportActionBar().setTitle(mItem.getName());
-        }
-        addTextView(mLinearLayout, String.format("No. %d %s", mItem.getId(), ItemTypeList.findItemById(this, mItem.getIcon()).getName()));
-        addTextView(mLinearLayout, formatStars(mItem.getRarity()));
-        addAttrTextView(mLinearLayout, "火力", mItem.getAttr().getFire());
-        addAttrTextView(mLinearLayout, "对空", mItem.getAttr().getAa());
-        addAttrTextView(mLinearLayout, "命中", mItem.getAttr().getAcc());
-        addAttrTextView(mLinearLayout, "雷装", mItem.getAttr().getTorpedo());
-        addAttrTextView(mLinearLayout, "爆装", mItem.getAttr().getBomb());
-        addAttrTextView(mLinearLayout, "对潜", mItem.getAttr().getAs());
-        addAttrTextView(mLinearLayout, "回避", mItem.getAttr().getDodge());
-        addAttrTextView(mLinearLayout, "索敌", mItem.getAttr().getSearch());
-        addRangeTextView(mLinearLayout, "射程", mItem.getAttr().getRange());
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                onBackPressed();
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    private String formatStars(int value) {
-        String star = "";
-        while (value > 0) {
-            star += "★";
-            value --;
-        }
-        return star;
-    }
-
-    private void addRangeTextView(ViewGroup parent, String attrName, int value) {
-        if (value == 0) {
-            return;
-        }
-
-        addTextView(parent, formatRangeString(attrName, value));
-    }
-
-    private String formatRangeString(String attrName, int value) {
-        String range = "";
-        switch (value) {
-            case 1: range = "短"; break;
-            case 2: range = "中"; break;
-            case 3: range = "长"; break;
-            case 4: range = "超长"; break;
-        }
-        return String.format("%s: %s", attrName, range);
-    }
-
-    private void addAttrTextView(ViewGroup parent, String attrName, int value) {
-        if (value == 0) {
-            return;
-        }
-
-        addTextView(parent, formatAttrString(attrName, value));
-    }
-
-    private String formatAttrString(String attrName, int value) {
-        return String.format("%s: %s%d", attrName, value > 0 ? "+" : "", value);
-    }
-
-    private void addTextView(ViewGroup parent, String text) {
-        TextView textView = new TextView(this);
-        textView.setText(text);
-        textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
-        parent.addView(textView);
     }
 
     private void animExit() {
@@ -268,18 +286,6 @@ public class ItemDisplayActivity extends AppCompatActivity {
         mCoordinatorLayout.setScaleY(1);
         mCoordinatorLayout.setTranslationY(0);
         mCoordinatorLayout.setAlpha(1);
-
-        /*mCoordinatorLayout.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                mCoordinatorLayout
-                        .animate()
-                        //.setStartDelay((int) (ANIM_DURATION_EXIT * 0.95))
-                        .setDuration((int) (ANIM_DURATION_EXIT * 0.2))
-                        .alpha(0.2f)
-                        .start();
-            }
-        }, (int) (ANIM_DURATION_EXIT * 0.8));*/
 
         mCoordinatorLayout
                 .animate()

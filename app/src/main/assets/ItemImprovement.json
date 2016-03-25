@@ -6,7 +6,7 @@
         "icon": 1,
         "secretary": [
             {
-                "name": "無",
+                "name": "无要求",
                 "day": [true, true, true, true, true, true, true]
             }
         ]
@@ -50,7 +50,7 @@
         "icon": 2,
         "secretary": [
             {
-                "name": "無",
+                "name": "无要求",
                 "day": [true, true, true, true, true, true, true]
             }
         ]
@@ -430,7 +430,7 @@
         "icon": 5,
         "secretary": [
             {
-                "name": "無",
+                "name": "无要求",
                 "day": [true, true, true, false, false, true, true]
             }
         ]
@@ -718,7 +718,7 @@
         "icon": 17,
         "secretary": [
             {
-                "name": "無",
+                "name": "无要求",
                 "day": [false, false, false, true, true, false, false]
             }
         ]
