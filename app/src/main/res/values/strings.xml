@@ -68,5 +68,7 @@
     <string name="item">Item</string>
     <string name="attributes">Attributes</string>
     <string name="item_improvement_data">Item improvement</string>
+    <string name="remark">Remark</string>
+    <string name="item_get">Achieving approach</string>
 
 </resources>

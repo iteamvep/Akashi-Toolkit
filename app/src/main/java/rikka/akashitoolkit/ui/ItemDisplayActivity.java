@@ -31,6 +31,7 @@ import rikka.akashitoolkit.model.ItemImprovement;
 import rikka.akashitoolkit.staticdata.ItemImprovementList;
 import rikka.akashitoolkit.staticdata.ItemTypeList;
 import rikka.akashitoolkit.staticdata.ItemList;
+import rikka.akashitoolkit.staticdata.QuestList;
 import rikka.akashitoolkit.utils.Utils;
 
 public class ItemDisplayActivity extends AppCompatActivity {
@@ -40,7 +41,8 @@ public class ItemDisplayActivity extends AppCompatActivity {
 
     private static final int ANIM_DURATION = 200;
     private static final int ANIM_DURATION_EXIT = 200;
-    private static final int ANIM_DURATION_TEXT_FADE = 300;
+    private static final int ANIM_DURATION_TEXT_FADE = 150;
+    private static final int ANIM_DURATION_TEXT_FADE_DELAY = 150;
 
     private Toolbar mToolbar;
     private LinearLayout mLinearLayout;
@@ -51,7 +53,6 @@ public class ItemDisplayActivity extends AppCompatActivity {
     private int mItemHeight;
     private int mItemY;
     private LinearLayout mItemAttrContainer;
-    private LinearLayout mItemImprovementContainer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,8 +87,6 @@ public class ItemDisplayActivity extends AppCompatActivity {
         mLinearLayout = (LinearLayout) findViewById(R.id.linearLayout);
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         mAppBarLayout = (AppBarLayout) findViewById(R.id.appBarLayout);
-        mItemAttrContainer = (LinearLayout) findViewById(R.id.itemAttrContainer);
-        mItemImprovementContainer = (LinearLayout) findViewById(R.id.itemImprovementContainer);
 
         if (savedInstanceState == null) {
             animEnter();
@@ -99,19 +98,21 @@ public class ItemDisplayActivity extends AppCompatActivity {
 
     private void setViews() {
         mAppBarLayout
-                .setAlpha(0.2f);
+                .setAlpha(0.0f);
 
         mAppBarLayout
                 .animate()
+                .setStartDelay(ANIM_DURATION_TEXT_FADE_DELAY)
                 .setDuration(ANIM_DURATION_TEXT_FADE)
                 .setInterpolator(new AccelerateDecelerateInterpolator())
                 .alpha(1)
                 .start();
 
         mLinearLayout
-                .setAlpha(0.2f);
+                .setAlpha(0.0f);
         mLinearLayout
                 .animate()
+                .setStartDelay(ANIM_DURATION_TEXT_FADE_DELAY)
                 .setDuration(ANIM_DURATION_TEXT_FADE)
                 .setInterpolator(new AccelerateDecelerateInterpolator())
                 .alpha(1)
@@ -148,9 +149,12 @@ public class ItemDisplayActivity extends AppCompatActivity {
         addAttrView(mItemAttrContainer, "对潜", mItem.getAttr().getAs(), R.drawable.item_attr_asw);
         addAttrView(mItemAttrContainer, "回避", mItem.getAttr().getDodge(), R.drawable.item_attr_dodge);
         addAttrView(mItemAttrContainer, "索敌", mItem.getAttr().getSearch(), R.drawable.item_attr_search);
+        addAttrView(mItemAttrContainer, "装甲", mItem.getAttr().getArmor(), R.drawable.item_attr_armor);
         addAttrView(mItemAttrContainer, "射程", mItem.getAttr().getRange(), R.drawable.item_attr_range);
 
-        addItemImprovementView(mItemImprovementContainer);
+        addItemImprovementView();
+
+        addOther(mLinearLayout);
     }
 
     @Override
@@ -163,12 +167,73 @@ public class ItemDisplayActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void addItemImprovementView(ViewGroup parent) {
+    private void addOther(ViewGroup parent) {
+        if (mItem.getRemark() != null && mItem.getRemark().getZh() != null) {
+            ViewGroup cell = addCell(parent, R.string.remark);
+            addTextView(cell, mItem.getRemark().getZh()).setPadding(0, Utils.dpToPx(4), 0, 0);
+        }
+
+        if (mItem.getGet().getQuest() != null ||
+                mItem.getGet().getRank() != null ||
+                mItem.getGet().getEvent() != null) {
+            ViewGroup cell = addCell(parent, R.string.item_get);
+
+            if (mItem.getGet().getQuest() != null) {
+                StringBuilder sb = new StringBuilder();
+                //sb.append(getString(R.string.quest)).append(":\n");
+
+                for (String item:
+                    mItem.getGet().getQuest().split(",")) {
+                    int id = (int) Float.parseFloat(item);
+                    QuestList.Quest quest = QuestList.findItemById(this, id);
+                    sb.append(quest.getCode()).append(' ').append(quest.getTitle()).append('\n');
+                }
+
+                addTextView(cell, sb.toString());
+            }
+
+
+            if (mItem.getGet().getEvent() != null) {
+                StringBuilder sb = new StringBuilder();
+
+                //sb.append(getString(R.string.quest)).append(":\n");
+
+                for (String item:
+                        mItem.getGet().getEvent().split(",")) {
+                    sb.append(item).append('\n');
+                }
+
+                addTextView(cell, sb.toString());
+            }
+
+
+            if (mItem.getGet().getRank() != null) {
+                //sb.append(mItem.getGet().getRank());
+                StringBuilder sb = new StringBuilder();
+                for (String item:
+                        mItem.getGet().getRank().split(",")) {
+                    sb.append(item).append('\n');
+                }
+
+                addTextView(cell, sb.toString());
+            }
+        }
+    }
+
+    private ViewGroup addCell(ViewGroup parent, int ResId) {
+        ViewGroup view = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.content_item_display_cell, null);
+        ((TextView) view.findViewById(android.R.id.title)).setText(ResId);
+        parent.addView(view);
+        return view;
+    }
+
+    private void addItemImprovementView() {
         ItemImprovement itemImprovement = ItemImprovementList.findItemById(this, mItem.getId());
         if (itemImprovement == null || itemImprovement.getSecretary() == null) {
-            parent.setVisibility(View.GONE);
             return;
         }
+
+        ViewGroup parent = addCell(mLinearLayout, R.string.item_improvement_data);
 
         for (ItemImprovement.SecretaryEntity entry:
                 itemImprovement.getSecretary()) {
@@ -185,7 +250,7 @@ public class ItemDisplayActivity extends AppCompatActivity {
             }
 
             TextView view = new TextView(this);
-            view.setPadding(Utils.dpToPx(8), 0, Utils.dpToPx(8), 0);
+            view.setPadding(Utils.dpToPx(16), 0, Utils.dpToPx(16), 0);
             view.setText(entry.getName());
             linearLayout.addView(view);
 
@@ -214,15 +279,16 @@ public class ItemDisplayActivity extends AppCompatActivity {
         return "";
     }
 
-    private void addTextView(ViewGroup parent, String text, int size) {
+    private TextView addTextView(ViewGroup parent, String text, int size) {
         TextView textView = new TextView(this);
         textView.setText(text);
         textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, size);
         parent.addView(textView);
+        return textView;
     }
 
-    private void addTextView(ViewGroup parent, String text) {
-        addTextView(parent, text, 14);
+    private TextView addTextView(ViewGroup parent, String text) {
+        return addTextView(parent, text, 14);
     }
 
     private LinearLayout mCurAttrLinearLayout;
@@ -230,6 +296,11 @@ public class ItemDisplayActivity extends AppCompatActivity {
     private void addAttrView(ViewGroup parent, String title, int value, int icon) {
         if (value == 0) {
             return;
+        }
+
+        if (mItemAttrContainer == null) {
+            mItemAttrContainer = (LinearLayout) addCell(mLinearLayout, R.string.attributes);
+            parent = mItemAttrContainer;
         }
 
         attr ++;
@@ -254,7 +325,8 @@ public class ItemDisplayActivity extends AppCompatActivity {
         if (icon == R.drawable.item_attr_range) {
             ((TextView) cell.findViewById(R.id.textView2)).setText(getRangeString(value));
         } else {
-            ((TextView) cell.findViewById(R.id.textView2)).setText(String.format("%s%d", value > 0 ? "+" : "", value));
+
+            ((TextView) cell.findViewById(R.id.textView2)).setText(String.format("%s%d", value > 0 ? "+" : "-", value));
         }
 
         ((ImageView) cell.findViewById(R.id.imageView)).setImageDrawable(ContextCompat.getDrawable(this, icon));

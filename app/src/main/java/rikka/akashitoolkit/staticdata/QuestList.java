@@ -228,4 +228,14 @@ public class QuestList {
             e.printStackTrace();
         }
     }
+
+    public static Quest findItemById(Context context, int id) {
+        for (Quest item:
+                get(context)) {
+            if (item.getIndex() == id) {
+                return item;
+            }
+        }
+        return null;
+    }
 }

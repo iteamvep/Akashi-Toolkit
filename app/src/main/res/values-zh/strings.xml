@@ -69,4 +69,6 @@
     <string name="item">装备</string>
     <string name="attributes">属性</string>
     <string name="item_improvement_data">改修数据</string>
+    <string name="remark">备注</string>
+    <string name="item_get">获取途径</string>
 </resources>
