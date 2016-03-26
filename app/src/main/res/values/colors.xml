@@ -21,4 +21,12 @@
     <color name="questCardBackground4">#FFCC80</color>
     <color name="questCardBackground5">#BCAAA4</color>
     <color name="questCardBackground6">#B39DDB</color>
+
+    <color name="clock_white">@color/colorAccent</color>
+
+    <color name="day_bg_text_light">#daffffff</color>
+    <color name="day_bg_text_disabled_light">#24000000</color>
+    <color name="day_bg_text_dark">#8a000000</color>
+    <color name="day_bg_text_disabled_dark">#78ffffff</color>
+
 </resources>

@@ -1,20 +1,12 @@
 package rikka.akashitoolkit.ui;
 
 import android.content.SharedPreferences;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.preference.Preference;
-import android.support.v7.preference.PreferenceManager;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Toast;
 
 import moe.xing.daynightmode.BaseDayNightModeActivity;
@@ -91,7 +83,7 @@ public class SettingActivity extends BaseActivity {
                     Settings.instance(getActivity())
                             .putString(Settings.MESSAGE_READ_STATUS, "");
 
-                    Toast.makeText(getActivity(), R.string.read_status_reseted, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), R.string.read_status_reset, Toast.LENGTH_SHORT).show();
 
                     BusProvider.instance()
                             .post(new ReadStatusResetAction());

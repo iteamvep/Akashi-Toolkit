@@ -12,11 +12,16 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.util.TypedValue;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AccelerateInterpolator;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -35,7 +40,7 @@ public class ItemDisplayActivity extends AppCompatActivity {
 
     private static final int ANIM_DURATION = 200;
     private static final int ANIM_DURATION_EXIT = 200;
-    private static final int ANIM_DURATION_TEXT_FADE = 150;
+    private static final int ANIM_DURATION_TEXT_FADE = 300;
 
     private Toolbar mToolbar;
     private LinearLayout mLinearLayout;
@@ -45,6 +50,8 @@ public class ItemDisplayActivity extends AppCompatActivity {
 
     private int mItemHeight;
     private int mItemY;
+    private LinearLayout mItemAttrContainer;
+    private LinearLayout mItemImprovementContainer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +67,12 @@ public class ItemDisplayActivity extends AppCompatActivity {
         Intent intent = getIntent();
         if (intent.hasExtra(EXTRA_ITEM_ID)) {
             id = intent.getIntExtra(EXTRA_ITEM_ID, 0);
+            mItem = ItemList.findItemById(this, id);
+            if (mItem == null) {
+                Log.d("QAQ", "No item find? id=" + Integer.toString(id));
+                finish();
+                return;
+            }
             mItemY =  intent.getIntExtra(EXTRA_START_Y, 0);
             mItemHeight = intent.getIntExtra(EXTRA_START_HEIGHT, 0);
         } else {
@@ -73,15 +86,15 @@ public class ItemDisplayActivity extends AppCompatActivity {
         mLinearLayout = (LinearLayout) findViewById(R.id.linearLayout);
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         mAppBarLayout = (AppBarLayout) findViewById(R.id.appBarLayout);
+        mItemAttrContainer = (LinearLayout) findViewById(R.id.itemAttrContainer);
+        mItemImprovementContainer = (LinearLayout) findViewById(R.id.itemImprovementContainer);
 
         if (savedInstanceState == null) {
             animEnter();
-        } else {
-            setViews();
         }
 
+        setViews();
 
-        mItem = ItemList.findItemById(this, id);
     }
 
     private void setViews() {
@@ -121,18 +134,23 @@ public class ItemDisplayActivity extends AppCompatActivity {
             getSupportActionBar().setTitle(mItem.getName());
         }
 
-        addTextView(mLinearLayout, String.format("No. %d %s", mItem.getId(), ItemTypeList.findItemById(this, mItem.getIcon()).getName()));
-        addTextView(mLinearLayout, formatStars(mItem.getRarity()));
-        addAttrTextView(mLinearLayout, "火力", mItem.getAttr().getFire());
-        addAttrTextView(mLinearLayout, "对空", mItem.getAttr().getAa());
-        addAttrTextView(mLinearLayout, "命中", mItem.getAttr().getAcc());
-        addAttrTextView(mLinearLayout, "雷装", mItem.getAttr().getTorpedo());
-        addAttrTextView(mLinearLayout, "爆装", mItem.getAttr().getBomb());
-        addAttrTextView(mLinearLayout, "对潜", mItem.getAttr().getAs());
-        addAttrTextView(mLinearLayout, "回避", mItem.getAttr().getDodge());
-        addAttrTextView(mLinearLayout, "索敌", mItem.getAttr().getSearch());
-        addRangeTextView(mLinearLayout, "射程", mItem.getAttr().getRange());
-        addTextView(mLinearLayout, formatItemImprovement());
+        ((TextView) findViewById(R.id.text_title)).setText(String.format(
+                "No. %d %s %s",
+                mItem.getId(),
+                ItemTypeList.findItemById(this, mItem.getSubType()).getName(),
+                formatStars(mItem.getRarity())));
+
+        addAttrView(mItemAttrContainer, "火力", mItem.getAttr().getFire(), R.drawable.item_attr_fire);
+        addAttrView(mItemAttrContainer, "对空", mItem.getAttr().getAa(), R.drawable.item_attr_aa);
+        addAttrView(mItemAttrContainer, "命中", mItem.getAttr().getAcc(), R.drawable.item_attr_acc);
+        addAttrView(mItemAttrContainer, "雷装", mItem.getAttr().getTorpedo(), R.drawable.item_attr_torpedo);
+        addAttrView(mItemAttrContainer, "爆装", mItem.getAttr().getBomb(), R.drawable.item_attr_bomb);
+        addAttrView(mItemAttrContainer, "对潜", mItem.getAttr().getAs(), R.drawable.item_attr_asw);
+        addAttrView(mItemAttrContainer, "回避", mItem.getAttr().getDodge(), R.drawable.item_attr_dodge);
+        addAttrView(mItemAttrContainer, "索敌", mItem.getAttr().getSearch(), R.drawable.item_attr_search);
+        addAttrView(mItemAttrContainer, "射程", mItem.getAttr().getRange(), R.drawable.item_attr_range);
+
+        addItemImprovementView(mItemImprovementContainer);
     }
 
     @Override
@@ -145,25 +163,37 @@ public class ItemDisplayActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private static final String[] DAY = {"日", "一", "二", "三", "四", "五", "六"};
-
-    private String formatItemImprovement() {
-        StringBuilder sb = new StringBuilder();
+    private void addItemImprovementView(ViewGroup parent) {
         ItemImprovement itemImprovement = ItemImprovementList.findItemById(this, mItem.getId());
         if (itemImprovement == null || itemImprovement.getSecretary() == null) {
-            return "";
+            parent.setVisibility(View.GONE);
+            return;
         }
 
         for (ItemImprovement.SecretaryEntity entry:
                 itemImprovement.getSecretary()) {
-            for (int i = 0; i < entry.getDay().size(); i++) {
-                sb.append(entry.getDay().get(i) ? DAY[i] : "__");
-            }
-            sb.append("    ").append(entry.getName()).append("\n");
-        }
+            LinearLayout linearLayout = new LinearLayout(this);
+            linearLayout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+            linearLayout.setOrientation(LinearLayout.HORIZONTAL);
+            linearLayout.setPadding(0, Utils.dpToPx(4), 0, Utils.dpToPx(4));
 
-        return sb.toString();
+            for (int i = 0; i < entry.getDay().size(); i++) {
+                TextView view = (TextView) LayoutInflater.from(this).inflate(R.layout.day_cricle, null);
+                view.setText(DAY[i]);
+                view.setEnabled(entry.getDay().get(i));
+                linearLayout.addView(view);
+            }
+
+            TextView view = new TextView(this);
+            view.setPadding(Utils.dpToPx(8), 0, Utils.dpToPx(8), 0);
+            view.setText(entry.getName());
+            linearLayout.addView(view);
+
+            parent.addView(linearLayout);
+        }
     }
+
+    private static final String[] DAY = {"日", "一", "二", "三", "四", "五", "六"};
 
     private String formatStars(int value) {
         String star = "";
@@ -174,42 +204,64 @@ public class ItemDisplayActivity extends AppCompatActivity {
         return star;
     }
 
-    private void addRangeTextView(ViewGroup parent, String attrName, int value) {
-        if (value == 0) {
-            return;
-        }
-
-        addTextView(parent, formatRangeString(attrName, value));
-    }
-
-    private String formatRangeString(String attrName, int value) {
-        String range = "";
+    private String getRangeString(int value) {
         switch (value) {
-            case 1: range = "短"; break;
-            case 2: range = "中"; break;
-            case 3: range = "长"; break;
-            case 4: range = "超长"; break;
+            case 1: return "短";
+            case 2: return "中";
+            case 3: return "长";
+            case 4: return "超长";
         }
-        return String.format("%s: %s", attrName, range);
+        return "";
     }
 
-    private void addAttrTextView(ViewGroup parent, String attrName, int value) {
-        if (value == 0) {
-            return;
-        }
-
-        addTextView(parent, formatAttrString(attrName, value));
-    }
-
-    private String formatAttrString(String attrName, int value) {
-        return String.format("%s: %s%d", attrName, value > 0 ? "+" : "", value);
+    private void addTextView(ViewGroup parent, String text, int size) {
+        TextView textView = new TextView(this);
+        textView.setText(text);
+        textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, size);
+        parent.addView(textView);
     }
 
     private void addTextView(ViewGroup parent, String text) {
-        TextView textView = new TextView(this);
-        textView.setText(text);
-        textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
-        parent.addView(textView);
+        addTextView(parent, text, 14);
+    }
+
+    private LinearLayout mCurAttrLinearLayout;
+    private int attr = 0;
+    private void addAttrView(ViewGroup parent, String title, int value, int icon) {
+        if (value == 0) {
+            return;
+        }
+
+        attr ++;
+
+        if (mCurAttrLinearLayout == null) {
+            mCurAttrLinearLayout = new LinearLayout(this);
+            mCurAttrLinearLayout.setOrientation(LinearLayout.HORIZONTAL);
+            mCurAttrLinearLayout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, Utils.dpToPx(32)));
+            mCurAttrLinearLayout.setBaselineAligned(false);
+            mCurAttrLinearLayout.setGravity(Gravity.CENTER_VERTICAL);
+            LinearLayout view = (LinearLayout) LayoutInflater.from(this).inflate(R.layout.item_attr_cell, mCurAttrLinearLayout);
+            parent.addView(mCurAttrLinearLayout);
+        }
+
+        View cell = mCurAttrLinearLayout
+                .findViewById((attr % 2 == 0) ? R.id.item_attr_cell2 : R.id.item_attr_cell);
+
+        cell.setVisibility(View.VISIBLE);
+
+        ((TextView) cell.findViewById(R.id.textView)).setText(title);
+
+        if (icon == R.drawable.item_attr_range) {
+            ((TextView) cell.findViewById(R.id.textView2)).setText(getRangeString(value));
+        } else {
+            ((TextView) cell.findViewById(R.id.textView2)).setText(String.format("%s%d", value > 0 ? "+" : "", value));
+        }
+
+        ((ImageView) cell.findViewById(R.id.imageView)).setImageDrawable(ContextCompat.getDrawable(this, icon));
+
+        if (attr % 2 == 0) {
+            mCurAttrLinearLayout = null;
+        }
     }
 
     private void animEnter() {
@@ -248,7 +300,7 @@ public class ItemDisplayActivity extends AppCompatActivity {
 
                             @Override
                             public void onAnimationEnd(Animator animation) {
-                                setViews();
+
                             }
 
                             @Override

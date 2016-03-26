@@ -1,0 +1,4 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="false" android:color="@color/day_bg_text_disabled_light" />
+    <item android:color="@color/day_bg_text_light" />
+</selector>

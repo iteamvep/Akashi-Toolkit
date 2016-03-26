@@ -42,7 +42,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ViewHolder.Item> {
         for (Item item :
                 ItemList.get(context)) {
 
-            if ((ItemTypeList.getsParentList(context).get(ItemTypeList.findItemById(context, item.getIcon()).getParent()) == mType)) {
+            if ((ItemTypeList.getsParentList(context).get(ItemTypeList.findItemById(context, item.getSubType()).getParent()) == mType)) {
                 mData.add(item);
             }
         }
@@ -58,8 +58,8 @@ public class ItemAdapter extends RecyclerView.Adapter<ViewHolder.Item> {
 
     @Override
     public void onBindViewHolder(final ViewHolder.Item holder, final int position) {
-        String curType = ItemTypeList.findItemById(holder.mTitle.getContext(), mData.get(position).getIcon()).getName();
-        boolean showTitle = position <= 0 || !curType.equals(ItemTypeList.findItemById(holder.mTitle.getContext(), mData.get(position - 1).getIcon()).getName());
+        String curType = ItemTypeList.findItemById(holder.mTitle.getContext(), mData.get(position).getSubType()).getName();
+        boolean showTitle = position <= 0 || !curType.equals(ItemTypeList.findItemById(holder.mTitle.getContext(), mData.get(position - 1).getSubType()).getName());
 
         if (showTitle) {
             holder.mTitle.setText(curType);
@@ -69,7 +69,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ViewHolder.Item> {
         }
 
         boolean showDivider = position < mData.size() - 1
-                && curType.equals(ItemTypeList.findItemById(holder.mTitle.getContext(), mData.get(position + 1).getIcon()).getName());
+                && curType.equals(ItemTypeList.findItemById(holder.mTitle.getContext(), mData.get(position + 1).getSubType()).getName());
 
         holder.mDivider.setVisibility(showDivider ? View.VISIBLE : View.GONE);
         holder.mDummyView.setVisibility(!showDivider ? View.VISIBLE : View.GONE);
