@@ -69,6 +69,9 @@
     <string name="attributes">Attributes</string>
     <string name="item_improvement_data">Item improvement</string>
     <string name="remark">Remark</string>
-    <string name="item_get">Achieving approach</string>
+    <string name="item_get">Source</string>
+    <string name="data_source">Data source</string>
+    <string name="category_item">Item</string>
+    <string name="display_enemy">Display enemy item</string>
 
 </resources>

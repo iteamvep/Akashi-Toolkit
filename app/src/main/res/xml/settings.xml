@@ -9,7 +9,7 @@
             android:title="@string/night_mode"
             app:myEntries="@array/night_mode"
             app:myEntryValues="@array/night_mode_value"
-            android:defaultValue="0"/>
+            android:defaultValue="1"/>
 
     </PreferenceCategory>
 
@@ -31,6 +31,17 @@
             android:defaultValue="2"/>
 
     </PreferenceCategory>
+
+    <!--<PreferenceCategory
+        android:title="@string/category_item">
+
+        <rikka.materialpreference.SwitchPreference
+            android:key="display_enemy"
+            android:title="@string/display_enemy"
+            android:defaultValue="false">
+        </rikka.materialpreference.SwitchPreference>
+
+    </PreferenceCategory>-->
 
     <PreferenceCategory
         android:title="@string/category_update">

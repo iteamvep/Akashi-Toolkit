@@ -10,7 +10,7 @@
         android:title="@string/version"/>
 
     <Preference
-        android:title="数据来源"
+        android:title="@string/data_source"
         android:summary="kcwiki 舰娘百科">
 
         <intent

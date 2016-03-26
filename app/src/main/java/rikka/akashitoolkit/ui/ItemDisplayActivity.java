@@ -186,7 +186,11 @@ public class ItemDisplayActivity extends AppCompatActivity {
                     mItem.getGet().getQuest().split(",")) {
                     int id = (int) Float.parseFloat(item);
                     QuestList.Quest quest = QuestList.findItemById(this, id);
-                    sb.append(quest.getCode()).append(' ').append(quest.getTitle()).append('\n');
+                    if (quest != null && quest.getCode() != null) {
+                        sb.append(quest.getCode()).append(' ').append(quest.getTitle()).append('\n');
+                    } else {
+                        sb.append(item);
+                    }
                 }
 
                 addTextView(cell, sb.toString());
@@ -325,8 +329,8 @@ public class ItemDisplayActivity extends AppCompatActivity {
         if (icon == R.drawable.item_attr_range) {
             ((TextView) cell.findViewById(R.id.textView2)).setText(getRangeString(value));
         } else {
-
-            ((TextView) cell.findViewById(R.id.textView2)).setText(String.format("%s%d", value > 0 ? "+" : "-", value));
+            ((TextView) cell.findViewById(R.id.textView2)).setText(String.format("%s%d", value > 0 ? "+" : "", value));
+            ((TextView) cell.findViewById(R.id.textView2)).setTextColor(ContextCompat.getColor(this, value > 0 ? R.color.material_green_300 : R.color.material_red_300));
         }
 
         ((ImageView) cell.findViewById(R.id.imageView)).setImageDrawable(ContextCompat.getDrawable(this, icon));

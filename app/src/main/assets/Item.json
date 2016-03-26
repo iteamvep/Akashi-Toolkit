@@ -25,7 +25,7 @@
         "id": 48,
         "stars": 48,
         "rarity": 1,
-        "subType": 16,
+        "subType": 1,
         "icon": 16,
         "name": "12.7cm単装高角砲",
         "attr": {
@@ -91,7 +91,7 @@
         "id": 91,
         "stars": 91,
         "rarity": 2,
-        "subType": 16,
+        "subType": 1,
         "icon": 16,
         "name": "12.7cm連装高角砲(後期型)",
         "attr": {
@@ -157,7 +157,7 @@
         "id": 3,
         "stars": 3,
         "rarity": 2,
-        "subType": 16,
+        "subType": 1,
         "icon": 16,
         "name": "10cm連装高角砲",
         "attr": {
@@ -179,7 +179,7 @@
         "id": 122,
         "stars": 122,
         "rarity": 4,
-        "subType": 16,
+        "subType": 1,
         "icon": 16,
         "name": "10cm高角砲＋高射装置",
         "attr": {
