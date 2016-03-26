@@ -5,4 +5,6 @@
     <dimen name="card_home_margin_horizontal">8dp</dimen>
     <dimen name="card_twitter_margin_vertical">4dp</dimen>
     <dimen name="card_twitter_margin_horizontal">4dp</dimen>
+    <dimen name="card_margin_vertical">2dp</dimen>
+    <dimen name="card_margin_horizontal">4dp</dimen>
 </resources>

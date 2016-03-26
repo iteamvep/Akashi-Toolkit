@@ -1,10 +1,12 @@
 package rikka.akashitoolkit.ui.fragments;
 
+import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +17,7 @@ import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.QuestAdapter;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.QuestAction;
+import rikka.akashitoolkit.utils.Utils;
 
 /**
  * Created by Rikka on 2016/3/6.
@@ -50,6 +53,7 @@ public class QuestFragment extends Fragment {
         }
 
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
+        recyclerView.setPadding(0, Utils.dpToPx(2), 0, Utils.dpToPx(2));
         mAdapter = new QuestAdapter(getContext(), type, flag);
         mAdapter.rebuildDataList(getContext());
         recyclerView.setAdapter(mAdapter);

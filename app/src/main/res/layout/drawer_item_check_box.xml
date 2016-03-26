@@ -5,7 +5,7 @@
               android:layout_width="match_parent"
               android:clickable="true"
               android:soundEffectsEnabled="false"
-              android:background="?android:attr/selectableItemBackground"
+              android:background="?attr/selectableItemBackground"
               android:layout_height="@dimen/drawer_item"
               android:gravity="center_vertical">
 

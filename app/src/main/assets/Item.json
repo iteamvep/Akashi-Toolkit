@@ -25,8 +25,8 @@
         "id": 48,
         "stars": 48,
         "rarity": 1,
-        "subType": 1,
-        "icon": 1,
+        "subType": 16,
+        "icon": 16,
         "name": "12.7cm単装高角砲",
         "attr": {
             "range": 1,
@@ -91,8 +91,8 @@
         "id": 91,
         "stars": 91,
         "rarity": 2,
-        "subType": 15,
-        "icon": 15,
+        "subType": 16,
+        "icon": 16,
         "name": "12.7cm連装高角砲(後期型)",
         "attr": {
             "range": 1,
@@ -157,8 +157,8 @@
         "id": 3,
         "stars": 3,
         "rarity": 2,
-        "subType": 1,
-        "icon": 1,
+        "subType": 16,
+        "icon": 16,
         "name": "10cm連装高角砲",
         "attr": {
             "range": 1,
@@ -614,7 +614,7 @@
         "rarity": 3,
         "subType": 3,
         "icon": 3,
-        "name": "46cm連装砲",
+        "name": "46cm三連装砲",
         "attr": {
             "range": 4,
             "fire": 26,
@@ -799,7 +799,7 @@
         "stars": 66,
         "rarity": 4,
         "subType": 4,
-        "icon": 4,
+        "icon": 16,
         "name": "8cm高角砲",
         "attr": {
             "range": 1,
@@ -821,7 +821,7 @@
         "stars": 130,
         "rarity": 4,
         "subType": 4,
-        "icon": 4,
+        "icon": 16,
         "name": "12.7cm高角砲＋高射装置",
         "attr": {
             "range": 1,
@@ -843,7 +843,7 @@
         "stars": 71,
         "rarity": 4,
         "subType": 4,
-        "icon": 4,
+        "icon": 16,
         "name": "10cm連装高角砲(砲架)",
         "attr": {
             "range": 1,
@@ -865,7 +865,7 @@
         "stars": 10,
         "rarity": 1,
         "subType": 4,
-        "icon": 4,
+        "icon": 16,
         "name": "12.7cm連装高角砲",
         "attr": {
             "range": 1,
@@ -910,7 +910,7 @@
         "rarity": 2,
         "subType": 4,
         "icon": 4,
-        "name": "15.5cm三連装砲(副砲) ",
+        "name": "15.5cm三連装副砲 ",
         "attr": {
             "range": 2,
             "fire": 7,
@@ -955,7 +955,7 @@
         "stars": 135,
         "rarity": 4,
         "subType": 4,
-        "icon": 4,
+        "icon": 16,
         "name": "90mm単装高角砲",
         "attr": {
             "range": 0,
@@ -979,7 +979,7 @@
         "stars": 160,
         "rarity": 4,
         "subType": 4,
-        "icon": 4,
+        "icon": 16,
         "name": "10.5cm連装砲",
         "attr": {
             "range": 0,
@@ -1135,7 +1135,7 @@
         "id": 127,
         "stars": 127,
         "rarity": 5,
-        "subType": 5,
+        "subType": 37,
         "icon": 5,
         "name": "試製FaT仕様九五式酸素魚雷改",
         "attr": {
@@ -1157,7 +1157,7 @@
         "id": 95,
         "stars": 95,
         "rarity": 3,
-        "subType": 5,
+        "subType": 37,
         "icon": 5,
         "name": "潜水艦53cm艦首魚雷(8門)",
         "attr": {
@@ -1181,7 +1181,7 @@
         "id": 41,
         "stars": 41,
         "rarity": 2,
-        "subType": 5,
+        "subType": 38,
         "icon": 5,
         "name": "甲標的 甲",
         "attr": {
@@ -1231,8 +1231,8 @@
         "id": 166,
         "stars": 166,
         "rarity": 3,
-        "subType": 20,
-        "icon": 20,
+        "subType": 36,
+        "icon": 36,
         "name": "大発動艇(八九式中戦車 陸戦隊)",
         "attr": {
             "range": 0,
@@ -1258,8 +1258,8 @@
         "id": 167,
         "stars": 167,
         "rarity": 4,
-        "subType": 20,
-        "icon": 20,
+        "subType": 36,
+        "icon": 36,
         "name": "特二式内火艇",
         "attr": {
             "range": 0,
@@ -1988,7 +1988,7 @@
         "id": 164,
         "stars": 164,
         "rarity": 4,
-        "subType": 10,
+        "subType": 39,
         "icon": 10,
         "name": "Ro.44水上戦闘機",
         "attr": {
@@ -2012,7 +2012,7 @@
         "id": 165,
         "stars": 165,
         "rarity": 2,
-        "subType": 10,
+        "subType": 39,
         "icon": 10,
         "name": "二式水戦改",
         "attr": {
@@ -2262,7 +2262,7 @@
         "id": 26,
         "stars": 26,
         "rarity": 2,
-        "subType": 10,
+        "subType": 40,
         "icon": 10,
         "name": "瑞雲",
         "attr": {
@@ -2284,7 +2284,7 @@
         "id": 79,
         "stars": 79,
         "rarity": 3,
-        "subType": 10,
+        "subType": 40,
         "icon": 10,
         "name": "瑞雲(六三四空)",
         "attr": {
@@ -2308,7 +2308,7 @@
         "id": 80,
         "stars": 80,
         "rarity": 4,
-        "subType": 10,
+        "subType": 40,
         "icon": 10,
         "name": "瑞雲12型",
         "attr": {
@@ -2332,7 +2332,7 @@
         "id": 81,
         "stars": 81,
         "rarity": 3,
-        "subType": 10,
+        "subType": 40,
         "icon": 10,
         "name": "瑞雲12型(六三四空)",
         "attr": {
@@ -2356,7 +2356,7 @@
         "id": 62,
         "stars": 62,
         "rarity": 5,
-        "subType": 10,
+        "subType": 40,
         "icon": 10,
         "name": "試製晴嵐",
         "attr": {
@@ -2797,7 +2797,7 @@
         "id": 30,
         "stars": 30,
         "rarity": 3,
-        "subType": 11,
+        "subType": 41,
         "icon": 11,
         "name": "21号対空電探",
         "attr": {
@@ -2819,7 +2819,7 @@
         "id": 89,
         "stars": 89,
         "rarity": 4,
-        "subType": 11,
+        "subType": 41,
         "icon": 11,
         "name": "21号対空電探改",
         "attr": {
@@ -2843,7 +2843,7 @@
         "id": 32,
         "stars": 32,
         "rarity": 5,
-        "subType": 11,
+        "subType": 41,
         "icon": 11,
         "name": "14号対空電探",
         "attr": {
@@ -2865,7 +2865,7 @@
         "id": 124,
         "stars": 124,
         "rarity": 5,
-        "subType": 11,
+        "subType": 41,
         "icon": 11,
         "name": "FuMO25 レーダー",
         "attr": {
@@ -2889,7 +2889,7 @@
         "id": 31,
         "stars": 31,
         "rarity": 4,
-        "subType": 11,
+        "subType": 41,
         "icon": 11,
         "name": "32号対水上電探",
         "attr": {
@@ -2911,7 +2911,7 @@
         "id": 141,
         "stars": 141,
         "rarity": 5,
-        "subType": 11,
+        "subType": 41,
         "icon": 11,
         "name": "32号対水上電探改",
         "attr": {
@@ -2935,7 +2935,7 @@
         "id": 142,
         "stars": 142,
         "rarity": 5,
-        "subType": 11,
+        "subType": 41,
         "icon": 11,
         "name": "15m二重測距儀+21号電探改二",
         "attr": {
@@ -3805,8 +3805,8 @@
         "id": 150,
         "stars": 150,
         "rarity": 2,
-        "subType": 35,
-        "icon": 35,
+        "subType": 34,
+        "icon": 34,
         "name": "秋刀魚の缶詰",
         "attr": {
             "range": 0,

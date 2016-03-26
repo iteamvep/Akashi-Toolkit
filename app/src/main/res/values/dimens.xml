@@ -19,6 +19,8 @@
     <dimen name="card_home_margin_horizontal">2dp</dimen>
     <dimen name="card_twitter_margin_vertical">-2dp</dimen>
     <dimen name="card_twitter_margin_horizontal">0dp</dimen>
+    <dimen name="card_margin_vertical">-2dp</dimen>
+    <dimen name="card_margin_horizontal">0dp</dimen>
 
     <!-- Right drawer -->
     <dimen name="drawer_header">56dp</dimen>

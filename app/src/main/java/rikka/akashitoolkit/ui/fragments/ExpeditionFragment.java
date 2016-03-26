@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.ExpeditionAdapter;
 import rikka.akashitoolkit.adapter.QuestAdapter;
+import rikka.akashitoolkit.utils.Utils;
 
 /**
  * Created by Rikka on 2016/3/14.
@@ -29,6 +30,7 @@ public class ExpeditionFragment extends Fragment {
         }
 
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
+        recyclerView.setPadding(0, Utils.dpToPx(2), 0, Utils.dpToPx(2));
         recyclerView.setAdapter(new ExpeditionAdapter(getContext(), type));
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         layoutManager.setAutoMeasureEnabled(false);
