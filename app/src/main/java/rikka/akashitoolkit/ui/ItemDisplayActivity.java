@@ -98,12 +98,12 @@ public class ItemDisplayActivity extends AppCompatActivity {
     }
 
     private void setViews() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (getWindow().getDecorView() != null) {
                 getWindow().getDecorView().setSystemUiVisibility(
                         getWindow().getDecorView().getSystemUiVisibility() | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
             }
-        }
+        }*/
 
         mAppBarLayout
                 .setAlpha(0.0f);
@@ -483,7 +483,7 @@ public class ItemDisplayActivity extends AppCompatActivity {
                     });
         }
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (getWindow().getDecorView() != null) {
                 getWindow().getDecorView().postDelayed(new Runnable() {
                     @Override
@@ -493,7 +493,7 @@ public class ItemDisplayActivity extends AppCompatActivity {
                     }
                 }, (int) (ANIM_DURATION * 0.5));
             }
-        }
+        }*/
 
         mCoordinatorLayout.post(new Runnable() {
             @Override
@@ -549,7 +549,7 @@ public class ItemDisplayActivity extends AppCompatActivity {
                     });
         }
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (getWindow().getDecorView() != null) {
                 getWindow().getDecorView().postDelayed(new Runnable() {
                     @Override
@@ -559,7 +559,7 @@ public class ItemDisplayActivity extends AppCompatActivity {
                     }
                 }, (int) (ANIM_DURATION_EXIT * 0.5));
             }
-        }
+        }*/
 
         mCoordinatorLayout.removeAllViews();
         mCoordinatorLayout.setScaleY(1);
