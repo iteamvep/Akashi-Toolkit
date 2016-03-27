@@ -24,113 +24,121 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@android:color/transparent"
-            app:popupTheme="@style/AppTheme.PopupOverlay"/>
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:layout_scrollFlags="scroll|enterAlways"/>
     </android.support.design.widget.AppBarLayout>
 
-    <LinearLayout
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:id="@+id/linearLayout"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="4dp"
-        android:paddingBottom="4dp"
+        android:layout_height="wrap_content"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <TextView
-            android:id="@+id/text_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
-            tools:text="No.1 小口径主炮 ★"
-            android:textSize="16sp"/>
-
-        <!--<LinearLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:id="@+id/linearLayout"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="4dp"
+            android:paddingBottom="16dp">
 
             <TextView
+                android:id="@+id/text_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="4dp"
                 android:fontFamily="sans-serif-medium"
-                android:textColor="?attr/colorAccent"
-                android:text="@string/attributes"/>
+                tools:text="No.1 小口径主炮 ★"
+                android:textSize="16sp"/>
 
-        </LinearLayout>-->
-        <!--<TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="8dp"
-            android:textColor="?attr/colorAccent"
-            tools:text="可装备舰种"/>
+            <!--<LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="驱逐舰	轻巡洋舰"/>-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="4dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="?attr/colorAccent"
+                    android:text="@string/attributes"/>
 
-        <!--<LinearLayout
-            android:id="@+id/itemImprovementContainer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
+            </LinearLayout>-->
+            <!--<TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="8dp"
                 android:textColor="?attr/colorAccent"
-                android:fontFamily="sans-serif-medium"
-                android:text="@string/item_improvement_data"/>
-
-        </LinearLayout>-->
-
-
-
-        <!--<LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <include layout="@layout/day_cricle"/>
-            <include layout="@layout/day_cricle"/>
-            <include layout="@layout/day_cricle"/>
-            <include layout="@layout/day_cricle"/>
-            <include layout="@layout/day_cricle"/>
-            <include layout="@layout/day_cricle"/>
-            <include layout="@layout/day_cricle"/>
+                tools:text="可装备舰种"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginStart="8dp"
-                tools:text="夕立改二"/>
+                tools:text="驱逐舰	轻巡洋舰"/>-->
 
-        </LinearLayout>-->
+            <!--<LinearLayout
+                android:id="@+id/itemImprovementContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:textColor="?attr/colorAccent"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/item_improvement_data"/>
+
+            </LinearLayout>-->
 
 
-        <!--<TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="8dp"
-            android:textColor="?attr/colorAccent"
-            tools:text="图鉴说明"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="旧型的小型主炮。
-被旧型驱逐舰作为标准主炮所搭载。
-虽然装填和操作都需要人力完成，但由于其结构简单，经济性较高，也长期用于驱逐舰、海防舰等舰船上。
-不适合用于对空射击。"/>-->
+            <!--<LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <include layout="@layout/day_cricle"/>
+                <include layout="@layout/day_cricle"/>
+                <include layout="@layout/day_cricle"/>
+                <include layout="@layout/day_cricle"/>
+                <include layout="@layout/day_cricle"/>
+                <include layout="@layout/day_cricle"/>
+                <include layout="@layout/day_cricle"/>
 
-    </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginStart="8dp"
+                    tools:text="夕立改二"/>
+
+            </LinearLayout>-->
+
+
+            <!--<TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                android:textColor="?attr/colorAccent"
+                tools:text="图鉴说明"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="旧型的小型主炮。
+    被旧型驱逐舰作为标准主炮所搭载。
+    虽然装填和操作都需要人力完成，但由于其结构简单，经济性较高，也长期用于驱逐舰、海防舰等舰船上。
+    不适合用于对空射击。"/>-->
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
 
 </android.support.design.widget.CoordinatorLayout>

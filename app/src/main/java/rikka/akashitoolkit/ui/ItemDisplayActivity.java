@@ -12,6 +12,8 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
+import android.text.Spanned;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -25,13 +27,18 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.List;
+
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.model.Item;
 import rikka.akashitoolkit.model.ItemImprovement;
+import rikka.akashitoolkit.model.ShipType;
+import rikka.akashitoolkit.otto.PreferenceChangedAction;
 import rikka.akashitoolkit.staticdata.ItemImprovementList;
 import rikka.akashitoolkit.staticdata.ItemTypeList;
 import rikka.akashitoolkit.staticdata.ItemList;
 import rikka.akashitoolkit.staticdata.QuestList;
+import rikka.akashitoolkit.staticdata.ShipTypeList;
 import rikka.akashitoolkit.utils.Utils;
 
 public class ItemDisplayActivity extends AppCompatActivity {
@@ -57,12 +64,6 @@ public class ItemDisplayActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            getWindow().requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS);
-            getWindow().setEnterTransition(new Explode());
-            getWindow().setExitTransition(new Explode());
-        }*/
 
         int id;
         Intent intent = getIntent();
@@ -97,6 +98,13 @@ public class ItemDisplayActivity extends AppCompatActivity {
     }
 
     private void setViews() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (getWindow().getDecorView() != null) {
+                getWindow().getDecorView().setSystemUiVisibility(
+                        getWindow().getDecorView().getSystemUiVisibility() | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+            }
+        }
+
         mAppBarLayout
                 .setAlpha(0.0f);
 
@@ -132,7 +140,7 @@ public class ItemDisplayActivity extends AppCompatActivity {
         }
 
         if (mItem.getName() != null) {
-            getSupportActionBar().setTitle(mItem.getName());
+            getSupportActionBar().setTitle(mItem.getName().getZh_cn());
         }
 
         ((TextView) findViewById(R.id.text_title)).setText(String.format(
@@ -146,15 +154,50 @@ public class ItemDisplayActivity extends AppCompatActivity {
         addAttrView(mItemAttrContainer, "命中", mItem.getAttr().getAcc(), R.drawable.item_attr_acc);
         addAttrView(mItemAttrContainer, "雷装", mItem.getAttr().getTorpedo(), R.drawable.item_attr_torpedo);
         addAttrView(mItemAttrContainer, "爆装", mItem.getAttr().getBomb(), R.drawable.item_attr_bomb);
-        addAttrView(mItemAttrContainer, "对潜", mItem.getAttr().getAs(), R.drawable.item_attr_asw);
-        addAttrView(mItemAttrContainer, "回避", mItem.getAttr().getDodge(), R.drawable.item_attr_dodge);
+        addAttrView(mItemAttrContainer, "对潜", mItem.getAttr().getAsw(), R.drawable.item_attr_asw);
+        addAttrView(mItemAttrContainer, "回避", mItem.getAttr().getEvasion(), R.drawable.item_attr_dodge);
         addAttrView(mItemAttrContainer, "索敌", mItem.getAttr().getSearch(), R.drawable.item_attr_search);
         addAttrView(mItemAttrContainer, "装甲", mItem.getAttr().getArmor(), R.drawable.item_attr_armor);
         addAttrView(mItemAttrContainer, "射程", mItem.getAttr().getRange(), R.drawable.item_attr_range);
 
+        addShipType();
+
         addItemImprovementView();
 
         addOther(mLinearLayout);
+    }
+
+    private void addShipType() {
+        ViewGroup parent = addCell(mLinearLayout, R.string.ship_can_equip);
+
+        List<ShipType> list = ShipTypeList.get(this);
+        LinearLayout linearLayout = null;
+
+        int i = 0;
+        for (Integer shipType :
+                mItem.getShipLimit()) {
+            if (i % 3 == 0) {
+                linearLayout = new LinearLayout(this);
+                linearLayout.setOrientation(LinearLayout.HORIZONTAL);
+                linearLayout.setWeightSum(3);
+
+                parent.addView(linearLayout);
+
+                i = 0;
+            }
+
+            TextView textView = new TextView(this);
+            textView.setText(list.get(shipType).getName().getZh_cn());
+            textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+            textView.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1));
+            textView.setSingleLine(true);
+            //textView.setGravity(Gravity.CENTER_HORIZONTAL);
+            textView.setPadding(i == 0 ? 0 : Utils.dpToPx(4), Utils.dpToPx(2), i == 2 ? 0 : Utils.dpToPx(4), Utils.dpToPx(2));
+            linearLayout.addView(textView);
+
+            i ++;
+        }
+
     }
 
     @Override
@@ -168,9 +211,9 @@ public class ItemDisplayActivity extends AppCompatActivity {
     }
 
     private void addOther(ViewGroup parent) {
-        if (mItem.getRemark() != null && mItem.getRemark().getZh() != null) {
+        if (mItem.getRemark() != null && mItem.getRemark().length() > 0) {
             ViewGroup cell = addCell(parent, R.string.remark);
-            addTextView(cell, mItem.getRemark().getZh()).setPadding(0, Utils.dpToPx(4), 0, 0);
+            addTextView(cell, Html.fromHtml(mItem.getRemark())).setPadding(0, Utils.dpToPx(4), 0, 0);
         }
 
         if (mItem.getGet().getQuest() != null ||
@@ -222,6 +265,13 @@ public class ItemDisplayActivity extends AppCompatActivity {
                 addTextView(cell, sb.toString());
             }
         }
+
+        if (mItem.getIntroduction() != null
+                && mItem.getIntroduction().getZh_cn() != null
+                && mItem.getIntroduction().getZh_cn().length() > 0) {
+            ViewGroup cell = addCell(parent, R.string.introduction);
+            addTextView(cell, Html.fromHtml(mItem.getIntroduction().getZh_cn()));
+        }
     }
 
     private ViewGroup addCell(ViewGroup parent, int ResId) {
@@ -256,8 +306,73 @@ public class ItemDisplayActivity extends AppCompatActivity {
             TextView view = new TextView(this);
             view.setPadding(Utils.dpToPx(16), 0, Utils.dpToPx(16), 0);
             view.setText(entry.getName());
+            view.setTextSize(16);
             linearLayout.addView(view);
 
+            parent.addView(linearLayout);
+        }
+
+
+        if (mItem.getImprovement() == null) {
+            return;
+        }
+
+        getItemImprovementInsideView(parent, 0, "必要资源", mItem.getImprovement().getResource().getBase());
+
+        for (int i = 0; i < 3; i++) {
+            List<Integer> list = mItem.getImprovement().getResource().getItem().get(i);
+
+            getItemImprovementInsideView(parent, 1, i == 0 ? "~ ★+6" : i == 1 ? "~ MAX" : "升级", list);
+        }
+
+        getItemImprovementInsideView(parent, "升级为", mItem.getImprovement().getLevelup());
+    }
+
+    private void getItemImprovementInsideView(ViewGroup parent, String title, int id) {
+        if (id <= 0) {
+            return;
+        }
+        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this).inflate(R.layout.item_improvement_levelup, null);
+        ((TextView) linearLayout.findViewById(android.R.id.title)).setText(title);
+
+        Item item = ItemList.findItemById(this, id);
+        ((TextView) linearLayout.findViewById(R.id.text_quest_reward_0)).setText(item.getName().getZh_cn());
+        ((ImageView) linearLayout.findViewById(R.id.imageView))
+                .setImageResource(ItemTypeList.getResourceId(this, item.getIcon()));
+
+        parent.addView(linearLayout);
+    }
+
+    private void getItemImprovementInsideView(ViewGroup parent, int type, String title, List<Integer> res) {
+        if (type == 0) {
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this).inflate(R.layout.item_improvement_cost_base, null);
+            ((TextView) linearLayout.findViewById(android.R.id.title)).setText(title);
+            ((TextView) linearLayout.findViewById(R.id.text_quest_reward_0)).setText(String.format("%d", res.get(0)));
+            ((TextView) linearLayout.findViewById(R.id.text_quest_reward_1)).setText(String.format("%d", res.get(1)));
+            ((TextView) linearLayout.findViewById(R.id.text_quest_reward_2)).setText(String.format("%d", res.get(2)));
+            ((TextView) linearLayout.findViewById(R.id.text_quest_reward_3)).setText(String.format("%d", res.get(3)));
+            parent.addView(linearLayout);
+        } else {
+            if (res.get(0) == 0) {
+                return;
+            }
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this).inflate(R.layout.item_improvement_cost_item, null);
+            ((TextView) linearLayout.findViewById(android.R.id.title)).setText(title);
+            ((TextView) linearLayout.findViewById(R.id.text_quest_reward_0)).setText(String.format("%d(%d)", res.get(0), res.get(1)));
+            ((TextView) linearLayout.findViewById(R.id.text_quest_reward_1)).setText(String.format("%d(%d)", res.get(2), res.get(3)));
+
+            if (res.get(5) > 0) {
+                Item item = ItemList.findItemById(this, res.get(4));
+                ((TextView) linearLayout.findViewById(R.id.text_quest_reward_2)).setText(
+                        String.format("%s ×%d",
+                                item.getName().getZh_cn(),
+                                res.get(5)));
+
+                ((ImageView) linearLayout.findViewById(R.id.imageView))
+                        .setImageResource(ItemTypeList.getResourceId(this, item.getIcon()));
+            } else {
+                linearLayout.findViewById(R.id.linearLayout).setVisibility(View.GONE);
+            }
             parent.addView(linearLayout);
         }
     }
@@ -292,7 +407,19 @@ public class ItemDisplayActivity extends AppCompatActivity {
     }
 
     private TextView addTextView(ViewGroup parent, String text) {
-        return addTextView(parent, text, 14);
+        return addTextView(parent, text, 16);
+    }
+
+    private TextView addTextView(ViewGroup parent, Spanned text, int size) {
+        TextView textView = new TextView(this);
+        textView.setText(text);
+        textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, size);
+        parent.addView(textView);
+        return textView;
+    }
+
+    private TextView addTextView(ViewGroup parent, Spanned text) {
+        return addTextView(parent, text, 16);
     }
 
     private LinearLayout mCurAttrLinearLayout;
@@ -356,6 +483,18 @@ public class ItemDisplayActivity extends AppCompatActivity {
                     });
         }
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (getWindow().getDecorView() != null) {
+                getWindow().getDecorView().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        getWindow().getDecorView().setSystemUiVisibility(
+                                getWindow().getDecorView().getSystemUiVisibility() | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+                    }
+                }, (int) (ANIM_DURATION * 0.5));
+            }
+        }
+
         mCoordinatorLayout.post(new Runnable() {
             @Override
             public void run() {
@@ -408,6 +547,18 @@ public class ItemDisplayActivity extends AppCompatActivity {
                             }
                         }
                     });
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (getWindow().getDecorView() != null) {
+                getWindow().getDecorView().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        getWindow().getDecorView().setSystemUiVisibility(
+                                getWindow().getDecorView().getSystemUiVisibility() & ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+                    }
+                }, (int) (ANIM_DURATION_EXIT * 0.5));
+            }
         }
 
         mCoordinatorLayout.removeAllViews();

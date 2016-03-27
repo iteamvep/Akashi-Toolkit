@@ -75,12 +75,9 @@ public class ItemAdapter extends RecyclerView.Adapter<ViewHolder.Item> {
         holder.mDummyView.setVisibility(!showDivider ? View.VISIBLE : View.GONE);
         holder.mDummyView2.setVisibility(showTitle && position != 0 ? View.VISIBLE : View.GONE);
 
-        holder.mName.setText(mData.get(position).getName());
+        holder.mName.setText(mData.get(position).getName().getZh_cn());
 
-        Resources resources = holder.itemView.getContext().getResources();
-        int resourceId = resources.getIdentifier(String.format("item_type_%d", mData.get(position).getIcon()), "drawable",
-                holder.itemView.getContext().getPackageName());
-        holder.mImageView.setImageResource(resourceId);
+        holder.mImageView.setImageResource(ItemTypeList.getResourceId(holder.itemView.getContext(), mData.get(position).getIcon()));
 
         holder.mLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override

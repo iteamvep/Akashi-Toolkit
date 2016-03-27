@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:weightSum="5.5"
+    android:paddingTop="6dp"
+    android:paddingBottom="2dp">
+
+    <TextView
+        android:id="@android:id/title"
+        android:layout_width="0dp"
+        android:layout_weight="1.2"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/card_font_large"
+        android:gravity="center_vertical"
+        tools:text="必要资源"
+        android:singleLine="true"/>
+
+    <LinearLayout
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="14dp"
+            android:layout_height="match_parent"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/res_fuel"/>
+
+        <TextView
+            android:id="@+id/text_quest_reward_0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="2dp"
+            android:paddingRight="2dp"
+            android:textSize="@dimen/card_font_large"
+            android:gravity="center_vertical"
+            tools:text="0"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="14dp"
+            android:layout_height="match_parent"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/res_ammo"/>
+
+        <TextView
+            android:id="@+id/text_quest_reward_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="2dp"
+            android:paddingRight="2dp"
+            android:textSize="@dimen/card_font_large"
+            android:gravity="center_vertical"
+            tools:text="0"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="14dp"
+            android:layout_height="match_parent"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/res_steel"/>
+
+        <TextView
+            android:id="@+id/text_quest_reward_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="2dp"
+            android:paddingRight="2dp"
+            android:textSize="@dimen/card_font_large"
+            android:gravity="center_vertical"
+            tools:text="0"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="14dp"
+            android:layout_height="match_parent"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/res_aluminum"/>
+
+        <TextView
+            android:id="@+id/text_quest_reward_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="2dp"
+            android:paddingRight="2dp"
+            android:textSize="@dimen/card_font_large"
+            android:gravity="center_vertical"
+            tools:text="0"/>
+    </LinearLayout>
+
+</LinearLayout>

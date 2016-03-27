@@ -73,5 +73,7 @@
     <string name="data_source">Data source</string>
     <string name="category_item">Item</string>
     <string name="display_enemy">Display enemy item</string>
+    <string name="introduction">Introduction</string>
+    <string name="ship_can_equip">Ship can equip</string>
 
 </resources>

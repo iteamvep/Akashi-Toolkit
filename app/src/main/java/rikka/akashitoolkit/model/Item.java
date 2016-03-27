@@ -1,54 +1,61 @@
 package rikka.akashitoolkit.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
- * Created by Rikka on 2016/3/23.
+ * Created by Rikka on 2016/3/26.
  */
 public class Item {
-
     /**
-     * id : 1
-     * stars : 1
+     * id : 8
+     * name : {"zh_cn":"35.6cm连装炮","ja":"35.6cm连装炮"}
+     * introduction : {"zh_cn":"旧型的小型主炮。被旧型驱逐舰作为标准主炮所搭载。<br/>虽然装填和操作都需要人力完成，但由于其结构简单，经济性较高，也长期用于驱逐舰、海防舰等舰船上。<br />不适合用于对空射击。","ja":"旧型の小型砲です。旧型駆逐艦に標準的主砲として搭載されました。<br />装填・操砲も人力ですが、シンプルな構造で経済性も高く、駆逐艦や海防艦等の主砲として、長く使われました。<br />対空射撃には不向きです。"}
+     * remark :
+     * attr : {"fire":15,"aa":4,"range":3}
+     * discard : [0,10,15,0]
      * rarity : 1
-     * subType : 101
-     * icon : 56
-     * attr : {"range":1,"fire":1,"aa":1,"acc":0,"as":0,"dodge":0,"torpedo":0,"armor":0,"Search":0,"bomb":0}
-     * get : {"rank":"2014.6.1.5,2014.7.1.500,2014.8.1.500,2014.9.21.500,2015.5.21.100,2016.2.21.100","quest":"1040.1,2027.1","event":"2015.春.E1（丙）.1"}
-     * remark : {"zh":"装备后可进行开幕雷击","ja":"装備時開幕雷撃"}
+     * type : 0
+     * icon : 0
+     * shipLimit : [0,1,2,3]
+     * improvement : {"secretary":[{"name":"夕立改二","day":[false,true,true,true,false,false,false]},{"name":"绫波改二","day":[false,true,true,true,false,false,false]}],"resource":{"base":[10,10,10,10],"item":[[7,9,5,7,1,2],[7,9,5,7,1,2]],"levelup":1}}
      */
 
     private int id;
-    private int stars;
-    private int rarity;
-    private int subType;
-    private int icon;
-    private String name;
     /**
-     * range : 1
-     * fire : 1
-     * aa : 1
-     * acc : 0
-     * as : 0
-     * dodge : 0
-     * torpedo : 0
-     * armor : 0
-     * Search : 0
-     * bomb : 0
+     * zh_cn : 35.6cm连装炮
+     * ja : 35.6cm连装炮
+     */
+
+    private NameEntity name;
+    /**
+     * zh_cn : 旧型的小型主炮。被旧型驱逐舰作为标准主炮所搭载。<br/>虽然装填和操作都需要人力完成，但由于其结构简单，经济性较高，也长期用于驱逐舰、海防舰等舰船上。<br />不适合用于对空射击。
+     * ja : 旧型の小型砲です。旧型駆逐艦に標準的主砲として搭載されました。<br />装填・操砲も人力ですが、シンプルな構造で経済性も高く、駆逐艦や海防艦等の主砲として、長く使われました。<br />対空射撃には不向きです。
+     */
+
+    private IntroductionEntity introduction;
+    private String remark;
+    /**
+     * fire : 15
+     * aa : 4
+     * range : 3
      */
 
     private AttrEntity attr;
+    private int rarity;
+    private int type;
+    private int subType;
+    private int icon;
     /**
-     * rank : 2014.6.1.5,2014.7.1.500,2014.8.1.500,2014.9.21.500,2015.5.21.100,2016.2.21.100
-     * quest : 1040.1,2027.1
-     * event : 2015.春.E1（丙）.1
+     * secretary : [{"name":"夕立改二","day":[false,true,true,true,false,false,false]},{"name":"绫波改二","day":[false,true,true,true,false,false,false]}]
+     * resource : {"base":[10,10,10,10],"item":[[7,9,5,7,1,2],[7,9,5,7,1,2]],"levelup":1}
      */
+
+    private ImprovementEntity improvement;
+    private List<Integer> discard;
+    private List<Integer> shipLimit;
 
     private GetEntity get;
-    /**
-     * zh : 装备后可进行开幕雷击
-     * ja : 装備時開幕雷撃
-     */
-
-    private RemarkEntity remark;
 
     public int getId() {
         return id;
@@ -58,12 +65,36 @@ public class Item {
         this.id = id;
     }
 
-    public int getStars() {
-        return stars;
+    public NameEntity getName() {
+        return name;
     }
 
-    public void setStars(int stars) {
-        this.stars = stars;
+    public void setName(NameEntity name) {
+        this.name = name;
+    }
+
+    public IntroductionEntity getIntroduction() {
+        return introduction;
+    }
+
+    public void setIntroduction(IntroductionEntity introduction) {
+        this.introduction = introduction;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
+
+    public AttrEntity getAttr() {
+        return attr;
+    }
+
+    public void setAttr(AttrEntity attr) {
+        this.attr = attr;
     }
 
     public int getRarity() {
@@ -72,6 +103,14 @@ public class Item {
 
     public void setRarity(int rarity) {
         this.rarity = rarity;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
     }
 
     public int getSubType() {
@@ -90,20 +129,28 @@ public class Item {
         this.icon = icon;
     }
 
-    public String getName() {
-        return name;
+    public ImprovementEntity getImprovement() {
+        return improvement;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setImprovement(ImprovementEntity improvement) {
+        this.improvement = improvement;
     }
 
-    public AttrEntity getAttr() {
-        return attr;
+    public List<Integer> getDiscard() {
+        return discard;
     }
 
-    public void setAttr(AttrEntity attr) {
-        this.attr = attr;
+    public void setDiscard(List<Integer> discard) {
+        this.discard = discard;
+    }
+
+    public List<Integer> getShipLimit() {
+        return shipLimit;
+    }
+
+    public void setShipLimit(List<Integer> shipLimit) {
+        this.shipLimit = shipLimit;
     }
 
     public GetEntity getGet() {
@@ -114,12 +161,56 @@ public class Item {
         this.get = get;
     }
 
-    public RemarkEntity getRemark() {
-        return remark;
+    public static class NameEntity {
+        private String zh_cn;
+        private String ja;
+
+        public NameEntity() {
+            zh_cn = "";
+            ja = "";
+        }
+
+        public String getZh_cn() {
+            return zh_cn;
+        }
+
+        public void setZh_cn(String zh_cn) {
+            this.zh_cn = zh_cn;
+        }
+
+        public String getJa() {
+            return ja;
+        }
+
+        public void setJa(String ja) {
+            this.ja = ja;
+        }
     }
 
-    public void setRemark(RemarkEntity remark) {
-        this.remark = remark;
+    public static class IntroductionEntity {
+        private String zh_cn;
+        private String ja;
+
+        public IntroductionEntity() {
+            zh_cn = "";
+            ja = "";
+        }
+
+        public String getZh_cn() {
+            return zh_cn;
+        }
+
+        public void setZh_cn(String zh_cn) {
+            this.zh_cn = zh_cn;
+        }
+
+        public String getJa() {
+            return ja;
+        }
+
+        public void setJa(String ja) {
+            this.ja = ja;
+        }
     }
 
     public static class AttrEntity {
@@ -127,8 +218,8 @@ public class Item {
         private int fire;
         private int aa;
         private int acc;
-        private int as;
-        private int dodge;
+        private int asw;
+        private int evasion;
         private int torpedo;
         private int armor;
         private int search;
@@ -166,20 +257,20 @@ public class Item {
             this.acc = acc;
         }
 
-        public int getAs() {
-            return as;
+        public int getAsw() {
+            return asw;
         }
 
-        public void setAs(int as) {
-            this.as = as;
+        public void setAsw(int asw) {
+            this.asw = asw;
         }
 
-        public int getDodge() {
-            return dodge;
+        public int getEvasion() {
+            return evasion;
         }
 
-        public void setDodge(int dodge) {
-            this.dodge = dodge;
+        public void setEvasion(int evasion) {
+            this.evasion = evasion;
         }
 
         public int getTorpedo() {
@@ -215,6 +306,95 @@ public class Item {
         }
     }
 
+    public static class ImprovementEntity {
+        /**
+         * base : [10,10,10,10]
+         * item : [[7,9,5,7,1,2],[7,9,5,7,1,2]]
+         * levelup : 1
+         */
+
+        private ResourceEntity resource;
+        /**
+         * name : 夕立改二
+         * day : [false,true,true,true,false,false,false]
+         */
+
+        private List<SecretaryEntity> secretary;
+
+        private int levelup;
+
+        public ResourceEntity getResource() {
+            return resource;
+        }
+
+        public void setResource(ResourceEntity resource) {
+            this.resource = resource;
+        }
+
+        public List<SecretaryEntity> getSecretary() {
+            return secretary;
+        }
+
+        public void setSecretary(List<SecretaryEntity> secretary) {
+            this.secretary = secretary;
+        }
+
+        public int getLevelup() {
+            return levelup;
+        }
+
+        public void setLevelup(int levelup) {
+            this.levelup = levelup;
+        }
+
+        public static class ResourceEntity {
+            private List<Integer> base;
+            private List<List<Integer>> item;
+
+            public ResourceEntity() {
+                base = new ArrayList<>();
+                item = new ArrayList<>();
+            }
+
+            public List<Integer> getBase() {
+                return base;
+            }
+
+            public void setBase(List<Integer> base) {
+                this.base = base;
+            }
+
+            public List<List<Integer>> getItem() {
+                return item;
+            }
+
+            public void setItem(List<List<Integer>> item) {
+                this.item = item;
+            }
+        }
+
+        public static class SecretaryEntity {
+            private String name;
+            private List<Boolean> day;
+
+            public String getName() {
+                return name;
+            }
+
+            public void setName(String name) {
+                this.name = name;
+            }
+
+            public List<Boolean> getDay() {
+                return day;
+            }
+
+            public void setDay(List<Boolean> day) {
+                this.day = day;
+            }
+        }
+    }
+
     public static class GetEntity {
         private String rank;
         private String quest;
@@ -244,26 +424,4 @@ public class Item {
             this.event = event;
         }
     }
-
-    public static class RemarkEntity {
-        private String zh;
-        private String ja;
-
-        public String getZh() {
-            return zh;
-        }
-
-        public void setZh(String zh) {
-            this.zh = zh;
-        }
-
-        public String getJa() {
-            return ja;
-        }
-
-        public void setJa(String ja) {
-            this.ja = ja;
-        }
-    }
 }
-

@@ -21,6 +21,7 @@
         android:fontFamily="sans-serif-medium"
         android:paddingLeft="8dp"
         android:paddingRight="8dp"
+        android:textSize="16sp"
         tools:text="火力"
         android:layout_gravity="center_vertical"/>
 
@@ -30,6 +31,7 @@
         android:id="@+id/textView2"
         android:fontFamily="sans-serif-medium"
         tools:text="+15"
+        android:textSize="16sp"
         android:layout_gravity="center_vertical"
         android:gravity="end"/>
 </LinearLayout>

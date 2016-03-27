@@ -74,4 +74,7 @@
     <string name="data_source">数据来源</string>
     <string name="category_item">装备</string>
     <string name="display_enemy">显示敌人装备</string>
+    <string name="introduction">图鉴说明</string>
+    <string name="ship_can_equip">可装备舰种</string>
+
 </resources>

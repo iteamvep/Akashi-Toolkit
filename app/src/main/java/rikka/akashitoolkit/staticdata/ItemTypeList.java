@@ -2,6 +2,7 @@ package rikka.akashitoolkit.staticdata;
 
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.content.res.Resources;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -77,5 +78,11 @@ public class ItemTypeList {
                 sParentList.put(item.getParent(), sParentList.size());
             }
         }
+    }
+
+    public static int getResourceId(Context context, int id) {
+        Resources resources = context.getResources();
+        return resources.getIdentifier(String.format("item_type_%d", id), "drawable",
+                context.getPackageName());
     }
 }

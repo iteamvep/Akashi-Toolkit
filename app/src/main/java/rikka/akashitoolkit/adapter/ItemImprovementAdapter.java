@@ -16,6 +16,7 @@ import java.util.List;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.model.ItemImprovement;
 import rikka.akashitoolkit.staticdata.ItemImprovementList;
+import rikka.akashitoolkit.staticdata.ItemTypeList;
 import rikka.akashitoolkit.staticdata.QuestList;
 import rikka.akashitoolkit.ui.ItemDisplayActivity;
 
@@ -87,11 +88,7 @@ public class ItemImprovementAdapter extends RecyclerView.Adapter<ViewHolder.Item
             }
         });
 
-        Resources resources = holder.mType.getContext().getResources();
-        int resourceId = resources.getIdentifier(String.format("item_type_%d", mData.get(position).getIcon()), "drawable",
-                holder.mType.getContext().getPackageName());
-
-        holder.mImageView.setImageResource(resourceId);
+        holder.mImageView.setImageResource(ItemTypeList.getResourceId(holder.itemView.getContext(), mData.get(position).getIcon()));
         /*Resources resources = holder.mType.getContext().getResources();
         int resourceId = resources.getIdentifier(String.format("item_type_%d", mData.get(position).getIcon()), "drawable",
                 holder.mType.getContext().getPackageName());*/
