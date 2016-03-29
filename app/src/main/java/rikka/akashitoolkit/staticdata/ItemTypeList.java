@@ -123,7 +123,7 @@ public class ItemTypeList {
             R.drawable.system_icon_36_24dp
     };
 
-    private static String[] COLOR = {
+    /*private static String[] COLOR = {
             "",
             "#D65B59",
             "#CF3C39",
@@ -161,6 +161,53 @@ public class ItemTypeList {
             "#000000",
             "#65CEA5",
             "#A1AE5C"
+    };*/
+
+    private static String[] COLOR = {
+            "",
+
+            "#f44336",
+            "#f44336",
+            "#f44336",
+            "#ffc107",
+            "#3f51b5",
+
+            "#4caf50",
+            "#f44336",
+            "#2196f3",
+            "#ffc107",
+            "#8bc34a",
+
+            "#FFD54F",
+            "#4caf50",
+            "#f44336",
+            "#9e9e9e",
+            "#4caf50",
+
+            "#4caf50",
+            "#03a9f4",
+            "#03a9f4",
+            "#ffc107",
+            "#4caf50",
+
+            "#4caf50",
+            "#03a9f4",
+            "#673ab7",
+            "#ff9800",
+            "#9e9e9e",
+            "#795548",
+
+            "#ff9800",
+            "#673ab7",
+            "#795548",
+            "#009688",
+            "#f44336",
+
+            "#8bc34a",
+            "#8bc34a",
+            "#9e9e9e",
+            "#009688",
+            "#009688"
     };
 
     /*public static int getResourceId(Context context, int id) {

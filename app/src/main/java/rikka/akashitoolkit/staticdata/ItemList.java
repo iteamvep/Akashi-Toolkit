@@ -14,7 +14,6 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-import rikka.akashitoolkit.adapter.ViewHolder;
 import rikka.akashitoolkit.model.Item;
 
 /**
@@ -34,12 +33,38 @@ public class ItemList {
                 Reader reader = new InputStreamReader(ims);
                 Type listType = new TypeToken<ArrayList<Item>>() {}.getType();
                 sList = gson.fromJson(reader, listType);
+                sort();
+                modifyItemIntroduction();
             } catch (IOException e) {
                 e.printStackTrace();
                 sList = new ArrayList<>();
             }
         }
         return sList;
+    }
+
+    private static void sort() {
+        List<Item> list = new ArrayList<>();
+        int curType = 1;
+        while (list.size() != sList.size()) {
+            for (Item item :
+                    sList) {
+                if (curType == item.getSubType()) {
+                    list.add(item);
+                }
+            }
+            curType ++;
+        }
+        sList.clear();
+        sList.addAll(list);
+    }
+
+    private static void modifyItemIntroduction() {
+        for (Item item :
+                sList) {
+            item.getIntroduction().setZh_cn(
+                    item.getIntroduction().getZh_cn().replace("<ref>", "（").replace("</ref>", "）"));
+        }
     }
 
     public static Item findItemById(Context context, int id) {
