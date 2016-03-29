@@ -77,8 +77,9 @@ public class ItemAdapter extends RecyclerView.Adapter<ViewHolder.Item> {
 
         holder.mName.setText(mData.get(position).getName().getZh_cn());
 
-        holder.mImageView.setImageResource(ItemTypeList.getResourceId(holder.itemView.getContext(), mData.get(position).getIcon()));
-
+        ItemTypeList.setIntoImageView(holder.mImageView, mData.get(position).getIcon());
+        //holder.mImageView.setImageResource(ItemTypeList.getResourceId(holder.itemView.getContext(), mData.get(position).getIcon()));
+        //holder.mImageView.setColorFilter();
         holder.mLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

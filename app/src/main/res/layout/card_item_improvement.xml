@@ -33,7 +33,7 @@
                 android:contentDescription="@null"
                 android:visibility="visible"
                 tools:visibility="visible"
-                tools:src="@drawable/item_type_1"
+                tools:src="@drawable/system_icon_01_24dp"
                 android:scaleType="fitCenter"
                 android:layout_gravity="center_vertical"/>
 

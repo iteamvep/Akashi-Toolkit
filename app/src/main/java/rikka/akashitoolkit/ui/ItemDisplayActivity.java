@@ -337,8 +337,10 @@ public class ItemDisplayActivity extends AppCompatActivity {
 
         Item item = ItemList.findItemById(this, id);
         ((TextView) linearLayout.findViewById(R.id.text_quest_reward_0)).setText(item.getName().getZh_cn());
-        ((ImageView) linearLayout.findViewById(R.id.imageView))
-                .setImageResource(ItemTypeList.getResourceId(this, item.getIcon()));
+        /*((ImageView) linearLayout.findViewById(R.id.imageView))
+                .setImageResource(ItemTypeList.getResourceId(this, item.getIcon()));*/
+
+        ItemTypeList.setIntoImageView((ImageView) linearLayout.findViewById(R.id.imageView), item.getIcon());
 
         parent.addView(linearLayout);
     }
@@ -368,8 +370,9 @@ public class ItemDisplayActivity extends AppCompatActivity {
                                 item.getName().getZh_cn(),
                                 res.get(5)));
 
-                ((ImageView) linearLayout.findViewById(R.id.imageView))
-                        .setImageResource(ItemTypeList.getResourceId(this, item.getIcon()));
+                /*((ImageView) linearLayout.findViewById(R.id.imageView))
+                        .setImageResource(ItemTypeList.getResourceId(this, item.getIcon()));*/
+                ItemTypeList.setIntoImageView((ImageView) linearLayout.findViewById(R.id.imageView), item.getIcon());
             } else {
                 linearLayout.findViewById(R.id.linearLayout).setVisibility(View.GONE);
             }

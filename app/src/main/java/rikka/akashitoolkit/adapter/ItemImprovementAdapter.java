@@ -88,11 +88,8 @@ public class ItemImprovementAdapter extends RecyclerView.Adapter<ViewHolder.Item
             }
         });
 
-        holder.mImageView.setImageResource(ItemTypeList.getResourceId(holder.itemView.getContext(), mData.get(position).getIcon()));
-        /*Resources resources = holder.mType.getContext().getResources();
-        int resourceId = resources.getIdentifier(String.format("item_type_%d", mData.get(position).getIcon()), "drawable",
-                holder.mType.getContext().getPackageName());*/
-        //holder.mType.setCompoundDrawables(holder.mType.getContext().getResources().getDrawable(R.drawable.item_type_1, null), null, null, null);
+        //holder.mImageView.setImageResource(ItemTypeList.getResourceId(holder.itemView.getContext(), mData.get(position).getIcon()));
+        ItemTypeList.setIntoImageView(holder.mImageView, mData.get(position).getIcon());
     }
 
     @Override

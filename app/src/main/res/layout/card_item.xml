@@ -45,7 +45,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:contentDescription="@null"
-                android:src="@drawable/item_type_1"
+                android:src="@drawable/system_icon_01_24dp"
                 android:scaleType="fitCenter"
                 android:layout_gravity="center_vertical"/>
 

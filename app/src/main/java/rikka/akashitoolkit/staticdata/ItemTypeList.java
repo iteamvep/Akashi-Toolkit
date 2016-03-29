@@ -3,6 +3,8 @@ package rikka.akashitoolkit.staticdata;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
+import android.graphics.Color;
+import android.widget.ImageView;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -17,6 +19,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.model.ItemType;
 
 /**
@@ -80,9 +83,93 @@ public class ItemTypeList {
         }
     }
 
-    public static int getResourceId(Context context, int id) {
-        Resources resources = context.getResources();
-        return resources.getIdentifier(String.format("item_type_%d", id), "drawable",
+    private static int[] ICON = {
+            0,
+            R.drawable.system_icon_01_24dp,
+            R.drawable.system_icon_02_24dp,
+            R.drawable.system_icon_03_24dp,
+            R.drawable.system_icon_01_24dp,
+            R.drawable.system_icon_05_24dp,
+            R.drawable.system_icon_06_24dp,
+            R.drawable.system_icon_06_24dp,
+            R.drawable.system_icon_06_24dp,
+            R.drawable.system_icon_06_24dp,
+            R.drawable.system_icon_10_24dp,
+            R.drawable.system_icon_11_24dp,
+            R.drawable.system_icon_12_24dp,
+            R.drawable.system_icon_13_24dp,
+            R.drawable.system_icon_14_24dp,
+            R.drawable.system_icon_15_24dp,
+            R.drawable.system_icon_16_24dp,
+            R.drawable.system_icon_17_24dp,
+            R.drawable.system_icon_11_24dp,
+            R.drawable.system_icon_19_24dp,
+            R.drawable.system_icon_20_24dp,
+            R.drawable.system_icon_21_24dp,
+            R.drawable.system_icon_22_24dp,
+            R.drawable.system_icon_23_24dp,
+            R.drawable.system_icon_24_24dp,
+            R.drawable.system_icon_25_24dp,
+            R.drawable.system_icon_26_24dp,
+            R.drawable.system_icon_27_24dp,
+            R.drawable.system_icon_28_24dp,
+            R.drawable.system_icon_29_24dp,
+            R.drawable.system_icon_30_24dp,
+            R.drawable.system_icon_31_24dp,
+            R.drawable.system_icon_32_24dp,
+            R.drawable.system_icon_33_24dp,
+            R.drawable.system_icon_34_24dp,
+            R.drawable.system_icon_25_24dp,
+            R.drawable.system_icon_36_24dp
+    };
+
+    private static String[] COLOR = {
+            "",
+            "#D65B59",
+            "#CF3C39",
+            "#D32F2F",
+            "#FFCF00",
+            "#5584AB",
+            "#30B847",
+            "#E54E4E",
+            "#45B8FF",
+            "#FFCF00",
+            "#91D39B",
+            "#DD9223",
+            "#5BBF6A",
+            "#DF605E",
+            "#212121",
+            "#65D576",
+            "#62CC72",
+            "#7BCEDB",
+            "#7BCEDB",
+            "#FAC840",
+            "#A1AE5C",
+            "#60CA71",
+            "#7DE2EF",
+            "#A084B5",
+            "#FED02D",
+            "#BCBCBC",
+            "#B29E7D",
+            "#FCA844",
+            "#C1A2F6",
+            "#CEA265",
+            "#8C9E48",
+            "#F24646",
+            "#A2F4B3",
+            "#A2EBAD",
+            "#000000",
+            "#65CEA5",
+            "#A1AE5C"
+    };
+
+    /*public static int getResourceId(Context context, int id) {
+        return context.getResources().getIdentifier(String.format("system_icon_%02d", id), "drawable",
                 context.getPackageName());
+    }*/
+
+    public static void setIntoImageView(ImageView imageView, int id) {
+        imageView.setImageResource(ICON[id]);
+        imageView.setColorFilter(Color.parseColor(COLOR[id]));
     }
 }
