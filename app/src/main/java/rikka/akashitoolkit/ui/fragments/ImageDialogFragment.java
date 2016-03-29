@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 
 import rikka.akashitoolkit.R;
+import uk.co.senab.photoview.PhotoView;
 
 /**
  * Created by etby on 16-3-29.
@@ -36,7 +37,7 @@ public class ImageDialogFragment extends DialogFragment {
         ImageDialogFragment dialogFragment = new ImageDialogFragment();
 
         Bundle args = new Bundle();
-        args.putString(IMAGE_URL, imageUrl);
+        args.putString(IMAGE_URL, imageUrl.replaceAll("-\\d+x\\d+", ""));
 
         dialogFragment.setArguments(args);
         return dialogFragment;
