@@ -2,6 +2,7 @@ package rikka.akashitoolkit.adapter;
 
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.text.TextUtils;
@@ -13,12 +14,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.signature.StringSignature;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import rikka.akashitoolkit.R;
+import rikka.akashitoolkit.ui.fragments.ImageDialogFragment;
 
 import static rikka.akashitoolkit.support.ApiConstParam.TwitterContentLanguage.JP_AND_ZH;
 import static rikka.akashitoolkit.support.ApiConstParam.TwitterContentLanguage.ONLY_JP;
@@ -29,6 +30,7 @@ import static rikka.akashitoolkit.support.ApiConstParam.TwitterContentLanguage.O
  */
 public class TwitterAdapter extends RecyclerView.Adapter<TwitterAdapter.ViewHolder> {
     private static final String TAG = "TwitterAdapter";
+    private FragmentManager mFragmentManager;
 
     public static class DataModel {
         public int id;
@@ -198,24 +200,44 @@ public class TwitterAdapter extends RecyclerView.Adapter<TwitterAdapter.ViewHold
         }
     }
 
-    protected class ImageLoader implements Html.ImageGetter {
+    protected class ImageLoader implements Html.ImageGetter, View.OnClickListener {
         private ImageView mImageView;
+        private String mSource;
 
         public ImageLoader(ImageView target) {
             this.mImageView = target;
+            mImageView.setOnClickListener(this);
         }
 
         @Override
         public Drawable getDrawable(String source) {
             mImageView.setVisibility(View.VISIBLE);
 
+            mSource = source;
             Glide.with(mImageView.getContext())
-                    .load(source)
+                    .load(mSource)
                     .crossFade()
                     .into(mImageView);
 
             return new ColorDrawable(0);
         }
+
+        @Override
+        public void onClick(View v) {
+            if (v == mImageView && mFragmentManager != null) {
+                ImageDialogFragment.showDialog(mFragmentManager, mSource);
+            }
+        }
+    }
+
+
+    /**
+     * 开启图片展示 关闭传入null
+     *
+     * @param fragmentManager
+     */
+    public void openImageShow(FragmentManager fragmentManager) {
+        mFragmentManager = fragmentManager;
     }
 
     @Override

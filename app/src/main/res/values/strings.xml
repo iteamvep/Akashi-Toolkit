@@ -75,5 +75,6 @@
     <string name="display_enemy">Display enemy item</string>
     <string name="introduction">Introduction</string>
     <string name="ship_can_equip">Ship can equip</string>
+    <string name="image_load_error">Image load error</string>
 
 </resources>

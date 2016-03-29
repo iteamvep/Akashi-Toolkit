@@ -76,5 +76,6 @@
     <string name="display_enemy">显示敌人装备</string>
     <string name="introduction">图鉴说明</string>
     <string name="ship_can_equip">可装备舰种</string>
+    <string name="image_load_error">图片加载失败</string>
 
 </resources>

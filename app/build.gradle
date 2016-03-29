@@ -69,4 +69,7 @@ dependencies {
 
     //avoscloud-statistics 为 LeanCloud 统计包
     compile ('cn.leancloud.android:avoscloud-statistics:v3.+')
+
+    //图片展示View
+    compile 'com.commit451:PhotoView:1.2.5'
 }
