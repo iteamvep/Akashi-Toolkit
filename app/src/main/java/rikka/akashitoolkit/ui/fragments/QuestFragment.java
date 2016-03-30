@@ -47,11 +47,15 @@ public class QuestFragment extends Fragment {
         View view = inflater.inflate(R.layout.content_recycler, container, false);
 
         int flag = 0;
+        int jump_index = -1;
+        int jump_type = -1;
         Bundle args = getArguments();
         if (args != null) {
             mType = args.getInt("TYPE");
             flag = args.getInt("FLAG");
             mIgnoreSearch = args.getInt("IGNORE_SEARCH") == 1;
+            jump_index = args.getInt("JUMP_INDEX");
+            jump_type = args.getInt("JUMP_TYPE");
         }
 
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
@@ -62,6 +66,10 @@ public class QuestFragment extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         layoutManager.setAutoMeasureEnabled(false);
         mRecyclerView.setLayoutManager(layoutManager);
+
+        if (jump_index != -1 && jump_type == mType) {
+            jumpTo(jump_index);
+        }
 
         return view;
     }
@@ -86,9 +94,20 @@ public class QuestFragment extends Fragment {
     @Subscribe
     public void jumpToIndex(QuestAction.JumpToQuest action) {
         if (mType == action.getType() || mIgnoreSearch) {
-            int position = mAdapter.getPositionByIndex(action.getIndex());
-            mRecyclerView.scrollToPosition(position);
-            mAdapter.notifyItemChanged(position);
+            jumpTo(action.getIndex());
         }
+    }
+
+    private void jumpTo(int index) {
+        final int position = mAdapter.getPositionByIndex(index);
+        mRecyclerView.post(new Runnable() {
+            @Override
+            public void run() {
+                mRecyclerView.scrollToPosition(position);
+                mAdapter.notifyItemChanged(position);
+            }
+        });
+
+        BusProvider.instance().post(new QuestAction.JumpedToQuest());
     }
 }

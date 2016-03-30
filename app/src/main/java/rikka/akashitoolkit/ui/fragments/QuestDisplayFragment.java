@@ -14,7 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.avos.avoscloud.AVAnalytics;
-import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 
 import rikka.akashitoolkit.R;
@@ -40,6 +39,8 @@ public class QuestDisplayFragment extends BaseFragmet implements CheckBoxGroup.O
     private String mKeyword;
     private boolean mIsSearching;
     private boolean mOnShowFromCreateView;
+    private int mJumpToQuestIndex = -1;
+    private int mJumpToQuestType = -1;
 
     @Override
     public void onHide() {
@@ -220,6 +221,8 @@ public class QuestDisplayFragment extends BaseFragmet implements CheckBoxGroup.O
                     bundle.putInt("TYPE", position + 1);
                     bundle.putInt("FLAG", mFlag);
                     bundle.putInt("IGNORE_SEARCH", 0);
+                    bundle.putInt("JUMP_INDEX", mJumpToQuestIndex);
+                    bundle.putInt("JUMP_TYPE", mJumpToQuestType);
                     return bundle;
                 }
             };
@@ -238,6 +241,8 @@ public class QuestDisplayFragment extends BaseFragmet implements CheckBoxGroup.O
                     bundle.putInt("TYPE", 0);
                     bundle.putInt("IGNORE_SEARCH", 1 - position);
                     bundle.putInt("FLAG", mFlag);
+                    bundle.putInt("JUMP_INDEX", mJumpToQuestIndex);
+                    bundle.putInt("JUMP_TYPE", mJumpToQuestType);
                     return bundle;
                 }
             };
@@ -250,6 +255,15 @@ public class QuestDisplayFragment extends BaseFragmet implements CheckBoxGroup.O
 
     @Subscribe
     public void jumpTo(QuestAction.JumpToQuest action) {
+        mJumpToQuestType = action.getType();
+        mJumpToQuestIndex = action.getIndex();
+
         mViewPager.setCurrentItem(mIsSearching ? 0 : action.getType() - 1);
+    }
+
+    @Subscribe
+    public void jumpedTo(QuestAction.JumpedToQuest action) {
+        mJumpToQuestIndex = -1;
+        mJumpToQuestType = -1;
     }
 }

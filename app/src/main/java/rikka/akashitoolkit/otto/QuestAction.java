@@ -61,4 +61,9 @@ public class QuestAction {
             this.type = type;
         }
     }
+
+    public static class JumpedToQuest {
+        public JumpedToQuest() {
+        }
+    }
 }
