@@ -16,6 +16,7 @@ public class ViewHolder {
     public static class Quest extends RecyclerView.ViewHolder {
         protected CardView mCardView;
         protected TextView mName;
+        protected TextView mName2;
         protected TextView mDetail;
         protected TextView mRequire;
         protected TextView mRewardText[];
@@ -25,6 +26,7 @@ public class ViewHolder {
 
             mCardView = (CardView) itemView.findViewById(R.id.cardView);
             mName = (TextView) itemView.findViewById(R.id.text_card_title);
+            mName2 = (TextView) itemView.findViewById(R.id.text_card_title2);
             mDetail = (TextView) itemView.findViewById(R.id.text_quest_detail);
             mRequire = (TextView) itemView.findViewById(R.id.text_quest_require);
             mRewardText = new TextView[5];

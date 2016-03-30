@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import rikka.akashitoolkit.R;
+import rikka.akashitoolkit.otto.BusProvider;
+import rikka.akashitoolkit.otto.QuestAction;
 import rikka.akashitoolkit.staticdata.QuestList;
 
 /**
@@ -42,6 +44,15 @@ public class QuestAdapter extends RecyclerView.Adapter<ViewHolder.Quest> {
         mType = type;
         mData = new ArrayList<>();
         mFilterFlag = flag;
+    }
+
+    public int getPositionByIndex(int index) {
+        for (int i = 0; i < mData.size(); i++) {
+            if (mData.get(i).getIndex() == index) {
+                return i;
+            }
+        }
+        return 0;
     }
 
     public void rebuildDataList(Context context) {
@@ -138,6 +149,23 @@ public class QuestAdapter extends RecyclerView.Adapter<ViewHolder.Quest> {
 
             }
         });
+
+        if (mData.get(position).getUnlockIndex() > 0) {
+            holder.mName2.setVisibility(View.VISIBLE);
+
+            final QuestList.Quest item = QuestList.findItemById(holder.mName2.getContext(), mData.get(position).getUnlockIndex());
+            if (item != null) {
+                holder.mName2.setText(String.format("前置任务: %s %s", item.getCode(), item.getTitle()));
+                holder.mCardView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        BusProvider.instance().post(new QuestAction.JumpToQuest(item.getType(), item.getIndex()));
+                    }
+                });
+            }
+        } else {
+            holder.mName2.setVisibility(View.GONE);
+        }
     }
 
     @Override

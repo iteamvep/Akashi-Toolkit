@@ -53,6 +53,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="A1 はじめての「編成」！"
+                android:singleLine="true"
                 android:textAppearance="@style/TextAppearance.AppCompat"
                 android:textSize="@dimen/card_font_large" />
 
@@ -62,7 +63,7 @@
                 android:layout_height="wrap_content"
                 android:background="@null"
                 android:textSize="@dimen/card_font_medium"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="6dp"
                 tools:text="2隻以上の艦で編成される「艦隊」を編成せよ！" />
 
             <LinearLayout
@@ -110,6 +111,15 @@
                     layout="@layout/card_inside_reward"/>
 
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/text_card_title2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:layout_marginTop="8dp"
+                tools:text="前置任务: A1 はじめての「編成」！"
+                android:textSize="@dimen/card_font_medium"/>
 
         </LinearLayout>
 

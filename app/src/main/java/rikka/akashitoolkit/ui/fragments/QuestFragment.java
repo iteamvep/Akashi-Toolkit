@@ -25,6 +25,9 @@ import rikka.akashitoolkit.utils.Utils;
 public class QuestFragment extends Fragment {
     private QuestAdapter mAdapter;
     private boolean mIgnoreSearch;
+    private RecyclerView mRecyclerView;
+
+    private int mType;
 
     @Override
     public void onStart() {
@@ -43,23 +46,22 @@ public class QuestFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.content_recycler, container, false);
 
-        int type = 0;
         int flag = 0;
         Bundle args = getArguments();
         if (args != null) {
-            type = args.getInt("TYPE");
+            mType = args.getInt("TYPE");
             flag = args.getInt("FLAG");
             mIgnoreSearch = args.getInt("IGNORE_SEARCH") == 1;
         }
 
-        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
-        recyclerView.setPadding(0, Utils.dpToPx(2), 0, Utils.dpToPx(2));
-        mAdapter = new QuestAdapter(getContext(), type, flag);
+        mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
+        mRecyclerView.setPadding(0, Utils.dpToPx(2), 0, Utils.dpToPx(2));
+        mAdapter = new QuestAdapter(getContext(), mType, flag);
         mAdapter.rebuildDataList(getContext());
-        recyclerView.setAdapter(mAdapter);
+        mRecyclerView.setAdapter(mAdapter);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         layoutManager.setAutoMeasureEnabled(false);
-        recyclerView.setLayoutManager(layoutManager);
+        mRecyclerView.setLayoutManager(layoutManager);
 
         return view;
     }
@@ -79,5 +81,14 @@ public class QuestFragment extends Fragment {
             return;
         }
         mAdapter.setKeyword(getContext(), action.getKeyword());
+    }
+
+    @Subscribe
+    public void jumpToIndex(QuestAction.JumpToQuest action) {
+        if (mType == action.getType() || mIgnoreSearch) {
+            int position = mAdapter.getPositionByIndex(action.getIndex());
+            mRecyclerView.scrollToPosition(position);
+            mAdapter.notifyItemChanged(position);
+        }
     }
 }

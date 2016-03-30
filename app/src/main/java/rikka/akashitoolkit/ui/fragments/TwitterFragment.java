@@ -60,6 +60,9 @@ public class TwitterFragment extends BaseFragmet {
     private TwitterAdapter mTwitterAdapter;
     private SwipeRefreshLayout mSwipeRefreshLayout;
 
+    private Call<Twitter> mCall;
+    private Call<ResponseBody> mCall2;
+
     @Override
     public void onShow() {
         MainActivity activity = ((MainActivity) getActivity());
@@ -68,6 +71,19 @@ public class TwitterFragment extends BaseFragmet {
         activity.setRightDrawerLocked(true);
 
         AVAnalytics.onFragmentStart("TwitterFragment");
+    }
+
+    @Override
+    public void onStop() {
+        if (mCall != null && mCall.isExecuted()) {
+            mCall.cancel();
+        }
+
+        if (mCall2 != null && mCall2.isExecuted()) {
+            mCall2.cancel();
+        }
+
+        super.onStop();
     }
 
     @Override
@@ -274,8 +290,8 @@ public class TwitterFragment extends BaseFragmet {
                 .build();
 
         RetrofitAPI.TwitterService service = retrofit.create(RetrofitAPI.TwitterService.class);
-        Call<ResponseBody> call = service.getAvatarUrl();
-        call.enqueue(new Callback<ResponseBody>() {
+        mCall2 = service.getAvatarUrl();
+        mCall2.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 _refresh(json, count);
@@ -303,9 +319,9 @@ public class TwitterFragment extends BaseFragmet {
                 .build();
 
         RetrofitAPI.TwitterService service = retrofit.create(RetrofitAPI.TwitterService.class);
-        Call<Twitter> call = service.get(json, count);
+        mCall = service.get(json, count);
 
-        call.enqueue(new Callback<Twitter>() {
+        mCall.enqueue(new Callback<Twitter>() {
             @Override
             public void onResponse(Call<Twitter> call, Response<Twitter> response) {
                 mSwipeRefreshLayout.setRefreshing(false);

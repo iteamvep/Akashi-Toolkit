@@ -14,6 +14,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.avos.avoscloud.AVAnalytics;
+import com.squareup.otto.Bus;
+import com.squareup.otto.Subscribe;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.ViewPagerAdapter;
@@ -105,6 +107,18 @@ public class QuestDisplayFragment extends BaseFragmet implements CheckBoxGroup.O
         super.onCreate(savedInstanceState);
 
         setHasOptionsMenu(true);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        BusProvider.instance().register(this);
+    }
+
+    @Override
+    public void onStop() {
+        BusProvider.instance().unregister(this);
+        super.onStop();
     }
 
     @Override
@@ -232,5 +246,10 @@ public class QuestDisplayFragment extends BaseFragmet implements CheckBoxGroup.O
         }
 
         return adapter;
+    }
+
+    @Subscribe
+    public void jumpTo(QuestAction.JumpToQuest action) {
+        mViewPager.setCurrentItem(mIsSearching ? 0 : action.getType() - 1);
     }
 }
