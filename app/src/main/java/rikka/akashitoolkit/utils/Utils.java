@@ -1,5 +1,7 @@
 package rikka.akashitoolkit.utils;
 
+import android.animation.ArgbEvaluator;
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -48,5 +50,12 @@ public class Utils {
 
     public static boolean isNightMode(Resources resources) {
         return ((resources.getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_YES) > 0);
+    }
+
+    public static void colorAnimation(int colorFrom, int colorTo, int duration, ValueAnimator.AnimatorUpdateListener listener) {
+        ValueAnimator colorAnimation = ValueAnimator.ofObject(new ArgbEvaluator(), colorFrom, colorTo);
+        colorAnimation.setDuration(duration);
+        colorAnimation.addUpdateListener(listener);
+        colorAnimation.start();
     }
 }

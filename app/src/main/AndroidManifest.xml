@@ -55,6 +55,12 @@
             android:name=".ui.ItemDisplayActivity"
             android:theme="@style/AppTheme.ItemActivity">
         </activity>
+
+        <activity
+            android:name=".ui.ShipDisplayActivity"
+            android:theme="@style/AppTheme.ItemActivity">
+        </activity>
+
     </application>
 
 </manifest>

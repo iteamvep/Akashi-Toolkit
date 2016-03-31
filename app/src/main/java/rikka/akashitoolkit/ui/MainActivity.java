@@ -27,6 +27,7 @@ import rikka.akashitoolkit.ui.fragments.ItemDisplayFragment;
 import rikka.akashitoolkit.ui.fragments.ItemImprovementDisplayFragment;
 import rikka.akashitoolkit.ui.fragments.QuestDisplayFragment;
 import rikka.akashitoolkit.ui.fragments.HomeFragment;
+import rikka.akashitoolkit.ui.fragments.ShipDisplayFragment;
 import rikka.akashitoolkit.ui.fragments.TwitterFragment;
 import rikka.akashitoolkit.widget.SimpleDrawerView;
 
@@ -221,7 +222,7 @@ public class MainActivity extends BaseActivity
             case R.id.nav_quest:
                 return new QuestDisplayFragment();
             case R.id.nav_ship:
-                return new QuestDisplayFragment();
+                return new ShipDisplayFragment();
             case R.id.nav_expedition:
                 return new ExpeditionDisplayFragment();
         }

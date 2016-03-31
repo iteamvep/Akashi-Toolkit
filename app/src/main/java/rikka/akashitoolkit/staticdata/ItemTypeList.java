@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.support.v4.content.ContextCompat;
 import android.widget.ImageView;
 
 import com.google.gson.Gson;
@@ -21,6 +22,7 @@ import java.util.Map;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.model.ItemType;
+import rikka.akashitoolkit.utils.Utils;
 
 /**
  * Created by Rikka on 2016/3/24.
@@ -162,8 +164,88 @@ public class ItemTypeList {
             "#65CEA5",
             "#A1AE5C"
     };*/
+    private static int[][] COLOR = {
+            {
+                    0,
+                    R.color.material_red_400,
+                    R.color.material_red_700,
+                    R.color.material_red_700,
+                    R.color.material_amber_500,
+                    R.color.material_blue_grey_500,
+                    R.color.material_green_500,
+                    R.color.material_red_400,
+                    R.color.material_light_blue_500,
+                    R.color.material_amber_500,
+                    R.color.material_green_200,
+                    R.color.material_orange_500,
+                    R.color.material_green_400,
+                    R.color.material_red_400,
+                    R.color.material_grey_800,
+                    R.color.material_green_300,
+                    R.color.material_green_300,
+                    R.color.material_light_blue_300,
+                    R.color.material_light_blue_300,
+                    R.color.material_amber_500,
+                    R.color.material_lime_700,
+                    R.color.material_green_300,
+                    R.color.material_cyan_200,
+                    R.color.material_deep_purple_300,
+                    R.color.material_orange_500,
+                    R.color.material_grey_400,
+                    R.color.material_brown_300,
+                    R.color.material_orange_400,
+                    R.color.material_deep_purple_200,
+                    R.color.material_brown_300,
+                    R.color.material_lime_800,
+                    R.color.material_red_500,
+                    R.color.material_green_200,
+                    R.color.material_green_200,
+                    R.color.material_grey_800,
+                    R.color.material_teal_200,
+                    R.color.material_lime_700
+            },
+            {
+                    0,
+                    R.color.material_red_200,
+                    R.color.material_red_200,
+                    R.color.material_red_200,
+                    R.color.material_amber_200,
+                    R.color.material_blue_grey_200,
+                    R.color.material_green_200,
+                    R.color.material_red_200,
+                    R.color.material_light_blue_200,
+                    R.color.material_amber_200,
+                    R.color.material_green_200,
+                    R.color.material_orange_200,
+                    R.color.material_green_200,
+                    R.color.material_red_200,
+                    R.color.material_grey_200,
+                    R.color.material_green_200,
+                    R.color.material_green_200,
+                    R.color.material_light_blue_200,
+                    R.color.material_light_blue_200,
+                    R.color.material_amber_200,
+                    R.color.material_lime_200,
+                    R.color.material_green_200,
+                    R.color.material_cyan_200,
+                    R.color.material_deep_purple_200,
+                    R.color.material_orange_200,
+                    R.color.material_grey_200,
+                    R.color.material_brown_200,
+                    R.color.material_orange_200,
+                    R.color.material_deep_purple_200,
+                    R.color.material_brown_200,
+                    R.color.material_lime_200,
+                    R.color.material_red_200,
+                    R.color.material_green_200,
+                    R.color.material_green_200,
+                    R.color.material_grey_200,
+                    R.color.material_teal_200,
+                    R.color.material_lime_200
+            }
+    };
 
-    private static String[] COLOR = {
+    /*private static String[] COLOR = {
             "",
 
             "#f44336",
@@ -208,7 +290,7 @@ public class ItemTypeList {
             "#9e9e9e",
             "#009688",
             "#009688"
-    };
+    };*/
 
     /*public static int getResourceId(Context context, int id) {
         return context.getResources().getIdentifier(String.format("system_icon_%02d", id), "drawable",
@@ -217,6 +299,8 @@ public class ItemTypeList {
 
     public static void setIntoImageView(ImageView imageView, int id) {
         imageView.setImageResource(ICON[id]);
-        imageView.setColorFilter(Color.parseColor(COLOR[id]));
+        imageView.setColorFilter(ContextCompat.getColor(
+                imageView.getContext(),
+                COLOR[Utils.isNightMode(imageView.getContext().getResources()) ? 1 : 0][id]));
     }
 }

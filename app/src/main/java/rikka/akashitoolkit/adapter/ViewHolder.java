@@ -105,4 +105,17 @@ public class ViewHolder {
             mImageView = (ImageView) itemView.findViewById(R.id.imageView);
         }
     }
+
+    public static class Ship extends RecyclerView.ViewHolder {
+        protected LinearLayout mLinearLayout;
+        protected TextView mName;
+        protected ImageView mImageView;
+
+        public Ship(View itemView) {
+            super(itemView);
+            mLinearLayout = (LinearLayout) itemView.findViewById(R.id.linearLayout);
+            mName = (TextView) itemView.findViewById(R.id.textView);
+            mImageView = (ImageView) itemView.findViewById(R.id.imageView);
+        }
+    }
 }

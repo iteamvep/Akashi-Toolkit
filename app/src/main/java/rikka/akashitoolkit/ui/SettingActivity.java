@@ -42,10 +42,10 @@ public class SettingActivity extends BaseActivity {
         }
     }
 
-    @Override
+    /*@Override
     public boolean shouldOverrideBackTransition() {
         return false;
-    }
+    }*/
 
     /*@Override
     public void onBackPressed() {

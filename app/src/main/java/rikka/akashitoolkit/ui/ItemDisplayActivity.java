@@ -94,7 +94,6 @@ public class ItemDisplayActivity extends AppCompatActivity {
         }
 
         setViews();
-
     }
 
     private void setViews() {
@@ -472,7 +471,7 @@ public class ItemDisplayActivity extends AppCompatActivity {
 
     private void animEnter() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            colorAnimation(
+            Utils.colorAnimation(
                     ContextCompat.getColor(this, android.R.color.transparent),
                     ContextCompat.getColor(this, R.color.colorItemDisplayStatusBar),
                     ANIM_DURATION,
@@ -538,7 +537,7 @@ public class ItemDisplayActivity extends AppCompatActivity {
 
     private void animExit() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            colorAnimation(
+            Utils.colorAnimation(
                     ContextCompat.getColor(this, R.color.colorItemDisplayStatusBar),
                     ContextCompat.getColor(this, android.R.color.transparent),
                     ANIM_DURATION_EXIT,
@@ -603,12 +602,5 @@ public class ItemDisplayActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         animExit();
-    }
-
-    void colorAnimation(int colorFrom, int colorTo, int duration, ValueAnimator.AnimatorUpdateListener listener) {
-        ValueAnimator colorAnimation = ValueAnimator.ofObject(new ArgbEvaluator(), colorFrom, colorTo);
-        colorAnimation.setDuration(duration);
-        colorAnimation.addUpdateListener(listener);
-        colorAnimation.start();
     }
 }

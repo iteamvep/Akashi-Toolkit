@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/item_height"
+    android:paddingLeft="12dp"
+    android:paddingRight="12dp"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp"
+    android:clickable="true"
+    android:foreground="?attr/selectableItemBackground">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:contentDescription="@null"
+        android:src="@drawable/system_icon_01_24dp"
+        android:scaleType="fitCenter"
+        android:layout_gravity="center_vertical"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="12cm単装砲"
+        android:textSize="14sp"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:gravity="center_vertical"
+        android:layout_gravity="center_vertical"/>
+</LinearLayout>
