@@ -1,8 +1,6 @@
 package rikka.akashitoolkit.widget;
 
 import android.content.Context;
-import android.os.Build;
-import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
@@ -20,6 +18,7 @@ import rikka.akashitoolkit.utils.Utils;
  */
 public class CheckBoxGroup extends LinearLayout {
     private int mItemLayoutResId;
+    private int mTitleLayoutResId;
     private int mChecked;
     private List<CheckBox> mCheckBoxList;
     private OnCheckedChangeListener mOnCheckedChangeListener;
@@ -34,10 +33,19 @@ public class CheckBoxGroup extends LinearLayout {
 
         mCheckBoxList = new ArrayList<>();
         mItemLayoutResId = R.layout.drawer_item_check_box;
+        mTitleLayoutResId = R.layout.drawer_item_title;
     }
 
     public void setOnCheckedChangeListener(OnCheckedChangeListener onCheckedChangeListener) {
         mOnCheckedChangeListener = onCheckedChangeListener;
+    }
+
+    public void addTitle(String title) {
+        View view = LayoutInflater.from(getContext())
+                .inflate(mTitleLayoutResId, this, false);
+
+        ((TextView) view.findViewById(R.id.textView)).setText(title);
+        addView(view);
     }
 
     public void addItem(String title) {
@@ -74,11 +82,7 @@ public class CheckBoxGroup extends LinearLayout {
 
         view = new View(getContext());
         view.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, 2));
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
-            view.setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.line_divider));
-        } else {
-            view.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.line_divider));
-        }
+        view.setBackgroundResource(R.drawable.line_divider);
         addView(view);
 
         view = new View(getContext());

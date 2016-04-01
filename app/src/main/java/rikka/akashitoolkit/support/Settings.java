@@ -20,6 +20,9 @@ public class Settings {
     public static final String UPDATE_CHECK_CHANNEL = "update_check_channel";
     public static final String MESSAGE_READ_STATUS = "message_read_status";
     public static final String QUEST_FILTER = "quest_filter";
+    public static final String SHIP_FILTER = "ship_filter";
+    public static final String SHIP_FINAL_VERSION = "ship_show_final_version";
+    public static final String SHIP_SPEED = "ship_show_speed";
 
     private static Settings sInstance;
     private SharedPreferences mPrefs;

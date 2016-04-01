@@ -8,12 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.model.Ship;
 import rikka.akashitoolkit.staticdata.ShipList;
-import rikka.akashitoolkit.ui.ItemDisplayActivity;
 import rikka.akashitoolkit.ui.ShipDisplayActivity;
 
 /**
@@ -22,10 +22,71 @@ import rikka.akashitoolkit.ui.ShipDisplayActivity;
 public class ShipAdapter extends RecyclerView.Adapter<ViewHolder.Ship> {
     private List<Ship> mData;
     private Activity mActivity;
+    private boolean mShowOnlyFinalVersion;
+    private int mTypeFlag;
+    private int mShowSpeed;
 
     public ShipAdapter(Activity activity) {
-        mData = ShipList.get(activity);
+        mData = new ArrayList<>();
         mActivity = activity;
+    }
+
+    public ShipAdapter(Activity activity, boolean showOnlyFinalVersion, int typeFlag, int showSpeed) {
+        this(activity);
+
+        mShowOnlyFinalVersion = showOnlyFinalVersion;
+        mTypeFlag = typeFlag;
+        mShowSpeed = showSpeed;
+        mActivity = activity;
+    }
+
+    public void setShowSpeed(int showSpeed) {
+        mShowSpeed = showSpeed;
+    }
+
+    public int getTypeFlag() {
+        return mTypeFlag;
+    }
+
+    public void setTypeFlag(int typeFlag) {
+        mTypeFlag = typeFlag;
+    }
+
+    public void setShowOnlyFinalVersion(boolean showOnlyFinalVersion) {
+        mShowOnlyFinalVersion = showOnlyFinalVersion;
+    }
+
+    public void rebuildDataList(Context context) {
+        List<Ship> data = ShipList.get(context);
+        mData.clear();
+
+        for (Ship item :
+                data) {
+            if (check(item)) {
+                mData.add(item);
+            }
+        }
+
+        notifyDataSetChanged();
+    }
+
+    private boolean check(Ship item) {
+        if (mShowOnlyFinalVersion && (item.getRemodel().getId_to() != 0 &&
+                item.getRemodel().getId_to() != item.getRemodel().getId_from())) {
+            return false;
+        }
+
+        if (mTypeFlag != 0 && (1 << item.getType() & mTypeFlag) == 0) {
+            return false;
+        }
+
+        if (mShowSpeed != 0 &&
+                !((mShowSpeed & 1) > 0 && item.getAttr().getSpeed() == 5 ||
+                (mShowSpeed & 1 << 1) > 0 && item.getAttr().getSpeed() == 10)) {
+            return false;
+        }
+
+        return true;
     }
 
     @Override
@@ -36,6 +97,24 @@ public class ShipAdapter extends RecyclerView.Adapter<ViewHolder.Ship> {
 
     @Override
     public void onBindViewHolder(final ViewHolder.Ship holder, final int position) {
+        Ship item = mData.get(position);
+        String curType = ShipList.shipType[item.getType()];
+        boolean showTitle = position <= 0 || !curType.equals(ShipList.shipType[mData.get(position - 1).getType()]);
+
+        if (showTitle) {
+            holder.mTitle.setText(curType);
+            holder.mTitle.setVisibility(View.VISIBLE);
+        } else {
+            holder.mTitle.setVisibility(View.GONE);
+        }
+
+        boolean showDivider = position < mData.size() - 1
+                && curType.equals(ShipList.shipType[mData.get(position + 1).getType()]);
+
+        holder.mDivider.setVisibility(showDivider ? View.VISIBLE : View.GONE);
+        holder.mDummyView.setVisibility(!showDivider ? View.VISIBLE : View.GONE);
+        holder.mDummyView2.setVisibility(showTitle && position != 0 ? View.VISIBLE : View.GONE);
+
         holder.mName.setText(mData.get(position).getName().getZh_cn());
 
         holder.mLinearLayout.setOnClickListener(new View.OnClickListener() {

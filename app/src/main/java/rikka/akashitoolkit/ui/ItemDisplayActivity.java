@@ -1,15 +1,10 @@
 package rikka.akashitoolkit.ui;
 
-import android.animation.Animator;
-import android.animation.ArgbEvaluator;
-import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.graphics.Color;
-import android.os.Build;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
@@ -21,8 +16,6 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AccelerateDecelerateInterpolator;
-import android.view.animation.AccelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -33,7 +26,6 @@ import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.model.Item;
 import rikka.akashitoolkit.model.ItemImprovement;
 import rikka.akashitoolkit.model.ShipType;
-import rikka.akashitoolkit.otto.PreferenceChangedAction;
 import rikka.akashitoolkit.staticdata.ItemImprovementList;
 import rikka.akashitoolkit.staticdata.ItemTypeList;
 import rikka.akashitoolkit.staticdata.ItemList;
@@ -41,24 +33,14 @@ import rikka.akashitoolkit.staticdata.QuestList;
 import rikka.akashitoolkit.staticdata.ShipTypeList;
 import rikka.akashitoolkit.utils.Utils;
 
-public class ItemDisplayActivity extends AppCompatActivity {
+public class ItemDisplayActivity extends BaseItemDisplayActivity {
     public static final String EXTRA_ITEM_ID = "EXTRA_ITEM_ID";
-    public static final String EXTRA_START_Y = "EXTRA_START_Y";
-    public static final String EXTRA_START_HEIGHT = "EXTRA_START_HEIGHT";
-
-    private static final int ANIM_DURATION = 200;
-    private static final int ANIM_DURATION_EXIT = 200;
-    private static final int ANIM_DURATION_TEXT_FADE = 150;
-    private static final int ANIM_DURATION_TEXT_FADE_DELAY = 150;
 
     private Toolbar mToolbar;
     private LinearLayout mLinearLayout;
     private CoordinatorLayout mCoordinatorLayout;
     private AppBarLayout mAppBarLayout;
     private Item mItem;
-
-    private int mItemHeight;
-    private int mItemY;
     private LinearLayout mItemAttrContainer;
 
     @Override
@@ -75,8 +57,6 @@ public class ItemDisplayActivity extends AppCompatActivity {
                 finish();
                 return;
             }
-            mItemY =  intent.getIntExtra(EXTRA_START_Y, 0);
-            mItemHeight = intent.getIntExtra(EXTRA_START_HEIGHT, 0);
         } else {
             finish();
             return;
@@ -89,42 +69,23 @@ public class ItemDisplayActivity extends AppCompatActivity {
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         mAppBarLayout = (AppBarLayout) findViewById(R.id.appBarLayout);
 
-        if (savedInstanceState == null) {
-            animEnter();
-        }
-
         setViews();
     }
 
+    @Override
+    protected ViewGroup getRootView() {
+        return mCoordinatorLayout;
+    }
+
+    @Override
+    protected View[] getAnimFadeViews() {
+        return new View[] {
+                mAppBarLayout,
+                mLinearLayout
+        };
+    }
+
     private void setViews() {
-        /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (getWindow().getDecorView() != null) {
-                getWindow().getDecorView().setSystemUiVisibility(
-                        getWindow().getDecorView().getSystemUiVisibility() | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-            }
-        }*/
-
-        mAppBarLayout
-                .setAlpha(0.0f);
-
-        mAppBarLayout
-                .animate()
-                .setStartDelay(ANIM_DURATION_TEXT_FADE_DELAY)
-                .setDuration(ANIM_DURATION_TEXT_FADE)
-                .setInterpolator(new AccelerateDecelerateInterpolator())
-                .alpha(1)
-                .start();
-
-        mLinearLayout
-                .setAlpha(0.0f);
-        mLinearLayout
-                .animate()
-                .setStartDelay(ANIM_DURATION_TEXT_FADE_DELAY)
-                .setDuration(ANIM_DURATION_TEXT_FADE)
-                .setInterpolator(new AccelerateDecelerateInterpolator())
-                .alpha(1)
-                .start();
-
         setSupportActionBar(mToolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -467,140 +428,5 @@ public class ItemDisplayActivity extends AppCompatActivity {
         if (attr % 2 == 0) {
             mCurAttrLinearLayout = null;
         }
-    }
-
-    private void animEnter() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            Utils.colorAnimation(
-                    ContextCompat.getColor(this, android.R.color.transparent),
-                    ContextCompat.getColor(this, R.color.colorItemDisplayStatusBar),
-                    ANIM_DURATION,
-                    new ValueAnimator.AnimatorUpdateListener() {
-                        @Override
-                        public void onAnimationUpdate(ValueAnimator animator) {
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                                getWindow().setStatusBarColor((int) animator.getAnimatedValue());
-                            }
-                        }
-                    });
-        }
-
-        /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (getWindow().getDecorView() != null) {
-                getWindow().getDecorView().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        getWindow().getDecorView().setSystemUiVisibility(
-                                getWindow().getDecorView().getSystemUiVisibility() | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-                    }
-                }, (int) (ANIM_DURATION * 0.5));
-            }
-        }*/
-
-        mCoordinatorLayout.post(new Runnable() {
-            @Override
-            public void run() {
-                mCoordinatorLayout.setTranslationY(mItemY - mCoordinatorLayout.getHeight() / 2);
-                mCoordinatorLayout.setScaleY((float) mItemHeight / (mCoordinatorLayout.getHeight()));
-
-                mCoordinatorLayout
-                        .animate()
-                        .setDuration(ANIM_DURATION)
-                        .scaleY(1)
-                        .translationY(0)
-                        .setInterpolator(new AccelerateDecelerateInterpolator())
-                        .setListener(new Animator.AnimatorListener() {
-                            @Override
-                            public void onAnimationStart(Animator animation) {
-
-                            }
-
-                            @Override
-                            public void onAnimationEnd(Animator animation) {
-
-                            }
-
-                            @Override
-                            public void onAnimationCancel(Animator animation) {
-
-                            }
-
-                            @Override
-                            public void onAnimationRepeat(Animator animation) {
-
-                            }
-                        })
-                        .start();
-            }
-        });
-    }
-
-    private void animExit() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            Utils.colorAnimation(
-                    ContextCompat.getColor(this, R.color.colorItemDisplayStatusBar),
-                    ContextCompat.getColor(this, android.R.color.transparent),
-                    ANIM_DURATION_EXIT,
-                    new ValueAnimator.AnimatorUpdateListener() {
-                        @Override
-                        public void onAnimationUpdate(ValueAnimator animator) {
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                                getWindow().setStatusBarColor((int) animator.getAnimatedValue());
-                            }
-                        }
-                    });
-        }
-
-        /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (getWindow().getDecorView() != null) {
-                getWindow().getDecorView().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        getWindow().getDecorView().setSystemUiVisibility(
-                                getWindow().getDecorView().getSystemUiVisibility() & ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-                    }
-                }, (int) (ANIM_DURATION_EXIT * 0.5));
-            }
-        }*/
-
-        mCoordinatorLayout.removeAllViews();
-        mCoordinatorLayout.setScaleY(1);
-        mCoordinatorLayout.setTranslationY(0);
-        mCoordinatorLayout.setAlpha(1);
-
-        mCoordinatorLayout
-                .animate()
-                .setDuration(ANIM_DURATION_EXIT)
-                .scaleY((float) mItemHeight / mCoordinatorLayout.getHeight())
-                .translationY(mItemY - mCoordinatorLayout.getHeight() / 2)
-                .setInterpolator(new AccelerateInterpolator())
-                .setListener(new Animator.AnimatorListener() {
-                    @Override
-                    public void onAnimationStart(Animator animation) {
-
-                    }
-
-                    @Override
-                    public void onAnimationEnd(Animator animation) {
-                        finish();
-                        overridePendingTransition(0, 0);
-                    }
-
-                    @Override
-                    public void onAnimationCancel(Animator animation) {
-
-                    }
-
-                    @Override
-                    public void onAnimationRepeat(Animator animation) {
-
-                    }
-                })
-                .start();
-    }
-
-    @Override
-    public void onBackPressed() {
-        animExit();
     }
 }

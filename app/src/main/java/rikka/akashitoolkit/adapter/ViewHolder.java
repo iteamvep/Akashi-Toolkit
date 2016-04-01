@@ -108,14 +108,21 @@ public class ViewHolder {
 
     public static class Ship extends RecyclerView.ViewHolder {
         protected LinearLayout mLinearLayout;
+        protected View mDivider;
+        protected View mDummyView;
+        protected View mDummyView2;
         protected TextView mName;
-        protected ImageView mImageView;
+        protected TextView mTitle;
 
         public Ship(View itemView) {
             super(itemView);
+
+            mDivider = itemView.findViewById(R.id.divider);
+            mDummyView = itemView.findViewById(R.id.dummy_view);
+            mDummyView2 = itemView.findViewById(R.id.dummy_view2);
             mLinearLayout = (LinearLayout) itemView.findViewById(R.id.linearLayout);
+            mTitle = (TextView) itemView.findViewById(android.R.id.title);
             mName = (TextView) itemView.findViewById(R.id.textView);
-            mImageView = (ImageView) itemView.findViewById(R.id.imageView);
         }
     }
 }

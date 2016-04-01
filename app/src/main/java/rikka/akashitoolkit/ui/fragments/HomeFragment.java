@@ -201,6 +201,10 @@ public class HomeFragment extends BaseFragmet {
                 int versionCode;
                 String versionName;
 
+                if (getContext() == null) {
+                    return;
+                }
+
                 try {
                     versionCode = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0).versionCode;
                     versionName = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0).versionName;

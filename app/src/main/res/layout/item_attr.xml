@@ -4,7 +4,8 @@
               android:orientation="horizontal"
               android:layout_width="match_parent"
               android:layout_height="32dp"
-              android:visibility="invisible">
+              android:visibility="invisible"
+              tools:visibility="visible">
 
     <ImageView
         android:layout_width="20dp"

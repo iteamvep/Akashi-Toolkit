@@ -33,7 +33,7 @@
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="@dimen/item_height"
-            android:paddingLeft="12dp"
+            android:paddingLeft="16dp"
             android:paddingRight="12dp"
             android:paddingTop="8dp"
             android:paddingBottom="8dp"

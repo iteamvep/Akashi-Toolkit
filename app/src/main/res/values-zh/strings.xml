@@ -16,6 +16,8 @@
     <string name="night_mode_off">关闭</string>
     <string name="night_mode_on">开启</string>
     <string name="night_mode_auto">自动</string>
+    <string name="night_mode_follow_system">跟随系统</string>
+
     <string name="quest">任务</string>
     <string name="refresh_fail">刷新失败</string>
     <string name="new_twitter">%d 条新推文</string>

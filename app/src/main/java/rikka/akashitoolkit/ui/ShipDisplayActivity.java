@@ -1,28 +1,18 @@
 package rikka.akashitoolkit.ui;
 
-import android.animation.Animator;
-import android.animation.ArgbEvaluator;
-import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.Html;
-import android.text.Spanned;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AccelerateDecelerateInterpolator;
-import android.view.animation.AccelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -30,34 +20,24 @@ import android.widget.TextView;
 import java.util.List;
 
 import rikka.akashitoolkit.R;
+import rikka.akashitoolkit.model.Item;
 import rikka.akashitoolkit.model.Ship;
-import rikka.akashitoolkit.model.ShipType;
-import rikka.akashitoolkit.staticdata.QuestList;
+import rikka.akashitoolkit.staticdata.ItemList;
+import rikka.akashitoolkit.staticdata.ItemTypeList;
 import rikka.akashitoolkit.staticdata.ShipList;
-import rikka.akashitoolkit.staticdata.ShipTypeList;
 import rikka.akashitoolkit.utils.Utils;
 
 /**
  * Created by Rikka on 2016/3/30.
  */
-public class ShipDisplayActivity extends AppCompatActivity {
+public class ShipDisplayActivity extends BaseItemDisplayActivity {
     public static final String EXTRA_ITEM_ID = "EXTRA_ITEM_ID";
-    public static final String EXTRA_START_Y = "EXTRA_START_Y";
-    public static final String EXTRA_START_HEIGHT = "EXTRA_START_HEIGHT";
-
-    private static final int ANIM_DURATION = 200;
-    private static final int ANIM_DURATION_EXIT = 200;
-    private static final int ANIM_DURATION_TEXT_FADE = 150;
-    private static final int ANIM_DURATION_TEXT_FADE_DELAY = 150;
 
     private Toolbar mToolbar;
     private LinearLayout mLinearLayout;
     private CoordinatorLayout mCoordinatorLayout;
     private AppBarLayout mAppBarLayout;
     private Ship mItem;
-
-    private int mItemHeight;
-    private int mItemY;
     private LinearLayout mItemAttrContainer;
 
     @Override
@@ -74,8 +54,6 @@ public class ShipDisplayActivity extends AppCompatActivity {
                 finish();
                 return;
             }
-            mItemY =  intent.getIntExtra(EXTRA_START_Y, 0);
-            mItemHeight = intent.getIntExtra(EXTRA_START_HEIGHT, 0);
         } else {
             finish();
             return;
@@ -88,35 +66,10 @@ public class ShipDisplayActivity extends AppCompatActivity {
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         mAppBarLayout = (AppBarLayout) findViewById(R.id.appBarLayout);
 
-        if (savedInstanceState == null) {
-            animEnter();
-        }
-
         setViews();
     }
 
     private void setViews() {
-        mAppBarLayout
-                .setAlpha(0.0f);
-
-        mAppBarLayout
-                .animate()
-                .setStartDelay(ANIM_DURATION_TEXT_FADE_DELAY)
-                .setDuration(ANIM_DURATION_TEXT_FADE)
-                .setInterpolator(new AccelerateDecelerateInterpolator())
-                .alpha(1)
-                .start();
-
-        mLinearLayout
-                .setAlpha(0.0f);
-        mLinearLayout
-                .animate()
-                .setStartDelay(ANIM_DURATION_TEXT_FADE_DELAY)
-                .setDuration(ANIM_DURATION_TEXT_FADE)
-                .setInterpolator(new AccelerateDecelerateInterpolator())
-                .alpha(1)
-                .start();
-
         setSupportActionBar(mToolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -133,95 +86,126 @@ public class ShipDisplayActivity extends AppCompatActivity {
         if (mItem.getName() != null) {
             getSupportActionBar().setTitle(mItem.getName().getZh_cn());
         }
+
+        ((TextView) findViewById(R.id.text_title)).setText(String.format(
+                "No. %d %s",
+                mItem.getId_illustrations(),
+                ShipList.shipType[mItem.getType()]
+                /*formatStars(mItem.getRarity()))*/));
+
+        addAttrView(mItemAttrContainer, "耐久", mItem.getAttr().getHp().get(0), R.drawable.item_attr_hp);
+        addAttrView(mItemAttrContainer, "火力", mItem.getAttr().getFire().get(0), R.drawable.item_attr_fire);
+        addAttrView(mItemAttrContainer, "对空", mItem.getAttr().getAa().get(0), R.drawable.item_attr_aa);
+        addAttrView(mItemAttrContainer, "雷装", mItem.getAttr().getTorpedo().get(0), R.drawable.item_attr_torpedo);
+        addAttrView(mItemAttrContainer, "装甲", mItem.getAttr().getArmor().get(0), R.drawable.item_attr_armor);
+        addAttrView(mItemAttrContainer, "对潜", mItem.getAttr().getAsw().get(0), R.drawable.item_attr_asw);
+        addAttrView(mItemAttrContainer, "回避", mItem.getAttr().getEvasion().get(0), R.drawable.item_attr_dodge);
+        addAttrView(mItemAttrContainer, "索敌", mItem.getAttr().getSearch().get(0), R.drawable.item_attr_search);
+        addAttrView(mItemAttrContainer, "航速", mItem.getAttr().getSpeed(), R.drawable.item_attr_speed);
+        addAttrView(mItemAttrContainer, "射程", mItem.getAttr().getRange(), R.drawable.item_attr_range);
+        addAttrView(mItemAttrContainer, "运", mItem.getAttr().getLuck().get(0), R.drawable.item_attr_luck);
+
+        addEquip();
     }
 
-    private void animEnter() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            Utils.colorAnimation(
-                    ContextCompat.getColor(this, android.R.color.transparent),
-                    ContextCompat.getColor(this, R.color.colorItemDisplayStatusBar),
-                    ANIM_DURATION,
-                    new ValueAnimator.AnimatorUpdateListener() {
-                        @Override
-                        public void onAnimationUpdate(ValueAnimator animator) {
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                                getWindow().setStatusBarColor((int) animator.getAnimatedValue());
-                            }
-                        }
-                    });
-        }
-        mCoordinatorLayout.post(new Runnable() {
-            @Override
-            public void run() {
-                mCoordinatorLayout.setTranslationY(mItemY - mCoordinatorLayout.getHeight() / 2);
-                mCoordinatorLayout.setScaleY((float) mItemHeight / (mCoordinatorLayout.getHeight()));
+    private void addEquip() {
+        ViewGroup parent = addCell(mLinearLayout, "初始装备 & 搭载量");
 
-                mCoordinatorLayout
-                        .animate()
-                        .setDuration(ANIM_DURATION)
-                        .scaleY(1)
-                        .translationY(0)
-                        .setInterpolator(new AccelerateDecelerateInterpolator())
-                        .start();
+        List<Integer> equipId = mItem.getEquip().get(0);
+        List<Integer> equipSlot = mItem.getEquip().get(1);
+
+        for (int i = 0; i < mItem.getSlot(); i++) {
+            ViewGroup view = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.ship_item, null);
+
+            if (equipId.get(i) > 0) {
+                Item item = ItemList.findItemById(this, equipId.get(i));
+                ((TextView) view.findViewById(android.R.id.title)).setText(item.getName().getZh_cn());
+                ItemTypeList.setIntoImageView((ImageView) view.findViewById(R.id.imageView), item.getIcon());
+            } else {
+                ((TextView) view.findViewById(android.R.id.title)).setText("未装备");
+                view.findViewById(android.R.id.title).setEnabled(false);
             }
-        });
+
+            ((TextView) view.findViewById(R.id.textView)).setText(Integer.toString(equipSlot.get(i)));
+
+            parent.addView(view);
+        }
     }
 
-    private void animExit() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            Utils.colorAnimation(
-                    ContextCompat.getColor(this, R.color.colorItemDisplayStatusBar),
-                    ContextCompat.getColor(this, android.R.color.transparent),
-                    ANIM_DURATION_EXIT,
-                    new ValueAnimator.AnimatorUpdateListener() {
-                        @Override
-                        public void onAnimationUpdate(ValueAnimator animator) {
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                                getWindow().setStatusBarColor((int) animator.getAnimatedValue());
-                            }
-                        }
-                    });
+    private LinearLayout mCurAttrLinearLayout;
+    private int attr = 0;
+    private void addAttrView(ViewGroup parent, String title, int value, int icon) {
+        if (value == 0) {
+            return;
         }
 
-        mCoordinatorLayout.removeAllViews();
-        mCoordinatorLayout.setScaleY(1);
-        mCoordinatorLayout.setTranslationY(0);
-        mCoordinatorLayout.setAlpha(1);
+        if (mItemAttrContainer == null) {
+            mItemAttrContainer = (LinearLayout) addCell(mLinearLayout, "属性 初期值"/*R.string.attributes*/);
+            parent = mItemAttrContainer;
+        }
 
-        mCoordinatorLayout
-                .animate()
-                .setDuration(ANIM_DURATION_EXIT)
-                .scaleY((float) mItemHeight / mCoordinatorLayout.getHeight())
-                .translationY(mItemY - mCoordinatorLayout.getHeight() / 2)
-                .setInterpolator(new AccelerateInterpolator())
-                .setListener(new Animator.AnimatorListener() {
-                    @Override
-                    public void onAnimationStart(Animator animation) {
+        attr ++;
 
-                    }
+        if (mCurAttrLinearLayout == null) {
+            mCurAttrLinearLayout = new LinearLayout(this);
+            mCurAttrLinearLayout.setOrientation(LinearLayout.HORIZONTAL);
+            mCurAttrLinearLayout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, Utils.dpToPx(32)));
+            mCurAttrLinearLayout.setBaselineAligned(false);
+            mCurAttrLinearLayout.setGravity(Gravity.CENTER_VERTICAL);
+            LinearLayout view = (LinearLayout) LayoutInflater.from(this).inflate(R.layout.item_attr_cell, mCurAttrLinearLayout);
+            parent.addView(mCurAttrLinearLayout);
+        }
 
-                    @Override
-                    public void onAnimationEnd(Animator animation) {
-                        finish();
-                        overridePendingTransition(0, 0);
-                    }
+        View cell = mCurAttrLinearLayout
+                .findViewById((attr % 2 == 0) ? R.id.item_attr_cell2 : R.id.item_attr_cell);
 
-                    @Override
-                    public void onAnimationCancel(Animator animation) {
+        cell.setVisibility(View.VISIBLE);
 
-                    }
+        ((TextView) cell.findViewById(R.id.textView)).setText(title);
 
-                    @Override
-                    public void onAnimationRepeat(Animator animation) {
+        if (icon == R.drawable.item_attr_range) {
+            ((TextView) cell.findViewById(R.id.textView2)).setText(getRangeString(value));
+        } else if (icon == R.drawable.item_attr_speed) {
+            ((TextView) cell.findViewById(R.id.textView2)).setText(getSpeedString(value));
+        } else {
+            ((TextView) cell.findViewById(R.id.textView2)).setText(String.format("%d", value));
+            //((TextView) cell.findViewById(R.id.textView2)).setTextColor(ContextCompat.getColor(this, value > 0 ? R.color.material_green_300 : R.color.material_red_300));
+        }
 
-                    }
-                })
-                .start();
+        ((ImageView) cell.findViewById(R.id.imageView)).setImageDrawable(ContextCompat.getDrawable(this, icon));
+
+        if (attr % 2 == 0) {
+            mCurAttrLinearLayout = null;
+        }
     }
 
-    @Override
-    public void onBackPressed() {
-        animExit();
+    private String getSpeedString(int value) {
+        switch (value) {
+            case 10: return "高速";
+            case 5: return "低速";
+        }
+        return "";
+    }
+
+    private String getRangeString(int value) {
+        switch (value) {
+            case 1: return "短";
+            case 2: return "中";
+            case 3: return "长";
+            case 4: return "超长";
+        }
+        return "";
+    }
+
+    private ViewGroup addCell(ViewGroup parent, String title) {
+        ViewGroup view = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.content_item_display_cell, null);
+        ((TextView) view.findViewById(android.R.id.title)).setText(title);
+        parent.addView(view);
+        return view;
+    }
+
+    private ViewGroup addCell(ViewGroup parent, int ResId) {
+        return addCell(parent, getString(ResId));
     }
 
     @Override
@@ -232,5 +216,18 @@ public class ShipDisplayActivity extends AppCompatActivity {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected ViewGroup getRootView() {
+        return mCoordinatorLayout;
+    }
+
+    @Override
+    protected View[] getAnimFadeViews() {
+        return new View[] {
+                mAppBarLayout,
+                mLinearLayout
+        };
     }
 }

@@ -15,6 +15,8 @@
     <string name="night_mode_off">Off</string>
     <string name="night_mode_on">On</string>
     <string name="night_mode_auto">Auto</string>
+    <string name="night_mode_follow_system">Follow system</string>
+
     <string name="quest">Quest</string>
     <string name="refresh_fail">Refresh failed</string>
     <string name="new_twitter">%d new tweets</string>
