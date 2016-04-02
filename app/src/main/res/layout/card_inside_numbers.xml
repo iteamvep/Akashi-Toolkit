@@ -21,7 +21,7 @@
             android:src="@drawable/res_fuel"/>
 
         <TextView
-            android:id="@+id/text_quest_reward_0"
+            android:id="@+id/text_number_0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="2dp"
@@ -44,7 +44,7 @@
             android:src="@drawable/res_ammo"/>
 
         <TextView
-            android:id="@+id/text_quest_reward_1"
+            android:id="@+id/text_number_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="2dp"
@@ -67,7 +67,7 @@
             android:src="@drawable/res_steel"/>
 
         <TextView
-            android:id="@+id/text_quest_reward_2"
+            android:id="@+id/text_number_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="2dp"
@@ -90,7 +90,7 @@
             android:src="@drawable/res_aluminum"/>
 
         <TextView
-            android:id="@+id/text_quest_reward_3"
+            android:id="@+id/text_number_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="2dp"

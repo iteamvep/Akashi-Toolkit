@@ -3,42 +3,30 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="22dp"
     android:orientation="horizontal"
-    android:weightSum="5.5"
-    android:paddingTop="6dp"
-    android:paddingBottom="2dp">
-
-    <TextView
-        android:id="@android:id/title"
-        android:layout_width="0dp"
-        android:layout_weight="1.2"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/card_font_large"
-        android:gravity="center_vertical"
-        tools:text="必要资源"
-        android:singleLine="true"/>
+    android:weightSum="1.3"
+    >
 
     <LinearLayout
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
         android:layout_width="0dp"
-        android:layout_weight="1"
+        android:layout_weight="0.25"
         android:layout_height="match_parent">
 
         <ImageView
-            android:layout_width="14dp"
+            android:layout_width="18dp"
             android:layout_height="match_parent"
             android:contentDescription="@null"
             android:scaleType="fitCenter"
-            android:src="@drawable/res_fuel"/>
+            android:src="@drawable/modernization_attr_fire"/>
 
         <TextView
             android:id="@+id/text_number_0"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="2dp"
-            android:paddingRight="2dp"
+            android:layout_height="match_parent"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:fontFamily="sans-serif-medium"
             android:textSize="@dimen/card_font_large"
             android:gravity="center_vertical"
             tools:text="0"/>
@@ -46,22 +34,23 @@
 
     <LinearLayout
         android:layout_width="0dp"
-        android:layout_weight="1"
+        android:layout_weight="0.25"
         android:layout_height="match_parent">
 
         <ImageView
-            android:layout_width="14dp"
+            android:layout_width="18dp"
             android:layout_height="match_parent"
             android:contentDescription="@null"
             android:scaleType="fitCenter"
-            android:src="@drawable/res_ammo"/>
+            android:src="@drawable/modernization_attr_torpedo"/>
 
         <TextView
             android:id="@+id/text_number_1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="2dp"
-            android:paddingRight="2dp"
+            android:layout_height="match_parent"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:fontFamily="sans-serif-medium"
             android:textSize="@dimen/card_font_large"
             android:gravity="center_vertical"
             tools:text="0"/>
@@ -69,22 +58,23 @@
 
     <LinearLayout
         android:layout_width="0dp"
-        android:layout_weight="1"
+        android:layout_weight="0.25"
         android:layout_height="match_parent">
 
         <ImageView
-            android:layout_width="14dp"
+            android:layout_width="18dp"
             android:layout_height="match_parent"
             android:contentDescription="@null"
             android:scaleType="fitCenter"
-            android:src="@drawable/res_steel"/>
+            android:src="@drawable/modernization_attr_aa"/>
 
         <TextView
             android:id="@+id/text_number_2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="2dp"
-            android:paddingRight="2dp"
+            android:layout_height="match_parent"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:fontFamily="sans-serif-medium"
             android:textSize="@dimen/card_font_large"
             android:gravity="center_vertical"
             tools:text="0"/>
@@ -92,22 +82,23 @@
 
     <LinearLayout
         android:layout_width="0dp"
-        android:layout_weight="1"
+        android:layout_weight="0.25"
         android:layout_height="match_parent">
 
         <ImageView
-            android:layout_width="14dp"
+            android:layout_width="18dp"
             android:layout_height="match_parent"
             android:contentDescription="@null"
             android:scaleType="fitCenter"
-            android:src="@drawable/res_aluminum"/>
+            android:src="@drawable/modernization_attr_armor"/>
 
         <TextView
             android:id="@+id/text_number_3"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="2dp"
-            android:paddingRight="2dp"
+            android:layout_height="match_parent"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:fontFamily="sans-serif-medium"
             android:textSize="@dimen/card_font_large"
             android:gravity="center_vertical"
             tools:text="0"/>

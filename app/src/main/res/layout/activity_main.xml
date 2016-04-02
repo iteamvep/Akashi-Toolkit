@@ -34,7 +34,10 @@
                 android:id="@+id/tab_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="?attr/colorPrimary"/>
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:clipToPadding="false"
+                app:tabIndicatorColor="@color/material_indigo_accent_100"/>
         </android.support.design.widget.AppBarLayout>
 
         <FrameLayout

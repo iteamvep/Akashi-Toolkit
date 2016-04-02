@@ -35,7 +35,7 @@
             tools:src="@drawable/res_fuel"/>
 
         <TextView
-            android:id="@+id/text_quest_reward_0"
+            android:id="@+id/text_number_0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="2dp"

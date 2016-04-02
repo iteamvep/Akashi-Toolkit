@@ -77,4 +77,6 @@
 
     <color name="material_brown_200">#BCAAA4</color>
     <color name="material_brown_300">#A1887F</color>
+
+    <color name="material_indigo_accent_100">#8c9eff</color>
 </resources>

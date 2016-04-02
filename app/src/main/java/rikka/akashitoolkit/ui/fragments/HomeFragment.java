@@ -179,9 +179,9 @@ public class HomeFragment extends BaseFragmet {
 
         ButtonCardView card;
         card = new ButtonCardView(getContext())
-                .setTitle("欢迎使用AkashiToolkit！")
+                .setTitle("欢迎使用Akashi Toolkit！")
                 .addButton(R.string.got_it)
-                .setMessage("AkashiToolkit是一个舰队Collection的wiki类手机App，目前由Yūbari Kaigun Kokusho开发，kcwiki舰娘百科提供数据支持。\n" +
+                .setMessage("Akashi Toolkit是一个舰队Collection的wiki类手机App，目前由Yūbari Kaigun Kokusho开发，kcwiki舰娘百科提供数据支持。\n" +
                         "目前应用的各项功能正在逐渐添加和完善中，我们会在每周六晚发布一个Akashi Toolkit的正式版本，保证每周的更新。\n" +
                         "如果您想体验测试版，在设置-更新通道中选择测试版。\n" +
                         "关注我们的最新消息 微博@kcwiki舰娘百科");

@@ -296,7 +296,7 @@ public class ItemDisplayActivity extends BaseItemDisplayActivity {
         ((TextView) linearLayout.findViewById(android.R.id.title)).setText(title);
 
         Item item = ItemList.findItemById(this, id);
-        ((TextView) linearLayout.findViewById(R.id.text_quest_reward_0)).setText(item.getName().getZh_cn());
+        ((TextView) linearLayout.findViewById(R.id.text_number_0)).setText(item.getName().getZh_cn());
         /*((ImageView) linearLayout.findViewById(R.id.imageView))
                 .setImageResource(ItemTypeList.getResourceId(this, item.getIcon()));*/
 
@@ -309,10 +309,10 @@ public class ItemDisplayActivity extends BaseItemDisplayActivity {
         if (type == 0) {
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this).inflate(R.layout.item_improvement_cost_base, null);
             ((TextView) linearLayout.findViewById(android.R.id.title)).setText(title);
-            ((TextView) linearLayout.findViewById(R.id.text_quest_reward_0)).setText(String.format("%d", res.get(0)));
-            ((TextView) linearLayout.findViewById(R.id.text_quest_reward_1)).setText(String.format("%d", res.get(1)));
-            ((TextView) linearLayout.findViewById(R.id.text_quest_reward_2)).setText(String.format("%d", res.get(2)));
-            ((TextView) linearLayout.findViewById(R.id.text_quest_reward_3)).setText(String.format("%d", res.get(3)));
+            ((TextView) linearLayout.findViewById(R.id.text_number_0)).setText(String.format("%d", res.get(0)));
+            ((TextView) linearLayout.findViewById(R.id.text_number_1)).setText(String.format("%d", res.get(1)));
+            ((TextView) linearLayout.findViewById(R.id.text_number_2)).setText(String.format("%d", res.get(2)));
+            ((TextView) linearLayout.findViewById(R.id.text_number_3)).setText(String.format("%d", res.get(3)));
             parent.addView(linearLayout);
         } else {
             if (res.get(0) == 0) {
@@ -320,12 +320,12 @@ public class ItemDisplayActivity extends BaseItemDisplayActivity {
             }
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this).inflate(R.layout.item_improvement_cost_item, null);
             ((TextView) linearLayout.findViewById(android.R.id.title)).setText(title);
-            ((TextView) linearLayout.findViewById(R.id.text_quest_reward_0)).setText(String.format("%d(%d)", res.get(0), res.get(1)));
-            ((TextView) linearLayout.findViewById(R.id.text_quest_reward_1)).setText(String.format("%d(%d)", res.get(2), res.get(3)));
+            ((TextView) linearLayout.findViewById(R.id.text_number_0)).setText(String.format("%d(%d)", res.get(0), res.get(1)));
+            ((TextView) linearLayout.findViewById(R.id.text_number_1)).setText(String.format("%d(%d)", res.get(2), res.get(3)));
 
             if (res.get(5) > 0) {
                 Item item = ItemList.findItemById(this, res.get(4));
-                ((TextView) linearLayout.findViewById(R.id.text_quest_reward_2)).setText(
+                ((TextView) linearLayout.findViewById(R.id.text_number_2)).setText(
                         String.format("%s ×%d",
                                 item.getName().getZh_cn(),
                                 res.get(5)));
