@@ -36,10 +36,9 @@
         <item name="windowNoTitle">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowIsTranslucent">true</item>
-        <item name="colorPrimary">#ffffff</item>
+        <item name="colorPrimary">@color/background</item>
         <item name="colorPrimaryDark">@color/colorItemDisplayStatusBar</item>
     </style>
-
 
     <style name="AppTheme.Dialog.Alert" parent="Theme.AppCompat.DayNight.Dialog.Alert">
         <item name="colorAccent">@color/colorAccent</item>

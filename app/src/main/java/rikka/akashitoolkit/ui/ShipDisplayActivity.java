@@ -76,6 +76,11 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
         setViews();
     }
 
+    @Override
+    protected String getTaskDescriptionLabel() {
+        return mItem.getName().getZh_cn();
+    }
+
     private void setViews() {
         setSupportActionBar(mToolbar);
 

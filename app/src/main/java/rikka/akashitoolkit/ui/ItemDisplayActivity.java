@@ -73,6 +73,11 @@ public class ItemDisplayActivity extends BaseItemDisplayActivity {
     }
 
     @Override
+    protected String getTaskDescriptionLabel() {
+        return mItem.getName().getZh_cn();
+    }
+
+    @Override
     protected ViewGroup getRootView() {
         return mCoordinatorLayout;
     }

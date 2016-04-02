@@ -2,6 +2,7 @@ package rikka.akashitoolkit.ui;
 
 import android.animation.Animator;
 import android.animation.ValueAnimator;
+import android.app.ActivityManager;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
@@ -53,6 +54,14 @@ public abstract class BaseItemDisplayActivity extends BaseDayNightModeActivity {
             animEnter();
             setViewsFadeAnim();
         }
+
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) {
+            setTaskDescription(new ActivityManager.TaskDescription(getTaskDescriptionLabel(), null, ContextCompat.getColor(this, R.color.background)));
+        }
+    }
+
+    protected String getTaskDescriptionLabel() {
+        return getString(R.string.app_name);
     }
 
     protected abstract ViewGroup getRootView();
