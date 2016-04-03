@@ -17,7 +17,6 @@ public class Application extends android.app.Application {
         super.onCreate();
 
         DayNightMode.setDefaultNightMode(
-                this,
                 Settings.instance(this)
                         .getIntFromString(Settings.NIGHT_MODE, 0)
         );
