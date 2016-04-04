@@ -6,7 +6,6 @@
         android:id="@+id/action_search"
         android:icon="@drawable/ic_search_24dp"
         android:title="@string/action_search"
-        app:defaultQueryHint="使用任务名称、介绍、要求、奖励等来搜索..."
         app:showAsAction="ifRoom|collapseActionView"
         app:actionViewClass="android.support.v7.widget.SearchView"/>
 

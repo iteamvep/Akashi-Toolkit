@@ -54,11 +54,25 @@
         <activity
             android:name=".ui.ItemDisplayActivity"
             android:theme="@style/AppTheme.ItemActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="akashitoolkit" android:host="item" />
+            </intent-filter>
+
         </activity>
 
         <activity
             android:name=".ui.ShipDisplayActivity"
             android:theme="@style/AppTheme.ItemActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="akashitoolkit" android:host="ship" />
+            </intent-filter>
+
         </activity>
 
     </application>

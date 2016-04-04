@@ -217,4 +217,9 @@ public class QuestDisplayFragment extends BaseSearchFragment implements CheckBox
     public void onSearchTextChange(String newText) {
         BusProvider.instance().post(new QuestAction.KeywordChanged(newText));
     }
+
+    @Override
+    public String getSearchHint() {
+        return "搜索名称、介绍、要求、奖励…";
+    }
 }

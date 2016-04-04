@@ -3,6 +3,8 @@ package rikka.akashitoolkit.widget;
 import android.animation.Animator;
 import android.content.Context;
 import android.content.res.Resources;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -14,7 +16,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import rikka.akashitoolkit.R;
-import rikka.akashitoolkit.model.MessageReadStatus;
 
 /**
  * Created by Rikka on 2016/3/16.
@@ -57,6 +58,13 @@ public class ButtonCardView extends FrameLayout {
 
     public ButtonCardView setMessage(CharSequence text) {
         mBody.setText(text);
+        return this;
+    }
+
+    public ButtonCardView setMessageHtml(String text) {
+        mBody.setText(Html.fromHtml(text));
+        mBody.setMovementMethod(LinkMovementMethod.getInstance());
+        mBody.setClickable(true);
         return this;
     }
 

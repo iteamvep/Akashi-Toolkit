@@ -88,12 +88,17 @@ public abstract class BaseSearchFragment extends BaseFragmet {
                 return false;
             }
         });
+        searchView.setQueryHint(getSearchHint());
 
         if (mIsSearching) {
             String keyword = mKeyword;
             item.expandActionView();
             searchView.setQuery(keyword, false);
         }
+    }
+
+    public String getSearchHint() {
+        return getResources().getString(R.string.abc_search_hint);
     }
 
     public boolean isSearching() {

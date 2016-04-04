@@ -32,6 +32,7 @@ import rikka.akashitoolkit.model.Ship;
 import rikka.akashitoolkit.staticdata.ItemList;
 import rikka.akashitoolkit.staticdata.ItemTypeList;
 import rikka.akashitoolkit.staticdata.ShipList;
+import rikka.akashitoolkit.utils.KCStringConvent;
 import rikka.akashitoolkit.utils.Utils;
 
 /**
@@ -52,16 +53,20 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        mId = -1;
         Intent intent = getIntent();
         if (intent.hasExtra(EXTRA_ITEM_ID)) {
             mId = intent.getIntExtra(EXTRA_ITEM_ID, 0);
-            mItem = ShipList.findItemById(this, mId);
-            if (mItem == null) {
-                Log.d("QAQ", "No item find? id=" + Integer.toString(mId));
-                finish();
-                return;
+        } else if (intent.getData() != null) {
+            try {
+                mId = Integer.parseInt(intent.getData().toString().split("/")[3]);
+            } catch (Exception ignored) {
             }
-        } else {
+        }
+
+        mItem = ShipList.findItemById(this, mId);
+        if (mItem == null) {
+            Log.d("QAQ", "No item find? id=" + Integer.toString(mId));
             finish();
             return;
         }
@@ -198,24 +203,6 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
         }
     }
 
-    private static String getSpeedString(int value) {
-        switch (value) {
-            case 10: return "高速";
-            case 5: return "低速";
-        }
-        return "";
-    }
-
-    private static String getRangeString(int value) {
-        switch (value) {
-            case 1: return "短";
-            case 2: return "中";
-            case 3: return "长";
-            case 4: return "超长";
-        }
-        return "";
-    }
-
     private ViewGroup addCell(ViewGroup parent, String title) {
         ViewGroup view = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.content_item_display_cell, null);
         ((TextView) view.findViewById(android.R.id.title)).setText(title);
@@ -321,9 +308,9 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
                 return;
             }
             if (icon == R.drawable.item_attr_range) {
-                addAttrView(parent, title, getRangeString(value), icon);
+                addAttrView(parent, title, KCStringConvent.getRange(value), icon);
             } else if (icon == R.drawable.item_attr_speed) {
-                addAttrView(parent, title, getSpeedString(value), icon);
+                addAttrView(parent, title, KCStringConvent.getSpeed(value), icon);
             } else {
                 addAttrView(parent, title, Integer.toString(value), icon);
             }

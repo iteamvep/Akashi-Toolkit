@@ -31,6 +31,7 @@ import rikka.akashitoolkit.staticdata.ItemTypeList;
 import rikka.akashitoolkit.staticdata.ItemList;
 import rikka.akashitoolkit.staticdata.QuestList;
 import rikka.akashitoolkit.staticdata.ShipTypeList;
+import rikka.akashitoolkit.utils.KCStringConvent;
 import rikka.akashitoolkit.utils.Utils;
 
 public class ItemDisplayActivity extends BaseItemDisplayActivity {
@@ -47,17 +48,22 @@ public class ItemDisplayActivity extends BaseItemDisplayActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        int id;
+        int id = -1;
         Intent intent = getIntent();
         if (intent.hasExtra(EXTRA_ITEM_ID)) {
             id = intent.getIntExtra(EXTRA_ITEM_ID, 0);
-            mItem = ItemList.findItemById(this, id);
-            if (mItem == null) {
-                Log.d("QAQ", "No item find? id=" + Integer.toString(id));
-                finish();
-                return;
+        }
+
+        if (intent.getData() != null) {
+            try {
+                id = Integer.parseInt(intent.getData().toString().split("/")[3]);
+            } catch (Exception ignored) {
             }
-        } else {
+        }
+
+        mItem = ItemList.findItemById(this, id);
+        if (mItem == null) {
+            Log.d("QAQ", "No item find? id=" + Integer.toString(id));
             finish();
             return;
         }
@@ -112,7 +118,7 @@ public class ItemDisplayActivity extends BaseItemDisplayActivity {
                 "No. %d %s %s",
                 mItem.getId(),
                 ItemTypeList.findItemById(this, mItem.getSubType()).getName(),
-                formatStars(mItem.getRarity())));
+                KCStringConvent.getStars(mItem.getRarity())));
 
         addAttrView(mItemAttrContainer, "火力", mItem.getAttr().getFire(), R.drawable.item_attr_fire);
         addAttrView(mItemAttrContainer, "对空", mItem.getAttr().getAa(), R.drawable.item_attr_aa);
@@ -347,25 +353,6 @@ public class ItemDisplayActivity extends BaseItemDisplayActivity {
 
     private static final String[] DAY = {"日", "一", "二", "三", "四", "五", "六"};
 
-    private String formatStars(int value) {
-        String star = "";
-        while (value > 0) {
-            star += "★";
-            value --;
-        }
-        return star;
-    }
-
-    private String getRangeString(int value) {
-        switch (value) {
-            case 1: return "短";
-            case 2: return "中";
-            case 3: return "长";
-            case 4: return "超长";
-        }
-        return "";
-    }
-
     private TextView addTextView(ViewGroup parent, String text, int size) {
         TextView textView = new TextView(this);
         textView.setText(text);
@@ -422,7 +409,7 @@ public class ItemDisplayActivity extends BaseItemDisplayActivity {
         ((TextView) cell.findViewById(R.id.textView)).setText(title);
 
         if (icon == R.drawable.item_attr_range) {
-            ((TextView) cell.findViewById(R.id.textView2)).setText(getRangeString(value));
+            ((TextView) cell.findViewById(R.id.textView2)).setText(KCStringConvent.getRange(value));
         } else {
             ((TextView) cell.findViewById(R.id.textView2)).setText(String.format("%s%d", value > 0 ? "+" : "", value));
             ((TextView) cell.findViewById(R.id.textView2)).setTextColor(ContextCompat.getColor(this, value > 0 ? R.color.material_green_300 : R.color.material_red_300));

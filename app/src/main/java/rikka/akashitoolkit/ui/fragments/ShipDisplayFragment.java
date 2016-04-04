@@ -42,6 +42,8 @@ public class ShipDisplayFragment extends BaseSearchFragment {
 
     @Override
     public void onShow() {
+        BusProvider.instance().post(new ShipAction.KeywordChanged(null));
+
         MainActivity activity = ((MainActivity) getActivity());
         activity.getTabLayout().setVisibility(TAB_LAYOUT_VISIBILITY);
         activity.getTabLayout().setupWithViewPager(mViewPager);
@@ -215,5 +217,10 @@ public class ShipDisplayFragment extends BaseSearchFragment {
         adapter.addFragment(ShipFragment.class, "全部");
 
         return adapter;
+    }
+
+    @Override
+    public String getSearchHint() {
+        return "搜索名称、罗马音、中文名拼音…";
     }
 }

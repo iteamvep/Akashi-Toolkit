@@ -244,6 +244,17 @@ public class HomeFragment extends BaseFragmet {
                                         )
                                 );
                                 break;
+                            case 3:
+                                card.setMessageHtml(entity.getMessage());
+                                if (entity.getLink() != null) {
+                                    card.addButton(entity.getAction_name() != null ? entity.getAction_name() : getContext().getString(R.string.open_link), new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(entity.getLink())));
+                                        }
+                                    }, true, false);
+                                }
+                                break;
                         }
 
                         mMessageCardView.put(entity.getId(), card);

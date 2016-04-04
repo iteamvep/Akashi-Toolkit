@@ -35,6 +35,8 @@ public abstract class BaseItemDisplayActivity extends BaseDayNightModeActivity {
     private int mItemHeight;
     private int mItemY;
 
+    private boolean mShouldAnim;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,12 +45,17 @@ public abstract class BaseItemDisplayActivity extends BaseDayNightModeActivity {
         if (intent.hasExtra(EXTRA_START_Y)) {
             mItemY =  intent.getIntExtra(EXTRA_START_Y, 0);
             mItemHeight = intent.getIntExtra(EXTRA_START_HEIGHT, 0);
+            mShouldAnim = true;
         }
     }
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
+
+        if (!mShouldAnim) {
+            return;
+        }
 
         if (savedInstanceState == null) {
             animEnter();
@@ -169,6 +176,10 @@ public abstract class BaseItemDisplayActivity extends BaseDayNightModeActivity {
 
     @Override
     public void onBackPressed() {
+        if (!mShouldAnim) {
+            super.onBackPressed();
+        }
+
         animExit();
     }
 }
