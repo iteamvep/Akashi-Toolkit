@@ -27,18 +27,14 @@ import rikka.akashitoolkit.widget.CheckBoxGroup;
 /**
  * Created by Rikka on 2016/3/6.
  */
-public class QuestDisplayFragment extends BaseFragmet implements CheckBoxGroup.OnCheckedChangeListener {
+public class QuestDisplayFragment extends BaseSearchFragment implements CheckBoxGroup.OnCheckedChangeListener {
     private static final int TAB_LAYOUT_VISIBILITY = View.VISIBLE;
 
     private ViewPager mViewPager;
-    private SearchView mSearchView;
     private ViewPagerAdapter[] mViewPagerAdapter;
     private MainActivity mActivity;
     private int mType;
     private int mFlag = -1;
-    private String mKeyword;
-    private boolean mIsSearching;
-    private boolean mOnShowFromCreateView;
     private int mJumpToQuestIndex = -1;
     private int mJumpToQuestType = -1;
 
@@ -51,15 +47,13 @@ public class QuestDisplayFragment extends BaseFragmet implements CheckBoxGroup.O
 
     @Override
     public void onShow() {
+        super.onShow();
+
         mFlag = Settings
                 .instance(getContext())
                 .getInt(Settings.QUEST_FILTER, 1 + 2 + 4 + 8);
 
-        if (!mOnShowFromCreateView) {
-            mIsSearching = false;
-        }
-
-        setUpViewPager(mIsSearching ? 1 : 0);
+        setUpViewPager(isSearching() ? 1 : 0);
 
         mActivity.getTabLayout().setVisibility(TAB_LAYOUT_VISIBILITY);
         mActivity.getTabLayout().setupWithViewPager(mViewPager);
@@ -78,8 +72,6 @@ public class QuestDisplayFragment extends BaseFragmet implements CheckBoxGroup.O
         cbg.setChecked(mFlag);
         mActivity.getRightDrawerContent().addView(cbg);
 
-        mOnShowFromCreateView = false;
-
         AVAnalytics.onFragmentStart("QuestDisplayFragment");
     }
 
@@ -93,14 +85,6 @@ public class QuestDisplayFragment extends BaseFragmet implements CheckBoxGroup.O
 
             BusProvider.instance().post(new QuestAction.FilterChanged(checked));
         }
-    }
-
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-
-        outState.putString("KEYWORD", mKeyword);
-        outState.putBoolean("SEARCHING", mIsSearching);
     }
 
     @Override
@@ -126,46 +110,7 @@ public class QuestDisplayFragment extends BaseFragmet implements CheckBoxGroup.O
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.quest, menu);
 
-        MenuItem item = menu.findItem(R.id.action_search);
-        MenuItemCompat.setOnActionExpandListener(item,
-                new MenuItemCompat.OnActionExpandListener() {
-                    @Override
-                    public boolean onMenuItemActionExpand(MenuItem item) {
-                        setUpViewPager(1);
-
-                        mIsSearching = true;
-                        return true;
-                    }
-
-                    @Override
-                    public boolean onMenuItemActionCollapse(MenuItem item) {
-                        setUpViewPager(0);
-                        return true;
-                    }
-                });
-
-        mSearchView = (SearchView) item.getActionView();
-        //mSearchView.setMaxWidth(9999);
-        //mSearchView.setQueryHint(getString(R.string.search_hint));
-        mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                BusProvider.instance().post(new QuestAction.KeywordChanged(newText));
-                mKeyword = newText;
-                return false;
-            }
-        });
-
-        if (mIsSearching) {
-            String keyword = mKeyword;
-            item.expandActionView();
-            mSearchView.setQuery(keyword, false);
-        }
+        super.onCreateOptionsMenu(menu, inflater);
     }
 
     @Override
@@ -190,13 +135,7 @@ public class QuestDisplayFragment extends BaseFragmet implements CheckBoxGroup.O
         mViewPagerAdapter[0] = getAdapter(0);
         mViewPagerAdapter[1] = getAdapter(1);
 
-        if (savedInstanceState != null) {
-            mKeyword = savedInstanceState.getString("KEYWORD");
-            mIsSearching = savedInstanceState.getBoolean("SEARCHING");
-        }
-
         if (!isHiddenBeforeSaveInstanceState()) {
-            mOnShowFromCreateView = true;
             onShow();
         }
 
@@ -258,12 +197,24 @@ public class QuestDisplayFragment extends BaseFragmet implements CheckBoxGroup.O
         mJumpToQuestType = action.getType();
         mJumpToQuestIndex = action.getIndex();
 
-        mViewPager.setCurrentItem(mIsSearching ? 0 : action.getType() - 1);
+        mViewPager.setCurrentItem(isSearching() ? 0 : action.getType() - 1);
     }
 
     @Subscribe
     public void jumpedTo(QuestAction.JumpedToQuest action) {
         mJumpToQuestIndex = -1;
         mJumpToQuestType = -1;
+    }
+
+    public void onSearchExpand() {
+        setUpViewPager(1);
+    }
+
+    public void onSearchCollapse() {
+        setUpViewPager(0);
+    }
+
+    public void onSearchTextChange(String newText) {
+        BusProvider.instance().post(new QuestAction.KeywordChanged(newText));
     }
 }

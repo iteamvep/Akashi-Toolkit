@@ -51,4 +51,20 @@ public class ShipAction {
             this.speed = speed;
         }
     }
+
+    public static class KeywordChanged {
+        private String keyword;
+
+        public KeywordChanged(String keyword) {
+            this.keyword = keyword;
+        }
+
+        public String getKeyword() {
+            return keyword;
+        }
+
+        public void setKeyword(String keyword) {
+            this.keyword = keyword;
+        }
+    }
 }

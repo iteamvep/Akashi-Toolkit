@@ -3,6 +3,14 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/action_search"
+        android:icon="@drawable/ic_search_24dp"
+        android:title="@string/action_search"
+        app:defaultQueryHint="使用舰娘名称、罗马音、中文名拼音来搜索..."
+        app:showAsAction="ifRoom|collapseActionView"
+        app:actionViewClass="android.support.v7.widget.SearchView"/>
+
+    <item
         android:id="@+id/action_filter"
         android:icon="@drawable/ic_filter_list_24dp"
         android:title="@string/action_filter"

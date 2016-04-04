@@ -30,6 +30,7 @@ public class Ship {
      */
 
     private NameEntity name;
+    private String name_for_search;
     private int rarity;
     private int type;
     /**
@@ -84,6 +85,14 @@ public class Ship {
 
     public void setName(NameEntity name) {
         this.name = name;
+    }
+
+    public String getName_for_search() {
+        return name_for_search;
+    }
+
+    public void setName_for_search(String name_for_search) {
+        this.name_for_search = name_for_search;
     }
 
     public int getRarity() {

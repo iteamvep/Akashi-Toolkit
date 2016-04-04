@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +26,7 @@ public class ShipAdapter extends RecyclerView.Adapter<ViewHolder.Ship> {
     private boolean mShowOnlyFinalVersion;
     private int mTypeFlag;
     private int mShowSpeed;
+    private String mKeyword;
 
     public ShipAdapter(Activity activity) {
         mData = new ArrayList<>();
@@ -50,6 +52,14 @@ public class ShipAdapter extends RecyclerView.Adapter<ViewHolder.Ship> {
 
     public void setTypeFlag(int typeFlag) {
         mTypeFlag = typeFlag;
+    }
+
+    public void setKeyword(String keyword) {
+        if (mKeyword != null && mKeyword.equals(keyword)) {
+            return;
+        }
+
+        mKeyword = keyword;
     }
 
     public void setShowOnlyFinalVersion(boolean showOnlyFinalVersion) {
@@ -83,6 +93,17 @@ public class ShipAdapter extends RecyclerView.Adapter<ViewHolder.Ship> {
         if (mShowSpeed != 0 &&
                 !((mShowSpeed & 1) > 0 && item.getAttr().getSpeed() == 5 ||
                 (mShowSpeed & 1 << 1) > 0 && item.getAttr().getSpeed() == 10)) {
+            return false;
+        }
+
+        if (mKeyword != null && mKeyword.length() == 0) {
+            return false;
+        }
+
+        if (mKeyword != null &&
+                !item.getName().getJa().contains(mKeyword) &&
+                !item.getName().getZh_cn().contains(mKeyword) &&
+                (item.getName_for_search() == null || !item.getName_for_search().contains(mKeyword))) {
             return false;
         }
 

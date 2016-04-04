@@ -31,7 +31,7 @@ import rikka.akashitoolkit.widget.SimpleDrawerView;
 /**
  * Created by Rikka on 2016/3/30.
  */
-public class ShipDisplayFragment extends BaseFragmet {
+public class ShipDisplayFragment extends BaseSearchFragment {
     private static final int TAB_LAYOUT_VISIBILITY = View.GONE;
 
     private ViewPager mViewPager;
@@ -155,6 +155,23 @@ public class ShipDisplayFragment extends BaseFragmet {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.ship, menu);
+
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public void onSearchExpand() {
+
+    }
+
+    @Override
+    public void onSearchCollapse() {
+        BusProvider.instance().post(new ShipAction.KeywordChanged(null));
+    }
+
+    @Override
+    public void onSearchTextChange(String newText) {
+        BusProvider.instance().post(new ShipAction.KeywordChanged(newText.replace(" ", "")));
     }
 
     @Override

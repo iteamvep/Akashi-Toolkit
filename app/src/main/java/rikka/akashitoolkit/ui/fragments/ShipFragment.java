@@ -81,4 +81,10 @@ public class ShipFragment extends Fragment {
         mAdapter.setShowSpeed(action.getType());
         mAdapter.rebuildDataList(getContext());
     }
+
+    @Subscribe
+    public void keywordChanged(ShipAction.KeywordChanged action) {
+        mAdapter.setKeyword(action.getKeyword());
+        mAdapter.rebuildDataList(getContext());
+    }
 }
