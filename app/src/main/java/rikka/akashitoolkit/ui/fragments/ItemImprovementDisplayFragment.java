@@ -7,8 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.avos.avoscloud.AVAnalytics;
-
 import java.text.DateFormatSymbols;
 import java.util.Calendar;
 import java.util.Locale;
@@ -16,6 +14,7 @@ import java.util.TimeZone;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.ViewPagerAdapter;
+import rikka.akashitoolkit.support.Statistics;
 import rikka.akashitoolkit.ui.MainActivity;
 
 /**
@@ -31,7 +30,7 @@ public class ItemImprovementDisplayFragment extends BaseFragmet {
     public void onHide() {
         super.onHide();
 
-        AVAnalytics.onFragmentEnd("ItemImprovementDisplayFragment");
+        Statistics.onFragmentEnd("ItemImprovementDisplayFragment");
     }
 
     @Override
@@ -42,7 +41,7 @@ public class ItemImprovementDisplayFragment extends BaseFragmet {
         activity.getSupportActionBar().setTitle(getString(R.string.item_improvement));
         mViewPager.setCurrentItem(mDay);
 
-        AVAnalytics.onFragmentStart("ItemImprovementDisplayFragment");
+        Statistics.onFragmentStart("ItemImprovementDisplayFragment");
     }
 
     @Nullable

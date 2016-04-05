@@ -7,10 +7,12 @@ import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.preference.Preference;
+import android.support.v7.preference.PreferenceScreen;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import rikka.akashitoolkit.BuildConfig;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.utils.ClipBoardUtils;
 import rikka.akashitoolkit.utils.UpdateCheck;
@@ -79,13 +81,17 @@ public class AboutActivity extends BaseActivity {
                 }
             });
 
-            findPreference("check").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-                @Override
-                public boolean onPreferenceClick(Preference preference) {
-                    UpdateCheck.instance().check(getActivity(), true);
-                    return false;
-                }
-            });
+            if (BuildConfig.isGooglePlay) {
+                ((PreferenceScreen) findPreference("screen")).removePreference(findPreference("check"));
+            } else {
+                findPreference("check").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                    @Override
+                    public boolean onPreferenceClick(Preference preference) {
+                        UpdateCheck.instance().check(getActivity(), true);
+                        return false;
+                    }
+                });
+            }
         }
     }
 }

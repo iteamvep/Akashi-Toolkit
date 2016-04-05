@@ -34,12 +34,23 @@ android {
         }
     }
 
+    productFlavors {
+
+        china {
+            buildConfigField "boolean", "isGooglePlay", "false"
+        }
+
+        play {
+            buildConfigField "boolean", "isGooglePlay", "true"
+        }
+    }
+
     applicationVariants.all { variant ->
         variant.outputs.each { output ->
             if (output.outputFile != null && output.outputFile.name.endsWith('.apk')) {
                 output.outputFile = file("${output.outputFile.parent}/akashitoolkit" +
-                        //*"-${variant.buildType.name.toLowerCase()}" +*/
                         "-${variant.versionCode}" +
+                        "-${variant.flavorName.toLowerCase()}" +
                         ".apk")
             }
         }
@@ -64,12 +75,8 @@ dependencies {
     compile 'com.github.RikkaW:DayNight-Theme:v1.0.13'
     compile 'com.github.RikkaW:MaterialPreference:v0.0.4'
 
-    //avoscloud-sdk 为 LeanCloud基础包
-    compile ('cn.leancloud.android:avoscloud-sdk:v3.+')
+    chinaCompile 'cn.leancloud.android:avoscloud-sdk:v3.+'
+    chinaCompile 'cn.leancloud.android:avoscloud-statistics:v3.+'
 
-    //avoscloud-statistics 为 LeanCloud 统计包
-    compile ('cn.leancloud.android:avoscloud-statistics:v3.+')
-
-    //图片展示View
     compile 'com.commit451:PhotoView:1.2.5'
 }

@@ -172,6 +172,9 @@ public class TwitterAdapter extends RecyclerView.Adapter<TwitterAdapter.ViewHold
         }
 
         holder.mTime.setText(mData.get(position).getDate());
+
+        holder.mTvContent.setTextIsSelectable(true);
+        holder.mTvContentTranslated.setTextIsSelectable(true);
     }
 
     @Override

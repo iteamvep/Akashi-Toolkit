@@ -13,7 +13,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.avos.avoscloud.AVAnalytics;
 import com.squareup.otto.Subscribe;
 
 import rikka.akashitoolkit.R;
@@ -21,6 +20,7 @@ import rikka.akashitoolkit.adapter.ViewPagerAdapter;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.QuestAction;
 import rikka.akashitoolkit.support.Settings;
+import rikka.akashitoolkit.support.Statistics;
 import rikka.akashitoolkit.ui.MainActivity;
 import rikka.akashitoolkit.widget.CheckBoxGroup;
 
@@ -42,7 +42,7 @@ public class QuestDisplayFragment extends BaseSearchFragment implements CheckBox
     public void onHide() {
         super.onHide();
 
-        AVAnalytics.onFragmentEnd("QuestDisplayFragment");
+        Statistics.onFragmentEnd("QuestDisplayFragment");
     }
 
     @Override
@@ -72,7 +72,7 @@ public class QuestDisplayFragment extends BaseSearchFragment implements CheckBox
         cbg.setChecked(mFlag);
         mActivity.getRightDrawerContent().addView(cbg);
 
-        AVAnalytics.onFragmentStart("QuestDisplayFragment");
+        Statistics.onFragmentStart("QuestDisplayFragment");
     }
 
     @Override

@@ -11,12 +11,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
 import android.widget.LinearLayout;
-import android.widget.TextView;
-
-import com.avos.avoscloud.AVAnalytics;
-import com.squareup.otto.Bus;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.ViewPagerAdapter;
@@ -24,6 +19,7 @@ import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.ShipAction;
 import rikka.akashitoolkit.staticdata.ShipList;
 import rikka.akashitoolkit.support.Settings;
+import rikka.akashitoolkit.support.Statistics;
 import rikka.akashitoolkit.ui.MainActivity;
 import rikka.akashitoolkit.widget.CheckBoxGroup;
 import rikka.akashitoolkit.widget.SimpleDrawerView;
@@ -137,14 +133,14 @@ public class ShipDisplayFragment extends BaseSearchFragment {
         //cbg.setChecked(mFlag);
 
 
-        AVAnalytics.onFragmentStart("ShipDisplayFragment");
+        Statistics.onFragmentStart("ShipDisplayFragment");
     }
 
     @Override
     public void onHide() {
         super.onHide();
 
-        AVAnalytics.onFragmentEnd("ShipDisplayFragment");
+        Statistics.onFragmentEnd("ShipDisplayFragment");
     }
 
     @Override

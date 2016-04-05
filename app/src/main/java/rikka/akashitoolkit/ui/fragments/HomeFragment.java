@@ -13,7 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
-import com.avos.avoscloud.AVAnalytics;
 import com.squareup.otto.Subscribe;
 
 import java.util.ArrayList;
@@ -32,6 +31,7 @@ import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.PreferenceChangedAction;
 import rikka.akashitoolkit.otto.ReadStatusResetAction;
 import rikka.akashitoolkit.support.Settings;
+import rikka.akashitoolkit.support.Statistics;
 import rikka.akashitoolkit.ui.MainActivity;
 import rikka.akashitoolkit.utils.UpdateCheck;
 import rikka.akashitoolkit.widget.ButtonCardView;
@@ -56,7 +56,7 @@ public class HomeFragment extends BaseFragmet {
         activity.getSupportActionBar().setTitle(getString(R.string.app_name));
         activity.setRightDrawerLocked(true);
 
-        AVAnalytics.onFragmentStart("HomeFragment");
+        Statistics.onFragmentStart("HomeFragment");
     }
 
     @Override
@@ -65,7 +65,7 @@ public class HomeFragment extends BaseFragmet {
         mSwipeRefreshLayout.setRefreshing(false);
         saveReadStatus();
 
-        AVAnalytics.onFragmentEnd("HomeFragment");
+        Statistics.onFragmentEnd("HomeFragment");
     }
 
     @Override
@@ -178,13 +178,25 @@ public class HomeFragment extends BaseFragmet {
         }
 
         ButtonCardView card;
-        card = new ButtonCardView(getContext())
-                .setTitle("欢迎使用Akashi Toolkit！")
-                .addButton(R.string.got_it)
-                .setMessage("Akashi Toolkit是一个舰队Collection的wiki类手机App，目前由Yūbari Kaigun Kokusho开发，kcwiki舰娘百科提供数据支持。\n" +
-                        "目前应用的各项功能正在逐渐添加和完善中，我们会在每周六晚发布一个Akashi Toolkit的正式版本，保证每周的更新。\n" +
-                        "如果您想体验测试版，在设置-更新通道中选择测试版。\n" +
-                        "关注我们的最新消息 微博@kcwiki舰娘百科");
+
+        if (BuildConfig.isGooglePlay) {
+            card = new ButtonCardView(getContext())
+                    .setTitle("欢迎使用Akashi Toolkit！")
+                    .addButton(R.string.got_it)
+                    .setMessage("Akashi Toolkit是一个舰队Collection的wiki类手机App，目前由Yūbari Kaigun Kokusho开发，kcwiki舰娘百科提供数据支持。\n" +
+                            "目前应用的各项功能正在逐渐添加和完善中，我们会在每周六晚发布一个Akashi Toolkit的正式版本，保证每周的更新。\n" +
+                            "如果您想体验测试版，在设置-更新通道中选择测试版。\n" +
+                            "关注我们的最新消息 微博@kcwiki舰娘百科");
+        } else {
+            card = new ButtonCardView(getContext())
+                    .setTitle("欢迎使用Akashi Toolkit！")
+                    .addButton(R.string.got_it)
+                    .setMessage("Akashi Toolkit是一个舰队Collection的wiki类手机App，目前由Yūbari Kaigun Kokusho开发，kcwiki舰娘百科提供数据支持。\n" +
+                            "目前应用的各项功能正在逐渐添加和完善中。\n" +
+                            "如果您想体验测试版，在主页的加入测试卡片（如果有）进入链接后选择加入，稍后您收到测试版本更新。\n" +
+                            "关注我们的最新消息 微博@kcwiki舰娘百科");
+        }
+
 
         mLinearLayout.addView(card);
         mMessageCardView.put(-1, card);
@@ -262,30 +274,32 @@ public class HomeFragment extends BaseFragmet {
                     }
                 }
 
-                final CheckUpdate.UpdateEntity entity = response.body().getUpdate();
-                mUpdateVersionCode = entity.getVersionCode();
+                if (!BuildConfig.isGooglePlay) {
+                    final CheckUpdate.UpdateEntity entity = response.body().getUpdate();
+                    mUpdateVersionCode = entity.getVersionCode();
 
-                if (mMessageReadStatus.getVersionCode() < mUpdateVersionCode && (mUpdateVersionCode > versionCode || BuildConfig.DEBUG)) {
-                    if (mUpdateCardView == null || mUpdateCardView.getVisibility() != View.VISIBLE) {
-                        mUpdateCardView = new ButtonCardView(getContext());
-                        mUpdateCardView.addButton(R.string.ignore_update, new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                mMessageReadStatus.setVersionCode(mUpdateVersionCode);
-                            }
-                        }, false, true);
-                        mUpdateCardView.addButton(R.string.download, new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(entity.getUrl()));
-                                getContext().startActivity(intent);
-                            }
-                        }, true, false);
-                        mLinearLayout.addView(mUpdateCardView, 0);
+                    if (mMessageReadStatus.getVersionCode() < mUpdateVersionCode && (mUpdateVersionCode > versionCode || BuildConfig.DEBUG)) {
+                        if (mUpdateCardView == null || mUpdateCardView.getVisibility() != View.VISIBLE) {
+                            mUpdateCardView = new ButtonCardView(getContext());
+                            mUpdateCardView.addButton(R.string.ignore_update, new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    mMessageReadStatus.setVersionCode(mUpdateVersionCode);
+                                }
+                            }, false, true);
+                            mUpdateCardView.addButton(R.string.download, new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(entity.getUrl()));
+                                    getContext().startActivity(intent);
+                                }
+                            }, true, false);
+                            mLinearLayout.addView(mUpdateCardView, 0);
+                        }
+
+                        mUpdateCardView.setMessage(String.format("更新内容:\n%s", entity.getChange()));
+                        mUpdateCardView.setTitle(String.format("有新版本啦 (%s - %d)", entity.getVersionName(), entity.getVersionCode()));
                     }
-
-                    mUpdateCardView.setMessage(String.format("更新内容:\n%s", entity.getChange()));
-                    mUpdateCardView.setTitle(String.format("有新版本啦 (%s - %d)", entity.getVersionName(), entity.getVersionCode()));
                 }
 
                 UpdateCheck.instance().recycle();

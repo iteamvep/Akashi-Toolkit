@@ -5,11 +5,14 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.preference.Preference;
+import android.support.v7.preference.PreferenceCategory;
+import android.support.v7.preference.PreferenceScreen;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Toast;
 
 import moe.xing.daynightmode.BaseDayNightModeActivity;
+import rikka.akashitoolkit.BuildConfig;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.PreferenceChangedAction;
@@ -91,6 +94,10 @@ public class SettingActivity extends BaseActivity {
                     return false;
                 }
             });
+
+            if (BuildConfig.isGooglePlay) {
+                ((PreferenceCategory) findPreference("update")).removePreference(findPreference("update_check_channel"));
+            }
         }
 
         @Override

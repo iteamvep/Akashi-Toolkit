@@ -7,10 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.avos.avoscloud.AVAnalytics;
-
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.ViewPagerAdapter;
+import rikka.akashitoolkit.support.Statistics;
 import rikka.akashitoolkit.ui.MainActivity;
 
 /**
@@ -29,14 +28,14 @@ public class ExpeditionDisplayFragment extends BaseFragmet {
         activity.getSupportActionBar().setTitle(getString(R.string.expedition));
         activity.setRightDrawerLocked(true);
 
-        AVAnalytics.onFragmentStart("ExpeditionDisplayFragment");
+        Statistics.onFragmentStart("ExpeditionDisplayFragment");
     }
 
     @Override
     public void onHide() {
         super.onHide();
 
-        AVAnalytics.onFragmentEnd("ExpeditionDisplayFragment");
+        Statistics.onFragmentEnd("ExpeditionDisplayFragment");
     }
 
     @Nullable

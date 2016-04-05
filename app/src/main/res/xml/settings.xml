@@ -44,6 +44,7 @@
     </PreferenceCategory>-->
 
     <PreferenceCategory
+        android:key="update"
         android:title="@string/category_update">
 
         <rikka.materialpreference.DropDownPreference

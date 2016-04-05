@@ -16,7 +16,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.avos.avoscloud.AVAnalytics;
 import com.google.gson.Gson;
 import com.squareup.otto.Subscribe;
 
@@ -43,6 +42,7 @@ import rikka.akashitoolkit.network.RetrofitAPI;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.PreferenceChangedAction;
 import rikka.akashitoolkit.support.Settings;
+import rikka.akashitoolkit.support.Statistics;
 import rikka.akashitoolkit.ui.MainActivity;
 import rikka.akashitoolkit.utils.Utils;
 
@@ -70,7 +70,7 @@ public class TwitterFragment extends BaseFragmet {
         activity.getSupportActionBar().setTitle(getString(R.string.official_twitter));
         activity.setRightDrawerLocked(true);
 
-        AVAnalytics.onFragmentStart("TwitterFragment");
+        Statistics.onFragmentStart("TwitterFragment");
     }
 
     @Override
@@ -90,7 +90,7 @@ public class TwitterFragment extends BaseFragmet {
     public void onHide() {
         super.onHide();
 
-        AVAnalytics.onFragmentEnd("TwitterFragment");
+        Statistics.onFragmentEnd("TwitterFragment");
     }
 
     @Override

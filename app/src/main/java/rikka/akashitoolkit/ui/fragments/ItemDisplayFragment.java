@@ -7,13 +7,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.avos.avoscloud.AVAnalytics;
-
 import java.util.Map;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.ViewPagerAdapter;
 import rikka.akashitoolkit.staticdata.ItemTypeList;
+import rikka.akashitoolkit.support.Statistics;
 import rikka.akashitoolkit.ui.MainActivity;
 
 /**
@@ -32,14 +31,14 @@ public class ItemDisplayFragment extends BaseFragmet {
         activity.getSupportActionBar().setTitle(getString(R.string.item));
         activity.setRightDrawerLocked(true);
 
-        AVAnalytics.onFragmentStart("ItemDisplayFragment");
+        Statistics.onFragmentStart("ItemDisplayFragment");
     }
 
     @Override
     public void onHide() {
         super.onHide();
 
-        AVAnalytics.onFragmentEnd("ItemDisplayFragment");
+        Statistics.onFragmentEnd("ItemDisplayFragment");
     }
 
     @Nullable
