@@ -3,7 +3,7 @@ package rikka.akashitoolkit.utils;
 /**
  * Created by Rikka on 2016/4/4.
  */
-public class KCStringConvent {
+public class KCStringFormatter {
     public static String getStars(int value) {
         String star = "";
         while (value > 0) {
@@ -29,5 +29,13 @@ public class KCStringConvent {
             case 5: return "低速";
         }
         return "";
+    }
+
+    public static String getLinkItem(int id, String name) {
+        return String.format("<a href=akashitoolkit://item/%d>%s</a>", id, name);
+    }
+
+    public static String getLinkShip(int id, String name) {
+        return String.format("<a href=akashitoolkit://ship/%d>%s</a>", id, name);
     }
 }

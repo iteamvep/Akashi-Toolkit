@@ -16,7 +16,6 @@ import rikka.akashitoolkit.adapter.ShipAdapter;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.ShipAction;
 import rikka.akashitoolkit.utils.Utils;
-import rikka.materialpreference.BaseRecyclerViewItemDecoration;
 
 /**
  * Created by Rikka on 2016/3/30.
@@ -52,7 +51,7 @@ public class ShipFragment extends Fragment {
         }
 
         mAdapter = new ShipAdapter(getActivity(), finalVersion > 0, flag, speed);
-        mAdapter.rebuildDataList(getContext());
+        mAdapter.rebuildDataList(/*getContext()*/);
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         recyclerView.setPadding(0, Utils.dpToPx(2), 0, Utils.dpToPx(2));
         recyclerView.setAdapter(mAdapter);
@@ -67,24 +66,24 @@ public class ShipFragment extends Fragment {
     @Subscribe
     public void showFinalVersionChanged(ShipAction.ShowFinalVersionChangeAction action) {
         mAdapter.setShowOnlyFinalVersion(action.isShowFinalVersion());
-        mAdapter.rebuildDataList(getContext());
+        mAdapter.rebuildDataList(/*getContext()*/);
     }
 
     @Subscribe
     public void typeChanged(ShipAction.TypeChangeAction action) {
         mAdapter.setTypeFlag(action.getType());
-        mAdapter.rebuildDataList(getContext());
+        mAdapter.rebuildDataList(/*getContext()*/);
     }
 
     @Subscribe
     public void speedChanged(ShipAction.SpeedChangeAction action) {
         mAdapter.setShowSpeed(action.getType());
-        mAdapter.rebuildDataList(getContext());
+        mAdapter.rebuildDataList(/*getContext()*/);
     }
 
     @Subscribe
     public void keywordChanged(ShipAction.KeywordChanged action) {
         mAdapter.setKeyword(action.getKeyword());
-        mAdapter.rebuildDataList(getContext());
+        mAdapter.rebuildDataList(/*getContext()*/);
     }
 }

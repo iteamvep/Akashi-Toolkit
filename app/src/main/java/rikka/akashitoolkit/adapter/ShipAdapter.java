@@ -3,6 +3,7 @@ package rikka.akashitoolkit.adapter;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,6 +17,11 @@ import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.model.Ship;
 import rikka.akashitoolkit.staticdata.ShipList;
 import rikka.akashitoolkit.ui.ShipDisplayActivity;
+import rx.Observable;
+import rx.Observer;
+import rx.Subscriber;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 /**
  * Created by Rikka on 2016/3/30.
@@ -66,18 +72,41 @@ public class ShipAdapter extends RecyclerView.Adapter<ViewHolder.Ship> {
         mShowOnlyFinalVersion = showOnlyFinalVersion;
     }
 
-    public void rebuildDataList(Context context) {
-        List<Ship> data = ShipList.get(context);
-        mData.clear();
+    public void rebuildDataList() {
+        Observable
+                .create(new Observable.OnSubscribe<List<Ship>>() {
+                    @Override
+                    public void call(Subscriber<? super List<Ship>> subscriber) {
+                        subscriber.onNext(ShipList.get(mActivity));
+                        subscriber.onCompleted();
+                    }
+                })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<List<Ship>>() {
+                    @Override
+                    public void onNext(List<Ship> o) {
+                        mData.clear();
 
-        for (Ship item :
-                data) {
-            if (check(item)) {
-                mData.add(item);
-            }
-        }
+                        for (Ship item :
+                                o) {
+                            if (check(item)) {
+                                mData.add(item);
+                            }
+                        }
+                        notifyDataSetChanged();
+                    }
 
-        notifyDataSetChanged();
+                    @Override
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+                });
     }
 
     private boolean check(Ship item) {

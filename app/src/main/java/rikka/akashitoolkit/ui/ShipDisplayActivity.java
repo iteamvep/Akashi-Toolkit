@@ -11,7 +11,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.text.Spanned;
+import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -32,7 +34,8 @@ import rikka.akashitoolkit.model.Ship;
 import rikka.akashitoolkit.staticdata.ItemList;
 import rikka.akashitoolkit.staticdata.ItemTypeList;
 import rikka.akashitoolkit.staticdata.ShipList;
-import rikka.akashitoolkit.utils.KCStringConvent;
+import rikka.akashitoolkit.utils.KCStringFormatter;
+import rikka.akashitoolkit.utils.MySpannableFactory;
 import rikka.akashitoolkit.utils.Utils;
 
 /**
@@ -147,7 +150,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
             }
 
             while (true) {
-                sb.append(cur.getName().getZh_cn());
+                sb.append(KCStringFormatter.getLinkShip(cur.getId(), cur.getName().getZh_cn()));
 
                 if (cur.getRemodel().getId_from() != 0) {
                     Ship prev = ShipList.findItemById(this, cur.getRemodel().getId_from());
@@ -170,7 +173,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
                     sb.append(" ↔ ");
                 }
             }
-            addTextView(parent, sb.toString());
+            addTextView(parent, Html.fromHtml(sb.toString()));
         }
     }
 
@@ -230,6 +233,10 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
         TextView textView = new TextView(this);
         textView.setText(text);
         textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, size);
+        textView.setMovementMethod(new LinkMovementMethod());
+        textView.setClickable(true);
+        textView.setSpannableFactory(MySpannableFactory.getInstance());
+        //textView.setLinkTextColor(getColor(R.color.material_red_300));
         parent.addView(textView);
         return textView;
     }
@@ -308,9 +315,9 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
                 return;
             }
             if (icon == R.drawable.item_attr_range) {
-                addAttrView(parent, title, KCStringConvent.getRange(value), icon);
+                addAttrView(parent, title, KCStringFormatter.getRange(value), icon);
             } else if (icon == R.drawable.item_attr_speed) {
-                addAttrView(parent, title, KCStringConvent.getSpeed(value), icon);
+                addAttrView(parent, title, KCStringFormatter.getSpeed(value), icon);
             } else {
                 addAttrView(parent, title, Integer.toString(value), icon);
             }

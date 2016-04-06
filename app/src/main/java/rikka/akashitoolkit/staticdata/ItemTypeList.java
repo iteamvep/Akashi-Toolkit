@@ -5,6 +5,7 @@ import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.widget.ImageView;
 
 import com.google.gson.Gson;
@@ -36,6 +37,7 @@ public class ItemTypeList {
     public static synchronized List<ItemType> get(Context context) {
         if (sList == null) {
             try {
+                long time = System.currentTimeMillis();
                 AssetManager assetManager = context.getAssets();
                 InputStream ims = assetManager.open(FILE_NAME);
                 Gson gson = new Gson();
@@ -44,6 +46,8 @@ public class ItemTypeList {
                 sList = gson.fromJson(reader, listType);
 
                 generateParentList(context);
+
+                Log.d("ItemTypeList", String.format("Load list: %dms", System.currentTimeMillis() - time));
             } catch (IOException e) {
                 e.printStackTrace();
                 sList = new ArrayList<>();

@@ -5,6 +5,7 @@ import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.os.AsyncTask;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,30 +29,41 @@ public class ItemImprovementAdapter extends RecyclerView.Adapter<ViewHolder.Item
     private List<String> mDataShip;
     private Activity mActivity;
 
-    public ItemImprovementAdapter(Activity activity, int type) {
+    public ItemImprovementAdapter(final Activity activity, final int type) {
         mActivity = activity;
         mData = new ArrayList<>();
         mDataShip = new ArrayList<>();
 
-        for (ItemImprovement item :
-                ItemImprovementList.get(activity)) {
+        new AsyncTask<Void, Void, Void>() {
+            @Override
+            protected Void doInBackground(Void... params) {
+                for (ItemImprovement item :
+                        ItemImprovementList.get(mActivity)) {
 
-            boolean add = false;
-            StringBuilder sb = new StringBuilder();
-            for (ItemImprovement.SecretaryEntity entity : item.getSecretary()) {
-                if (entity.getDay().get(type)) {
-                    add = true;
-                    sb.append(sb.length() > 0 ? " / " : "" );
-                    sb.append(entity.getName());
+                    boolean add = false;
+                    StringBuilder sb = new StringBuilder();
+                    for (ItemImprovement.SecretaryEntity entity : item.getSecretary()) {
+                        if (entity.getDay().get(type)) {
+                            add = true;
+                            sb.append(sb.length() > 0 ? " / " : "" );
+                            sb.append(entity.getName());
+                        }
+                    }
+
+                    if (add) {
+                        mData.add(item);
+                        mDataShip.add(sb.toString());
+                    }
+
                 }
+                return null;
             }
 
-            if (add) {
-                mData.add(item);
-                mDataShip.add(sb.toString());
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                notifyDataSetChanged();
             }
-
-        }
+        }.execute();
     }
 
     @Override

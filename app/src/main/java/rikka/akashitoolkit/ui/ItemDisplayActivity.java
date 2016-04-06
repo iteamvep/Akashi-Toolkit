@@ -31,7 +31,7 @@ import rikka.akashitoolkit.staticdata.ItemTypeList;
 import rikka.akashitoolkit.staticdata.ItemList;
 import rikka.akashitoolkit.staticdata.QuestList;
 import rikka.akashitoolkit.staticdata.ShipTypeList;
-import rikka.akashitoolkit.utils.KCStringConvent;
+import rikka.akashitoolkit.utils.KCStringFormatter;
 import rikka.akashitoolkit.utils.Utils;
 
 public class ItemDisplayActivity extends BaseItemDisplayActivity {
@@ -118,7 +118,7 @@ public class ItemDisplayActivity extends BaseItemDisplayActivity {
                 "No. %d %s %s",
                 mItem.getId(),
                 ItemTypeList.findItemById(this, mItem.getSubType()).getName(),
-                KCStringConvent.getStars(mItem.getRarity())));
+                KCStringFormatter.getStars(mItem.getRarity())));
 
         addAttrView(mItemAttrContainer, "火力", mItem.getAttr().getFire(), R.drawable.item_attr_fire);
         addAttrView(mItemAttrContainer, "对空", mItem.getAttr().getAa(), R.drawable.item_attr_aa);
@@ -409,7 +409,7 @@ public class ItemDisplayActivity extends BaseItemDisplayActivity {
         ((TextView) cell.findViewById(R.id.textView)).setText(title);
 
         if (icon == R.drawable.item_attr_range) {
-            ((TextView) cell.findViewById(R.id.textView2)).setText(KCStringConvent.getRange(value));
+            ((TextView) cell.findViewById(R.id.textView2)).setText(KCStringFormatter.getRange(value));
         } else {
             ((TextView) cell.findViewById(R.id.textView2)).setText(String.format("%s%d", value > 0 ? "+" : "", value));
             ((TextView) cell.findViewById(R.id.textView2)).setTextColor(ContextCompat.getColor(this, value > 0 ? R.color.material_green_300 : R.color.material_red_300));

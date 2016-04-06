@@ -70,6 +70,8 @@ public class TwitterFragment extends BaseFragmet {
         activity.getSupportActionBar().setTitle(getString(R.string.official_twitter));
         activity.setRightDrawerLocked(true);
 
+        mSwipeRefreshLayout.setRefreshing(false);
+
         Statistics.onFragmentStart("TwitterFragment");
     }
 

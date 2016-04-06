@@ -179,7 +179,7 @@ public class HomeFragment extends BaseFragmet {
 
         ButtonCardView card;
 
-        if (BuildConfig.isGooglePlay) {
+        if (!BuildConfig.isGooglePlay) {
             card = new ButtonCardView(getContext())
                     .setTitle("欢迎使用Akashi Toolkit！")
                     .addButton(R.string.got_it)
@@ -196,7 +196,6 @@ public class HomeFragment extends BaseFragmet {
                             "如果您想体验测试版，在主页的加入测试卡片（如果有）进入链接后选择加入，稍后您收到测试版本更新。\n" +
                             "关注我们的最新消息 微博@kcwiki舰娘百科");
         }
-
 
         mLinearLayout.addView(card);
         mMessageCardView.put(-1, card);

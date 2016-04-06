@@ -13,23 +13,23 @@
 
         <item
             android:id="@+id/nav_item_improve"
-            android:icon="@drawable/ic_nav_map_24dp"
+            android:icon="@drawable/ic_nav_item_improvement_24dp"
             android:title="@string/item_improvement"/>
 
         <item
             android:id="@+id/nav_item"
-            android:icon="@drawable/ic_nav_map_24dp"
+            android:icon="@drawable/system_icon_01_24dp"
             android:title="@string/item"/>
+
+        <item
+            android:id="@+id/nav_ship"
+            android:icon="@drawable/ic_nav_expedition_24dp"
+            android:title="@string/ship"/>
 
         <item
             android:id="@+id/nav_quest"
             android:icon="@drawable/ic_nav_quest_24dp"
             android:title="@string/quest"/>
-
-        <item
-            android:id="@+id/nav_ship"
-            android:icon="@drawable/ic_nav_quest_24dp"
-            android:title="@string/ship"/>
 
         <item
             android:id="@+id/nav_expedition"

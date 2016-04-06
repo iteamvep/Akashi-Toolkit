@@ -2,6 +2,7 @@ package rikka.akashitoolkit.staticdata;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.util.Log;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -110,7 +111,10 @@ public class ExpeditionList {
 
     public static synchronized List<Expedition> get(Context context) {
         if (sList == null) {
+            long time = System.currentTimeMillis();
             loadAll(context);
+            Log.d("ExpeditionList", String.format("Load list: %dms", System.currentTimeMillis() - time));
+
         }
         return sList;
     }

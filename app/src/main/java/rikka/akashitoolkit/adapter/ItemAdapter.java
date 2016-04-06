@@ -5,8 +5,10 @@ import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.os.AsyncTask;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,7 +39,28 @@ public class ItemAdapter extends RecyclerView.Adapter<ViewHolder.Item> {
     }
 
     public void rebuildDataList(Context context) {
-        mData.clear();
+        new AsyncTask<Void, Void, Void>() {
+            @Override
+            protected Void doInBackground(Void... params) {
+                mData.clear();
+
+                for (Item item :
+                        ItemList.get(mActivity)) {
+
+                    if ((ItemTypeList.getsParentList(mActivity).get(ItemTypeList.findItemById(mActivity, item.getSubType()).getParent()) == mType)) {
+                        mData.add(item);
+                    }
+                }
+
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                notifyDataSetChanged();
+            }
+        }.execute();
+        /*mData.clear();
 
         for (Item item :
                 ItemList.get(context)) {
@@ -47,7 +70,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ViewHolder.Item> {
             }
         }
 
-        notifyDataSetChanged();
+        notifyDataSetChanged();*/
     }
 
     @Override

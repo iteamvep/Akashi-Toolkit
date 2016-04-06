@@ -119,7 +119,9 @@ public class QuestList {
 
     public static synchronized List<Quest> get(Context context) {
         if (sList == null) {
+            long time = System.currentTimeMillis();
             loadAll(context);
+            Log.d("QuestList", String.format("Load list: %dms", System.currentTimeMillis() - time));
         }
         return sList;
     }

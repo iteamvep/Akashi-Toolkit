@@ -1,6 +1,7 @@
 package rikka.akashitoolkit.adapter;
 
 import android.content.Context;
+import android.os.AsyncTask;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -55,18 +56,28 @@ public class QuestAdapter extends RecyclerView.Adapter<ViewHolder.Quest> {
         return 0;
     }
 
-    public void rebuildDataList(Context context) {
-        List<QuestList.Quest> data = QuestList.get(context);
-        mData.clear();
+    public void rebuildDataList(final Context context) {
+        new AsyncTask<Void, Void, Void>() {
+            @Override
+            protected Void doInBackground(Void... params) {
+                List<QuestList.Quest> data = QuestList.get(context);
+                mData.clear();
 
-        for (QuestList.Quest item :
-                data) {
-            if (check(item)) {
-                mData.add(item);
+                for (QuestList.Quest item :
+                        data) {
+                    if (check(item)) {
+                        mData.add(item);
+                    }
+                }
+
+                return null;
             }
-        }
 
-        notifyDataSetChanged();
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                notifyDataSetChanged();
+            }
+        }.execute();
     }
 
     private boolean check(QuestList.Quest item) {

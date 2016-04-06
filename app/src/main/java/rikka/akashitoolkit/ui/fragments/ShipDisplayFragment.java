@@ -1,10 +1,12 @@
 package rikka.akashitoolkit.ui.fragments;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.NestedScrollView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -23,6 +25,12 @@ import rikka.akashitoolkit.support.Statistics;
 import rikka.akashitoolkit.ui.MainActivity;
 import rikka.akashitoolkit.widget.CheckBoxGroup;
 import rikka.akashitoolkit.widget.SimpleDrawerView;
+import rx.Observable;
+import rx.Observer;
+import rx.Scheduler;
+import rx.Subscriber;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 /**
  * Created by Rikka on 2016/3/30.
@@ -36,17 +44,13 @@ public class ShipDisplayFragment extends BaseSearchFragment {
     private int mFinalVersion;
     private int mSpeed;
 
-    @Override
-    public void onShow() {
-        BusProvider.instance().post(new ShipAction.KeywordChanged(null));
+    private CheckBoxGroup[] mCheckBoxGroups = new CheckBoxGroup[3];
+    private NestedScrollView mScrollView;
 
-        MainActivity activity = ((MainActivity) getActivity());
-        activity.getTabLayout().setVisibility(TAB_LAYOUT_VISIBILITY);
-        activity.getTabLayout().setupWithViewPager(mViewPager);
-        activity.getSupportActionBar().setTitle(getString(R.string.ship));
-        activity.setRightDrawerLocked(true);
-
+    private void setDrawerView() {
         mActivity.setRightDrawerLocked(false);
+
+        long time = System.currentTimeMillis();
 
         mActivity.getRightDrawerContent().removeAllViews();
         mActivity.getRightDrawerContent().addTitle(getString(R.string.action_filter));
@@ -56,10 +60,9 @@ public class ShipDisplayFragment extends BaseSearchFragment {
         body.setOrientation(LinearLayout.VERTICAL);
         body.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
-        CheckBoxGroup cbg;
-        cbg = new CheckBoxGroup(getContext());
-        cbg.addItem("仅显示最终改造版本");
-        cbg.setOnCheckedChangeListener(new CheckBoxGroup.OnCheckedChangeListener() {
+        mCheckBoxGroups[0] = new CheckBoxGroup(getContext());
+        mCheckBoxGroups[0].addItem("仅显示最终改造版本");
+        mCheckBoxGroups[0].setOnCheckedChangeListener(new CheckBoxGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(View view, int checked) {
                 BusProvider.instance().post(new ShipAction.ShowFinalVersionChangeAction(checked > 0));
@@ -70,18 +73,14 @@ public class ShipDisplayFragment extends BaseSearchFragment {
                         .putInt(Settings.SHIP_FINAL_VERSION, checked);
             }
         });
-        mFinalVersion = Settings
-                .instance(getContext())
-                .getInt(Settings.SHIP_FINAL_VERSION, 0);
-        cbg.setChecked(mFinalVersion);
 
-        body.addView(cbg);
+        body.addView(mCheckBoxGroups[0]);
         body.addDivider();
 
-        cbg = new CheckBoxGroup(getContext());
-        cbg.addItem("低速");
-        cbg.addItem("高速");
-        cbg.setOnCheckedChangeListener(new CheckBoxGroup.OnCheckedChangeListener() {
+        mCheckBoxGroups[1] = new CheckBoxGroup(getContext());
+        mCheckBoxGroups[1].addItem("低速");
+        mCheckBoxGroups[1].addItem("高速");
+        mCheckBoxGroups[1].setOnCheckedChangeListener(new CheckBoxGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(View view, int checked) {
                 BusProvider.instance().post(new ShipAction.SpeedChangeAction(checked));
@@ -92,20 +91,16 @@ public class ShipDisplayFragment extends BaseSearchFragment {
                         .putInt(Settings.SHIP_SPEED, checked);
             }
         });
-        mSpeed = Settings
-                .instance(getContext())
-                .getInt(Settings.SHIP_SPEED, 0);
 
-        cbg.setChecked(mSpeed);
 
-        body.addView(cbg);
+        body.addView(mCheckBoxGroups[1]);
         body.addDivider();
 
-        cbg = new CheckBoxGroup(getContext());
+        mCheckBoxGroups[2] = new CheckBoxGroup(getContext());
         for (int i = 2; i < ShipList.shipType.length; i++) {
-            cbg.addItem(ShipList.shipType[i]);
+            mCheckBoxGroups[2].addItem(ShipList.shipType[i]);
         }
-        cbg.setOnCheckedChangeListener(new CheckBoxGroup.OnCheckedChangeListener() {
+        mCheckBoxGroups[2].setOnCheckedChangeListener(new CheckBoxGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(View view, int checked) {
                 BusProvider.instance().post(new ShipAction.TypeChangeAction(checked << 2));
@@ -116,22 +111,100 @@ public class ShipDisplayFragment extends BaseSearchFragment {
                         .putInt(Settings.SHIP_FILTER, checked);
             }
         });
-        mFlag = Settings
-                .instance(getContext())
-                .getInt(Settings.SHIP_FILTER, 0);
 
-        cbg.setChecked(mFlag);
+        body.addView(mCheckBoxGroups[2]);
 
-        body.addView(cbg);
+        mScrollView = new NestedScrollView(getContext());
+        mScrollView.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        mScrollView.addView(body);
 
-        NestedScrollView scrollView = new NestedScrollView(getContext());
-        scrollView.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-        scrollView.addView(body);
 
-        mActivity.getRightDrawerContent().addView(scrollView);
-        //cbg.setOnCheckedChangeListener(this);
-        //cbg.setChecked(mFlag);
+        Log.d("ShipDisplayFragment", String.format("Set drawer view: %dms", System.currentTimeMillis() - time));
+    }
 
+    @Override
+    public void onShow() {
+        BusProvider.instance().post(new ShipAction.KeywordChanged(null));
+
+        MainActivity activity = ((MainActivity) getActivity());
+        activity.getTabLayout().setVisibility(TAB_LAYOUT_VISIBILITY);
+        activity.getTabLayout().setupWithViewPager(mViewPager);
+        activity.getSupportActionBar().setTitle(getString(R.string.ship));
+
+        /*Observable
+                .create(new Observable.OnSubscribe<Object>() {
+                    @Override
+                    public void call(Subscriber<? super Object> subscriber) {
+                        setDrawerView();
+                        subscriber.onCompleted();
+                    }
+                })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<Object>() {
+                    @Override
+                    public void onCompleted() {
+                        mFinalVersion = Settings
+                                .instance(getContext())
+                                .getInt(Settings.SHIP_FINAL_VERSION, 0);
+
+                        mCheckBoxGroups[0].setChecked(mFinalVersion);
+
+                        mSpeed = Settings
+                                .instance(getContext())
+                                .getInt(Settings.SHIP_SPEED, 0);
+
+                        mCheckBoxGroups[1].setChecked(mSpeed);
+
+                        mFlag = Settings
+                                .instance(getContext())
+                                .getInt(Settings.SHIP_FILTER, 0);
+
+                        mCheckBoxGroups[2].setChecked(mFlag);
+
+                        mActivity.getRightDrawerContent().addView(mScrollView);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onNext(Object o) {
+
+                    }
+                });*/
+        new AsyncTask<Void, Void, Void>() {
+            @Override
+            protected Void doInBackground(Void... params) {
+                setDrawerView();
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                mFinalVersion = Settings
+                        .instance(getContext())
+                        .getInt(Settings.SHIP_FINAL_VERSION, 0);
+
+                mCheckBoxGroups[0].setChecked(mFinalVersion);
+
+                mSpeed = Settings
+                        .instance(getContext())
+                        .getInt(Settings.SHIP_SPEED, 0);
+
+                mCheckBoxGroups[1].setChecked(mSpeed);
+
+                mFlag = Settings
+                        .instance(getContext())
+                        .getInt(Settings.SHIP_FILTER, 0);
+
+                mCheckBoxGroups[2].setChecked(mFlag);
+
+                mActivity.getRightDrawerContent().addView(mScrollView);
+            }
+        }.execute();
 
         Statistics.onFragmentStart("ShipDisplayFragment");
     }

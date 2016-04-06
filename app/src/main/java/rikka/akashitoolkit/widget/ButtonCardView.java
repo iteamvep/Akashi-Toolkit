@@ -16,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import rikka.akashitoolkit.R;
+import rikka.akashitoolkit.utils.MySpannableFactory;
 
 /**
  * Created by Rikka on 2016/3/16.
@@ -65,6 +66,7 @@ public class ButtonCardView extends FrameLayout {
         mBody.setText(Html.fromHtml(text));
         mBody.setMovementMethod(LinkMovementMethod.getInstance());
         mBody.setClickable(true);
+        mBody.setSpannableFactory(MySpannableFactory.getInstance());
         return this;
     }
 

@@ -2,6 +2,7 @@ package rikka.akashitoolkit.staticdata;
 
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -28,12 +29,14 @@ public class ItemImprovementList {
     public static synchronized List<ItemImprovement> get(Context context) {
         if (sList == null) {
             try {
+                long time = System.currentTimeMillis();
                 AssetManager assetManager = context.getAssets();
                 InputStream ims = assetManager.open(FILE_NAME);
                 Gson gson = new Gson();
                 Reader reader = new InputStreamReader(ims);
                 Type listType = new TypeToken<ArrayList<ItemImprovement>>() {}.getType();
                 sList = gson.fromJson(reader, listType);
+                Log.d("ItemImprovementList", String.format("Load list: %dms", System.currentTimeMillis() - time));
             } catch (IOException e) {
                 e.printStackTrace();
                 sList = new ArrayList<>();

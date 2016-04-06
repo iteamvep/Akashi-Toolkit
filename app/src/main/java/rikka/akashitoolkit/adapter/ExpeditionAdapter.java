@@ -1,6 +1,7 @@
 package rikka.akashitoolkit.adapter;
 
 import android.content.Context;
+import android.os.AsyncTask;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,16 +21,22 @@ import rikka.akashitoolkit.staticdata.ExpeditionList;
 public class ExpeditionAdapter extends RecyclerView.Adapter<ViewHolder.Expedition> {
     private List<ExpeditionList.Expedition> mData;
 
-    public ExpeditionAdapter(Context context, int type) {
-        List<ExpeditionList.Expedition> data = ExpeditionList.get(context);
-        mData = new ArrayList<>();
+    public ExpeditionAdapter(final Context context, final int type) {
+        new AsyncTask<Void, Void, Void>() {
+            @Override
+            protected Void doInBackground(Void... params) {
+                List<ExpeditionList.Expedition> data = ExpeditionList.get(context);
+                mData = new ArrayList<>();
 
-        for (ExpeditionList.Expedition item :
-                data) {
-            if (item.getType() == type) {
-                mData.add(item);
+                for (ExpeditionList.Expedition item :
+                        data) {
+                    if (item.getType() == type) {
+                        mData.add(item);
+                    }
+                }
+                return null;
             }
-        }
+        }.execute();
     }
 
     @Override
