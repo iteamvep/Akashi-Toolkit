@@ -3,6 +3,7 @@ package rikka.akashitoolkit.utils;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.text.TextPaint;
 import android.text.style.URLSpan;
 import android.view.View;
@@ -20,8 +21,9 @@ public class MyUrlSpan extends URLSpan {
 
     @Override
     public void updateDrawState(TextPaint ds) {
-            /*super.updateDrawState(ds);
-            ds.setUnderlineText(true);*/
+        //ds.setColor(ds.linkColor);
+        //ds.setColor(Color.parseColor("#8C9EFF"));
+        ds.setUnderlineText(false);
     }
 
     @Override

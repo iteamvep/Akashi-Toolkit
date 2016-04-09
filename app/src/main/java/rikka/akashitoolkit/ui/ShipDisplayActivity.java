@@ -192,7 +192,10 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
                     ((TextView) view.findViewById(android.R.id.title)).setText(String.format("找不到装备 (id: %d)", equipId.get(i)));
                     view.findViewById(android.R.id.title).setEnabled(false);
                 } else {
-                    ((TextView) view.findViewById(android.R.id.title)).setText(item.getName().getZh_cn());
+                    ((TextView) view.findViewById(android.R.id.title)).setSpannableFactory(MySpannableFactory.getInstance());
+                    ((TextView) view.findViewById(android.R.id.title)).setText(KCStringFormatter.getLinkItem(item));
+                    ((TextView) view.findViewById(android.R.id.title)).setMovementMethod(new LinkMovementMethod());
+                    view.findViewById(android.R.id.title).setClickable(true);
                     ItemTypeList.setIntoImageView((ImageView) view.findViewById(R.id.imageView), item.getIcon());
                 }
             } else {

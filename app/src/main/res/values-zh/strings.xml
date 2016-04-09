@@ -79,5 +79,11 @@
     <string name="introduction">图鉴说明</string>
     <string name="ship_can_equip">可装备舰种</string>
     <string name="image_load_error">图片加载失败</string>
-
+    <string name="tools">工具</string>
+    <string name="exp_calc">经验计算器</string>
+    <string name="exp_calc_map">海域</string>
+    <string name="exp_calc_result">结果</string>
+    <string name="exp_calc_cur_lv">当前等级</string>
+    <string name="exp_calc_target_lv">目标等级</string>
+    <string name="exp_calc_to_next">距离下一级</string>
 </resources>

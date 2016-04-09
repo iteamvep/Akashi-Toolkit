@@ -7,7 +7,7 @@ import android.text.style.URLSpan;
  * Created by Rikka on 2016/4/6.
  */
 public class MySpannableFactory extends Spannable.Factory {
-    private final static Spannable.Factory sInstance = new Spannable.Factory();
+    private final static Spannable.Factory sInstance = new MySpannableFactory();
 
     public static Spannable.Factory getInstance() {
         return sInstance;

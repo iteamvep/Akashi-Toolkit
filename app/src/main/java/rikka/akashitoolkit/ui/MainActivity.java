@@ -29,6 +29,7 @@ import rikka.akashitoolkit.ui.fragments.MapDisplayFragment;
 import rikka.akashitoolkit.ui.fragments.QuestDisplayFragment;
 import rikka.akashitoolkit.ui.fragments.HomeFragment;
 import rikka.akashitoolkit.ui.fragments.ShipDisplayFragment;
+import rikka.akashitoolkit.ui.fragments.ToolsFragment;
 import rikka.akashitoolkit.ui.fragments.TwitterFragment;
 import rikka.akashitoolkit.widget.SimpleDrawerView;
 
@@ -92,6 +93,7 @@ public class MainActivity extends BaseActivity
             findFragmentByNavId(mFragmentMap, R.id.nav_map);
             findFragmentByNavId(mFragmentMap, R.id.nav_ship);
             findFragmentByNavId(mFragmentMap, R.id.nav_expedition);
+            findFragmentByNavId(mFragmentMap, R.id.nav_tools);
 
             mLastDrawerItemId = id;
 
@@ -115,6 +117,7 @@ public class MainActivity extends BaseActivity
                 case R.id.nav_map:
                 case R.id.nav_ship:
                 case R.id.nav_expedition:
+                case R.id.nav_tools:
                     break;
                 default:
                     id = R.id.nav_home;
@@ -187,9 +190,9 @@ public class MainActivity extends BaseActivity
             return;
         }
 
-        if (id == R.id.nav_home) {
-            mAppBarLayout.setExpanded(true);
-        }
+        //if (id == R.id.nav_home) {
+            mAppBarLayout.setExpanded(true, false);
+        //}
 
         Fragment from = mFragmentMap.get(mLastDrawerItemId);
         mLastDrawerItemId = id;
@@ -223,6 +226,8 @@ public class MainActivity extends BaseActivity
                 return new ShipDisplayFragment();
             case R.id.nav_expedition:
                 return new ExpeditionDisplayFragment();
+            case R.id.nav_tools:
+                return new ToolsFragment();
         }
         return new HomeFragment();
     }

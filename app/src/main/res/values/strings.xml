@@ -78,5 +78,12 @@
     <string name="introduction">Introduction</string>
     <string name="ship_can_equip">Ship can equip</string>
     <string name="image_load_error">Image load error</string>
+    <string name="tools">Tools</string>
+    <string name="exp_calc">Experience calculator</string>
+    <string name="exp_calc_map">Map</string>
+    <string name="exp_calc_result">Result</string>
+    <string name="exp_calc_cur_lv">Current level</string>
+    <string name="exp_calc_target_lv">Target level</string>
+    <string name="exp_calc_to_next">Exp to next level</string>
 
 </resources>

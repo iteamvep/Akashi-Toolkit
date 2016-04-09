@@ -40,6 +40,11 @@
             android:id="@+id/nav_expedition"
             android:icon="@drawable/ic_nav_expedition_24dp"
             android:title="@string/expedition"/>
+
+        <item
+            android:id="@+id/nav_tools"
+            android:icon="@drawable/ic_nav_tools_24dp"
+            android:title="@string/tools"/>
     </group>
 
     <group

@@ -54,27 +54,34 @@
         <activity
             android:name=".ui.ItemDisplayActivity"
             android:theme="@style/AppTheme.ItemActivity">
-
             <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:scheme="akashitoolkit" android:host="item" />
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+
+                <data
+                    android:host="item"
+                    android:scheme="akashitoolkit"/>
             </intent-filter>
-
         </activity>
-
         <activity
             android:name=".ui.ShipDisplayActivity"
             android:theme="@style/AppTheme.ItemActivity">
-
             <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:scheme="akashitoolkit" android:host="ship" />
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+
+                <data
+                    android:host="ship"
+                    android:scheme="akashitoolkit"/>
             </intent-filter>
-
         </activity>
-
+        <activity
+            android:name=".ui.ExpCalcActivity"
+            android:label="@string/exp_calc"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
     </application>
 
 </manifest>
