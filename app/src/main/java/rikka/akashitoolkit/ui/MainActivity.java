@@ -25,6 +25,7 @@ import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.ui.fragments.ExpeditionDisplayFragment;
 import rikka.akashitoolkit.ui.fragments.ItemDisplayFragment;
 import rikka.akashitoolkit.ui.fragments.ItemImprovementDisplayFragment;
+import rikka.akashitoolkit.ui.fragments.MapDisplayFragment;
 import rikka.akashitoolkit.ui.fragments.QuestDisplayFragment;
 import rikka.akashitoolkit.ui.fragments.HomeFragment;
 import rikka.akashitoolkit.ui.fragments.ShipDisplayFragment;
@@ -88,6 +89,7 @@ public class MainActivity extends BaseActivity
             findFragmentByNavId(mFragmentMap, R.id.nav_item_improve);
             findFragmentByNavId(mFragmentMap, R.id.nav_item);
             findFragmentByNavId(mFragmentMap, R.id.nav_quest);
+            findFragmentByNavId(mFragmentMap, R.id.nav_map);
             findFragmentByNavId(mFragmentMap, R.id.nav_ship);
             findFragmentByNavId(mFragmentMap, R.id.nav_expedition);
 
@@ -110,6 +112,7 @@ public class MainActivity extends BaseActivity
                 case R.id.nav_item_improve:
                 case R.id.nav_item:
                 case R.id.nav_quest:
+                case R.id.nav_map:
                 case R.id.nav_ship:
                 case R.id.nav_expedition:
                     break;
@@ -158,21 +161,14 @@ public class MainActivity extends BaseActivity
         int id = item.getItemId();
 
         switch (id) {
-            case R.id.nav_home:
-            case R.id.nav_twitter:
-            case R.id.nav_item_improve:
-            case R.id.nav_item:
-            case R.id.nav_quest:
-            case R.id.nav_ship:
-            case R.id.nav_expedition:
-                selectDrawerItem(id);
-                break;
-
             case R.id.nav_settings:
                 startActivity(new Intent(this, SettingActivity.class));
                 break;
             case R.id.nav_about:
                 startActivity(new Intent(this, AboutActivity.class));
+                break;
+            default:
+                selectDrawerItem(id);
                 break;
         }
 
@@ -219,6 +215,8 @@ public class MainActivity extends BaseActivity
                 return new ItemImprovementDisplayFragment();
             case R.id.nav_item:
                 return new ItemDisplayFragment();
+            case R.id.nav_map:
+                return new MapDisplayFragment();
             case R.id.nav_quest:
                 return new QuestDisplayFragment();
             case R.id.nav_ship:

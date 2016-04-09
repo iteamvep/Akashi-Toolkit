@@ -1,5 +1,6 @@
 package rikka.akashitoolkit.adapter;
 
+import android.graphics.Typeface;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -123,6 +124,33 @@ public class ViewHolder {
             mLinearLayout = (LinearLayout) itemView.findViewById(R.id.linearLayout);
             mTitle = (TextView) itemView.findViewById(android.R.id.title);
             mName = (TextView) itemView.findViewById(R.id.textView);
+        }
+    }
+
+    public static class Map extends RecyclerView.ViewHolder {
+        protected LinearLayout mDetailContainer;
+        protected TextView mTitle;
+        protected TextView mTextView;
+
+        public Map(View itemView) {
+            super(itemView);
+
+            mDetailContainer = (LinearLayout) itemView.findViewById(R.id.linearLayout);
+            mTitle = (TextView) itemView.findViewById(android.R.id.title);
+            mTextView = (TextView) itemView.findViewById(R.id.textView);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mTitle.setTypeface(
+                            mDetailContainer.getVisibility() == View.GONE ?
+                                    Typeface.defaultFromStyle(Typeface.BOLD) :
+                                    Typeface.defaultFromStyle(Typeface.NORMAL));
+
+                    mDetailContainer.setVisibility(
+                            mDetailContainer.getVisibility() == View.GONE ? View.VISIBLE : View.GONE);
+                }
+            });
         }
     }
 }

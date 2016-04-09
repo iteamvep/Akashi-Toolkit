@@ -55,7 +55,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
-        app:theme="@style/AppTheme.NavigationView"
+        android:theme="@style/AppTheme.NavigationView"
         app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/drawer_main"/>
 

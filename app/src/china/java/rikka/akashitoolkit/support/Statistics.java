@@ -12,7 +12,7 @@ import com.avos.avoscloud.AVOSCloud;
 public class Statistics {
     public static void init(Application application) {
         AVOSCloud.initialize(application, "q6Sj083vVxS6XrNgGD09w9kX-gzGzoHsz", "M9EUfoOVEnm9P5yoGXhAbwly");
-        AVAnalytics.enableCrashReport(application, true);
+        //AVAnalytics.enableCrashReport(application, true);
     }
 
     public static void onResume(Activity activity) {

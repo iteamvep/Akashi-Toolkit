@@ -22,6 +22,8 @@ public class ExpeditionAdapter extends RecyclerView.Adapter<ViewHolder.Expeditio
     private List<ExpeditionList.Expedition> mData;
 
     public ExpeditionAdapter(final Context context, final int type) {
+        mData = new ArrayList<>();
+
         new AsyncTask<Void, Void, Void>() {
             @Override
             protected Void doInBackground(Void... params) {
@@ -35,6 +37,11 @@ public class ExpeditionAdapter extends RecyclerView.Adapter<ViewHolder.Expeditio
                     }
                 }
                 return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                notifyDataSetChanged();
             }
         }.execute();
     }

@@ -50,8 +50,6 @@ public class ShipDisplayFragment extends BaseSearchFragment {
     private void setDrawerView() {
         mActivity.setRightDrawerLocked(false);
 
-        long time = System.currentTimeMillis();
-
         mActivity.getRightDrawerContent().removeAllViews();
         mActivity.getRightDrawerContent().addTitle(getString(R.string.action_filter));
         mActivity.getRightDrawerContent().addDivider();
@@ -117,9 +115,6 @@ public class ShipDisplayFragment extends BaseSearchFragment {
         mScrollView = new NestedScrollView(getContext());
         mScrollView.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         mScrollView.addView(body);
-
-
-        Log.d("ShipDisplayFragment", String.format("Set drawer view: %dms", System.currentTimeMillis() - time));
     }
 
     @Override
