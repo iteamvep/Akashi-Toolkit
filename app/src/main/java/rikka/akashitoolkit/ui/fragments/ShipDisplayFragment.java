@@ -117,6 +117,28 @@ public class ShipDisplayFragment extends BaseSearchFragment {
         mScrollView.addView(body);
     }
 
+    private void postSetDrawerView() {
+        mFinalVersion = Settings
+                .instance(getContext())
+                .getInt(Settings.SHIP_FINAL_VERSION, 0);
+
+        mCheckBoxGroups[0].setChecked(mFinalVersion);
+
+        mSpeed = Settings
+                .instance(getContext())
+                .getInt(Settings.SHIP_SPEED, 0);
+
+        mCheckBoxGroups[1].setChecked(mSpeed);
+
+        mFlag = Settings
+                .instance(getContext())
+                .getInt(Settings.SHIP_FILTER, 0);
+
+        mCheckBoxGroups[2].setChecked(mFlag);
+
+        mActivity.getRightDrawerContent().addView(mScrollView);
+    }
+
     @Override
     public void onShow() {
         BusProvider.instance().post(new ShipAction.KeywordChanged(null));
@@ -170,7 +192,12 @@ public class ShipDisplayFragment extends BaseSearchFragment {
 
                     }
                 });*/
-        new AsyncTask<Void, Void, Void>() {
+
+        setDrawerView();
+        postSetDrawerView();
+
+        // may crash
+        /*new AsyncTask<Void, Void, Void>() {
             @Override
             protected Void doInBackground(Void... params) {
                 setDrawerView();
@@ -179,27 +206,9 @@ public class ShipDisplayFragment extends BaseSearchFragment {
 
             @Override
             protected void onPostExecute(Void aVoid) {
-                mFinalVersion = Settings
-                        .instance(getContext())
-                        .getInt(Settings.SHIP_FINAL_VERSION, 0);
-
-                mCheckBoxGroups[0].setChecked(mFinalVersion);
-
-                mSpeed = Settings
-                        .instance(getContext())
-                        .getInt(Settings.SHIP_SPEED, 0);
-
-                mCheckBoxGroups[1].setChecked(mSpeed);
-
-                mFlag = Settings
-                        .instance(getContext())
-                        .getInt(Settings.SHIP_FILTER, 0);
-
-                mCheckBoxGroups[2].setChecked(mFlag);
-
-                mActivity.getRightDrawerContent().addView(mScrollView);
+                postSetDrawerView();
             }
-        }.execute();
+        }.execute();*/
 
         Statistics.onFragmentStart("ShipDisplayFragment");
     }
