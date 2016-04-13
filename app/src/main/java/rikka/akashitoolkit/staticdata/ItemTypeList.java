@@ -36,24 +36,18 @@ public class ItemTypeList {
 
     public static synchronized List<ItemType> get(Context context) {
         if (sList == null) {
-            try {
-                long time = System.currentTimeMillis();
-                AssetManager assetManager = context.getAssets();
-                InputStream ims = assetManager.open(FILE_NAME);
-                Gson gson = new Gson();
-                Reader reader = new InputStreamReader(ims);
-                Type listType = new TypeToken<ArrayList<ItemType>>() {}.getType();
-                sList = gson.fromJson(reader, listType);
-
-                generateParentList(context);
-
-                Log.d("ItemTypeList", String.format("Load list: %dms", System.currentTimeMillis() - time));
-            } catch (IOException e) {
-                e.printStackTrace();
-                sList = new ArrayList<>();
-            }
+            sList = new BaseGSONList<ItemType>() {
+                @Override
+                public void afterRead(List<ItemType> list) {
+                    generateParentList(list);
+                }
+            }.get(context, FILE_NAME, new TypeToken<ArrayList<ItemType>>() {}.getType());
         }
         return sList;
+    }
+
+    public static synchronized void clear() {
+        sList = null;
     }
 
     public static synchronized Map<String, Integer> getsParentList(Context context) {
@@ -73,7 +67,7 @@ public class ItemTypeList {
         return null;
     }
 
-    private static void generateParentList(Context context) {
+    private static void generateParentList(List<ItemType> list) {
         if (sParentList != null) {
             return;
         }
@@ -81,7 +75,7 @@ public class ItemTypeList {
         sParentList = new HashMap<>();
 
         for (ItemType item:
-                get(context)) {
+                list) {
 
             if (sParentList.get(item.getParent()) == null) {
                 sParentList.put(item.getParent(), sParentList.size());

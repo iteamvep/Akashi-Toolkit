@@ -3,11 +3,13 @@ package rikka.akashitoolkit.ui.fragments;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +17,12 @@ import android.widget.LinearLayout;
 
 import com.squareup.otto.Subscribe;
 
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,18 +30,30 @@ import java.util.Map;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 import rikka.akashitoolkit.BuildConfig;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.model.CheckUpdate;
 import rikka.akashitoolkit.model.MessageReadStatus;
+import rikka.akashitoolkit.network.RetrofitAPI;
 import rikka.akashitoolkit.otto.BusProvider;
+import rikka.akashitoolkit.otto.DataChangedAction;
 import rikka.akashitoolkit.otto.PreferenceChangedAction;
 import rikka.akashitoolkit.otto.ReadStatusResetAction;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.Statistics;
 import rikka.akashitoolkit.ui.MainActivity;
 import rikka.akashitoolkit.utils.UpdateCheck;
+import rikka.akashitoolkit.utils.Utils;
 import rikka.akashitoolkit.widget.ButtonCardView;
+import rx.Observable;
+import rx.Observer;
+import rx.Single;
+import rx.Subscriber;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action1;
+import rx.schedulers.Schedulers;
 
 /**
  * Created by Rikka on 2016/3/6.
@@ -300,6 +319,59 @@ public class HomeFragment extends BaseFragmet {
                         mUpdateCardView.setTitle(String.format("有新版本啦 (%s - %d)", entity.getVersionName(), entity.getVersionCode()));
                     }
                 }
+
+                Observable
+                        .from(response.body().getData())
+                        .observeOn(Schedulers.io())
+                        .subscribe(new Subscriber<CheckUpdate.DataEntity>() {
+                            @Override
+                            public void onNext(CheckUpdate.DataEntity dataEntity) {
+                                File file = new File(getContext().getFilesDir().getAbsolutePath() + "/json/" + dataEntity.getName());
+                                if (!BuildConfig.DEBUG &&
+                                        file.exists() &&
+                                        Settings.instance(getContext())
+                                                .getInt(dataEntity.getName(), 1) >= dataEntity.getVersion()) {
+                                    return;
+                                }
+
+                                Retrofit retrofit = new Retrofit.Builder()
+                                        .baseUrl("http://www.minamion.com/")
+                                        .build();
+
+                                RetrofitAPI.CheckUpdateService service = retrofit.create(RetrofitAPI.CheckUpdateService.class);
+                                try {
+                                    Utils.writeStreamToFile(
+                                            service.download(dataEntity.getName()).execute().body().byteStream(),
+                                            getContext().getFilesDir().getAbsolutePath() + "/json/" + dataEntity.getName());
+
+                                    Settings.instance(getContext())
+                                            .putInt(dataEntity.getName(), dataEntity.getVersion());
+
+                                    String name = dataEntity.getName().replace(".json", "");
+                                    Class<?> c;
+                                    c = Class.forName(String.format(
+                                            "rikka.akashitoolkit.staticdata.%sList",
+                                            name));
+                                    c.getMethod("clear").invoke(null);
+                                    //c.getMethod("get").invoke(null, getContext());
+
+                                    BusProvider.instance().post(new DataChangedAction(name + "Fragment"));
+
+                                    Log.d("DownloadData", dataEntity.getName() + " version: "+ Integer.toString(dataEntity.getVersion()));
+                                } catch (IOException | ClassNotFoundException | NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                            @Override
+                            public void onCompleted() {
+
+                            }
+
+                            @Override
+                            public void onError(Throwable e) {
+
+                            }
+                        });
 
                 UpdateCheck.instance().recycle();
                 mSwipeRefreshLayout.setRefreshing(false);

@@ -7,6 +7,9 @@ import android.util.Log;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -23,26 +26,20 @@ import rikka.akashitoolkit.model.ItemImprovement;
  */
 public class ItemImprovementList {
     private static final String FILE_NAME = "ItemImprovement.json";
-
     private static List<ItemImprovement> sList;
 
     public static synchronized List<ItemImprovement> get(Context context) {
         if (sList == null) {
-            try {
-                long time = System.currentTimeMillis();
-                AssetManager assetManager = context.getAssets();
-                InputStream ims = assetManager.open(FILE_NAME);
-                Gson gson = new Gson();
-                Reader reader = new InputStreamReader(ims);
-                Type listType = new TypeToken<ArrayList<ItemImprovement>>() {}.getType();
-                sList = gson.fromJson(reader, listType);
-                Log.d("ItemImprovementList", String.format("Load list: %dms", System.currentTimeMillis() - time));
-            } catch (IOException e) {
-                e.printStackTrace();
-                sList = new ArrayList<>();
-            }
+            sList = new BaseGSONList<ItemImprovement>().get(
+                    context,
+                    FILE_NAME,
+                    new TypeToken<ArrayList<ItemImprovement>>() {}.getType());
         }
         return sList;
+    }
+
+    public static synchronized void clear() {
+        sList = null;
     }
 
     public static ItemImprovement findItemById(Context context, int id) {

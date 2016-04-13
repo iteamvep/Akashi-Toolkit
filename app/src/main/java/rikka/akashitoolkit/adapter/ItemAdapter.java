@@ -25,7 +25,7 @@ import rikka.akashitoolkit.ui.ItemDisplayActivity;
 /**
  * Created by Rikka on 2016/3/23.
  */
-public class ItemAdapter extends RecyclerView.Adapter<ViewHolder.Item> {
+public class ItemAdapter extends BaseRecyclerAdapter<ViewHolder.Item> {
     private List<Item> mData;
     private Activity mActivity;
     private int mType;
@@ -35,10 +35,10 @@ public class ItemAdapter extends RecyclerView.Adapter<ViewHolder.Item> {
         mType = type;
         mData = new ArrayList<>();
 
-        rebuildDataList(activity);
+        rebuildDataList();
     }
 
-    public void rebuildDataList(Context context) {
+    public void rebuildDataList() {
         new AsyncTask<Void, Void, Void>() {
             @Override
             protected Void doInBackground(Void... params) {

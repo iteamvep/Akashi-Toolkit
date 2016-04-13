@@ -56,9 +56,6 @@ public abstract class BaseFragmet extends Fragment {
 
     }
 
-
-
-
     public void showSnackbar(CharSequence text, @Snackbar.Duration int duration) {
         if (getActivity() == null) {
             return;

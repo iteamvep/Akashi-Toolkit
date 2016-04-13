@@ -62,7 +62,7 @@ public class UpdateCheck {
                 .getIntFromString(Settings.UPDATE_CHECK_CHANNEL, 0);
 
         RetrofitAPI.CheckUpdateService service = retrofit.create(RetrofitAPI.CheckUpdateService.class);
-        mCall = service.get(3, channel);
+        mCall = service.get(4, channel);
         mCall.enqueue(callback);
     }
 

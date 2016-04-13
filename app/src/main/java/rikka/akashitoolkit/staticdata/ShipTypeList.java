@@ -27,20 +27,12 @@ public class ShipTypeList {
 
     public static synchronized List<ShipType> get(Context context) {
         if (sList == null) {
-            try {
-                long time = System.currentTimeMillis();
-                AssetManager assetManager = context.getAssets();
-                InputStream ims = assetManager.open(FILE_NAME);
-                Gson gson = new Gson();
-                Reader reader = new InputStreamReader(ims);
-                Type listType = new TypeToken<ArrayList<ShipType>>() {}.getType();
-                sList = gson.fromJson(reader, listType);
-                Log.d("ShipTypeList", String.format("Load list: %dms", System.currentTimeMillis() - time));
-            } catch (IOException e) {
-                e.printStackTrace();
-                sList = new ArrayList<>();
-            }
+            sList = new BaseGSONList<ShipType>().get(context, FILE_NAME, new TypeToken<ArrayList<ShipType>>() {}.getType());
         }
         return sList;
+    }
+
+    public static synchronized void clear() {
+        sList = null;
     }
 }

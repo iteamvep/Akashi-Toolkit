@@ -19,32 +19,15 @@ import rikka.akashitoolkit.staticdata.MapList;
 /**
  * Created by Rikka on 2016/4/9.
  */
-public class MapAdapter extends RecyclerView.Adapter<ViewHolder.Map> {
+public class MapAdapter extends BaseRecyclerAdapter<ViewHolder.Map> {
     private List<Map> mData;
+    private Context mContext;
+    private int mType;
 
     public MapAdapter(final Context context, final int type) {
         mData = new ArrayList<>();
-
-        new AsyncTask<Void, Void, Void>() {
-            @Override
-            protected Void doInBackground(Void... params) {
-                List<Map> data = MapList.get(context);
-                mData = new ArrayList<>();
-
-                for (Map item :
-                        data) {
-                    if (item.getSea() == type) {
-                        mData.add(item);
-                    }
-                }
-                return null;
-            }
-
-            @Override
-            protected void onPostExecute(Void aVoid) {
-                notifyDataSetChanged();
-            }
-        }.execute();
+        mContext = context;
+        mType = type;
     }
 
     @Override
@@ -98,5 +81,29 @@ public class MapAdapter extends RecyclerView.Adapter<ViewHolder.Map> {
     @Override
     public int getItemCount() {
         return mData.size();
+    }
+
+    @Override
+    public void rebuildDataList() {
+        new AsyncTask<Void, Void, Void>() {
+            @Override
+            protected Void doInBackground(Void... params) {
+                List<Map> data = MapList.get(mContext);
+                mData = new ArrayList<>();
+
+                for (Map item :
+                        data) {
+                    if (item.getSea() == mType) {
+                        mData.add(item);
+                    }
+                }
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                notifyDataSetChanged();
+            }
+        }.execute();
     }
 }

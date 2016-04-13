@@ -1,12 +1,9 @@
 package rikka.akashitoolkit.adapter;
 
 import android.app.Activity;
-import android.app.ActivityOptions;
-import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.AsyncTask;
-import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,52 +15,25 @@ import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.model.ItemImprovement;
 import rikka.akashitoolkit.staticdata.ItemImprovementList;
 import rikka.akashitoolkit.staticdata.ItemTypeList;
-import rikka.akashitoolkit.staticdata.QuestList;
 import rikka.akashitoolkit.ui.ItemDisplayActivity;
 
 /**
  * Created by Rikka on 2016/3/17.
  */
-public class ItemImprovementAdapter extends RecyclerView.Adapter<ViewHolder.ItemImprovement> {
+public class ItemImprovementAdapter extends BaseRecyclerAdapter<ViewHolder.ItemImprovement> {
     private List<ItemImprovement> mData;
     private List<String> mDataShip;
     private Activity mActivity;
+    private int mType;
 
-    public ItemImprovementAdapter(final Activity activity, final int type) {
+    public ItemImprovementAdapter(final Activity activity, int type) {
         mActivity = activity;
         mData = new ArrayList<>();
         mDataShip = new ArrayList<>();
+        mType = type;
 
-        new AsyncTask<Void, Void, Void>() {
-            @Override
-            protected Void doInBackground(Void... params) {
-                for (ItemImprovement item :
-                        ItemImprovementList.get(mActivity)) {
-
-                    boolean add = false;
-                    StringBuilder sb = new StringBuilder();
-                    for (ItemImprovement.SecretaryEntity entity : item.getSecretary()) {
-                        if (entity.getDay().get(type)) {
-                            add = true;
-                            sb.append(sb.length() > 0 ? " / " : "" );
-                            sb.append(entity.getName());
-                        }
-                    }
-
-                    if (add) {
-                        mData.add(item);
-                        mDataShip.add(sb.toString());
-                    }
-
-                }
-                return null;
-            }
-
-            @Override
-            protected void onPostExecute(Void aVoid) {
-                notifyDataSetChanged();
-            }
-        }.execute();
+        Log.d("QAQ", "!");
+        rebuildDataList();
     }
 
     @Override
@@ -102,6 +72,44 @@ public class ItemImprovementAdapter extends RecyclerView.Adapter<ViewHolder.Item
 
         //holder.mImageView.setImageResource(ItemTypeList.getResourceId(holder.itemView.getContext(), mData.get(position).getIcon()));
         ItemTypeList.setIntoImageView(holder.mImageView, mData.get(position).getIcon());
+    }
+
+    @Override
+    public void rebuildDataList() {
+        new AsyncTask<Void, Void, Void>() {
+            @Override
+            protected Void doInBackground(Void... params) {
+                mData.clear();
+                mDataShip.clear();
+
+                for (ItemImprovement item :
+                        ItemImprovementList.get(mActivity)) {
+
+                    boolean add = false;
+                    StringBuilder sb = new StringBuilder();
+                    for (ItemImprovement.SecretaryEntity entity : item.getSecretary()) {
+                        if (entity.getDay().get(mType)) {
+                            add = true;
+                            sb.append(sb.length() > 0 ? " / " : "" );
+                            sb.append(entity.getName());
+                        }
+                    }
+
+                    if (add) {
+                        mData.add(item);
+                        mDataShip.add(sb.toString());
+                    }
+
+                }
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                notifyDataSetChanged();
+                Log.d("QAQ", "QAQ");
+            }
+        }.execute();
     }
 
     @Override

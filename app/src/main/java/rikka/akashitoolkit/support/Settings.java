@@ -5,6 +5,8 @@ import android.content.SharedPreferences;
 
 import com.google.gson.Gson;
 
+import java.util.Set;
+
 /**
  * Created by Rikka on 2016/3/8.
  */
@@ -91,12 +93,10 @@ public class Settings {
         mPrefs.edit()
                 .putString(key, new Gson().toJson(obj))
                 .apply();
-
         return this;
     }
 
     public <T> T getGSON(String key, Class<T> c) {
-        T t = new Gson().fromJson(mPrefs.getString(key, ""), c);
-        return t;
+        return new Gson().fromJson(mPrefs.getString(key, ""), c);
     }
 }

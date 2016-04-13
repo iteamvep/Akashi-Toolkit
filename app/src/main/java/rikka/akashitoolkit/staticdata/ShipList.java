@@ -28,36 +28,32 @@ public class ShipList {
 
     public static synchronized List<Ship> get(Context context) {
         if (sList == null) {
-            try {
-                long time = System.currentTimeMillis();
-                AssetManager assetManager = context.getAssets();
-                InputStream ims = assetManager.open(FILE_NAME);
-                Gson gson = new Gson();
-                Reader reader = new InputStreamReader(ims);
-                Type listType = new TypeToken<ArrayList<Ship>>() {}.getType();
-                sList = gson.fromJson(reader, listType);
-                sort();
-                Log.d("ShipList", String.format("Load list: %dms", System.currentTimeMillis() - time));
-            } catch (IOException e) {
-                e.printStackTrace();
-                sList = new ArrayList<>();
-            }
+            sList = new BaseGSONList<Ship>() {
+                @Override
+                public void afterRead(List<Ship> list) {
+                    sort(list);
+                }
+            }.get(context, FILE_NAME, new TypeToken<ArrayList<Ship>>() {}.getType());
         }
         return sList;
     }
 
-    private static void sort() {
-        Ship[] ships = new Ship[sList.size()];
-        boolean[] added = new boolean[sList.size()];
+    public static synchronized void clear() {
+        sList = null;
+    }
 
-        sList.toArray(ships);
+    private static void sort(List<Ship> list) {
+        Ship[] ships = new Ship[list.size()];
+        boolean[] added = new boolean[list.size()];
 
-        List<Ship> list = new ArrayList<>();
+        list.toArray(ships);
+
+        List<Ship> newList = new ArrayList<>();
         int curType = 1;
-        while (list.size() < sList.size()) {
+        while (newList.size() < list.size()) {
             for (int i = 0; i < ships.length; i++) {
                 if (!added[i] && curType == ships[i].getType()) {
-                    list.add(ships[i]);
+                    newList.add(ships[i]);
                     added[i] = true;
 
                     int to = ships[i].getRemodel().getId_to();
@@ -70,7 +66,7 @@ public class ShipList {
                             break;
                         }
 
-                        list.add(ships[index]);
+                        newList.add(ships[index]);
                         added[index] = true;
 
                         to = ships[index].getRemodel().getId_to();
@@ -79,8 +75,8 @@ public class ShipList {
             }
             curType ++;
         }
-        sList.clear();
-        sList.addAll(list);
+        list.clear();
+        list.addAll(newList);
     }
 
     public static int findItemById(int id, Ship[] ships) {

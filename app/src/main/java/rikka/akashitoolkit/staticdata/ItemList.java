@@ -27,44 +27,40 @@ public class ItemList {
 
     public static synchronized List<Item> get(Context context) {
         if (sList == null) {
-            try {
-                long time = System.currentTimeMillis();
-                AssetManager assetManager = context.getAssets();
-                InputStream ims = assetManager.open(FILE_NAME);
-                Gson gson = new Gson();
-                Reader reader = new InputStreamReader(ims);
-                Type listType = new TypeToken<ArrayList<Item>>() {}.getType();
-                sList = gson.fromJson(reader, listType);
-                sort();
-                modifyItemIntroduction();
-                Log.d("ItemList", String.format("Load list: %dms", System.currentTimeMillis() - time));
-            } catch (IOException e) {
-                e.printStackTrace();
-                sList = new ArrayList<>();
-            }
+            sList = new BaseGSONList<Item>() {
+                @Override
+                public void afterRead(List<Item> list) {
+                    sort(list);
+                    modifyItemIntroduction(list);
+                }
+            }.get(context, FILE_NAME, new TypeToken<ArrayList<Item>>() {}.getType());
         }
         return sList;
     }
 
-    private static void sort() {
-        List<Item> list = new ArrayList<>();
+    public static synchronized void clear() {
+        sList = null;
+    }
+
+    private static void sort(List<Item> list) {
+        List<Item> newList = new ArrayList<>();
         int curType = 1;
-        while (list.size() != sList.size()) {
+        while (newList.size() != list.size()) {
             for (Item item :
-                    sList) {
+                    list) {
                 if (curType == item.getSubType()) {
-                    list.add(item);
+                    newList.add(item);
                 }
             }
             curType ++;
         }
-        sList.clear();
-        sList.addAll(list);
+        list.clear();
+        list.addAll(newList);
     }
 
-    private static void modifyItemIntroduction() {
+    private static void modifyItemIntroduction(List<Item> list) {
         for (Item item :
-                sList) {
+                list) {
             item.getIntroduction().setZh_cn(
                     item.getIntroduction().getZh_cn().replace("<ref>", "（").replace("</ref>", "）"));
         }

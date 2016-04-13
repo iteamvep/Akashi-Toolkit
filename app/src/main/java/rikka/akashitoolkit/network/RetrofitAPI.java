@@ -1,9 +1,12 @@
 package rikka.akashitoolkit.network;
 
+import okhttp3.Response;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
+import retrofit2.http.Streaming;
 import rikka.akashitoolkit.model.CheckUpdate;
 import rikka.akashitoolkit.model.Twitter;
 
@@ -26,5 +29,9 @@ public class RetrofitAPI {
         Call<CheckUpdate> get(
                 @Query("api_version") int api_version,
                 @Query("channel") int channel);
+
+        @GET("/Akashi/json/{filename}")
+        @Streaming
+        Call<ResponseBody> download(@Path("filename") String filename);
     }
 }

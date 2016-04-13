@@ -26,7 +26,7 @@ import rx.schedulers.Schedulers;
 /**
  * Created by Rikka on 2016/3/30.
  */
-public class ShipAdapter extends RecyclerView.Adapter<ViewHolder.Ship> {
+public class ShipAdapter extends BaseRecyclerAdapter<ViewHolder.Ship> {
     private List<Ship> mData;
     private Activity mActivity;
     private boolean mShowOnlyFinalVersion;

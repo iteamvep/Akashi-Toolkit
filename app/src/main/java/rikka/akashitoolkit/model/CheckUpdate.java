@@ -24,6 +24,8 @@ public class CheckUpdate {
 
     private List<MessagesEntity> messages;
 
+    private List<DataEntity> data;
+
     public void setUpdate(UpdateEntity update) {
         this.update = update;
     }
@@ -38,6 +40,40 @@ public class CheckUpdate {
 
     public List<MessagesEntity> getMessages() {
         return messages;
+    }
+
+    public List<DataEntity> getData() {
+        return data;
+    }
+
+    public class DataEntity {
+        String filename;
+        int version;
+        String data;
+
+        public String getName() {
+            return filename;
+        }
+
+        public void setName(String name) {
+            this.filename = name;
+        }
+
+        public int getVersion() {
+            return version;
+        }
+
+        public void setVersion(int version) {
+            this.version = version;
+        }
+
+        public String getData() {
+            return data;
+        }
+
+        public void setData(String data) {
+            this.data = data;
+        }
     }
 
     public static class UpdateEntity {
