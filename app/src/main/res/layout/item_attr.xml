@@ -7,20 +7,18 @@
               android:visibility="invisible"
               tools:visibility="visible">
 
-    <ImageView
+    <!--<ImageView
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:id="@+id/imageView"
         tools:src="@drawable/item_attr_fire"
         android:layout_gravity="center_vertical"
-        android:contentDescription="@null"/>
+        android:contentDescription="@null"/>-->
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView"
-        android:paddingLeft="8dp"
-        android:paddingRight="8dp"
         android:textSize="16sp"
         tools:text="火力"
         android:layout_gravity="center_vertical"/>

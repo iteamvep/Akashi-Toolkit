@@ -105,16 +105,19 @@ public class ItemDisplayActivity extends BaseItemDisplayActivity {
         if (Utils.isNightMode(getResources())) {
             getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_clear_24dp);
             mToolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
+            mToolbar.setSubtitleTextColor(Color.parseColor("#ffe0e0e0"));
         } else {
             getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_clear_24dp_dark);
             mToolbar.setTitleTextColor(Color.parseColor("#000000"));
+            mToolbar.setSubtitleTextColor(Color.parseColor("#ff757575"));
         }
 
         if (mItem.getName() != null) {
             getSupportActionBar().setTitle(mItem.getName().getZh_cn());
         }
 
-        ((TextView) findViewById(R.id.text_title)).setText(String.format(
+        /*((TextView) findViewById(R.id.text_title)).setText(*/
+        getSupportActionBar().setSubtitle(String.format(
                 "No. %d %s %s",
                 mItem.getId(),
                 ItemTypeList.findItemById(this, mItem.getSubType()).getName(),
@@ -163,7 +166,7 @@ public class ItemDisplayActivity extends BaseItemDisplayActivity {
             textView.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1));
             textView.setSingleLine(true);
             //textView.setGravity(Gravity.CENTER_HORIZONTAL);
-            textView.setPadding(i == 0 ? 0 : Utils.dpToPx(4), Utils.dpToPx(2), i == 2 ? 0 : Utils.dpToPx(4), Utils.dpToPx(2));
+            textView.setPadding(i == 0 ? Utils.dpToPx(16) : Utils.dpToPx(4), Utils.dpToPx(2), i == 2 ? Utils.dpToPx(16) : Utils.dpToPx(4), Utils.dpToPx(2));
             linearLayout.addView(textView);
 
             i ++;
@@ -241,7 +244,7 @@ public class ItemDisplayActivity extends BaseItemDisplayActivity {
                 && mItem.getIntroduction().getZh_cn() != null
                 && mItem.getIntroduction().getZh_cn().length() > 0) {
             ViewGroup cell = addCell(parent, R.string.introduction);
-            addTextView(cell, Html.fromHtml(mItem.getIntroduction().getZh_cn()));
+            addTextView(cell, Html.fromHtml(mItem.getIntroduction().getZh_cn())).setPadding(Utils.dpToPx(16), 0, Utils.dpToPx(16), 0);
         }
     }
 
@@ -265,7 +268,7 @@ public class ItemDisplayActivity extends BaseItemDisplayActivity {
             LinearLayout linearLayout = new LinearLayout(this);
             linearLayout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
             linearLayout.setOrientation(LinearLayout.HORIZONTAL);
-            linearLayout.setPadding(0, Utils.dpToPx(4), 0, Utils.dpToPx(4));
+            linearLayout.setPadding(Utils.dpToPx(16), Utils.dpToPx(4), Utils.dpToPx(16), Utils.dpToPx(4));
 
             for (int i = 0; i < entry.getDay().size(); i++) {
                 TextView view = (TextView) LayoutInflater.from(this).inflate(R.layout.day_cricle, null);
@@ -415,7 +418,7 @@ public class ItemDisplayActivity extends BaseItemDisplayActivity {
             ((TextView) cell.findViewById(R.id.textView2)).setTextColor(ContextCompat.getColor(this, value > 0 ? R.color.material_green_300 : R.color.material_red_300));
         }
 
-        ((ImageView) cell.findViewById(R.id.imageView)).setImageDrawable(ContextCompat.getDrawable(this, icon));
+        //((ImageView) cell.findViewById(R.id.imageView)).setImageDrawable(ContextCompat.getDrawable(this, icon));
 
         if (attr % 2 == 0) {
             mCurAttrLinearLayout = null;

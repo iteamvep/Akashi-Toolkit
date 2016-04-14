@@ -5,6 +5,8 @@
     android:orientation="horizontal"
     android:baselineAligned="false"
     android:gravity="center_vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <include

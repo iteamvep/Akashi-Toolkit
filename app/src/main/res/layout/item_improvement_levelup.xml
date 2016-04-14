@@ -6,6 +6,8 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:weightSum="5.5"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
     android:paddingTop="6dp"
     android:paddingBottom="2dp">
 

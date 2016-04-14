@@ -2,6 +2,7 @@ package rikka.akashitoolkit.ui;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
@@ -10,6 +11,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.GridLayout;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.text.Spanned;
@@ -74,7 +76,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
             return;
         }
 
-        setContentView(R.layout.activity_item_display);
+        setContentView(R.layout.activity_ship_display);
 
         mCoordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinatorLayout);
         mLinearLayout = (LinearLayout) findViewById(R.id.linearLayout);
@@ -94,32 +96,29 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setSubtitle(ShipList.shipType[mItem.getType()]);
 
         if (Utils.isNightMode(getResources())) {
             getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_clear_24dp);
             mToolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
+            mToolbar.setSubtitleTextColor(Color.parseColor("#ffe0e0e0"));
         } else {
             getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_clear_24dp_dark);
             mToolbar.setTitleTextColor(Color.parseColor("#000000"));
+            mToolbar.setSubtitleTextColor(Color.parseColor("#ff757575"));
         }
 
         if (mItem.getName() != null) {
             getSupportActionBar().setTitle(mItem.getName().getZh_cn());
         }
 
-        ((TextView) findViewById(R.id.text_title)).setText(String.format(
-                "%s",
-                /*mItem.getId_illustrations(),*/
-                ShipList.shipType[mItem.getType()]
-                /*formatStars(mItem.getRarity()))*/));
-
-        addCell(mLinearLayout, "属性");
         TabLayout tabLayout = new TabLayout(this);
         mLinearLayout.addView(tabLayout);
 
         ViewPager viewPager = (ViewPager) LayoutInflater.from(this).inflate(R.layout.content_viewpager, mLinearLayout, true).findViewById(R.id.view_pager);
         //ViewPager viewPager = new ViewPager(this);
-        viewPager.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, Utils.dpToPx(32) * 6));
+        viewPager.setPadding(0, Utils.dpToPx(4), 0, 0);
+        viewPager.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, Utils.dpToPx(32) * 6 + Utils.dpToPx(16)));
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager()) {
             @Override
             public Bundle getArgs(int position) {
@@ -134,6 +133,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
         adapter.addFragment(AttrFragment.class, "LV.155");
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
+        tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(this, R.color.colorPrimary));
 
         addEquip(mLinearLayout);
         addRemodel(mLinearLayout);
@@ -142,15 +142,35 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
     private void addRemodel(ViewGroup parent) {
         if (mItem.getRemodel() != null) {
             parent = addCell(parent, "改造");
+            GridLayout gridLayout = new GridLayout(this);
+            gridLayout.setColumnCount(2);
 
-            StringBuilder sb = new StringBuilder();
+            //StringBuilder sb = new StringBuilder();
             Ship cur = mItem;
             while (cur.getRemodel().getId_from() != 0) {
                 cur = ShipList.findItemById(this, cur.getRemodel().getId_from());
             }
 
             while (true) {
-                sb.append(KCStringFormatter.getLinkShip(cur.getId(), cur.getName().getZh_cn()));
+                //sb.append(KCStringFormatter.getLinkShip(cur.getId(), cur.getName().getZh_cn()));
+                StringBuilder sb = new StringBuilder();
+                sb.append(cur.getName().getZh_cn());
+                ViewGroup view = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.ship_remodel_item, null);
+                view.setLayoutParams(
+                        new GridLayout.LayoutParams(
+                                GridLayout.spec(GridLayout.UNDEFINED, 1f),
+                                GridLayout.spec(GridLayout.UNDEFINED, 1f)
+                        )
+                );
+                gridLayout.addView(view);
+
+                final Ship finalCur = cur;
+                view.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("akashitoolkit://ship/" + Integer.toString(finalCur.getId()))));
+                    }
+                });
 
                 if (cur.getRemodel().getId_from() != 0) {
                     Ship prev = ShipList.findItemById(this, cur.getRemodel().getId_from());
@@ -161,19 +181,27 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
                     }
                 }
 
+                ((TextView) view.findViewById(android.R.id.title)).setText(sb.toString());
+
                 if (cur.getRemodel().getId_to() == 0 ||
                         cur.getRemodel().getId_from() == cur.getRemodel().getId_to()) {
+
+                    view.findViewById(R.id.imageView).setVisibility(View.INVISIBLE);
                     break;
                 }
 
                 cur = ShipList.findItemById(this, cur.getRemodel().getId_to());
                 if (cur.getRemodel().getId_from() != cur.getRemodel().getId_to()) {
-                    sb.append(" → ");
+                    //sb.append(" → ");
                 } else {
-                    sb.append(" ↔ ");
+                    //sb.append(" ↔ ");
+                    ((ImageView) view.findViewById(R.id.imageView)).setImageResource(R.drawable.ic_compare_arrows_black_24dp);
                 }
+
+
             }
-            addTextView(parent, Html.fromHtml(sb.toString()));
+            //addTextView(parent, Html.fromHtml(sb.toString()));
+            parent.addView(gridLayout);
         }
     }
 
@@ -187,16 +215,23 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
             ViewGroup view = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.ship_item, null);
 
             if (equipId.get(i) > 0) {
-                Item item = ItemList.findItemById(this, equipId.get(i));
+                final Item item = ItemList.findItemById(this, equipId.get(i));
                 if (item == null) {
                     ((TextView) view.findViewById(android.R.id.title)).setText(String.format("找不到装备 (id: %d)", equipId.get(i)));
                     view.findViewById(android.R.id.title).setEnabled(false);
                 } else {
-                    ((TextView) view.findViewById(android.R.id.title)).setSpannableFactory(MySpannableFactory.getInstance());
-                    ((TextView) view.findViewById(android.R.id.title)).setText(KCStringFormatter.getLinkItem(item));
-                    ((TextView) view.findViewById(android.R.id.title)).setMovementMethod(new LinkMovementMethod());
-                    view.findViewById(android.R.id.title).setClickable(true);
-                    ItemTypeList.setIntoImageView((ImageView) view.findViewById(R.id.imageView), item.getIcon());
+                    //((TextView) view.findViewById(android.R.id.title)).setSpannableFactory(MySpannableFactory.getInstance());
+                    //((TextView) view.findViewById(android.R.id.title)).setText(KCStringFormatter.getLinkItem(item));
+                    //((TextView) view.findViewById(android.R.id.title)).setMovementMethod(new LinkMovementMethod());
+                    //view.findViewById(android.R.id.title).setClickable(true);
+                    ((TextView) view.findViewById(android.R.id.title)).setText(item.getName().getZh_cn());
+                    //ItemTypeList.setIntoImageView((ImageView) view.findViewById(R.id.imageView), item.getIcon());
+                    view.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("akashitoolkit://item/"+Integer.toString(item.getId()))));
+                        }
+                    });
                 }
             } else {
                 ((TextView) view.findViewById(android.R.id.title)).setText("未装备");
@@ -349,7 +384,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
 
             ((TextView) cell.findViewById(R.id.textView)).setText(title);
             ((TextView) cell.findViewById(R.id.textView2)).setText(value);
-            ((ImageView) cell.findViewById(R.id.imageView)).setImageDrawable(ContextCompat.getDrawable(getContext(), icon));
+            //((ImageView) cell.findViewById(R.id.imageView)).setImageDrawable(ContextCompat.getDrawable(getContext(), icon));
 
             if (attr % 2 == 0) {
                 mCurAttrLinearLayout = null;
