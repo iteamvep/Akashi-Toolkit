@@ -168,7 +168,10 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
                 view.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("akashitoolkit://ship/" + Integer.toString(finalCur.getId()))));
+                        Intent intent = new Intent(ShipDisplayActivity.this, ShipDisplayActivity.class);
+                        intent.putExtra(ShipDisplayActivity.EXTRA_ITEM_ID, finalCur.getId());
+                        startActivity(intent);
+                        //startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("akashitoolkit://ship/" + Integer.toString(finalCur.getId()))));
                     }
                 });
 
@@ -229,7 +232,10 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
                     view.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("akashitoolkit://item/"+Integer.toString(item.getId()))));
+                            Intent intent = new Intent(ShipDisplayActivity.this, ItemDisplayActivity.class);
+                            intent.putExtra(ItemDisplayActivity.EXTRA_ITEM_ID, item.getId());
+                            startActivity(intent);
+                            //startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("akashitoolkit://item/"+Integer.toString(item.getId()))));
                         }
                     });
                 }

@@ -28,6 +28,8 @@ public class MapAdapter extends BaseRecyclerAdapter<ViewHolder.Map> {
         mData = new ArrayList<>();
         mContext = context;
         mType = type;
+
+        rebuildDataList();
     }
 
     @Override

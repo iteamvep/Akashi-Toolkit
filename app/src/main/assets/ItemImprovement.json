@@ -464,6 +464,30 @@
         ]
     },
     {
+        "name": "零式水上侦察机",
+        "id": 25,
+        "type": "水上偵察機",
+        "icon": 10,
+        "secretary": [
+            {
+                "name": "千岁甲",
+                "day": [false, false, false, false, false, true, true]
+            },
+            {
+                "name": "千代田甲",
+                "day": [false, false, false, true, true, false, false]
+            },
+            {
+                "name": "秋津洲改",
+                "day": [true, false, false, false, true, true, true]
+            },
+            {
+                "name": "瑞穂",
+                "day": [true, true, true, false, false, true, true]
+            }
+        ]
+    },
+    {
         "name": "零式水上観測機",
         "id": 59,
         "type": "水上偵察機",
