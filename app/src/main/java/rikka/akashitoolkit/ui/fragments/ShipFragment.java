@@ -86,4 +86,9 @@ public class ShipFragment extends Fragment {
         mAdapter.setKeyword(action.getKeyword());
         mAdapter.rebuildDataList(/*getContext()*/);
     }
+
+    @Subscribe
+    public void isSearchingChanged(ShipAction.IsSearchingChanged action) {
+        mAdapter.setSearching(action.isSearching());
+    }
 }

@@ -187,7 +187,7 @@ public class ItemDisplayActivity extends BaseItemDisplayActivity {
     private void addOther(ViewGroup parent) {
         if (mItem.getRemark() != null && mItem.getRemark().length() > 0) {
             ViewGroup cell = addCell(parent, R.string.remark);
-            addTextView(cell, Html.fromHtml(mItem.getRemark())).setPadding(0, Utils.dpToPx(4), 0, 0);
+            addTextView(cell, Html.fromHtml(mItem.getRemark())).setPadding(Utils.dpToPx(16), Utils.dpToPx(4), Utils.dpToPx(16), 0);
         }
 
         if (mItem.getGet().getQuest() != null ||
@@ -210,7 +210,7 @@ public class ItemDisplayActivity extends BaseItemDisplayActivity {
                     }
                 }
 
-                addTextView(cell, sb.toString());
+                addTextView(cell, sb.toString()).setPadding(Utils.dpToPx(16), 0, Utils.dpToPx(16), 0);
             }
 
 
@@ -224,7 +224,7 @@ public class ItemDisplayActivity extends BaseItemDisplayActivity {
                     sb.append(item).append('\n');
                 }
 
-                addTextView(cell, sb.toString());
+                addTextView(cell, sb.toString()).setPadding(Utils.dpToPx(16), 0, Utils.dpToPx(16), 0);
             }
 
 
@@ -236,7 +236,7 @@ public class ItemDisplayActivity extends BaseItemDisplayActivity {
                     sb.append(item).append('\n');
                 }
 
-                addTextView(cell, sb.toString());
+                addTextView(cell, sb.toString()).setPadding(Utils.dpToPx(16), 0, Utils.dpToPx(16), 0);
             }
         }
 

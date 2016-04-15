@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:background="@color/cardBackground"
-              android:foreground="?attr/selectableItemBackground"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:paddingLeft="16dp"
-              android:paddingRight="16dp"
-              android:paddingTop="8dp"
-              android:paddingBottom="8dp">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/cardBackground"
+    android:foreground="?attr/selectableItemBackground"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp">
 
     <TextView
         android:id="@android:id/title"
@@ -18,14 +20,13 @@
         android:gravity="center_vertical"
         android:textSize="14sp"
         android:textAppearance="@style/TextAppearance.AppCompat"
+        android:maxLines="1"
         tools:text="1-1"/>
 
-    <LinearLayout
-        android:id="@id/linearLayout"
+    <rikka.akashitoolkit.widget.ExpandableLayout
+        android:id="@+id/expandableLinearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"
-        tools:visibility="visible"
         android:orientation="vertical">
 
         <TextView
@@ -35,6 +36,6 @@
             android:paddingTop="8dp"
             android:paddingBottom="8dp"
             android:lineSpacingExtra="1dp"/>
-    </LinearLayout>
+    </rikka.akashitoolkit.widget.ExpandableLayout>
 
 </LinearLayout>

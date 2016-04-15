@@ -67,4 +67,20 @@ public class ShipAction {
             this.keyword = keyword;
         }
     }
+
+    public static class IsSearchingChanged {
+        private boolean searching;
+
+        public IsSearchingChanged(boolean searching) {
+            this.searching = searching;
+        }
+
+        public boolean isSearching() {
+            return searching;
+        }
+
+        public void setSearching(boolean searching) {
+            this.searching = searching;
+        }
+    }
 }

@@ -216,6 +216,7 @@ public class ExpCalcActivity extends AppCompatActivity {
 
     private void calc() {
         if (mCurLv < 1 || mCurLv > 155 - 1 || mTargetLv > 155 - 1 || mTargetLv < 1) {
+            mTextViewResult.setText("数据有误");
             return;
         }
 

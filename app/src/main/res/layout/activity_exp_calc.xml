@@ -66,6 +66,7 @@
                     android:id="@+id/textView_curLv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="number"
                     android:hint="@string/exp_calc_cur_lv"
                     tools:text="1"/>
 
@@ -81,6 +82,7 @@
                     android:id="@+id/textView_targetLv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="number"
                     android:hint="@string/exp_calc_target_lv"
                     tools:text="99"/>
 
@@ -96,6 +98,7 @@
                     android:id="@+id/textView_expToNext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="number"
                     android:hint="@string/exp_calc_to_next"
                     tools:text="100"/>
 

@@ -33,6 +33,7 @@ public class ShipAdapter extends BaseRecyclerAdapter<ViewHolder.Ship> {
     private int mTypeFlag;
     private int mShowSpeed;
     private String mKeyword;
+    private boolean mIsSearching;
 
     public ShipAdapter(Activity activity) {
         mData = new ArrayList<>();
@@ -46,6 +47,10 @@ public class ShipAdapter extends BaseRecyclerAdapter<ViewHolder.Ship> {
         mTypeFlag = typeFlag;
         mShowSpeed = showSpeed;
         mActivity = activity;
+    }
+
+    public void setSearching(boolean searching) {
+        mIsSearching = searching;
     }
 
     public void setShowSpeed(int showSpeed) {
@@ -125,11 +130,11 @@ public class ShipAdapter extends BaseRecyclerAdapter<ViewHolder.Ship> {
             return false;
         }
 
-        if (mKeyword != null && mKeyword.length() == 0) {
+        if (mIsSearching && mKeyword.length() == 0) {
             return false;
         }
 
-        if (mKeyword != null &&
+        if (mIsSearching && mKeyword != null &&
                 !item.getName().getJa().contains(mKeyword) &&
                 !item.getName().getZh_cn().contains(mKeyword) &&
                 (item.getName_for_search() == null || !item.getName_for_search().contains(mKeyword))) {

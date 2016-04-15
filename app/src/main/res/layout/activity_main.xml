@@ -56,8 +56,9 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
         android:theme="@style/AppTheme.NavigationView"
-        app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/drawer_main"/>
+
+    <!--app:headerLayout="@layout/nav_header_main"-->
 
     <android.support.design.internal.ScrimInsetsFrameLayout
         android:id="@+id/nav_view_right_out"

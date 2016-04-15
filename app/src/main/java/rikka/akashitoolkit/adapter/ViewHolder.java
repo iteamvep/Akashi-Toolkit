@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import rikka.akashitoolkit.R;
+import rikka.akashitoolkit.widget.ExpandableLayout;
 
 /**
  * Created by Rikka on 2016/3/12.
@@ -128,27 +129,47 @@ public class ViewHolder {
     }
 
     public static class Map extends RecyclerView.ViewHolder {
-        protected LinearLayout mDetailContainer;
+        //protected ExpandableLinearLayout mLinearLayout;
+        protected ExpandableLayout mDetailContainer;
         protected TextView mTitle;
         protected TextView mTextView;
 
         public Map(View itemView) {
             super(itemView);
 
-            mDetailContainer = (LinearLayout) itemView.findViewById(R.id.linearLayout);
+            //mLinearLayout = (ExpandableLinearLayout) itemView.findViewById(R.id.expandableLinearLayout);
+            mDetailContainer = (ExpandableLayout) itemView.findViewById(R.id.expandableLinearLayout);
             mTitle = (TextView) itemView.findViewById(android.R.id.title);
             mTextView = (TextView) itemView.findViewById(R.id.textView);
+
+            /*mDetailContainer.post(new Runnable() {
+                @Override
+                public void run() {
+                    //mDetailContainer.setExpanded(false);
+                }
+            });*/
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mTitle.setTypeface(
+                    /*mTitle.setTypeface(
                             mDetailContainer.getVisibility() == View.GONE ?
                                     Typeface.defaultFromStyle(Typeface.BOLD) :
-                                    Typeface.defaultFromStyle(Typeface.NORMAL));
+                                    Typeface.defaultFromStyle(Typeface.NORMAL));*/
 
-                    mDetailContainer.setVisibility(
-                            mDetailContainer.getVisibility() == View.GONE ? View.VISIBLE : View.GONE);
+                    if (mDetailContainer.isExpanded()) {
+                        mDetailContainer.setExpanded(false);
+                        mTitle.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+                        //mDetailContainer.moveChild(0);
+                    } else {
+                        mDetailContainer.setExpanded(true);
+                        mTitle.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+                        //mDetailContainer.moveChild(1);
+                    }
+
+                    //mDetailContainer.toggle();
+                    //mDetailContainer.setVisibility(
+                    //       mDetailContainer.getVisibility() == View.GONE ? View.VISIBLE : View.GONE);
                 }
             });
         }

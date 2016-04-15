@@ -2,6 +2,7 @@ package rikka.akashitoolkit.widget;
 
 import android.content.Context;
 import android.support.v4.widget.NestedScrollView;
+import android.support.v7.widget.GridLayout;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,11 +28,22 @@ public class SimpleDrawerView extends LinearLayout {
         super(context, attrs, defStyleAttr);
     }
 
+    public void addDividerHead() {
+        View view = new View(getContext());
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 1);
+        //lp.setMargins(0, 0, 0, Utils.dpToPx(4));
+        view.setLayoutParams(lp);
+        view.setBackgroundResource(R.drawable.line_divider);
+
+        addView(view);
+    }
+
     public void addDivider() {
         View view = new View(getContext());
-        view.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 2));
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 1);
+        lp.setMargins(0, Utils.dpToPx(4), 0, Utils.dpToPx(4));
+        view.setLayoutParams(lp);
         view.setBackgroundResource(R.drawable.line_divider);
-        view.setPadding(0, 0, 0, Utils.dpToPx(4));
 
         addView(view);
     }

@@ -20,6 +20,7 @@ import rikka.akashitoolkit.otto.QuestAction;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.Statistics;
 import rikka.akashitoolkit.ui.MainActivity;
+import rikka.akashitoolkit.utils.Utils;
 import rikka.akashitoolkit.widget.CheckBoxGroup;
 
 /**
@@ -60,7 +61,7 @@ public class QuestDisplayFragment extends BaseSearchFragment implements CheckBox
 
         mActivity.getRightDrawerContent().removeAllViews();
         mActivity.getRightDrawerContent().addTitle(getString(R.string.action_filter));
-        mActivity.getRightDrawerContent().addDivider();
+        mActivity.getRightDrawerContent().addDividerHead();
         CheckBoxGroup cbg = new CheckBoxGroup(getContext());
         cbg.addItem("単発任務");
         cbg.addItem("日次任務");
@@ -68,6 +69,8 @@ public class QuestDisplayFragment extends BaseSearchFragment implements CheckBox
         cbg.addItem("月間任務");
         cbg.setOnCheckedChangeListener(this);
         cbg.setChecked(mFlag);
+        cbg.setPadding(0, Utils.dpToPx(4), 0, Utils.dpToPx(4));
+
         mActivity.getRightDrawerContent().addView(cbg);
 
         Statistics.onFragmentStart("QuestDisplayFragment");

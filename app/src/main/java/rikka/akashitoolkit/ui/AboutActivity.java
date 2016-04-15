@@ -81,7 +81,7 @@ public class AboutActivity extends BaseActivity {
                 }
             });
 
-            if (BuildConfig.isGooglePlay) {
+            /*if (BuildConfig.isGooglePlay) {
                 ((PreferenceScreen) findPreference("screen")).removePreference(findPreference("check"));
             } else {
                 findPreference("check").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
@@ -91,7 +91,7 @@ public class AboutActivity extends BaseActivity {
                         return false;
                     }
                 });
-            }
+            }*/
         }
     }
 }

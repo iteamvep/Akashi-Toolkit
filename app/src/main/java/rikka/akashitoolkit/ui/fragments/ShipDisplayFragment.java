@@ -23,6 +23,7 @@ import rikka.akashitoolkit.staticdata.ShipList;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.Statistics;
 import rikka.akashitoolkit.ui.MainActivity;
+import rikka.akashitoolkit.utils.Utils;
 import rikka.akashitoolkit.widget.CheckBoxGroup;
 import rikka.akashitoolkit.widget.SimpleDrawerView;
 import rx.Observable;
@@ -52,7 +53,7 @@ public class ShipDisplayFragment extends BaseSearchFragment {
 
         mActivity.getRightDrawerContent().removeAllViews();
         mActivity.getRightDrawerContent().addTitle(getString(R.string.action_filter));
-        mActivity.getRightDrawerContent().addDivider();
+        mActivity.getRightDrawerContent().addDividerHead();
 
         SimpleDrawerView body = new SimpleDrawerView(getContext());
         body.setOrientation(LinearLayout.VERTICAL);
@@ -114,6 +115,8 @@ public class ShipDisplayFragment extends BaseSearchFragment {
 
         mScrollView = new NestedScrollView(getContext());
         mScrollView.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        mScrollView.setPadding(0, Utils.dpToPx(4), 0, Utils.dpToPx(4));
+        mScrollView.setClipToPadding(false);
         mScrollView.addView(body);
     }
 
@@ -236,11 +239,12 @@ public class ShipDisplayFragment extends BaseSearchFragment {
 
     @Override
     public void onSearchExpand() {
-
+        BusProvider.instance().post(new ShipAction.IsSearchingChanged(true));
     }
 
     @Override
     public void onSearchCollapse() {
+        BusProvider.instance().post(new ShipAction.IsSearchingChanged(false));
         BusProvider.instance().post(new ShipAction.KeywordChanged(null));
     }
 

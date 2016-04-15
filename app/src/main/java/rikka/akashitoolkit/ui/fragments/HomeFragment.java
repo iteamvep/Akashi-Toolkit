@@ -5,12 +5,17 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -64,9 +69,30 @@ public class HomeFragment extends BaseFragmet {
     private LinearLayout mLinearLayout;
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private ButtonCardView mUpdateCardView;
+    private ButtonCardView mDataUpdateCardView;
     private Map<Integer, ButtonCardView> mMessageCardView;
     private MessageReadStatus mMessageReadStatus;
     private int mUpdateVersionCode;
+
+    private static Map<String, Integer> JSON_VERSION = new HashMap<String, Integer>() {
+        @Override
+        public Integer get(Object key) {
+            return containsKey(key) ? super.get(key) : 1;
+        }
+    };
+
+    static {
+        JSON_VERSION.put("ItemImprovement.json", 3);
+        JSON_VERSION.put("Item.json", 3);
+    }
+
+    private static Map<String, String> JSON_NAME = new HashMap<>();
+
+    static {
+        JSON_NAME.put("ItemImprovement.json", "改修数据");
+        JSON_NAME.put("Item.json", "装备数据");
+        JSON_NAME.put("Ship.json", "舰娘数据");
+    }
 
     @Override
     public void onShow() {
@@ -98,6 +124,7 @@ public class HomeFragment extends BaseFragmet {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         BusProvider.instance().register(this);
+        setHasOptionsMenu(true);
     }
 
     @Override
@@ -106,6 +133,22 @@ public class HomeFragment extends BaseFragmet {
         super.onDestroy();
     }
 
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.twitter, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_refresh:
+                if (!mSwipeRefreshLayout.isRefreshing()) {
+                    refresh();
+                }
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     @Nullable
     @Override
@@ -291,7 +334,7 @@ public class HomeFragment extends BaseFragmet {
                         mLinearLayout.addView(card);
                     }
                 }
-
+                final StringBuilder sb = new StringBuilder();
                 if (!BuildConfig.isGooglePlay) {
                     final CheckUpdate.UpdateEntity entity = response.body().getUpdate();
                     mUpdateVersionCode = entity.getVersionCode();
@@ -317,7 +360,15 @@ public class HomeFragment extends BaseFragmet {
 
                         mUpdateCardView.setMessage(String.format("更新内容:\n%s", entity.getChange()));
                         mUpdateCardView.setTitle(String.format("有新版本啦 (%s - %d)", entity.getVersionName(), entity.getVersionCode()));
+                    } else {
+                        //sb.append("应用已是最新版本").append('\n');
                     }
+                }
+
+                if (mDataUpdateCardView == null) {
+                    mDataUpdateCardView = new ButtonCardView(getContext());
+                    mDataUpdateCardView.setTitle("数据更新");
+                    mDataUpdateCardView.addButton(R.string.got_it);
                 }
 
                 Observable
@@ -327,10 +378,15 @@ public class HomeFragment extends BaseFragmet {
                             @Override
                             public void onNext(CheckUpdate.DataEntity dataEntity) {
                                 File file = new File(getContext().getFilesDir().getAbsolutePath() + "/json/" + dataEntity.getName());
+
+                                int downloadVersion = Settings
+                                        .instance(getContext())
+                                        .getInt(dataEntity.getName(), JSON_VERSION.get(dataEntity.getName()));
+                                int builtInVersion = JSON_VERSION.get(dataEntity.getName());
+
                                 if (!BuildConfig.DEBUG &&
                                         file.exists() &&
-                                        Settings.instance(getContext())
-                                                .getInt(dataEntity.getName(), 1) >= dataEntity.getVersion()) {
+                                        (downloadVersion >= dataEntity.getVersion() || builtInVersion >= dataEntity.getVersion())) {
                                     return;
                                 }
 
@@ -357,6 +413,8 @@ public class HomeFragment extends BaseFragmet {
 
                                     BusProvider.instance().post(new DataChangedAction(name + "Fragment"));
 
+                                    sb.append(JSON_NAME.get(dataEntity.getName())).append("已更新 (").append(dataEntity.getData()).append(") \n");
+
                                     Log.d("DownloadData", dataEntity.getName() + " version: "+ Integer.toString(dataEntity.getVersion()));
                                 } catch (IOException | ClassNotFoundException | NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
                                     e.printStackTrace();
@@ -364,7 +422,22 @@ public class HomeFragment extends BaseFragmet {
                             }
                             @Override
                             public void onCompleted() {
-
+                                Handler mainHandler = new Handler(getContext().getMainLooper());
+                                mainHandler.post(
+                                        new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                if (sb.length() > 0) {
+                                                    mDataUpdateCardView.setMessage(sb.toString().trim());
+                                                    if (mDataUpdateCardView.getParent() == null) {
+                                                        mLinearLayout.addView(mDataUpdateCardView, 0);
+                                                    } else if (mDataUpdateCardView.getVisibility() == View.GONE) {
+                                                        mDataUpdateCardView.setVisibility(View.VISIBLE);
+                                                    }
+                                                }
+                                            }
+                                        }
+                                );
                             }
 
                             @Override
