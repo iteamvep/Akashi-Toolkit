@@ -1,39 +1,31 @@
 package rikka.akashitoolkit.staticdata;
 
 import android.content.Context;
-import android.content.res.AssetManager;
-import android.util.Log;
 
-import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-import rikka.akashitoolkit.model.Item;
+import rikka.akashitoolkit.model.Equip;
 
 /**
  * Created by Rikka on 2016/3/23.
  */
-public class ItemList {
-    private static final String FILE_NAME = "Item.json";
+public class EquipList {
+    private static final String FILE_NAME = "Equip.json";
 
-    private static List<Item> sList;
+    private static List<Equip> sList;
 
-    public static synchronized List<Item> get(Context context) {
+    public static synchronized List<Equip> get(Context context) {
         if (sList == null) {
-            sList = new BaseGSONList<Item>() {
+            sList = new BaseGSONList<Equip>() {
                 @Override
-                public void afterRead(List<Item> list) {
+                public void afterRead(List<Equip> list) {
                     sort(list);
                     modifyItemIntroduction(list);
                 }
-            }.get(context, FILE_NAME, new TypeToken<ArrayList<Item>>() {}.getType());
+            }.get(context, FILE_NAME, new TypeToken<ArrayList<Equip>>() {}.getType());
         }
         return sList;
     }
@@ -42,11 +34,11 @@ public class ItemList {
         sList = null;
     }
 
-    private static void sort(List<Item> list) {
-        List<Item> newList = new ArrayList<>();
+    private static void sort(List<Equip> list) {
+        List<Equip> newList = new ArrayList<>();
         int curType = 1;
         while (newList.size() != list.size()) {
-            for (Item item :
+            for (Equip item :
                     list) {
                 if (curType == item.getSubType()) {
                     newList.add(item);
@@ -58,16 +50,16 @@ public class ItemList {
         list.addAll(newList);
     }
 
-    private static void modifyItemIntroduction(List<Item> list) {
-        for (Item item :
+    private static void modifyItemIntroduction(List<Equip> list) {
+        for (Equip item :
                 list) {
             item.getIntroduction().setZh_cn(
                     item.getIntroduction().getZh_cn().replace("<ref>", "（").replace("</ref>", "）"));
         }
     }
 
-    public static Item findItemById(Context context, int id) {
-        for (Item item:
+    public static Equip findItemById(Context context, int id) {
+        for (Equip item :
              get(context)) {
             if (item.getId() == id) {
                 return item;

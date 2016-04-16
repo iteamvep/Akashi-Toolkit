@@ -3,7 +3,7 @@ package rikka.akashitoolkit.model;
 /**
  * Created by Rikka on 2016/3/24.
  */
-public class ItemType {
+public class EquipType {
 
     /**
      * id : 1

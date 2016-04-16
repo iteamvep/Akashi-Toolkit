@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Created by Rikka on 2016/3/17.
  */
-public class ItemImprovement {
+public class EquipImprovement {
 
     /**
      * name : 12.7cm連装砲

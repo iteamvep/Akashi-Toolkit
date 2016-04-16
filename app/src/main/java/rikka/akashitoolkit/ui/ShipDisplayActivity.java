@@ -2,7 +2,6 @@ package rikka.akashitoolkit.ui;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
@@ -13,7 +12,6 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.GridLayout;
 import android.support.v7.widget.Toolbar;
-import android.text.Html;
 import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
@@ -31,10 +29,9 @@ import java.util.List;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.ViewPagerAdapter;
-import rikka.akashitoolkit.model.Item;
+import rikka.akashitoolkit.model.Equip;
 import rikka.akashitoolkit.model.Ship;
-import rikka.akashitoolkit.staticdata.ItemList;
-import rikka.akashitoolkit.staticdata.ItemTypeList;
+import rikka.akashitoolkit.staticdata.EquipList;
 import rikka.akashitoolkit.staticdata.ShipList;
 import rikka.akashitoolkit.utils.KCStringFormatter;
 import rikka.akashitoolkit.utils.MySpannableFactory;
@@ -218,24 +215,24 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
             ViewGroup view = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.ship_item, null);
 
             if (equipId.get(i) > 0) {
-                final Item item = ItemList.findItemById(this, equipId.get(i));
+                final Equip item = EquipList.findItemById(this, equipId.get(i));
                 if (item == null) {
                     ((TextView) view.findViewById(android.R.id.title)).setText(String.format("找不到装备 (id: %d)", equipId.get(i)));
                     view.findViewById(android.R.id.title).setEnabled(false);
                 } else {
                     //((TextView) view.findViewById(android.R.id.title)).setSpannableFactory(MySpannableFactory.getInstance());
-                    //((TextView) view.findViewById(android.R.id.title)).setText(KCStringFormatter.getLinkItem(item));
+                    //((TextView) view.findViewById(android.R.id.title)).setText(KCStringFormatter.getLinkEquip(equip));
                     //((TextView) view.findViewById(android.R.id.title)).setMovementMethod(new LinkMovementMethod());
                     //view.findViewById(android.R.id.title).setClickable(true);
                     ((TextView) view.findViewById(android.R.id.title)).setText(item.getName().get(this));
-                    //ItemTypeList.setIntoImageView((ImageView) view.findViewById(R.id.imageView), item.getIcon());
+                    //EquipTypeList.setIntoImageView((ImageView) view.findViewById(R.id.imageView), equip.getIcon());
                     view.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent intent = new Intent(ShipDisplayActivity.this, ItemDisplayActivity.class);
-                            intent.putExtra(ItemDisplayActivity.EXTRA_ITEM_ID, item.getId());
+                            Intent intent = new Intent(ShipDisplayActivity.this, EquipDisplayActivity.class);
+                            intent.putExtra(EquipDisplayActivity.EXTRA_ITEM_ID, item.getId());
                             startActivity(intent);
-                            //startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("akashitoolkit://item/"+Integer.toString(item.getId()))));
+                            //startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("akashitoolkit://equip/"+Integer.toString(equip.getId()))));
                         }
                     });
                 }

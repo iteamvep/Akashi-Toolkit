@@ -2,17 +2,15 @@ package rikka.akashitoolkit.ui.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import rikka.akashitoolkit.adapter.BaseRecyclerAdapter;
-import rikka.akashitoolkit.adapter.ItemImprovementAdapter;
+import rikka.akashitoolkit.adapter.EquipImprovementAdapter;
 import rikka.materialpreference.BaseRecyclerViewItemDecoration;
 
 /**
  * Created by Rikka on 2016/3/17.
  */
-public class ItemImprovementFragment extends BaseDisplayFragment {
+public class EquipImprovementFragment extends BaseDisplayFragment {
     private int mType;
 
     @Override
@@ -24,7 +22,7 @@ public class ItemImprovementFragment extends BaseDisplayFragment {
             mType = args.getInt("TYPE");
         }
 
-        setAdapter(new ItemImprovementAdapter(getActivity(), mType));
+        setAdapter(new EquipImprovementAdapter(getActivity(), mType));
     }
 
     @Override

@@ -22,9 +22,9 @@ import java.util.Map;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.support.Settings;
+import rikka.akashitoolkit.ui.fragments.EquipImprovementDisplayFragment;
 import rikka.akashitoolkit.ui.fragments.ExpeditionDisplayFragment;
-import rikka.akashitoolkit.ui.fragments.ItemDisplayFragment;
-import rikka.akashitoolkit.ui.fragments.ItemImprovementDisplayFragment;
+import rikka.akashitoolkit.ui.fragments.EquipDisplayFragment;
 import rikka.akashitoolkit.ui.fragments.MapDisplayFragment;
 import rikka.akashitoolkit.ui.fragments.QuestDisplayFragment;
 import rikka.akashitoolkit.ui.fragments.HomeFragment;
@@ -215,9 +215,9 @@ public class MainActivity extends BaseActivity
             case R.id.nav_twitter:
                 return new TwitterFragment();
             case R.id.nav_item_improve:
-                return new ItemImprovementDisplayFragment();
+                return new EquipImprovementDisplayFragment();
             case R.id.nav_item:
-                return new ItemDisplayFragment();
+                return new EquipDisplayFragment();
             case R.id.nav_map:
                 return new MapDisplayFragment();
             case R.id.nav_quest:

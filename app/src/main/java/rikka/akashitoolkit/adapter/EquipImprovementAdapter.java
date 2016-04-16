@@ -12,27 +12,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 import rikka.akashitoolkit.R;
-import rikka.akashitoolkit.model.ItemImprovement;
-import rikka.akashitoolkit.staticdata.ItemImprovementList;
-import rikka.akashitoolkit.staticdata.ItemTypeList;
-import rikka.akashitoolkit.ui.ItemDisplayActivity;
+import rikka.akashitoolkit.model.Equip;
+import rikka.akashitoolkit.model.EquipImprovement;
+import rikka.akashitoolkit.staticdata.EquipList;
+import rikka.akashitoolkit.staticdata.EquipTypeList;
+import rikka.akashitoolkit.staticdata.EquipImprovementList;
+import rikka.akashitoolkit.ui.EquipDisplayActivity;
 
 /**
  * Created by Rikka on 2016/3/17.
  */
-public class ItemImprovementAdapter extends BaseRecyclerAdapter<ViewHolder.ItemImprovement> {
-    private List<ItemImprovement> mData;
+public class EquipImprovementAdapter extends BaseRecyclerAdapter<ViewHolder.ItemImprovement> {
+    private List<EquipImprovement> mData;
     private List<String> mDataShip;
     private Activity mActivity;
     private int mType;
 
-    public ItemImprovementAdapter(final Activity activity, int type) {
+    public EquipImprovementAdapter(final Activity activity, int type) {
         mActivity = activity;
         mData = new ArrayList<>();
         mDataShip = new ArrayList<>();
         mType = type;
 
-        Log.d("QAQ", "!");
         rebuildDataList();
     }
 
@@ -44,20 +45,24 @@ public class ItemImprovementAdapter extends BaseRecyclerAdapter<ViewHolder.ItemI
 
     @Override
     public void onBindViewHolder(final ViewHolder.ItemImprovement holder, final int position) {
-        holder.mName.setText(mData.get(position).getName());
-        holder.mType.setText(mData.get(position).getType());
+        Equip equip = EquipList.findItemById(mActivity, mData.get(position).getId());
+        if (equip != null) {
+            holder.mName.setText(equip.getName().get(mActivity));
+        }
+        //holder.mName.setText(mData.get(position).getName());
+        //holder.mType.setText(mData.get(position).getType());
         holder.mShip.setText("二号舰娘: " + mDataShip.get(position));
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), ItemDisplayActivity.class);
-                intent.putExtra(ItemDisplayActivity.EXTRA_ITEM_ID, mData.get(position).getId());
+                Intent intent = new Intent(v.getContext(), EquipDisplayActivity.class);
+                intent.putExtra(EquipDisplayActivity.EXTRA_ITEM_ID, mData.get(position).getId());
 
                 int[] location = new int[2];
                 holder.itemView.getLocationOnScreen(location);
-                intent.putExtra(ItemDisplayActivity.EXTRA_START_Y, location[1]);
-                intent.putExtra(ItemDisplayActivity.EXTRA_START_HEIGHT, holder.itemView.getHeight());
+                intent.putExtra(EquipDisplayActivity.EXTRA_START_Y, location[1]);
+                intent.putExtra(EquipDisplayActivity.EXTRA_START_HEIGHT, holder.itemView.getHeight());
                 /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     v.getContext().startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(mActivity).toBundle());
                 } else {
@@ -70,8 +75,8 @@ public class ItemImprovementAdapter extends BaseRecyclerAdapter<ViewHolder.ItemI
             }
         });
 
-        //holder.mImageView.setImageResource(ItemTypeList.getResourceId(holder.itemView.getContext(), mData.get(position).getIcon()));
-        ItemTypeList.setIntoImageView(holder.mImageView, mData.get(position).getIcon());
+        //holder.mImageView.setImageResource(EquipTypeList.getResourceId(holder.itemView.getContext(), mData.get(position).getIcon()));
+        EquipTypeList.setIntoImageView(holder.mImageView, mData.get(position).getIcon());
     }
 
     @Override
@@ -82,12 +87,12 @@ public class ItemImprovementAdapter extends BaseRecyclerAdapter<ViewHolder.ItemI
                 mData.clear();
                 mDataShip.clear();
 
-                for (ItemImprovement item :
-                        ItemImprovementList.get(mActivity)) {
+                for (EquipImprovement item :
+                        EquipImprovementList.get(mActivity)) {
 
                     boolean add = false;
                     StringBuilder sb = new StringBuilder();
-                    for (ItemImprovement.SecretaryEntity entity : item.getSecretary()) {
+                    for (EquipImprovement.SecretaryEntity entity : item.getSecretary()) {
                         if (entity.getDay().get(mType)) {
                             add = true;
                             sb.append(sb.length() > 0 ? " / " : "" );
@@ -107,7 +112,6 @@ public class ItemImprovementAdapter extends BaseRecyclerAdapter<ViewHolder.ItemI
             @Override
             protected void onPostExecute(Void aVoid) {
                 notifyDataSetChanged();
-                Log.d("QAQ", "QAQ");
             }
         }.execute();
     }

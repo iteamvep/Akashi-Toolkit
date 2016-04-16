@@ -1,47 +1,37 @@
 package rikka.akashitoolkit.staticdata;
 
 import android.content.Context;
-import android.content.res.AssetManager;
-import android.content.res.Resources;
-import android.graphics.Color;
 import android.support.v4.content.ContextCompat;
-import android.util.Log;
 import android.widget.ImageView;
 
-import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import rikka.akashitoolkit.R;
-import rikka.akashitoolkit.model.ItemType;
+import rikka.akashitoolkit.model.EquipType;
 import rikka.akashitoolkit.utils.Utils;
 
 /**
  * Created by Rikka on 2016/3/24.
  */
-public class ItemTypeList {
-    private static final String FILE_NAME = "ItemType.json";
+public class EquipTypeList {
+    private static final String FILE_NAME = "EquipType.json";
 
-    private static List<ItemType> sList;
+    private static List<EquipType> sList;
     private static Map<String, Integer> sParentList;
 
-    public static synchronized List<ItemType> get(Context context) {
+    public static synchronized List<EquipType> get(Context context) {
         if (sList == null) {
-            sList = new BaseGSONList<ItemType>() {
+            sList = new BaseGSONList<EquipType>() {
                 @Override
-                public void afterRead(List<ItemType> list) {
+                public void afterRead(List<EquipType> list) {
                     generateParentList(list);
                 }
-            }.get(context, FILE_NAME, new TypeToken<ArrayList<ItemType>>() {}.getType());
+            }.get(context, FILE_NAME, new TypeToken<ArrayList<EquipType>>() {}.getType());
         }
         return sList;
     }
@@ -57,8 +47,8 @@ public class ItemTypeList {
         return sParentList;
     }
 
-    public static ItemType findItemById(Context context, int id) {
-        for (ItemType item:
+    public static EquipType findItemById(Context context, int id) {
+        for (EquipType item:
                 get(context)) {
             if (item.getId() == id) {
                 return item;
@@ -67,14 +57,14 @@ public class ItemTypeList {
         return null;
     }
 
-    private static void generateParentList(List<ItemType> list) {
+    private static void generateParentList(List<EquipType> list) {
         if (sParentList != null) {
             return;
         }
 
         sParentList = new HashMap<>();
 
-        for (ItemType item:
+        for (EquipType item:
                 list) {
 
             if (sParentList.get(item.getParent()) == null) {

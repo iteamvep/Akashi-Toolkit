@@ -1,5 +1,6 @@
 package rikka.akashitoolkit.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.text.Html;
@@ -47,6 +48,7 @@ public class MapAdapter extends BaseRecyclerAdapter<ViewHolder.Map> {
         holder.mTextView.setText(htmlDescription.subSequence(0, descriptionWithOutExtraSpace.length()));
     }
 
+    @SuppressLint("DefaultLocale")
     private String format(Map item) {
         StringBuilder sb = new StringBuilder();
 
@@ -56,11 +58,12 @@ public class MapAdapter extends BaseRecyclerAdapter<ViewHolder.Map> {
                     item.getAirforce().get(id).get(1) != 0 &&
                     item.getAirforce().get(id).get(2) != 0;
 
-            if (haveAir)
-                sb.append(String.format("<b>敌制空 / 优势 / 确保</b><br>%d / %d/ %d<br/>",
+            if (haveAir) {
+                sb.append(String.format("<b>敌制空 / 优势 / 确保</b><br>%d / %d / %d<br/>",
                         item.getAirforce().get(id).get(0),
                         item.getAirforce().get(id).get(1),
                         item.getAirforce().get(id).get(2)));
+            }
 
             sb.append(String.format("<b>推荐配置</b><br>%s<br/><b>带路条件</b><br/>%s",
                     item.getRecommend().get(id),

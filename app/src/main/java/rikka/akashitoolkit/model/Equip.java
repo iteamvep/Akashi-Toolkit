@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by Rikka on 2016/3/26.
  */
-public class Item {
+public class Equip {
     /**
      * id : 8
      * name : {"zh_cn":"35.6cm连装炮","ja":"35.6cm连装炮"}

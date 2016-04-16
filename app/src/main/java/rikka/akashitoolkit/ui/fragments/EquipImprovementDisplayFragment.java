@@ -20,7 +20,7 @@ import rikka.akashitoolkit.ui.MainActivity;
 /**
  * Created by Rikka on 2016/3/17.
  */
-public class ItemImprovementDisplayFragment extends BaseFragmet {
+public class EquipImprovementDisplayFragment extends BaseFragmet {
     private static final int TAB_LAYOUT_VISIBILITY = View.VISIBLE;
 
     private ViewPager mViewPager;
@@ -30,7 +30,7 @@ public class ItemImprovementDisplayFragment extends BaseFragmet {
     public void onHide() {
         super.onHide();
 
-        Statistics.onFragmentEnd("ItemImprovementDisplayFragment");
+        Statistics.onFragmentEnd("EquipImprovementDisplayFragment");
     }
 
     @Override
@@ -41,7 +41,7 @@ public class ItemImprovementDisplayFragment extends BaseFragmet {
         activity.getSupportActionBar().setTitle(getString(R.string.item_improvement));
         mViewPager.setCurrentItem(mDay);
 
-        Statistics.onFragmentStart("ItemImprovementDisplayFragment");
+        Statistics.onFragmentStart("EquipImprovementDisplayFragment");
     }
 
     @Nullable
@@ -76,13 +76,13 @@ public class ItemImprovementDisplayFragment extends BaseFragmet {
         DateFormatSymbols symbols = new DateFormatSymbols(Locale.getDefault());
         String[] dayNames = symbols.getShortWeekdays();
 
-        adapter.addFragment(ItemImprovementFragment.class, getDayName(dayNames, 0, mDay));
-        adapter.addFragment(ItemImprovementFragment.class, getDayName(dayNames, 1, mDay));
-        adapter.addFragment(ItemImprovementFragment.class, getDayName(dayNames, 2, mDay));
-        adapter.addFragment(ItemImprovementFragment.class, getDayName(dayNames, 3, mDay));
-        adapter.addFragment(ItemImprovementFragment.class, getDayName(dayNames, 4, mDay));
-        adapter.addFragment(ItemImprovementFragment.class, getDayName(dayNames, 5, mDay));
-        adapter.addFragment(ItemImprovementFragment.class, getDayName(dayNames, 6, mDay));
+        adapter.addFragment(EquipImprovementFragment.class, getDayName(dayNames, 0, mDay));
+        adapter.addFragment(EquipImprovementFragment.class, getDayName(dayNames, 1, mDay));
+        adapter.addFragment(EquipImprovementFragment.class, getDayName(dayNames, 2, mDay));
+        adapter.addFragment(EquipImprovementFragment.class, getDayName(dayNames, 3, mDay));
+        adapter.addFragment(EquipImprovementFragment.class, getDayName(dayNames, 4, mDay));
+        adapter.addFragment(EquipImprovementFragment.class, getDayName(dayNames, 5, mDay));
+        adapter.addFragment(EquipImprovementFragment.class, getDayName(dayNames, 6, mDay));
 
 
         return adapter;

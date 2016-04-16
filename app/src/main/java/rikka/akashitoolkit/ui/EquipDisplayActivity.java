@@ -23,25 +23,25 @@ import android.widget.TextView;
 import java.util.List;
 
 import rikka.akashitoolkit.R;
-import rikka.akashitoolkit.model.Item;
-import rikka.akashitoolkit.model.ItemImprovement;
+import rikka.akashitoolkit.model.Equip;
+import rikka.akashitoolkit.model.EquipImprovement;
 import rikka.akashitoolkit.model.ShipType;
-import rikka.akashitoolkit.staticdata.ItemImprovementList;
-import rikka.akashitoolkit.staticdata.ItemTypeList;
-import rikka.akashitoolkit.staticdata.ItemList;
+import rikka.akashitoolkit.staticdata.EquipList;
+import rikka.akashitoolkit.staticdata.EquipImprovementList;
+import rikka.akashitoolkit.staticdata.EquipTypeList;
 import rikka.akashitoolkit.staticdata.QuestList;
 import rikka.akashitoolkit.staticdata.ShipTypeList;
 import rikka.akashitoolkit.utils.KCStringFormatter;
 import rikka.akashitoolkit.utils.Utils;
 
-public class ItemDisplayActivity extends BaseItemDisplayActivity {
+public class EquipDisplayActivity extends BaseItemDisplayActivity {
     public static final String EXTRA_ITEM_ID = "EXTRA_ITEM_ID";
 
     private Toolbar mToolbar;
     private LinearLayout mLinearLayout;
     private CoordinatorLayout mCoordinatorLayout;
     private AppBarLayout mAppBarLayout;
-    private Item mItem;
+    private Equip mItem;
     private LinearLayout mItemAttrContainer;
 
     @Override
@@ -61,7 +61,7 @@ public class ItemDisplayActivity extends BaseItemDisplayActivity {
             }
         }
 
-        mItem = ItemList.findItemById(this, id);
+        mItem = EquipList.findItemById(this, id);
         if (mItem == null) {
             Log.d("QAQ", "No item find? id=" + Integer.toString(id));
             finish();
@@ -120,7 +120,7 @@ public class ItemDisplayActivity extends BaseItemDisplayActivity {
         getSupportActionBar().setSubtitle(String.format(
                 "No. %d %s %s",
                 mItem.getId(),
-                ItemTypeList.findItemById(this, mItem.getSubType()).getName(),
+                EquipTypeList.findItemById(this, mItem.getSubType()).getName(),
                 KCStringFormatter.getStars(mItem.getRarity())));
 
         addAttrView(mLinearLayout, "火力", mItem.getAttr().getFire(), R.drawable.item_attr_fire);
@@ -257,15 +257,15 @@ public class ItemDisplayActivity extends BaseItemDisplayActivity {
     }
 
     private void addItemImprovementView() {
-        ItemImprovement itemImprovement = ItemImprovementList.findItemById(this, mItem.getId());
-        if (itemImprovement == null || itemImprovement.getSecretary() == null) {
+        EquipImprovement equipImprovement = EquipImprovementList.findItemById(this, mItem.getId());
+        if (equipImprovement == null || equipImprovement.getSecretary() == null) {
             return;
         }
 
         ViewGroup parent = addCell(mLinearLayout, R.string.item_improvement_data);
 
-        for (ItemImprovement.SecretaryEntity entry:
-                itemImprovement.getSecretary()) {
+        for (EquipImprovement.SecretaryEntity entry:
+                equipImprovement.getSecretary()) {
             LinearLayout linearLayout = new LinearLayout(this);
             linearLayout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
             linearLayout.setOrientation(LinearLayout.HORIZONTAL);
@@ -310,21 +310,21 @@ public class ItemDisplayActivity extends BaseItemDisplayActivity {
         LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this).inflate(R.layout.item_improvement_levelup, null);
         ((TextView) linearLayout.findViewById(android.R.id.title)).setText(title);
 
-        final Item item = ItemList.findItemById(this, id);
+        final Equip item = EquipList.findItemById(this, id);
         ((TextView) linearLayout.findViewById(R.id.text_number_0)).setText(item.getName().get(this));
         /*((ImageView) linearLayout.findViewById(R.id.imageView))
-                .setImageResource(ItemTypeList.getResourceId(this, item.getIcon()));*/
+                .setImageResource(EquipTypeList.getResourceId(this, equip.getIcon()));*/
 
         ((View) linearLayout.findViewById(R.id.text_number_0).getParent()).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ItemDisplayActivity.this, ItemDisplayActivity.class);
+                Intent intent = new Intent(EquipDisplayActivity.this, EquipDisplayActivity.class);
                 intent.putExtra(ShipDisplayActivity.EXTRA_ITEM_ID, item.getId());
                 startActivity(intent);
             }
         });
 
-        ItemTypeList.setIntoImageView((ImageView) linearLayout.findViewById(R.id.imageView), item.getIcon());
+        EquipTypeList.setIntoImageView((ImageView) linearLayout.findViewById(R.id.imageView), item.getIcon());
 
         parent.addView(linearLayout);
     }
@@ -348,7 +348,7 @@ public class ItemDisplayActivity extends BaseItemDisplayActivity {
             ((TextView) linearLayout.findViewById(R.id.text_number_1)).setText(String.format("%d(%d)", res.get(2), res.get(3)));
 
             if (res.get(5) > 0) {
-                final Item item = ItemList.findItemById(this, res.get(4));
+                final Equip item = EquipList.findItemById(this, res.get(4));
                 ((TextView) linearLayout.findViewById(R.id.text_number_2)).setText(
                         String.format("%s ×%d",
                                 item.getName().get(this),
@@ -357,15 +357,15 @@ public class ItemDisplayActivity extends BaseItemDisplayActivity {
                 ((View) linearLayout.findViewById(R.id.text_number_2).getParent()).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(ItemDisplayActivity.this, ItemDisplayActivity.class);
+                        Intent intent = new Intent(EquipDisplayActivity.this, EquipDisplayActivity.class);
                         intent.putExtra(ShipDisplayActivity.EXTRA_ITEM_ID, item.getId());
                         startActivity(intent);
                     }
                 });
 
                 /*((ImageView) linearLayout.findViewById(R.id.imageView))
-                        .setImageResource(ItemTypeList.getResourceId(this, item.getIcon()));*/
-                ItemTypeList.setIntoImageView((ImageView) linearLayout.findViewById(R.id.imageView), item.getIcon());
+                        .setImageResource(EquipTypeList.getResourceId(this, equip.getIcon()));*/
+                EquipTypeList.setIntoImageView((ImageView) linearLayout.findViewById(R.id.imageView), item.getIcon());
             } else {
                 linearLayout.findViewById(R.id.linearLayout).setVisibility(View.GONE);
             }

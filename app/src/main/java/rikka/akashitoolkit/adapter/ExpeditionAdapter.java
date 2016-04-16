@@ -13,7 +13,6 @@ import java.util.List;
 import java.util.Locale;
 
 import rikka.akashitoolkit.R;
-import rikka.akashitoolkit.model.ItemImprovement;
 import rikka.akashitoolkit.staticdata.ExpeditionList;
 
 /**

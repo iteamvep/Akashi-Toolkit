@@ -3,10 +3,8 @@ package rikka.akashitoolkit.ui.fragments;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Looper;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
@@ -22,12 +20,10 @@ import android.widget.LinearLayout;
 
 import com.squareup.otto.Subscribe;
 
-import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -36,7 +32,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 import rikka.akashitoolkit.BuildConfig;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.model.CheckUpdate;
@@ -53,11 +48,7 @@ import rikka.akashitoolkit.utils.UpdateCheck;
 import rikka.akashitoolkit.utils.Utils;
 import rikka.akashitoolkit.widget.ButtonCardView;
 import rx.Observable;
-import rx.Observer;
-import rx.Single;
 import rx.Subscriber;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Action1;
 import rx.schedulers.Schedulers;
 
 /**
@@ -82,15 +73,15 @@ public class HomeFragment extends BaseFragmet {
     };
 
     static {
-        JSON_VERSION.put("ItemImprovement.json", 3);
-        JSON_VERSION.put("Item.json", 3);
+        JSON_VERSION.put("EquipImprovement.json", 3);
+        JSON_VERSION.put("Equip.json", 3);
     }
 
     private static Map<String, String> JSON_NAME = new HashMap<>();
 
     static {
-        JSON_NAME.put("ItemImprovement.json", "改修数据");
-        JSON_NAME.put("Item.json", "装备数据");
+        JSON_NAME.put("EquipImprovement.json", "改修数据");
+        JSON_NAME.put("Equip.json", "装备数据");
         JSON_NAME.put("Ship.json", "舰娘数据");
     }
 

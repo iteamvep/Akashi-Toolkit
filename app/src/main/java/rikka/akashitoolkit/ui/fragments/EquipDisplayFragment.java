@@ -11,14 +11,14 @@ import java.util.Map;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.ViewPagerAdapter;
-import rikka.akashitoolkit.staticdata.ItemTypeList;
+import rikka.akashitoolkit.staticdata.EquipTypeList;
 import rikka.akashitoolkit.support.Statistics;
 import rikka.akashitoolkit.ui.MainActivity;
 
 /**
  * Created by Rikka on 2016/3/23.
  */
-public class ItemDisplayFragment extends BaseFragmet {
+public class EquipDisplayFragment extends BaseFragmet {
     private static final int TAB_LAYOUT_VISIBILITY = View.VISIBLE;
 
     private ViewPager mViewPager;
@@ -31,14 +31,14 @@ public class ItemDisplayFragment extends BaseFragmet {
         activity.getSupportActionBar().setTitle(getString(R.string.item));
         activity.setRightDrawerLocked(true);
 
-        Statistics.onFragmentStart("ItemDisplayFragment");
+        Statistics.onFragmentStart("EquipDisplayFragment");
     }
 
     @Override
     public void onHide() {
         super.onHide();
 
-        Statistics.onFragmentEnd("ItemDisplayFragment");
+        Statistics.onFragmentEnd("EquipDisplayFragment");
     }
 
     @Nullable
@@ -65,11 +65,11 @@ public class ItemDisplayFragment extends BaseFragmet {
             }
         };
 
-        for (int i = 0; i < ItemTypeList.getsParentList(getContext()).size(); i++) {
+        for (int i = 0; i < EquipTypeList.getsParentList(getContext()).size(); i++) {
             for (Map.Entry<String, Integer> entry:
-                    ItemTypeList.getsParentList(getContext()).entrySet()){
+                    EquipTypeList.getsParentList(getContext()).entrySet()){
                 if (i == entry.getValue()) {
-                    adapter.addFragment(ItemFragment.class, entry.getKey());
+                    adapter.addFragment(EquipFragment.class, entry.getKey());
                 }
             }
         }

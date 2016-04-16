@@ -3,7 +3,7 @@ package rikka.akashitoolkit.utils;
 import android.text.Html;
 import android.text.Spanned;
 
-import rikka.akashitoolkit.model.Item;
+import rikka.akashitoolkit.model.Equip;
 
 /**
  * Created by Rikka on 2016/4/4.
@@ -36,12 +36,12 @@ public class KCStringFormatter {
         return "";
     }
 
-    public static String getLinkItem(int id, String name) {
-        return String.format("<a href=akashitoolkit://item/%d>%s</a>", id, name);
+    public static String getLinkEquip(int id, String name) {
+        return String.format("<a href=akashitoolkit://equip/%d>%s</a>", id, name);
     }
 
-    public static Spanned getLinkItem(Item item) {
-        return Html.fromHtml(String.format("<a href=akashitoolkit://item/%d>%s</a>", item.getId(), item.getName().getZh_cn()));
+    public static Spanned getLinkEquip(Equip equip) {
+        return Html.fromHtml(String.format("<a href=akashitoolkit://equip/%d>%s</a>", equip.getId(), equip.getName().getZh_cn()));
     }
 
     public static String getLinkShip(int id, String name) {

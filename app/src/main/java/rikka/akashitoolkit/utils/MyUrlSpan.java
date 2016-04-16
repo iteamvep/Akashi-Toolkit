@@ -3,12 +3,11 @@ package rikka.akashitoolkit.utils;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.text.TextPaint;
 import android.text.style.URLSpan;
 import android.view.View;
 
-import rikka.akashitoolkit.ui.ItemDisplayActivity;
+import rikka.akashitoolkit.ui.EquipDisplayActivity;
 import rikka.akashitoolkit.ui.ShipDisplayActivity;
 
 /**
@@ -33,10 +32,10 @@ public class MyUrlSpan extends URLSpan {
         if (url.startsWith("akshitoolkit://")) {
             Intent intent = null;
             int id = Integer.parseInt(url.split("/")[3]);
-            if (url.contains("item/")) {
-                intent = new Intent(widget.getContext(), ItemDisplayActivity.class);
-                intent.putExtra(ItemDisplayActivity.EXTRA_ITEM_ID, id);
-            } else if (url.contains("item/")) {
+            if (url.contains("equip/")) {
+                intent = new Intent(widget.getContext(), EquipDisplayActivity.class);
+                intent.putExtra(EquipDisplayActivity.EXTRA_ITEM_ID, id);
+            } else if (url.contains("ship/")) {
                 intent = new Intent(widget.getContext(), ShipDisplayActivity.class);
                 intent.putExtra(ShipDisplayActivity.EXTRA_ITEM_ID, id);
             }

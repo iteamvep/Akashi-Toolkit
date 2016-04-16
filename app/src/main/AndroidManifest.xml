@@ -52,7 +52,7 @@
         -->
 
         <activity
-            android:name=".ui.ItemDisplayActivity"
+            android:name=".ui.EquipDisplayActivity"
             android:theme="@style/AppTheme.ItemActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
