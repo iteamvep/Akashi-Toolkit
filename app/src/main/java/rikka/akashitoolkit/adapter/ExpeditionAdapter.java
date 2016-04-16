@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.model.ItemImprovement;
@@ -54,7 +55,7 @@ public class ExpeditionAdapter extends RecyclerView.Adapter<ViewHolder.Expeditio
 
     @Override
     public void onBindViewHolder(ViewHolder.Expedition holder, int position) {
-        holder.mName.setText(mData.get(position).getName());
+        holder.mName.setText(String.format(Locale.getDefault(), "%d %s", mData.get(position).getIndex(), mData.get(position).getName()));
         holder.mRequire.setText(formatRequire(
                 holder.mRequire.getContext(),
                 mData.get(position).getRequire(),

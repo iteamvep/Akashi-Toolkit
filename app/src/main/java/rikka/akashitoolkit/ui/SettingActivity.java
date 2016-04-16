@@ -8,13 +8,17 @@ import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceCategory;
 import android.support.v7.preference.PreferenceScreen;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import com.squareup.otto.Bus;
 
 import moe.xing.daynightmode.BaseDayNightModeActivity;
 import rikka.akashitoolkit.BuildConfig;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.otto.BusProvider;
+import rikka.akashitoolkit.otto.DataChangedAction;
 import rikka.akashitoolkit.otto.PreferenceChangedAction;
 import rikka.akashitoolkit.otto.ReadStatusResetAction;
 import rikka.akashitoolkit.support.Settings;
@@ -116,14 +120,22 @@ public class SettingActivity extends BaseActivity {
 
         @Override
         public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-            if (key.equals(Settings.NIGHT_MODE)) {
-                int mode = Integer.parseInt(
-                        (String) mDropDownPreference.getSelectedValue());
+            switch (key) {
+                case Settings.NIGHT_MODE:
+                    int mode = Integer.parseInt(
+                            (String) mDropDownPreference.getSelectedValue());
 
-                ((BaseDayNightModeActivity) getActivity()).setNightMode(mode);
+                    ((BaseDayNightModeActivity) getActivity()).setNightMode(mode);
+                    break;
+                case Settings.DATA_LANGUAGE:
+                    BusProvider
+                            .instance()
+                            .post(new DataChangedAction("any"));
+                    break;
             }
 
-            BusProvider.instance()
+            BusProvider
+                    .instance()
                     .post(new PreferenceChangedAction(key));
         }
     }

@@ -12,7 +12,7 @@ public class ShipType {
      * ja : 駆逐艦
      */
 
-    private NameEntity name;
+    private MultiLanguageEntry name;
     /**
      * name : {"zh_cn":"驱逐舰","ja":"駆逐艦"}
      * short : DD
@@ -21,11 +21,11 @@ public class ShipType {
     @SerializedName("short")
     private String shortX;
 
-    public NameEntity getName() {
+    public MultiLanguageEntry getName() {
         return name;
     }
 
-    public void setName(NameEntity name) {
+    public void setName(MultiLanguageEntry name) {
         this.name = name;
     }
 
@@ -35,26 +35,5 @@ public class ShipType {
 
     public void setShortX(String shortX) {
         this.shortX = shortX;
-    }
-
-    public static class NameEntity {
-        private String zh_cn;
-        private String ja;
-
-        public String getZh_cn() {
-            return zh_cn;
-        }
-
-        public void setZh_cn(String zh_cn) {
-            this.zh_cn = zh_cn;
-        }
-
-        public String getJa() {
-            return ja;
-        }
-
-        public void setJa(String ja) {
-            this.ja = ja;
-        }
     }
 }

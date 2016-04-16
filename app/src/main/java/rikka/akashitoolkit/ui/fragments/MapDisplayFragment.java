@@ -61,6 +61,7 @@ public class MapDisplayFragment extends BaseFragmet {
                 return bundle;
             }
         };
+
         adapter.addFragment(MapFragment.class, "镇守府海域");
         adapter.addFragment(MapFragment.class, "南西诸岛海域");
         adapter.addFragment(MapFragment.class, "北方海域");

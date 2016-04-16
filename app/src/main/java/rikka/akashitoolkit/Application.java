@@ -18,13 +18,11 @@ public class Application extends android.app.Application {
                         .getIntFromString(Settings.NIGHT_MODE, 0)
         );
 
-        if (!BuildConfig.DEBUG) {
+        /*if (!BuildConfig.DEBUG) {
             CrashHandler.init(getApplicationContext());
             CrashHandler.register();
-        }
+        }*/
 
-        if (!BuildConfig.DEBUG) {
-            Statistics.init(this);
-        }
+        Statistics.init(this);
     }
 }

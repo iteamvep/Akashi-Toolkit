@@ -15,26 +15,19 @@ import rikka.akashitoolkit.adapter.ItemAdapter;
 /**
  * Created by Rikka on 2016/3/23.
  */
-public class ItemFragment extends Fragment {
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.content_recycler, container, false);
+public class ItemFragment extends BaseDisplayFragment<ItemAdapter> {
+    private int mType;
 
-        int type = 0;
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
         Bundle args = getArguments();
         if (args != null) {
-            type = args.getInt("TYPE");
+            mType = args.getInt("TYPE");
         }
 
-        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
-        recyclerView.setAdapter(new ItemAdapter(getActivity(), type));
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-        layoutManager.setAutoMeasureEnabled(false);
-        recyclerView.setLayoutManager(layoutManager);
-        //recyclerView.addItemDecoration(new ItemDecoration(getContext()));
-
-        return view;
+        setAdapter(new ItemAdapter(getActivity(), mType));
     }
 
     /*private class ItemDecoration extends BaseRecyclerViewItemDecoration {

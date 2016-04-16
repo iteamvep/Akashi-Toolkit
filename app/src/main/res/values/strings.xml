@@ -86,4 +86,9 @@
     <string name="exp_calc_target_lv">Target level</string>
     <string name="exp_calc_to_next">Exp to next level</string>
 
+    <string name="data_language">Language of data</string>
+    <string name="language_zh">Simplified Chinese</string>
+    <string name="language_ja">Japanese</string>
+
+
 </resources>

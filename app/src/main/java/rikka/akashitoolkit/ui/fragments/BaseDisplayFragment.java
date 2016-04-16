@@ -3,6 +3,7 @@ package rikka.akashitoolkit.ui.fragments;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,13 +16,14 @@ import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.BaseRecyclerAdapter;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.DataChangedAction;
+import rikka.materialpreference.BaseRecyclerViewItemDecoration;
 
 /**
  * Created by Rikka on 2016/4/13.
  */
-public abstract class BaseDisplayFragment extends Fragment {
+public abstract class BaseDisplayFragment<T extends BaseRecyclerAdapter> extends Fragment {
     protected Object mBusEventListener;
-    private BaseRecyclerAdapter mAdapter;
+    private T mAdapter;
 
     @Override
     public void onStart() {
@@ -37,12 +39,22 @@ public abstract class BaseDisplayFragment extends Fragment {
     }
 
     @Override
+    public void onDestroyView() {
+        BusProvider.instance().unregister(mBusEventListener);
+        super.onDestroyView();
+    }
+
+    /*@Override
     public void onStop() {
         BusProvider.instance().unregister(mBusEventListener);
         super.onStop();
+    }*/
+
+    public T getAdapter() {
+        return mAdapter;
     }
 
-    public void setAdapter(BaseRecyclerAdapter adapter) {
+    public void setAdapter(T adapter) {
         mAdapter = adapter;
     }
 
@@ -58,12 +70,16 @@ public abstract class BaseDisplayFragment extends Fragment {
     }
 
     public void onPostCreateView(RecyclerView recyclerView) {
-
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+        layoutManager.setAutoMeasureEnabled(false);
+        recyclerView.setLayoutManager(layoutManager);
     }
 
     @Subscribe
     public void dataChanged(DataChangedAction action) {
-        if (action.getClassName().equals(this.getClass().getSimpleName())) {
+        Log.d("BaseDisplayFragment", action.getClassName() + " rebuild data list");
+        if (action.getClassName().equals("any")
+                || action.getClassName().equals(this.getClass().getSimpleName())) {
             mAdapter.rebuildDataList();
         }
     }

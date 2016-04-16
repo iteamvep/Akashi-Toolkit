@@ -26,6 +26,9 @@ public class Settings {
     public static final String SHIP_FINAL_VERSION = "ship_show_final_version";
     public static final String SHIP_SPEED = "ship_show_speed";
 
+    public static final String DATA_LANGUAGE = "data_language";
+
+
     private static Settings sInstance;
     private SharedPreferences mPrefs;
 

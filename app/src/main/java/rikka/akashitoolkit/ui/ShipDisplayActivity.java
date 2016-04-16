@@ -88,7 +88,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
 
     @Override
     protected String getTaskDescriptionLabel() {
-        return mItem.getName().getZh_cn();
+        return mItem.getName().get(this);
     }
 
     private void setViews() {
@@ -109,7 +109,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
         }
 
         if (mItem.getName() != null) {
-            getSupportActionBar().setTitle(mItem.getName().getZh_cn());
+            getSupportActionBar().setTitle(mItem.getName().get(this));
         }
 
         TabLayout tabLayout = new TabLayout(this);
@@ -152,9 +152,9 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
             }
 
             while (true) {
-                //sb.append(KCStringFormatter.getLinkShip(cur.getId(), cur.getName().getZh_cn()));
+                //sb.append(KCStringFormatter.getLinkShip(cur.getId(), cur.getName().get(this)));
                 StringBuilder sb = new StringBuilder();
-                sb.append(cur.getName().getZh_cn());
+                sb.append(cur.getName().get(this));
                 ViewGroup view = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.ship_remodel_item, null);
                 view.setLayoutParams(
                         new GridLayout.LayoutParams(
@@ -227,7 +227,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
                     //((TextView) view.findViewById(android.R.id.title)).setText(KCStringFormatter.getLinkItem(item));
                     //((TextView) view.findViewById(android.R.id.title)).setMovementMethod(new LinkMovementMethod());
                     //view.findViewById(android.R.id.title).setClickable(true);
-                    ((TextView) view.findViewById(android.R.id.title)).setText(item.getName().getZh_cn());
+                    ((TextView) view.findViewById(android.R.id.title)).setText(item.getName().get(this));
                     //ItemTypeList.setIntoImageView((ImageView) view.findViewById(R.id.imageView), item.getIcon());
                     view.setOnClickListener(new View.OnClickListener() {
                         @Override

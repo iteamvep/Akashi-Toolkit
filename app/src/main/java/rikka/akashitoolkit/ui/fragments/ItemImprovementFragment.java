@@ -29,9 +29,8 @@ public class ItemImprovementFragment extends BaseDisplayFragment {
 
     @Override
     public void onPostCreateView(RecyclerView recyclerView) {
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-        layoutManager.setAutoMeasureEnabled(false);
-        recyclerView.setLayoutManager(layoutManager);
+        super.onPostCreateView(recyclerView);
+
         recyclerView.addItemDecoration(new BaseRecyclerViewItemDecoration(getContext()));
     }
 }

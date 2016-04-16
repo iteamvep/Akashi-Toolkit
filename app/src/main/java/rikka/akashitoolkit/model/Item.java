@@ -27,13 +27,13 @@ public class Item {
      * ja : 35.6cm连装炮
      */
 
-    private NameEntity name;
+    private MultiLanguageEntry name;
     /**
      * zh_cn : 旧型的小型主炮。被旧型驱逐舰作为标准主炮所搭载。<br/>虽然装填和操作都需要人力完成，但由于其结构简单，经济性较高，也长期用于驱逐舰、海防舰等舰船上。<br />不适合用于对空射击。
      * ja : 旧型の小型砲です。旧型駆逐艦に標準的主砲として搭載されました。<br />装填・操砲も人力ですが、シンプルな構造で経済性も高く、駆逐艦や海防艦等の主砲として、長く使われました。<br />対空射撃には不向きです。
      */
 
-    private IntroductionEntity introduction;
+    private MultiLanguageEntry introduction;
     private String remark;
     /**
      * fire : 15
@@ -65,19 +65,19 @@ public class Item {
         this.id = id;
     }
 
-    public NameEntity getName() {
+    public MultiLanguageEntry getName() {
         return name;
     }
 
-    public void setName(NameEntity name) {
+    public void setName(MultiLanguageEntry name) {
         this.name = name;
     }
 
-    public IntroductionEntity getIntroduction() {
+    public MultiLanguageEntry getIntroduction() {
         return introduction;
     }
 
-    public void setIntroduction(IntroductionEntity introduction) {
+    public void setIntroduction(MultiLanguageEntry introduction) {
         this.introduction = introduction;
     }
 
@@ -159,58 +159,6 @@ public class Item {
 
     public void setGet(GetEntity get) {
         this.get = get;
-    }
-
-    public static class NameEntity {
-        private String zh_cn;
-        private String ja;
-
-        public NameEntity() {
-            zh_cn = "";
-            ja = "";
-        }
-
-        public String getZh_cn() {
-            return zh_cn;
-        }
-
-        public void setZh_cn(String zh_cn) {
-            this.zh_cn = zh_cn;
-        }
-
-        public String getJa() {
-            return ja;
-        }
-
-        public void setJa(String ja) {
-            this.ja = ja;
-        }
-    }
-
-    public static class IntroductionEntity {
-        private String zh_cn;
-        private String ja;
-
-        public IntroductionEntity() {
-            zh_cn = "";
-            ja = "";
-        }
-
-        public String getZh_cn() {
-            return zh_cn;
-        }
-
-        public void setZh_cn(String zh_cn) {
-            this.zh_cn = zh_cn;
-        }
-
-        public String getJa() {
-            return ja;
-        }
-
-        public void setJa(String ja) {
-            this.ja = ja;
-        }
     }
 
     public static class AttrEntity {

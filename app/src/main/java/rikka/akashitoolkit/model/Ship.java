@@ -29,7 +29,7 @@ public class Ship {
      * zh_cn : 睦月
      */
 
-    private NameEntity name;
+    private MultiLanguageEntry name;
     private String name_for_search;
     private int rarity;
     private int type;
@@ -79,11 +79,11 @@ public class Ship {
         this.id_illustrations = id_illustrations;
     }
 
-    public NameEntity getName() {
+    public MultiLanguageEntry getName() {
         return name;
     }
 
-    public void setName(NameEntity name) {
+    public void setName(MultiLanguageEntry name) {
         this.name = name;
     }
 
@@ -165,27 +165,6 @@ public class Ship {
 
     public void setDismantling_res(List<Integer> dismantling_res) {
         this.dismantling_res = dismantling_res;
-    }
-
-    public static class NameEntity {
-        private String ja;
-        private String zh_cn;
-
-        public String getJa() {
-            return ja;
-        }
-
-        public void setJa(String ja) {
-            this.ja = ja;
-        }
-
-        public String getZh_cn() {
-            return zh_cn;
-        }
-
-        public void setZh_cn(String zh_cn) {
-            this.zh_cn = zh_cn;
-        }
     }
 
     public static class AttrEntity {

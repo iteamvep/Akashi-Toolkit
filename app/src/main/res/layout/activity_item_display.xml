@@ -37,6 +37,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:id="@+id/linearLayout"
+            android:paddingTop="8dp"
             android:paddingBottom="16dp">
 
             <!--<TextView

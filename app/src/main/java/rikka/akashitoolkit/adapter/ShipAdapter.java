@@ -47,6 +47,8 @@ public class ShipAdapter extends BaseRecyclerAdapter<ViewHolder.Ship> {
         mTypeFlag = typeFlag;
         mShowSpeed = showSpeed;
         mActivity = activity;
+
+        rebuildDataList();
     }
 
     public void setSearching(boolean searching) {
@@ -170,7 +172,7 @@ public class ShipAdapter extends BaseRecyclerAdapter<ViewHolder.Ship> {
         holder.mDummyView.setVisibility(!showDivider ? View.VISIBLE : View.GONE);
         holder.mDummyView2.setVisibility(showTitle && position != 0 ? View.VISIBLE : View.GONE);
 
-        holder.mName.setText(mData.get(position).getName().getZh_cn());
+        holder.mName.setText(mData.get(position).getName().get(holder.mName.getContext()));
 
         holder.mLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override

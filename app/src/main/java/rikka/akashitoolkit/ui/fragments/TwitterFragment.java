@@ -40,6 +40,7 @@ import rikka.akashitoolkit.adapter.TwitterAdapter;
 import rikka.akashitoolkit.model.Twitter;
 import rikka.akashitoolkit.network.RetrofitAPI;
 import rikka.akashitoolkit.otto.BusProvider;
+import rikka.akashitoolkit.otto.DataChangedAction;
 import rikka.akashitoolkit.otto.PreferenceChangedAction;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.Statistics;
@@ -263,8 +264,7 @@ public class TwitterFragment extends BaseFragmet {
             mTwitterAdapter.notifyItemRangeInserted(0, added);
             mTwitterAdapter.notifyItemRangeChanged(added, modified);
             if (added > 0 && mRecyclerView.getScrollY() <= 50) {
-                mRecyclerView.scrollToPosition(0);
-
+                //mRecyclerView.scrollToPosition(0);
                 showSnackbar(String.format(getString(R.string.new_twitter), added), Snackbar.LENGTH_SHORT);
             }
 

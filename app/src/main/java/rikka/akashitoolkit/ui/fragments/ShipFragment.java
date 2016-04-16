@@ -20,9 +20,7 @@ import rikka.akashitoolkit.utils.Utils;
 /**
  * Created by Rikka on 2016/3/30.
  */
-public class ShipFragment extends Fragment {
-    private ShipAdapter mAdapter;
-
+public class ShipFragment extends BaseDisplayFragment<ShipAdapter> {
     @Override
     public void onStart() {
         super.onStart();
@@ -35,10 +33,9 @@ public class ShipFragment extends Fragment {
         super.onStop();
     }
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.content_recycler, container, false);
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
         int flag = 0;
         int speed = 0;
@@ -50,45 +47,42 @@ public class ShipFragment extends Fragment {
             speed = args.getInt("SPEED");
         }
 
-        mAdapter = new ShipAdapter(getActivity(), finalVersion > 0, flag, speed);
-        mAdapter.rebuildDataList(/*getContext()*/);
-        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
-        recyclerView.setPadding(0, Utils.dpToPx(2), 0, Utils.dpToPx(2));
-        recyclerView.setAdapter(mAdapter);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-        layoutManager.setAutoMeasureEnabled(false);
-        recyclerView.setLayoutManager(layoutManager);
-        //recyclerView.addItemDecoration(new BaseRecyclerViewItemDecoration(getContext()));
+        setAdapter(new ShipAdapter(getActivity(), finalVersion > 0, flag, speed));
+    }
 
-        return view;
+    @Override
+    public void onPostCreateView(RecyclerView recyclerView) {
+        super.onPostCreateView(recyclerView);
+
+        recyclerView.setPadding(0, Utils.dpToPx(2), 0, Utils.dpToPx(2));
     }
 
     @Subscribe
     public void showFinalVersionChanged(ShipAction.ShowFinalVersionChangeAction action) {
-        mAdapter.setShowOnlyFinalVersion(action.isShowFinalVersion());
-        mAdapter.rebuildDataList(/*getContext()*/);
+        getAdapter().setShowOnlyFinalVersion(action.isShowFinalVersion());
+        getAdapter().rebuildDataList(/*getContext()*/);
     }
 
     @Subscribe
     public void typeChanged(ShipAction.TypeChangeAction action) {
-        mAdapter.setTypeFlag(action.getType());
-        mAdapter.rebuildDataList(/*getContext()*/);
+        getAdapter().setTypeFlag(action.getType());
+        getAdapter().rebuildDataList(/*getContext()*/);
     }
 
     @Subscribe
     public void speedChanged(ShipAction.SpeedChangeAction action) {
-        mAdapter.setShowSpeed(action.getType());
-        mAdapter.rebuildDataList(/*getContext()*/);
+        getAdapter().setShowSpeed(action.getType());
+        getAdapter().rebuildDataList(/*getContext()*/);
     }
 
     @Subscribe
     public void keywordChanged(ShipAction.KeywordChanged action) {
-        mAdapter.setKeyword(action.getKeyword());
-        mAdapter.rebuildDataList(/*getContext()*/);
+        getAdapter().setKeyword(action.getKeyword());
+        getAdapter().rebuildDataList(/*getContext()*/);
     }
 
     @Subscribe
     public void isSearchingChanged(ShipAction.IsSearchingChanged action) {
-        mAdapter.setSearching(action.isSearching());
+        getAdapter().setSearching(action.isSearching());
     }
 }

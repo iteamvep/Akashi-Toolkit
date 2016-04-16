@@ -11,30 +11,32 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import rikka.akashitoolkit.R;
+import rikka.akashitoolkit.adapter.ItemAdapter;
 import rikka.akashitoolkit.adapter.MapAdapter;
 import rikka.materialpreference.BaseRecyclerViewItemDecoration;
 
 /**
  * Created by Rikka on 2016/4/9.
  */
-public class MapFragment extends Fragment {
-    @Nullable
+public class MapFragment extends BaseDisplayFragment<MapAdapter> {
+    private int mType;
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.content_recycler, container, false);
-        int type = 0;
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
         Bundle args = getArguments();
         if (args != null) {
-            type = args.getInt("TYPE") + 1;
+            mType = args.getInt("TYPE") + 1;
         }
 
-        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
-        recyclerView.setAdapter(new MapAdapter(getContext(), type));
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-        layoutManager.setAutoMeasureEnabled(false);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.addItemDecoration(new BaseRecyclerViewItemDecoration(getContext()));
+        setAdapter(new MapAdapter(getActivity(), mType));
+    }
 
-        return view;
+    @Override
+    public void onPostCreateView(RecyclerView recyclerView) {
+        super.onPostCreateView(recyclerView);
+
+        recyclerView.addItemDecoration(new BaseRecyclerViewItemDecoration(getContext()));
     }
 }

@@ -80,7 +80,7 @@ public class ItemDisplayActivity extends BaseItemDisplayActivity {
 
     @Override
     protected String getTaskDescriptionLabel() {
-        return mItem.getName().getZh_cn();
+        return mItem.getName().get(this);
     }
 
     @Override
@@ -113,7 +113,7 @@ public class ItemDisplayActivity extends BaseItemDisplayActivity {
         }
 
         if (mItem.getName() != null) {
-            getSupportActionBar().setTitle(mItem.getName().getZh_cn());
+            getSupportActionBar().setTitle(mItem.getName().get(this));
         }
 
         /*((TextView) findViewById(R.id.text_title)).setText(*/
@@ -123,16 +123,16 @@ public class ItemDisplayActivity extends BaseItemDisplayActivity {
                 ItemTypeList.findItemById(this, mItem.getSubType()).getName(),
                 KCStringFormatter.getStars(mItem.getRarity())));
 
-        addAttrView(mItemAttrContainer, "火力", mItem.getAttr().getFire(), R.drawable.item_attr_fire);
-        addAttrView(mItemAttrContainer, "对空", mItem.getAttr().getAa(), R.drawable.item_attr_aa);
-        addAttrView(mItemAttrContainer, "命中", mItem.getAttr().getAcc(), R.drawable.item_attr_acc);
-        addAttrView(mItemAttrContainer, "雷装", mItem.getAttr().getTorpedo(), R.drawable.item_attr_torpedo);
-        addAttrView(mItemAttrContainer, "爆装", mItem.getAttr().getBomb(), R.drawable.item_attr_bomb);
-        addAttrView(mItemAttrContainer, "对潜", mItem.getAttr().getAsw(), R.drawable.item_attr_asw);
-        addAttrView(mItemAttrContainer, "回避", mItem.getAttr().getEvasion(), R.drawable.item_attr_dodge);
-        addAttrView(mItemAttrContainer, "索敌", mItem.getAttr().getSearch(), R.drawable.item_attr_search);
-        addAttrView(mItemAttrContainer, "装甲", mItem.getAttr().getArmor(), R.drawable.item_attr_armor);
-        addAttrView(mItemAttrContainer, "射程", mItem.getAttr().getRange(), R.drawable.item_attr_range);
+        addAttrView(mLinearLayout, "火力", mItem.getAttr().getFire(), R.drawable.item_attr_fire);
+        addAttrView(mLinearLayout, "对空", mItem.getAttr().getAa(), R.drawable.item_attr_aa);
+        addAttrView(mLinearLayout, "命中", mItem.getAttr().getAcc(), R.drawable.item_attr_acc);
+        addAttrView(mLinearLayout, "雷装", mItem.getAttr().getTorpedo(), R.drawable.item_attr_torpedo);
+        addAttrView(mLinearLayout, "爆装", mItem.getAttr().getBomb(), R.drawable.item_attr_bomb);
+        addAttrView(mLinearLayout, "对潜", mItem.getAttr().getAsw(), R.drawable.item_attr_asw);
+        addAttrView(mLinearLayout, "回避", mItem.getAttr().getEvasion(), R.drawable.item_attr_dodge);
+        addAttrView(mLinearLayout, "索敌", mItem.getAttr().getSearch(), R.drawable.item_attr_search);
+        addAttrView(mLinearLayout, "装甲", mItem.getAttr().getArmor(), R.drawable.item_attr_armor);
+        addAttrView(mLinearLayout, "射程", mItem.getAttr().getRange(), R.drawable.item_attr_range);
 
         addShipType();
 
@@ -161,9 +161,10 @@ public class ItemDisplayActivity extends BaseItemDisplayActivity {
             }
 
             TextView textView = new TextView(this);
-            textView.setText(list.get(shipType).getName().getZh_cn());
+            textView.setText(list.get(shipType).getName().get(this));
             textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
-            textView.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1));
+            textView.setLayoutParams(new LinearLayout.LayoutParams(0, Utils.dpToPx(36), 1));
+            textView.setGravity(Gravity.CENTER_VERTICAL);
             textView.setSingleLine(true);
             //textView.setGravity(Gravity.CENTER_HORIZONTAL);
             textView.setPadding(i == 0 ? Utils.dpToPx(16) : Utils.dpToPx(4), Utils.dpToPx(2), i == 2 ? Utils.dpToPx(16) : Utils.dpToPx(4), Utils.dpToPx(2));
@@ -241,10 +242,10 @@ public class ItemDisplayActivity extends BaseItemDisplayActivity {
         }
 
         if (mItem.getIntroduction() != null
-                && mItem.getIntroduction().getZh_cn() != null
-                && mItem.getIntroduction().getZh_cn().length() > 0) {
+                && mItem.getIntroduction().get(this) != null
+                && mItem.getIntroduction().get(this).length() > 0) {
             ViewGroup cell = addCell(parent, R.string.introduction);
-            addTextView(cell, Html.fromHtml(mItem.getIntroduction().getZh_cn())).setPadding(Utils.dpToPx(16), 0, Utils.dpToPx(16), 0);
+            addTextView(cell, Html.fromHtml(mItem.getIntroduction().get(this))).setPadding(Utils.dpToPx(16), 0, Utils.dpToPx(16), 0);
         }
     }
 
@@ -309,10 +310,19 @@ public class ItemDisplayActivity extends BaseItemDisplayActivity {
         LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this).inflate(R.layout.item_improvement_levelup, null);
         ((TextView) linearLayout.findViewById(android.R.id.title)).setText(title);
 
-        Item item = ItemList.findItemById(this, id);
-        ((TextView) linearLayout.findViewById(R.id.text_number_0)).setText(item.getName().getZh_cn());
+        final Item item = ItemList.findItemById(this, id);
+        ((TextView) linearLayout.findViewById(R.id.text_number_0)).setText(item.getName().get(this));
         /*((ImageView) linearLayout.findViewById(R.id.imageView))
                 .setImageResource(ItemTypeList.getResourceId(this, item.getIcon()));*/
+
+        ((View) linearLayout.findViewById(R.id.text_number_0).getParent()).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ItemDisplayActivity.this, ItemDisplayActivity.class);
+                intent.putExtra(ShipDisplayActivity.EXTRA_ITEM_ID, item.getId());
+                startActivity(intent);
+            }
+        });
 
         ItemTypeList.setIntoImageView((ImageView) linearLayout.findViewById(R.id.imageView), item.getIcon());
 
@@ -338,11 +348,20 @@ public class ItemDisplayActivity extends BaseItemDisplayActivity {
             ((TextView) linearLayout.findViewById(R.id.text_number_1)).setText(String.format("%d(%d)", res.get(2), res.get(3)));
 
             if (res.get(5) > 0) {
-                Item item = ItemList.findItemById(this, res.get(4));
+                final Item item = ItemList.findItemById(this, res.get(4));
                 ((TextView) linearLayout.findViewById(R.id.text_number_2)).setText(
                         String.format("%s ×%d",
-                                item.getName().getZh_cn(),
+                                item.getName().get(this),
                                 res.get(5)));
+
+                ((View) linearLayout.findViewById(R.id.text_number_2).getParent()).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(ItemDisplayActivity.this, ItemDisplayActivity.class);
+                        intent.putExtra(ShipDisplayActivity.EXTRA_ITEM_ID, item.getId());
+                        startActivity(intent);
+                    }
+                });
 
                 /*((ImageView) linearLayout.findViewById(R.id.imageView))
                         .setImageResource(ItemTypeList.getResourceId(this, item.getIcon()));*/
@@ -387,10 +406,12 @@ public class ItemDisplayActivity extends BaseItemDisplayActivity {
             return;
         }
 
-        if (mItemAttrContainer == null) {
+        mItemAttrContainer = (LinearLayout) parent;
+
+        /*if (mItemAttrContainer == null) {
             mItemAttrContainer = (LinearLayout) addCell(mLinearLayout, R.string.attributes);
             parent = mItemAttrContainer;
-        }
+        }*/
 
         attr ++;
 

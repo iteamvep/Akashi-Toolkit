@@ -98,7 +98,7 @@ public class ItemAdapter extends BaseRecyclerAdapter<ViewHolder.Item> {
         holder.mDummyView.setVisibility(!showDivider ? View.VISIBLE : View.GONE);
         holder.mDummyView2.setVisibility(showTitle && position != 0 ? View.VISIBLE : View.GONE);
 
-        holder.mName.setText(mData.get(position).getName().getZh_cn());
+        holder.mName.setText(mData.get(position).getName().get(holder.mName.getContext()));
 
         ItemTypeList.setIntoImageView(holder.mImageView, mData.get(position).getIcon());
         //holder.mImageView.setImageResource(ItemTypeList.getResourceId(holder.itemView.getContext(), mData.get(position).getIcon()));
