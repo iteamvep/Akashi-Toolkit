@@ -39,6 +39,11 @@ public class ExpandableLayout extends FrameLayout {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+
+        if (isInEditMode()) {
+            return;
+        }
+
         mHeight = getMeasuredHeight();
 
         if (mAnimating) {

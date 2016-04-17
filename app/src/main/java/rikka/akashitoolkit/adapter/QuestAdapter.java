@@ -143,9 +143,10 @@ public class QuestAdapter extends RecyclerView.Adapter<ViewHolder.Quest> {
     @Override
     public void onBindViewHolder(ViewHolder.Quest holder, int position) {
         //holder.mCardView.setCardBackgroundColor(ContextCompat.getColor(holder.mCardView.getContext(), CARD_BACKGROUND[mType - 1]));
-        holder.mName.setText(String.format("%s %s", mData.get(position).getCode(), mData.get(position).getTitle()));
+        holder.mName.setText(mData.get(position).getTitle());
+        holder.mCode.setText(mData.get(position).getCode());
         holder.mDetail.setText(mData.get(position).getContent());
-        holder.mRequire.setText(mData.get(position).getRequire());
+        //holder.mRequire.setText(mData.get(position).getRequire());
 
         setRewardText(holder, position, 0);
         setRewardText(holder, position, 1);
@@ -154,25 +155,18 @@ public class QuestAdapter extends RecyclerView.Adapter<ViewHolder.Quest> {
 
         holder.mRewardText[4].setText(mData.get(position).getAwardOther());
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
         if (mData.get(position).getUnlockIndex() > 0) {
             holder.mName2.setVisibility(View.VISIBLE);
 
             final QuestList.Quest item = QuestList.findItemById(holder.mName2.getContext(), mData.get(position).getUnlockIndex());
             if (item != null) {
                 holder.mName2.setText(String.format("前置任务: %s %s", item.getCode(), item.getTitle()));
-                holder.mCardView.setOnClickListener(new View.OnClickListener() {
+                /*holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         BusProvider.instance().post(new QuestAction.JumpToQuest(item.getType(), item.getIndex()));
                     }
-                });
+                });*/
             }
         } else {
             holder.mName2.setVisibility(View.GONE);

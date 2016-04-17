@@ -18,6 +18,7 @@ import rikka.akashitoolkit.adapter.QuestAdapter;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.QuestAction;
 import rikka.akashitoolkit.utils.Utils;
+import rikka.materialpreference.BaseRecyclerViewItemDecoration;
 
 /**
  * Created by Rikka on 2016/3/6.
@@ -59,13 +60,14 @@ public class QuestFragment extends Fragment {
         }
 
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
-        mRecyclerView.setPadding(0, Utils.dpToPx(2), 0, Utils.dpToPx(2));
+        //mRecyclerView.setPadding(0, Utils.dpToPx(2), 0, Utils.dpToPx(2));
         mAdapter = new QuestAdapter(getContext(), mType, flag);
         mAdapter.rebuildDataList(getContext());
         mRecyclerView.setAdapter(mAdapter);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         layoutManager.setAutoMeasureEnabled(false);
         mRecyclerView.setLayoutManager(layoutManager);
+        mRecyclerView.addItemDecoration(new BaseRecyclerViewItemDecoration(getContext()));
 
         if (jump_index != -1 && jump_type == mType) {
             jumpTo(jump_index);
