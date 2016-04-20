@@ -19,6 +19,16 @@ public class MultiLanguageEntry {
         ja = "";
     }
 
+    public String get(Context context, boolean isTitle) {
+        if (isTitle && Settings
+                        .instance(context)
+                        .getBoolean(Settings.DATA_TITLE_LANGUAGE, true)) {
+            return ja;
+        }
+
+        return get(context);
+    }
+
     public String get(Context context) {
         switch (Settings
                 .instance(context)

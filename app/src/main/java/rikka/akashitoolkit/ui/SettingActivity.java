@@ -128,6 +128,7 @@ public class SettingActivity extends BaseActivity {
                     ((BaseDayNightModeActivity) getActivity()).setNightMode(mode);
                     break;
                 case Settings.DATA_LANGUAGE:
+                case Settings.DATA_TITLE_LANGUAGE:
                     BusProvider
                             .instance()
                             .post(new DataChangedAction("any"));

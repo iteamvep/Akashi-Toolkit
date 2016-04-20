@@ -5,11 +5,16 @@ import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.net.ConnectivityManager;
+import android.util.Log;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 /**
  * Created by Rikka on 2016/3/8.
@@ -57,5 +62,31 @@ public class Utils {
         colorAnimation.setDuration(duration);
         colorAnimation.addUpdateListener(listener);
         colorAnimation.start();
+    }
+
+    public static String md5( String input ) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            byte[] array = md.digest(input.getBytes("UTF-8"));
+            StringBuilder sb = new StringBuilder();
+            for (byte anArray : array) {
+                sb.append(String.format("%02x", anArray));
+            }
+            return sb.toString();
+        } catch ( NoSuchAlgorithmException | UnsupportedEncodingException e) {
+            return null;
+        }
+    }
+
+    public static String getKCWikiFileUrl(String fileName) {
+        String md5 = Utils.md5(fileName);
+        if (md5 == null) {
+            return null;
+        }
+
+        String a = md5.substring(0, 1);
+        String b = md5.substring(0, 2);
+
+        return String.format("http://kc.6candy.com/commons/%s/%s/%s", a, b, fileName);
     }
 }

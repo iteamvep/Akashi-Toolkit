@@ -89,6 +89,8 @@
     <string name="data_language">Language of data</string>
     <string name="language_zh">Simplified Chinese</string>
     <string name="language_ja">Japanese</string>
-
+    <string name="data_language_title">Use Japanese title</string>
+    <string name="data_language_title_summary">Show Japanese for title such as quest name</string>
+    <string name="action_picture">Picture</string>
 
 </resources>

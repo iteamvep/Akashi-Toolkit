@@ -28,6 +28,31 @@
             android:layout_weight="1"
             android:gravity="center_vertical"/>
 
+        <TextView
+            android:background="@drawable/quest_code_bg"
+            android:id="@+id/text_quest_type2"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            tools:text="新"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textSize="@dimen/card_font_large"
+            android:textColor="@color/day_text_color"
+            android:gravity="center"/>
+
+        <TextView
+            android:background="@drawable/quest_code_bg"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:id="@+id/text_quest_type"
+            tools:text="周"
+            android:singleLine="true"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textSize="@dimen/card_font_large"
+            android:textColor="@color/day_text_color"
+            android:gravity="center"
+            android:layout_marginLeft="4dp"
+            android:layout_marginStart="4dp"/>
+
     </LinearLayout>
 
     <rikka.akashitoolkit.widget.ExpandableLayout
@@ -83,17 +108,6 @@
                 android:orientation="vertical">
 
             </LinearLayout>
-            <!--<TextView
-                android:id="@+id/text_card_title2"
-                android:background="?attr/selectableItemBackground"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:singleLine="true"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp"
-                tools:text="前置任务: はじめての「編成」！"
-                android:textSize="@dimen/card_font_medium"
-                android:gravity="center_vertical"/>-->
 
         </LinearLayout>
 

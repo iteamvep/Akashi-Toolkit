@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.GridLayout;
 import android.util.AttributeSet;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -49,9 +50,18 @@ public class SimpleDrawerView extends LinearLayout {
     }
 
     public View addTitle(String title) {
-        View view = inflate(getContext(), R.layout.drawer_title, this);
+        if (getChildCount() != 0) {
+            View view = new View(getContext());
+            view.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 1));
+            view.setBackgroundResource(R.drawable.line_divider);
+
+            addView(view);
+        }
+
+        View view = LayoutInflater.from(getContext()).inflate(R.layout.drawer_title, this, false);
         TextView textView = (TextView) view.findViewById(R.id.textView);
         textView.setText(title);
+        addView(view);
 
         return textView;
     }

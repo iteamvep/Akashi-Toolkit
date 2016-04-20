@@ -2,6 +2,7 @@ package rikka.akashitoolkit.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.text.Html;
 import android.text.Spanned;
@@ -15,6 +16,7 @@ import java.util.List;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.model.Map;
 import rikka.akashitoolkit.staticdata.MapList;
+import rikka.akashitoolkit.ui.MapActivity;
 
 /**
  * Created by Rikka on 2016/4/9.
@@ -34,18 +36,28 @@ public class MapAdapter extends BaseRecyclerAdapter<ViewHolder.Map> {
 
     @Override
     public ViewHolder.Map onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_map_recommend, parent, false);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_map, parent, false);
         return new ViewHolder.Map(itemView);
     }
 
     @Override
     public void onBindViewHolder(ViewHolder.Map holder, int position) {
-        Map item = mData.get(position);
+        final Map item = mData.get(position);
         holder.mTitle.setText(item.getMap());
 
         Spanned htmlDescription = Html.fromHtml(format(item));
         String descriptionWithOutExtraSpace = htmlDescription.toString().trim();
         holder.mTextView.setText(htmlDescription.subSequence(0, descriptionWithOutExtraSpace.length()));
+
+        holder.mImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, MapActivity.class);
+                intent.putExtra(MapActivity.EXTRA_ITEM_ID, item.getSea() * 10 + item.getArea());
+                intent.putExtra(MapActivity.EXTRA_ITEM_NAME, item.getMap());
+                mContext.startActivity(intent);
+            }
+        });
     }
 
     @SuppressLint("DefaultLocale")

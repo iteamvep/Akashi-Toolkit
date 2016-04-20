@@ -62,6 +62,20 @@ public class QuestAdapter extends BaseRecyclerAdapter<ViewHolder.Quest> {
         return 0;
     }
 
+    @Override
+    public int getItemViewType(int position) {
+        Quest quest = mData.get(position);
+        int type = 0;
+        if (quest.getPeriod() > 0) {
+            type ++;
+        }
+        if (quest.isNewMission()) {
+            type ++;
+        }
+
+        return type;
+    }
+
     private boolean check(Quest item) {
         if (mType == 0 || item.getType() == mType) {
             if (mFilterFlag == 0) {
@@ -170,7 +184,20 @@ public class QuestAdapter extends BaseRecyclerAdapter<ViewHolder.Quest> {
 
     @Override
     public ViewHolder.Quest onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_quest_detail, parent, false);
+        View itemView;
+        switch (viewType) {
+            /*case 0:
+                itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_quest_detail, parent, false);
+                break;
+            case 1:
+                itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_quest_detail_one_type, parent, false);
+                break;
+            case 2:
+                itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_quest_detail_double_types, parent, false);
+                break;*/
+            default:
+                itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_quest_detail_double_types, parent, false);
+        }
         return new ViewHolder.Quest(itemView);
     }
 
@@ -182,13 +209,28 @@ public class QuestAdapter extends BaseRecyclerAdapter<ViewHolder.Quest> {
         holder.mName.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
 
         Quest quest = mData.get(position);
-        holder.mName.setText(String.format("%s %s", quest.getCode(), quest.getTitle().get(holder.itemView.getContext())));
+
+        holder.mName.setText(
+                String.format("%s %s",
+                        quest.getCode(),
+                        quest.getTitle().get(mContext, true)));
+
         holder.mDetail.setText(Html.fromHtml(quest.getContent().get(holder.itemView.getContext())));
+
+        holder.mType[0].setVisibility(View.INVISIBLE);
+        holder.mType[1].setVisibility(View.INVISIBLE);
+
+        int viewType = 0;
+
         if (quest.getPeriod() > 0) {
-            holder.mPeriod.setVisibility(View.VISIBLE);
-            holder.mPeriod.setText(PERIOD[quest.getPeriod()]);
-        } else {
-            holder.mPeriod.setVisibility(View.GONE);
+            holder.mType[0].setVisibility(View.VISIBLE);
+            holder.mType[0].setText(PERIOD[quest.getPeriod()]);
+            viewType ++;
+        }
+
+        if (quest.isNewMission()) {
+            holder.mType[viewType].setVisibility(View.VISIBLE);
+            holder.mType[viewType].setText("新");
         }
 
         if (quest.getNote() != null && quest.getNote().length() > 0) {

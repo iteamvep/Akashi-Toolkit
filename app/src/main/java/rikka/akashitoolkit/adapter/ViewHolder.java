@@ -2,6 +2,7 @@ package rikka.akashitoolkit.adapter;
 
 import android.graphics.PorterDuff;
 import android.graphics.Typeface;
+import android.media.Image;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -20,14 +21,11 @@ public class ViewHolder {
     public static class Quest extends RecyclerView.ViewHolder {
         protected ExpandableLayout mExpandableLayout;
         protected TextView mName;
-        //protected TextView mName2;
-        protected TextView mCode;
         protected TextView mDetail;
         protected TextView mNote;
         protected TextView mRequire;
-        protected TextView mRewardText[];
-        protected TextView mType;
-        protected TextView mPeriod;
+        protected TextView mRewardText[] = new TextView[5];
+        protected TextView mType[] = new TextView[2];
         protected LinearLayout mQuestContainer;
 
 
@@ -35,15 +33,14 @@ public class ViewHolder {
             super(itemView);
 
             mExpandableLayout = (ExpandableLayout) itemView.findViewById(R.id.expandableLinearLayout);
-            //mCode = (TextView) itemView.findViewById(R.id.text_quest_code);
-            mType = (TextView) itemView.findViewById(R.id.text_quest_type);
-            mPeriod = (TextView) itemView.findViewById(R.id.text_quest_period);
+
+            mType[0] = (TextView) itemView.findViewById(R.id.text_quest_type);
+            mType[1] = (TextView) itemView.findViewById(R.id.text_quest_type2);
             mName = (TextView) itemView.findViewById(R.id.text_card_title);
-            //mName2 = (TextView) itemView.findViewById(R.id.text_card_title2);
+
             mDetail = (TextView) itemView.findViewById(R.id.text_quest_detail);
             mNote = (TextView) itemView.findViewById(R.id.text_quest_note);
             mRequire = (TextView) itemView.findViewById(R.id.text_quest_require);
-            mRewardText = new TextView[5];
             mRewardText[0] = (TextView) itemView.findViewById(R.id.text_number_0);
             mRewardText[1] = (TextView) itemView.findViewById(R.id.text_number_1);
             mRewardText[2] = (TextView) itemView.findViewById(R.id.text_number_2);
@@ -51,9 +48,16 @@ public class ViewHolder {
             mRewardText[4] = (TextView) itemView.findViewById(R.id.text_quest_reward_4);
             mQuestContainer = (LinearLayout) itemView.findViewById(R.id.quest_container);
 
-            /*mPeriod.getBackground().setColorFilter(
-                    ContextCompat.getColor(itemView.getContext(), R.color.colorAccent),
-                    PorterDuff.Mode.SRC_ATOP);*/
+            /*for (TextView textView :
+                    mType) {
+                if (textView == null) {
+                    continue;
+                }
+
+                textView.getBackground().setColorFilter(
+                        ContextCompat.getColor(itemView.getContext(), R.color.colorAccent),
+                        PorterDuff.Mode.SRC_ATOP);
+            }*/
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -163,6 +167,7 @@ public class ViewHolder {
         protected ExpandableLayout mDetailContainer;
         protected TextView mTitle;
         protected TextView mTextView;
+        protected ImageView mImageView;
 
         public Map(View itemView) {
             super(itemView);
@@ -171,6 +176,7 @@ public class ViewHolder {
             mDetailContainer = (ExpandableLayout) itemView.findViewById(R.id.expandableLinearLayout);
             mTitle = (TextView) itemView.findViewById(android.R.id.title);
             mTextView = (TextView) itemView.findViewById(R.id.textView);
+            mImageView = (ImageView) itemView.findViewById(R.id.imageView);
 
             /*mDetailContainer.post(new Runnable() {
                 @Override

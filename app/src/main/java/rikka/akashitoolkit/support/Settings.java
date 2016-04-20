@@ -27,6 +27,7 @@ public class Settings {
     public static final String SHIP_SPEED = "ship_show_speed";
 
     public static final String DATA_LANGUAGE = "data_language";
+    public static final String DATA_TITLE_LANGUAGE = "data_title_language";
 
 
     private static Settings sInstance;

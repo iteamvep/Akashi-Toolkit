@@ -53,6 +53,10 @@ public abstract class BaseItemDisplayActivity extends BaseDayNightModeActivity {
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
 
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) {
+            setTaskDescription(new ActivityManager.TaskDescription(getTaskDescriptionLabel(), null, ContextCompat.getColor(this, R.color.background)));
+        }
+
         if (!mShouldAnim) {
             return;
         }
@@ -60,10 +64,6 @@ public abstract class BaseItemDisplayActivity extends BaseDayNightModeActivity {
         if (savedInstanceState == null) {
             animEnter();
             setViewsFadeAnim();
-        }
-
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) {
-            setTaskDescription(new ActivityManager.TaskDescription(getTaskDescriptionLabel(), null, ContextCompat.getColor(this, R.color.background)));
         }
     }
 

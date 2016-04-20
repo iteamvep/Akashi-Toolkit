@@ -115,7 +115,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
         ViewPager viewPager = (ViewPager) LayoutInflater.from(this).inflate(R.layout.content_viewpager, mLinearLayout, true).findViewById(R.id.view_pager);
         //ViewPager viewPager = new ViewPager(this);
         viewPager.setPadding(0, Utils.dpToPx(4), 0, 0);
-        viewPager.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, Utils.dpToPx(32) * 6 + Utils.dpToPx(16)));
+        viewPager.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, Utils.dpToPx(32) * 7 + Utils.dpToPx(16)));
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager()) {
             @Override
             public Bundle getArgs(int position) {
@@ -336,6 +336,11 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
             addAttrView(mLinearLayout, "航速", mItem.getAttr().getSpeed(), R.drawable.item_attr_speed);
             addAttrView(mLinearLayout, "射程", mItem.getAttr().getRange(), R.drawable.item_attr_range);
             addAttrView(mLinearLayout, "运", mItem.getAttr().getLuck(), i, R.drawable.item_attr_luck);
+            /*attr = 0;
+            mCurAttrLinearLayout = null;
+            addAttrView(mLinearLayout, "燃料消耗", mItem.getRemodel().getCost().get(0), 0);
+            addAttrView(mLinearLayout, "弹药消耗", mItem.getRemodel().getCost().get(1), 0);*/
+
             return mLinearLayout;
         }
 
