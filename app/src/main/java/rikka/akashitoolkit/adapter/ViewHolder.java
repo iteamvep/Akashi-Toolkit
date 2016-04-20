@@ -1,6 +1,8 @@
 package rikka.akashitoolkit.adapter;
 
+import android.graphics.PorterDuff;
 import android.graphics.Typeface;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -18,20 +20,28 @@ public class ViewHolder {
     public static class Quest extends RecyclerView.ViewHolder {
         protected ExpandableLayout mExpandableLayout;
         protected TextView mName;
-        protected TextView mName2;
+        //protected TextView mName2;
         protected TextView mCode;
         protected TextView mDetail;
+        protected TextView mNote;
         protected TextView mRequire;
         protected TextView mRewardText[];
+        protected TextView mType;
+        protected TextView mPeriod;
+        protected LinearLayout mQuestContainer;
+
 
         public Quest(View itemView) {
             super(itemView);
 
             mExpandableLayout = (ExpandableLayout) itemView.findViewById(R.id.expandableLinearLayout);
-            mCode = (TextView) itemView.findViewById(R.id.text_quest_code);
+            //mCode = (TextView) itemView.findViewById(R.id.text_quest_code);
+            mType = (TextView) itemView.findViewById(R.id.text_quest_type);
+            mPeriod = (TextView) itemView.findViewById(R.id.text_quest_period);
             mName = (TextView) itemView.findViewById(R.id.text_card_title);
-            mName2 = (TextView) itemView.findViewById(R.id.text_card_title2);
+            //mName2 = (TextView) itemView.findViewById(R.id.text_card_title2);
             mDetail = (TextView) itemView.findViewById(R.id.text_quest_detail);
+            mNote = (TextView) itemView.findViewById(R.id.text_quest_note);
             mRequire = (TextView) itemView.findViewById(R.id.text_quest_require);
             mRewardText = new TextView[5];
             mRewardText[0] = (TextView) itemView.findViewById(R.id.text_number_0);
@@ -39,14 +49,21 @@ public class ViewHolder {
             mRewardText[2] = (TextView) itemView.findViewById(R.id.text_number_2);
             mRewardText[3] = (TextView) itemView.findViewById(R.id.text_number_3);
             mRewardText[4] = (TextView) itemView.findViewById(R.id.text_quest_reward_4);
+            mQuestContainer = (LinearLayout) itemView.findViewById(R.id.quest_container);
+
+            /*mPeriod.getBackground().setColorFilter(
+                    ContextCompat.getColor(itemView.getContext(), R.color.colorAccent),
+                    PorterDuff.Mode.SRC_ATOP);*/
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if (mExpandableLayout.isExpanded()) {
                         mExpandableLayout.setExpanded(false);
+                        mName.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
                     } else {
                         mExpandableLayout.setExpanded(true);
+                        mName.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
                     }
                 }
             });

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:showIn="@layout/card_quest">
+    tools:showIn="@layout/card_quest_detail">
 
     <include layout="@layout/card_inside_numbers"/>
 
@@ -15,5 +15,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:textSize="@dimen/card_font_medium"
-        tools:text="驱逐舰白雪"/>
+        android:lineSpacingExtra="2dp"
+        tools:text="驱逐舰白雪\n11\n11"/>
 </LinearLayout>

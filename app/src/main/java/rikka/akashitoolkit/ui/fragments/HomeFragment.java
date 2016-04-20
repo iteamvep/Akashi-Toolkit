@@ -75,6 +75,12 @@ public class HomeFragment extends BaseFragmet {
     static {
         JSON_VERSION.put("EquipImprovement.json", 3);
         JSON_VERSION.put("Equip.json", 3);
+        JSON_VERSION.put("Ship.json", 1);
+        JSON_VERSION.put("ShipType.json", 1);
+        JSON_VERSION.put("Item.json", 1);
+        JSON_VERSION.put("Map.json", 1);
+        JSON_VERSION.put("MapType.json", 1);
+        JSON_VERSION.put("Quest.json", 1);
     }
 
     private static Map<String, String> JSON_NAME = new HashMap<>();
@@ -83,6 +89,11 @@ public class HomeFragment extends BaseFragmet {
         JSON_NAME.put("EquipImprovement.json", "改修数据");
         JSON_NAME.put("Equip.json", "装备数据");
         JSON_NAME.put("Ship.json", "舰娘数据");
+        JSON_NAME.put("ShipType.json", "舰娘类型数据");
+        JSON_NAME.put("Item.json", "物品数据");
+        JSON_NAME.put("Map.json", "带路数据");
+        JSON_NAME.put("MapType.json", "海图类型数据");
+        JSON_NAME.put("Quest.json", "任务数据");
     }
 
     @Override

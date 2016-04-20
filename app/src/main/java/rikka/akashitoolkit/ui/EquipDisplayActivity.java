@@ -196,7 +196,7 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
                 mItem.getGet().getEvent() != null) {
             ViewGroup cell = addCell(parent, R.string.item_get);
 
-            if (mItem.getGet().getQuest() != null) {
+            /*if (mItem.getGet().getQuest() != null) {
                 StringBuilder sb = new StringBuilder();
                 //sb.append(getString(R.string.quest)).append(":\n");
 
@@ -212,7 +212,7 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
                 }
 
                 addTextView(cell, sb.toString()).setPadding(Utils.dpToPx(16), 0, Utils.dpToPx(16), 0);
-            }
+            }*/
 
 
             if (mItem.getGet().getEvent() != null) {

@@ -24,10 +24,11 @@ import rikka.materialpreference.BaseRecyclerViewItemDecoration;
 public abstract class BaseDisplayFragment<T extends BaseRecyclerAdapter> extends Fragment {
     protected Object mBusEventListener;
     private T mAdapter;
+    private RecyclerView mRecyclerView;
 
     @Override
-    public void onStart() {
-        super.onStart();
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         mBusEventListener = new Object() {
             @Subscribe
             public void dataChanged(final DataChangedAction event) {
@@ -58,13 +59,17 @@ public abstract class BaseDisplayFragment<T extends BaseRecyclerAdapter> extends
         mAdapter = adapter;
     }
 
+    public RecyclerView getRecyclerView() {
+        return mRecyclerView;
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.content_recycler, container, false);
-        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
-        recyclerView.setAdapter(mAdapter);
-        onPostCreateView(recyclerView);
+        mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
+        mRecyclerView.setAdapter(mAdapter);
+        onPostCreateView(mRecyclerView);
 
         return view;
     }

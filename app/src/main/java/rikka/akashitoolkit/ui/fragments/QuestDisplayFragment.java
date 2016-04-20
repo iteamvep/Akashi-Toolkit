@@ -63,10 +63,10 @@ public class QuestDisplayFragment extends BaseSearchFragment implements CheckBox
         mActivity.getRightDrawerContent().addTitle(getString(R.string.action_filter));
         mActivity.getRightDrawerContent().addDividerHead();
         CheckBoxGroup cbg = new CheckBoxGroup(getContext());
-        cbg.addItem("単発任務");
-        cbg.addItem("日次任務");
-        cbg.addItem("週間任務");
-        cbg.addItem("月間任務");
+        cbg.addItem("常规任务");
+        cbg.addItem("日常任务");
+        cbg.addItem("周常任务");
+        cbg.addItem("月常任务");
         cbg.setOnCheckedChangeListener(this);
         cbg.setChecked(mFlag);
         cbg.setPadding(0, Utils.dpToPx(4), 0, Utils.dpToPx(4));

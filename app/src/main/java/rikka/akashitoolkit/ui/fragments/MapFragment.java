@@ -19,7 +19,7 @@ public class MapFragment extends BaseDisplayFragment<MapAdapter> {
 
         Bundle args = getArguments();
         if (args != null) {
-            mType = args.getInt("TYPE") + 1;
+            mType = args.getInt("TYPE");
         }
 
         setAdapter(new MapAdapter(getActivity(), mType));

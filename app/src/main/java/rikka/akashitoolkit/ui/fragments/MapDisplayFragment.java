@@ -3,12 +3,19 @@ package rikka.akashitoolkit.ui.fragments;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.squareup.otto.Subscribe;
+
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.ViewPagerAdapter;
+import rikka.akashitoolkit.model.MapType;
+import rikka.akashitoolkit.otto.BusProvider;
+import rikka.akashitoolkit.otto.DataChangedAction;
+import rikka.akashitoolkit.staticdata.MapTypeList;
 import rikka.akashitoolkit.support.Statistics;
 import rikka.akashitoolkit.ui.MainActivity;
 
@@ -19,6 +26,27 @@ public class MapDisplayFragment extends BaseFragmet {
     private static final int TAB_LAYOUT_VISIBILITY = View.VISIBLE;
 
     private ViewPager mViewPager;
+
+    protected Object mBusEventListener;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mBusEventListener = new Object() {
+            @Subscribe
+            public void dataChanged(final DataChangedAction event) {
+                MapDisplayFragment.this.dataChanged(event);
+            }
+        };
+
+        BusProvider.instance().register(mBusEventListener);
+    }
+
+    @Override
+    public void onDestroyView() {
+        BusProvider.instance().unregister(mBusEventListener);
+        super.onDestroyView();
+    }
 
     @Override
     public void onShow() {
@@ -57,18 +85,25 @@ public class MapDisplayFragment extends BaseFragmet {
             @Override
             public Bundle getArgs(int position) {
                 Bundle bundle = new Bundle();
-                bundle.putInt("TYPE", position);
+                bundle.putInt("TYPE", MapTypeList.get(getContext()).get(position).getType());
                 return bundle;
             }
         };
 
-        adapter.addFragment(MapFragment.class, "镇守府海域");
-        adapter.addFragment(MapFragment.class, "南西诸岛海域");
-        adapter.addFragment(MapFragment.class, "北方海域");
-        adapter.addFragment(MapFragment.class, "西方海域");
-        adapter.addFragment(MapFragment.class, "南方海域");
-        adapter.addFragment(MapFragment.class, "中部海域");
+        for (MapType type :
+                MapTypeList.get(getContext())) {
+            adapter.addFragment(MapFragment.class, type.getName().get(getContext()));
+        }
 
         return adapter;
+    }
+
+    @Subscribe
+    public void dataChanged(DataChangedAction action) {
+        if (action.getClassName().equals("any")
+                || action.getClassName().equals(this.getClass().getSimpleName())) {
+            mViewPager.setAdapter(getAdapter());
+            ((MainActivity) getActivity()).getTabLayout().setupWithViewPager(mViewPager);
+        }
     }
 }

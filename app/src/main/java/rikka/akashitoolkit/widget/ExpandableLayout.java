@@ -58,6 +58,10 @@ public class ExpandableLayout extends FrameLayout {
     }
 
     public void setExpanded(boolean expanded) {
+        setExpanded(expanded, true);
+    }
+
+    public void setExpanded(boolean expanded, boolean anim) {
         if (mExpanded == expanded) {
             return;
         }
@@ -66,6 +70,12 @@ public class ExpandableLayout extends FrameLayout {
 
         if (mAnimating) {
             mValueAnimator.cancel();
+        }
+
+        if (!anim) {
+            mAnimating = false;
+            requestLayout();
+            return;
         }
 
         final int from, to;

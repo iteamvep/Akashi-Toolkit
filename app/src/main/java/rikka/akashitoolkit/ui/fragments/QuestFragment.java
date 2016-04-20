@@ -23,12 +23,12 @@ import rikka.materialpreference.BaseRecyclerViewItemDecoration;
 /**
  * Created by Rikka on 2016/3/6.
  */
-public class QuestFragment extends Fragment {
-    private QuestAdapter mAdapter;
+public class QuestFragment extends BaseDisplayFragment<QuestAdapter> {
     private boolean mIgnoreSearch;
-    private RecyclerView mRecyclerView;
 
     private int mType;
+    private int mJumpIndex;
+    private int mJumpType;
 
     @Override
     public void onStart() {
@@ -42,47 +42,37 @@ public class QuestFragment extends Fragment {
         super.onStop();
     }
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.content_recycler, container, false);
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
         int flag = 0;
-        int jump_index = -1;
-        int jump_type = -1;
         Bundle args = getArguments();
         if (args != null) {
             mType = args.getInt("TYPE");
             flag = args.getInt("FLAG");
             mIgnoreSearch = args.getInt("IGNORE_SEARCH") == 1;
-            jump_index = args.getInt("JUMP_INDEX");
-            jump_type = args.getInt("JUMP_TYPE");
+            mJumpIndex = args.getInt("JUMP_INDEX");
+            mJumpType = args.getInt("JUMP_TYPE");
         }
 
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
-        //mRecyclerView.setPadding(0, Utils.dpToPx(2), 0, Utils.dpToPx(2));
-        mAdapter = new QuestAdapter(getContext(), mType, flag);
-        mAdapter.rebuildDataList(getContext());
-        mRecyclerView.setAdapter(mAdapter);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-        layoutManager.setAutoMeasureEnabled(false);
-        mRecyclerView.setLayoutManager(layoutManager);
-        mRecyclerView.addItemDecoration(new BaseRecyclerViewItemDecoration(getContext()));
-
-        if (jump_index != -1 && jump_type == mType) {
-            jumpTo(jump_index);
-        }
-
-        return view;
+        setAdapter(new QuestAdapter(getContext(), mType, flag));
     }
 
-    public QuestAdapter getAdapter() {
-        return mAdapter;
+    @Override
+    public void onPostCreateView(RecyclerView recyclerView) {
+        super.onPostCreateView(recyclerView);
+
+        recyclerView.addItemDecoration(new BaseRecyclerViewItemDecoration(getContext()));
+
+        if (mJumpIndex != -1 && mJumpType == mType) {
+            jumpTo(mJumpIndex);
+        }
     }
 
     @Subscribe
     public void questFilterChanged(QuestAction.FilterChanged action) {
-        mAdapter.setFilterFlag(getContext(), action.getFlag());
+        getAdapter().setFilterFlag(getContext(), action.getFlag());
     }
 
     @Subscribe
@@ -90,7 +80,7 @@ public class QuestFragment extends Fragment {
         if (mIgnoreSearch) {
             return;
         }
-        mAdapter.setKeyword(getContext(), action.getKeyword());
+        getAdapter().setKeyword(getContext(), action.getKeyword());
     }
 
     @Subscribe
@@ -101,12 +91,12 @@ public class QuestFragment extends Fragment {
     }
 
     private void jumpTo(int index) {
-        final int position = mAdapter.getPositionByIndex(index);
-        mRecyclerView.post(new Runnable() {
+        final int position = getAdapter().getPositionByIndex(index);
+        getRecyclerView().post(new Runnable() {
             @Override
             public void run() {
-                mRecyclerView.scrollToPosition(position);
-                mAdapter.notifyItemChanged(position);
+                getRecyclerView().scrollToPosition(position);
+                getAdapter().notifyItemChanged(position);
             }
         });
 
