@@ -75,12 +75,14 @@ public class HomeFragment extends BaseFragmet {
     static {
         JSON_VERSION.put("EquipImprovement.json", 3);
         JSON_VERSION.put("Equip.json", 3);
-        JSON_VERSION.put("Ship.json", 1);
+        JSON_VERSION.put("Ship.json", 3);
         JSON_VERSION.put("ShipType.json", 1);
-        JSON_VERSION.put("Item.json", 1);
+        JSON_VERSION.put("Item.json", 2);
         JSON_VERSION.put("Map.json", 1);
         JSON_VERSION.put("MapType.json", 1);
-        JSON_VERSION.put("Quest.json", 1);
+        JSON_VERSION.put("Quest.json", 2);
+        JSON_VERSION.put("Map.json", 1);
+        JSON_VERSION.put("EnemyShip.json", 1);
     }
 
     private static Map<String, String> JSON_NAME = new HashMap<>();
@@ -94,6 +96,8 @@ public class HomeFragment extends BaseFragmet {
         JSON_NAME.put("Map.json", "带路数据");
         JSON_NAME.put("MapType.json", "海图类型数据");
         JSON_NAME.put("Quest.json", "任务数据");
+        JSON_NAME.put("MapDetail.json", "海图数据");
+        JSON_NAME.put("EnemyShip.json", "敌舰数据");
     }
 
     @Override
@@ -381,14 +385,19 @@ public class HomeFragment extends BaseFragmet {
                             public void onNext(CheckUpdate.DataEntity dataEntity) {
                                 File file = new File(getContext().getFilesDir().getAbsolutePath() + "/json/" + dataEntity.getName());
 
-                                int downloadVersion = Settings
+                                int savedVersion = Settings
                                         .instance(getContext())
                                         .getInt(dataEntity.getName(), JSON_VERSION.get(dataEntity.getName()));
                                 int builtInVersion = JSON_VERSION.get(dataEntity.getName());
+                                int latestVersion = dataEntity.getVersion();
+
+                                if (builtInVersion > savedVersion) {
+                                    file.delete();
+                                }
 
                                 if (!BuildConfig.DEBUG &&
                                         file.exists() &&
-                                        (downloadVersion >= dataEntity.getVersion() || builtInVersion >= dataEntity.getVersion())) {
+                                        (savedVersion >= latestVersion || builtInVersion >= latestVersion)) {
                                     return;
                                 }
 

@@ -36,6 +36,23 @@ public class KCStringFormatter {
         return "";
     }
 
+    public static String getFormation(int value) {
+        switch (value) {
+            case 1:
+                return "单纵";
+            case 2:
+                return "复纵";
+            case 3:
+                return "轮型";
+            case 4:
+                return "梯形";
+            case 5:
+                return "单横";
+            default:
+                return "不存在的阵形?";
+        }
+    }
+
     public static String getLinkEquip(int id, String name) {
         return String.format("<a href=akashitoolkit://equip/%d>%s</a>", id, name);
     }

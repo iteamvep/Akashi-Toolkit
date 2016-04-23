@@ -264,7 +264,7 @@ public class TwitterFragment extends BaseFragmet {
             mTwitterAdapter.notifyItemRangeInserted(0, added);
             mTwitterAdapter.notifyItemRangeChanged(added, modified);
             if (added > 0 && mRecyclerView.getScrollY() <= 50) {
-                //mRecyclerView.scrollToPosition(0);
+                mRecyclerView.scrollToPosition(0);
                 showSnackbar(String.format(getString(R.string.new_twitter), added), Snackbar.LENGTH_SHORT);
             }
 

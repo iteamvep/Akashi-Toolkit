@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:paddingLeft="16dp"
+              android:paddingRight="16dp">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="36dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        tools:text="A"/>
+
+    <!--<LinearLayout
+        android:id="@+id/map_branch_container"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_width="0dp">-->
+
+        <!--<TextView
+            tools:text="A"
+            android:layout_height="36dp"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"/>
+
+        <TextView
+            tools:text="A"
+            android:layout_height="36dp"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"/>-->
+
+    <!--</LinearLayout>-->
+
+    <TextView
+        android:id="@+id/text_content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="8"
+        android:gravity="center_vertical"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginStart="4dp"
+        tools:text="含有正规空母或轻母或水母70%概率进F；\n其他情况有30%概率进F。"/>
+
+</LinearLayout>

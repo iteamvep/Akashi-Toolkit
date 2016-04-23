@@ -115,7 +115,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
         ViewPager viewPager = (ViewPager) LayoutInflater.from(this).inflate(R.layout.content_viewpager, mLinearLayout, true).findViewById(R.id.view_pager);
         //ViewPager viewPager = new ViewPager(this);
         viewPager.setPadding(0, Utils.dpToPx(4), 0, 0);
-        viewPager.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, Utils.dpToPx(32) * 7 + Utils.dpToPx(16)));
+        viewPager.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, Utils.dpToPx(32) * 6 + Utils.dpToPx(16)));
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager()) {
             @Override
             public Bundle getArgs(int position) {

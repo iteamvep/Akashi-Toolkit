@@ -172,7 +172,9 @@ public class QuestAdapter extends BaseRecyclerAdapter<ViewHolder.Quest> {
             sb.append(quest.getReward().getStr());
         }
 
-        sb.delete(sb.length() - 4, sb.length());
+        if (sb.length() >= 4) {
+            sb.delete(sb.length() - 4, sb.length());
+        }
 
         if (sb.length() > 0) {
             textView.setVisibility(View.VISIBLE);
@@ -265,7 +267,7 @@ public class QuestAdapter extends BaseRecyclerAdapter<ViewHolder.Quest> {
 
                 View view = LayoutInflater.from(mContext).inflate(R.layout.card_quest_next, holder.mQuestContainer, false);
                 ((TextView) view).setText(
-                        String.format("前置任务: %s %s", unlockQuest.getCode(), unlockQuest.getTitle().get(mContext)));
+                        String.format("前置任务: %s %s", unlockQuest.getCode(), unlockQuest.getTitle().get(mContext, true)));
 
                 view.setOnClickListener(new View.OnClickListener() {
                     @Override

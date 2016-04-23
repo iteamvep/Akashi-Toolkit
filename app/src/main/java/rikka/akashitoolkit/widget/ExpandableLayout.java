@@ -5,9 +5,12 @@ import android.animation.ValueAnimator;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
+import android.support.v7.widget.TintTypedArray;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.widget.FrameLayout;
+
+import rikka.akashitoolkit.R;
 
 /**
  * Created by Rikka on 2016/4/15.
@@ -15,25 +18,32 @@ import android.widget.FrameLayout;
 public class ExpandableLayout extends FrameLayout {
     private int mHeight;
     private int mAnimHeight;
-    private boolean mExpanded = false;
+    private boolean mExpanded;
     private boolean mAnimating;
     private ValueAnimator mValueAnimator;
 
     public ExpandableLayout(Context context) {
-        super(context);
+        this(context, null);
     }
 
     public ExpandableLayout(Context context, AttributeSet attrs) {
-        super(context, attrs);
+        this(context, attrs, 0);
     }
 
     public ExpandableLayout(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
+        this(context, attrs, defStyleAttr, 0);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public ExpandableLayout(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
+
+        TintTypedArray a = TintTypedArray.obtainStyledAttributes(getContext(), attrs,
+                R.styleable.ExpandableLayout, defStyleAttr, 0);
+
+        mExpanded = a.getBoolean(R.styleable.ExpandableLayout_isExpanded, false);
+
+        a.recycle();
     }
 
     @Override
@@ -51,6 +61,10 @@ public class ExpandableLayout extends FrameLayout {
         } else if (!mExpanded) {
             setMeasuredDimension(getMeasuredWidth(), 0);
         }
+    }
+
+    public void toggle() {
+        setExpanded(!mExpanded);
     }
 
     public boolean isExpanded() {

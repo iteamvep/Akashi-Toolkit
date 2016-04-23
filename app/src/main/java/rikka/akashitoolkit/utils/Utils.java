@@ -49,6 +49,11 @@ public class Utils {
         return file;
     }
 
+    public static boolean deleteFile(String path) {
+        File file = new File(path);
+        return file.delete();
+    }
+
     public static int dpToPx(int dp) {
         return (int) (dp * Resources.getSystem().getDisplayMetrics().density);
     }

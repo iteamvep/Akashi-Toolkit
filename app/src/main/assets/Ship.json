@@ -9188,11 +9188,11 @@
   "dismantling_res": [1, 2, 10, 0],
   "build_time": 22,
   "remodel": {
-    "blueprint": 0,
+    "blueprint": 1,
     "cost": [15, 20],
     "id_from": 96,
-    "id_to": 0,
-    "level": 0
+    "id_to": 471,
+    "level": 65
   }
 }, {
   "name": {
@@ -12611,8 +12611,8 @@
     "blueprint": 0,
     "cost": [15, 20],
     "id_from": 459,
-    "id_to": 0,
-    "level": 0
+    "id_to": 472,
+    "level": 75
   }
 }, {
   "name": {
@@ -15273,5 +15273,81 @@
     "id_from": 464,
     "id_to": 464,
     "level": 88
+  }
+},{
+  "name": {
+    "ja": "大潮改二",
+    "zh_cn": "大潮改二"
+  },
+  "name_for_search": "大潮,dachao,da chao,Ooshio,ooshio",
+  "rarity": 6,
+  "id": 471,
+  "id_illustrations": 199,
+  "type": 2,
+  "attr": {
+    "aa": [20, 62],
+    "armor": [14, 51],
+    "asw": [0, 0, 0],
+    "evasion": [0, 0, 0],
+    "fire": [17, 67],
+    "hp": [31, 31, 36],
+    "luck": [17, 69],
+    "range": 1,
+    "search": [0, 0, 0],
+    "speed": 10,
+    "torpedo": [33, 90]
+  },
+  "slot": 3,
+  "equip": [
+    [63, 15, 166, -1],
+    [0, 0, 0, 0]
+  ],
+  "modernization": [2, 1, 1, 2],
+  "dismantling_res": [1, 2, 10, 0],
+  "build_time": 22,
+  "remodel": {
+    "blueprint": 0,
+    "cost": [15, 20],
+    "id_from": 249,
+    "id_to": 0,
+    "level": 0
+  }
+},{
+  "name": {
+    "ja": "江風改二",
+    "zh_cn": "江风改二"
+  },
+  "name_for_search": "江风,jiangfeng,jiang feng,Kawakaze,kawakaze",
+  "rarity": 6,
+  "id": 472,
+  "id_illustrations": 269,
+  "type": 2,
+  "attr": {
+    "aa": [46, 64],
+    "armor": [32, 51],
+    "asw": [24, 63, 63],
+    "evasion": [46, 89, 89],
+    "fire": [16, 62],
+    "hp": [31, 31, 36],
+    "luck": [19, 75],
+    "range": 1,
+    "search": [8, 53, 53],
+    "speed": 10,
+    "torpedo": [62, 96]
+  },
+  "slot": 3,
+  "equip": [
+    [63, 15, 101, -1],
+    [0, 0, 0, 0]
+  ],
+  "modernization": [1, 1, 1, 1],
+  "dismantling_res": [1, 2, 10, 0],
+  "build_time": 22,
+  "remodel": {
+    "blueprint": 0,
+    "cost": [15, 20],
+    "id_from": 351,
+    "id_to": 0,
+    "level": 0
   }
 }]
