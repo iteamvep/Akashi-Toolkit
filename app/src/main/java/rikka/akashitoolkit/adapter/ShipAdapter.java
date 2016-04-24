@@ -1,11 +1,7 @@
 package rikka.akashitoolkit.adapter;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,7 +25,7 @@ import rx.schedulers.Schedulers;
 public class ShipAdapter extends BaseRecyclerAdapter<ViewHolder.Ship> {
     private List<Ship> mData;
     private Activity mActivity;
-    private boolean mShowOnlyFinalVersion;
+    private int mShowVersion;
     private int mTypeFlag;
     private int mShowSpeed;
     private String mKeyword;
@@ -40,10 +36,10 @@ public class ShipAdapter extends BaseRecyclerAdapter<ViewHolder.Ship> {
         mActivity = activity;
     }
 
-    public ShipAdapter(Activity activity, boolean showOnlyFinalVersion, int typeFlag, int showSpeed) {
+    public ShipAdapter(Activity activity, int showVersion, int typeFlag, int showSpeed) {
         this(activity);
 
-        mShowOnlyFinalVersion = showOnlyFinalVersion;
+        mShowVersion = showVersion;
         mTypeFlag = typeFlag;
         mShowSpeed = showSpeed;
         mActivity = activity;
@@ -75,8 +71,8 @@ public class ShipAdapter extends BaseRecyclerAdapter<ViewHolder.Ship> {
         mKeyword = keyword;
     }
 
-    public void setShowOnlyFinalVersion(boolean showOnlyFinalVersion) {
-        mShowOnlyFinalVersion = showOnlyFinalVersion;
+    public void setShowVersion(int showVersion) {
+        mShowVersion = showVersion;
     }
 
     public void rebuildDataList() {
@@ -117,10 +113,23 @@ public class ShipAdapter extends BaseRecyclerAdapter<ViewHolder.Ship> {
     }
 
     private boolean check(Ship item) {
-        if (mShowOnlyFinalVersion && (item.getRemodel().getId_to() != 0 &&
+        switch (mShowVersion) {
+            case 1:
+                if (item.getRemodel().getId_from() != 0) {
+                    return false;
+                }
+                break;
+            case 2:
+                if ((item.getRemodel().getId_to() != 0 &&
+                        item.getRemodel().getId_to() != item.getRemodel().getId_from())) {
+                    return false;
+                }
+                break;
+        }
+        /*if (mShowVersion && (item.getRemodel().getId_to() != 0 &&
                 item.getRemodel().getId_to() != item.getRemodel().getId_from())) {
             return false;
-        }
+        }*/
 
         if (mTypeFlag != 0 && (1 << item.getType() & mTypeFlag) == 0) {
             return false;

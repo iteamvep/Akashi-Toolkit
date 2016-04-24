@@ -25,6 +25,7 @@ import rikka.akashitoolkit.support.Statistics;
 import rikka.akashitoolkit.ui.MainActivity;
 import rikka.akashitoolkit.utils.Utils;
 import rikka.akashitoolkit.widget.CheckBoxGroup;
+import rikka.akashitoolkit.widget.RadioButtonGroup;
 import rikka.akashitoolkit.widget.SimpleDrawerView;
 import rx.Observable;
 import rx.Observer;
@@ -46,6 +47,7 @@ public class ShipDisplayFragment extends BaseSearchFragment {
     private int mSpeed;
 
     private CheckBoxGroup[] mCheckBoxGroups = new CheckBoxGroup[3];
+    private RadioButtonGroup[] mRadioButtonGroups = new RadioButtonGroup[3];
     private NestedScrollView mScrollView;
 
     private void setDrawerView() {
@@ -59,12 +61,14 @@ public class ShipDisplayFragment extends BaseSearchFragment {
         body.setOrientation(LinearLayout.VERTICAL);
         body.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
-        mCheckBoxGroups[0] = new CheckBoxGroup(getContext());
-        mCheckBoxGroups[0].addItem("仅显示最终改造版本");
-        mCheckBoxGroups[0].setOnCheckedChangeListener(new CheckBoxGroup.OnCheckedChangeListener() {
+        mRadioButtonGroups[0] = new RadioButtonGroup(getContext());
+        mRadioButtonGroups[0].addItem("全部");
+        mRadioButtonGroups[0].addItem("未改造");
+        mRadioButtonGroups[0].addItem("最终改造");
+        mRadioButtonGroups[0].setOnCheckedChangeListener(new RadioButtonGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(View view, int checked) {
-                BusProvider.instance().post(new ShipAction.ShowFinalVersionChangeAction(checked > 0));
+                BusProvider.instance().post(new ShipAction.ShowFinalVersionChangeAction(checked));
 
                 mFinalVersion = checked;
                 Settings
@@ -73,7 +77,7 @@ public class ShipDisplayFragment extends BaseSearchFragment {
             }
         });
 
-        body.addView(mCheckBoxGroups[0]);
+        body.addView(mRadioButtonGroups[0]);
         body.addDivider();
 
         mCheckBoxGroups[1] = new CheckBoxGroup(getContext());
@@ -125,7 +129,7 @@ public class ShipDisplayFragment extends BaseSearchFragment {
                 .instance(getContext())
                 .getInt(Settings.SHIP_FINAL_VERSION, 0);
 
-        mCheckBoxGroups[0].setChecked(mFinalVersion);
+        mRadioButtonGroups[0].setChecked(mFinalVersion);
 
         mSpeed = Settings
                 .instance(getContext())

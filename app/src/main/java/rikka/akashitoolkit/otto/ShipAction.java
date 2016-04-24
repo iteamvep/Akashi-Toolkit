@@ -5,18 +5,18 @@ package rikka.akashitoolkit.otto;
  */
 public class ShipAction {
     public static class ShowFinalVersionChangeAction {
-        private boolean showFinalVersion;
+        private int version;
 
-        public ShowFinalVersionChangeAction(boolean showFinalVersion) {
-            this.showFinalVersion = showFinalVersion;
+        public ShowFinalVersionChangeAction(int version) {
+            this.version = version;
         }
 
-        public boolean isShowFinalVersion() {
-            return showFinalVersion;
+        public int isShowFinalVersion() {
+            return version;
         }
 
-        public void setShowFinalVersion(boolean showFinalVersion) {
-            this.showFinalVersion = showFinalVersion;
+        public void setShowFinalVersion(int version) {
+            this.version = version;
         }
     }
 

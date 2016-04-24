@@ -51,6 +51,8 @@ import rx.Observable;
 import rx.Subscriber;
 import rx.schedulers.Schedulers;
 
+import static rikka.akashitoolkit.support.ApiConstParam.JSON_NAME;
+import static rikka.akashitoolkit.support.ApiConstParam.JSON_VERSION;
 /**
  * Created by Rikka on 2016/3/6.
  */
@@ -64,41 +66,6 @@ public class HomeFragment extends BaseFragmet {
     private Map<Integer, ButtonCardView> mMessageCardView;
     private MessageReadStatus mMessageReadStatus;
     private int mUpdateVersionCode;
-
-    private static Map<String, Integer> JSON_VERSION = new HashMap<String, Integer>() {
-        @Override
-        public Integer get(Object key) {
-            return containsKey(key) ? super.get(key) : 1;
-        }
-    };
-
-    static {
-        JSON_VERSION.put("EquipImprovement.json", 3);
-        JSON_VERSION.put("Equip.json", 3);
-        JSON_VERSION.put("Ship.json", 3);
-        JSON_VERSION.put("ShipType.json", 1);
-        JSON_VERSION.put("Item.json", 2);
-        JSON_VERSION.put("Map.json", 1);
-        JSON_VERSION.put("MapType.json", 1);
-        JSON_VERSION.put("Quest.json", 2);
-        JSON_VERSION.put("Map.json", 1);
-        JSON_VERSION.put("EnemyShip.json", 1);
-    }
-
-    private static Map<String, String> JSON_NAME = new HashMap<>();
-
-    static {
-        JSON_NAME.put("EquipImprovement.json", "改修数据");
-        JSON_NAME.put("Equip.json", "装备数据");
-        JSON_NAME.put("Ship.json", "舰娘数据");
-        JSON_NAME.put("ShipType.json", "舰娘类型数据");
-        JSON_NAME.put("Item.json", "物品数据");
-        JSON_NAME.put("Map.json", "带路数据");
-        JSON_NAME.put("MapType.json", "海图类型数据");
-        JSON_NAME.put("Quest.json", "任务数据");
-        JSON_NAME.put("MapDetail.json", "海图数据");
-        JSON_NAME.put("EnemyShip.json", "敌舰数据");
-    }
 
     @Override
     public void onShow() {
@@ -391,13 +358,14 @@ public class HomeFragment extends BaseFragmet {
                                 int builtInVersion = JSON_VERSION.get(dataEntity.getName());
                                 int latestVersion = dataEntity.getVersion();
 
-                                if (builtInVersion > savedVersion) {
-                                    file.delete();
+                                if (!file.exists()) {
+                                    savedVersion = 0;
                                 }
 
-                                if (!BuildConfig.DEBUG &&
-                                        file.exists() &&
-                                        (savedVersion >= latestVersion || builtInVersion >= latestVersion)) {
+                                if (builtInVersion > savedVersion) {
+                                    file.delete();
+                                    return;
+                                } else if (savedVersion >= latestVersion || builtInVersion >= latestVersion) {
                                     return;
                                 }
 
@@ -431,6 +399,7 @@ public class HomeFragment extends BaseFragmet {
                                     e.printStackTrace();
                                 }
                             }
+
                             @Override
                             public void onCompleted() {
                                 Handler mainHandler = new Handler(getContext().getMainLooper());

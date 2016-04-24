@@ -215,6 +215,11 @@ public class TwitterFragment extends BaseFragmet {
         int added = 0;
         int modified = 0;
         int current = 0;
+
+        if (source == null || source.getPosts() == null) {
+            return;
+        }
+
         for (Twitter.PostsEntity entity:
                 source.getPosts()) {
             TwitterAdapter.DataModel item = new TwitterAdapter.DataModel();

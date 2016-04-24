@@ -2,16 +2,10 @@ package rikka.akashitoolkit.ui.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.squareup.otto.Subscribe;
 
-import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.ShipAdapter;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.ShipAction;
@@ -47,7 +41,7 @@ public class ShipFragment extends BaseDisplayFragment<ShipAdapter> {
             speed = args.getInt("SPEED");
         }
 
-        setAdapter(new ShipAdapter(getActivity(), finalVersion > 0, flag, speed));
+        setAdapter(new ShipAdapter(getActivity(), finalVersion, flag, speed));
     }
 
     @Override
@@ -59,7 +53,7 @@ public class ShipFragment extends BaseDisplayFragment<ShipAdapter> {
 
     @Subscribe
     public void showFinalVersionChanged(ShipAction.ShowFinalVersionChangeAction action) {
-        getAdapter().setShowOnlyFinalVersion(action.isShowFinalVersion());
+        getAdapter().setShowVersion(action.isShowFinalVersion());
         getAdapter().rebuildDataList(/*getContext()*/);
     }
 

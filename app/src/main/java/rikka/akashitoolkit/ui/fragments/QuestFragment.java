@@ -1,30 +1,21 @@
 package rikka.akashitoolkit.ui.fragments;
 
-import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.TypedValue;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.squareup.otto.Subscribe;
 
-import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.QuestAdapter;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.QuestAction;
-import rikka.akashitoolkit.utils.Utils;
 import rikka.materialpreference.BaseRecyclerViewItemDecoration;
 
 /**
  * Created by Rikka on 2016/3/6.
  */
 public class QuestFragment extends BaseDisplayFragment<QuestAdapter> {
-    private boolean mIgnoreSearch;
+    private boolean mSearching;
 
     private int mType;
     private int mJumpIndex;
@@ -47,16 +38,18 @@ public class QuestFragment extends BaseDisplayFragment<QuestAdapter> {
         super.onCreate(savedInstanceState);
 
         int flag = 0;
+        boolean latest = false;
         Bundle args = getArguments();
         if (args != null) {
             mType = args.getInt("TYPE");
             flag = args.getInt("FLAG");
-            mIgnoreSearch = args.getInt("IGNORE_SEARCH") == 1;
+            mSearching = args.getBoolean("SEARCHING");
             mJumpIndex = args.getInt("JUMP_INDEX");
             mJumpType = args.getInt("JUMP_TYPE");
+            latest = args.getBoolean("LATEST_ONLY");
         }
 
-        setAdapter(new QuestAdapter(getContext(), mType, flag));
+        setAdapter(new QuestAdapter(getContext(), mType, flag, mSearching, latest));
     }
 
     @Override
@@ -72,20 +65,24 @@ public class QuestFragment extends BaseDisplayFragment<QuestAdapter> {
 
     @Subscribe
     public void questFilterChanged(QuestAction.FilterChanged action) {
-        getAdapter().setFilterFlag(getContext(), action.getFlag());
+        getAdapter().setFilterFlag(action.getFlag());
     }
 
     @Subscribe
     public void questFilterChanged(QuestAction.KeywordChanged action) {
-        if (mIgnoreSearch) {
-            return;
+        if (getAdapter().isSearching()) {
+            getAdapter().setKeyword(action.getKeyword());
         }
-        getAdapter().setKeyword(getContext(), action.getKeyword());
+    }
+
+    @Subscribe
+    public void isSearchingChanged(QuestAction.IsSearchingChanged action) {
+        getAdapter().setSearching(action.isSearching());
     }
 
     @Subscribe
     public void jumpToIndex(QuestAction.JumpToQuest action) {
-        if (mType == action.getType() || mIgnoreSearch) {
+        if (mType == action.getType() || mSearching) {
             jumpTo(action.getIndex());
         }
     }

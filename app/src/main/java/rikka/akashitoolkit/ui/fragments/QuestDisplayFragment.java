@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.NestedScrollView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -161,14 +162,17 @@ public class QuestDisplayFragment extends BaseSearchFragment implements CheckBox
                 @Override
                 public Bundle getArgs(int position) {
                     Bundle bundle = new Bundle();
-                    bundle.putInt("TYPE", position + 1);
+                    bundle.putInt("TYPE", position);
                     bundle.putInt("FLAG", mFlag);
-                    bundle.putInt("IGNORE_SEARCH", 0);
+                    bundle.putBoolean("SEARCHING", false);
                     bundle.putInt("JUMP_INDEX", mJumpToQuestIndex);
                     bundle.putInt("JUMP_TYPE", mJumpToQuestType);
+                    bundle.putBoolean("LATEST_ONLY", position == 0);
                     return bundle;
                 }
             };
+            adapter.addFragment(QuestFragment.class, "最新");
+
             adapter.addFragment(QuestFragment.class, "編成");
             adapter.addFragment(QuestFragment.class, "出擊");
             adapter.addFragment(QuestFragment.class, "演習");
@@ -182,10 +186,11 @@ public class QuestDisplayFragment extends BaseSearchFragment implements CheckBox
                 public Bundle getArgs(int position) {
                     Bundle bundle = new Bundle();
                     bundle.putInt("TYPE", 0);
-                    bundle.putInt("IGNORE_SEARCH", 1 - position);
+                    bundle.putBoolean("SEARCHING", position == 1);
                     bundle.putInt("FLAG", mFlag);
                     bundle.putInt("JUMP_INDEX", mJumpToQuestIndex);
                     bundle.putInt("JUMP_TYPE", mJumpToQuestType);
+                    bundle.putBoolean("LATEST_ONLY", false);
                     return bundle;
                 }
             };
@@ -224,6 +229,6 @@ public class QuestDisplayFragment extends BaseSearchFragment implements CheckBox
 
     @Override
     public String getSearchHint() {
-        return "搜索名称、介绍、要求、奖励…";
+        return "搜索名称、介绍…";
     }
 }

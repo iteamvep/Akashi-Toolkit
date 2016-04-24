@@ -8,8 +8,8 @@ android {
         applicationId "rikka.akashitoolkit"
         minSdkVersion 15
         targetSdkVersion 23
-        versionCode 33
-        versionName "0.0.15"
+        versionCode 36
+        versionName "0.0.16"
 
         //generatedDensities = []
     }

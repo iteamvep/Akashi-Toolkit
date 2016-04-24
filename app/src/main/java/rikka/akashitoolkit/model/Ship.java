@@ -24,6 +24,7 @@ public class Ship {
 
     private int id;
     private int id_illustrations;
+    private String wiki_id;
     /**
      * ja : 睦月
      * zh_cn : 睦月
@@ -77,6 +78,14 @@ public class Ship {
 
     public void setId_illustrations(int id_illustrations) {
         this.id_illustrations = id_illustrations;
+    }
+
+    public String getWiki_id() {
+        return wiki_id;
+    }
+
+    public void setWiki_id(String wiki_id) {
+        this.wiki_id = wiki_id;
     }
 
     public MultiLanguageEntry getName() {

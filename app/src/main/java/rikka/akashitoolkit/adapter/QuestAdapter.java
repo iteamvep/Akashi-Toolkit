@@ -1,10 +1,8 @@
 package rikka.akashitoolkit.adapter;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
-import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.text.Spanned;
 import android.util.Log;
@@ -36,20 +34,18 @@ public class QuestAdapter extends BaseRecyclerAdapter<ViewHolder.Quest> {
     private List<Quest> mData;
     private int mType;
     private int mFilterFlag;
-    private int count;
     private String mKeyword;
-    private boolean[] mExpaned;
     private Context mContext;
+    private boolean mIsSearching;
+    private boolean mLatestOnly;
 
-    public QuestAdapter(Context context, int type) {
-        this(context, type, -1);
-    }
-
-    public QuestAdapter(Context context, int type, int flag) {
+    public QuestAdapter(Context context, int type, int flag, boolean isSearching, boolean latestOnly) {
         mType = type;
         mData = new ArrayList<>();
         mFilterFlag = flag;
         mContext = context;
+        mIsSearching = isSearching;
+        mLatestOnly = latestOnly;
         rebuildDataList();
     }
 
@@ -77,17 +73,21 @@ public class QuestAdapter extends BaseRecyclerAdapter<ViewHolder.Quest> {
     }
 
     private boolean check(Quest item) {
+        if (mLatestOnly && !item.isNewMission()) {
+            return false;
+        }
+
         if (mType == 0 || item.getType() == mType) {
             if (mFilterFlag == 0) {
                 return false;
             }
 
             if (mFilterFlag == -1 || (mFilterFlag & 1 << item.getPeriod()) > 0) {
-                if (mKeyword == null) {
+                if (!mIsSearching) {
                     return true;
                 }
 
-                if (mKeyword.length() == 0) {
+                if (mKeyword == null ||mKeyword.length() == 0) {
                     return false;
                 }
 
@@ -101,7 +101,15 @@ public class QuestAdapter extends BaseRecyclerAdapter<ViewHolder.Quest> {
         return false;
     }
 
-    public void setFilterFlag(Context context, int filterFlag) {
+    public boolean isSearching() {
+        return mIsSearching;
+    }
+
+    public void setSearching(boolean searching) {
+        mIsSearching = searching;
+    }
+
+    public void setFilterFlag(int filterFlag) {
         if (mFilterFlag == filterFlag) {
             return;
         }
@@ -110,7 +118,9 @@ public class QuestAdapter extends BaseRecyclerAdapter<ViewHolder.Quest> {
         rebuildDataList();
     }
 
-    public void setKeyword(Context context, String keyword) {
+    public void setKeyword(String keyword) {
+        //Log.d(getClass().getSimpleName(), keyword == null ? "null" : keyword);
+
         if (mKeyword != null && mKeyword.equals(keyword)) {
             return;
         }
@@ -306,6 +316,14 @@ public class QuestAdapter extends BaseRecyclerAdapter<ViewHolder.Quest> {
 
             @Override
             protected void onPostExecute(Void aVoid) {
+                Log.d("QAQ",
+                        Integer.toString(mData.size()) + " " +
+                                Integer.toString(mType) + " " +
+                                (mKeyword == null ? "null" : mKeyword) + " " +
+                                (mIsSearching ? "true" : "false") + " " +
+                                (mLatestOnly ? "true" : "false") + " "
+                );
+
                 notifyDataSetChanged();
             }
         }.execute();

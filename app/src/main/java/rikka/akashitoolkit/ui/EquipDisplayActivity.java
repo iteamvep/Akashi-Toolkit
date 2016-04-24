@@ -294,7 +294,7 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
 
         getItemImprovementInsideView(parent, 0, "必要资源", mItem.getImprovement().getResource().getBase());
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < mItem.getImprovement().getResource().getItem().size(); i++) {
             List<Integer> list = mItem.getImprovement().getResource().getItem().get(i);
 
             getItemImprovementInsideView(parent, 1, i == 0 ? "~ ★+6" : i == 1 ? "~ MAX" : "升级", list);

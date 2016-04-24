@@ -25,6 +25,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import rikka.akashitoolkit.R;
@@ -68,7 +71,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
 
         mItem = ShipList.findItemById(this, mId);
         if (mItem == null) {
-            Log.d("QAQ", "No item find? id=" + Integer.toString(mId));
+            Log.d("QAQ", "Ship not found? id=" + Integer.toString(mId));
             finish();
             return;
         }
@@ -93,7 +96,10 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setSubtitle(ShipList.shipType[mItem.getType()]);
+        getSupportActionBar().setSubtitle(
+                String.format("No.%s %s",
+                        mItem.getWiki_id(),
+                        ShipList.shipType[mItem.getType()]));
 
         if (Utils.isNightMode(getResources())) {
             getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_clear_24dp);
@@ -134,6 +140,32 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
 
         addEquip(mLinearLayout);
         addRemodel(mLinearLayout);
+        addIllustration(mLinearLayout);
+    }
+
+    private void addIllustration(ViewGroup parent) {
+        parent = addCell(parent, "图鉴");
+
+        ViewGroup view = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.ship_illustrations_container, parent);
+        LinearLayout container = (LinearLayout) view.findViewById(R.id.content_container);
+
+        List<String> urlList = new ArrayList<>();
+        urlList.add(Utils.getKCWikiFileUrl(String.format("KanMusu%sIllust.png", mItem.getWiki_id().replace("a", ""))));
+        urlList.add(Utils.getKCWikiFileUrl(String.format("KanMusu%sDmgIllust.png", mItem.getWiki_id().replace("a", ""))));
+
+        for (String url :
+                urlList) {
+            Log.d(MapActivity.class.getSimpleName(), url);
+
+            ImageView imageView = (ImageView) LayoutInflater.from(this)
+                    .inflate(R.layout.item_illustrations, container, false)
+                    .findViewById(R.id.imageView);
+            container.addView(imageView);
+
+            Glide.with(this)
+                    .load(url)
+                    .into(imageView);
+        }
     }
 
     private void addRemodel(ViewGroup parent) {
