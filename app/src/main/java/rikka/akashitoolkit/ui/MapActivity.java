@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.os.Bundle;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Gravity;
@@ -43,6 +44,7 @@ public class MapActivity extends BaseItemDisplayActivity {
     private LinearLayout mContentContainer;
     private CoordinatorLayout mCoordinatorLayout;
     private AppBarLayout mAppBarLayout;
+    private NestedScrollView mScrollView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +70,7 @@ public class MapActivity extends BaseItemDisplayActivity {
         mContentContainer = (LinearLayout) findViewById(R.id.linearLayout);
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         mAppBarLayout = (AppBarLayout) findViewById(R.id.appBarLayout);
+        mScrollView = (NestedScrollView) findViewById(R.id.scrollView);
 
         setViews();
     }
@@ -108,7 +111,7 @@ public class MapActivity extends BaseItemDisplayActivity {
         if (isNightMode()) {
             getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_clear_24dp);
             mToolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
-            mToolbar.setSubtitleTextColor(Color.parseColor("#ffe0e0e0"));
+            mToolbar.setSubtitleTextColor(Color.parseColor("#DE000000"));
         } else {
             getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_clear_24dp_dark);
             mToolbar.setTitleTextColor(Color.parseColor("#000000"));
@@ -146,10 +149,20 @@ public class MapActivity extends BaseItemDisplayActivity {
         ((TextView) view.findViewById(android.R.id.title)).setText(title);
         parent.addView(view);
 
+        final ExpandableLayout expandableLayout = ((ExpandableLayout) view.findViewById(R.id.expandableLayout));
+        expandableLayout.setOnHeightUpdatedListener(new ExpandableLayout.OnHeightUpdatedListener() {
+            @Override
+            public void OnHeightUpdate(ExpandableLayout v, int height, int change) {
+                if (v.isExpanded()) {
+                    mScrollView.scrollTo(mScrollView.getScrollX(), mScrollView.getScrollY() + change);
+                }
+            }
+        });
+
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((ExpandableLayout) v.findViewById(R.id.expandableLayout)).toggle();
+                expandableLayout.toggle();
             }
         });
         return view;

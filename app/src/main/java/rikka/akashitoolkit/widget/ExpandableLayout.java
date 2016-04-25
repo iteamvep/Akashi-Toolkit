@@ -18,9 +18,20 @@ import rikka.akashitoolkit.R;
 public class ExpandableLayout extends FrameLayout {
     private int mHeight;
     private int mAnimHeight;
+    private int mLastAnimHeight;
     private boolean mExpanded;
     private boolean mAnimating;
     private ValueAnimator mValueAnimator;
+
+    private OnHeightUpdatedListener mOnHeightUpdatedListener;
+
+    public interface OnHeightUpdatedListener {
+        void OnHeightUpdate(ExpandableLayout v, int height, int changed);
+    }
+
+    public void setOnHeightUpdatedListener(OnHeightUpdatedListener onHeightUpdatedListener) {
+        mOnHeightUpdatedListener = onHeightUpdatedListener;
+    }
 
     public ExpandableLayout(Context context) {
         this(context, null);
@@ -107,6 +118,7 @@ public class ExpandableLayout extends FrameLayout {
             to = 0;
         }
 
+        mLastAnimHeight = from;
         mValueAnimator = ValueAnimator.ofInt(from, to);
         mValueAnimator.setDuration(100);
         mValueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
@@ -116,6 +128,12 @@ public class ExpandableLayout extends FrameLayout {
                 //getLayoutParams().height = (int) animation.getAnimatedValue();
                 mAnimHeight = (int) animation.getAnimatedValue();
                 requestLayout();
+
+                if (mOnHeightUpdatedListener != null) {
+                    mOnHeightUpdatedListener.OnHeightUpdate(ExpandableLayout.this, mAnimHeight, mAnimHeight - mLastAnimHeight);
+                }
+
+                mLastAnimHeight = mAnimHeight;
             }
         });
         mValueAnimator.addListener(new Animator.AnimatorListener() {
@@ -126,6 +144,10 @@ public class ExpandableLayout extends FrameLayout {
 
             @Override
             public void onAnimationEnd(Animator animation) {
+                if (mOnHeightUpdatedListener != null) {
+                    mOnHeightUpdatedListener.OnHeightUpdate(ExpandableLayout.this, mHeight, mHeight - mLastAnimHeight);
+                }
+
                 mAnimating = false;
             }
 

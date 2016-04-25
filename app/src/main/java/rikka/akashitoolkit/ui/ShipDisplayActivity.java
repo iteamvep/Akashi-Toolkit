@@ -104,7 +104,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
         if (Utils.isNightMode(getResources())) {
             getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_clear_24dp);
             mToolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
-            mToolbar.setSubtitleTextColor(Color.parseColor("#ffe0e0e0"));
+            mToolbar.setSubtitleTextColor(Color.parseColor("#DE000000"));
         } else {
             getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_clear_24dp_dark);
             mToolbar.setTitleTextColor(Color.parseColor("#000000"));
