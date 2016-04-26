@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <!--
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -71,7 +72,6 @@
         <activity
             android:name=".ui.ShipDisplayActivity"
             android:theme="@style/AppTheme.ItemActivity">
-
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
 
@@ -81,7 +81,6 @@
                     android:host="ship"
                     android:scheme="akashitoolkit"/>
             </intent-filter>
-
         </activity>
 
         <activity
@@ -95,6 +94,10 @@
             android:theme="@style/AppTheme.ItemActivity">
         </activity>
 
+        <activity
+            android:name=".ui.ImageDisplayActivity"
+            android:theme="@style/AppTheme.ImagesActivity">
+        </activity>
     </application>
 
 </manifest>

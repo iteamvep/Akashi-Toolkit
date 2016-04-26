@@ -40,7 +40,6 @@ import rikka.akashitoolkit.adapter.TwitterAdapter;
 import rikka.akashitoolkit.model.Twitter;
 import rikka.akashitoolkit.network.RetrofitAPI;
 import rikka.akashitoolkit.otto.BusProvider;
-import rikka.akashitoolkit.otto.DataChangedAction;
 import rikka.akashitoolkit.otto.PreferenceChangedAction;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.Statistics;
@@ -336,7 +335,7 @@ public class TwitterFragment extends BaseFragmet {
                 updateData(response.body(), true);
                 // save result to local
                 Gson gson = new Gson();
-                Utils.writeStreamToFile(new ByteArrayInputStream(gson.toJson(response.body()).getBytes()),
+                Utils.saveStreamToFile(new ByteArrayInputStream(gson.toJson(response.body()).getBytes()),
                         CACHE_DIR + CACHE_TWITTER_JSON_NAME);
             }
 

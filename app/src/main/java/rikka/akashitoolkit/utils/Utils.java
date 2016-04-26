@@ -5,13 +5,13 @@ import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.net.ConnectivityManager;
-import android.util.Log;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -20,13 +20,13 @@ import java.security.NoSuchAlgorithmException;
  * Created by Rikka on 2016/3/8.
  */
 public class Utils {
-    public static File writeStreamToCacheFile(Context context, InputStream inputStream, String name) {
+    public static File saveStreamToCacheFile(Context context, InputStream inputStream, String name) {
         String FilePath = context.getCacheDir().getAbsolutePath() + name;
 
-        return writeStreamToFile(inputStream, FilePath);
+        return saveStreamToFile(inputStream, FilePath);
     }
 
-    public static File writeStreamToFile(InputStream inputStream, String path) {
+    public static File saveStreamToFile(InputStream inputStream, String path) {
         File file = new File(path);
         if (!file.getParentFile().exists()) {
             //noinspection ResultOfMethodCallIgnored
@@ -47,6 +47,26 @@ public class Utils {
             e.printStackTrace();
         }
         return file;
+    }
+
+    public static void copyFile(File src, File dst) throws IOException {
+        if (!dst.getParentFile().exists()) {
+            //noinspection ResultOfMethodCallIgnored
+            dst.getParentFile().mkdirs();
+        }
+        //noinspection ResultOfMethodCallIgnored
+        dst.createNewFile();
+
+        InputStream in = new FileInputStream(src);
+        OutputStream out = new FileOutputStream(dst);
+
+        byte[] buf = new byte[1024];
+        int len;
+        while ((len = in.read(buf)) > 0) {
+            out.write(buf, 0, len);
+        }
+        in.close();
+        out.close();
     }
 
     public static boolean deleteFile(String path) {

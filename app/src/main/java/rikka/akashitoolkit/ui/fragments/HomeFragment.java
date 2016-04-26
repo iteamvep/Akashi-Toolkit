@@ -307,6 +307,7 @@ public class HomeFragment extends BaseFragmet {
                         mLinearLayout.addView(card);
                     }
                 }
+
                 final StringBuilder sb = new StringBuilder();
                 if (!BuildConfig.isGooglePlay) {
                     final CheckUpdate.UpdateEntity entity = response.body().getUpdate();
@@ -375,7 +376,7 @@ public class HomeFragment extends BaseFragmet {
 
                                 RetrofitAPI.CheckUpdateService service = retrofit.create(RetrofitAPI.CheckUpdateService.class);
                                 try {
-                                    Utils.writeStreamToFile(
+                                    Utils.saveStreamToFile(
                                             service.download(dataEntity.getName()).execute().body().byteStream(),
                                             getContext().getFilesDir().getAbsolutePath() + "/json/" + dataEntity.getName());
 

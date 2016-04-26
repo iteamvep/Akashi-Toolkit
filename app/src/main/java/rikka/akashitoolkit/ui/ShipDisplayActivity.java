@@ -2,7 +2,10 @@ package rikka.akashitoolkit.ui;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
@@ -26,15 +29,21 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.FutureTarget;
+import com.bumptech.glide.request.target.Target;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.ViewPagerAdapter;
 import rikka.akashitoolkit.model.Equip;
+import rikka.akashitoolkit.model.ExtraIllustration;
 import rikka.akashitoolkit.model.Ship;
 import rikka.akashitoolkit.staticdata.EquipList;
+import rikka.akashitoolkit.staticdata.ExtraIllustrationList;
 import rikka.akashitoolkit.staticdata.ShipList;
 import rikka.akashitoolkit.utils.KCStringFormatter;
 import rikka.akashitoolkit.utils.MySpannableFactory;
@@ -51,7 +60,6 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
     private CoordinatorLayout mCoordinatorLayout;
     private AppBarLayout mAppBarLayout;
     private Ship mItem;
-    private LinearLayout mItemAttrContainer;
     private int mId;
 
     @Override
@@ -153,7 +161,15 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
         urlList.add(Utils.getKCWikiFileUrl(String.format("KanMusu%sIllust.png", mItem.getWiki_id().replace("a", ""))));
         urlList.add(Utils.getKCWikiFileUrl(String.format("KanMusu%sDmgIllust.png", mItem.getWiki_id().replace("a", ""))));
 
-        for (String url :
+        ExtraIllustration extraIllustration = ExtraIllustrationList.findItemById(this, mItem.getId());
+        if (extraIllustration != null) {
+            for (String name :
+                    extraIllustration.getImage()) {
+                urlList.add(Utils.getKCWikiFileUrl(name));
+            }
+        }
+
+        for (final String url :
                 urlList) {
             Log.d(MapActivity.class.getSimpleName(), url);
 
@@ -161,6 +177,15 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
                     .inflate(R.layout.item_illustrations, container, false)
                     .findViewById(R.id.imageView);
             container.addView(imageView);
+
+            imageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(ShipDisplayActivity.this, ImageDisplayActivity.class);
+                    intent.putExtra(ImageDisplayActivity.EXTRA_URL, url);
+                    startActivity(intent);
+                }
+            });
 
             Glide.with(this)
                     .load(url)

@@ -205,10 +205,10 @@ public class QuestAdapter extends BaseRecyclerAdapter<ViewHolder.Quest> {
                 itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_quest_detail_one_type, parent, false);
                 break;
             case 2:
-                itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_quest_detail_double_types, parent, false);
+                itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_quest_detail_expanded, parent, false);
                 break;*/
             default:
-                itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_quest_detail_double_types, parent, false);
+                itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_quest_detail_expanded, parent, false);
         }
         return new ViewHolder.Quest(itemView);
     }
