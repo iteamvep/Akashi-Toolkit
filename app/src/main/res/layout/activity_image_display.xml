@@ -29,8 +29,8 @@
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="48dp"
-        android:paddingBottom="48dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginBottom="48dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     </android.support.v4.view.ViewPager>

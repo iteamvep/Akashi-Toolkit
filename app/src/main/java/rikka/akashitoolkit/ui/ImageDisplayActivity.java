@@ -1,7 +1,7 @@
 package rikka.akashitoolkit.ui;
 
 import android.annotation.SuppressLint;
-import android.app.ActivityOptions;
+import android.app.ActivityManager;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -15,25 +15,19 @@ import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.model.GlideUrl;
-import com.bumptech.glide.load.model.LazyHeaderFactory;
-import com.bumptech.glide.load.model.LazyHeaders;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.FutureTarget;
 import com.bumptech.glide.request.RequestListener;
@@ -51,6 +45,7 @@ import rikka.akashitoolkit.utils.Utils;
 public class ImageDisplayActivity extends AppCompatActivity implements View.OnClickListener {
     public static final String EXTRA_URL = "EXTRA_URL";
     public static final String EXTRA_POSITION = "EXTRA_POSITION";
+    public static final String EXTRA_TITLE = "EXTRA_TITLE";
 
     private List<String> mList;
     private int mPosition;
@@ -74,6 +69,10 @@ public class ImageDisplayActivity extends AppCompatActivity implements View.OnCl
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);*/
+
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) {
+            setTaskDescription(new ActivityManager.TaskDescription(getIntent().getStringExtra(EXTRA_TITLE), null, ContextCompat.getColor(this, R.color.background)));
+        }
 
         mCoordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinatorLayout);
 
@@ -112,7 +111,6 @@ public class ImageDisplayActivity extends AppCompatActivity implements View.OnCl
         }
 
         viewPager.setAdapter(adapter);
-        viewPager.setOffscreenPageLimit(99);
         viewPager.setCurrentItem(mPosition);
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -247,12 +245,14 @@ public class ImageDisplayActivity extends AppCompatActivity implements View.OnCl
         if (mFAB.getVisibility() == View.VISIBLE)
             return;
 
+        mFAB.clearAnimation();
+
         mFAB.setVisibility(View.VISIBLE);
-        ScaleAnimation anim = new ScaleAnimation(0f, 1f, 0f, 1f,
+        ScaleAnimation scaleAnimation = new ScaleAnimation(0f, 1f, 0f, 1f,
                 Animation.RELATIVE_TO_SELF, 0.5f,
                 Animation.RELATIVE_TO_SELF, 0.5f);
-        anim.setDuration(300);
-        mFAB.startAnimation(anim);
+        scaleAnimation.setDuration(300);
+        mFAB.startAnimation(scaleAnimation);
 
         Log.d(getClass().getSimpleName(), "show FAB " + Integer.toString(mPosition));
     }
@@ -261,7 +261,34 @@ public class ImageDisplayActivity extends AppCompatActivity implements View.OnCl
         if (mFAB.getVisibility() == View.GONE)
             return;
 
-        mFAB.setVisibility(View.GONE);
+        if (mFAB.getVisibility() == View.VISIBLE) {
+            mFAB.clearAnimation();
+
+            mFAB.setVisibility(View.VISIBLE);
+            ScaleAnimation scaleAnimation = new ScaleAnimation(1f, 0f, 1f, 0f,
+                    Animation.RELATIVE_TO_SELF, 0.5f,
+                    Animation.RELATIVE_TO_SELF, 0.5f);
+            scaleAnimation.setDuration(300);
+            scaleAnimation.setAnimationListener(new Animation.AnimationListener() {
+                @Override
+                public void onAnimationStart(Animation animation) {
+
+                }
+
+                @Override
+                public void onAnimationEnd(Animation animation) {
+                    mFAB.setVisibility(View.GONE);
+                }
+
+                @Override
+                public void onAnimationRepeat(Animation animation) {
+
+                }
+            });
+            mFAB.startAnimation(scaleAnimation);
+        } else {
+            mFAB.setVisibility(View.GONE);
+        }
 
         Log.d(getClass().getSimpleName(), "hide FAB " + Integer.toString(mPosition));
     }

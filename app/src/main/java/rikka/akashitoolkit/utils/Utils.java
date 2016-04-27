@@ -119,8 +119,15 @@ public class Utils {
     }
 
     public static GlideUrl getGlideUrl(String url) {
-        return new GlideUrl(url, new LazyHeaders.Builder()
+        /*return new GlideUrl(url, new LazyHeaders.Builder()
                 .addHeader("User-Agent", "AkashiToolkit")
+                .build());*/
+
+        return new GlideUrl(url, new LazyHeaders.Builder()
+                .addHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36")
+                .addHeader("Accept-Language", "zh-CN,zh;q=0.8,zh-TW;q=0.6,en-US;q=0.4,en;q=0.2")
+                .addHeader("Host", "kc.6candy.com")
+                .addHeader("Referer", "http://zh.kcwiki.moe/wiki/%E8%88%B0%E5%A8%98%E7%99%BE%E7%A7%91")
                 .build());
     }
 }

@@ -179,6 +179,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
                     Intent intent = new Intent(ShipDisplayActivity.this, ImageDisplayActivity.class);
                     intent.putStringArrayListExtra(ImageDisplayActivity.EXTRA_URL, (ArrayList<String>) urlList);
                     intent.putExtra(ImageDisplayActivity.EXTRA_POSITION, finalI);
+                    intent.putExtra(ImageDisplayActivity.EXTRA_TITLE, getTaskDescriptionLabel());
                     startActivity(intent);
                 }
             });
