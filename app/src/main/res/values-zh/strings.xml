@@ -102,5 +102,6 @@
     <string name="saved">已保存 %s</string>
     <string name="save_failed">保存失败</string>
     <string name="require_write_external_storage_permission">需要写外置存储权限才能保存</string>
+    <string name="open">Open</string>
 
 </resources>

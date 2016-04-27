@@ -3,6 +3,7 @@ package rikka.akashitoolkit.ui;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.ActivityManager;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -87,10 +88,6 @@ public class ImageDisplayActivity extends BaseActivity implements View.OnClickLi
 
         mTextView = (TextView) findViewById(R.id.textView);
         mTextView2 = (TextView) findViewById(R.id.textView2);
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.colorImageDisplayBackground));
-        }
 
         mList = getIntent().getStringArrayListExtra(EXTRA_URL);
         mPosition = getIntent().getIntExtra(EXTRA_POSITION, 0);
@@ -210,10 +207,18 @@ public class ImageDisplayActivity extends BaseActivity implements View.OnClickLi
             }
 
             @Override
-            protected void onPostExecute(String filename) {
+            protected void onPostExecute(final String filename) {
                 if (filename != null) {
                     Snackbar.make(mCoordinatorLayout, String.format(getString(R.string.saved), filename), Snackbar.LENGTH_LONG)
-                            .setAction("Action", null).show();
+                            .setAction(R.string.open, new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                                    intent.setDataAndType(Uri.fromFile(new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + filename)), "image/*");
+                                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                    startActivity(intent);
+                                }
+                            }).show();
                 } else {
                     Snackbar.make(mCoordinatorLayout, getString(R.string.save_failed), Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
