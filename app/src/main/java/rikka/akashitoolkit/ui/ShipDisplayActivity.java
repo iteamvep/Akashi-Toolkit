@@ -38,6 +38,8 @@ import rikka.akashitoolkit.model.Ship;
 import rikka.akashitoolkit.staticdata.EquipList;
 import rikka.akashitoolkit.staticdata.ExtraIllustrationList;
 import rikka.akashitoolkit.staticdata.ShipList;
+import rikka.akashitoolkit.support.Settings;
+import rikka.akashitoolkit.utils.GlideHelper;
 import rikka.akashitoolkit.utils.KCStringFormatter;
 import rikka.akashitoolkit.utils.MySpannableFactory;
 import rikka.akashitoolkit.utils.Utils;
@@ -165,7 +167,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
         for (int i = 0; i < urlList.size(); i++) {
             String url = urlList.get(i);
 
-            Log.d(MapActivity.class.getSimpleName(), url);
+            Log.d(getClass().getSimpleName(), url);
 
             ImageView imageView = (ImageView) LayoutInflater.from(this)
                     .inflate(R.layout.item_illustrations, container, false)
@@ -184,11 +186,20 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
                 }
             });
 
-            Glide.with(this)
-                    .load(Utils.getGlideUrl(url))
-                    //.load(url)
-                    .crossFade()
-                    .into(imageView);
+            /*if (Settings.instance(this).getBoolean(Settings.DOWNLOAD_WIFI_ONLY, false)) {
+                Glide.with(this)
+                        .using(GlideHelper.cacheOnlyStreamLoader)
+                        .load(url)
+                        .placeholder(android.R.drawable.progress_indeterminate_horizontal)
+                        .crossFade()
+                        .into(imageView);
+            } else */{
+                Glide.with(this)
+                        .load(Utils.getGlideUrl(url))
+                        .crossFade()
+                        .into(imageView);
+            }
+
         }
     }
 

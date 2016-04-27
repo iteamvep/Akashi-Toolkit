@@ -17,6 +17,11 @@
             android:summary="@string/data_language_title_summary"
             android:defaultValue="true"/>
 
+        <!--<rikka.materialpreference.SwitchPreference
+            android:key="download_wifi_only"
+            android:title="@string/download_wifi_only"
+            android:defaultValue="false"/>-->
+
         <rikka.materialpreference.DropDownPreference
             android:key="night_mode"
             android:title="@string/night_mode"

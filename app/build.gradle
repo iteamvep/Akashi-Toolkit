@@ -8,8 +8,8 @@ android {
         applicationId "rikka.akashitoolkit"
         minSdkVersion 15
         targetSdkVersion 23
-        versionCode 38
-        versionName "0.0.16"
+        versionCode 39
+        versionName "0.0.17"
 
         //generatedDensities = []
     }
@@ -77,8 +77,8 @@ dependencies {
     compile (name:'daynightmode-release', ext:'aar')
     compile 'com.github.RikkaW:MaterialPreference:v0.0.4'
 
-    chinaCompile 'cn.leancloud.android:avoscloud-sdk:v3.+'
-    chinaCompile 'cn.leancloud.android:avoscloud-statistics:v3.+'
+    chinaCompile 'cn.leancloud.android:avoscloud-sdk:v3.13.8'
+    chinaCompile 'cn.leancloud.android:avoscloud-statistics:v3.13.8'
 
     compile 'com.commit451:PhotoView:1.2.5'
 

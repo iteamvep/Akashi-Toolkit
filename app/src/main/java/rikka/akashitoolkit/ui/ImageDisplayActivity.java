@@ -33,6 +33,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.model.GlideUrl;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.FutureTarget;
@@ -242,6 +243,7 @@ public class ImageDisplayActivity extends BaseActivity implements View.OnClickLi
 
             Glide.with(this)
                     .load(Utils.getGlideUrl(getArguments().getString("URL")))
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .crossFade()
                     .listener(new RequestListener<GlideUrl, GlideDrawable>() {
                         @Override

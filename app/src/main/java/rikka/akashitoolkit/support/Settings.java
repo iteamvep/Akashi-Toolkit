@@ -29,6 +29,8 @@ public class Settings {
     public static final String DATA_LANGUAGE = "data_language";
     public static final String DATA_TITLE_LANGUAGE = "data_title_language";
 
+    public static final String DOWNLOAD_WIFI_ONLY = "download_wifi_only";
+
 
     private static Settings sInstance;
     private SharedPreferences mPrefs;
