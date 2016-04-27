@@ -28,10 +28,10 @@ public class ExtraIllustrationList {
         sList = null;
     }
 
-    public static ExtraIllustration findItemById(Context context, int id) {
+    public static ExtraIllustration findItemById(Context context, String id) {
         for (ExtraIllustration item:
                 get(context)) {
-            if (item.getId() == id) {
+            if (item.getId().equals(id)) {
                 return item;
             }
         }

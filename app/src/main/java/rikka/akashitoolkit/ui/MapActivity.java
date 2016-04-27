@@ -121,7 +121,8 @@ public class MapActivity extends BaseItemDisplayActivity {
         Log.d(MapActivity.class.getSimpleName(), url);
 
         Glide.with(this)
-                .load(url)
+                .load(Utils.getGlideUrl(url))
+                //.load(url)
                 .crossFade()
                 .into((ImageView) findViewById(R.id.imageView));
 

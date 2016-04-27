@@ -6,6 +6,9 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 
+import com.bumptech.glide.load.model.GlideUrl;
+import com.bumptech.glide.load.model.LazyHeaders;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -113,5 +116,11 @@ public class Utils {
         String b = md5.substring(0, 2);
 
         return String.format("http://kc.6candy.com/commons/%s/%s/%s", a, b, fileName);
+    }
+
+    public static GlideUrl getGlideUrl(String url) {
+        return new GlideUrl(url, new LazyHeaders.Builder()
+                .addHeader("User-Agent", "AkashiToolkit")
+                .build());
     }
 }

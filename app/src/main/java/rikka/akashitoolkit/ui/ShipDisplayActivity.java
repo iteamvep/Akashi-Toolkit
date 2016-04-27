@@ -157,11 +157,11 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
         ViewGroup view = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.ship_illustrations_container, parent);
         LinearLayout container = (LinearLayout) view.findViewById(R.id.content_container);
 
-        List<String> urlList = new ArrayList<>();
+        final List<String> urlList = new ArrayList<>();
         urlList.add(Utils.getKCWikiFileUrl(String.format("KanMusu%sIllust.png", mItem.getWiki_id().replace("a", ""))));
         urlList.add(Utils.getKCWikiFileUrl(String.format("KanMusu%sDmgIllust.png", mItem.getWiki_id().replace("a", ""))));
 
-        ExtraIllustration extraIllustration = ExtraIllustrationList.findItemById(this, mItem.getId());
+        ExtraIllustration extraIllustration = ExtraIllustrationList.findItemById(this, mItem.getWiki_id());
         if (extraIllustration != null) {
             for (String name :
                     extraIllustration.getImage()) {
@@ -169,8 +169,9 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
             }
         }
 
-        for (final String url :
-                urlList) {
+        for (int i = 0; i < urlList.size(); i++) {
+            String url = urlList.get(i);
+
             Log.d(MapActivity.class.getSimpleName(), url);
 
             ImageView imageView = (ImageView) LayoutInflater.from(this)
@@ -178,17 +179,21 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
                     .findViewById(R.id.imageView);
             container.addView(imageView);
 
+            final int finalI = i;
             imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(ShipDisplayActivity.this, ImageDisplayActivity.class);
-                    intent.putExtra(ImageDisplayActivity.EXTRA_URL, url);
+                    intent.putStringArrayListExtra(ImageDisplayActivity.EXTRA_URL, (ArrayList<String>) urlList);
+                    intent.putExtra(ImageDisplayActivity.EXTRA_POSITION, finalI);
                     startActivity(intent);
                 }
             });
 
             Glide.with(this)
-                    .load(url)
+                    .load(Utils.getGlideUrl(url))
+                    //.load(url)
+                    .crossFade()
                     .into(imageView);
         }
     }
