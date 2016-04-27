@@ -6,6 +6,8 @@
     <color name="colorItemDisplayStatusBar">#bdbdbd</color>
     <color name="colorImageDisplayBackground">#a7000000</color>
 
+    <color name="colorPrimaryItemActivity">@color/grey_50</color>
+
     <color name="white">#FFFFFFFF</color>
     <color name="grey_50">#FFFAFAFA</color>
     <color name="grey_200">#FFEEEEEE</color>

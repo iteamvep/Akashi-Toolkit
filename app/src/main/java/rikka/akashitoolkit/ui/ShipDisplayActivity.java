@@ -2,10 +2,7 @@ package rikka.akashitoolkit.ui;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
@@ -29,13 +26,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.FutureTarget;
-import com.bumptech.glide.request.target.Target;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.ViewPagerAdapter;
@@ -79,7 +72,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
 
         mItem = ShipList.findItemById(this, mId);
         if (mItem == null) {
-            Log.d("QAQ", "Ship not found? id=" + Integer.toString(mId));
+            Log.d("ShipDisplayActivity", "Ship not found? id=" + Integer.toString(mId));
             finish();
             return;
         }
@@ -112,7 +105,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
         if (Utils.isNightMode(getResources())) {
             getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_clear_24dp);
             mToolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
-            mToolbar.setSubtitleTextColor(Color.parseColor("#DE000000"));
+            mToolbar.setSubtitleTextColor(Color.parseColor("#DEFFFFFF"));
         } else {
             getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_clear_24dp_dark);
             mToolbar.setTitleTextColor(Color.parseColor("#000000"));
@@ -139,12 +132,12 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
                 return bundle;
             }
         };
-        adapter.addFragment(AttrFragment.class, "初期值");
+        adapter.addFragment(AttrFragment.class, getString(R.string.initial));
         adapter.addFragment(AttrFragment.class, "Lv.99");
         adapter.addFragment(AttrFragment.class, "LV.155");
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
-        tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(this, R.color.colorPrimary));
+        tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(this, R.color.colorPrimaryItemActivity));
 
         addEquip(mLinearLayout);
         addRemodel(mLinearLayout);
@@ -152,7 +145,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
     }
 
     private void addIllustration(ViewGroup parent) {
-        parent = addCell(parent, "图鉴");
+        parent = addCell(parent, R.string.illustration);
 
         ViewGroup view = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.ship_illustrations_container, parent);
         LinearLayout container = (LinearLayout) view.findViewById(R.id.content_container);
@@ -200,7 +193,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
 
     private void addRemodel(ViewGroup parent) {
         if (mItem.getRemodel() != null) {
-            parent = addCell(parent, "改造");
+            parent = addCell(parent, R.string.remodel);
             GridLayout gridLayout = new GridLayout(this);
             gridLayout.setColumnCount(2);
 
@@ -268,38 +261,32 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
     }
 
     private void addEquip(ViewGroup parent) {
-        parent = addCell(parent, "初始装备 & 搭载量");
+        parent = addCell(parent, R.string.equip_and_load);
 
         List<Integer> equipId = mItem.getEquip().get(0);
         List<Integer> equipSlot = mItem.getEquip().get(1);
 
         for (int i = 0; i < mItem.getSlot(); i++) {
-            ViewGroup view = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.ship_item, null);
+            ViewGroup view = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.ship_equip, parent, false);
 
             if (equipId.get(i) > 0) {
                 final Equip item = EquipList.findItemById(this, equipId.get(i));
                 if (item == null) {
-                    ((TextView) view.findViewById(android.R.id.title)).setText(String.format("找不到装备 (id: %d)", equipId.get(i)));
+                    ((TextView) view.findViewById(android.R.id.title)).setText(String.format(getString(R.string.equip_not_found), equipId.get(i)));
                     view.findViewById(android.R.id.title).setEnabled(false);
                 } else {
-                    //((TextView) view.findViewById(android.R.id.title)).setSpannableFactory(MySpannableFactory.getInstance());
-                    //((TextView) view.findViewById(android.R.id.title)).setText(KCStringFormatter.getLinkEquip(equip));
-                    //((TextView) view.findViewById(android.R.id.title)).setMovementMethod(new LinkMovementMethod());
-                    //view.findViewById(android.R.id.title).setClickable(true);
                     ((TextView) view.findViewById(android.R.id.title)).setText(item.getName().get(this));
-                    //EquipTypeList.setIntoImageView((ImageView) view.findViewById(R.id.imageView), equip.getIcon());
                     view.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             Intent intent = new Intent(ShipDisplayActivity.this, EquipDisplayActivity.class);
                             intent.putExtra(EquipDisplayActivity.EXTRA_ITEM_ID, item.getId());
                             startActivity(intent);
-                            //startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("akashitoolkit://equip/"+Integer.toString(equip.getId()))));
                         }
                     });
                 }
             } else {
-                ((TextView) view.findViewById(android.R.id.title)).setText("未装备");
+                ((TextView) view.findViewById(android.R.id.title)).setText(getString(R.string.not_equipped));
                 view.findViewById(android.R.id.title).setEnabled(false);
             }
 
@@ -310,7 +297,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
     }
 
     private ViewGroup addCell(ViewGroup parent, String title) {
-        ViewGroup view = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.content_item_display_cell, null);
+        ViewGroup view = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.content_item_display_cell, parent, false);
         ((TextView) view.findViewById(android.R.id.title)).setText(title);
         parent.addView(view);
         return view;

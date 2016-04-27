@@ -93,5 +93,11 @@
     <string name="data_language_title">使用日语标题</string>
     <string name="data_language_title_summary">对任务标题等显示日语</string>
     <string name="action_picture">图片</string>
+    <string name="illustration">图鉴</string>
+    <string name="remodel">改造</string>
+    <string name="equip_and_load">初始装备 &amp; 搭载量</string>
+    <string name="equip_not_found">找不到装备 (id: %d)</string>
+    <string name="not_equipped">未装备</string>
+    <string name="initial">初期值</string>
 
 </resources>
