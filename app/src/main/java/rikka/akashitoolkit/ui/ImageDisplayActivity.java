@@ -1,12 +1,15 @@
 package rikka.akashitoolkit.ui;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.ActivityManager;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -14,6 +17,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
+import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,6 +25,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
+import android.view.animation.OvershootInterpolator;
 import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -42,7 +47,7 @@ import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.ViewPagerAdapter;
 import rikka.akashitoolkit.utils.Utils;
 
-public class ImageDisplayActivity extends AppCompatActivity implements View.OnClickListener {
+public class ImageDisplayActivity extends BaseActivity implements View.OnClickListener {
     public static final String EXTRA_URL = "EXTRA_URL";
     public static final String EXTRA_POSITION = "EXTRA_POSITION";
     public static final String EXTRA_TITLE = "EXTRA_TITLE";
@@ -150,7 +155,38 @@ public class ImageDisplayActivity extends AppCompatActivity implements View.OnCl
             mDownloadTask.cancel(true);
         }
 
+        if (!checkPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+            getPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE, 0);
+        } else {
+            startDownload();
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode) {
+            case 0:
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    startDownload();
+                } else {
+                    Snackbar.make(mCoordinatorLayout, getString(R.string.require_write_external_storage_permission), Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                }
+                break;
+            default:
+                super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+    }
+
+    private void startDownload() {
         mDownloadTask = new AsyncTask<Void, Void, String>() {
+            @Override
+            protected void onPreExecute() {
+                if (!checkPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                    getPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE, 0);
+                }
+            }
+
             @Override
             protected String doInBackground(Void... params) {
                 mFileFutureTarget = Glide.with(getApplicationContext())
@@ -158,13 +194,15 @@ public class ImageDisplayActivity extends AppCompatActivity implements View.OnCl
                         .downloadOnly(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL);
 
                 try {
+                    String fileName = "/AkashiToolkit/" + Uri.parse(mList.get(mPosition)).getLastPathSegment();
+
                     File file = mFileFutureTarget.get();
-                    File dst = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-                    String fileName = Uri.parse(mList.get(mPosition)).getLastPathSegment();
+                    File dst = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+
                     Utils.copyFile(file,
                             new File(dst.getAbsolutePath() + "/" + fileName));
 
-                    return fileName;
+                    return Environment.DIRECTORY_PICTURES + fileName;
                 } catch (InterruptedException | ExecutionException | IOException e) {
                     e.printStackTrace();
                     return null;
@@ -174,10 +212,10 @@ public class ImageDisplayActivity extends AppCompatActivity implements View.OnCl
             @Override
             protected void onPostExecute(String filename) {
                 if (filename != null) {
-                    Snackbar.make(mCoordinatorLayout, "Saved" + " " + filename, Snackbar.LENGTH_LONG)
+                    Snackbar.make(mCoordinatorLayout, String.format(getString(R.string.saved), filename), Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
                 } else {
-                    Snackbar.make(mCoordinatorLayout, "Failed", Snackbar.LENGTH_LONG)
+                    Snackbar.make(mCoordinatorLayout, getString(R.string.save_failed), Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
                 }
             }
@@ -205,7 +243,7 @@ public class ImageDisplayActivity extends AppCompatActivity implements View.OnCl
                         public boolean onException(Exception e, GlideUrl model, Target<GlideDrawable> target, boolean isFirstResource) {
                             e.printStackTrace();
                             Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
-                            ((ImageDisplayActivity) getActivity()).setIsDownloaded(mPosition, true);
+                            ((ImageDisplayActivity) getActivity()).setIsDownloaded(mPosition, false);
                             return false;
                         }
 
@@ -221,9 +259,9 @@ public class ImageDisplayActivity extends AppCompatActivity implements View.OnCl
         }
 
         @Override
-        public void onStop() {
+        public void onDestroyView() {
             Glide.clear(mImageView);
-            super.onStop();
+            super.onDestroyView();
         }
     }
 
@@ -251,7 +289,11 @@ public class ImageDisplayActivity extends AppCompatActivity implements View.OnCl
         ScaleAnimation scaleAnimation = new ScaleAnimation(0f, 1f, 0f, 1f,
                 Animation.RELATIVE_TO_SELF, 0.5f,
                 Animation.RELATIVE_TO_SELF, 0.5f);
+        scaleAnimation.setInterpolator(new FastOutSlowInInterpolator());
         scaleAnimation.setDuration(300);
+
+        // avoid missing frame?
+        scaleAnimation.setStartOffset(500);
         mFAB.startAnimation(scaleAnimation);
 
         Log.d(getClass().getSimpleName(), "show FAB " + Integer.toString(mPosition));
@@ -264,7 +306,6 @@ public class ImageDisplayActivity extends AppCompatActivity implements View.OnCl
         if (mFAB.getVisibility() == View.VISIBLE) {
             mFAB.clearAnimation();
 
-            mFAB.setVisibility(View.VISIBLE);
             ScaleAnimation scaleAnimation = new ScaleAnimation(1f, 0f, 1f, 0f,
                     Animation.RELATIVE_TO_SELF, 0.5f,
                     Animation.RELATIVE_TO_SELF, 0.5f);

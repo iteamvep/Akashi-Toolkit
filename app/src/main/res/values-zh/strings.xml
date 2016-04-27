@@ -99,5 +99,8 @@
     <string name="equip_not_found">找不到装备 (id: %d)</string>
     <string name="not_equipped">未装备</string>
     <string name="initial">初期值</string>
+    <string name="saved">已保存 %s</string>
+    <string name="save_failed">保存失败</string>
+    <string name="require_write_external_storage_permission">需要写外置存储权限才能保存</string>
 
 </resources>

@@ -1,7 +1,9 @@
 package rikka.akashitoolkit.ui;
 
+import android.content.pm.PackageManager;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 
 import moe.xing.daynightmode.BaseDayNightModeActivity;
@@ -15,7 +17,6 @@ public class BaseActivity extends BaseDayNightModeActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setBackgroundDrawable(new ColorDrawable(ContextCompat.getColor(this, R.color.background)));
     }
 
     protected void onPause() {
@@ -26,5 +27,15 @@ public class BaseActivity extends BaseDayNightModeActivity {
     protected void onResume() {
         super.onResume();
         Statistics.onResume(this);
+    }
+
+    protected boolean checkPermission(String permission) {
+        return (ContextCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_GRANTED);
+    }
+
+    protected void getPermission(String permission, int requestCode) {
+        if (ContextCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{permission}, requestCode);
+        }
     }
 }

@@ -98,5 +98,8 @@
     <string name="equip_not_found">Equip not found (id: %d)</string>
     <string name="not_equipped">Not equipped</string>
     <string name="initial">Initial</string>
+    <string name="saved">Saved %s</string>
+    <string name="save_failed">Failed</string>
+    <string name="require_write_external_storage_permission">Require WRITE_EXTERNAL_STORAGE permission to save file</string>
 
 </resources>
