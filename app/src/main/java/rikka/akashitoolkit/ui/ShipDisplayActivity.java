@@ -326,6 +326,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
         }
 
         if (lastPlayed != null && path.equals(lastPlayed)) {
+            lastPlayed = null;
             return;
         }
 
