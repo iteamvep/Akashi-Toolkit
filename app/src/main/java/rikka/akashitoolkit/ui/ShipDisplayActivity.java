@@ -315,15 +315,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
     private String lastPlayed;
 
     private void playMusic(String path) throws IOException {
-        if (mMediaPlayer != null) {
-            if (mMediaPlayer.isPlaying()) {
-                mMediaPlayer.stop();
-            }
-
-            mMediaPlayer.reset();
-            mMediaPlayer.release();
-            mMediaPlayer = null;
-        }
+        stopMusic();
 
         if (lastPlayed != null && path.equals(lastPlayed)) {
             lastPlayed = null;
@@ -335,6 +327,25 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
         mMediaPlayer.setDataSource(path);
         mMediaPlayer.prepare();
         mMediaPlayer.start();
+    }
+
+    private void stopMusic() {
+        if (mMediaPlayer != null) {
+            if (mMediaPlayer.isPlaying()) {
+                mMediaPlayer.stop();
+            }
+
+            mMediaPlayer.reset();
+            mMediaPlayer.release();
+            mMediaPlayer = null;
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        stopMusic();
+
+        super.onStop();
     }
 
     @Override
