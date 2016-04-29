@@ -2,6 +2,8 @@ package rikka.akashitoolkit.ui;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
@@ -11,6 +13,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.GridLayout;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.OrientationHelper;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
@@ -27,19 +32,29 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.ViewPagerAdapter;
 import rikka.akashitoolkit.model.Equip;
 import rikka.akashitoolkit.model.ExtraIllustration;
 import rikka.akashitoolkit.model.Ship;
+import rikka.akashitoolkit.model.ShipVoice;
+import rikka.akashitoolkit.network.NetworkUtils;
+import rikka.akashitoolkit.network.RetrofitAPI;
 import rikka.akashitoolkit.staticdata.EquipList;
 import rikka.akashitoolkit.staticdata.ExtraIllustrationList;
 import rikka.akashitoolkit.staticdata.ShipList;
-import rikka.akashitoolkit.support.Settings;
-import rikka.akashitoolkit.utils.GlideHelper;
 import rikka.akashitoolkit.utils.KCStringFormatter;
 import rikka.akashitoolkit.utils.MySpannableFactory;
 import rikka.akashitoolkit.utils.Utils;
@@ -51,18 +66,21 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
     public static final String EXTRA_ITEM_ID = "EXTRA_ITEM_ID";
 
     private Toolbar mToolbar;
-    private LinearLayout mLinearLayout;
     private CoordinatorLayout mCoordinatorLayout;
     private AppBarLayout mAppBarLayout;
+    private RecyclerView mRecyclerView;
     private Ship mItem;
     private int mId;
+    private Adapter mAdapter;
+
+    private MediaPlayer mMediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         mId = -1;
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
         if (intent.hasExtra(EXTRA_ITEM_ID)) {
             mId = intent.getIntExtra(EXTRA_ITEM_ID, 0);
         } else if (intent.getData() != null) {
@@ -81,12 +99,241 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
 
         setContentView(R.layout.activity_ship_display);
 
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://api.2ds.tv:8080")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        RetrofitAPI.Voice service = retrofit.create(RetrofitAPI.Voice.class);
+        Call<ShipVoice> call = service.get(mItem.getId());
+
+        call.enqueue(new Callback<ShipVoice>() {
+            @Override
+            public void onResponse(Call<ShipVoice> call, Response<ShipVoice> response) {
+                mAdapter.setData(response.body().getData());
+            }
+
+            @Override
+            public void onFailure(Call<ShipVoice> call, Throwable t) {
+
+            }
+        });
+
         mCoordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinatorLayout);
-        mLinearLayout = (LinearLayout) findViewById(R.id.linearLayout);
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         mAppBarLayout = (AppBarLayout) findViewById(R.id.appBarLayout);
-
+        mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this, OrientationHelper.VERTICAL, false));
+        mAdapter = new Adapter();
+        mRecyclerView.setAdapter(mAdapter);
         setViews();
+    }
+
+    private class Adapter extends RecyclerView.Adapter {
+        class ViewHolderHead extends RecyclerView.ViewHolder {
+            public ViewHolderHead(View itemView) {
+                super(itemView);
+            }
+        }
+
+        class ViewHolderHead2 extends RecyclerView.ViewHolder {
+            protected TextView mTitle;
+            public ViewHolderHead2(View itemView) {
+                super(itemView);
+
+                mTitle = (TextView) itemView.findViewById(android.R.id.title);
+            }
+        }
+
+        class ViewHolderItem extends RecyclerView.ViewHolder {
+            protected TextView mScene;
+            protected TextView mTitle;
+            protected TextView mContent;
+            protected TextView mContent2;
+            protected LinearLayout mLinearLayout;
+
+            public ViewHolderItem(View itemView) {
+                super(itemView);
+
+                mTitle = (TextView) itemView.findViewById(R.id.textView);
+                mScene = (TextView) itemView.findViewById(android.R.id.title);
+                mContent = (TextView) itemView.findViewById(R.id.text_content);
+                mContent = (TextView) itemView.findViewById(R.id.text_content);
+                mContent2 = (TextView) itemView.findViewById(R.id.text_content2);
+                mLinearLayout = (LinearLayout) itemView.findViewById(R.id.content_container);
+            }
+        }
+
+        class Voice {
+            String type;
+            ShipVoice.DataEntity.VoiceEntity voice;
+
+            public Voice(String type, ShipVoice.DataEntity.VoiceEntity voice) {
+                this.type = type;
+                this.voice = voice;
+            }
+        }
+
+        private static final int TYPE_HEAD = 0;
+        private static final int TYPE_HEAD2 = 1;
+        private static final int TYPE_ITEM = 2;
+
+        private List<Voice> mData;
+
+        public Adapter() {
+            mData = new ArrayList<>();
+        }
+
+        public void setData(List<ShipVoice.DataEntity> data) {
+            mData.clear();
+            for (ShipVoice.DataEntity entity : data) {
+                for (ShipVoice.DataEntity.VoiceEntity voice : entity.getVoice()) {
+                    mData.add(new Voice(entity.getZh(), voice));
+                }
+            }
+            notifyDataSetChanged();
+        }
+
+        @Override
+        public int getItemViewType(int position) {
+            switch (position) {
+                case 0:
+                    return TYPE_HEAD;
+                case 1:
+                    return TYPE_HEAD2;
+                default:
+                    return TYPE_ITEM;
+            }
+        }
+
+        @Override
+        public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            switch (viewType) {
+                case TYPE_HEAD:
+                    LinearLayout linearLayout = new LinearLayout(parent.getContext());
+                    linearLayout.setOrientation(LinearLayout.VERTICAL);
+                    return new ViewHolderHead(linearLayout);
+                case TYPE_HEAD2:
+                    return new ViewHolderHead2(
+                            LayoutInflater.from(parent.getContext()).inflate(R.layout.content_item_display_cell, parent, false));
+                default:
+                    return new ViewHolderItem(
+                            LayoutInflater.from(parent.getContext()).inflate(R.layout.item_ship_voice, parent, false));
+            }
+        }
+
+        @Override
+        public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+            switch (getItemViewType(position)) {
+                case TYPE_HEAD:
+                    holder.itemView.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+                    setView((LinearLayout) holder.itemView);
+                    break;
+                case TYPE_HEAD2:
+                    ((ViewHolderHead2) holder).mTitle.getLayoutParams().height = Utils.dpToPx(48);
+                    ((ViewHolderHead2) holder).mTitle.setText(R.string.voice);
+                    break;
+                default:
+                    try {
+                        final Voice item = mData.get(position - 2);
+
+                        if (position == 2 || !mData.get(position - 3).type.equals(item.type)) {
+                            ((ViewHolderItem) holder).mTitle.setVisibility(View.VISIBLE);
+                            ((ViewHolderItem) holder).mTitle.setText(
+                                    URLDecoder.decode(item.type, "UTF-8")
+                            );
+                        } else {
+                            ((ViewHolderItem) holder).mTitle.setVisibility(View.GONE);
+                        }
+
+                        ((ViewHolderItem) holder).mScene.setText(
+                                URLDecoder.decode(item.voice.getScene(), "UTF-8"));
+                        ((ViewHolderItem) holder).mContent.setText(
+                                URLDecoder.decode(item.voice.getJaSub(), "UTF-8"));
+                        ((ViewHolderItem) holder).mContent2.setText(
+                                URLDecoder.decode(item.voice.getZhSub(), "UTF-8"));
+
+                        ((ViewHolderItem) holder).mLinearLayout.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                try {
+                                    String url = URLDecoder.decode(item.voice.getUrl(), "UTF-8");
+                                    Log.d("VoicePlay", "url " + url);
+                                    Uri uri = Uri.parse(url);
+                                    String filename = uri.getLastPathSegment();
+                                    Log.d("VoicePlay", "filename " + filename);
+
+                                    final String path = getCacheDir().getAbsolutePath() + "/" + filename;
+                                    File file = new File(path);
+
+                                    if (file.exists()) {
+                                        Log.d("VoicePlay", "play exists file " + filename);
+                                        playMusic(path);
+                                    } else {
+                                        Log.d("VoicePlay", "download file " + filename);
+
+                                        NetworkUtils.get(url, new okhttp3.Callback() {
+                                            @Override
+                                            public void onResponse(okhttp3.Call call, okhttp3.Response response) throws IOException {
+                                                Log.d("VoicePlay", "download file finished");
+
+                                                Utils.saveStreamToFile(response.body().byteStream(), path);
+
+                                                playMusic(path);
+                                            }
+
+                                            @Override
+                                            public void onFailure(okhttp3.Call call, IOException e) {
+
+                                            }
+                                        });
+                                    }
+
+                                    /*MediaPlayer mp = new MediaPlayer();
+                                    mp.setDataSource(url);
+                                    mp.prepare();
+                                    mp.start();*/
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        });
+                    } catch (UnsupportedEncodingException e) {
+                        e.printStackTrace();
+                    }
+
+                    break;
+            }
+        }
+
+        @Override
+        public int getItemCount() {
+            return mData.size() == 0 ? 1 : mData.size() + 2;
+        }
+    }
+
+    private String lastPlayed;
+
+    private void playMusic(String path) throws IOException {
+        if (mMediaPlayer != null) {
+            if (mMediaPlayer.isPlaying()) {
+                mMediaPlayer.stop();
+            }
+
+            mMediaPlayer.reset();
+            mMediaPlayer.release();
+            mMediaPlayer = null;
+        }
+
+        if (lastPlayed != null && path.equals(lastPlayed)) {
+            return;
+        }
+
+        lastPlayed = path;
+        mMediaPlayer = new MediaPlayer();
+        mMediaPlayer.setDataSource(path);
+        mMediaPlayer.prepare();
+        mMediaPlayer.start();
     }
 
     @Override
@@ -117,11 +364,17 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
         if (mItem.getName() != null) {
             getSupportActionBar().setTitle(mItem.getName().get(this));
         }
+    }
+
+    private void setView(LinearLayout linearLayout) {
+        if (linearLayout.getChildCount() > 0) {
+            return;
+        }
 
         TabLayout tabLayout = new TabLayout(this);
-        mLinearLayout.addView(tabLayout);
+        linearLayout.addView(tabLayout);
 
-        ViewPager viewPager = (ViewPager) LayoutInflater.from(this).inflate(R.layout.content_viewpager, mLinearLayout, true).findViewById(R.id.view_pager);
+        ViewPager viewPager = (ViewPager) LayoutInflater.from(this).inflate(R.layout.content_viewpager, linearLayout, true).findViewById(R.id.view_pager);
         //ViewPager viewPager = new ViewPager(this);
         viewPager.setPadding(0, Utils.dpToPx(4), 0, 0);
         viewPager.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, Utils.dpToPx(32) * 6 + Utils.dpToPx(16)));
@@ -141,9 +394,9 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
         tabLayout.setupWithViewPager(viewPager);
         tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(this, R.color.colorPrimaryItemActivity));
 
-        addEquip(mLinearLayout);
-        addRemodel(mLinearLayout);
-        addIllustration(mLinearLayout);
+        addEquip(linearLayout);
+        addRemodel(linearLayout);
+        addIllustration(linearLayout);
     }
 
     private void addIllustration(ViewGroup parent) {
@@ -366,7 +619,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
     protected View[] getAnimFadeViews() {
         return new View[] {
                 mAppBarLayout,
-                mLinearLayout
+                mRecyclerView
         };
     }
 

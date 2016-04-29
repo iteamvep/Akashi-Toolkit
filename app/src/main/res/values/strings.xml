@@ -103,5 +103,6 @@
     <string name="require_write_external_storage_permission">Require WRITE_EXTERNAL_STORAGE permission to save file</string>
     <string name="open">Open</string>
     <string name="download_wifi_only">Download image via WiFi only</string>
+    <string name="voice">Voice</string>
 
 </resources>
