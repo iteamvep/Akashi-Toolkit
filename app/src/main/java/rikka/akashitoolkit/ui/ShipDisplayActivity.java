@@ -55,6 +55,7 @@ import rikka.akashitoolkit.network.RetrofitAPI;
 import rikka.akashitoolkit.staticdata.EquipList;
 import rikka.akashitoolkit.staticdata.ExtraIllustrationList;
 import rikka.akashitoolkit.staticdata.ShipList;
+import rikka.akashitoolkit.staticdata.ShipVoiceExtraList;
 import rikka.akashitoolkit.utils.KCStringFormatter;
 import rikka.akashitoolkit.utils.MySpannableFactory;
 import rikka.akashitoolkit.utils.Utils;
@@ -186,6 +187,27 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
 
         public void setData(List<ShipVoice.DataEntity> data) {
             mData.clear();
+
+            // so bad
+            Ship cur = mItem;
+            while (cur.getRemodel().getId_from() != 0) {
+                cur = ShipList.findItemById(ShipDisplayActivity.this, cur.getRemodel().getId_from());
+            }
+
+            ShipVoice v = ShipVoiceExtraList.get(ShipDisplayActivity.this);
+            for (ShipVoice.DataEntity entity : v.getData()) {
+                for (ShipVoice.DataEntity.VoiceEntity voice : entity.getVoice()) {
+                    if (entity.getZh().equals("%E8%8F%8A%E6%B0%B4%E7%89%B9%E6%94%BB") || entity.getZh().equals("%E6%9C%80%E5%90%8E%E4%B8%80%E6%AC%A1%E5%87%BA%E5%87%BB")) {
+                        continue;
+                    }
+
+                    if (cur.getWiki_id().equals(voice.getIndex())) {
+                        voice.setScene("");
+                        mData.add(new Voice("2016年春至", voice));
+                    }
+                }
+            }
+
             for (ShipVoice.DataEntity entity : data) {
                 for (ShipVoice.DataEntity.VoiceEntity voice : entity.getVoice()) {
                     mData.add(new Voice(entity.getZh(), voice));
@@ -245,6 +267,12 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
                         } else {
                             ((ViewHolderItem) holder).mTitle.setVisibility(View.GONE);
                         }
+
+                        /*if (item.voice.getScene().length() == 0) {
+                            ((ViewHolderItem) holder).mScene.setVisibility(View.GONE);
+                        } else {
+                            ((ViewHolderItem) holder).mScene.setVisibility(View.VISIBLE);
+                        }*/
 
                         ((ViewHolderItem) holder).mScene.setText(
                                 URLDecoder.decode(item.voice.getScene(), "UTF-8"));
@@ -327,6 +355,12 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
         mMediaPlayer.setDataSource(path);
         mMediaPlayer.prepare();
         mMediaPlayer.start();
+        mMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                lastPlayed = null;
+            }
+        });
     }
 
     private void stopMusic() {

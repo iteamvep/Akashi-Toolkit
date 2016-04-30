@@ -85,6 +85,7 @@ public class ShipVoice {
 
         public static class VoiceEntity {
             private String url;
+            private String index;
             private String scene;
             private String jaSub;
             private String zhSub;
@@ -95,6 +96,14 @@ public class ShipVoice {
 
             public void setUrl(String url) {
                 this.url = url;
+            }
+
+            public String getIndex() {
+                return index;
+            }
+
+            public void setIndex(String index) {
+                this.index = index;
             }
 
             public String getScene() {

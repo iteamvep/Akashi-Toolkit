@@ -35,7 +35,7 @@ public class ApiConstParam {
         JSON_VERSION.put("EquipImprovement.json", 4);
         JSON_VERSION.put("Equip.json", 4);
 
-        JSON_VERSION.put("Ship.json", 5);
+        JSON_VERSION.put("Ship.json", 6);
         JSON_VERSION.put("ShipType.json", 1);
 
         JSON_VERSION.put("Item.json", 2);
