@@ -1,5 +1,6 @@
 package rikka.akashitoolkit.ui.fragments;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.media.MediaPlayer;
@@ -14,6 +15,9 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -58,12 +62,13 @@ public class SeasonalFragment extends BaseFragment {
     private Adapter mAdapter;
 
     private MediaPlayer mMediaPlayer;
+    private String mTitle;
 
     @Override
     public void onShow() {
         MainActivity activity = ((MainActivity) getActivity());
         activity.getTabLayout().setVisibility(TAB_LAYOUT_VISIBILITY);
-        activity.getSupportActionBar().setTitle(getString(R.string.new_content));
+        activity.getSupportActionBar().setTitle(mTitle);
         activity.setRightDrawerLocked(true);
 
         Statistics.onFragmentStart("SeasonalFragment");
@@ -75,7 +80,34 @@ public class SeasonalFragment extends BaseFragment {
 
         mSwipeRefreshLayout.setRefreshing(false);
 
+        stopMusic();
+
         Statistics.onFragmentEnd("SeasonalFragment");
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+
+        mTitle = getString(R.string.new_content);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.twitter, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_refresh:
+                if (!mSwipeRefreshLayout.isRefreshing()) {
+                    refresh();
+                }
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Nullable
@@ -202,6 +234,12 @@ public class SeasonalFragment extends BaseFragment {
             count = 0;
         }
 
+        public void clearData() {
+            mData.clear();
+            mType.clear();
+            notifyChanged();
+        }
+
         public void addData(int type, Object data) {
             mType.add(type);
             mData.add(data);
@@ -324,8 +362,14 @@ public class SeasonalFragment extends BaseFragment {
     }
 
     private void setAdapter(Seasonal body) {
+        mAdapter.clearData();
+
         MainActivity activity = ((MainActivity) getActivity());
-        activity.getSupportActionBar().setTitle(body.getTitle());
+        mTitle = body.getTitle();
+
+        if (!isHidden()) {
+            activity.getSupportActionBar().setTitle(mTitle);
+        }
 
         for (Seasonal.DataEntity data: body.getData()) {
 
