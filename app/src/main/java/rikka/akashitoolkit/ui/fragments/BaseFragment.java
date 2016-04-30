@@ -10,7 +10,7 @@ import rikka.akashitoolkit.ui.MainActivity;
 /**
  * Created by Rikka on 2016/3/10.
  */
-public abstract class BaseFragmet extends Fragment {
+public abstract class BaseFragment extends Fragment {
     private static final String HIDDEN = "HIDDEN";
     private boolean mHidden;
 

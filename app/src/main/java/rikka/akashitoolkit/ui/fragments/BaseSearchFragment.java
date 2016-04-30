@@ -16,7 +16,7 @@ import rikka.akashitoolkit.R;
 /**
  * Created by Rikka on 2016/4/4.
  */
-public abstract class BaseSearchFragment extends BaseFragmet {
+public abstract class BaseSearchFragment extends BaseFragment {
     private String mKeyword;
     private boolean mIsSearching;
 

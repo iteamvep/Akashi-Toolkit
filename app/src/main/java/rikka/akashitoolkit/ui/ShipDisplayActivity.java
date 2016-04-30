@@ -2,6 +2,7 @@ package rikka.akashitoolkit.ui;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -108,6 +109,8 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
         RetrofitAPI.Voice service = retrofit.create(RetrofitAPI.Voice.class);
         Call<ShipVoice> call = service.get(mItem.getId());
 
+        Log.d("ShipDisplayActivity", "JKancolle/voice.do " + Integer.toString(mItem.getId()));
+
         call.enqueue(new Callback<ShipVoice>() {
             @Override
             public void onResponse(Call<ShipVoice> call, Response<ShipVoice> response) {
@@ -159,7 +162,6 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
                 mTitle = (TextView) itemView.findViewById(R.id.textView);
                 mScene = (TextView) itemView.findViewById(android.R.id.title);
                 mContent = (TextView) itemView.findViewById(R.id.text_content);
-                mContent = (TextView) itemView.findViewById(R.id.text_content);
                 mContent2 = (TextView) itemView.findViewById(R.id.text_content2);
                 mLinearLayout = (LinearLayout) itemView.findViewById(R.id.content_container);
             }
@@ -203,7 +205,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
 
                     if (cur.getWiki_id().equals(voice.getIndex())) {
                         voice.setScene("");
-                        mData.add(new Voice("2016年春至", voice));
+                        mData.add(new Voice("2016年三周年纪念", voice));
                     }
                 }
             }
@@ -234,6 +236,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
                 case TYPE_HEAD:
                     LinearLayout linearLayout = new LinearLayout(parent.getContext());
                     linearLayout.setOrientation(LinearLayout.VERTICAL);
+                    linearLayout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
                     return new ViewHolderHead(linearLayout);
                 case TYPE_HEAD2:
                     return new ViewHolderHead2(
@@ -248,7 +251,6 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
         public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
             switch (getItemViewType(position)) {
                 case TYPE_HEAD:
-                    holder.itemView.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
                     setView((LinearLayout) holder.itemView);
                     break;
                 case TYPE_HEAD2:
@@ -369,7 +371,6 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
                 mMediaPlayer.stop();
             }
 
-            mMediaPlayer.reset();
             mMediaPlayer.release();
             mMediaPlayer = null;
         }

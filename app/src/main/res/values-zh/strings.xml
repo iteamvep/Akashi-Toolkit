@@ -105,5 +105,6 @@
     <string name="open">打开</string>
     <string name="download_wifi_only">只在有WiFi的情况下下载图片</string>
     <string name="voice">语音</string>
+    <string name="new_content">季节性</string>
 
 </resources>

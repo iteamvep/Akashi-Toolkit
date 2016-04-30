@@ -30,6 +30,7 @@ import rikka.akashitoolkit.ui.fragments.EquipDisplayFragment;
 import rikka.akashitoolkit.ui.fragments.MapDisplayFragment;
 import rikka.akashitoolkit.ui.fragments.QuestDisplayFragment;
 import rikka.akashitoolkit.ui.fragments.HomeFragment;
+import rikka.akashitoolkit.ui.fragments.SeasonalFragment;
 import rikka.akashitoolkit.ui.fragments.ShipDisplayFragment;
 import rikka.akashitoolkit.ui.fragments.ToolsFragment;
 import rikka.akashitoolkit.ui.fragments.TwitterFragment;
@@ -91,6 +92,7 @@ public class MainActivity extends BaseActivity
         if (savedInstanceState != null) {
             findFragmentByNavId(mFragmentMap, R.id.nav_home);
             findFragmentByNavId(mFragmentMap, R.id.nav_twitter);
+            findFragmentByNavId(mFragmentMap, R.id.nav_new);
             findFragmentByNavId(mFragmentMap, R.id.nav_item_improve);
             findFragmentByNavId(mFragmentMap, R.id.nav_item);
             findFragmentByNavId(mFragmentMap, R.id.nav_quest);
@@ -115,6 +117,7 @@ public class MainActivity extends BaseActivity
             switch (id) {
                 case R.id.nav_home:
                 case R.id.nav_twitter:
+                case R.id.nav_new:
                 case R.id.nav_item_improve:
                 case R.id.nav_item:
                 case R.id.nav_quest:
@@ -218,6 +221,8 @@ public class MainActivity extends BaseActivity
                 return new HomeFragment();
             case R.id.nav_twitter:
                 return new TwitterFragment();
+            case R.id.nav_new:
+                return new SeasonalFragment();
             case R.id.nav_item_improve:
                 return new EquipImprovementDisplayFragment();
             case R.id.nav_item:

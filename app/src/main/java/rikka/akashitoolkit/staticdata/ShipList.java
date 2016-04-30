@@ -89,6 +89,16 @@ public class ShipList {
         return null;
     }
 
+    public static Ship findItemByWikiId(Context context, String wiki_id) {
+        for (Ship item:
+                get(context)) {
+            if (item.getWiki_id().equals(wiki_id)) {
+                return item;
+            }
+        }
+        return null;
+    }
+
     public static final String[] shipType = {
             "",
             "海防艦",

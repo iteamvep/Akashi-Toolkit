@@ -49,7 +49,7 @@ import rikka.akashitoolkit.utils.Utils;
 /**
  * Created by Rikka on 2016/3/6.
  */
-public class TwitterFragment extends BaseFragmet {
+public class TwitterFragment extends BaseFragment {
     private static final String TAG = "TwitterFragment";
 
     private static final int TAB_LAYOUT_VISIBILITY = View.GONE;

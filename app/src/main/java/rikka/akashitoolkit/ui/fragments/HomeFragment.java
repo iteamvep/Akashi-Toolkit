@@ -56,7 +56,7 @@ import static rikka.akashitoolkit.support.ApiConstParam.JSON_VERSION;
 /**
  * Created by Rikka on 2016/3/6.
  */
-public class HomeFragment extends BaseFragmet {
+public class HomeFragment extends BaseFragment {
     private static final int TAB_LAYOUT_VISIBILITY = View.GONE;
 
     private LinearLayout mLinearLayout;

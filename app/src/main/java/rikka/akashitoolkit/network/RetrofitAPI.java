@@ -9,6 +9,7 @@ import retrofit2.http.Streaming;
 import rikka.akashitoolkit.model.CheckUpdate;
 import rikka.akashitoolkit.model.ShipVoice;
 import rikka.akashitoolkit.model.Twitter;
+import rikka.akashitoolkit.model.Seasonal;
 
 /**
  * Created by Rikka on 2016/3/8.
@@ -33,6 +34,12 @@ public class RetrofitAPI {
         @GET("/Akashi/json/{filename}")
         @Streaming
         Call<ResponseBody> download(@Path("filename") String filename);
+    }
+
+    public interface SeasonalAPI {
+        @GET("/Akashi/seasonal.php")
+        Call<Seasonal> get(
+                @Query("api_version") int api_version);
     }
 
     public interface Voice {

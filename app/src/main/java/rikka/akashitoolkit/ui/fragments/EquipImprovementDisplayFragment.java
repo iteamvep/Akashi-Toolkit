@@ -20,7 +20,7 @@ import rikka.akashitoolkit.ui.MainActivity;
 /**
  * Created by Rikka on 2016/3/17.
  */
-public class EquipImprovementDisplayFragment extends BaseFragmet {
+public class EquipImprovementDisplayFragment extends BaseFragment {
     private static final int TAB_LAYOUT_VISIBILITY = View.VISIBLE;
 
     private ViewPager mViewPager;

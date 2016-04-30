@@ -6,10 +6,16 @@
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_nav_home_24dp"
             android:title="@string/home"/>
+
         <item
             android:id="@+id/nav_twitter"
             android:icon="@drawable/ic_nav_twitter_24dp"
             android:title="@string/official_twitter"/>
+
+        <item
+            android:id="@+id/nav_new"
+            android:icon="@drawable/ic_nav_new_24dp"
+            android:title="@string/new_content"/>
 
         <item
             android:id="@+id/nav_item_improve"

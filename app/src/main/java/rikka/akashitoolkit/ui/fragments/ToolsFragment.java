@@ -15,7 +15,7 @@ import rikka.akashitoolkit.ui.MainActivity;
 /**
  * Created by Rikka on 2016/4/9.
  */
-public class ToolsFragment extends BaseFragmet {
+public class ToolsFragment extends BaseFragment {
     private static final int TAB_LAYOUT_VISIBILITY = View.GONE;
 
     @Override

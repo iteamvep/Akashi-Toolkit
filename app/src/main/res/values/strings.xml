@@ -104,5 +104,6 @@
     <string name="open">Open</string>
     <string name="download_wifi_only">Download image via WiFi only</string>
     <string name="voice">Voice</string>
+    <string name="new_content">Seasonal</string>
 
 </resources>
