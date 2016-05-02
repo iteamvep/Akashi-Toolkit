@@ -19,6 +19,9 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import com.avos.avoscloud.AVInstallation;
+import com.avos.avoscloud.PushService;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -56,6 +59,10 @@ public class MainActivity extends BaseActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        PushService.setDefaultPushCallback(this, MainActivity.class);
+        PushService.subscribe(this, "public", MainActivity.class);
+        AVInstallation.getCurrentInstallation().saveInBackground();
 
         getWindow().setBackgroundDrawable(new ColorDrawable(ContextCompat.getColor(this, R.color.background)));
 
