@@ -33,6 +33,7 @@ public class PushReceiver extends BroadcastReceiver {
                 NotificationCompat.Builder mBuilder =
                         new NotificationCompat.Builder(AVOSCloud.applicationContext)
                                 .setSmallIcon(R.mipmap.ic_launcher_flower)
+                                .setColor(AVOSCloud.applicationContext.getResources().getColor(R.color.material_pink_500))
                                 .setContentTitle(title)
                                 .setContentText(message)
                                 .setTicker(message);
