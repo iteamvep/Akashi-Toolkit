@@ -1,5 +1,6 @@
 package rikka.akashitoolkit.ui;
 
+import android.annotation.SuppressLint;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 
 import rikka.akashitoolkit.BuildConfig;
 import rikka.akashitoolkit.R;
+import rikka.akashitoolkit.support.StaticData;
 import rikka.akashitoolkit.utils.ClipBoardUtils;
 import rikka.akashitoolkit.utils.UpdateCheck;
 import rikka.materialpreference.PreferenceFragment;
@@ -77,6 +79,19 @@ public class AboutActivity extends BaseActivity {
                 public boolean onPreferenceClick(Preference preference) {
                     ClipBoardUtils.putTextIntoClipboard(getActivity(), "437033068");
                     Toast.makeText(getActivity(), String.format("%s copied to clipboard.", "437033068"), Toast.LENGTH_SHORT).show();
+                    return false;
+                }
+            });
+
+            findPreference("feedback").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                @SuppressLint("DefaultLocale")
+                @Override
+                public boolean onPreferenceClick(Preference preference) {
+                    SendReportActivity.sendEmail(getActivity(),
+                            "Akashi Toolkit 反馈",
+                            String.format("应用版本: %d\n是否为 Google Play 版: %s\n",
+                                    StaticData.instance(getActivity()).versionCode,
+                                    BuildConfig.isGooglePlay ? "是" : "否"));
                     return false;
                 }
             });

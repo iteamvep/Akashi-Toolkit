@@ -9,6 +9,11 @@
         android:summary="@string/check_update_summary"/>-->
 
     <Preference
+        android:key="feedback"
+        android:title="@string/data_feedback"
+        android:summary="向开发者发送邮件"/>
+
+    <Preference
         android:key="version"
         android:title="@string/version"/>
 
