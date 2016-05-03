@@ -23,7 +23,7 @@ import rikka.akashitoolkit.utils.Utils;
 /**
  * Created by Rikka on 2016/3/31.
  */
-public abstract class BaseItemDisplayActivity extends BaseDayNightModeActivity {
+public abstract class BaseItemDisplayActivity extends BaseActivity {
     public static final String EXTRA_START_Y = "EXTRA_START_Y";
     public static final String EXTRA_START_HEIGHT = "EXTRA_START_HEIGHT";
 

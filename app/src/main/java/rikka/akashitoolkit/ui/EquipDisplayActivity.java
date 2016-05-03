@@ -61,6 +61,16 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
             }
         }
 
+        if (getIntent().getBooleanExtra(EXTRA_FROM_NOTIFICATION, false)) {
+            String extra = getIntent().getStringExtra(EXTRA_EXTRA);
+            if (extra != null) {
+                try {
+                    id = Integer.parseInt(extra);
+                } catch (Exception ignored) {
+                }
+            }
+        }
+
         mItem = EquipList.findItemById(this, id);
         if (mItem == null) {
             Log.d("QAQ", "No item find? id=" + Integer.toString(id));

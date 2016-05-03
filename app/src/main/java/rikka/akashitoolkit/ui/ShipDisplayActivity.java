@@ -92,6 +92,16 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
             }
         }
 
+        if (getIntent().getBooleanExtra(EXTRA_FROM_NOTIFICATION, false)) {
+            String extra = getIntent().getStringExtra(EXTRA_EXTRA);
+            if (extra != null) {
+                try {
+                    mId = Integer.parseInt(extra);
+                } catch (Exception ignored) {
+                }
+            }
+        }
+
         mItem = ShipList.findItemById(this, mId);
         if (mItem == null) {
             Log.d("ShipDisplayActivity", "Ship not found? id=" + Integer.toString(mId));

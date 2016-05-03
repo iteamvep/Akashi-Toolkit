@@ -32,6 +32,23 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:title="@string/category_notification">
+
+        <rikka.materialpreference.SwitchPreference
+            android:key="notification_sound"
+            android:title="@string/notification_sound"
+            android:defaultValue="false"/>
+
+        <rikka.materialpreference.DropDownPreference
+            android:key="notification_priority"
+            android:title="@string/notification_priority"
+            app:myEntries="@array/notification_priority"
+            app:myEntryValues="@array/notification_priority_value"
+            android:defaultValue="0"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:title="@string/category_twitter">
 
         <rikka.materialpreference.EditTextPreference

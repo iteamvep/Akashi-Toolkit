@@ -19,20 +19,18 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-import com.avos.avoscloud.AVInstallation;
-import com.avos.avoscloud.PushService;
-
 import java.util.HashMap;
 import java.util.Map;
 
 import rikka.akashitoolkit.R;
+import rikka.akashitoolkit.support.Push;
 import rikka.akashitoolkit.support.Settings;
+import rikka.akashitoolkit.ui.fragments.EquipDisplayFragment;
 import rikka.akashitoolkit.ui.fragments.EquipImprovementDisplayFragment;
 import rikka.akashitoolkit.ui.fragments.ExpeditionDisplayFragment;
-import rikka.akashitoolkit.ui.fragments.EquipDisplayFragment;
+import rikka.akashitoolkit.ui.fragments.HomeFragment;
 import rikka.akashitoolkit.ui.fragments.MapDisplayFragment;
 import rikka.akashitoolkit.ui.fragments.QuestDisplayFragment;
-import rikka.akashitoolkit.ui.fragments.HomeFragment;
 import rikka.akashitoolkit.ui.fragments.SeasonalFragment;
 import rikka.akashitoolkit.ui.fragments.ShipDisplayFragment;
 import rikka.akashitoolkit.ui.fragments.ToolsFragment;
@@ -60,9 +58,7 @@ public class MainActivity extends BaseActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        PushService.setDefaultPushCallback(this, MainActivity.class);
-        PushService.subscribe(this, "public", MainActivity.class);
-        AVInstallation.getCurrentInstallation().saveInBackground();
+        Push.init(this);
 
         getWindow().setBackgroundDrawable(new ColorDrawable(ContextCompat.getColor(this, R.color.background)));
 
@@ -95,6 +91,23 @@ public class MainActivity extends BaseActivity
         int id = Settings
                 .instance(this)
                 .getInt(Settings.LAST_DRAWER_ITEM_ID, R.id.nav_home);
+
+        if (getIntent() != null && getIntent().getBooleanExtra(EXTRA_FROM_NOTIFICATION, false)) {
+            String extra = getIntent().getStringExtra(EXTRA_EXTRA);
+            if (extra != null) {
+                switch (extra) {
+                    case "nav_home":
+                        id = R.id.nav_home;
+                        break;
+                    case "nav_twitter":
+                        id = R.id.nav_twitter;
+                        break;
+                    case "nav_new":
+                        id = R.id.nav_new;
+                        break;
+                }
+            }
+        }
 
         if (savedInstanceState != null) {
             findFragmentByNavId(mFragmentMap, R.id.nav_home);

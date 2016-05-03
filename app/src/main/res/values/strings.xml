@@ -106,4 +106,15 @@
     <string name="voice">Voice</string>
     <string name="new_content">Seasonal</string>
 
+    <string name="category_notification">Notification</string>
+    <string name="notification_sound">Notification sound</string>
+    <string name="notification_priority">Notification priority</string>
+
+    <string-array name="notification_priority">
+        <item>Min</item>
+        <item>Low</item>
+        <item>Default</item>
+        <item>High</item>
+        <item>Max</item>
+    </string-array>
 </resources>

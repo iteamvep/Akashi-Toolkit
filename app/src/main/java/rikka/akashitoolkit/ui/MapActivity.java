@@ -51,19 +51,32 @@ public class MapActivity extends BaseItemDisplayActivity {
         setContentView(R.layout.activity_map);
 
         Intent intent = getIntent();
+
         if (intent.hasExtra(EXTRA_ITEM_ID)) {
             mId = intent.getIntExtra(EXTRA_ITEM_ID, 11);
-            mItem = MapDetailList.findItemById(this, mId);
-
-            mSeaId = mId / 10;
-            mId = mId % 10;
-            mTitle = intent.getStringExtra(EXTRA_ITEM_NAME);
+            //mTitle = intent.getStringExtra(EXTRA_ITEM_NAME);
         }
+
+        if (getIntent().getBooleanExtra(EXTRA_FROM_NOTIFICATION, false)) {
+            String extra = getIntent().getStringExtra(EXTRA_EXTRA);
+            if (extra != null) {
+                try {
+                    mId = Integer.parseInt(extra);
+                } catch (Exception ignored) {
+                }
+            }
+        }
+
+        mItem = MapDetailList.findItemById(this, mId);
 
         if (mItem == null) {
             finish();
             return;
         }
+
+        mTitle = mItem.getName().get(this);
+        mSeaId = mId / 10;
+        mId = mId % 10;
 
         mCoordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinatorLayout);
         mContentContainer = (LinearLayout) findViewById(R.id.linearLayout);

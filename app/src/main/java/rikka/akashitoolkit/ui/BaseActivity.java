@@ -14,6 +14,10 @@ import rikka.akashitoolkit.support.Statistics;
  * Created by Rikka on 2016/3/6.
  */
 public class BaseActivity extends BaseDayNightModeActivity {
+    public static final String EXTRA_FROM_NOTIFICATION = "EXTRA_FROM_NOTIFICATION";
+    public static final String EXTRA_EXTRA = "EXTRA_EXTRA";
+    public static final String EXTRA_EXTRA2 = "EXTRA_EXTRA2";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

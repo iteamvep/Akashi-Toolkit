@@ -31,6 +31,11 @@ public class Settings {
 
     public static final String DOWNLOAD_WIFI_ONLY = "download_wifi_only";
 
+    public static final String SENT_TOKEN_TO_SERVER = "sentTokenToServer";
+    public static final String REGISTRATION_COMPLETE = "registrationComplete";
+
+    public static final String NOTIFICATION_SOUND = "notification_sound";
+    public static final String NOTIFICATION_PRIORITY = "notification_priority";
 
     private static Settings sInstance;
     private SharedPreferences mPrefs;
