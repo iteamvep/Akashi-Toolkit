@@ -2,6 +2,7 @@ package rikka.akashitoolkit.staticdata;
 
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.widget.ImageView;
 
 import com.google.gson.reflect.TypeToken;
@@ -110,126 +111,124 @@ public class EquipTypeList {
             R.drawable.system_icon_33_24dp,
             R.drawable.system_icon_34_24dp,
             R.drawable.system_icon_25_24dp,
-            R.drawable.system_icon_36_24dp
+            R.drawable.system_icon_36_24dp,
+            R.drawable.system_icon_05_24dp,
+            R.drawable.system_icon_05_24dp,
+            R.drawable.system_icon_10_24dp,
+            R.drawable.system_icon_10_24dp,
+            R.drawable.system_icon_11_24dp,
+            R.drawable.system_icon_06_24dp,
+            R.drawable.system_icon_06_24dp
     };
 
-    /*private static String[] COLOR = {
-            "",
-            "#D65B59",
-            "#CF3C39",
-            "#D32F2F",
-            "#FFCF00",
-            "#5584AB",
-            "#30B847",
-            "#E54E4E",
-            "#45B8FF",
-            "#FFCF00",
-            "#91D39B",
-            "#DD9223",
-            "#5BBF6A",
-            "#DF605E",
-            "#212121",
-            "#65D576",
-            "#62CC72",
-            "#7BCEDB",
-            "#7BCEDB",
-            "#FAC840",
-            "#A1AE5C",
-            "#60CA71",
-            "#7DE2EF",
-            "#A084B5",
-            "#FED02D",
-            "#BCBCBC",
-            "#B29E7D",
-            "#FCA844",
-            "#C1A2F6",
-            "#CEA265",
-            "#8C9E48",
-            "#F24646",
-            "#A2F4B3",
-            "#A2EBAD",
-            "#000000",
-            "#65CEA5",
-            "#A1AE5C"
-    };*/
     private static int[][] COLOR = {
             {
                     0,
                     R.color.material_red_400,
                     R.color.material_red_700,
                     R.color.material_red_700,
-                    R.color.material_amber_500,
+                    R.color.material_amber_500, // 5
+
                     R.color.material_blue_grey_500,
                     R.color.material_green_500,
                     R.color.material_red_400,
                     R.color.material_light_blue_500,
-                    R.color.material_amber_500,
+                    R.color.material_amber_500, // 10
+
                     R.color.material_green_200,
                     R.color.material_orange_500,
                     R.color.material_green_400,
                     R.color.material_red_400,
-                    R.color.material_grey_800,
+                    R.color.material_grey_800, // 15
+
                     R.color.material_green_300,
                     R.color.material_green_300,
                     R.color.material_light_blue_300,
                     R.color.material_light_blue_300,
-                    R.color.material_amber_500,
+                    R.color.material_amber_500, // 20
+
                     R.color.material_lime_700,
                     R.color.material_green_300,
                     R.color.material_cyan_200,
                     R.color.material_deep_purple_300,
-                    R.color.material_orange_500,
+                    R.color.material_orange_500, // 25
+
                     R.color.material_grey_400,
                     R.color.material_brown_300,
                     R.color.material_orange_400,
                     R.color.material_deep_purple_200,
-                    R.color.material_brown_300,
+                    R.color.material_brown_300, // 30
+
                     R.color.material_lime_800,
                     R.color.material_red_500,
                     R.color.material_green_200,
                     R.color.material_green_200,
-                    R.color.material_grey_800,
+                    R.color.material_grey_800, // 35
+
                     R.color.material_teal_200,
-                    R.color.material_lime_700
+                    R.color.material_lime_700,
+                    R.color.material_blue_grey_500,
+                    R.color.material_blue_grey_500,
+                    R.color.material_green_300, // 40
+
+                    R.color.material_green_300,
+                    R.color.material_orange_500,
+                    R.color.material_light_blue_300,
+                    R.color.material_green_500
             },
             {
                     0,
                     R.color.material_red_200,
                     R.color.material_red_200,
                     R.color.material_red_200,
-                    R.color.material_amber_200,
+                    R.color.material_amber_200, // 5
+
                     R.color.material_blue_grey_200,
                     R.color.material_green_200,
                     R.color.material_red_200,
                     R.color.material_light_blue_200,
-                    R.color.material_amber_200,
+                    R.color.material_amber_200, // 10
+
                     R.color.material_green_200,
                     R.color.material_orange_200,
                     R.color.material_green_200,
                     R.color.material_red_200,
-                    R.color.material_grey_200,
+                    R.color.material_grey_200,  // 15
+
                     R.color.material_green_200,
                     R.color.material_green_200,
                     R.color.material_light_blue_200,
                     R.color.material_light_blue_200,
-                    R.color.material_amber_200,
+                    R.color.material_amber_200, // 20
+
                     R.color.material_lime_200,
                     R.color.material_green_200,
                     R.color.material_cyan_200,
                     R.color.material_deep_purple_200,
-                    R.color.material_orange_200,
+                    R.color.material_orange_200,    // 25
+
                     R.color.material_grey_200,
                     R.color.material_brown_200,
                     R.color.material_orange_200,
                     R.color.material_deep_purple_200,
-                    R.color.material_brown_200,
+                    R.color.material_brown_200, // 30
+
                     R.color.material_lime_200,
                     R.color.material_red_200,
                     R.color.material_green_200,
                     R.color.material_green_200,
-                    R.color.material_grey_200,
+                    R.color.material_grey_200, // 35
+
                     R.color.material_teal_200,
-                    R.color.material_lime_200
+                    R.color.material_lime_200,
+                    R.color.material_blue_grey_200,
+                    R.color.material_blue_grey_200,
+                    R.color.material_green_200, // 40
+
+                    R.color.material_green_200,
+                    R.color.material_orange_200,
+                    R.color.material_light_blue_200,
+                    R.color.material_green_200
             }
     };
 
@@ -286,9 +285,14 @@ public class EquipTypeList {
     }*/
 
     public static void setIntoImageView(ImageView imageView, int id) {
-        imageView.setImageResource(ICON[id]);
-        imageView.setColorFilter(ContextCompat.getColor(
-                imageView.getContext(),
-                COLOR[Utils.isNightMode(imageView.getContext().getResources()) ? 1 : 0][id]));
+        try {
+            imageView.setImageResource(ICON[id]);
+            imageView.setColorFilter(ContextCompat.getColor(
+                    imageView.getContext(),
+                    COLOR[Utils.isNightMode(imageView.getContext().getResources()) ? 1 : 0][id]));
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.e("QAQ", Integer.toString(id));
+        }
     }
 }

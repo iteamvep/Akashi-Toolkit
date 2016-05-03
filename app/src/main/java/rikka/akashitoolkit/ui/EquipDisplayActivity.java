@@ -1,5 +1,6 @@
 package rikka.akashitoolkit.ui;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.design.widget.AppBarLayout;
@@ -31,6 +32,7 @@ import rikka.akashitoolkit.staticdata.EquipImprovementList;
 import rikka.akashitoolkit.staticdata.EquipTypeList;
 import rikka.akashitoolkit.staticdata.QuestList;
 import rikka.akashitoolkit.staticdata.ShipTypeList;
+import rikka.akashitoolkit.support.StaticData;
 import rikka.akashitoolkit.utils.KCStringFormatter;
 import rikka.akashitoolkit.utils.Utils;
 
@@ -152,6 +154,10 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
     }
 
     private void addShipType() {
+        if (mItem.getShipLimit() == null) {
+            return;
+        }
+
         ViewGroup parent = addCell(mLinearLayout, R.string.ship_can_equip);
 
         List<ShipType> list = ShipTypeList.get(this);
@@ -185,11 +191,19 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
 
     }
 
+    @SuppressLint("DefaultLocale")
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
                 onBackPressed();
+                break;
+            case R.id.action_feedback:
+                SendReportActivity.sendEmail(this,
+                        "Akashi Toolkit 装备数据反馈",
+                        String.format("应用版本: %d\n装备名称: %s\n\n请写下您的建议或是指出错误的地方。\n\n",
+                                StaticData.instance(this).versionCode,
+                                getTaskDescriptionLabel()));
                 break;
         }
         return super.onOptionsItemSelected(item);

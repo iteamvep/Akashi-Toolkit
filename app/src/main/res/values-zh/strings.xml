@@ -110,6 +110,7 @@
     <string name="category_notification">通知</string>
     <string name="notification_sound">通知提示音</string>
     <string name="notification_priority">通知优先级</string>
+    <string name="data_feedback">反馈</string>
 
     <string-array name="notification_priority">
         <item>最低</item>

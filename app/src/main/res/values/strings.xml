@@ -109,6 +109,7 @@
     <string name="category_notification">Notification</string>
     <string name="notification_sound">Notification sound</string>
     <string name="notification_priority">Notification priority</string>
+    <string name="data_feedback">Feedback</string>
 
     <string-array name="notification_priority">
         <item>Min</item>

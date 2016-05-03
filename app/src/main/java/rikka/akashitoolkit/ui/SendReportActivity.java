@@ -1,5 +1,6 @@
 package rikka.akashitoolkit.ui;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -14,6 +15,9 @@ import rikka.akashitoolkit.utils.IntentUtils;
  * Created by Rikka on 2016/3/13.
  */
 public class SendReportActivity extends BaseActivity {
+    public static final String EXTRA_EMAIL_SUBJECT =
+            "rikka.akashitoolkit.EXTRA_EMAIL_SUBJECT";
+
     public static final String EXTRA_EMAIL_BODY =
             "rikka.akashitoolkit.EMAIL_BODY";
 
@@ -37,7 +41,7 @@ public class SendReportActivity extends BaseActivity {
                 .setPositiveButton("发送邮件"/*R.string.app_crash_send_email*/, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        sendEmail(intent.getStringExtra(EXTRA_EMAIL_BODY));
+                        sendEmail(SendReportActivity.this, "Akashi Toolkit crash log", intent.getStringExtra(EXTRA_EMAIL_BODY));
                         finish();
                     }
                 })
@@ -56,18 +60,17 @@ public class SendReportActivity extends BaseActivity {
                 .show();
     }
 
-    private void sendEmail(String body) {
+    public static void sendEmail(Context context, String subject, String body) {
         Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", "rikka@xing.moe", null));
-        intent.putExtra(Intent.EXTRA_SUBJECT, "Akashi Toolkit crash log");
+        intent.putExtra(Intent.EXTRA_CC, new String[]{"rikkanyaaa+akashiToolkitFeedback@gmail.com","1248076945@qq.com"});
+        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
         intent.putExtra(Intent.EXTRA_TEXT, body);
-        //startActivity(Intent.createChooser(intent, "Send crash log by Email"));
 
-//        Intent intent = new Intent(Intent.ACTION_VIEW);
         intent = Intent.createChooser(intent, "send via"/*getString(R.string.send_via)*/);
-        if (IntentUtils.isValid(this, intent)) {
-            startActivity(intent);
+        if (IntentUtils.isValid(context, intent)) {
+            context.startActivity(intent);
         } else {
-            Toast.makeText(this, "没有邮件客户端的样子"/*R.string.app_crash_no_email_client*/, Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "没有邮件客户端的样子"/*R.string.app_crash_no_email_client*/, Toast.LENGTH_SHORT).show();
         }
 
     }

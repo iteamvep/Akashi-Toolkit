@@ -68,6 +68,7 @@ public class Seasonal {
             private int height;
             private String scale_type;
             private String title;
+            private String text;
             private List<String> file;
 
             public int getType() {
@@ -108,6 +109,14 @@ public class Seasonal {
 
             public void setTitle(String title) {
                 this.title = title;
+            }
+
+            public String getText() {
+                return text;
+            }
+
+            public void setText(String text) {
+                this.text = text;
             }
 
             public List<String> getFile() {

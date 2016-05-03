@@ -1,5 +1,6 @@
 package rikka.akashitoolkit.utils;
 
+import android.annotation.SuppressLint;
 import android.text.Html;
 import android.text.Spanned;
 
@@ -53,14 +54,17 @@ public class KCStringFormatter {
         }
     }
 
+    @SuppressLint("DefaultLocale")
     public static String getLinkEquip(int id, String name) {
         return String.format("<a href=akashitoolkit://equip/%d>%s</a>", id, name);
     }
 
+    @SuppressLint("DefaultLocale")
     public static Spanned getLinkEquip(Equip equip) {
         return Html.fromHtml(String.format("<a href=akashitoolkit://equip/%d>%s</a>", equip.getId(), equip.getName().getZh_cn()));
     }
 
+    @SuppressLint("DefaultLocale")
     public static String getLinkShip(int id, String name) {
         return String.format("<a href=akashitoolkit://ship/%d>%s</a>", id, name);
     }

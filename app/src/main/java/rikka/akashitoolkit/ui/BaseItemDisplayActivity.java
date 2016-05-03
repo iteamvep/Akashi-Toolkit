@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
@@ -65,6 +66,12 @@ public abstract class BaseItemDisplayActivity extends BaseActivity {
             animEnter();
             setViewsFadeAnim();
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.item_display, menu);
+        return true;
     }
 
     protected String getTaskDescriptionLabel() {

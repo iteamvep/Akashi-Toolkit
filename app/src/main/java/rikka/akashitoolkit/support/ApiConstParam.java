@@ -33,12 +33,13 @@ public class ApiConstParam {
 
     static {
         JSON_VERSION.put("EquipImprovement.json", 4);
-        JSON_VERSION.put("Equip.json", 4);
+        JSON_VERSION.put("Equip.json", 9);
+        JSON_VERSION.put("EquipType.json", 9);
 
-        JSON_VERSION.put("Ship.json", 6);
+        JSON_VERSION.put("Ship.json", 9);
         JSON_VERSION.put("ShipType.json", 1);
 
-        JSON_VERSION.put("Item.json", 2);
+        JSON_VERSION.put("Item.json", 7);
 
         JSON_VERSION.put("Map.json", 2);
         JSON_VERSION.put("MapDetail.json", 3);
@@ -54,6 +55,7 @@ public class ApiConstParam {
     static {
         JSON_NAME.put("EquipImprovement.json", "改修数据");
         JSON_NAME.put("Equip.json", "装备数据");
+        JSON_NAME.put("EquipType.json", "装备类型数据");
 
         JSON_NAME.put("Ship.json", "舰娘数据");
         JSON_NAME.put("ShipType.json", "舰娘类型数据");

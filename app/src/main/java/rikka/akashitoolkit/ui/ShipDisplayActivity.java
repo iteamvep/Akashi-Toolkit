@@ -1,5 +1,6 @@
 package rikka.akashitoolkit.ui;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.media.AudioManager;
@@ -57,6 +58,7 @@ import rikka.akashitoolkit.staticdata.EquipList;
 import rikka.akashitoolkit.staticdata.ExtraIllustrationList;
 import rikka.akashitoolkit.staticdata.ShipList;
 import rikka.akashitoolkit.staticdata.ShipVoiceExtraList;
+import rikka.akashitoolkit.support.StaticData;
 import rikka.akashitoolkit.utils.KCStringFormatter;
 import rikka.akashitoolkit.utils.MySpannableFactory;
 import rikka.akashitoolkit.utils.Utils;
@@ -201,7 +203,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
             mData.clear();
 
             // so bad
-            Ship cur = mItem;
+            /*Ship cur = mItem;
             while (cur.getRemodel().getId_from() != 0) {
                 cur = ShipList.findItemById(ShipDisplayActivity.this, cur.getRemodel().getId_from());
             }
@@ -218,7 +220,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
                         mData.add(new Voice("2016年三周年纪念", voice));
                     }
                 }
-            }
+            }*/
 
             for (ShipVoice.DataEntity entity : data) {
                 for (ShipVoice.DataEntity.VoiceEntity voice : entity.getVoice()) {
@@ -657,11 +659,19 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
         return addTextView(parent, text, 16);
     }
 
+    @SuppressLint("DefaultLocale")
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
                 onBackPressed();
+                break;
+            case R.id.action_feedback:
+                SendReportActivity.sendEmail(this,
+                        "Akashi Toolkit 装备数据反馈",
+                        String.format("应用版本: %d\n舰娘名称: %s\n\n请写下您的建议或是指出错误的地方。\n\n",
+                                StaticData.instance(this).versionCode,
+                                getTaskDescriptionLabel()));
                 break;
         }
         return super.onOptionsItemSelected(item);

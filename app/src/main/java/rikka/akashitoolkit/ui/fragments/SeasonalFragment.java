@@ -12,6 +12,8 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -49,6 +51,7 @@ import rikka.akashitoolkit.staticdata.ShipVoiceExtraList;
 import rikka.akashitoolkit.support.Statistics;
 import rikka.akashitoolkit.ui.ImageDisplayActivity;
 import rikka.akashitoolkit.ui.MainActivity;
+import rikka.akashitoolkit.utils.MySpannableFactory;
 import rikka.akashitoolkit.utils.Utils;
 
 /**
@@ -219,10 +222,25 @@ public class SeasonalFragment extends BaseFragment {
             }
         }
 
+        class ViewHolderText extends RecyclerView.ViewHolder {
+            protected TextView mText;
+
+            public ViewHolderText(View itemView) {
+                super(itemView);
+
+                mText = (TextView) itemView.findViewById(android.R.id.title);
+
+                mText.setMovementMethod(new LinkMovementMethod());
+                mText.setClickable(true);
+                mText.setSpannableFactory(MySpannableFactory.getInstance());
+            }
+        }
+
         private static final int TYPE_TITLE = 0;
         private static final int TYPE_SUBTITLE = 1;
         private static final int TYPE_ITEM_IMAGE = 2;
         private static final int TYPE_ITEM_VOICE = 3;
+        private static final int TYPE_ITEM_TEXT = 4;
 
         private List<Object> mData;
         private List<Integer> mType;
@@ -268,6 +286,9 @@ public class SeasonalFragment extends BaseFragment {
                 case TYPE_ITEM_VOICE:
                     return new ViewHolderVoice(
                             LayoutInflater.from(parent.getContext()).inflate(R.layout.item_ship_voice_seasonal, parent, false));
+                case TYPE_ITEM_TEXT:
+                    return new ViewHolderText(
+                            LayoutInflater.from(parent.getContext()).inflate(R.layout.item_text_seasonal, parent, false));
             }
 
             return null;
@@ -289,6 +310,9 @@ public class SeasonalFragment extends BaseFragment {
                     ((ViewHolderTitle) holder).mTitle.setText((String) mData.get(position));
                     ((ViewHolderTitle) holder).mTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
                     //((ViewHolderTitle) holder).mTitle.getLayoutParams().height = Utils.dpToPx(32);
+                    break;
+                case TYPE_ITEM_TEXT:
+                    ((ViewHolderText) holder).mText.setText(Html.fromHtml((String) mData.get(position)));
                     break;
                 case TYPE_ITEM_IMAGE:
                     setIllustrationContainer(
@@ -382,11 +406,15 @@ public class SeasonalFragment extends BaseFragment {
                         mAdapter.addData(Adapter.TYPE_SUBTITLE, content.getTitle());
                         mAdapter.addData(Adapter.TYPE_ITEM_IMAGE, content);
                         break;
+                    case 1:
+                        mAdapter.addData(Adapter.TYPE_SUBTITLE, content.getTitle());
+                        mAdapter.addData(Adapter.TYPE_ITEM_TEXT, content.getText());
+                        break;
                 }
             }
         }
 
-        mAdapter.addData(Adapter.TYPE_TITLE, "2016年新增三周年语音");
+        /*mAdapter.addData(Adapter.TYPE_TITLE, "2016年新增三周年语音");
 
         for (ShipVoice.DataEntity entity :
                 ShipVoiceExtraList.get(getContext()).getData()) {
@@ -402,7 +430,7 @@ public class SeasonalFragment extends BaseFragment {
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
-        }
+        }*/
 
         mAdapter.notifyChanged();
     }

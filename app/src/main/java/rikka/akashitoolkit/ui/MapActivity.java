@@ -26,6 +26,7 @@ import rikka.akashitoolkit.model.Ship;
 import rikka.akashitoolkit.staticdata.EnemyShipList;
 import rikka.akashitoolkit.staticdata.MapDetailList;
 import rikka.akashitoolkit.staticdata.ShipList;
+import rikka.akashitoolkit.support.StaticData;
 import rikka.akashitoolkit.utils.KCStringFormatter;
 import rikka.akashitoolkit.utils.Utils;
 import rikka.akashitoolkit.widget.ExpandableLayout;
@@ -102,12 +103,19 @@ public class MapActivity extends BaseItemDisplayActivity {
         return mTitle;
     }
 
+    @SuppressLint("DefaultLocale")
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
                 onBackPressed();
                 break;
+            case R.id.action_feedback:
+                SendReportActivity.sendEmail(this,
+                        "Akashi Toolkit 海图数据反馈",
+                        String.format("应用版本: %d\n海图名称: %s\n\n请写下您的建议或是指出错误的地方。\n\n",
+                                StaticData.instance(this).versionCode,
+                                getTaskDescriptionLabel()));
         }
         return super.onOptionsItemSelected(item);
     }
