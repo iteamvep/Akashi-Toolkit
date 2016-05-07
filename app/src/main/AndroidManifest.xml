@@ -19,7 +19,6 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity
             android:name=".ui.MainActivity"
             android:label="@string/app_name"
@@ -30,13 +29,11 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
         <activity
             android:name=".ui.SettingActivity"
             android:label="@string/setting"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
-
         <activity
             android:name=".ui.AboutActivity"
             android:label="@string/about"
@@ -68,7 +65,6 @@
                     android:scheme="akashitoolkit"/>
             </intent-filter>
         </activity>
-
         <activity
             android:name=".ui.ShipDisplayActivity"
             android:theme="@style/AppTheme.ItemActivity">
@@ -82,21 +78,22 @@
                     android:scheme="akashitoolkit"/>
             </intent-filter>
         </activity>
-
         <activity
             android:name=".ui.ExpCalcActivity"
             android:label="@string/exp_calc"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
-
         <activity
             android:name=".ui.MapActivity"
             android:theme="@style/AppTheme.ItemActivity">
         </activity>
-
         <activity
             android:name=".ui.ImageDisplayActivity"
             android:theme="@style/AppTheme.ImagesActivity">
+        </activity>
+        <activity
+            android:name=".ui.PushSendActivity"
+            android:label="Push send">
         </activity>
     </application>
 

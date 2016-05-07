@@ -37,6 +37,8 @@ public class Settings {
     public static final String NOTIFICATION_SOUND = "notification_sound";
     public static final String NOTIFICATION_PRIORITY = "notification_priority";
 
+    public static final String DEVELOPER = "developer";
+
     private static Settings sInstance;
     private SharedPreferences mPrefs;
 

@@ -1,12 +1,12 @@
 package rikka.akashitoolkit.ui;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceScreen;
 import android.support.v7.widget.Toolbar;
@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import rikka.akashitoolkit.BuildConfig;
 import rikka.akashitoolkit.R;
+import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.StaticData;
 import rikka.akashitoolkit.utils.ClipBoardUtils;
 import rikka.akashitoolkit.utils.UpdateCheck;
@@ -37,7 +38,7 @@ public class AboutActivity extends BaseActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         if (savedInstanceState == null) {
-            About fragment = new About();
+            AboutFragment fragment = new AboutFragment();
 
             getFragmentManager().beginTransaction().replace(R.id.fragment,
                     fragment).commit();
@@ -55,7 +56,7 @@ public class AboutActivity extends BaseActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public static class About extends PreferenceFragment {
+    public static class AboutFragment extends PreferenceFragment {
         @Override
         public void onStop() {
             UpdateCheck.instance().recycle();
@@ -96,17 +97,45 @@ public class AboutActivity extends BaseActivity {
                 }
             });
 
-            /*if (BuildConfig.isGooglePlay) {
-                ((PreferenceScreen) findPreference("screen")).removePreference(findPreference("check"));
+            findPreference("version").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                @Override
+                public boolean onPreferenceClick(Preference preference) {
+                    getActivity().getWindow().getDecorView().removeCallbacks(clearClickCount);
+                    getActivity().getWindow().getDecorView().postDelayed(clearClickCount, 3000);
+
+                    click ++;
+
+                    if (click == 10) {
+                        Settings.instance(getActivity()).putBoolean(Settings.DEVELOPER, true);
+                        Toast.makeText(getActivity(), "You are now developer.", Toast.LENGTH_SHORT).show();
+                        getActivity().recreate();
+                    }
+
+                    return false;
+                }
+            });
+
+            if (!Settings.instance(getActivity()).getBoolean(Settings.DEVELOPER, false)) {
+                ((PreferenceScreen) findPreference("screen")).removePreference(findPreference("developer"));
             } else {
-                findPreference("check").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                findPreference("developer").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                     @Override
                     public boolean onPreferenceClick(Preference preference) {
-                        UpdateCheck.instance().check(getActivity(), true);
+                        startActivity(new Intent(getActivity(), PushSendActivity.class));
+
                         return false;
                     }
                 });
-            }*/
+            }
+
         }
+
+        private int click = 0;
+        private Runnable clearClickCount = new Runnable() {
+            @Override
+            public void run() {
+                click = 0;
+            }
+        };
     }
 }

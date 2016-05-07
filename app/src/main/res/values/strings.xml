@@ -118,4 +118,24 @@
         <item>High</item>
         <item>Max</item>
     </string-array>
+
+    <string name="push_send_help" translatable="false">
+        "id:
+相同会掩盖之前的 -1为随机
+
+Activity &amp; Extra:
+- MainActivity (或留空):
+  主页
+  Extra:
+  nav_twitter 官推
+  nav_new     季节性
+  nav_home  主页
+
+- EquipDisplayActivity / ShipDisplayActivity / MapActivity:
+  装备/舰娘/海图详情
+  Extra:
+  对应id
+
+* GCM 需要在科学上网时才能发送"
+    </string>
 </resources>
