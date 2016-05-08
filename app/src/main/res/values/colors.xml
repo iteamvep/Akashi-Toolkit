@@ -17,7 +17,9 @@
     
     <color name="preference_fallback_accent_color">@color/colorAccent</color>
 
-    <color name="itemDisplayIcon">#000</color>
+    <color name="itemDisplayTitle">#000</color>
+    <color name="itemDisplaySubtitle">#ff757575</color>
+
     <color name="FAB">#FFF</color>
     <color name="text">#8A000000</color>
 

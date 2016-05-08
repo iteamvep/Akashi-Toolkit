@@ -55,7 +55,7 @@
     <Preference
         android:key="qq_group"
         android:title="QQ群"
-        android:summary="437033068 (点击复制) (加群以获取最新的测试版本)">
+        android:summary="437033068">
 
     </Preference>
 

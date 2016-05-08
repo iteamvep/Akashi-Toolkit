@@ -36,13 +36,13 @@ public class ApiConstParam {
         JSON_VERSION.put("Equip.json", 10);
         JSON_VERSION.put("EquipType.json", 10);
 
-        JSON_VERSION.put("Ship.json", 9);
+        JSON_VERSION.put("Ship.json", 10);
         JSON_VERSION.put("ShipType.json", 1);
 
         JSON_VERSION.put("Item.json", 7);
 
         JSON_VERSION.put("Map.json", 2);
-        JSON_VERSION.put("MapDetail.json", 3);
+        JSON_VERSION.put("MapDetail.json", 4);
         JSON_VERSION.put("MapType.json", 1);
 
         JSON_VERSION.put("Quest.json", 2);

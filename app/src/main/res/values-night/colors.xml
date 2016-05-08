@@ -10,7 +10,9 @@
 
     <color name="colorPrimaryItemActivity">@color/grey_200</color>
 
-    <color name="itemDisplayIcon">#FFF</color>
+    <color name="itemDisplayTitle">#FFF</color>
+    <color name="itemDisplaySubtitle">#DEFFFFFF</color>
+
     <color name="FAB">#b5000000</color>
     <color name="text">#b3ffffff</color>
 

@@ -9,6 +9,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -190,5 +191,12 @@ public abstract class BaseItemDisplayActivity extends BaseActivity {
         }
 
         animExit();
+    }
+
+    public void setToolBar(Toolbar toolbar) {
+        setSupportActionBar(toolbar);
+
+        toolbar.setTitleTextAppearance(this, R.style.ItemActivity_Title);
+        toolbar.setSubtitleTextAppearance(this, R.style.ItemActivity_Subtitle);
     }
 }

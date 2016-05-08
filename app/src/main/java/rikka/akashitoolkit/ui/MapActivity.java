@@ -122,21 +122,11 @@ public class MapActivity extends BaseItemDisplayActivity {
 
     @SuppressLint("DefaultLocale")
     private void setViews() {
-        setSupportActionBar(mToolbar);
+        setToolBar(mToolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setTitle(mTitle);
-
-        if (isNightMode()) {
-            getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_clear_24dp);
-            mToolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
-            mToolbar.setSubtitleTextColor(Color.parseColor("#DE000000"));
-        } else {
-            getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_clear_24dp);
-            mToolbar.setTitleTextColor(Color.parseColor("#000000"));
-            mToolbar.setSubtitleTextColor(Color.parseColor("#ff757575"));
-        }
 
         String url = Utils.getKCWikiFileUrl(String.format("Map%d-%d.png", mSeaId, mId));
         Log.d(MapActivity.class.getSimpleName(), url);

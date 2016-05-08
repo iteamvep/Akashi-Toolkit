@@ -109,18 +109,10 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
     }
 
     private void setViews() {
-        setSupportActionBar(mToolbar);
+        setToolBar(mToolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-
-        if (Utils.isNightMode(getResources())) {
-            mToolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
-            mToolbar.setSubtitleTextColor(Color.parseColor("#DEFFFFFF"));
-        } else {
-            mToolbar.setTitleTextColor(Color.parseColor("#000000"));
-            mToolbar.setSubtitleTextColor(Color.parseColor("#ff757575"));
-        }
 
         if (mItem.getName() != null) {
             getSupportActionBar().setTitle(mItem.getName().get(this));

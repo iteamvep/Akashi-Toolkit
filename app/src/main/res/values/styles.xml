@@ -62,4 +62,13 @@
     <style name="AppTheme.ActionButton.Overflow.Dark" parent="Widget.AppCompat.ActionButton.Overflow">
         <item name="srcCompat">@drawable/ic_more_vert_24dp</item>
     </style>
+
+    <style name="ItemActivity.Title" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/itemDisplayTitle</item>
+    </style>
+
+    <style name="ItemActivity.Subtitle" parent="TextAppearance.AppCompat.Widget.ActionBar.Subtitle">
+        <item name="android:textColor">@color/itemDisplaySubtitle</item>
+    </style>
+
 </resources>

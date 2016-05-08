@@ -61,8 +61,8 @@ public class SendReportActivity extends BaseActivity {
     }
 
     public static void sendEmail(Context context, String subject, String body) {
-        Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", "rikka@xing.moe", null));
-        intent.putExtra(Intent.EXTRA_CC, new String[]{"rikkanyaaa+akashiToolkitFeedback@gmail.com","1248076945@qq.com"});
+        Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", "rikkanyaaa+akashiToolkitFeedback@gmail.com", null));
+        intent.putExtra(Intent.EXTRA_CC, new String[]{"1248076945@qq.com"});
         intent.putExtra(Intent.EXTRA_SUBJECT, subject);
         intent.putExtra(Intent.EXTRA_TEXT, body);
 
