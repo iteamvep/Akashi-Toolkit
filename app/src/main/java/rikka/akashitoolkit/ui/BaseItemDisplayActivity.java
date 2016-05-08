@@ -54,6 +54,8 @@ public abstract class BaseItemDisplayActivity extends BaseActivity {
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
 
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_clear_24dp);
+
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) {
             setTaskDescription(new ActivityManager.TaskDescription(getTaskDescriptionLabel(), null, ContextCompat.getColor(this, R.color.background)));
         }

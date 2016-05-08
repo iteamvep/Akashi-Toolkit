@@ -11,7 +11,7 @@ android {
         versionCode 47
         versionName "0.0.21"
 
-        //generatedDensities = []
+        vectorDrawables.useSupportLibrary = true
     }
 
     packagingOptions{

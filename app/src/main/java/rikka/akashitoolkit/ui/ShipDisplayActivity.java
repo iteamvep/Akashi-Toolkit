@@ -3,7 +3,6 @@ package rikka.akashitoolkit.ui;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
-import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -57,7 +56,6 @@ import rikka.akashitoolkit.network.RetrofitAPI;
 import rikka.akashitoolkit.staticdata.EquipList;
 import rikka.akashitoolkit.staticdata.ExtraIllustrationList;
 import rikka.akashitoolkit.staticdata.ShipList;
-import rikka.akashitoolkit.staticdata.ShipVoiceExtraList;
 import rikka.akashitoolkit.support.StaticData;
 import rikka.akashitoolkit.utils.KCStringFormatter;
 import rikka.akashitoolkit.utils.MySpannableFactory;
@@ -411,11 +409,9 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
                         ShipList.shipType[mItem.getType()]));
 
         if (Utils.isNightMode(getResources())) {
-            getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_clear_24dp);
             mToolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
             mToolbar.setSubtitleTextColor(Color.parseColor("#DEFFFFFF"));
         } else {
-            getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_clear_24dp_dark);
             mToolbar.setTitleTextColor(Color.parseColor("#000000"));
             mToolbar.setSubtitleTextColor(Color.parseColor("#ff757575"));
         }
@@ -574,7 +570,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
                     //sb.append(" → ");
                 } else {
                     //sb.append(" ↔ ");
-                    ((ImageView) view.findViewById(R.id.imageView)).setImageResource(R.drawable.ic_compare_arrows_black_24dp);
+                    ((ImageView) view.findViewById(R.id.imageView)).setImageResource(R.drawable.ic_compare_arrows_24dp);
                 }
 
 

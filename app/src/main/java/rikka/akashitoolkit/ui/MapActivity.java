@@ -133,7 +133,7 @@ public class MapActivity extends BaseItemDisplayActivity {
             mToolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
             mToolbar.setSubtitleTextColor(Color.parseColor("#DE000000"));
         } else {
-            getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_clear_24dp_dark);
+            getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_clear_24dp);
             mToolbar.setTitleTextColor(Color.parseColor("#000000"));
             mToolbar.setSubtitleTextColor(Color.parseColor("#ff757575"));
         }

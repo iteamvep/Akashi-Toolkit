@@ -16,6 +16,8 @@
         <item name="android:windowIsTranslucent">true</item>
         <item name="colorPrimary">#ffffff</item>
         <item name="colorPrimaryDark">@color/colorItemDisplayStatusBar</item>
+        <item name="actionOverflowButtonStyle">@style/AppTheme.ActionButton.Overflow.Dark</item>
+
         <!--<item name="android:windowLightStatusBar">true</item>-->
     </style>
 

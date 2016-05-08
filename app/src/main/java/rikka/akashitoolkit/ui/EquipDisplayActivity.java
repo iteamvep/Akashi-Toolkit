@@ -115,11 +115,9 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
 
         if (Utils.isNightMode(getResources())) {
-            getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_clear_24dp);
             mToolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
             mToolbar.setSubtitleTextColor(Color.parseColor("#DEFFFFFF"));
         } else {
-            getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_clear_24dp_dark);
             mToolbar.setTitleTextColor(Color.parseColor("#000000"));
             mToolbar.setSubtitleTextColor(Color.parseColor("#ff757575"));
         }

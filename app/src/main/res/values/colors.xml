@@ -17,6 +17,10 @@
     
     <color name="preference_fallback_accent_color">@color/colorAccent</color>
 
+    <color name="itemDisplayIcon">#000</color>
+    <color name="FAB">#FFF</color>
+    <color name="text">#8A000000</color>
+
     <color name="questCardBackground0">#A5D6A7</color>
     <color name="questCardBackground1">#EF9A9A</color>
     <color name="questCardBackground2">#C5E1A5</color>

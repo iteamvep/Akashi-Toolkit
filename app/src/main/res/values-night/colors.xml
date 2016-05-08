@@ -10,6 +10,10 @@
 
     <color name="colorPrimaryItemActivity">@color/grey_200</color>
 
+    <color name="itemDisplayIcon">#FFF</color>
+    <color name="FAB">#b5000000</color>
+    <color name="text">#b3ffffff</color>
+
     <color name="questCardBackground0">#C8E6C9</color>
     <color name="questCardBackground1">#EF9A9A</color>
     <color name="questCardBackground2">#C5E1A5</color>

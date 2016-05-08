@@ -33,8 +33,8 @@ public class ApiConstParam {
 
     static {
         JSON_VERSION.put("EquipImprovement.json", 4);
-        JSON_VERSION.put("Equip.json", 9);
-        JSON_VERSION.put("EquipType.json", 9);
+        JSON_VERSION.put("Equip.json", 10);
+        JSON_VERSION.put("EquipType.json", 10);
 
         JSON_VERSION.put("Ship.json", 9);
         JSON_VERSION.put("ShipType.json", 1);

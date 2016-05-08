@@ -41,6 +41,9 @@
         <item name="android:windowIsTranslucent">true</item>
         <item name="colorPrimary">@color/colorPrimaryItemActivity</item>
         <item name="colorPrimaryDark">@color/colorItemDisplayStatusBar</item>
+
+        <!--<item name="homeAsUpIndicator">@drawable/ic_clear_24dp</item>-->
+        <item name="actionOverflowButtonStyle">@style/AppTheme.ActionButton.Overflow.Dark</item>
     </style>
 
     <style name="AppTheme.ImagesActivity" parent="AppTheme">
@@ -54,5 +57,9 @@
 
     <style name="AppTheme.Dialog.Alert" parent="Theme.AppCompat.DayNight.Dialog.Alert">
         <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.ActionButton.Overflow.Dark" parent="Widget.AppCompat.ActionButton.Overflow">
+        <item name="srcCompat">@drawable/ic_more_vert_24dp</item>
     </style>
 </resources>
