@@ -9,6 +9,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
@@ -84,9 +85,8 @@ public abstract class BaseItemDisplayActivity extends BaseActivity {
     protected abstract ViewGroup getRootView();
     protected abstract View[] getAnimFadeViews();
 
-    private void setViewsFadeAnim() {
-        for (View view :
-                getAnimFadeViews()) {
+    protected void setViewsFadeInAnim(View[] views) {
+        for (View view : views) {
 
             view.setAlpha(0.0f);
 
@@ -97,6 +97,10 @@ public abstract class BaseItemDisplayActivity extends BaseActivity {
                     .alpha(1)
                     .start();
         }
+    }
+
+    private void setViewsFadeAnim() {
+        setViewsFadeInAnim(getAnimFadeViews());
     }
 
     protected void animEnter() {

@@ -1,11 +1,17 @@
 package rikka.akashitoolkit.ui;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.ColorRes;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
@@ -15,7 +21,9 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.GridLayout;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.ListPopupWindow;
 import android.support.v7.widget.OrientationHelper;
+import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.Spanned;
@@ -25,8 +33,11 @@ import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -64,7 +75,7 @@ import rikka.akashitoolkit.utils.Utils;
 /**
  * Created by Rikka on 2016/3/30.
  */
-public class ShipDisplayActivity extends BaseItemDisplayActivity {
+public class ShipDisplayActivity extends BaseItemDisplayActivity implements View.OnTouchListener {
     public static final String EXTRA_ITEM_ID = "EXTRA_ITEM_ID";
 
     private Toolbar mToolbar;
@@ -77,17 +88,19 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
 
     private MediaPlayer mMediaPlayer;
 
+    private int mScrollY;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mId = -1;
+        int id = -1;
         final Intent intent = getIntent();
         if (intent.hasExtra(EXTRA_ITEM_ID)) {
-            mId = intent.getIntExtra(EXTRA_ITEM_ID, 0);
+            id = intent.getIntExtra(EXTRA_ITEM_ID, 0);
         } else if (intent.getData() != null) {
             try {
-                mId = Integer.parseInt(intent.getData().toString().split("/")[3]);
+                id = Integer.parseInt(intent.getData().toString().split("/")[3]);
             } catch (Exception ignored) {
             }
         }
@@ -96,20 +109,145 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
             String extra = getIntent().getStringExtra(EXTRA_EXTRA);
             if (extra != null) {
                 try {
-                    mId = Integer.parseInt(extra);
+                    id = Integer.parseInt(extra);
                 } catch (Exception ignored) {
                 }
             }
         }
 
-        mItem = ShipList.findItemById(this, mId);
-        if (mItem == null) {
+        setContentView(R.layout.activity_ship_display);
+
+        mCoordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinatorLayout);
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        mAppBarLayout = (AppBarLayout) findViewById(R.id.appBarLayout);
+        mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this, OrientationHelper.VERTICAL, false));
+
+        mScrollY = 0;
+        mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+
+                mScrollY += dy;
+            }
+        });
+
+        setViews();
+
+        setItem(id, false);
+        mCoordinatorLayout.setBackgroundResource(R.color.background);
+    }
+
+    private void setItem(int id, boolean reveal) {
+        if (id == mId) {
+            return;
+        }
+
+        Ship item = ShipList.findItemById(this, id);
+
+        if (item == null) {
             Log.d("ShipDisplayActivity", "Ship not found? id=" + Integer.toString(mId));
             finish();
             return;
         }
 
-        setContentView(R.layout.activity_ship_display);
+        setItem(item, reveal);
+    }
+
+    private int getEquipCount(Ship item) {
+        if (item == null) {
+            return 0;
+        }
+
+        return item.getSlot();
+    }
+
+    private void setItem(Ship item, final boolean reveal) {
+        if (item.getId() == mId) {
+            return;
+        }
+
+        int offsetY = 0;
+        if (mItem != null) {
+            offsetY = (getEquipCount(item) - getEquipCount(mItem)) * Utils.dpToPx(48);
+        }
+
+        final int y = mScrollY + offsetY;
+        mScrollY = 0;
+
+        mItem = item;
+        mId = item.getId();
+
+        mAdapter = new Adapter();
+
+        // so bad
+        if (!reveal) {
+            mRecyclerView.setAdapter(mAdapter);
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                Animator anim = animateRevealColorFromCoordinates(mCoordinatorLayout, R.color.background, mX, mY, false);
+
+                anim.addListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        mRecyclerView.setAdapter(mAdapter);
+                        mRecyclerView.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                mRecyclerView.scrollBy(0, y);
+                            }
+                        });
+
+                        animateRevealColorFromCoordinates(mCoordinatorLayout, R.color.background, mX, mY, true);
+                    }
+                });
+            }
+        } else {
+            mRecyclerView.setAlpha(1);
+
+            mRecyclerView.animate()
+                    .setDuration(100)
+                    .setInterpolator(new AccelerateDecelerateInterpolator())
+                    .alpha(0)
+                    .setListener(new Animator.AnimatorListener() {
+                        @Override
+                        public void onAnimationStart(Animator animation) {
+
+                        }
+
+                        @Override
+                        public void onAnimationEnd(Animator animation) {
+                            mRecyclerView.setAdapter(mAdapter);
+                            mRecyclerView.animate().setListener(null);
+
+                            mRecyclerView.animate()
+                                    .setStartDelay(100)
+                                    .setInterpolator(new AccelerateDecelerateInterpolator())
+                                    .alpha(1)
+                                    .start();
+
+                            mRecyclerView.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    mRecyclerView.scrollBy(0, y);
+                                }
+                            });
+                        }
+
+                        @Override
+                        public void onAnimationCancel(Animator animation) {
+
+                        }
+
+                        @Override
+                        public void onAnimationRepeat(Animator animation) {
+
+                        }
+                    })
+                    .start();
+        }
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://api.2ds.tv:8080")
@@ -133,14 +271,20 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
             }
         });
 
-        mCoordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinatorLayout);
-        mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        mAppBarLayout = (AppBarLayout) findViewById(R.id.appBarLayout);
-        mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this, OrientationHelper.VERTICAL, false));
-        mAdapter = new Adapter();
-        mRecyclerView.setAdapter(mAdapter);
-        setViews();
+        if (mItem.getName() != null) {
+            ((TextView) mToolbar.findViewById(android.R.id.title)).setText(mItem.getName().get(this));
+            ((TextView) mToolbar.findViewById(android.R.id.summary)).setText(String.format("No.%s %s",
+                    mItem.getWiki_id(),
+                    ShipList.shipType[mItem.getType()]));
+        }
+    }
+
+    int mX, mY;
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        mX = (int) event.getRawX();
+        mY = (int) event.getRawY() - Utils.dpToPx(24);
+        return false;
     }
 
     private class Adapter extends RecyclerView.Adapter {
@@ -403,14 +547,49 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setSubtitle(
-                String.format("No.%s %s",
-                        mItem.getWiki_id(),
-                        ShipList.shipType[mItem.getType()]));
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        if (mItem.getName() != null) {
-            getSupportActionBar().setTitle(mItem.getName().get(this));
-        }
+        mToolbar.findViewById(R.id.content_container).setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                PopupMenu popupMenu = new PopupMenu(v.getContext(), v, Gravity.CENTER);
+
+                Ship cur = mItem;
+                while (cur.getRemodel().getId_from() != 0) {
+                    cur = ShipList.findItemById(v.getContext(), cur.getRemodel().getId_from());
+                }
+                popupMenu.getMenu().add(0, cur.getId(), 0, cur.getName().get(v.getContext()));
+
+                int i = 1;
+                while (cur.getRemodel().getId_to() != 0 &&
+                        cur.getRemodel().getId_to() != cur.getRemodel().getId_from()) {
+                    cur = ShipList.findItemById(v.getContext(), cur.getRemodel().getId_to());
+                    popupMenu.getMenu().add(0, cur.getId(), i, cur.getName().get(v.getContext()));
+                    i++;
+                }
+
+                popupMenu.show();
+
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        setItem(item.getItemId(), true);
+                        mX = Utils.dpToPx(48 + 32);
+                        mY = mAppBarLayout.getHeight();
+                        return false;
+                    }
+                });
+
+                if (popupMenu.getDragToOpenListener() instanceof ListPopupWindow.ForwardingListener)
+                {
+                    ListPopupWindow.ForwardingListener listener = (ListPopupWindow.ForwardingListener) popupMenu.getDragToOpenListener();
+                    listener.getPopup().setVerticalOffset(-v.getHeight());
+                    listener.getPopup().show();
+                }
+            }
+        });
     }
 
     private void setView(LinearLayout linearLayout) {
@@ -516,7 +695,6 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
             }
 
             while (true) {
-                //sb.append(KCStringFormatter.getLinkShip(cur.getId(), cur.getName().get(this)));
                 StringBuilder sb = new StringBuilder();
                 sb.append(cur.getName().get(this));
                 ViewGroup view = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.ship_remodel_item, null);
@@ -529,12 +707,17 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
                 gridLayout.addView(view);
 
                 final Ship finalCur = cur;
+
+                view.setOnTouchListener(this);
+
                 view.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(ShipDisplayActivity.this, ShipDisplayActivity.class);
+                        setItem(finalCur.getId(), true);
+
+                        /*Intent intent = new Intent(ShipDisplayActivity.this, ShipDisplayActivity.class);
                         intent.putExtra(ShipDisplayActivity.EXTRA_ITEM_ID, finalCur.getId());
-                        startActivity(intent);
+                        startActivity(intent);*/
                         //startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("akashitoolkit://ship/" + Integer.toString(finalCur.getId()))));
                     }
                 });
@@ -767,5 +950,23 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity {
                 mCurAttrLinearLayout = null;
             }
         }
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    private Animator animateRevealColorFromCoordinates(ViewGroup viewRoot, @ColorRes int color, int x, int y, boolean expand) {
+        float finalRadius = (float) Math.hypot(viewRoot.getWidth(), viewRoot.getHeight());
+
+        Animator anim;
+        if (expand) {
+            anim = ViewAnimationUtils.createCircularReveal(viewRoot, x, y, 0, finalRadius);
+        } else {
+            anim = ViewAnimationUtils.createCircularReveal(viewRoot, x, y, finalRadius, 0);
+        }
+
+        viewRoot.setBackgroundColor(ContextCompat.getColor(this, color));
+        anim.setDuration(300/*getResources().getInteger(R.integer.anim_duration_long)*/);
+        anim.setInterpolator(new AccelerateDecelerateInterpolator());
+        anim.start();
+        return anim;
     }
 }
