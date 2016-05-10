@@ -166,6 +166,9 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
         return item.getSlot();
     }
 
+    private static final int FADE_IN = 150;
+    private static final int FADE_OUT = 300;
+
     private void setItem(Ship item, final boolean reveal) {
         if (item.getId() == mId) {
             return;
@@ -200,7 +203,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 mAppBarLayout.setAlpha(1);
                 mAppBarLayout.animate()
-                        .setDuration(200)
+                        .setDuration(FADE_IN)
                         .alpha(0)
                         .start();
 
@@ -209,7 +212,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
                 Utils.colorAnimation(
                         ContextCompat.getColor(this, R.color.background),
                         ContextCompat.getColor(this, R.color.colorItemDisplayStatusBar),
-                        200,
+                        FADE_IN,
                         new ValueAnimator.AnimatorUpdateListener() {
                             @Override
                             public void onAnimationUpdate(ValueAnimator animator) {
@@ -221,7 +224,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
 
             mRecyclerView.setAlpha(1);
             mRecyclerView.animate()
-                    .setDuration(200)
+                    .setDuration(FADE_IN)
                     .alpha(0)
                     .setListener(new Animator.AnimatorListener() {
                         @Override
@@ -1000,7 +1003,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
         }
 
         viewRoot.setBackgroundColor(ContextCompat.getColor(this, color));
-        anim.setDuration(300/*getResources().getInteger(R.integer.anim_duration_long)*/);
+        anim.setDuration(FADE_OUT/*getResources().getInteger(R.integer.anim_duration_long)*/);
         anim.setInterpolator(new AccelerateDecelerateInterpolator());
         anim.start();
         return anim;
