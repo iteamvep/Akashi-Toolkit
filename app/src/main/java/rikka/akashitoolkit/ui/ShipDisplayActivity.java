@@ -175,23 +175,37 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
 
             String c = "";
             if (shipClass != null) {
-                c = String.format("%s%d号舰", shipClass.getName(), mItem.getCnum());
+                c = String.format("%s%s号舰", shipClass.getName(), getChineseNumberString(mItem.getCnum()));
+            } else {
+                Log.d("ShipDisplayActivity", "No ship class: " + mItem.getName().get(this));
             }
             ((TextView) mToolbar.findViewById(android.R.id.title)).setText(mItem.getName().get(ShipDisplayActivity.this));
-            ((TextView) mToolbar.findViewById(android.R.id.summary)).setText(String.format("No.%s %s %s",
+            ((TextView) mToolbar.findViewById(android.R.id.summary)).setText(String.format("No.%s %s",
                     mItem.getWiki_id(),
-                    c,
-                    ShipList.shipType[mItem.getType()]));
+                    c/*,
+                    ShipList.shipType[mItem.getType()]*/));
         }
     }
 
-    //private static final
-    /*private String getChineseNumberString() {
+    private static final String[] CHINESE_NUMBER = {"零", "一", "二", "三", "四", "五", "六", "七", "八", "九", "十"};
 
-    }*/
+    private String getChineseNumberString(int number) {
+        StringBuilder sb = new StringBuilder();
 
-    private static final int FADE_IN = 150;
-    private static final int FADE_OUT = 300;
+        int a = number / 10;
+        if (a > 0) {
+            if (a > 1) {
+                sb.append(CHINESE_NUMBER[a]);
+            }
+            sb.append(CHINESE_NUMBER[10]);
+        }
+        sb.append(CHINESE_NUMBER[number % 10]);
+
+        return sb.toString();
+    }
+
+    private static final int FADE_IN = 200;
+    private static final int FADE_OUT = 200;
 
     private void setItem(Ship item, final boolean reveal) {
         if (item.getId() == mId) {
@@ -595,7 +609,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
             @Override
             public void onClick(final View v)
             {
-                PopupMenu popupMenu = new PopupMenu(v.getContext(), v);
+                PopupMenu popupMenu = new PopupMenu(ShipDisplayActivity.this, v);
 
                 Ship cur = mItem;
                 while (cur.getRemodel().getId_from() != 0) {

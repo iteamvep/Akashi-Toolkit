@@ -9,7 +9,6 @@
               android:layout_height="@dimen/drawer_item"
               android:gravity="center_vertical">
 
-
     <TextView
         android:id="@+id/textView"
         tools:text="Title"

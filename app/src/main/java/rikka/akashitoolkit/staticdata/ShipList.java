@@ -5,9 +5,13 @@ import android.content.Context;
 import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import rikka.akashitoolkit.model.Ship;
+import rikka.akashitoolkit.support.Settings;
 
 /**
  * Created by Rikka on 2016/3/30.
@@ -17,12 +21,22 @@ public class ShipList {
 
     private static List<Ship> sList;
 
-    public static synchronized List<Ship> get(Context context) {
+    public static synchronized List<Ship> get(final Context context) {
         if (sList == null) {
             sList = new BaseGSONList<Ship>() {
                 @Override
                 public void afterRead(List<Ship> list) {
-                    sort(list);
+
+                    sortById(list);
+
+                    if (Settings
+                            .instance(context)
+                            .getInt(Settings.SHIP_SORT, 0) == 0) {
+                        sort(list);
+                    } else {
+                        sortByClass(list);
+                    }
+
                 }
             }.get(context, FILE_NAME, new TypeToken<ArrayList<Ship>>() {}.getType());
         }
@@ -33,7 +47,25 @@ public class ShipList {
         sList = null;
     }
 
-    private static void sort(List<Ship> list) {
+    public static synchronized void sortById(List<Ship> list) {
+        Collections.sort(list, new Comparator<Ship>() {
+            @Override
+            public int compare(Ship lhs, Ship rhs) {
+                return lhs.getId() - rhs.getId();
+            }
+        });
+    }
+
+    public static synchronized void sort() {
+        if (sList == null) {
+            throw new NullPointerException();
+        }
+
+        sortById(sList);
+        sort(sList);
+    }
+
+    public static synchronized void sort(List<Ship> list) {
         Ship[] ships = new Ship[list.size()];
         boolean[] added = new boolean[list.size()];
 
@@ -65,6 +97,52 @@ public class ShipList {
                 }
             }
             curType ++;
+        }
+        list.clear();
+        list.addAll(newList);
+    }
+
+    public static synchronized void sortByClass() {
+        if (sList == null) {
+            throw new NullPointerException();
+        }
+
+        sortById(sList);
+        sortByClass(sList);
+    }
+
+    public static synchronized void sortByClass(List<Ship> list) {
+        Ship[] ships = new Ship[list.size()];
+        boolean[] added = new boolean[list.size()];
+
+        list.toArray(ships);
+
+        List<Ship> newList = new ArrayList<>();
+        int curType = 0;
+        while (newList.size() < list.size()) {
+            for (int i = 0; i < ships.length; i++) {
+                if (!added[i] && curType == ships[i].getCtype()) {
+                    newList.add(ships[i]);
+                    added[i] = true;
+
+                    int to = ships[i].getRemodel().getId_to();
+                    while (to > 0) {
+                        int index = findItemById(to, ships);
+                        if (index == -1
+                                || curType != ships[index].getCtype()
+                                /*|| ships[index].getRemodel().getId_to() == ships[index].getRemodel().getId_from()*/
+                                || added[index]) {
+                            break;
+                        }
+
+                        newList.add(ships[index]);
+                        added[index] = true;
+
+                        to = ships[index].getRemodel().getId_to();
+                    }
+                }
+            }
+            curType++;
         }
         list.clear();
         list.addAll(newList);

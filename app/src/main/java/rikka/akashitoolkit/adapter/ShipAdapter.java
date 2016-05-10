@@ -2,6 +2,7 @@ package rikka.akashitoolkit.adapter;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,8 @@ import java.util.List;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.model.Ship;
+import rikka.akashitoolkit.model.ShipClass;
+import rikka.akashitoolkit.staticdata.ShipClassList;
 import rikka.akashitoolkit.staticdata.ShipList;
 import rikka.akashitoolkit.ui.ShipDisplayActivity;
 import rx.Observable;
@@ -28,6 +31,7 @@ public class ShipAdapter extends BaseRecyclerAdapter<ViewHolder.Ship> {
     private int mShowVersion;
     private int mTypeFlag;
     private int mShowSpeed;
+    private int mSort;
     private String mKeyword;
     private boolean mIsSearching;
 
@@ -36,12 +40,14 @@ public class ShipAdapter extends BaseRecyclerAdapter<ViewHolder.Ship> {
         mActivity = activity;
     }
 
-    public ShipAdapter(Activity activity, int showVersion, int typeFlag, int showSpeed) {
+    public ShipAdapter(Activity activity, int showVersion, int typeFlag, int showSpeed, int sort) {
         this(activity);
 
         mShowVersion = showVersion;
         mTypeFlag = typeFlag;
         mShowSpeed = showSpeed;
+        mSort = sort;
+
         mActivity = activity;
 
         rebuildDataList();
@@ -49,6 +55,10 @@ public class ShipAdapter extends BaseRecyclerAdapter<ViewHolder.Ship> {
 
     public void setSearching(boolean searching) {
         mIsSearching = searching;
+    }
+
+    public void setSort(int sort) {
+        mSort = sort;
     }
 
     public void setShowSpeed(int showSpeed) {
@@ -90,6 +100,12 @@ public class ShipAdapter extends BaseRecyclerAdapter<ViewHolder.Ship> {
                     @Override
                     public void onNext(List<Ship> o) {
                         mData.clear();
+
+                        if (mSort == 1) {
+                            ShipList.sortByClass();
+                        } else {
+                            ShipList.sort();
+                        }
 
                         for (Ship item :
                                 o) {
@@ -164,8 +180,31 @@ public class ShipAdapter extends BaseRecyclerAdapter<ViewHolder.Ship> {
     @Override
     public void onBindViewHolder(final ViewHolder.Ship holder, final int position) {
         Ship item = mData.get(position);
-        String curType = ShipList.shipType[item.getType()];
-        boolean showTitle = position <= 0 || !curType.equals(ShipList.shipType[mData.get(position - 1).getType()]);
+
+        boolean showDivider;
+        boolean showTitle = false;
+        String curType = null;
+        int cType;
+
+        if (mSort == 0) {
+            curType = ShipList.shipType[item.getType()];
+
+            showTitle = position <= 0 || !curType.equals(ShipList.shipType[mData.get(position - 1).getType()]);
+            showDivider = position < mData.size() - 1
+                    && curType.equals(ShipList.shipType[mData.get(position + 1).getType()]);
+        } else {
+            cType = item.getCtype();
+            ShipClass shipClass = ShipClassList.findItemById(mActivity, cType);
+            if (shipClass == null) {
+                //Log.d("QAQ", item.getName().get(mActivity));
+            } else {
+                curType = shipClass.getName();
+            }
+
+            showTitle = position <= 0 || cType != mData.get(position - 1).getCtype();
+            showDivider = position < mData.size() - 1
+                    && cType == mData.get(position + 1).getCtype();
+        }
 
         if (showTitle) {
             holder.mTitle.setText(curType);
@@ -173,9 +212,6 @@ public class ShipAdapter extends BaseRecyclerAdapter<ViewHolder.Ship> {
         } else {
             holder.mTitle.setVisibility(View.GONE);
         }
-
-        boolean showDivider = position < mData.size() - 1
-                && curType.equals(ShipList.shipType[mData.get(position + 1).getType()]);
 
         holder.mDivider.setVisibility(showDivider ? View.VISIBLE : View.GONE);
         holder.mDummyView.setVisibility(!showDivider ? View.VISIBLE : View.GONE);

@@ -1,23 +1,25 @@
 package rikka.akashitoolkit.ui.fragments;
 
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.NestedScrollView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.ViewPagerAdapter;
 import rikka.akashitoolkit.otto.BusProvider;
+import rikka.akashitoolkit.otto.DataChangedAction;
 import rikka.akashitoolkit.otto.ShipAction;
 import rikka.akashitoolkit.staticdata.ShipList;
 import rikka.akashitoolkit.support.Settings;
@@ -27,12 +29,6 @@ import rikka.akashitoolkit.utils.Utils;
 import rikka.akashitoolkit.widget.CheckBoxGroup;
 import rikka.akashitoolkit.widget.RadioButtonGroup;
 import rikka.akashitoolkit.widget.SimpleDrawerView;
-import rx.Observable;
-import rx.Observer;
-import rx.Scheduler;
-import rx.Subscriber;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 /**
  * Created by Rikka on 2016/3/30.
@@ -45,19 +41,63 @@ public class ShipDisplayFragment extends BaseSearchFragment {
     private int mFlag;
     private int mFinalVersion;
     private int mSpeed;
+    private int mSort;
 
     private CheckBoxGroup[] mCheckBoxGroups = new CheckBoxGroup[3];
     private RadioButtonGroup[] mRadioButtonGroups = new RadioButtonGroup[3];
+    private Spinner mSpinner;
     private NestedScrollView mScrollView;
 
     private void setDrawerView() {
         mActivity.setRightDrawerLocked(false);
 
         mActivity.getRightDrawerContent().removeAllViews();
-        mActivity.getRightDrawerContent().addTitle(getString(R.string.action_filter));
-        mActivity.getRightDrawerContent().addDividerHead();
+        //mActivity.getRightDrawerContent().addTitle("排序"/*getString(R.string.sort)*/);
+        //mActivity.getRightDrawerContent().addDividerHead();
+
+        //mActivity.getRightDrawerContent().addTitle(getString(R.string.action_filter));
+        //mActivity.getRightDrawerContent().addDividerHead();
 
         SimpleDrawerView body = new SimpleDrawerView(getContext());
+
+        body.addTitle("排序"/*getString(R.string.sort)*/);
+        body.addDivider();
+
+        View view = LayoutInflater.from(getActivity()).inflate(R.layout.drawer_item_spinner, body, false);
+        mSpinner = (Spinner) view.findViewById(R.id.spinner);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(),
+                R.layout.drawer_item_spinner_item, new String[]{"舰种", "类型"});
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        mSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (mSort == position) {
+                    return;
+                }
+
+                mSort = position;
+
+                Settings
+                        .instance(getContext())
+                        .putInt(Settings.SHIP_SORT, mSort);
+
+                BusProvider.instance().post(new ShipAction.SortChangeAction(mSort));
+                //BusProvider.instance().post(new DataChangedAction("ShipFragment"));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        mSpinner.setAdapter(adapter);
+        body.addView(view);
+
+        body.addTitle(getString(R.string.action_filter));
+        body.addDivider();
+
         body.setOrientation(LinearLayout.VERTICAL);
         body.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
@@ -125,6 +165,12 @@ public class ShipDisplayFragment extends BaseSearchFragment {
     }
 
     private void postSetDrawerView() {
+        mSort = Settings
+                .instance(getContext())
+                .getInt(Settings.SHIP_SORT, 0);
+
+        mSpinner.setSelection(mSort);
+
         mFinalVersion = Settings
                 .instance(getContext())
                 .getInt(Settings.SHIP_FINAL_VERSION, 0);
@@ -292,6 +338,7 @@ public class ShipDisplayFragment extends BaseSearchFragment {
                 bundle.putInt("FLAG", mFlag);
                 bundle.putInt("FINAL_VERSION", mFinalVersion);
                 bundle.putInt("SPEED", mSpeed);
+                bundle.putInt("SORT", mSort);
                 return bundle;
             }
         };

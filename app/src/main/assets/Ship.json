@@ -8,10 +8,10 @@
       "ja": "睦月"
     },
     "name_for_search": "睦月,muyue,mu yue,Mutsuki,mutsuki",
-    "ctype": 28,
-    "cnum": 1,
     "rarity": 3,
     "type": 2,
+    "ctype": 28,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -104,10 +104,10 @@
       "ja": "如月"
     },
     "name_for_search": "如月,ruyue,ru yue,Kisaragi,kisaragi",
-    "ctype": 28,
-    "cnum": 2,
     "rarity": 2,
     "type": 2,
+    "ctype": 28,
+    "cnum": 2,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -200,10 +200,10 @@
       "ja": "長月"
     },
     "name_for_search": "长月,changyue,chang yue,Nagatsuki,nagatsuki",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 2,
     "type": 2,
+    "ctype": 28,
+    "cnum": 8,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -296,10 +296,10 @@
       "ja": "三日月"
     },
     "name_for_search": "三日月,sanriyue,san ri yue,Mikazuki,mikazuki",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 1,
     "type": 2,
+    "ctype": 28,
+    "cnum": 10,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -392,10 +392,10 @@
       "ja": "吹雪"
     },
     "name_for_search": "吹雪,chuixue,chui xue,Fubuki,fubuki",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 3,
     "type": 2,
+    "ctype": 12,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -488,10 +488,10 @@
       "ja": "白雪"
     },
     "name_for_search": "白雪,baixue,bai xue,Shirayuki,shirayuki",
-    "ctype": 12,
-    "cnum": 2,
     "rarity": 2,
     "type": 2,
+    "ctype": 12,
+    "cnum": 2,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -584,10 +584,10 @@
       "ja": "深雪"
     },
     "name_for_search": "深雪,shenxue,shen xue,Miyuki,miyuki",
-    "ctype": 12,
-    "cnum": 4,
     "rarity": 2,
     "type": 2,
+    "ctype": 12,
+    "cnum": 4,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -680,10 +680,10 @@
       "ja": "磯波"
     },
     "name_for_search": "矶波,jibo,ji bo,Isonami,isonami",
-    "ctype": 12,
-    "cnum": 9,
     "rarity": 1,
     "type": 2,
+    "ctype": 12,
+    "cnum": 9,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -776,10 +776,10 @@
       "ja": "綾波"
     },
     "name_for_search": "绫波,lingbo,ling bo,Ayanami,ayanami",
-    "ctype": 1,
-    "cnum": 1,
     "rarity": 3,
     "type": 2,
+    "ctype": 1,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -872,10 +872,10 @@
       "ja": "敷波"
     },
     "name_for_search": "敷波,fubo,fu bo,Shikinami,shikinami",
-    "ctype": 1,
-    "cnum": 2,
     "rarity": 2,
     "type": 2,
+    "ctype": 1,
+    "cnum": 2,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -968,10 +968,10 @@
       "ja": "曙"
     },
     "name_for_search": "曙,shu,Akebono,akebono",
-    "ctype": 1,
-    "cnum": 8,
     "rarity": 1,
     "type": 2,
+    "ctype": 1,
+    "cnum": 8,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -1064,10 +1064,10 @@
       "ja": "潮"
     },
     "name_for_search": "潮,chao,Ushio,ushio",
-    "ctype": 1,
-    "cnum": 10,
     "rarity": 1,
     "type": 2,
+    "ctype": 1,
+    "cnum": 10,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -1160,10 +1160,10 @@
       "ja": "陽炎"
     },
     "name_for_search": "阳炎,yangyan,yang yan,Kagerou,kagerou",
-    "ctype": 30,
-    "cnum": 1,
     "rarity": 3,
     "type": 2,
+    "ctype": 30,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -1256,10 +1256,10 @@
       "ja": "不知火"
     },
     "name_for_search": "不知火,buzhihuo,bu zhi huo,Shiranui,shiranui",
-    "ctype": 30,
-    "cnum": 2,
     "rarity": 2,
     "type": 2,
+    "ctype": 30,
+    "cnum": 2,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -1352,10 +1352,10 @@
       "ja": "黒潮"
     },
     "name_for_search": "黑潮,heichao,hei chao,Kuroshio,kuroshio",
-    "ctype": 30,
-    "cnum": 3,
     "rarity": 1,
     "type": 2,
+    "ctype": 30,
+    "cnum": 3,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -1448,10 +1448,10 @@
       "ja": "雪風"
     },
     "name_for_search": "雪风,xuefeng,xue feng,Yukikaze,yukikaze",
-    "ctype": 30,
-    "cnum": 8,
     "rarity": 6,
     "type": 2,
+    "ctype": 30,
+    "cnum": 8,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -1544,10 +1544,10 @@
       "ja": "長良"
     },
     "name_for_search": "长良,changliang,chang liang,Nagara,nagara",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 3,
+    "ctype": 20,
+    "cnum": 1,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -1640,10 +1640,10 @@
       "ja": "五十鈴"
     },
     "name_for_search": "五十铃,wushiling,wu shi ling,500,Isuzu,isuzu",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 2,
     "type": 3,
+    "ctype": 20,
+    "cnum": 2,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -1736,10 +1736,10 @@
       "ja": "由良"
     },
     "name_for_search": "由良,youliang,you liang,Yura,yura",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 1,
     "type": 3,
+    "ctype": 20,
+    "cnum": 4,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -1832,10 +1832,10 @@
       "ja": "大井"
     },
     "name_for_search": "大井,dajing,da jing,Ooi,ooi",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 5,
     "type": 3,
+    "ctype": 4,
+    "cnum": 4,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -1928,10 +1928,10 @@
       "ja": "北上"
     },
     "name_for_search": "北上,beishang,bei shang,Kitakami,kitakami",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 3,
+    "ctype": 4,
+    "cnum": 3,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -2024,10 +2024,10 @@
       "ja": "扶桑"
     },
     "name_for_search": "扶桑,fusang,fu sang,Fusou,fusou",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 9,
+    "ctype": 26,
+    "cnum": 1,
     "attr": {
       "range": 3,
       "speed": 5,
@@ -2120,10 +2120,10 @@
       "ja": "山城"
     },
     "name_for_search": "山城,shancheng,shan cheng,Yamashiro,yamashiro",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 9,
+    "ctype": 26,
+    "cnum": 2,
     "attr": {
       "range": 3,
       "speed": 5,
@@ -2216,10 +2216,10 @@
       "ja": "皐月"
     },
     "name_for_search": "皋月,gaoyue,gao yue,Satsuki,satsuki",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 2,
     "type": 2,
+    "ctype": 28,
+    "cnum": 5,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -2312,10 +2312,10 @@
       "ja": "文月"
     },
     "name_for_search": "文月,wenyue,wen yue,Fumizuki,fumizuki",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 2,
     "type": 2,
+    "ctype": 28,
+    "cnum": 7,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -2408,10 +2408,10 @@
       "ja": "菊月"
     },
     "name_for_search": "菊月,juyue,ju yue,Kikuzuki,kikuzuki",
-    "ctype": 28,
-    "cnum": 9,
     "rarity": 1,
     "type": 2,
+    "ctype": 28,
+    "cnum": 9,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -2504,10 +2504,10 @@
       "ja": "望月"
     },
     "name_for_search": "望月,wangyue,wang yue,Mochizuki,mochizuki",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 1,
     "type": 2,
+    "ctype": 28,
+    "cnum": 11,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -2600,10 +2600,10 @@
       "ja": "初雪"
     },
     "name_for_search": "初雪,chuxue,chu xue,Hatsuyuki,hatsuyuki",
-    "ctype": 12,
-    "cnum": 3,
     "rarity": 1,
     "type": 2,
+    "ctype": 12,
+    "cnum": 3,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -2696,10 +2696,10 @@
       "ja": "叢雲"
     },
     "name_for_search": "丛云,congyun,cong yun,Murakumo,murakumo",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 2,
     "type": 2,
+    "ctype": 12,
+    "cnum": 5,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -2792,10 +2792,10 @@
       "ja": "暁"
     },
     "name_for_search": "晓,xiao,Akatsuki,akatsuki",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 3,
     "type": 2,
+    "ctype": 5,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -2888,10 +2888,10 @@
       "ja": "響"
     },
     "name_for_search": "响,xiang,Hibiki,hibiki",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 2,
     "type": 2,
+    "ctype": 5,
+    "cnum": 2,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -2984,10 +2984,10 @@
       "ja": "雷"
     },
     "name_for_search": "雷,lei,Ikazuchi,ikazuchi",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 1,
     "type": 2,
+    "ctype": 5,
+    "cnum": 3,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -3080,10 +3080,10 @@
       "ja": "電"
     },
     "name_for_search": "电,dian,Inazuma,inazuma",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 1,
     "type": 2,
+    "ctype": 5,
+    "cnum": 4,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -3176,10 +3176,10 @@
       "ja": "初春"
     },
     "name_for_search": "初春,chuchun,chu chun,Hatsuharu,hatsuharu",
-    "ctype": 10,
-    "cnum": 1,
     "rarity": 3,
     "type": 2,
+    "ctype": 10,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -3272,10 +3272,10 @@
       "ja": "子日"
     },
     "name_for_search": "子日,ziri,zi ri,Nenohi,nenohi",
-    "ctype": 10,
-    "cnum": 2,
     "rarity": 1,
     "type": 2,
+    "ctype": 10,
+    "cnum": 2,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -3368,10 +3368,10 @@
       "ja": "若葉"
     },
     "name_for_search": "若叶,ruoye,ruo ye,Wakaba,wakaba",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 2,
     "type": 2,
+    "ctype": 10,
+    "cnum": 3,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -3464,10 +3464,10 @@
       "ja": "初霜"
     },
     "name_for_search": "初霜,chushuang,chu shuang,Hatsushimo,hatsushimo",
-    "ctype": 10,
-    "cnum": 4,
     "rarity": 2,
     "type": 2,
+    "ctype": 10,
+    "cnum": 4,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -3560,10 +3560,10 @@
       "ja": "白露"
     },
     "name_for_search": "白露,bailu,bai lu,Shiratsuyu,shiratsuyu",
-    "ctype": 23,
-    "cnum": 1,
     "rarity": 3,
     "type": 2,
+    "ctype": 23,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -3656,10 +3656,10 @@
       "ja": "時雨"
     },
     "name_for_search": "时雨,shiyu,shi yu,Shigure,shigure",
-    "ctype": 23,
-    "cnum": 2,
     "rarity": 2,
     "type": 2,
+    "ctype": 23,
+    "cnum": 2,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -3752,10 +3752,10 @@
       "ja": "村雨"
     },
     "name_for_search": "村雨,cunyu,cun yu,Murasame,murasame",
-    "ctype": 23,
-    "cnum": 3,
     "rarity": 2,
     "type": 2,
+    "ctype": 23,
+    "cnum": 3,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -3848,10 +3848,10 @@
       "ja": "夕立"
     },
     "name_for_search": "夕立,xili,xi li,poi,Yuudachi,yuudachi",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 2,
     "type": 2,
+    "ctype": 23,
+    "cnum": 4,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -3944,10 +3944,10 @@
       "ja": "五月雨"
     },
     "name_for_search": "五月雨,wuyueyu,wu yue yu,Samidare,samidare",
-    "ctype": 23,
-    "cnum": 6,
     "rarity": 2,
     "type": 2,
+    "ctype": 23,
+    "cnum": 6,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -4040,10 +4040,10 @@
       "ja": "涼風"
     },
     "name_for_search": "凉风,liangfeng,liang feng,Suzukaze,suzukaze",
-    "ctype": 23,
-    "cnum": 10,
     "rarity": 3,
     "type": 2,
+    "ctype": 23,
+    "cnum": 10,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -4136,10 +4136,10 @@
       "ja": "霰"
     },
     "name_for_search": "霰,xian,Arare,arare",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 1,
     "type": 2,
+    "ctype": 18,
+    "cnum": 9,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -4232,10 +4232,10 @@
       "ja": "霞"
     },
     "name_for_search": "霞,xia,Kasumi,kasumi",
-    "ctype": 18,
-    "cnum": 10,
     "rarity": 2,
     "type": 2,
+    "ctype": 18,
+    "cnum": 10,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -4328,10 +4328,10 @@
       "ja": "島風"
     },
     "name_for_search": "岛风,daofeng,dao feng,Shimakaze,shimakaze",
-    "ctype": 22,
-    "cnum": 1,
     "rarity": 6,
     "type": 2,
+    "ctype": 22,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -4424,10 +4424,10 @@
       "ja": "天龍"
     },
     "name_for_search": "天龙,tianlong,tian long,Tenryuu,tenryuu",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 3,
     "type": 3,
+    "ctype": 21,
+    "cnum": 1,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -4520,10 +4520,10 @@
       "ja": "龍田"
     },
     "name_for_search": "龙田,longtian,long tian,Tatsuta,tatsuta",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 3,
     "type": 3,
+    "ctype": 21,
+    "cnum": 2,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -4616,10 +4616,10 @@
       "ja": "名取"
     },
     "name_for_search": "名取,mingqu,ming qu,Natori,natori",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 2,
     "type": 3,
+    "ctype": 20,
+    "cnum": 3,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -4712,10 +4712,10 @@
       "ja": "川内"
     },
     "name_for_search": "川内,chuannei,chuan nei,Sendai,sendai",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 3,
+    "ctype": 16,
+    "cnum": 1,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -4808,10 +4808,10 @@
       "ja": "神通"
     },
     "name_for_search": "神通,shentong,shen tong,Jintsuu,jintsuu",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 1,
     "type": 3,
+    "ctype": 16,
+    "cnum": 2,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -4904,10 +4904,10 @@
       "ja": "那珂"
     },
     "name_for_search": "那珂,nake,na ke,Naka,naka",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 2,
     "type": 3,
+    "ctype": 16,
+    "cnum": 3,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -5000,10 +5000,10 @@
       "ja": "大井改"
     },
     "name_for_search": "大井,dajing,da jing,Ooi,ooi",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 6,
     "type": 4,
+    "ctype": 4,
+    "cnum": 4,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -5096,10 +5096,10 @@
       "ja": "北上改"
     },
     "name_for_search": "北上,beishang,bei shang,Kitakami,kitakami",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 6,
     "type": 4,
+    "ctype": 4,
+    "cnum": 3,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -5192,10 +5192,10 @@
       "ja": "古鷹"
     },
     "name_for_search": "古鹰,guying,gu ying,Furutaka,furutaka",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 3,
     "type": 5,
+    "ctype": 7,
+    "cnum": 1,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -5288,10 +5288,10 @@
       "ja": "加古"
     },
     "name_for_search": "加古,jiagu,jia gu,Kako,kako",
-    "ctype": 7,
-    "cnum": 2,
     "rarity": 1,
     "type": 5,
+    "ctype": 7,
+    "cnum": 2,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -5384,10 +5384,10 @@
       "ja": "青葉"
     },
     "name_for_search": "青叶,qingye,qing ye,Aoba,aoba",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 3,
     "type": 5,
+    "ctype": 13,
+    "cnum": 1,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -5480,10 +5480,10 @@
       "ja": "妙高"
     },
     "name_for_search": "妙高,miaogao,miao gao,Myoukou,myoukou",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 5,
+    "ctype": 29,
+    "cnum": 1,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -5576,10 +5576,10 @@
       "ja": "那智"
     },
     "name_for_search": "那智,nazhi,na zhi,Nachi,nachi",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 1,
     "type": 5,
+    "ctype": 29,
+    "cnum": 2,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -5672,10 +5672,10 @@
       "ja": "足柄"
     },
     "name_for_search": "足柄,zubing,zu bing,Ashigara,ashigara",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 2,
     "type": 5,
+    "ctype": 29,
+    "cnum": 3,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -5768,10 +5768,10 @@
       "ja": "羽黒"
     },
     "name_for_search": "羽黑,yuhei,yu hei,Haguro,haguro",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 1,
     "type": 5,
+    "ctype": 29,
+    "cnum": 4,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -5864,10 +5864,10 @@
       "ja": "高雄"
     },
     "name_for_search": "高雄,gaoxiong,gao xiong,Takao,takao",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 5,
+    "ctype": 8,
+    "cnum": 1,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -5960,10 +5960,10 @@
       "ja": "愛宕"
     },
     "name_for_search": "爱宕,aidang,ai dang,Atago,atago",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 5,
+    "ctype": 8,
+    "cnum": 2,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -6056,10 +6056,10 @@
       "ja": "摩耶"
     },
     "name_for_search": "摩耶,moye,mo ye,Maya,maya",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 1,
     "type": 5,
+    "ctype": 8,
+    "cnum": 3,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -6152,10 +6152,10 @@
       "ja": "鳥海"
     },
     "name_for_search": "鸟海,niaohai,niao hai,Choukai,choukai",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 1,
     "type": 5,
+    "ctype": 8,
+    "cnum": 4,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -6248,10 +6248,10 @@
       "ja": "最上"
     },
     "name_for_search": "最上,zuishang,zui shang,Mogami,mogami",
-    "ctype": 9,
-    "cnum": 1,
     "rarity": 4,
     "type": 5,
+    "ctype": 9,
+    "cnum": 1,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -6344,10 +6344,10 @@
       "ja": "利根"
     },
     "name_for_search": "利根,ligen,li gen,Tone,tone",
-    "ctype": 31,
-    "cnum": 1,
     "rarity": 4,
     "type": 5,
+    "ctype": 31,
+    "cnum": 1,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -6440,10 +6440,10 @@
       "ja": "筑摩"
     },
     "name_for_search": "筑摩,zhumo,zhu mo,Chikuma,chikuma",
-    "ctype": 31,
-    "cnum": 2,
     "rarity": 4,
     "type": 5,
+    "ctype": 31,
+    "cnum": 2,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -6536,10 +6536,10 @@
       "ja": "最上改"
     },
     "name_for_search": "最上,zuishang,zui shang,Mogami,mogami",
-    "ctype": 9,
-    "cnum": 1,
     "rarity": 6,
     "type": 6,
+    "ctype": 9,
+    "cnum": 1,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -6632,10 +6632,10 @@
       "ja": "祥鳳"
     },
     "name_for_search": "祥凤,xiangfeng,xiang feng,Shouhou,shouhou",
-    "ctype": 11,
-    "cnum": 1,
     "rarity": 4,
     "type": 7,
+    "ctype": 11,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -6728,10 +6728,10 @@
       "ja": "飛鷹"
     },
     "name_for_search": "飞鹰,feiying,fei ying,Hiyou,hiyou",
-    "ctype": 24,
-    "cnum": 1,
     "rarity": 4,
     "type": 7,
+    "ctype": 24,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 5,
@@ -6824,10 +6824,10 @@
       "ja": "龍驤"
     },
     "name_for_search": "龙骧,longxiang,long xiang,Ryuujou,ryuujou",
-    "ctype": 32,
-    "cnum": 1,
     "rarity": 4,
     "type": 7,
+    "ctype": 32,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -6920,10 +6920,10 @@
       "ja": "伊勢"
     },
     "name_for_search": "伊势,yishi,yi shi,Ise,ise",
-    "ctype": 2,
-    "cnum": 1,
     "rarity": 5,
     "type": 9,
+    "ctype": 2,
+    "cnum": 1,
     "attr": {
       "range": 3,
       "speed": 5,
@@ -7016,10 +7016,10 @@
       "ja": "金剛"
     },
     "name_for_search": "金刚,jingang,jin gang,Kongou,kongou",
-    "ctype": 6,
-    "cnum": 1,
     "rarity": 5,
     "type": 8,
+    "ctype": 6,
+    "cnum": 1,
     "attr": {
       "range": 3,
       "speed": 10,
@@ -7112,10 +7112,10 @@
       "ja": "榛名"
     },
     "name_for_search": "榛名,zhenming,zhen ming,Haruna,haruna",
-    "ctype": 6,
-    "cnum": 3,
     "rarity": 5,
     "type": 8,
+    "ctype": 6,
+    "cnum": 3,
     "attr": {
       "range": 3,
       "speed": 10,
@@ -7208,10 +7208,10 @@
       "ja": "長門"
     },
     "name_for_search": "长门,changmen,chang men,Nagato,nagato",
-    "ctype": 19,
-    "cnum": 1,
     "rarity": 7,
     "type": 9,
+    "ctype": 19,
+    "cnum": 1,
     "attr": {
       "range": 3,
       "speed": 5,
@@ -7304,10 +7304,10 @@
       "ja": "陸奥"
     },
     "name_for_search": "陆奥,luao,lu ao,Mutsu,mutsu",
-    "ctype": 19,
-    "cnum": 2,
     "rarity": 7,
     "type": 9,
+    "ctype": 19,
+    "cnum": 2,
     "attr": {
       "range": 3,
       "speed": 5,
@@ -7400,10 +7400,10 @@
       "ja": "伊勢改"
     },
     "name_for_search": "伊势,yishi,yi shi,Ise,ise",
-    "ctype": 2,
-    "cnum": 1,
     "rarity": 6,
     "type": 10,
+    "ctype": 2,
+    "cnum": 1,
     "attr": {
       "range": 3,
       "speed": 5,
@@ -7496,10 +7496,10 @@
       "ja": "赤城"
     },
     "name_for_search": "赤城,chicheng,chi cheng,Akagi,akagi",
-    "ctype": 14,
-    "cnum": 1,
     "rarity": 6,
     "type": 11,
+    "ctype": 14,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -7592,10 +7592,10 @@
       "ja": "加賀"
     },
     "name_for_search": "加贺,jiahe,jia he,Kaga,kaga",
-    "ctype": 3,
-    "cnum": 1,
     "rarity": 5,
     "type": 11,
+    "ctype": 3,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -7688,10 +7688,10 @@
       "ja": "霧島"
     },
     "name_for_search": "雾岛,wudao,wu dao,Kirishima,kirishima",
-    "ctype": 6,
-    "cnum": 4,
     "rarity": 5,
     "type": 8,
+    "ctype": 6,
+    "cnum": 4,
     "attr": {
       "range": 3,
       "speed": 10,
@@ -7784,10 +7784,10 @@
       "ja": "比叡"
     },
     "name_for_search": "比睿,birui,bi rui,Hiei,hiei",
-    "ctype": 6,
-    "cnum": 2,
     "rarity": 5,
     "type": 8,
+    "ctype": 6,
+    "cnum": 2,
     "attr": {
       "range": 3,
       "speed": 10,
@@ -7880,10 +7880,10 @@
       "ja": "日向"
     },
     "name_for_search": "日向,rixiang,ri xiang,Hyuuga,hyuuga",
-    "ctype": 2,
-    "cnum": 2,
     "rarity": 5,
     "type": 9,
+    "ctype": 2,
+    "cnum": 2,
     "attr": {
       "range": 3,
       "speed": 5,
@@ -7976,10 +7976,10 @@
       "ja": "日向改"
     },
     "name_for_search": "日向,rixiang,ri xiang,Hyuuga,hyuuga",
-    "ctype": 2,
-    "cnum": 2,
     "rarity": 6,
     "type": 10,
+    "ctype": 2,
+    "cnum": 2,
     "attr": {
       "range": 3,
       "speed": 5,
@@ -8072,10 +8072,10 @@
       "ja": "鳳翔"
     },
     "name_for_search": "凤翔,fengxiang,feng xiang,Houshou,houshou",
-    "ctype": 27,
-    "cnum": 1,
     "rarity": 3,
     "type": 7,
+    "ctype": 27,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 5,
@@ -8168,10 +8168,10 @@
       "ja": "蒼龍"
     },
     "name_for_search": "苍龙,canglong,cang long,Souryuu,souryuu",
-    "ctype": 17,
-    "cnum": 1,
     "rarity": 5,
     "type": 11,
+    "ctype": 17,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -8264,10 +8264,10 @@
       "ja": "飛龍"
     },
     "name_for_search": "飞龙,feilong,fei long,Hiryuu,hiryuu",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 6,
     "type": 11,
+    "ctype": 25,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -8360,10 +8360,10 @@
       "ja": "隼鷹"
     },
     "name_for_search": "隼鹰,sunying,sun ying,Junyou,junyou",
-    "ctype": 24,
-    "cnum": 2,
     "rarity": 4,
     "type": 7,
+    "ctype": 24,
+    "cnum": 2,
     "attr": {
       "range": 1,
       "speed": 5,
@@ -8456,10 +8456,10 @@
       "ja": "朧"
     },
     "name_for_search": "胧,long,Oboro,oboro",
-    "ctype": 1,
-    "cnum": 7,
     "rarity": 1,
     "type": 2,
+    "ctype": 1,
+    "cnum": 7,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -8552,10 +8552,10 @@
       "ja": "涟"
     },
     "name_for_search": "涟,lian,Sazanami,sazanami",
-    "ctype": 1,
-    "cnum": 9,
     "rarity": 2,
     "type": 2,
+    "ctype": 1,
+    "cnum": 9,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -8648,10 +8648,10 @@
       "ja": "朝潮"
     },
     "name_for_search": "朝潮,zhaochao,zhao chao,Asashio,asashio",
-    "ctype": 18,
-    "cnum": 1,
     "rarity": 3,
     "type": 2,
+    "ctype": 18,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -8744,10 +8744,10 @@
       "ja": "大潮"
     },
     "name_for_search": "大潮,dachao,da chao,Ooshio,ooshio",
-    "ctype": 18,
-    "cnum": 2,
     "rarity": 1,
     "type": 2,
+    "ctype": 18,
+    "cnum": 2,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -8840,10 +8840,10 @@
       "ja": "満潮"
     },
     "name_for_search": "满潮,manchao,man chao,Michishio,michishio",
-    "ctype": 18,
-    "cnum": 3,
     "rarity": 1,
     "type": 2,
+    "ctype": 18,
+    "cnum": 3,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -8936,10 +8936,10 @@
       "ja": "荒潮"
     },
     "name_for_search": "荒潮,huangchao,huang chao,Arashio,arashio",
-    "ctype": 18,
-    "cnum": 4,
     "rarity": 1,
     "type": 2,
+    "ctype": 18,
+    "cnum": 4,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -9032,10 +9032,10 @@
       "ja": "球磨"
     },
     "name_for_search": "球磨,qiumo,qiu mo,Kuma,kuma",
-    "ctype": 4,
-    "cnum": 1,
     "rarity": 4,
     "type": 3,
+    "ctype": 4,
+    "cnum": 1,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -9128,10 +9128,10 @@
       "ja": "多摩"
     },
     "name_for_search": "多摩,duomo,duo mo,Tama,tama",
-    "ctype": 4,
-    "cnum": 2,
     "rarity": 2,
     "type": 3,
+    "ctype": 4,
+    "cnum": 2,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -9224,10 +9224,10 @@
       "ja": "木曾"
     },
     "name_for_search": "木曾,muzeng,mu zeng,Kiso,kiso",
-    "ctype": 4,
-    "cnum": 5,
     "rarity": 1,
     "type": 3,
+    "ctype": 4,
+    "cnum": 5,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -9320,10 +9320,10 @@
       "ja": "千歳"
     },
     "name_for_search": "千岁,qiansui,qian sui,Chitose,chitose",
-    "ctype": 15,
-    "cnum": 1,
     "rarity": 2,
     "type": 16,
+    "ctype": 15,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -9416,10 +9416,10 @@
       "ja": "千代田"
     },
     "name_for_search": "千代田,qiandaitian,qian dai tian,Chiyoda,chiyoda",
-    "ctype": 15,
-    "cnum": 2,
     "rarity": 1,
     "type": 16,
+    "ctype": 15,
+    "cnum": 2,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -9512,10 +9512,10 @@
       "ja": "千歳改"
     },
     "name_for_search": "千岁,qiansui,qian sui,Chitose,chitose",
-    "ctype": 15,
-    "cnum": 1,
     "rarity": 3,
     "type": 16,
+    "ctype": 15,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -9608,10 +9608,10 @@
       "ja": "千代田改"
     },
     "name_for_search": "千代田,qiandaitian,qian dai tian,Chiyoda,chiyoda",
-    "ctype": 15,
-    "cnum": 2,
     "rarity": 3,
     "type": 16,
+    "ctype": 15,
+    "cnum": 2,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -9704,10 +9704,10 @@
       "ja": "千歳甲"
     },
     "name_for_search": "千岁,qiansui,qian sui,Chitose,chitose",
-    "ctype": 15,
-    "cnum": 1,
     "rarity": 3,
     "type": 16,
+    "ctype": 15,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -9800,10 +9800,10 @@
       "ja": "千代田甲"
     },
     "name_for_search": "千代田,qiandaitian,qian dai tian,Chiyoda,chiyoda",
-    "ctype": 15,
-    "cnum": 2,
     "rarity": 3,
     "type": 16,
+    "ctype": 15,
+    "cnum": 2,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -9896,10 +9896,10 @@
       "ja": "千歳航"
     },
     "name_for_search": "千岁,qiansui,qian sui,Chitose,chitose",
-    "ctype": 15,
-    "cnum": 1,
     "rarity": 4,
     "type": 7,
+    "ctype": 15,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -9992,10 +9992,10 @@
       "ja": "千代田航"
     },
     "name_for_search": "千代田,qiandaitian,qian dai tian,Chiyoda,chiyoda",
-    "ctype": 15,
-    "cnum": 2,
     "rarity": 4,
     "type": 7,
+    "ctype": 15,
+    "cnum": 2,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -10088,10 +10088,10 @@
       "ja": "翔鶴"
     },
     "name_for_search": "翔鹤,xianghe,xiang he,Shoukaku,shoukaku",
-    "ctype": 33,
-    "cnum": 1,
     "rarity": 5,
     "type": 11,
+    "ctype": 33,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -10184,10 +10184,10 @@
       "ja": "瑞鶴"
     },
     "name_for_search": "瑞鹤,ruihe,rui he,Zuikaku,zuikaku",
-    "ctype": 33,
-    "cnum": 2,
     "rarity": 6,
     "type": 11,
+    "ctype": 33,
+    "cnum": 2,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -10280,10 +10280,10 @@
       "ja": "瑞鶴改"
     },
     "name_for_search": "瑞鹤,ruihe,rui he,Zuikaku,zuikaku",
-    "ctype": 33,
-    "cnum": 2,
     "rarity": 7,
     "type": 11,
+    "ctype": 33,
+    "cnum": 2,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -10376,10 +10376,10 @@
       "ja": "鬼怒"
     },
     "name_for_search": "鬼怒,guinu,gui nu,Kinu,kinu",
-    "ctype": 20,
-    "cnum": 5,
     "rarity": 4,
     "type": 3,
+    "ctype": 20,
+    "cnum": 5,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -10472,10 +10472,10 @@
       "ja": "阿武隈"
     },
     "name_for_search": "阿武隈,awuwei,a wu wei,aww,Abukuma,abukuma",
-    "ctype": 20,
-    "cnum": 6,
     "rarity": 5,
     "type": 3,
+    "ctype": 20,
+    "cnum": 6,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -10568,10 +10568,10 @@
       "ja": "夕張"
     },
     "name_for_search": "夕张,xizhang,xi zhang,Yuubari,yuubari",
-    "ctype": 34,
-    "cnum": 1,
     "rarity": 5,
     "type": 3,
+    "ctype": 34,
+    "cnum": 1,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -10664,10 +10664,10 @@
       "ja": "瑞鳳"
     },
     "name_for_search": "瑞凤,ruifeng,rui feng,Zuihou,zuihou",
-    "ctype": 11,
-    "cnum": 2,
     "rarity": 5,
     "type": 7,
+    "ctype": 11,
+    "cnum": 2,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -10760,10 +10760,10 @@
       "ja": "瑞鳳改"
     },
     "name_for_search": "瑞凤,ruifeng,rui feng,Zuihou,zuihou",
-    "ctype": 11,
-    "cnum": 2,
     "rarity": 6,
     "type": 7,
+    "ctype": 11,
+    "cnum": 2,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -10856,10 +10856,10 @@
       "ja": "大井改二"
     },
     "name_for_search": "大井,dajing,da jing,Ooi,ooi",
-    "ctype": 4,
-    "cnum": 4,
     "rarity": 7,
     "type": 4,
+    "ctype": 4,
+    "cnum": 4,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -10952,10 +10952,10 @@
       "ja": "北上改二"
     },
     "name_for_search": "北上,beishang,bei shang,Kitakami,kitakami",
-    "ctype": 4,
-    "cnum": 3,
     "rarity": 7,
     "type": 4,
+    "ctype": 4,
+    "cnum": 3,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -11048,10 +11048,10 @@
       "ja": "三隈"
     },
     "name_for_search": "三隈,sanwei,san wei,Mikuma,mikuma",
-    "ctype": 9,
-    "cnum": 2,
     "rarity": 5,
     "type": 5,
+    "ctype": 9,
+    "cnum": 2,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -11144,10 +11144,10 @@
       "ja": "三隈改"
     },
     "name_for_search": "三隈,sanwei,san wei,Mikuma,mikuma",
-    "ctype": 9,
-    "cnum": 2,
     "rarity": 6,
     "type": 6,
+    "ctype": 9,
+    "cnum": 2,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -11240,10 +11240,10 @@
       "ja": "舞風"
     },
     "name_for_search": "舞风,wufeng,wu feng,Maikaze,maikaze",
-    "ctype": 30,
-    "cnum": 18,
     "rarity": 4,
     "type": 2,
+    "ctype": 30,
+    "cnum": 18,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -11336,10 +11336,10 @@
       "ja": "衣笠"
     },
     "name_for_search": "衣笠,yili,yi li,Kinugasa,kinugasa",
-    "ctype": 13,
-    "cnum": 2,
     "rarity": 4,
     "type": 5,
+    "ctype": 13,
+    "cnum": 2,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -11432,10 +11432,10 @@
       "ja": "鈴谷"
     },
     "name_for_search": "铃谷,linggu,ling gu,Suzuya,suzuya",
-    "ctype": 9,
-    "cnum": 3,
     "rarity": 4,
     "type": 5,
+    "ctype": 9,
+    "cnum": 3,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -11528,10 +11528,10 @@
       "ja": "熊野"
     },
     "name_for_search": "熊野,xiongye,xiong ye,Kumano,kumano",
-    "ctype": 9,
-    "cnum": 4,
     "rarity": 4,
     "type": 5,
+    "ctype": 9,
+    "cnum": 4,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -11624,10 +11624,10 @@
       "ja": "伊168"
     },
     "name_for_search": "伊168,I168,i168,Imuya,imuya,I-168,i-168",
-    "ctype": 35,
-    "cnum": 1,
     "rarity": 3,
     "type": 13,
+    "ctype": 35,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 5,
@@ -11720,10 +11720,10 @@
       "ja": "伊58"
     },
     "name_for_search": "伊58,I58,i58,Goya,goya,I-58,i-58",
-    "ctype": 36,
-    "cnum": 3,
     "rarity": 4,
     "type": 13,
+    "ctype": 36,
+    "cnum": 3,
     "attr": {
       "range": 1,
       "speed": 5,
@@ -11816,10 +11816,10 @@
       "ja": "伊8"
     },
     "name_for_search": "伊8,I8,i8,Hachi,hachi,I-8,i-8",
-    "ctype": 40,
-    "cnum": 2,
     "rarity": 5,
     "type": 13,
+    "ctype": 40,
+    "cnum": 2,
     "attr": {
       "range": 1,
       "speed": 5,
@@ -11912,10 +11912,10 @@
       "ja": "鈴谷改"
     },
     "name_for_search": "铃谷,linggu,ling gu,Suzuya,suzuya",
-    "ctype": 9,
-    "cnum": 3,
     "rarity": 5,
     "type": 6,
+    "ctype": 9,
+    "cnum": 3,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -12008,10 +12008,10 @@
       "ja": "熊野改"
     },
     "name_for_search": "熊野,xiongye,xiong ye,Kumano,kumano",
-    "ctype": 9,
-    "cnum": 4,
     "rarity": 5,
     "type": 6,
+    "ctype": 9,
+    "cnum": 4,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -12104,10 +12104,10 @@
       "ja": "大和"
     },
     "name_for_search": "大和,dahe,da he,Yamato,yamato",
-    "ctype": 37,
-    "cnum": 1,
     "rarity": 8,
     "type": 9,
+    "ctype": 37,
+    "cnum": 1,
     "attr": {
       "range": 4,
       "speed": 5,
@@ -12200,10 +12200,10 @@
       "ja": "秋雲"
     },
     "name_for_search": "秋云,qiuyun,qiu yun,Akigumo,akigumo",
-    "ctype": 30,
-    "cnum": 19,
     "rarity": 4,
     "type": 2,
+    "ctype": 30,
+    "cnum": 19,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -12296,10 +12296,10 @@
       "ja": "夕雲"
     },
     "name_for_search": "夕云,xiyun,xi yun,Yuugumo,yuugumo",
-    "ctype": 38,
-    "cnum": 1,
     "rarity": 4,
     "type": 2,
+    "ctype": 38,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -12392,10 +12392,10 @@
       "ja": "巻雲"
     },
     "name_for_search": "卷云,juanyun,juan yun,Makigumo,makigumo",
-    "ctype": 38,
-    "cnum": 2,
     "rarity": 4,
     "type": 2,
+    "ctype": 38,
+    "cnum": 2,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -12488,10 +12488,10 @@
       "ja": "長波"
     },
     "name_for_search": "长波,changbo,chang bo,Naganami,naganami",
-    "ctype": 38,
-    "cnum": 4,
     "rarity": 4,
     "type": 2,
+    "ctype": 38,
+    "cnum": 4,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -12584,10 +12584,10 @@
       "ja": "大和改"
     },
     "name_for_search": "大和,dahe,da he,Yamato,yamato",
-    "ctype": 37,
-    "cnum": 1,
     "rarity": 8,
     "type": 9,
+    "ctype": 37,
+    "cnum": 1,
     "attr": {
       "range": 4,
       "speed": 5,
@@ -12680,10 +12680,10 @@
       "ja": "阿賀野"
     },
     "name_for_search": "阿贺野,aheye,a he ye,Agano,agano",
-    "ctype": 41,
-    "cnum": 1,
     "rarity": 5,
     "type": 3,
+    "ctype": 41,
+    "cnum": 1,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -12776,10 +12776,10 @@
       "ja": "能代"
     },
     "name_for_search": "能代,nengdai,neng dai,Noshiro,noshiro",
-    "ctype": 41,
-    "cnum": 2,
     "rarity": 5,
     "type": 3,
+    "ctype": 41,
+    "cnum": 2,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -12872,10 +12872,10 @@
       "ja": "矢矧"
     },
     "name_for_search": "矢矧,shishen,shi shen,Yahagi,yahagi",
-    "ctype": 41,
-    "cnum": 3,
     "rarity": 6,
     "type": 3,
+    "ctype": 41,
+    "cnum": 3,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -12968,10 +12968,10 @@
       "ja": "酒匂"
     },
     "name_for_search": "酒匂,jiuxiong,jiu xiong,Sakawa,sakawa",
-    "ctype": 41,
-    "cnum": 4,
     "rarity": 5,
     "type": 3,
+    "ctype": 41,
+    "cnum": 4,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -13064,10 +13064,10 @@
       "ja": "五十鈴改二"
     },
     "name_for_search": "五十铃,wushiling,wu shi ling,500,Isuzu,isuzu",
-    "ctype": 20,
-    "cnum": 2,
     "rarity": 5,
     "type": 3,
+    "ctype": 20,
+    "cnum": 2,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -13160,10 +13160,10 @@
       "ja": "衣笠改二"
     },
     "name_for_search": "衣笠,yili,yi li,Kinugasa,kinugasa",
-    "ctype": 13,
-    "cnum": 2,
     "rarity": 6,
     "type": 5,
+    "ctype": 13,
+    "cnum": 2,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -13256,10 +13256,10 @@
       "ja": "武蔵"
     },
     "name_for_search": "武藏,wuzang,wu zang,Musashi,musashi",
-    "ctype": 37,
-    "cnum": 2,
     "rarity": 7,
     "type": 9,
+    "ctype": 37,
+    "cnum": 2,
     "attr": {
       "range": 4,
       "speed": 5,
@@ -13352,10 +13352,10 @@
       "ja": "夕立改二"
     },
     "name_for_search": "夕立,xili,xi li,poi,Yuudachi,yuudachi",
-    "ctype": 23,
-    "cnum": 4,
     "rarity": 6,
     "type": 2,
+    "ctype": 23,
+    "cnum": 4,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -13448,10 +13448,10 @@
       "ja": "時雨改二"
     },
     "name_for_search": "时雨,shiyu,shi yu,Shigure,shigure",
-    "ctype": 23,
-    "cnum": 2,
     "rarity": 6,
     "type": 2,
+    "ctype": 23,
+    "cnum": 2,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -13544,10 +13544,10 @@
       "ja": "木曾改二"
     },
     "name_for_search": "木曾,muzeng,mu zeng,Kiso,kiso",
-    "ctype": 4,
-    "cnum": 5,
     "rarity": 6,
     "type": 4,
+    "ctype": 4,
+    "cnum": 5,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -13640,10 +13640,10 @@
       "ja": "Верный"
     },
     "name_for_search": "响改二",
-    "ctype": 5,
-    "cnum": 2,
     "rarity": 6,
     "type": 2,
+    "ctype": 5,
+    "cnum": 2,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -13736,10 +13736,10 @@
       "ja": "武蔵改"
     },
     "name_for_search": "武藏,wuzang,wu zang,Musashi,musashi",
-    "ctype": 37,
-    "cnum": 2,
     "rarity": 7,
     "type": 9,
+    "ctype": 37,
+    "cnum": 2,
     "attr": {
       "range": 4,
       "speed": 5,
@@ -13832,10 +13832,10 @@
       "ja": "金剛改二"
     },
     "name_for_search": "金刚,jingang,jin gang,Kongou,kongou",
-    "ctype": 6,
-    "cnum": 1,
     "rarity": 7,
     "type": 8,
+    "ctype": 6,
+    "cnum": 1,
     "attr": {
       "range": 3,
       "speed": 10,
@@ -13928,10 +13928,10 @@
       "ja": "比叡改二"
     },
     "name_for_search": "比睿,birui,bi rui,Hiei,hiei",
-    "ctype": 6,
-    "cnum": 2,
     "rarity": 7,
     "type": 8,
+    "ctype": 6,
+    "cnum": 2,
     "attr": {
       "range": 3,
       "speed": 10,
@@ -14024,10 +14024,10 @@
       "ja": "榛名改二"
     },
     "name_for_search": "榛名,zhenming,zhen ming,Haruna,haruna",
-    "ctype": 6,
-    "cnum": 3,
     "rarity": 7,
     "type": 8,
+    "ctype": 6,
+    "cnum": 3,
     "attr": {
       "range": 3,
       "speed": 10,
@@ -14120,10 +14120,10 @@
       "ja": "霧島改二"
     },
     "name_for_search": "雾岛,wudao,wu dao,Kirishima,kirishima",
-    "ctype": 6,
-    "cnum": 4,
     "rarity": 7,
     "type": 8,
+    "ctype": 6,
+    "cnum": 4,
     "attr": {
       "range": 3,
       "speed": 10,
@@ -14216,10 +14216,10 @@
       "ja": "大鳳"
     },
     "name_for_search": "大凤,dafeng,da feng,Taiho,taiho",
-    "ctype": 43,
-    "cnum": 1,
     "rarity": 7,
     "type": 18,
+    "ctype": 43,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -14312,10 +14312,10 @@
       "ja": "香取"
     },
     "name_for_search": "香取,xiangqu,xiang qu,Katori,katori",
-    "ctype": 56,
-    "cnum": 1,
     "rarity": 4,
     "type": 21,
+    "ctype": 56,
+    "cnum": 1,
     "attr": {
       "range": 2,
       "speed": 5,
@@ -14408,10 +14408,10 @@
       "ja": "伊401"
     },
     "name_for_search": "伊401,I401,i401,Iona,iona,I-401,i-401",
-    "ctype": 44,
-    "cnum": 2,
     "rarity": 6,
     "type": 14,
+    "ctype": 44,
+    "cnum": 2,
     "attr": {
       "range": 1,
       "speed": 5,
@@ -14504,10 +14504,10 @@
       "ja": "大鳳改"
     },
     "name_for_search": "大凤,dafeng,da feng,Taiho,taiho",
-    "ctype": 43,
-    "cnum": 1,
     "rarity": 7,
     "type": 18,
+    "ctype": 43,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -14600,10 +14600,10 @@
       "ja": "龍驤改二"
     },
     "name_for_search": "龙骧,longxiang,long xiang,Ryuujou,ryuujou",
-    "ctype": 32,
-    "cnum": 1,
     "rarity": 6,
     "type": 7,
+    "ctype": 32,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -14696,10 +14696,10 @@
       "ja": "川内改二"
     },
     "name_for_search": "川内,chuannei,chuan nei,Sendai,sendai",
-    "ctype": 16,
-    "cnum": 1,
     "rarity": 6,
     "type": 3,
+    "ctype": 16,
+    "cnum": 1,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -14792,10 +14792,10 @@
       "ja": "神通改二"
     },
     "name_for_search": "神通,shentong,shen tong,Jintsuu,jintsuu",
-    "ctype": 16,
-    "cnum": 2,
     "rarity": 6,
     "type": 3,
+    "ctype": 16,
+    "cnum": 2,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -14888,10 +14888,10 @@
       "ja": "那珂改二"
     },
     "name_for_search": "那珂,nake,na ke,Naka,naka",
-    "ctype": 16,
-    "cnum": 3,
     "rarity": 6,
     "type": 3,
+    "ctype": 16,
+    "cnum": 3,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -14984,10 +14984,10 @@
       "ja": "あきつ丸"
     },
     "name_for_search": "秋津丸,qiujinwan,qiu jin wan,Akitsu Maru,akitsu maru",
-    "ctype": 45,
-    "cnum": 1,
     "rarity": 5,
     "type": 17,
+    "ctype": 45,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 5,
@@ -15080,10 +15080,10 @@
       "ja": "まるゆ"
     },
     "name_for_search": "丸输,wanshu,wan shu,maluyou,ma lu you,Maruyu,maruyu",
-    "ctype": 46,
-    "cnum": 1,
     "rarity": 5,
     "type": 13,
+    "ctype": 46,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 5,
@@ -15176,10 +15176,10 @@
       "ja": "弥生"
     },
     "name_for_search": "弥生,misheng,mi sheng,Yayoi,yayoi",
-    "ctype": 28,
-    "cnum": 3,
     "rarity": 4,
     "type": 2,
+    "ctype": 28,
+    "cnum": 3,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -15272,10 +15272,10 @@
       "ja": "卯月"
     },
     "name_for_search": "卯月,maoyue,mao yue,Uzuki,uzuki",
-    "ctype": 28,
-    "cnum": 4,
     "rarity": 4,
     "type": 2,
+    "ctype": 28,
+    "cnum": 4,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -15368,10 +15368,10 @@
       "ja": "あきつ丸改"
     },
     "name_for_search": "秋津丸,qiujinwan,qiu jin wan,Akitsu Maru,akitsu maru",
-    "ctype": 45,
-    "cnum": 1,
     "rarity": 6,
     "type": 17,
+    "ctype": 45,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 5,
@@ -15464,10 +15464,10 @@
       "ja": "磯風"
     },
     "name_for_search": "卯月,maoyue,mao yue,Uzuki,uzuki",
-    "ctype": 30,
-    "cnum": 12,
     "rarity": 5,
     "type": 2,
+    "ctype": 30,
+    "cnum": 12,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -15560,10 +15560,10 @@
       "ja": "浦風"
     },
     "name_for_search": "浦风,pufeng,pu feng,Urakaze,urakaze",
-    "ctype": 30,
-    "cnum": 11,
     "rarity": 4,
     "type": 2,
+    "ctype": 30,
+    "cnum": 11,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -15656,10 +15656,10 @@
       "ja": "谷風"
     },
     "name_for_search": "谷风,gufeng,gu feng,Tanikaze,tanikaze",
-    "ctype": 30,
-    "cnum": 14,
     "rarity": 4,
     "type": 2,
+    "ctype": 30,
+    "cnum": 14,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -15752,10 +15752,10 @@
       "ja": "浜風"
     },
     "name_for_search": "滨风,binfeng,bin feng,Hamakaze,hamakaze",
-    "ctype": 30,
-    "cnum": 13,
     "rarity": 4,
     "type": 2,
+    "ctype": 30,
+    "cnum": 13,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -15848,10 +15848,10 @@
       "ja": "Bismarck"
     },
     "name_for_search": "Bismarck,bisimai,俾斯麦,bi si mai",
-    "ctype": 47,
-    "cnum": 1,
     "rarity": 7,
     "type": 8,
+    "ctype": 47,
+    "cnum": 1,
     "attr": {
       "range": 3,
       "speed": 10,
@@ -15944,10 +15944,10 @@
       "ja": "Bismarck改"
     },
     "name_for_search": "Bismarck,bisimai,俾斯麦,bi si mai",
-    "ctype": 47,
-    "cnum": 1,
     "rarity": 7,
     "type": 8,
+    "ctype": 47,
+    "cnum": 1,
     "attr": {
       "range": 3,
       "speed": 10,
@@ -16040,10 +16040,10 @@
       "ja": "Bismarck zwei"
     },
     "name_for_search": "Bismarck,bisimai,俾斯麦,bi si mai",
-    "ctype": 47,
-    "cnum": 1,
     "rarity": 7,
     "type": 8,
+    "ctype": 47,
+    "cnum": 1,
     "attr": {
       "range": 3,
       "speed": 10,
@@ -16136,10 +16136,10 @@
       "ja": "Z1"
     },
     "name_for_search": "Z1",
-    "ctype": 48,
-    "cnum": 1,
     "rarity": 5,
     "type": 2,
+    "ctype": 48,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -16232,10 +16232,10 @@
       "ja": "Z3"
     },
     "name_for_search": "Z3",
-    "ctype": 48,
-    "cnum": 3,
     "rarity": 5,
     "type": 2,
+    "ctype": 48,
+    "cnum": 3,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -16328,10 +16328,10 @@
       "ja": "Prinz Eugen"
     },
     "name_for_search": "Prinz Eugen,prinz eugen,prinzeugen,欧根亲王,ougenqinwang,ou gen qin wang",
-    "ctype": 55,
-    "cnum": 3,
     "rarity": 6,
     "type": 5,
+    "ctype": 55,
+    "cnum": 3,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -16424,10 +16424,10 @@
       "ja": "Prinz Eugen改"
     },
     "name_for_search": "Prinz Eugen,prinz eugen,prinzeugen,欧根亲王,ougenqinwang,ou gen qin wang",
-    "ctype": 55,
-    "cnum": 3,
     "rarity": 7,
     "type": 5,
+    "ctype": 55,
+    "cnum": 3,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -16520,10 +16520,10 @@
       "ja": "Bismarck drei"
     },
     "name_for_search": "Bismarck,bisimai,俾斯麦,bi si mai",
-    "ctype": 47,
-    "cnum": 1,
     "rarity": 7,
     "type": 8,
+    "ctype": 47,
+    "cnum": 1,
     "attr": {
       "range": 3,
       "speed": 10,
@@ -16616,10 +16616,10 @@
       "ja": "Z1 zwei"
     },
     "name_for_search": "Z1",
-    "ctype": 48,
-    "cnum": 1,
     "rarity": 7,
     "type": 2,
+    "ctype": 48,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -16712,10 +16712,10 @@
       "ja": "Z3 zwei"
     },
     "name_for_search": "Z3",
-    "ctype": 48,
-    "cnum": 3,
     "rarity": 7,
     "type": 2,
+    "ctype": 48,
+    "cnum": 3,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -16808,10 +16808,10 @@
       "ja": "天津風"
     },
     "name_for_search": "天津风,tianjinfeng,tian jin feng,Amatsukaze,amatsukaze",
-    "ctype": 30,
-    "cnum": 9,
     "rarity": 6,
     "type": 2,
+    "ctype": 30,
+    "cnum": 9,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -16904,10 +16904,10 @@
       "ja": "明石"
     },
     "name_for_search": "明石,mingshi,ming shi,Akashi,akashi",
-    "ctype": 49,
-    "cnum": 1,
     "rarity": 6,
     "type": 19,
+    "ctype": 49,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 5,
@@ -17000,10 +17000,10 @@
       "ja": "大淀"
     },
     "name_for_search": "大淀,dadian,da dian,Ooyodo,ooyodo",
-    "ctype": 52,
-    "cnum": 1,
     "rarity": 6,
     "type": 3,
+    "ctype": 52,
+    "cnum": 1,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -17096,10 +17096,10 @@
       "ja": "大鯨"
     },
     "name_for_search": "大鲸,dajing,da jing,Taigei,taigei",
-    "ctype": 50,
-    "cnum": 1,
     "rarity": 4,
     "type": 20,
+    "ctype": 50,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 5,
@@ -17192,10 +17192,10 @@
       "ja": "龍鳳"
     },
     "name_for_search": "龙凤,longfeng,long feng,Ryuuhou,ryuuhou",
-    "ctype": 51,
-    "cnum": 1,
     "rarity": 5,
     "type": 7,
+    "ctype": 51,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 5,
@@ -17288,10 +17288,10 @@
       "ja": "時津風"
     },
     "name_for_search": "时津风,shijinfeng,shi jin feng,Tokitsukaze,tokitsukaze",
-    "ctype": 30,
-    "cnum": 10,
     "rarity": 5,
     "type": 2,
+    "ctype": 30,
+    "cnum": 10,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -17384,10 +17384,10 @@
       "ja": "明石改"
     },
     "name_for_search": "明石,mingshi,ming shi,Akashi,akashi",
-    "ctype": 49,
-    "cnum": 1,
     "rarity": 7,
     "type": 19,
+    "ctype": 49,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 5,
@@ -17480,10 +17480,10 @@
       "ja": "利根改二"
     },
     "name_for_search": "利根,ligen,li gen,Tone,tone",
-    "ctype": 31,
-    "cnum": 1,
     "rarity": 7,
     "type": 6,
+    "ctype": 31,
+    "cnum": 1,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -17576,10 +17576,10 @@
       "ja": "筑摩改二"
     },
     "name_for_search": "筑摩,zhumo,zhu mo,Chikuma,chikuma",
-    "ctype": 31,
-    "cnum": 2,
     "rarity": 7,
     "type": 6,
+    "ctype": 31,
+    "cnum": 2,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -17672,10 +17672,10 @@
       "ja": "初風"
     },
     "name_for_search": "初风,chufeng,chu feng,Hatsukaze,hatsukaze",
-    "ctype": 30,
-    "cnum": 7,
     "rarity": 4,
     "type": 2,
+    "ctype": 30,
+    "cnum": 7,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -17768,10 +17768,10 @@
       "ja": "伊19"
     },
     "name_for_search": "伊19,I19,i19,Iku,iku,I-19,i-19",
-    "ctype": 39,
-    "cnum": 3,
     "rarity": 4,
     "type": 13,
+    "ctype": 39,
+    "cnum": 3,
     "attr": {
       "range": 1,
       "speed": 5,
@@ -17864,10 +17864,10 @@
       "ja": "那智改二"
     },
     "name_for_search": "那智,nazhi,na zhi,Nachi,nachi",
-    "ctype": 29,
-    "cnum": 2,
     "rarity": 6,
     "type": 5,
+    "ctype": 29,
+    "cnum": 2,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -17960,10 +17960,10 @@
       "ja": "足柄改二"
     },
     "name_for_search": "足柄,zubing,zu bing,Ashigara,ashigara",
-    "ctype": 29,
-    "cnum": 3,
     "rarity": 6,
     "type": 5,
+    "ctype": 29,
+    "cnum": 3,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -18056,10 +18056,10 @@
       "ja": "羽黒改二"
     },
     "name_for_search": "羽黑,yuhei,yu hei,Haguro,haguro",
-    "ctype": 29,
-    "cnum": 4,
     "rarity": 5,
     "type": 5,
+    "ctype": 29,
+    "cnum": 4,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -18152,10 +18152,10 @@
       "ja": "綾波改二"
     },
     "name_for_search": "绫波,lingbo,ling bo,Ayanami,ayanami",
-    "ctype": 1,
-    "cnum": 1,
     "rarity": 6,
     "type": 2,
+    "ctype": 1,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -18248,10 +18248,10 @@
       "ja": "飛龍改二"
     },
     "name_for_search": "飞龙,feilong,fei long,Hiryuu,hiryuu",
-    "ctype": 25,
-    "cnum": 1,
     "rarity": 8,
     "type": 11,
+    "ctype": 25,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -18344,10 +18344,10 @@
       "ja": "蒼龍改二"
     },
     "name_for_search": "苍龙,canglong,cang long,Souryuu,souryuu",
-    "ctype": 17,
-    "cnum": 1,
     "rarity": 8,
     "type": 11,
+    "ctype": 17,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -18440,10 +18440,10 @@
       "ja": "阿武隈改二"
     },
     "name_for_search": "阿武隈,awuwei,a wu wei,aww,Abukuma,abukuma",
-    "ctype": 20,
-    "cnum": 6,
     "rarity": 7,
     "type": 3,
+    "ctype": 20,
+    "cnum": 6,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -18536,10 +18536,10 @@
       "ja": "吹雪改"
     },
     "name_for_search": "吹雪,chuixue,chui xue,Fubuki,fubuki",
-    "ctype": 20,
-    "cnum": 1,
     "rarity": 4,
     "type": 2,
+    "ctype": 12,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -18632,10 +18632,10 @@
       "ja": "白雪改"
     },
     "name_for_search": "白雪,baixue,bai xue,Shirayuki,shirayuki",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 2,
+    "ctype": 12,
+    "cnum": 2,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -18728,10 +18728,10 @@
       "ja": "初雪改"
     },
     "name_for_search": "初雪,chuxue,chu xue,Hatsuyuki,hatsuyuki",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 2,
+    "ctype": 12,
+    "cnum": 3,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -18824,10 +18824,10 @@
       "ja": "深雪改"
     },
     "name_for_search": "深雪,shenxue,shen xue,Miyuki,miyuki",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 2,
+    "ctype": 12,
+    "cnum": 4,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -18920,10 +18920,10 @@
       "ja": "叢雲改"
     },
     "name_for_search": "丛云,congyun,cong yun,Murakumo,murakumo",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 2,
+    "ctype": 12,
+    "cnum": 5,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -19016,10 +19016,10 @@
       "ja": "磯波改"
     },
     "name_for_search": "矶波,jibo,ji bo,Isonami,isonami",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 2,
+    "ctype": 12,
+    "cnum": 9,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -19112,10 +19112,10 @@
       "ja": "綾波改"
     },
     "name_for_search": "绫波,lingbo,ling bo,Ayanami,ayanami",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 2,
+    "ctype": 1,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -19208,10 +19208,10 @@
       "ja": "敷波改"
     },
     "name_for_search": "敷波,fubo,fu bo,Shikinami,shikinami",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 2,
+    "ctype": 1,
+    "cnum": 2,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -19304,10 +19304,10 @@
       "ja": "金剛改"
     },
     "name_for_search": "金刚,jingang,jin gang,Kongou,kongou",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 6,
     "type": 8,
+    "ctype": 6,
+    "cnum": 1,
     "attr": {
       "range": 3,
       "speed": 10,
@@ -19400,10 +19400,10 @@
       "ja": "比叡改"
     },
     "name_for_search": "比睿,birui,bi rui,Hiei,hiei",
-    "ctype": 20,
-    "cnum": 2,
     "rarity": 6,
     "type": 8,
+    "ctype": 6,
+    "cnum": 2,
     "attr": {
       "range": 3,
       "speed": 10,
@@ -19496,10 +19496,10 @@
       "ja": "榛名改"
     },
     "name_for_search": "榛名,zhenming,zhen ming,Haruna,haruna",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 6,
     "type": 8,
+    "ctype": 6,
+    "cnum": 3,
     "attr": {
       "range": 3,
       "speed": 10,
@@ -19592,10 +19592,10 @@
       "ja": "霧島改"
     },
     "name_for_search": "雾岛,wudao,wu dao,Kirishima,kirishima",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 6,
     "type": 8,
+    "ctype": 6,
+    "cnum": 4,
     "attr": {
       "range": 3,
       "speed": 10,
@@ -19688,10 +19688,10 @@
       "ja": "天龍改"
     },
     "name_for_search": "天龙,tianlong,tian long,Tenryuu,tenryuu",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 3,
+    "ctype": 21,
+    "cnum": 1,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -19784,10 +19784,10 @@
       "ja": "龍田改"
     },
     "name_for_search": "龙田,longtian,long tian,Tatsuta,tatsuta",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 3,
+    "ctype": 21,
+    "cnum": 2,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -19880,10 +19880,10 @@
       "ja": "球磨改"
     },
     "name_for_search": "球磨,qiumo,qiu mo,Kuma,kuma",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 5,
     "type": 3,
+    "ctype": 4,
+    "cnum": 1,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -19976,10 +19976,10 @@
       "ja": "多摩改"
     },
     "name_for_search": "多摩,duomo,duo mo,Tama,tama",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 3,
+    "ctype": 4,
+    "cnum": 2,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -20072,10 +20072,10 @@
       "ja": "木曾改"
     },
     "name_for_search": "木曾,muzeng,mu zeng,Kiso,kiso",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 3,
+    "ctype": 4,
+    "cnum": 5,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -20168,10 +20168,10 @@
       "ja": "長良改"
     },
     "name_for_search": "长良,changliang,chang liang,Nagara,nagara",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 5,
     "type": 3,
+    "ctype": 20,
+    "cnum": 1,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -20264,10 +20264,10 @@
       "ja": "五十鈴改"
     },
     "name_for_search": "五十铃,wushiling,wu shi ling,500,Isuzu,isuzu",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 3,
+    "ctype": 20,
+    "cnum": 2,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -20360,10 +20360,10 @@
       "ja": "由良改"
     },
     "name_for_search": "由良,youliang,you liang,Yura,yura",
-    "ctype": 20,
-    "cnum": 4,
     "rarity": 4,
     "type": 3,
+    "ctype": 20,
+    "cnum": 4,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -20456,10 +20456,10 @@
       "ja": "名取改"
     },
     "name_for_search": "名取,mingqu,ming qu,Natori,natori",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 3,
+    "ctype": 20,
+    "cnum": 3,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -20552,10 +20552,10 @@
       "ja": "川内改"
     },
     "name_for_search": "川内,chuannei,chuan nei,Sendai,sendai",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 5,
     "type": 3,
+    "ctype": 16,
+    "cnum": 1,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -20648,10 +20648,10 @@
       "ja": "神通改"
     },
     "name_for_search": "神通,shentong,shen tong,Jintsuu,jintsuu",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 3,
+    "ctype": 16,
+    "cnum": 2,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -20744,10 +20744,10 @@
       "ja": "那珂改"
     },
     "name_for_search": "那珂,nake,na ke,Naka,naka",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 3,
+    "ctype": 16,
+    "cnum": 3,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -20840,10 +20840,10 @@
       "ja": "陽炎改"
     },
     "name_for_search": "阳炎,yangyan,yang yan,Kagerou,kagerou",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 2,
+    "ctype": 30,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -20936,10 +20936,10 @@
       "ja": "不知火改"
     },
     "name_for_search": "不知火,buzhihuo,bu zhi huo,Shiranui,shiranui",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 2,
+    "ctype": 30,
+    "cnum": 2,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -21032,10 +21032,10 @@
       "ja": "黒潮改"
     },
     "name_for_search": "黑潮,heichao,hei chao,Kuroshio,kuroshio",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 2,
+    "ctype": 30,
+    "cnum": 3,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -21128,10 +21128,10 @@
       "ja": "雪風改"
     },
     "name_for_search": "雪风,xuefeng,xue feng,Yukikaze,yukikaze",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 6,
     "type": 2,
+    "ctype": 30,
+    "cnum": 8,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -21224,10 +21224,10 @@
       "ja": "島風改"
     },
     "name_for_search": "岛风,daofeng,dao feng,Shimakaze,shimakaze",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 6,
     "type": 2,
+    "ctype": 22,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -21320,10 +21320,10 @@
       "ja": "朧改"
     },
     "name_for_search": "胧,long,Oboro,oboro",
-    "ctype": 4,
-    "cnum": 4,
     "rarity": 4,
     "type": 2,
+    "ctype": 1,
+    "cnum": 7,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -21416,10 +21416,10 @@
       "ja": "曙改"
     },
     "name_for_search": "曙,shu,Akebono,akebono",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 2,
+    "ctype": 1,
+    "cnum": 8,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -21512,10 +21512,10 @@
       "ja": "漣改"
     },
     "name_for_search": "涟,lian,Sazanami,sazanami",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 2,
+    "ctype": 1,
+    "cnum": 9,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -21608,10 +21608,10 @@
       "ja": "潮改"
     },
     "name_for_search": "潮,chao,Ushio,ushio",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 2,
+    "ctype": 1,
+    "cnum": 10,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -21704,10 +21704,10 @@
       "ja": "暁改"
     },
     "name_for_search": "晓,xiao,Akatsuki,akatsuki",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 2,
+    "ctype": 5,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -21800,10 +21800,10 @@
       "ja": "響改"
     },
     "name_for_search": "响,xiang,Hibiki,hibiki",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 2,
+    "ctype": 5,
+    "cnum": 2,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -21896,10 +21896,10 @@
       "ja": "雷改"
     },
     "name_for_search": "雷,lei,Ikazuchi,ikazuchi",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 2,
+    "ctype": 5,
+    "cnum": 3,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -21992,10 +21992,10 @@
       "ja": "電改"
     },
     "name_for_search": "电,dian,Inazuma,inazuma",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 2,
+    "ctype": 5,
+    "cnum": 4,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -22088,10 +22088,10 @@
       "ja": "初春改"
     },
     "name_for_search": "初春,chuchun,chu chun,Hatsuharu,hatsuharu",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 2,
+    "ctype": 10,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -22184,10 +22184,10 @@
       "ja": "子日改"
     },
     "name_for_search": "子日,ziri,zi ri,Nenohi,nenohi",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 2,
+    "ctype": 10,
+    "cnum": 2,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -22280,10 +22280,10 @@
       "ja": "若葉改"
     },
     "name_for_search": "若叶,ruoye,ruo ye,Wakaba,wakaba",
-    "ctype": 4,
-    "cnum": 3,
     "rarity": 4,
     "type": 2,
+    "ctype": 10,
+    "cnum": 3,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -22376,10 +22376,10 @@
       "ja": "初霜改"
     },
     "name_for_search": "初霜,chushuang,chu shuang,Hatsushimo,hatsushimo",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 2,
+    "ctype": 10,
+    "cnum": 4,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -22472,10 +22472,10 @@
       "ja": "白露改"
     },
     "name_for_search": "白露,bailu,bai lu,Shiratsuyu,shiratsuyu",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 2,
+    "ctype": 23,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -22568,10 +22568,10 @@
       "ja": "時雨改"
     },
     "name_for_search": "时雨,shiyu,shi yu,Shigure,shigure",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 2,
+    "ctype": 23,
+    "cnum": 2,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -22664,10 +22664,10 @@
       "ja": "村雨改"
     },
     "name_for_search": "村雨,cunyu,cun yu,Murasame,murasame",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 2,
+    "ctype": 23,
+    "cnum": 3,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -22760,10 +22760,10 @@
       "ja": "夕立改"
     },
     "name_for_search": "夕立,xili,xi li,poi,Yuudachi,yuudachi",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 2,
+    "ctype": 23,
+    "cnum": 4,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -22856,10 +22856,10 @@
       "ja": "五月雨改"
     },
     "name_for_search": "五月雨,wuyueyu,wu yue yu,Samidare,samidare",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 2,
+    "ctype": 23,
+    "cnum": 6,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -22952,10 +22952,10 @@
       "ja": "涼風改"
     },
     "name_for_search": "凉风,liangfeng,liang feng,Suzukaze,suzukaze",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 2,
+    "ctype": 23,
+    "cnum": 10,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -23048,10 +23048,10 @@
       "ja": "朝潮改"
     },
     "name_for_search": "朝潮,zhaochao,zhao chao,Asashio,asashio",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 2,
+    "ctype": 18,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -23144,10 +23144,10 @@
       "ja": "大潮改"
     },
     "name_for_search": "大潮,dachao,da chao,Ooshio,ooshio",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 2,
+    "ctype": 18,
+    "cnum": 2,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -23240,10 +23240,10 @@
       "ja": "満潮改"
     },
     "name_for_search": "满潮,manchao,man chao,Michishio,michishio",
-    "ctype": 26,
-    "cnum": 1,
     "rarity": 4,
     "type": 2,
+    "ctype": 18,
+    "cnum": 3,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -23336,10 +23336,10 @@
       "ja": "荒潮改"
     },
     "name_for_search": "荒潮,huangchao,huang chao,Arashio,arashio",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 2,
+    "ctype": 18,
+    "cnum": 4,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -23432,10 +23432,10 @@
       "ja": "霰改"
     },
     "name_for_search": "霰,xian,Arare,arare",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 2,
+    "ctype": 18,
+    "cnum": 9,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -23528,10 +23528,10 @@
       "ja": "霞改"
     },
     "name_for_search": "霞,xia,Kasumi,kasumi",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 2,
+    "ctype": 18,
+    "cnum": 10,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -23624,10 +23624,10 @@
       "ja": "睦月改"
     },
     "name_for_search": "睦月,muyue,mu yue,Mutsuki,mutsuki",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 2,
+    "ctype": 28,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -23720,10 +23720,10 @@
       "ja": "如月改"
     },
     "name_for_search": "如月,ruyue,ru yue,Kisaragi,kisaragi",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 2,
+    "ctype": 28,
+    "cnum": 2,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -23816,10 +23816,10 @@
       "ja": "皐月改"
     },
     "name_for_search": "皋月,gaoyue,gao yue,Satsuki,satsuki",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 2,
+    "ctype": 28,
+    "cnum": 5,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -23912,10 +23912,10 @@
       "ja": "文月改"
     },
     "name_for_search": "文月,wenyue,wen yue,Fumizuki,fumizuki",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 2,
+    "ctype": 28,
+    "cnum": 7,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -24008,10 +24008,10 @@
       "ja": "長月改"
     },
     "name_for_search": "长月,changyue,chang yue,Nagatsuki,nagatsuki",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 2,
+    "ctype": 28,
+    "cnum": 8,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -24104,10 +24104,10 @@
       "ja": "菊月改"
     },
     "name_for_search": "菊月,juyue,ju yue,Kikuzuki,kikuzuki",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 2,
+    "ctype": 28,
+    "cnum": 9,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -24200,10 +24200,10 @@
       "ja": "三日月改"
     },
     "name_for_search": "三日月,sanriyue,san ri yue,Mikazuki,mikazuki",
-    "ctype": 26,
-    "cnum": 2,
     "rarity": 4,
     "type": 2,
+    "ctype": 28,
+    "cnum": 10,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -24296,10 +24296,10 @@
       "ja": "望月改"
     },
     "name_for_search": "望月,wangyue,wang yue,Mochizuki,mochizuki",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 2,
+    "ctype": 28,
+    "cnum": 11,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -24392,10 +24392,10 @@
       "ja": "古鷹改"
     },
     "name_for_search": "古鹰,guying,gu ying,Furutaka,furutaka",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 5,
+    "ctype": 7,
+    "cnum": 1,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -24488,10 +24488,10 @@
       "ja": "加古改"
     },
     "name_for_search": "加古,jiagu,jia gu,Kako,kako",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 5,
+    "ctype": 7,
+    "cnum": 2,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -24584,10 +24584,10 @@
       "ja": "青葉改"
     },
     "name_for_search": "青叶,qingye,qing ye,Aoba,aoba",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 5,
+    "ctype": 13,
+    "cnum": 1,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -24680,10 +24680,10 @@
       "ja": "妙高改"
     },
     "name_for_search": "妙高,miaogao,miao gao,Myoukou,myoukou",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 5,
     "type": 5,
+    "ctype": 29,
+    "cnum": 1,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -24776,10 +24776,10 @@
       "ja": "那智改"
     },
     "name_for_search": "那智,nazhi,na zhi,Nachi,nachi",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 5,
+    "ctype": 29,
+    "cnum": 2,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -24872,10 +24872,10 @@
       "ja": "足柄改"
     },
     "name_for_search": "足柄,zubing,zu bing,Ashigara,ashigara",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 5,
+    "ctype": 29,
+    "cnum": 3,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -24968,10 +24968,10 @@
       "ja": "羽黒改"
     },
     "name_for_search": "羽黑,yuhei,yu hei,Haguro,haguro",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 5,
+    "ctype": 29,
+    "cnum": 4,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -25064,10 +25064,10 @@
       "ja": "高雄改"
     },
     "name_for_search": "高雄,gaoxiong,gao xiong,Takao,takao",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 5,
     "type": 5,
+    "ctype": 8,
+    "cnum": 1,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -25160,10 +25160,10 @@
       "ja": "愛宕改"
     },
     "name_for_search": "爱宕,aidang,ai dang,Atago,atago",
-    "ctype": 28,
-    "cnum": 5,
     "rarity": 5,
     "type": 5,
+    "ctype": 8,
+    "cnum": 2,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -25256,10 +25256,10 @@
       "ja": "摩耶改"
     },
     "name_for_search": "摩耶,moye,mo ye,Maya,maya",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 5,
+    "ctype": 8,
+    "cnum": 3,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -25352,10 +25352,10 @@
       "ja": "鳥海改"
     },
     "name_for_search": "鸟海,niaohai,niao hai,Choukai,choukai",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 5,
+    "ctype": 8,
+    "cnum": 4,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -25448,10 +25448,10 @@
       "ja": "利根改"
     },
     "name_for_search": "利根,ligen,li gen,Tone,tone",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 5,
     "type": 5,
+    "ctype": 31,
+    "cnum": 1,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -25544,10 +25544,10 @@
       "ja": "筑摩改"
     },
     "name_for_search": "筑摩,zhumo,zhu mo,Chikuma,chikuma",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 5,
     "type": 5,
+    "ctype": 31,
+    "cnum": 2,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -25640,10 +25640,10 @@
       "ja": "長門改"
     },
     "name_for_search": "长门,changmen,chang men,Nagato,nagato",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 7,
     "type": 9,
+    "ctype": 19,
+    "cnum": 1,
     "attr": {
       "range": 3,
       "speed": 5,
@@ -25736,10 +25736,10 @@
       "ja": "陸奥改"
     },
     "name_for_search": "陆奥,luao,lu ao,Mutsu,mutsu",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 7,
     "type": 9,
+    "ctype": 19,
+    "cnum": 2,
     "attr": {
       "range": 3,
       "speed": 5,
@@ -25832,10 +25832,10 @@
       "ja": "赤城改"
     },
     "name_for_search": "赤城,chicheng,chi cheng,Akagi,akagi",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 7,
     "type": 11,
+    "ctype": 14,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -25928,10 +25928,10 @@
       "ja": "加賀改"
     },
     "name_for_search": "加贺,jiahe,jia he,Kaga,kaga",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 6,
     "type": 11,
+    "ctype": 3,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -26024,10 +26024,10 @@
       "ja": "蒼龍改"
     },
     "name_for_search": "苍龙,canglong,cang long,Souryuu,souryuu",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 6,
     "type": 11,
+    "ctype": 17,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -26120,10 +26120,10 @@
       "ja": "飛龍改"
     },
     "name_for_search": "飞龙,feilong,fei long,Hiryuu,hiryuu",
-    "ctype": 28,
-    "cnum": 7,
     "rarity": 7,
     "type": 11,
+    "ctype": 25,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -26216,10 +26216,10 @@
       "ja": "龍驤改"
     },
     "name_for_search": "龙骧,longxiang,long xiang,Ryuujou,ryuujou",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 5,
     "type": 7,
+    "ctype": 32,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -26312,10 +26312,10 @@
       "ja": "祥鳳改"
     },
     "name_for_search": "祥凤,xiangfeng,xiang feng,Shouhou,shouhou",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 5,
     "type": 7,
+    "ctype": 11,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -26408,10 +26408,10 @@
       "ja": "飛鷹改"
     },
     "name_for_search": "飞鹰,feiying,fei ying,Hiyou,hiyou",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 5,
     "type": 7,
+    "ctype": 24,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 5,
@@ -26504,10 +26504,10 @@
       "ja": "隼鷹改"
     },
     "name_for_search": "隼鹰,sunying,sun ying,Junyou,junyou",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 5,
     "type": 7,
+    "ctype": 24,
+    "cnum": 2,
     "attr": {
       "range": 1,
       "speed": 5,
@@ -26600,10 +26600,10 @@
       "ja": "鳳翔改"
     },
     "name_for_search": "凤翔,fengxiang,feng xiang,Houshou,houshou",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 7,
+    "ctype": 27,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 5,
@@ -26696,10 +26696,10 @@
       "ja": "扶桑改"
     },
     "name_for_search": "扶桑,fusang,fu sang,Fusou,fusou",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 5,
     "type": 10,
+    "ctype": 26,
+    "cnum": 1,
     "attr": {
       "range": 3,
       "speed": 5,
@@ -26792,10 +26792,10 @@
       "ja": "山城改"
     },
     "name_for_search": "山城,shancheng,shan cheng,Yamashiro,yamashiro",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 5,
     "type": 10,
+    "ctype": 26,
+    "cnum": 2,
     "attr": {
       "range": 3,
       "speed": 5,
@@ -26888,10 +26888,10 @@
       "ja": "翔鶴改"
     },
     "name_for_search": "翔鹤,xianghe,xiang he,Shoukaku,shoukaku",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 6,
     "type": 11,
+    "ctype": 33,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -26984,10 +26984,10 @@
       "ja": "鬼怒改"
     },
     "name_for_search": "鬼怒,guinu,gui nu,Kinu,kinu",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 5,
     "type": 3,
+    "ctype": 20,
+    "cnum": 5,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -27080,10 +27080,10 @@
       "ja": "阿武隈改"
     },
     "name_for_search": "阿武隈,awuwei,a wu wei,aww,Abukuma,abukuma",
-    "ctype": 15,
-    "cnum": 1,
     "rarity": 6,
     "type": 3,
+    "ctype": 20,
+    "cnum": 6,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -27176,10 +27176,10 @@
       "ja": "千歳航改"
     },
     "name_for_search": "千岁,qiansui,qian sui,Chitose,chitose",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 5,
     "type": 7,
+    "ctype": 15,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -27272,10 +27272,10 @@
       "ja": "千代田航改"
     },
     "name_for_search": "千代田,qiandaitian,qian dai tian,Chiyoda,chiyoda",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 5,
     "type": 7,
+    "ctype": 15,
+    "cnum": 2,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -27368,10 +27368,10 @@
       "ja": "夕張改"
     },
     "name_for_search": "夕张,xizhang,xi zhang,Yuubari,yuubari",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 6,
     "type": 3,
+    "ctype": 34,
+    "cnum": 1,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -27464,10 +27464,10 @@
       "ja": "舞風改"
     },
     "name_for_search": "舞风,wufeng,wu feng,Maikaze,maikaze",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 5,
     "type": 2,
+    "ctype": 30,
+    "cnum": 18,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -27560,10 +27560,10 @@
       "ja": "衣笠改"
     },
     "name_for_search": "衣笠,yili,yi li,Kinugasa,kinugasa",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 5,
     "type": 5,
+    "ctype": 13,
+    "cnum": 2,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -27656,10 +27656,10 @@
       "ja": "千歳航改二"
     },
     "name_for_search": "千岁,qiansui,qian sui,Chitose,chitose",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 6,
     "type": 7,
+    "ctype": 15,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -27752,10 +27752,10 @@
       "ja": "千代田航改二"
     },
     "name_for_search": "千代田,qiandaitian,qian dai tian,Chiyoda,chiyoda",
-    "ctype": 15,
-    "cnum": 2,
     "rarity": 6,
     "type": 7,
+    "ctype": 15,
+    "cnum": 2,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -27848,10 +27848,10 @@
       "ja": "初風改"
     },
     "name_for_search": "初风,chufeng,chu feng,Hatsukaze,hatsukaze",
-    "ctype": 28,
-    "cnum": 11,
     "rarity": 5,
     "type": 2,
+    "ctype": 30,
+    "cnum": 7,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -27944,10 +27944,10 @@
       "ja": "秋雲改"
     },
     "name_for_search": "秋云,qiuyun,qiu yun,Akigumo,akigumo",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 5,
     "type": 2,
+    "ctype": 30,
+    "cnum": 19,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -28040,10 +28040,10 @@
       "ja": "夕雲改"
     },
     "name_for_search": "夕云,xiyun,xi yun,Yuugumo,yuugumo",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 5,
     "type": 2,
+    "ctype": 38,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -28136,10 +28136,10 @@
       "ja": "巻雲改"
     },
     "name_for_search": "卷云,juanyun,juan yun,Makigumo,makigumo",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 5,
     "type": 2,
+    "ctype": 38,
+    "cnum": 2,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -28232,10 +28232,10 @@
       "ja": "長波改"
     },
     "name_for_search": "长波,changbo,chang bo,Naganami,naganami",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 5,
     "type": 2,
+    "ctype": 38,
+    "cnum": 4,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -28328,10 +28328,10 @@
       "ja": "阿賀野改"
     },
     "name_for_search": "阿贺野,aheye,a he ye,Agano,agano",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 6,
     "type": 3,
+    "ctype": 41,
+    "cnum": 1,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -28424,10 +28424,10 @@
       "ja": "能代改"
     },
     "name_for_search": "能代,nengdai,neng dai,Noshiro,noshiro",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 6,
     "type": 3,
+    "ctype": 41,
+    "cnum": 2,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -28520,10 +28520,10 @@
       "ja": "矢矧改"
     },
     "name_for_search": "矢矧,shishen,shi shen,Yahagi,yahagi",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 8,
     "type": 3,
+    "ctype": 41,
+    "cnum": 3,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -28616,10 +28616,10 @@
       "ja": "弥生改"
     },
     "name_for_search": "弥生,misheng,mi sheng,Yayoi,yayoi",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 5,
     "type": 2,
+    "ctype": 28,
+    "cnum": 3,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -28712,10 +28712,10 @@
       "ja": "卯月改"
     },
     "name_for_search": "卯月,maoyue,mao yue,Uzuki,uzuki",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 5,
     "type": 2,
+    "ctype": 28,
+    "cnum": 4,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -28808,10 +28808,10 @@
       "ja": "Z1改"
     },
     "name_for_search": "Z1",
-    "ctype": 51,
-    "cnum": 1,
     "rarity": 6,
     "type": 2,
+    "ctype": 48,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -28904,10 +28904,10 @@
       "ja": "Z3改"
     },
     "name_for_search": "Z3",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 6,
     "type": 2,
+    "ctype": 48,
+    "cnum": 3,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -29000,10 +29000,10 @@
       "ja": "浜風改"
     },
     "name_for_search": "滨风,binfeng,bin feng,Hamakaze,hamakaze",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 5,
     "type": 2,
+    "ctype": 30,
+    "cnum": 13,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -29096,10 +29096,10 @@
       "ja": "谷風改"
     },
     "name_for_search": "谷风,gufeng,gu feng,Tanikaze,tanikaze",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 5,
     "type": 2,
+    "ctype": 30,
+    "cnum": 14,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -29192,10 +29192,10 @@
       "ja": "酒匂改"
     },
     "name_for_search": "酒匂,jiuxiong,jiu xiong,Sakawa,sakawa",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 6,
     "type": 3,
+    "ctype": 41,
+    "cnum": 4,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -29288,10 +29288,10 @@
       "ja": "天津風改"
     },
     "name_for_search": "天津风,tianjinfeng,tian jin feng,Amatsukaze,amatsukaze",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 7,
     "type": 2,
+    "ctype": 30,
+    "cnum": 9,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -29384,10 +29384,10 @@
       "ja": "浦風改"
     },
     "name_for_search": "浦风,pufeng,pu feng,Urakaze,urakaze",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 5,
     "type": 2,
+    "ctype": 30,
+    "cnum": 11,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -29480,10 +29480,10 @@
       "ja": "龍鳳改"
     },
     "name_for_search": "龙凤,longfeng,long feng,Ryuuhou,ryuuhou",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 6,
     "type": 7,
+    "ctype": 51,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 5,
@@ -29576,10 +29576,10 @@
       "ja": "妙高改二"
     },
     "name_for_search": "妙高,miaogao,miao gao,Myoukou,myoukou",
-    "ctype": 29,
-    "cnum": 1,
     "rarity": 6,
     "type": 5,
+    "ctype": 29,
+    "cnum": 1,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -29672,10 +29672,10 @@
       "ja": "磯風改"
     },
     "name_for_search": "矶风,jifeng,ji feng,Isokaze,isokaze",
-    "ctype": 10,
-    "cnum": 1,
     "rarity": 6,
     "type": 2,
+    "ctype": 30,
+    "cnum": 12,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -29768,10 +29768,10 @@
       "ja": "大淀改"
     },
     "name_for_search": "大淀,dadian,da dian,Ooyodo,ooyodo",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 7,
     "type": 3,
+    "ctype": 52,
+    "cnum": 1,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -29864,10 +29864,10 @@
       "ja": "時津風改"
     },
     "name_for_search": "时津风,shijinfeng,shi jin feng,Tokitsukaze,tokitsukaze",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 6,
     "type": 2,
+    "ctype": 30,
+    "cnum": 10,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -29960,10 +29960,10 @@
       "ja": "春雨改"
     },
     "name_for_search": "春雨,chunyu,chun yu,Harusame,harusame",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 5,
     "type": 2,
+    "ctype": 23,
+    "cnum": 5,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -30056,10 +30056,10 @@
       "ja": "早霜改"
     },
     "name_for_search": "早霜,zaoshuang,zao shuang,Hayashimo,hayashimo",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 5,
     "type": 2,
+    "ctype": 38,
+    "cnum": 17,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -30152,10 +30152,10 @@
       "ja": "清霜改"
     },
     "name_for_search": "清霜,qingshuang,qing shuang,Kiyoshimo,kiyoshimo",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 5,
     "type": 2,
+    "ctype": 38,
+    "cnum": 19,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -30248,10 +30248,10 @@
       "ja": "初春改二"
     },
     "name_for_search": "初春,chuchun,chu chun,Hatsuharu,hatsuharu",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 6,
     "type": 2,
+    "ctype": 10,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -30344,10 +30344,10 @@
       "ja": "朝雲改"
     },
     "name_for_search": "朝云,zhaoyun,zhao yun,Asagumo,asagumo",
-    "ctype": 12,
-    "cnum": 5,
     "rarity": 5,
     "type": 2,
+    "ctype": 18,
+    "cnum": 5,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -30440,10 +30440,10 @@
       "ja": "山雲改"
     },
     "name_for_search": "山云,shanyun,shan yun,Yamagumo,yamagumo",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 5,
     "type": 2,
+    "ctype": 18,
+    "cnum": 6,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -30536,10 +30536,10 @@
       "ja": "野分改"
     },
     "name_for_search": "野分,yefen,ye fen,Nowaki,nowaki",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 6,
     "type": 2,
+    "ctype": 30,
+    "cnum": 15,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -30632,10 +30632,10 @@
       "ja": "秋月改"
     },
     "name_for_search": "秋月,qiuyue,qiu yue,Akizuki,akizuki",
-    "ctype": 53,
-    "cnum": 2,
     "rarity": 7,
     "type": 2,
+    "ctype": 54,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -30728,10 +30728,10 @@
       "ja": "天城"
     },
     "name_for_search": "天城,tiancheng,tian cheng,Amagi,amagi",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 6,
     "type": 11,
+    "ctype": 53,
+    "cnum": 2,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -30824,10 +30824,10 @@
       "ja": "葛城"
     },
     "name_for_search": "葛城,gecheng,ge cheng,Katsuragi,katsuragi",
-    "ctype": 53,
-    "cnum": 3,
     "rarity": 6,
     "type": 11,
+    "ctype": 53,
+    "cnum": 3,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -30920,10 +30920,10 @@
       "ja": "U-511改"
     },
     "name_for_search": "U-511,u-511,U511,u511",
-    "ctype": 5,
-    "cnum": 1,
     "rarity": 6,
     "type": 13,
+    "ctype": 57,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 5,
@@ -31016,10 +31016,10 @@
       "ja": "香取改"
     },
     "name_for_search": "香取,xiangqu,xiang qu,Katori,katori",
-    "ctype": 5,
-    "cnum": 2,
     "rarity": 5,
     "type": 21,
+    "ctype": 56,
+    "cnum": 1,
     "attr": {
       "range": 2,
       "speed": 5,
@@ -31112,10 +31112,10 @@
       "ja": "朝霜改"
     },
     "name_for_search": "朝霜,zhaoshuang,zhao shuang,Asashimo,asashimo",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 5,
     "type": 2,
+    "ctype": 38,
+    "cnum": 16,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -31208,10 +31208,10 @@
       "ja": "高波改"
     },
     "name_for_search": "高波,gaobo,gao bo,Takanami,takanami",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 5,
     "type": 2,
+    "ctype": 38,
+    "cnum": 6,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -31304,10 +31304,10 @@
       "ja": "照月改"
     },
     "name_for_search": "照月,zhaoyue,zhao yue,Teruzuki,teruzuki",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 7,
     "type": 2,
+    "ctype": 54,
+    "cnum": 2,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -31400,10 +31400,10 @@
       "ja": "Libeccio改"
     },
     "name_for_search": "利伯齐奥,liboqiao,li bo qi ao,libeccio",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 7,
     "type": 2,
+    "ctype": 61,
+    "cnum": 3,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -31496,10 +31496,10 @@
       "ja": "瑞穂改"
     },
     "name_for_search": "瑞穗,ruisui,rui sui,Mizuho,mizuho",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 5,
     "type": 16,
+    "ctype": 62,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 5,
@@ -31592,10 +31592,10 @@
       "ja": "風雲改"
     },
     "name_for_search": "风云,fengyun,feng yun,Kazagumo,kazagumo",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 3,
     "type": 2,
+    "ctype": 38,
+    "cnum": 3,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -31688,10 +31688,10 @@
       "ja": "海風改"
     },
     "name_for_search": "海风,haifeng,hai feng,Umikaze,umikaze",
-    "ctype": 5,
-    "cnum": 3,
     "rarity": 4,
     "type": 2,
+    "ctype": 0,
+    "cnum": 0,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -31784,10 +31784,10 @@
       "ja": "江風改"
     },
     "name_for_search": "江风,jiangfeng,jiang feng,Kawakaze,kawakaze",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 5,
     "type": 2,
+    "ctype": 23,
+    "cnum": 9,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -31880,10 +31880,10 @@
       "ja": "速吸改"
     },
     "name_for_search": "速吸,suxi,su xi,Hayasui,hayasui",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 7,
     "type": 22,
+    "ctype": 60,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 5,
@@ -31976,10 +31976,10 @@
       "ja": "Graf Zeppelin改"
     },
     "name_for_search": "齐柏林,qibolin,qi bo lin",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 7,
     "type": 11,
+    "ctype": 63,
+    "cnum": 1,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -32072,10 +32072,10 @@
       "ja": "嵐改"
     },
     "name_for_search": "岚,lan",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 6,
     "type": 2,
+    "ctype": 30,
+    "cnum": 16,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -32168,10 +32168,10 @@
       "ja": "萩風改"
     },
     "name_for_search": "萩风,qiufeng,qiu feng",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 6,
     "type": 2,
+    "ctype": 30,
+    "cnum": 17,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -32264,10 +32264,10 @@
       "ja": "鹿島改"
     },
     "name_for_search": "鹿岛,ludao,lu dao,Kashima,kashima",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 5,
     "type": 21,
+    "ctype": 56,
+    "cnum": 2,
     "attr": {
       "range": 2,
       "speed": 5,
@@ -32360,10 +32360,10 @@
       "ja": "初月改"
     },
     "name_for_search": "初月,chuyue,chu yue,Hatsuzuki,hatsuzuki",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 7,
     "type": 2,
+    "ctype": 54,
+    "cnum": 4,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -32456,10 +32456,10 @@
       "ja": "Zara改"
     },
     "name_for_search": "Zara,zara",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 7,
     "type": 5,
+    "ctype": 64,
+    "cnum": 1,
     "attr": {
       "range": 3,
       "speed": 10,
@@ -32552,10 +32552,10 @@
       "ja": "沖波改"
     },
     "name_for_search": "冲波,chongbo,chong bo",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 5,
     "type": 2,
+    "ctype": 38,
+    "cnum": 14,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -32648,10 +32648,10 @@
       "ja": "伊168改"
     },
     "name_for_search": "伊168,I168,i168,Imuya,imuya,I-168,i-168",
-    "ctype": 10,
-    "cnum": 3,
     "rarity": 4,
     "type": 13,
+    "ctype": 35,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 5,
@@ -32744,10 +32744,10 @@
       "ja": "伊58改"
     },
     "name_for_search": "伊58,I58,i58,Goya,goya,I-58,i-58",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 5,
     "type": 14,
+    "ctype": 36,
+    "cnum": 3,
     "attr": {
       "range": 1,
       "speed": 5,
@@ -32840,10 +32840,10 @@
       "ja": "伊8改"
     },
     "name_for_search": "伊8,I8,i8,Hachi,hachi,I-8,i-8",
-    "ctype": 53,
-    "cnum": 1,
     "rarity": 6,
     "type": 14,
+    "ctype": 40,
+    "cnum": 2,
     "attr": {
       "range": 1,
       "speed": 5,
@@ -32936,10 +32936,10 @@
       "ja": "伊19改"
     },
     "name_for_search": "伊19,I19,i19,Iku,iku,I-19,i-19",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 5,
     "type": 14,
+    "ctype": 39,
+    "cnum": 3,
     "attr": {
       "range": 1,
       "speed": 5,
@@ -33032,10 +33032,10 @@
       "ja": "まるゆ改"
     },
     "name_for_search": "丸输,wanshu,wan shu,maluyou,ma lu you,Maruyu,maruyu",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 6,
     "type": 13,
+    "ctype": 46,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 5,
@@ -33128,10 +33128,10 @@
       "ja": "伊401改"
     },
     "name_for_search": "伊401,I401,i401,Iona,iona,I-401,i-401",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 7,
     "type": 14,
+    "ctype": 44,
+    "cnum": 2,
     "attr": {
       "range": 1,
       "speed": 5,
@@ -33224,10 +33224,10 @@
       "ja": "雲龍"
     },
     "name_for_search": "云龙,yunlong,yun long,Unryuu,unryuu",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 6,
     "type": 11,
+    "ctype": 53,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -33320,10 +33320,10 @@
       "ja": "春雨"
     },
     "name_for_search": "春雨,chunyu,chun yu,Harusame,harusame",
-    "ctype": 23,
-    "cnum": 5,
     "rarity": 4,
     "type": 2,
+    "ctype": 23,
+    "cnum": 5,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -33416,10 +33416,10 @@
       "ja": "雲龍改"
     },
     "name_for_search": "云龙,yunlong,yun long,Unryuu,unryuu",
-    "ctype": 53,
-    "cnum": 1,
     "rarity": 7,
     "type": 11,
+    "ctype": 53,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -33512,10 +33512,10 @@
       "ja": "潮改二"
     },
     "name_for_search": "潮,chao,Ushio,ushio",
-    "ctype": 1,
-    "cnum": 10,
     "rarity": 6,
     "type": 2,
+    "ctype": 1,
+    "cnum": 10,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -33608,10 +33608,10 @@
       "ja": "隼鷹改二"
     },
     "name_for_search": "隼鹰,sunying,sun ying,Junyou,junyou",
-    "ctype": 24,
-    "cnum": 2,
     "rarity": 6,
     "type": 7,
+    "ctype": 24,
+    "cnum": 2,
     "attr": {
       "range": 1,
       "speed": 5,
@@ -33704,10 +33704,10 @@
       "ja": "早霜"
     },
     "name_for_search": "早霜,zaoshuang,zao shuang,Hayashimo,hayashimo",
-    "ctype": 38,
-    "cnum": 17,
     "rarity": 4,
     "type": 2,
+    "ctype": 38,
+    "cnum": 17,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -33800,10 +33800,10 @@
       "ja": "清霜"
     },
     "name_for_search": "清霜,qingshuang,qing shuang,Kiyoshimo,kiyoshimo",
-    "ctype": 38,
-    "cnum": 19,
     "rarity": 4,
     "type": 2,
+    "ctype": 38,
+    "cnum": 19,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -33896,10 +33896,10 @@
       "ja": "扶桑改二"
     },
     "name_for_search": "扶桑,fusang,fu sang,Fusou,fusou",
-    "ctype": 26,
-    "cnum": 1,
     "rarity": 6,
     "type": 10,
+    "ctype": 26,
+    "cnum": 1,
     "attr": {
       "range": 3,
       "speed": 5,
@@ -33992,10 +33992,10 @@
       "ja": "山城改二"
     },
     "name_for_search": "山城,shancheng,shan cheng,Yamashiro,yamashiro",
-    "ctype": 26,
-    "cnum": 2,
     "rarity": 6,
     "type": 10,
+    "ctype": 26,
+    "cnum": 2,
     "attr": {
       "range": 3,
       "speed": 5,
@@ -34088,10 +34088,10 @@
       "ja": "朝雲"
     },
     "name_for_search": "朝云,zhaoyun,zhao yun,Asagumo,asagumo",
-    "ctype": 18,
-    "cnum": 5,
     "rarity": 4,
     "type": 2,
+    "ctype": 18,
+    "cnum": 5,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -34184,10 +34184,10 @@
       "ja": "山雲"
     },
     "name_for_search": "山云,shanyun,shan yun,Yamagumo,yamagumo",
-    "ctype": 18,
-    "cnum": 6,
     "rarity": 4,
     "type": 2,
+    "ctype": 18,
+    "cnum": 6,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -34280,10 +34280,10 @@
       "ja": "野分"
     },
     "name_for_search": "野分,yefen,ye fen,Nowaki,nowaki",
-    "ctype": 30,
-    "cnum": 15,
     "rarity": 5,
     "type": 2,
+    "ctype": 30,
+    "cnum": 15,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -34376,10 +34376,10 @@
       "ja": "古鷹改二"
     },
     "name_for_search": "古鹰,guying,gu ying,Furutaka,furutaka",
-    "ctype": 7,
-    "cnum": 1,
     "rarity": 6,
     "type": 5,
+    "ctype": 7,
+    "cnum": 1,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -34472,10 +34472,10 @@
       "ja": "加古改二"
     },
     "name_for_search": "加古,jiagu,jia gu,Kako,kako",
-    "ctype": 7,
-    "cnum": 2,
     "rarity": 6,
     "type": 5,
+    "ctype": 7,
+    "cnum": 2,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -34568,10 +34568,10 @@
       "ja": "皐月改二"
     },
     "name_for_search": "皋月,gaoyue,gao yue,Satsuki,satsuki",
-    "ctype": 28,
-    "cnum": 5,
     "rarity": 6,
     "type": 2,
+    "ctype": 28,
+    "cnum": 5,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -34664,10 +34664,10 @@
       "ja": "初霜改二"
     },
     "name_for_search": "初霜,chushuang,chu shuang,Hatsushimo,hatsushimo",
-    "ctype": 10,
-    "cnum": 4,
     "rarity": 6,
     "type": 2,
+    "ctype": 10,
+    "cnum": 4,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -34760,10 +34760,10 @@
       "ja": "叢雲改二"
     },
     "name_for_search": "丛云,congyun,cong yun,Murakumo,murakumo",
-    "ctype": 12,
-    "cnum": 5,
     "rarity": 6,
     "type": 2,
+    "ctype": 12,
+    "cnum": 5,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -34856,10 +34856,10 @@
       "ja": "秋月"
     },
     "name_for_search": "秋月,qiuyue,qiu yue,Akizuki,akizuki",
-    "ctype": 54,
-    "cnum": 1,
     "rarity": 6,
     "type": 2,
+    "ctype": 54,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -34952,10 +34952,10 @@
       "ja": "照月"
     },
     "name_for_search": "照月,zhaoyue,zhao yue,Teruzuki,teruzuki",
-    "ctype": 54,
-    "cnum": 2,
     "rarity": 6,
     "type": 2,
+    "ctype": 54,
+    "cnum": 2,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -35048,10 +35048,10 @@
       "ja": "初月"
     },
     "name_for_search": "初月,chuyue,chu yue,Hatsuzuki,hatsuzuki",
-    "ctype": 54,
-    "cnum": 4,
     "rarity": 6,
     "type": 2,
+    "ctype": 54,
+    "cnum": 4,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -35144,10 +35144,10 @@
       "ja": "高波"
     },
     "name_for_search": "高波,gaobo,gao bo,Takanami,takanami",
-    "ctype": 38,
-    "cnum": 6,
     "rarity": 4,
     "type": 2,
+    "ctype": 38,
+    "cnum": 6,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -35240,10 +35240,10 @@
       "ja": "朝霜"
     },
     "name_for_search": "朝霜,zhaoshuang,zhao shuang,Asashimo,asashimo",
-    "ctype": 38,
-    "cnum": 16,
     "rarity": 4,
     "type": 2,
+    "ctype": 38,
+    "cnum": 16,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -35336,10 +35336,10 @@
       "ja": "吹雪改二"
     },
     "name_for_search": "吹雪,chuixue,chui xue,Fubuki,fubuki",
-    "ctype": 12,
-    "cnum": 1,
     "rarity": 6,
     "type": 2,
+    "ctype": 12,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -35432,10 +35432,10 @@
       "ja": "鳥海改二"
     },
     "name_for_search": "鸟海,niaohai,niao hai,Choukai,choukai",
-    "ctype": 8,
-    "cnum": 4,
     "rarity": 6,
     "type": 5,
+    "ctype": 8,
+    "cnum": 4,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -35528,10 +35528,10 @@
       "ja": "摩耶改二"
     },
     "name_for_search": "摩耶,moye,mo ye,Maya,maya",
-    "ctype": 8,
-    "cnum": 3,
     "rarity": 6,
     "type": 5,
+    "ctype": 8,
+    "cnum": 3,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -35624,10 +35624,10 @@
       "ja": "天城改"
     },
     "name_for_search": "天城,tiancheng,tian cheng,Amagi,amagi",
-    "ctype": 53,
-    "cnum": 2,
     "rarity": 7,
     "type": 11,
+    "ctype": 53,
+    "cnum": 2,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -35720,10 +35720,10 @@
       "ja": "葛城改"
     },
     "name_for_search": "葛城,gecheng,ge cheng,Katsuragi,katsuragi",
-    "ctype": 53,
-    "cnum": 3,
     "rarity": 7,
     "type": 11,
+    "ctype": 53,
+    "cnum": 3,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -35816,10 +35816,10 @@
       "ja": "U-511"
     },
     "name_for_search": "U-511,u-511,U511,u511",
-    "ctype": 57,
-    "cnum": 1,
     "rarity": 5,
     "type": 13,
+    "ctype": 57,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 5,
@@ -35912,10 +35912,10 @@
       "ja": "Graf Zeppelin"
     },
     "name_for_search": "齐柏林,qibolin,qi bo lin",
-    "ctype": 63,
-    "cnum": 1,
     "rarity": 7,
     "type": 11,
+    "ctype": 63,
+    "cnum": 1,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -36008,10 +36008,10 @@
       "ja": "睦月改二"
     },
     "name_for_search": "睦月,muyue,mu yue,Mutsuki,mutsuki",
-    "ctype": 28,
-    "cnum": 1,
     "rarity": 6,
     "type": 2,
+    "ctype": 28,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -36104,10 +36104,10 @@
       "ja": "如月改二"
     },
     "name_for_search": "如月,ruyue,ru yue,Kisaragi,kisaragi",
-    "ctype": 28,
-    "cnum": 2,
     "rarity": 6,
     "type": 2,
+    "ctype": 28,
+    "cnum": 2,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -36200,10 +36200,10 @@
       "ja": "呂500"
     },
     "name_for_search": "吕500,吕 500,lv 500,lv500,ro500,ro 500,500",
-    "ctype": 57,
-    "cnum": 1,
     "rarity": 7,
     "type": 13,
+    "ctype": 57,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 5,
@@ -36296,10 +36296,10 @@
       "ja": "暁改二"
     },
     "name_for_search": "晓,xiao,Akatsuki,akatsuki",
-    "ctype": 5,
-    "cnum": 1,
     "rarity": 6,
     "type": 2,
+    "ctype": 5,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -36392,10 +36392,10 @@
       "ja": "Littorio"
     },
     "name_for_search": "Littorio,littorio,利托里奥,lituoliao,li tuo li ao",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 6,
     "type": 8,
+    "ctype": 58,
+    "cnum": 2,
     "attr": {
       "range": 4,
       "speed": 10,
@@ -36488,10 +36488,10 @@
       "ja": "Roma"
     },
     "name_for_search": "Roma,roma,罗马,luoma,luo ma",
-    "ctype": 58,
-    "cnum": 4,
     "rarity": 6,
     "type": 8,
+    "ctype": 58,
+    "cnum": 4,
     "attr": {
       "range": 4,
       "speed": 10,
@@ -36584,10 +36584,10 @@
       "ja": "Libeccio"
     },
     "name_for_search": "利伯齐奥,liboqiao,li bo qi ao,libeccio",
-    "ctype": 61,
-    "cnum": 3,
     "rarity": 6,
     "type": 2,
+    "ctype": 61,
+    "cnum": 3,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -36680,10 +36680,10 @@
       "ja": "秋津洲"
     },
     "name_for_search": "秋津洲,qiujinzhou,qiu jin zhou,Akitsushima,akitsushima",
-    "ctype": 59,
-    "cnum": 1,
     "rarity": 7,
     "type": 16,
+    "ctype": 59,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 5,
@@ -36776,10 +36776,10 @@
       "ja": "Italia"
     },
     "name_for_search": "Italia,italia,意大利,yidali,yi da li",
-    "ctype": 58,
-    "cnum": 2,
     "rarity": 7,
     "type": 8,
+    "ctype": 58,
+    "cnum": 2,
     "attr": {
       "range": 4,
       "speed": 10,
@@ -36872,10 +36872,10 @@
       "ja": "Roma改"
     },
     "name_for_search": "Roma,roma,罗马,luoma,luo ma",
-    "ctype": 58,
-    "cnum": 4,
     "rarity": 7,
     "type": 8,
+    "ctype": 58,
+    "cnum": 4,
     "attr": {
       "range": 4,
       "speed": 10,
@@ -36968,10 +36968,10 @@
       "ja": "Zara"
     },
     "name_for_search": "Zara,zara",
-    "ctype": 64,
-    "cnum": 1,
     "rarity": 6,
     "type": 5,
+    "ctype": 64,
+    "cnum": 1,
     "attr": {
       "range": 3,
       "speed": 10,
@@ -37064,10 +37064,10 @@
       "ja": "秋津洲改"
     },
     "name_for_search": "秋津洲,qiujinzhou,qiu jin zhou,Akitsushima,akitsushima",
-    "ctype": 59,
-    "cnum": 1,
     "rarity": 8,
     "type": 16,
+    "ctype": 59,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 5,
@@ -37160,10 +37160,10 @@
       "ja": "瑞穂"
     },
     "name_for_search": "瑞穗,ruisui,rui sui,Mizuho,mizuho",
-    "ctype": 62,
-    "cnum": 1,
     "rarity": 5,
     "type": 16,
+    "ctype": 62,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 5,
@@ -37256,10 +37256,10 @@
       "ja": "沖波"
     },
     "name_for_search": "冲波,chongbo,chong bo",
-    "ctype": 38,
-    "cnum": 14,
     "rarity": 4,
     "type": 2,
+    "ctype": 38,
+    "cnum": 14,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -37352,10 +37352,10 @@
       "ja": "風雲"
     },
     "name_for_search": "风云,fengyun,feng yun,Kazagumo,kazagumo",
-    "ctype": 38,
-    "cnum": 3,
     "rarity": 3,
     "type": 2,
+    "ctype": 38,
+    "cnum": 3,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -37448,10 +37448,10 @@
       "ja": "嵐"
     },
     "name_for_search": "岚,lan",
-    "ctype": 30,
-    "cnum": 16,
     "rarity": 5,
     "type": 2,
+    "ctype": 30,
+    "cnum": 16,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -37544,10 +37544,10 @@
       "ja": "萩風"
     },
     "name_for_search": "萩风,qiufeng,qiu feng",
-    "ctype": 30,
-    "cnum": 17,
     "rarity": 5,
     "type": 2,
+    "ctype": 30,
+    "cnum": 17,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -37640,10 +37640,10 @@
       "ja": "海風"
     },
     "name_for_search": "海风,haifeng,hai feng,Umikaze,umikaze",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 2,
+    "ctype": 23,
+    "cnum": 7,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -37736,10 +37736,10 @@
       "ja": "江風"
     },
     "name_for_search": "江风,jiangfeng,jiang feng,Kawakaze,kawakaze",
-    "ctype": 23,
-    "cnum": 9,
     "rarity": 4,
     "type": 2,
+    "ctype": 23,
+    "cnum": 9,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -37832,10 +37832,10 @@
       "ja": "速吸"
     },
     "name_for_search": "速吸,suxi,su xi,Hayasui,hayasui",
-    "ctype": 60,
-    "cnum": 1,
     "rarity": 6,
     "type": 22,
+    "ctype": 60,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 5,
@@ -37928,10 +37928,10 @@
       "ja": "翔鶴改二"
     },
     "name_for_search": "翔鹤,xianghe,xiang he,Shoukaku,shoukaku",
-    "ctype": 33,
-    "cnum": 1,
     "rarity": 8,
     "type": 11,
+    "ctype": 33,
+    "cnum": 1,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -38024,10 +38024,10 @@
       "ja": "瑞鶴改二"
     },
     "name_for_search": "瑞鹤,ruihe,rui he,Zuikaku,zuikaku",
-    "ctype": 33,
-    "cnum": 2,
     "rarity": 8,
     "type": 11,
+    "ctype": 33,
+    "cnum": 2,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -38120,10 +38120,10 @@
       "ja": "霞改二"
     },
     "name_for_search": "霞,xia,Kasumi,kasumi",
-    "ctype": 18,
-    "cnum": 10,
     "rarity": 6,
     "type": 2,
+    "ctype": 18,
+    "cnum": 10,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -38216,10 +38216,10 @@
       "ja": "鹿島"
     },
     "name_for_search": "鹿岛,ludao,lu dao,Kashima,kashima",
-    "ctype": 56,
-    "cnum": 2,
     "rarity": 3,
     "type": 21,
+    "ctype": 56,
+    "cnum": 2,
     "attr": {
       "range": 2,
       "speed": 5,
@@ -38312,10 +38312,10 @@
       "ja": "翔鶴改二甲"
     },
     "name_for_search": "翔鹤,xianghe,xiang he,Shoukaku,shoukaku",
-    "ctype": 33,
-    "cnum": 1,
     "rarity": 8,
     "type": 18,
+    "ctype": 33,
+    "cnum": 1,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -38408,10 +38408,10 @@
       "ja": "瑞鶴改二甲"
     },
     "name_for_search": "瑞鹤,ruihe,rui he,Zuikaku,zuikaku",
-    "ctype": 33,
-    "cnum": 2,
     "rarity": 8,
     "type": 18,
+    "ctype": 33,
+    "cnum": 2,
     "attr": {
       "range": 2,
       "speed": 10,
@@ -38504,10 +38504,10 @@
       "ja": "霞改二乙"
     },
     "name_for_search": "霞,xia,Kasumi,kasumi",
-    "ctype": 18,
-    "cnum": 10,
     "rarity": 7,
     "type": 2,
+    "ctype": 18,
+    "cnum": 10,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -38600,10 +38600,10 @@
       "ja": "大潮改二"
     },
     "name_for_search": "大潮,dachao,da chao,Ooshio,ooshio",
-    "ctype": 18,
-    "cnum": 2,
     "rarity": 6,
     "type": 2,
+    "ctype": 18,
+    "cnum": 2,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -38696,10 +38696,10 @@
       "ja": "江風改二"
     },
     "name_for_search": "江风,jiangfeng,jiang feng,Kawakaze,kawakaze",
-    "ctype": 23,
-    "cnum": 9,
     "rarity": 6,
     "type": 2,
+    "ctype": 23,
+    "cnum": 9,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -38792,10 +38792,10 @@
       "ja": "神風"
     },
     "name_for_search": "神风,shenfeng,shen feng,kamikaze,Kamikaze",
-    "ctype": 18,
-    "cnum": 9,
     "rarity": 4,
     "type": 2,
+    "ctype": 0,
+    "cnum": 0,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -38888,10 +38888,10 @@
       "ja": "神風改"
     },
     "name_for_search": "神风,shenfeng,shen feng,kamikaze,Kamikaze",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 6,
     "type": 2,
+    "ctype": 0,
+    "cnum": 0,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -38984,10 +38984,10 @@
       "ja": "春風"
     },
     "name_for_search": "春风,chunfeng,chun feng,harukaze,Harukaze",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 4,
     "type": 2,
+    "ctype": 0,
+    "cnum": 0,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -39080,10 +39080,10 @@
       "ja": "春風改"
     },
     "name_for_search": "春风,chunfeng,chun feng,harukaze,Harukaze",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 5,
     "type": 2,
+    "ctype": 0,
+    "cnum": 0,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -39176,10 +39176,10 @@
       "ja": "親潮"
     },
     "name_for_search": "亲潮,qingchao,qing chao,oyashio,Oyashio",
-    "ctype": 23,
-    "cnum": 7,
     "rarity": 5,
     "type": 2,
+    "ctype": 0,
+    "cnum": 0,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -39272,10 +39272,10 @@
       "ja": "親潮改"
     },
     "name_for_search": "亲潮,qingchao,qing chao,oyashio,Oyashio",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 6,
     "type": 2,
+    "ctype": 0,
+    "cnum": 0,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -39368,10 +39368,10 @@
       "ja": "波拉"
     },
     "name_for_search": "波拉,bola,bo la,pola,Pola",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 6,
     "type": 5,
+    "ctype": 0,
+    "cnum": 0,
     "attr": {
       "range": 3,
       "speed": 10,
@@ -39464,10 +39464,10 @@
       "ja": "波拉改"
     },
     "name_for_search": "波拉,bola,bo la,pola,Pola",
-    "ctype": 0,
-    "cnum": 0,
     "rarity": 6,
     "type": 5,
+    "ctype": 0,
+    "cnum": 0,
     "attr": {
       "range": 3,
       "speed": 10,
@@ -39560,10 +39560,10 @@
       "ja": "Iowa"
     },
     "name_for_search": "衣阿华,yiahua,yi a hua,iowa,Iowa,lowa",
-    "ctype": 58,
-    "cnum": 2,
     "rarity": 6,
     "type": 8,
+    "ctype": 0,
+    "cnum": 0,
     "attr": {
       "range": 3,
       "speed": 10,
@@ -39656,10 +39656,10 @@
       "ja": "Iowa改"
     },
     "name_for_search": "衣阿华,yiahua,yi a hua,iowa,Iowa,lowa",
-    "ctype": 5,
-    "cnum": 4,
     "rarity": 6,
     "type": 8,
+    "ctype": 0,
+    "cnum": 0,
     "attr": {
       "range": 3,
       "speed": 10,

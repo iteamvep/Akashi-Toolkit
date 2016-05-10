@@ -33,15 +33,17 @@ public class ShipFragment extends BaseDisplayFragment<ShipAdapter> {
 
         int flag = 0;
         int speed = 0;
+        int sort = 0;
         int finalVersion = 0;
         Bundle args = getArguments();
         if (args != null) {
             flag = args.getInt("FLAG");
             finalVersion = args.getInt("FINAL_VERSION");
             speed = args.getInt("SPEED");
+            sort = args.getInt("SORT");
         }
 
-        setAdapter(new ShipAdapter(getActivity(), finalVersion, flag, speed));
+        setAdapter(new ShipAdapter(getActivity(), finalVersion, flag, speed, sort));
     }
 
     @Override
@@ -79,5 +81,11 @@ public class ShipFragment extends BaseDisplayFragment<ShipAdapter> {
     @Subscribe
     public void isSearchingChanged(ShipAction.IsSearchingChanged action) {
         getAdapter().setSearching(action.isSearching());
+    }
+
+    @Subscribe
+    public void sortChanged(ShipAction.SortChangeAction action) {
+        getAdapter().setSort(action.getSort());
+        getAdapter().rebuildDataList(/*getContext()*/);
     }
 }

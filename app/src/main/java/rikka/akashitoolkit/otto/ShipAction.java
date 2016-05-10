@@ -36,6 +36,23 @@ public class ShipAction {
         }
     }
 
+    public static class SortChangeAction {
+        private int sort;
+
+        public SortChangeAction(int sort) {
+            this.sort = sort;
+        }
+
+        public int getSort() {
+            return sort;
+        }
+
+        public void setSort(int sort) {
+            this.sort = sort;
+        }
+    }
+
+
     public static class SpeedChangeAction {
         private int speed;
 
