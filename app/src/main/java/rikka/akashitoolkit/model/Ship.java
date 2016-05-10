@@ -34,6 +34,8 @@ public class Ship {
     private String name_for_search;
     private int rarity;
     private int type;
+    private int ctype;
+    private int cnum;
     /**
      * aa : [7,29]
      * armor : [5,18]
@@ -118,6 +120,22 @@ public class Ship {
 
     public void setType(int type) {
         this.type = type;
+    }
+
+    public int getCtype() {
+        return ctype;
+    }
+
+    public void setCtype(int ctype) {
+        this.ctype = ctype;
+    }
+
+    public int getCnum() {
+        return cnum;
+    }
+
+    public void setCnum(int cnum) {
+        this.cnum = cnum;
     }
 
     public AttrEntity getAttr() {

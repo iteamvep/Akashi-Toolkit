@@ -64,11 +64,13 @@ import rikka.akashitoolkit.adapter.ViewPagerAdapter;
 import rikka.akashitoolkit.model.Equip;
 import rikka.akashitoolkit.model.ExtraIllustration;
 import rikka.akashitoolkit.model.Ship;
+import rikka.akashitoolkit.model.ShipClass;
 import rikka.akashitoolkit.model.ShipVoice;
 import rikka.akashitoolkit.network.NetworkUtils;
 import rikka.akashitoolkit.network.RetrofitAPI;
 import rikka.akashitoolkit.staticdata.EquipList;
 import rikka.akashitoolkit.staticdata.ExtraIllustrationList;
+import rikka.akashitoolkit.staticdata.ShipClassList;
 import rikka.akashitoolkit.staticdata.ShipList;
 import rikka.akashitoolkit.support.StaticData;
 import rikka.akashitoolkit.utils.KCStringFormatter;
@@ -166,6 +168,28 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
         return item.getSlot();
     }
 
+    @SuppressLint("DefaultLocale")
+    private void setToolbarTitle() {
+        if (mItem.getName() != null) {
+            ShipClass shipClass = ShipClassList.findItemById(this, mItem.getCtype());
+
+            String c = "";
+            if (shipClass != null) {
+                c = String.format("%s%d号舰", shipClass.getName(), mItem.getCnum());
+            }
+            ((TextView) mToolbar.findViewById(android.R.id.title)).setText(mItem.getName().get(ShipDisplayActivity.this));
+            ((TextView) mToolbar.findViewById(android.R.id.summary)).setText(String.format("No.%s %s %s",
+                    mItem.getWiki_id(),
+                    c,
+                    ShipList.shipType[mItem.getType()]));
+        }
+    }
+
+    //private static final
+    /*private String getChineseNumberString() {
+
+    }*/
+
     private static final int FADE_IN = 150;
     private static final int FADE_OUT = 300;
 
@@ -188,12 +212,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
         mAdapter = new Adapter();
 
         if (!reveal || Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-            if (mItem.getName() != null) {
-                ((TextView) mToolbar.findViewById(android.R.id.title)).setText(mItem.getName().get(ShipDisplayActivity.this));
-                ((TextView) mToolbar.findViewById(android.R.id.summary)).setText(String.format("No.%s %s",
-                        mItem.getWiki_id(),
-                        ShipList.shipType[mItem.getType()]));
-            }
+            setToolbarTitle();
         }
 
         // so bad
@@ -235,10 +254,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
                         @Override
                         public void onAnimationEnd(Animator animation) {
                             if (mItem.getName() != null) {
-                                ((TextView) mToolbar.findViewById(android.R.id.title)).setText(mItem.getName().get(ShipDisplayActivity.this));
-                                ((TextView) mToolbar.findViewById(android.R.id.summary)).setText(String.format("No.%s %s",
-                                        mItem.getWiki_id(),
-                                        ShipList.shipType[mItem.getType()]));
+                                setToolbarTitle();
                             }
 
                             mRecyclerView.setAdapter(mAdapter);
