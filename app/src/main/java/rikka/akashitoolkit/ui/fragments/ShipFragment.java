@@ -49,6 +49,7 @@ public class ShipFragment extends BaseDisplayFragment<ShipAdapter> {
         super.onPostCreateView(recyclerView);
 
         recyclerView.setPadding(0, Utils.dpToPx(2), 0, Utils.dpToPx(2));
+        recyclerView.setClipToPadding(false);
     }
 
     @Subscribe

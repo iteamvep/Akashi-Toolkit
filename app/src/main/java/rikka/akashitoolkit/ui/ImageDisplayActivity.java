@@ -234,6 +234,7 @@ public class ImageDisplayActivity extends BaseActivity implements View.OnClickLi
         @Override
         public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
             View view = inflater.inflate(R.layout.content_photo_view, container, false);
+
             mImageView = (ImageView) view.findViewById(R.id.imageView);
 
             mPosition = getArguments().getInt("POSITION");
@@ -246,8 +247,11 @@ public class ImageDisplayActivity extends BaseActivity implements View.OnClickLi
                     .listener(new RequestListener<GlideUrl, GlideDrawable>() {
                         @Override
                         public boolean onException(Exception e, GlideUrl model, Target<GlideDrawable> target, boolean isFirstResource) {
-                            e.printStackTrace();
-                            Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                            if (e != null) {
+                                e.printStackTrace();
+                                Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+
                             ((ImageDisplayActivity) getActivity()).setIsDownloaded(mPosition, false);
                             return false;
                         }

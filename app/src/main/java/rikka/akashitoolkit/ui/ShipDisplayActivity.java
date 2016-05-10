@@ -2,10 +2,12 @@ package rikka.akashitoolkit.ui;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -38,6 +40,7 @@ import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.AlphaAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -181,35 +184,44 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
 
         mAdapter = new Adapter();
 
+        if (!reveal || Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+            if (mItem.getName() != null) {
+                ((TextView) mToolbar.findViewById(android.R.id.title)).setText(mItem.getName().get(ShipDisplayActivity.this));
+                ((TextView) mToolbar.findViewById(android.R.id.summary)).setText(String.format("No.%s %s",
+                        mItem.getWiki_id(),
+                        ShipList.shipType[mItem.getType()]));
+            }
+        }
+
         // so bad
         if (!reveal) {
             mRecyclerView.setAdapter(mAdapter);
-        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-
+        } else {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                Animator anim = animateRevealColorFromCoordinates(mCoordinatorLayout, R.color.background, mX, mY, false);
+                mAppBarLayout.setAlpha(1);
+                mAppBarLayout.animate()
+                        .setDuration(200)
+                        .alpha(0)
+                        .start();
 
-                anim.addListener(new AnimatorListenerAdapter() {
-                    @Override
-                    public void onAnimationEnd(Animator animation) {
-                        mRecyclerView.setAdapter(mAdapter);
-                        mRecyclerView.post(new Runnable() {
+                getWindow().setBackgroundDrawable(new ColorDrawable(ContextCompat.getColor(ShipDisplayActivity.this, R.color.colorItemDisplayStatusBar)));
+
+                Utils.colorAnimation(
+                        ContextCompat.getColor(this, R.color.background),
+                        ContextCompat.getColor(this, R.color.colorItemDisplayStatusBar),
+                        200,
+                        new ValueAnimator.AnimatorUpdateListener() {
                             @Override
-                            public void run() {
-                                mRecyclerView.scrollBy(0, y);
+                            public void onAnimationUpdate(ValueAnimator animator) {
+                                mCoordinatorLayout.setBackgroundColor(
+                                        (int) animator.getAnimatedValue());
                             }
                         });
-
-                        animateRevealColorFromCoordinates(mCoordinatorLayout, R.color.background, mX, mY, true);
-                    }
-                });
             }
-        } else {
-            mRecyclerView.setAlpha(1);
 
+            mRecyclerView.setAlpha(1);
             mRecyclerView.animate()
-                    .setDuration(100)
-                    .setInterpolator(new AccelerateDecelerateInterpolator())
+                    .setDuration(200)
                     .alpha(0)
                     .setListener(new Animator.AnimatorListener() {
                         @Override
@@ -219,14 +231,31 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
 
                         @Override
                         public void onAnimationEnd(Animator animation) {
+                            if (mItem.getName() != null) {
+                                ((TextView) mToolbar.findViewById(android.R.id.title)).setText(mItem.getName().get(ShipDisplayActivity.this));
+                                ((TextView) mToolbar.findViewById(android.R.id.summary)).setText(String.format("No.%s %s",
+                                        mItem.getWiki_id(),
+                                        ShipList.shipType[mItem.getType()]));
+                            }
+
                             mRecyclerView.setAdapter(mAdapter);
                             mRecyclerView.animate().setListener(null);
+                            mRecyclerView.animate().cancel();
 
-                            mRecyclerView.animate()
-                                    .setStartDelay(100)
-                                    .setInterpolator(new AccelerateDecelerateInterpolator())
-                                    .alpha(1)
-                                    .start();
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                                mCoordinatorLayout.setBackgroundColor(ContextCompat.getColor(ShipDisplayActivity.this, R.color.background));
+
+                                animateRevealColorFromCoordinates(mCoordinatorLayout, R.color.background, mX, mY, true);
+
+                                mAppBarLayout.setAlpha(1);
+                                mRecyclerView.setAlpha(1);
+                            } else {
+                                mRecyclerView.animate()
+                                        .setStartDelay(100)
+                                        .setInterpolator(new AccelerateDecelerateInterpolator())
+                                        .alpha(1)
+                                        .start();
+                            }
 
                             mRecyclerView.post(new Runnable() {
                                 @Override
@@ -270,13 +299,6 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
 
             }
         });
-
-        if (mItem.getName() != null) {
-            ((TextView) mToolbar.findViewById(android.R.id.title)).setText(mItem.getName().get(this));
-            ((TextView) mToolbar.findViewById(android.R.id.summary)).setText(String.format("No.%s %s",
-                    mItem.getWiki_id(),
-                    ShipList.shipType[mItem.getType()]));
-        }
     }
 
     int mX, mY;
@@ -552,9 +574,9 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
         mToolbar.findViewById(R.id.content_container).setOnClickListener(new View.OnClickListener()
         {
             @Override
-            public void onClick(View v)
+            public void onClick(final View v)
             {
-                PopupMenu popupMenu = new PopupMenu(v.getContext(), v, Gravity.CENTER);
+                PopupMenu popupMenu = new PopupMenu(v.getContext(), v);
 
                 Ship cur = mItem;
                 while (cur.getRemodel().getId_from() != 0) {
@@ -576,16 +598,16 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
                         setItem(item.getItemId(), true);
-                        mX = Utils.dpToPx(48 + 32);
-                        mY = mAppBarLayout.getHeight();
+                        mX = Utils.dpToPx(48 + 4) + v.getWidth() / 2;
+                        mY = mAppBarLayout.getHeight() / 2 + Utils.dpToPx(24);
                         return false;
                     }
                 });
 
-                if (popupMenu.getDragToOpenListener() instanceof ListPopupWindow.ForwardingListener)
-                {
+                if (popupMenu.getDragToOpenListener() instanceof ListPopupWindow.ForwardingListener) {
                     ListPopupWindow.ForwardingListener listener = (ListPopupWindow.ForwardingListener) popupMenu.getDragToOpenListener();
                     listener.getPopup().setVerticalOffset(-v.getHeight());
+                    listener.getPopup().setHorizontalOffset(Utils.dpToPx(2));
                     listener.getPopup().show();
                 }
             }
@@ -685,7 +707,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
     private void addRemodel(ViewGroup parent) {
         if (mItem.getRemodel() != null) {
             parent = addCell(parent, R.string.remodel);
-            GridLayout gridLayout = new GridLayout(this);
+            final GridLayout gridLayout = new GridLayout(this);
             gridLayout.setColumnCount(2);
 
             //StringBuilder sb = new StringBuilder();
@@ -697,7 +719,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
             while (true) {
                 StringBuilder sb = new StringBuilder();
                 sb.append(cur.getName().get(this));
-                ViewGroup view = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.ship_remodel_item, null);
+                ViewGroup view = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.ship_remodel_item, gridLayout, false);
                 view.setLayoutParams(
                         new GridLayout.LayoutParams(
                                 GridLayout.spec(GridLayout.UNDEFINED, 1f),
@@ -713,6 +735,16 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
                 view.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        for (int i = 0; i < gridLayout.getChildCount(); i++) {
+                            View view = gridLayout.getChildAt(i);
+
+                            if (view.findViewById(android.R.id.title) != null) {
+                                ((TextView) view.findViewById(android.R.id.title)).setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+                            }
+                        }
+
+                        ((TextView) v.findViewById(android.R.id.title)).setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+
                         setItem(finalCur.getId(), true);
 
                         /*Intent intent = new Intent(ShipDisplayActivity.this, ShipDisplayActivity.class);
@@ -732,6 +764,10 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
                 }
 
                 ((TextView) view.findViewById(android.R.id.title)).setText(sb.toString());
+
+                if (mItem == cur) {
+                    ((TextView) view.findViewById(android.R.id.title)).setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+                }
 
                 if (cur.getRemodel().getId_to() == 0 ||
                         cur.getRemodel().getId_from() == cur.getRemodel().getId_to()) {

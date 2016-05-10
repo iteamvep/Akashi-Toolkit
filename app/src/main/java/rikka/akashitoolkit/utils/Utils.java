@@ -1,6 +1,7 @@
 package rikka.akashitoolkit.utils;
 
 import android.animation.ArgbEvaluator;
+import android.animation.TimeInterpolator;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.res.Configuration;
@@ -86,8 +87,13 @@ public class Utils {
     }
 
     public static void colorAnimation(int colorFrom, int colorTo, int duration, ValueAnimator.AnimatorUpdateListener listener) {
+        colorAnimation(colorFrom, colorTo, duration, null, listener);
+    }
+
+    public static void colorAnimation(int colorFrom, int colorTo, int duration, TimeInterpolator interpolator, ValueAnimator.AnimatorUpdateListener listener) {
         ValueAnimator colorAnimation = ValueAnimator.ofObject(new ArgbEvaluator(), colorFrom, colorTo);
         colorAnimation.setDuration(duration);
+        colorAnimation.setInterpolator(interpolator);
         colorAnimation.addUpdateListener(listener);
         colorAnimation.start();
     }
@@ -115,7 +121,7 @@ public class Utils {
         String a = md5.substring(0, 1);
         String b = md5.substring(0, 2);
 
-        return String.format("http://upload.kcwiki.moe/commons/%s/%s/%s", a, b, fileName);
+        return String.format("http://kcwiki.acg9.cn:8080/commons/%s/%s/%s", a, b, fileName);
     }
 
     public static GlideUrl getGlideUrl(String url) {

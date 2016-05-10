@@ -5,6 +5,7 @@ import android.animation.ValueAnimator;
 import android.app.ActivityManager;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
@@ -192,6 +193,8 @@ public abstract class BaseItemDisplayActivity extends BaseActivity {
     public void onBackPressed() {
         if (!mShouldAnim) {
             super.onBackPressed();
+        } else {
+            getWindow().setBackgroundDrawable(new ColorDrawable(0));
         }
 
         animExit();
