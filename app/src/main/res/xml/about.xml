@@ -13,6 +13,11 @@
         android:summary="向开发者发送邮件"/>
 
     <Preference
+        android:key="donate"
+        android:title="捐赠"
+        android:summary="支付宝: rikka@xing.moe"/>
+
+    <Preference
         android:key="version"
         android:title="@string/version"/>
 

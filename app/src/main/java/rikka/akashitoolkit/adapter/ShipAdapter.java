@@ -226,6 +226,7 @@ public class ShipAdapter extends BaseRecyclerAdapter<ViewHolder.Ship> {
             String c;
             if (mSort == 0) {
                 c = String.format("%s%s号舰", shipClass.getName(), Utils.getChineseNumberString(mData.get(position).getCnum()));
+                //c = "";
             } else {
                 c = String.format("%s号舰", Utils.getChineseNumberString(mData.get(position).getCnum()));
             }

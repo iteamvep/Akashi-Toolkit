@@ -60,13 +60,13 @@ public class ShipDisplayFragment extends BaseSearchFragment {
 
         SimpleDrawerView body = new SimpleDrawerView(getContext());
 
-        body.addTitle("排序"/*getString(R.string.sort)*/);
+        body.addTitle(getString(R.string.sort));
         body.addDivider();
 
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.drawer_item_spinner, body, false);
         mSpinner = (Spinner) view.findViewById(R.id.spinner);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(),
-                R.layout.drawer_item_spinner_item, new String[]{"舰种", "类型"});
+                R.layout.drawer_item_spinner_item, new String[]{getString(R.string.ship_type), getString(R.string.ship_class)});
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         mSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

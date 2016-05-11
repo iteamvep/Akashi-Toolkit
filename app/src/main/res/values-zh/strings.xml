@@ -119,4 +119,8 @@
         <item>高</item>
         <item>最高</item>
     </string-array>
+
+    <string name="sort">排序</string>
+    <string name="ship_type">类型</string>
+    <string name="ship_class">舰级</string>
 </resources>

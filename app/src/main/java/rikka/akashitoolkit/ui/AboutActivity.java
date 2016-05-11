@@ -18,7 +18,9 @@ import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.StaticData;
 import rikka.akashitoolkit.utils.ClipBoardUtils;
+import rikka.akashitoolkit.utils.DonateUtils;
 import rikka.akashitoolkit.utils.UpdateCheck;
+import rikka.akashitoolkit.utils.Utils;
 import rikka.materialpreference.PreferenceFragment;
 
 public class AboutActivity extends BaseActivity {
@@ -96,6 +98,19 @@ public class AboutActivity extends BaseActivity {
                     return false;
                 }
             });
+
+            findPreference("donate").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                @Override
+                public boolean onPreferenceClick(Preference preference) {
+                    DonateUtils.startActivity(getActivity());
+                    return false;
+                }
+            });
+
+            if (BuildConfig.isGooglePlay
+                    && !Utils.isPackageInstalled(getActivity(), DonateUtils.PACKAGENAME_ALIPAY)) {
+                ((PreferenceScreen) findPreference("screen")).removePreference(findPreference("donate"));
+            }
 
             findPreference("version").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 @Override

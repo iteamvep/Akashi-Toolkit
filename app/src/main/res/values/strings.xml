@@ -138,4 +138,8 @@ Activity &amp; Extra:
 
 * GCM 需要在科学上网时才能发送"
     </string>
+
+    <string name="sort">Sort</string>
+    <string name="ship_type">Ship type</string>
+    <string name="ship_class">Ship class</string>
 </resources>
