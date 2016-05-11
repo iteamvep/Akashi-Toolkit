@@ -145,6 +145,16 @@ public class ShipList {
             curType++;
         }
         list.clear();
+
+        Collections.sort(newList, new Comparator<Ship>() {
+            @Override
+            public int compare(Ship lhs, Ship rhs) {
+                if (lhs.getCtype() != rhs.getCtype()) {
+                    return 1;
+                }
+                return lhs.getCnum() - rhs.getCnum();
+            }
+        });
         list.addAll(newList);
     }
 

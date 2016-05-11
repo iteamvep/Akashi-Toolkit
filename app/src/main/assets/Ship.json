@@ -31690,8 +31690,8 @@
     "name_for_search": "海风,haifeng,hai feng,Umikaze,umikaze",
     "rarity": 4,
     "type": 2,
-    "ctype": 0,
-    "cnum": 0,
+    "ctype": 23,
+    "cnum": 7,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -38794,8 +38794,8 @@
     "name_for_search": "神风,shenfeng,shen feng,kamikaze,Kamikaze",
     "rarity": 4,
     "type": 2,
-    "ctype": 0,
-    "cnum": 0,
+    "ctype": 66,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -38890,8 +38890,8 @@
     "name_for_search": "神风,shenfeng,shen feng,kamikaze,Kamikaze",
     "rarity": 6,
     "type": 2,
-    "ctype": 0,
-    "cnum": 0,
+    "ctype": 66,
+    "cnum": 1,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -38986,8 +38986,8 @@
     "name_for_search": "春风,chunfeng,chun feng,harukaze,Harukaze",
     "rarity": 4,
     "type": 2,
-    "ctype": 0,
-    "cnum": 0,
+    "ctype": 66,
+    "cnum": 3,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -39082,8 +39082,8 @@
     "name_for_search": "春风,chunfeng,chun feng,harukaze,Harukaze",
     "rarity": 5,
     "type": 2,
-    "ctype": 0,
-    "cnum": 0,
+    "ctype": 66,
+    "cnum": 3,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -39178,8 +39178,8 @@
     "name_for_search": "亲潮,qingchao,qing chao,oyashio,Oyashio",
     "rarity": 5,
     "type": 2,
-    "ctype": 0,
-    "cnum": 0,
+    "ctype": 30,
+    "cnum": 4,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -39274,8 +39274,8 @@
     "name_for_search": "亲潮,qingchao,qing chao,oyashio,Oyashio",
     "rarity": 6,
     "type": 2,
-    "ctype": 0,
-    "cnum": 0,
+    "ctype": 30,
+    "cnum": 4,
     "attr": {
       "range": 1,
       "speed": 10,
@@ -39365,13 +39365,13 @@
     "wiki_id": "249",
     "name": {
       "zh_cn": "波拉",
-      "ja": "波拉"
+      "ja": "Pola"
     },
     "name_for_search": "波拉,bola,bo la,pola,Pola",
     "rarity": 6,
     "type": 5,
-    "ctype": 0,
-    "cnum": 0,
+    "ctype": 64,
+    "cnum": 3,
     "attr": {
       "range": 3,
       "speed": 10,
@@ -39461,13 +39461,13 @@
     "wiki_id": "249a",
     "name": {
       "zh_cn": "波拉改",
-      "ja": "波拉改"
+      "ja": "Pola改"
     },
     "name_for_search": "波拉,bola,bo la,pola,Pola",
     "rarity": 6,
     "type": 5,
-    "ctype": 0,
-    "cnum": 0,
+    "ctype": 64,
+    "cnum": 3,
     "attr": {
       "range": 3,
       "speed": 10,
@@ -39562,8 +39562,8 @@
     "name_for_search": "衣阿华,yiahua,yi a hua,iowa,Iowa,lowa",
     "rarity": 6,
     "type": 8,
-    "ctype": 0,
-    "cnum": 0,
+    "ctype": 65,
+    "cnum": 1,
     "attr": {
       "range": 3,
       "speed": 10,
@@ -39658,8 +39658,8 @@
     "name_for_search": "衣阿华,yiahua,yi a hua,iowa,Iowa,lowa",
     "rarity": 6,
     "type": 8,
-    "ctype": 0,
-    "cnum": 0,
+    "ctype": 65,
+    "cnum": 1,
     "attr": {
       "range": 3,
       "speed": 10,

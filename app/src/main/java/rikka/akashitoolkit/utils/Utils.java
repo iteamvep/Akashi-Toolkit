@@ -136,4 +136,24 @@ public class Utils {
                 .addHeader("Referer", "http://zh.kcwiki.moe/wiki/%E8%88%B0%E5%A8%98%E7%99%BE%E7%A7%91")
                 .build());
     }
+
+    private static final String[] CHINESE_NUMBER = {"零", "一", "二", "三", "四", "五", "六", "七", "八", "九", "十"};
+
+    public static String getChineseNumberString(int number) {
+        StringBuilder sb = new StringBuilder();
+
+        int a = number / 10;
+        if (a > 0) {
+            if (a > 1) {
+                sb.append(CHINESE_NUMBER[a]);
+            }
+            sb.append(CHINESE_NUMBER[10]);
+        }
+
+        if (number % 10 != 0) {
+            sb.append(CHINESE_NUMBER[number % 10]);
+        }
+
+        return sb.toString();
+    }
 }

@@ -16,6 +16,7 @@ import rikka.akashitoolkit.model.ShipClass;
 import rikka.akashitoolkit.staticdata.ShipClassList;
 import rikka.akashitoolkit.staticdata.ShipList;
 import rikka.akashitoolkit.ui.ShipDisplayActivity;
+import rikka.akashitoolkit.utils.Utils;
 import rx.Observable;
 import rx.Observer;
 import rx.Subscriber;
@@ -218,6 +219,20 @@ public class ShipAdapter extends BaseRecyclerAdapter<ViewHolder.Ship> {
         holder.mDummyView2.setVisibility(showTitle && position != 0 ? View.VISIBLE : View.GONE);
 
         holder.mName.setText(mData.get(position).getName().get(holder.mName.getContext()));
+
+        ShipClass shipClass = ShipClassList.findItemById(mActivity, mData.get(position).getCtype());
+
+        if (shipClass != null) {
+            String c;
+            if (mSort == 0) {
+                c = String.format("%s%s号舰", shipClass.getName(), Utils.getChineseNumberString(mData.get(position).getCnum()));
+            } else {
+                c = String.format("%s号舰", Utils.getChineseNumberString(mData.get(position).getCnum()));
+            }
+            holder.mName2.setText(c);
+        } else {
+            Log.d("ShipDisplayActivity", "No ship class: " + mData.get(position).getName().get(mActivity));
+        }
 
         holder.mLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override

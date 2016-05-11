@@ -148,6 +148,7 @@ public class ViewHolder {
         protected View mDummyView;
         protected View mDummyView2;
         protected TextView mName;
+        protected TextView mName2;
         protected TextView mTitle;
 
         public Ship(View itemView) {
@@ -159,6 +160,7 @@ public class ViewHolder {
             mLinearLayout = (LinearLayout) itemView.findViewById(R.id.linearLayout);
             mTitle = (TextView) itemView.findViewById(android.R.id.title);
             mName = (TextView) itemView.findViewById(R.id.textView);
+            mName2 = (TextView) itemView.findViewById(R.id.textView2);
         }
     }
 

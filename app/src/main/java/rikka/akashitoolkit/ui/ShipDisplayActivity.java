@@ -175,7 +175,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
 
             String c = "";
             if (shipClass != null) {
-                c = String.format("%s%s号舰", shipClass.getName(), getChineseNumberString(mItem.getCnum()));
+                c = String.format("%s%s号舰", shipClass.getName(), Utils.getChineseNumberString(mItem.getCnum()));
             } else {
                 Log.d("ShipDisplayActivity", "No ship class: " + mItem.getName().get(this));
             }
@@ -187,24 +187,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
         }
     }
 
-    private static final String[] CHINESE_NUMBER = {"零", "一", "二", "三", "四", "五", "六", "七", "八", "九", "十"};
-
-    private String getChineseNumberString(int number) {
-        StringBuilder sb = new StringBuilder();
-
-        int a = number / 10;
-        if (a > 0) {
-            if (a > 1) {
-                sb.append(CHINESE_NUMBER[a]);
-            }
-            sb.append(CHINESE_NUMBER[10]);
-        }
-        sb.append(CHINESE_NUMBER[number % 10]);
-
-        return sb.toString();
-    }
-
-    private static final int FADE_IN = 200;
+    private static final int FADE_IN = 100;
     private static final int FADE_OUT = 200;
 
     private void setItem(Ship item, final boolean reveal) {
