@@ -140,6 +140,9 @@ Activity &amp; Extra:
     </string>
 
     <string name="sort">Sort</string>
-    <string name="ship_type">Ship type</string>
-    <string name="ship_class">Ship class</string>
+    <string name="ship_type">Type</string>
+    <string name="ship_class">Class</string>
+    <string name="action_bookmark">Bookmark</string>
+    <string name="bookmark_add">Bookmarked</string>
+    <string name="bookmark_remove">Removed</string>
 </resources>

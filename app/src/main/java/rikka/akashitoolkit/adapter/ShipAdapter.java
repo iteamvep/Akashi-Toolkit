@@ -33,6 +33,7 @@ public class ShipAdapter extends BaseRecyclerAdapter<ViewHolder.Ship> {
     private int mTypeFlag;
     private int mShowSpeed;
     private int mSort;
+    private boolean mBookmarked;
     private String mKeyword;
     private boolean mIsSearching;
 
@@ -41,13 +42,14 @@ public class ShipAdapter extends BaseRecyclerAdapter<ViewHolder.Ship> {
         mActivity = activity;
     }
 
-    public ShipAdapter(Activity activity, int showVersion, int typeFlag, int showSpeed, int sort) {
+    public ShipAdapter(Activity activity, int showVersion, int typeFlag, int showSpeed, int sort, boolean bookmarked) {
         this(activity);
 
         mShowVersion = showVersion;
         mTypeFlag = typeFlag;
         mShowSpeed = showSpeed;
         mSort = sort;
+        mBookmarked = bookmarked;
 
         mActivity = activity;
 
@@ -60,6 +62,10 @@ public class ShipAdapter extends BaseRecyclerAdapter<ViewHolder.Ship> {
 
     public void setSort(int sort) {
         mSort = sort;
+    }
+
+    public void setBookmarked(boolean bookmarked) {
+        mBookmarked = bookmarked;
     }
 
     public void setShowSpeed(int showSpeed) {
@@ -143,6 +149,10 @@ public class ShipAdapter extends BaseRecyclerAdapter<ViewHolder.Ship> {
                 }
                 break;
         }
+
+        if (mBookmarked && !item.isBookmarked()) {
+            return false;
+        }
         /*if (mShowVersion && (item.getRemodel().getId_to() != 0 &&
                 item.getRemodel().getId_to() != item.getRemodel().getId_from())) {
             return false;
@@ -218,7 +228,8 @@ public class ShipAdapter extends BaseRecyclerAdapter<ViewHolder.Ship> {
         holder.mDummyView.setVisibility(!showDivider ? View.VISIBLE : View.GONE);
         holder.mDummyView2.setVisibility(showTitle && position != 0 ? View.VISIBLE : View.GONE);
 
-        holder.mName.setText(mData.get(position).getName().get(holder.mName.getContext()));
+        holder.mName.setText(String.format(mData.get(position).isBookmarked() ? "%s ★" : "%s",
+                mData.get(position).getName().get(holder.mName.getContext())));
 
         ShipClass shipClass = ShipClassList.findItemById(mActivity, mData.get(position).getCtype());
 

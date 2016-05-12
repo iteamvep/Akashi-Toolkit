@@ -12,6 +12,7 @@ import java.util.Set;
  */
 public class Settings {
     public static final String XML_NAME = "settings";
+    public static final String XML_NAME2 = "bookmark";
 
 
     public static final String NIGHT_MODE = "night_mode";
@@ -26,6 +27,7 @@ public class Settings {
     public static final String SHIP_FINAL_VERSION = "ship_show_final_version";
     public static final String SHIP_SPEED = "ship_show_speed";
     public static final String SHIP_SORT = "ship_show_sort";
+    public static final String SHIP_BOOKMARKED = "ship_show_bookmarked";
 
     public static final String DATA_LANGUAGE = "data_language";
     public static final String DATA_TITLE_LANGUAGE = "data_title_language";
@@ -40,77 +42,21 @@ public class Settings {
 
     public static final String DEVELOPER = "developer";
 
-    private static Settings sInstance;
-    private SharedPreferences mPrefs;
+    private static BaseSetting sInstance;
 
-    private Settings(Context context) {
-        mPrefs = context.getSharedPreferences(XML_NAME, Context.MODE_PRIVATE);
-    }
-
-    public static synchronized Settings instance(Context context) {
+    public static synchronized BaseSetting instance(Context context) {
         if (sInstance == null) {
-            sInstance = new Settings(context);
+            sInstance = new BaseSetting(context, XML_NAME);
         }
 
         return sInstance;
     }
 
-    public Settings putBoolean(String key, boolean value) {
-        mPrefs.edit()
-                .putBoolean(key, value)
-                .apply();
+    public static synchronized BaseSetting instance2(Context context) {
+        if (sInstance == null) {
+            sInstance = new BaseSetting(context, XML_NAME2);
+        }
 
-        return this;
-    }
-
-    public boolean getBoolean(String key, boolean def) {
-        return mPrefs.getBoolean(key, def);
-    }
-
-    public Settings putInt(String key, int value) {
-        mPrefs.edit()
-                .putInt(key, value)
-                .apply();
-
-        return this;
-    }
-
-    public int getInt(String key, int defValue) {
-        return mPrefs.getInt(key, defValue);
-    }
-
-    public Settings putString(String key, String value) {
-        mPrefs.edit()
-                .putString(key, value)
-                .apply();
-
-        return this;
-    }
-
-    public String getString(String key, String defValue) {
-        return mPrefs.getString(key, defValue);
-    }
-
-    public Settings putIntToString(String key, int value) {
-        mPrefs.edit()
-                .putString(key, Integer.toString(value))
-                .apply();
-
-        return this;
-    }
-
-    public int getIntFromString(String key, int defValue) {
-        return Integer.parseInt(mPrefs.getString(key, Integer.toString(defValue)));
-    }
-
-    public Settings putGSON(String key, Object obj) {
-        mPrefs.edit()
-                .putString(key, new Gson().toJson(obj))
-                .apply();
-        return this;
-    }
-
-    public <T> T getGSON(String key, Class<T> c) {
-        return new Gson().fromJson(mPrefs.getString(key, ""), c);
+        return sInstance;
     }
 }

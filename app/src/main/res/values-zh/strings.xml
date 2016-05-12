@@ -123,4 +123,8 @@
     <string name="sort">排序</string>
     <string name="ship_type">类型</string>
     <string name="ship_class">舰级</string>
+
+    <string name="action_bookmark">收藏</string>
+    <string name="bookmark_add">已收藏</string>
+    <string name="bookmark_remove">已移除</string>
 </resources>

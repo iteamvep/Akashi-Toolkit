@@ -42,6 +42,7 @@ public class ShipDisplayFragment extends BaseSearchFragment {
     private int mFinalVersion;
     private int mSpeed;
     private int mSort;
+    private boolean mBookmarked;
 
     private CheckBoxGroup[] mCheckBoxGroups = new CheckBoxGroup[3];
     private RadioButtonGroup[] mRadioButtonGroups = new RadioButtonGroup[3];
@@ -101,7 +102,24 @@ public class ShipDisplayFragment extends BaseSearchFragment {
         body.setOrientation(LinearLayout.VERTICAL);
         body.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
-        mRadioButtonGroups[0] = new RadioButtonGroup(getContext());
+        mCheckBoxGroups[0] = new CheckBoxGroup(getContext());
+        mCheckBoxGroups[0].addItem("仅收藏");
+        mCheckBoxGroups[0].setOnCheckedChangeListener(new CheckBoxGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(View view, int checked) {
+                BusProvider.instance().post(new ShipAction.OnlyBookmarkedChangeAction(checked > 0));
+
+                mBookmarked = checked > 0;
+                Settings
+                        .instance(getContext())
+                        .putBoolean(Settings.SHIP_BOOKMARKED, checked > 0);
+            }
+        });
+
+        body.addView(mCheckBoxGroups[0]);
+        body.addDivider();
+
+        /*mRadioButtonGroups[0] = new RadioButtonGroup(getContext());
         mRadioButtonGroups[0].addItem("全部");
         mRadioButtonGroups[0].addItem("未改造");
         mRadioButtonGroups[0].addItem("最终改造");
@@ -118,7 +136,7 @@ public class ShipDisplayFragment extends BaseSearchFragment {
         });
 
         body.addView(mRadioButtonGroups[0]);
-        body.addDivider();
+        body.addDivider();*/
 
         mCheckBoxGroups[1] = new CheckBoxGroup(getContext());
         mCheckBoxGroups[1].addItem("低速");
@@ -171,11 +189,18 @@ public class ShipDisplayFragment extends BaseSearchFragment {
 
         mSpinner.setSelection(mSort);
 
-        mFinalVersion = Settings
+        mFinalVersion = 1/*Settings
                 .instance(getContext())
-                .getInt(Settings.SHIP_FINAL_VERSION, 0);
+                .getInt(Settings.SHIP_FINAL_VERSION, 1)*/;
 
-        mRadioButtonGroups[0].setChecked(mFinalVersion);
+        //mRadioButtonGroups[0].setChecked(mFinalVersion);
+
+
+        mBookmarked = Settings
+                .instance(getContext())
+                .getBoolean(Settings.SHIP_BOOKMARKED, false);
+
+        mCheckBoxGroups[0].setChecked(mBookmarked ? 1 : 0);
 
         mSpeed = Settings
                 .instance(getContext())
@@ -339,6 +364,7 @@ public class ShipDisplayFragment extends BaseSearchFragment {
                 bundle.putInt("FINAL_VERSION", mFinalVersion);
                 bundle.putInt("SPEED", mSpeed);
                 bundle.putInt("SORT", mSort);
+                bundle.putBoolean("BOOKMARKED", mBookmarked);
                 return bundle;
             }
         };

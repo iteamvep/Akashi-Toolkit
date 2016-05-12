@@ -28,6 +28,13 @@ public class ShipFragment extends BaseDisplayFragment<ShipAdapter> {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+
+        getAdapter().notifyDataSetChanged();
+    }
+
+    @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -35,15 +42,17 @@ public class ShipFragment extends BaseDisplayFragment<ShipAdapter> {
         int speed = 0;
         int sort = 0;
         int finalVersion = 0;
+        boolean bookmarked = false;
         Bundle args = getArguments();
         if (args != null) {
             flag = args.getInt("FLAG");
             finalVersion = args.getInt("FINAL_VERSION");
             speed = args.getInt("SPEED");
             sort = args.getInt("SORT");
+            bookmarked = args.getBoolean("BOOKMARKED");
         }
 
-        setAdapter(new ShipAdapter(getActivity(), finalVersion, flag, speed, sort));
+        setAdapter(new ShipAdapter(getActivity(), finalVersion, flag, speed, sort, bookmarked));
     }
 
     @Override
@@ -87,5 +96,11 @@ public class ShipFragment extends BaseDisplayFragment<ShipAdapter> {
     public void sortChanged(ShipAction.SortChangeAction action) {
         getAdapter().setSort(action.getSort());
         getAdapter().rebuildDataList(/*getContext()*/);
+    }
+
+    @Subscribe
+    public void onlyBookmarkedChanged(ShipAction.OnlyBookmarkedChangeAction action) {
+        getAdapter().setBookmarked(action.isBookmarked());
+        getAdapter().rebuildDataList();
     }
 }

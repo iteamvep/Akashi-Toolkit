@@ -34,6 +34,7 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
@@ -44,6 +45,7 @@ import android.view.animation.AlphaAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
@@ -72,6 +74,7 @@ import rikka.akashitoolkit.staticdata.EquipList;
 import rikka.akashitoolkit.staticdata.ExtraIllustrationList;
 import rikka.akashitoolkit.staticdata.ShipClassList;
 import rikka.akashitoolkit.staticdata.ShipList;
+import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.StaticData;
 import rikka.akashitoolkit.utils.KCStringFormatter;
 import rikka.akashitoolkit.utils.MySpannableFactory;
@@ -882,12 +885,29 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
         return addTextView(parent, text, 16);
     }
 
+    Toast mToast;
+
     @SuppressLint("DefaultLocale")
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
                 onBackPressed();
+                break;
+            case R.id.action_bookmark:
+                mItem.setBookmarked(!mItem.isBookmarked());
+
+                Settings.instance2(this)
+                        .putBoolean(String.format("ship_%d_%d", mItem.getCtype(), mItem.getCnum()), mItem.isBookmarked());
+
+                if (mToast != null) {
+                    mToast.cancel();
+                }
+
+                mToast = Toast.makeText(this, mItem.isBookmarked() ? getString(R.string.bookmark_add) : getString(R.string.bookmark_remove), Toast.LENGTH_SHORT);
+                mToast.show();
+
+                item.setIcon(mItem.isBookmarked() ? R.drawable.ic_bookmark_24dp : R.drawable.ic_bookmark_border_24dp);
                 break;
             case R.id.action_feedback:
                 SendReportActivity.sendEmail(this,
@@ -1020,5 +1040,13 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
         anim.setInterpolator(new AccelerateDecelerateInterpolator());
         anim.start();
         return anim;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.ship_display, menu);
+        menu.findItem(R.id.action_bookmark).setIcon(mItem.isBookmarked() ? R.drawable.ic_bookmark_24dp : R.drawable.ic_bookmark_border_24dp);
+
+        return true;
     }
 }

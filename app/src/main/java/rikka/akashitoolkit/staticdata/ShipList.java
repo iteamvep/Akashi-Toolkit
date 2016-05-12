@@ -27,6 +27,7 @@ public class ShipList {
                 @Override
                 public void afterRead(List<Ship> list) {
 
+                    setBookmarked(context, list);
                     sortById(list);
 
                     if (Settings
@@ -47,6 +48,14 @@ public class ShipList {
         sList = null;
     }
 
+    private static void setBookmarked(Context context, List<Ship> list) {
+        for (Ship ship :
+                list) {
+            ship.setBookmarked(Settings.instance2(context)
+                    .getBoolean(String.format("ship_%d_%d", ship.getCtype(), ship.getCnum()), false));
+        }
+    }
+
     public static synchronized void sortById(List<Ship> list) {
         Collections.sort(list, new Comparator<Ship>() {
             @Override
@@ -54,6 +63,8 @@ public class ShipList {
                 return lhs.getId() - rhs.getId();
             }
         });
+
+
     }
 
     public static synchronized void sort() {

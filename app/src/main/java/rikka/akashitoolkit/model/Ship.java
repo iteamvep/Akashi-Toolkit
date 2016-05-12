@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Created by Rikka on 2016/3/29.
  */
-public class Ship {
+public class Ship extends BaseDataModel {
 
     /**
      * id : 1
@@ -22,7 +22,7 @@ public class Ship {
      * remodel : {"blueprint":0,"cost":[15,15],"id_from":0,"id_to":254,"level":20}
      */
 
-    private int id;
+    //private int id;
     private int id_illustrations;
     private String wiki_id;
     /**
@@ -66,13 +66,13 @@ public class Ship {
     private List<Integer> modernization;
     private List<Integer> dismantling_res;
 
-    public int getId() {
+    /*public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
-    }
+    }*/
 
     public int getId_illustrations() {
         return id_illustrations;

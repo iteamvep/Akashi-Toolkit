@@ -18,7 +18,7 @@ public class DonateUtils {
         }
 
         if (!Utils.isPackageEnabled(context, PACKAGENAME_ALIPAY)) {
-            Toast.makeText(context, "您的支付宝已被禁用.. QAQ", Toast.LENGTH_LONG).show();
+            Toast.makeText(context, "您的支付宝已被禁用 _(:3｣ ∠)_", Toast.LENGTH_LONG).show();
             return;
         }
 

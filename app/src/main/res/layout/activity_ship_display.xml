@@ -51,6 +51,7 @@
                         android:id="@android:id/summary"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:maxLines="1"
                         android:textAppearance="@style/ItemActivity.Subtitle"/>
                 </LinearLayout>
 
@@ -67,7 +68,6 @@
                     android:contentDescription="@null"/>
 
             </LinearLayout>
-
 
         </android.support.v7.widget.Toolbar>
 
