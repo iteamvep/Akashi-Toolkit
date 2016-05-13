@@ -238,7 +238,7 @@ public class IconSwitchCompat extends CompoundButton {
                     a.getColorStateList(R.styleable.IconSwitchCompat_iconColor));
         }
 
-        if (mThumbDrawable != null) {
+        /*if (mThumbDrawable != null) {
             DrawableCompat.setTintList(mThumbDrawable,
                     a.getColorStateList(R.styleable.IconSwitchCompat_thumbColor));
         }
@@ -246,7 +246,7 @@ public class IconSwitchCompat extends CompoundButton {
         if (mTrackDrawable != null) {
             DrawableCompat.setTintList(mTrackDrawable,
                     a.getColorStateList(R.styleable.IconSwitchCompat_trackColor));
-        }
+        }*/
 
         a.recycle();
 
@@ -962,10 +962,10 @@ public class IconSwitchCompat extends CompoundButton {
 
             if (mIconDrawable != null) {
                 mIconDrawable.getPadding(padding);
-                mIconDrawable.setBounds(thumbLeft + (int) ((thumbRight - thumbLeft) * 0.25),
-                        switchTop + (int) ((switchBottom - switchTop) * 0.25),
-                        thumbRight - (int) ((thumbRight - thumbLeft) * 0.25),
-                        switchBottom - (int) ((switchBottom - switchTop) * 0.25));
+                mIconDrawable.setBounds(thumbLeft + (int) ((thumbRight - thumbLeft) * 0.23),
+                        switchTop + (int) ((switchBottom - switchTop) * 0.23),
+                        thumbRight - (int) ((thumbRight - thumbLeft) * 0.23),
+                        switchBottom - (int) ((switchBottom - switchTop) * 0.23));
             }
 
             final Drawable background = getBackground();

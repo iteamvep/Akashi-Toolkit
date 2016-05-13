@@ -37,6 +37,7 @@
                     android:layout_gravity="end"
                     android:layout_marginRight="16dp"
                     android:layout_marginEnd="16dp"
+                    android:theme="@style/BookmarkSwitch"
                     app:minWidth="52dp"
                     app:iconDrawable="@drawable/bookmarked"
                     app:thumbColor="@color/icon_switch_thumb"

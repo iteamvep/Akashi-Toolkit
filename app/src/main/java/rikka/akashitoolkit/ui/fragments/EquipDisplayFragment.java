@@ -28,6 +28,8 @@ public class EquipDisplayFragment extends BaseFragment {
 
     @Override
     public void onShow() {
+        super.onShow();
+
         MainActivity activity = ((MainActivity) getActivity());
         activity.getTabLayout().setupWithViewPager(mViewPager);
         activity.getSupportActionBar().setTitle(getString(R.string.item));
