@@ -58,8 +58,6 @@ import rikka.akashitoolkit.utils.Utils;
  * Created by Rikka on 2016/4/30.
  */
 public class SeasonalFragment extends BaseFragment {
-    private static final int TAB_LAYOUT_VISIBILITY = View.GONE;
-
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private RecyclerView mRecyclerView;
     private Adapter mAdapter;
@@ -70,9 +68,7 @@ public class SeasonalFragment extends BaseFragment {
     @Override
     public void onShow() {
         MainActivity activity = ((MainActivity) getActivity());
-        activity.getTabLayout().setVisibility(TAB_LAYOUT_VISIBILITY);
         activity.getSupportActionBar().setTitle(mTitle);
-        activity.setRightDrawerLocked(true);
 
         Statistics.onFragmentStart("SeasonalFragment");
     }

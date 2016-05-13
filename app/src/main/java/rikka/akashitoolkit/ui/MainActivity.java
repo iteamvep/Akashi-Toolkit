@@ -18,6 +18,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.Switch;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -35,6 +36,7 @@ import rikka.akashitoolkit.ui.fragments.SeasonalFragment;
 import rikka.akashitoolkit.ui.fragments.ShipDisplayFragment;
 import rikka.akashitoolkit.ui.fragments.ToolsFragment;
 import rikka.akashitoolkit.ui.fragments.TwitterFragment;
+import rikka.akashitoolkit.widget.IconSwitchCompat;
 import rikka.akashitoolkit.widget.SimpleDrawerView;
 
 public class MainActivity extends BaseActivity
@@ -47,6 +49,7 @@ public class MainActivity extends BaseActivity
     private ScrimInsetsFrameLayout mNavigationViewRight;
     private DrawerLayout mDrawerLayout;
     private CoordinatorLayout mCoordinatorLayout;
+    private IconSwitchCompat mSwitch;
 
     private Map<Integer, Fragment> mFragmentMap;
 
@@ -61,6 +64,8 @@ public class MainActivity extends BaseActivity
         Push.init(this);
 
         getWindow().setBackgroundDrawable(new ColorDrawable(ContextCompat.getColor(this, R.color.background)));
+
+        mSwitch = (IconSwitchCompat) findViewById(R.id.switch_bookmark);
 
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
@@ -157,6 +162,10 @@ public class MainActivity extends BaseActivity
 
     public SimpleDrawerView getRightDrawerContent() {
         return mRightDrawerContent;
+    }
+
+    public IconSwitchCompat getSwitch() {
+        return mSwitch;
     }
 
     public DrawerLayout getDrawerLayout() {

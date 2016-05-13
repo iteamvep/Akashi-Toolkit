@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.StringRes;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.view.View;
 
 import rikka.akashitoolkit.ui.MainActivity;
 
@@ -49,7 +50,10 @@ public abstract class BaseFragment extends Fragment {
     }
 
     public void onShow() {
-
+        MainActivity activity = ((MainActivity) getActivity());
+        activity.getTabLayout().setVisibility(getTabLayoutVisible() ? View.VISIBLE : View.GONE);
+        activity.setRightDrawerLocked(getRightDrawerLock());
+        activity.getSwitch().setVisibility(getSwitchVisible() ? View.VISIBLE : View.GONE);
     }
 
     public void onHide() {
@@ -72,5 +76,17 @@ public abstract class BaseFragment extends Fragment {
 
         MainActivity activity = (MainActivity) getActivity();
         activity.showSnackbar(resId, duration);
+    }
+
+    protected boolean getRightDrawerLock() {
+        return true;
+    }
+
+    protected boolean getTabLayoutVisible() {
+        return false;
+    }
+
+    protected boolean getSwitchVisible() {
+        return false;
     }
 }

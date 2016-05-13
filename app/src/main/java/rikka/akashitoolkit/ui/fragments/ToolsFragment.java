@@ -16,14 +16,12 @@ import rikka.akashitoolkit.ui.MainActivity;
  * Created by Rikka on 2016/4/9.
  */
 public class ToolsFragment extends BaseFragment {
-    private static final int TAB_LAYOUT_VISIBILITY = View.GONE;
-
     @Override
     public void onShow() {
+        super.onShow();
+
         MainActivity activity = ((MainActivity) getActivity());
-        activity.getTabLayout().setVisibility(TAB_LAYOUT_VISIBILITY);
         activity.getSupportActionBar().setTitle(getString(R.string.tools));
-        activity.setRightDrawerLocked(true);
 
         Statistics.onFragmentStart("ToolsFragment");
     }

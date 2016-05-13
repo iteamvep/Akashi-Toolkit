@@ -52,7 +52,6 @@ import rikka.akashitoolkit.utils.Utils;
 public class TwitterFragment extends BaseFragment {
     private static final String TAG = "TwitterFragment";
 
-    private static final int TAB_LAYOUT_VISIBILITY = View.GONE;
     private static final String CACHE_TWITTER_JSON_NAME = "/json/twitter.json";
     private String CACHE_DIR;
 
@@ -65,10 +64,10 @@ public class TwitterFragment extends BaseFragment {
 
     @Override
     public void onShow() {
+        super.onShow();
+
         MainActivity activity = ((MainActivity) getActivity());
-        activity.getTabLayout().setVisibility(TAB_LAYOUT_VISIBILITY);
         activity.getSupportActionBar().setTitle(getString(R.string.official_twitter));
-        activity.setRightDrawerLocked(true);
 
         mSwipeRefreshLayout.setRefreshing(false);
 

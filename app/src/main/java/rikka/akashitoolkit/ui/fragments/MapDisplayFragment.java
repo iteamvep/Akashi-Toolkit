@@ -22,8 +22,6 @@ import rikka.akashitoolkit.ui.MainActivity;
  * Created by Rikka on 2016/4/9.
  */
 public class MapDisplayFragment extends BaseFragment {
-    private static final int TAB_LAYOUT_VISIBILITY = View.VISIBLE;
-
     private ViewPager mViewPager;
 
     protected Object mBusEventListener;
@@ -48,12 +46,17 @@ public class MapDisplayFragment extends BaseFragment {
     }
 
     @Override
+    protected boolean getTabLayoutVisible() {
+        return true;
+    }
+
+    @Override
     public void onShow() {
+        super.onShow();
+
         MainActivity activity = ((MainActivity) getActivity());
-        activity.getTabLayout().setVisibility(TAB_LAYOUT_VISIBILITY);
         activity.getTabLayout().setupWithViewPager(mViewPager);
         activity.getSupportActionBar().setTitle(getString(R.string.maps));
-        activity.setRightDrawerLocked(true);
 
         Statistics.onFragmentStart("MapDisplayFragment");
     }

@@ -57,8 +57,6 @@ import static rikka.akashitoolkit.support.ApiConstParam.JSON_VERSION;
  * Created by Rikka on 2016/3/6.
  */
 public class HomeFragment extends BaseFragment {
-    private static final int TAB_LAYOUT_VISIBILITY = View.GONE;
-
     private LinearLayout mLinearLayout;
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private ButtonCardView mUpdateCardView;
@@ -69,10 +67,10 @@ public class HomeFragment extends BaseFragment {
 
     @Override
     public void onShow() {
+        super.onShow();
+
         MainActivity activity = ((MainActivity) getActivity());
-        activity.getTabLayout().setVisibility(TAB_LAYOUT_VISIBILITY);
         activity.getSupportActionBar().setTitle(getString(R.string.app_name));
-        activity.setRightDrawerLocked(true);
 
         Statistics.onFragmentStart("HomeFragment");
     }

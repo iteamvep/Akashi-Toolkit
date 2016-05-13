@@ -31,8 +31,6 @@ import rikka.akashitoolkit.widget.CheckBoxGroup;
  * Created by Rikka on 2016/3/6.
  */
 public class QuestDisplayFragment extends BaseSearchFragment implements CheckBoxGroup.OnCheckedChangeListener {
-    private static final int TAB_LAYOUT_VISIBILITY = View.VISIBLE;
-
     private ViewPager mViewPager;
     private ViewPagerAdapter[] mViewPagerAdapter;
     private MainActivity mActivity;
@@ -49,6 +47,16 @@ public class QuestDisplayFragment extends BaseSearchFragment implements CheckBox
     }
 
     @Override
+    protected boolean getRightDrawerLock() {
+        return false;
+    }
+
+    @Override
+    protected boolean getTabLayoutVisible() {
+        return true;
+    }
+
+    @Override
     public void onShow() {
         super.onShow();
 
@@ -58,10 +66,8 @@ public class QuestDisplayFragment extends BaseSearchFragment implements CheckBox
 
         setUpViewPager(isSearching() ? 1 : 0);
 
-        mActivity.getTabLayout().setVisibility(TAB_LAYOUT_VISIBILITY);
         mActivity.getTabLayout().setupWithViewPager(mViewPager);
         mActivity.getSupportActionBar().setTitle(getString(R.string.quest));
-        mActivity.setRightDrawerLocked(false);
 
         mActivity.getRightDrawerContent().removeAllViews();
         mActivity.getRightDrawerContent().addTitle(getString(R.string.action_filter));

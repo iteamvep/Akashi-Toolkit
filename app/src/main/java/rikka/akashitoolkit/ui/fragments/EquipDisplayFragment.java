@@ -19,17 +19,18 @@ import rikka.akashitoolkit.ui.MainActivity;
  * Created by Rikka on 2016/3/23.
  */
 public class EquipDisplayFragment extends BaseFragment {
-    private static final int TAB_LAYOUT_VISIBILITY = View.VISIBLE;
-
     private ViewPager mViewPager;
+
+    @Override
+    protected boolean getTabLayoutVisible() {
+        return true;
+    }
 
     @Override
     public void onShow() {
         MainActivity activity = ((MainActivity) getActivity());
-        activity.getTabLayout().setVisibility(TAB_LAYOUT_VISIBILITY);
         activity.getTabLayout().setupWithViewPager(mViewPager);
         activity.getSupportActionBar().setTitle(getString(R.string.item));
-        activity.setRightDrawerLocked(true);
 
         Statistics.onFragmentStart("EquipDisplayFragment");
     }

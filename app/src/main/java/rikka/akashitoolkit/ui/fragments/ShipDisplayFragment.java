@@ -27,6 +27,7 @@ import rikka.akashitoolkit.support.Statistics;
 import rikka.akashitoolkit.ui.MainActivity;
 import rikka.akashitoolkit.utils.Utils;
 import rikka.akashitoolkit.widget.CheckBoxGroup;
+import rikka.akashitoolkit.widget.IconSwitchCompat;
 import rikka.akashitoolkit.widget.RadioButtonGroup;
 import rikka.akashitoolkit.widget.SimpleDrawerView;
 
@@ -34,8 +35,6 @@ import rikka.akashitoolkit.widget.SimpleDrawerView;
  * Created by Rikka on 2016/3/30.
  */
 public class ShipDisplayFragment extends BaseSearchFragment {
-    private static final int TAB_LAYOUT_VISIBILITY = View.GONE;
-
     private ViewPager mViewPager;
     private MainActivity mActivity;
     private int mFlag;
@@ -102,7 +101,7 @@ public class ShipDisplayFragment extends BaseSearchFragment {
         body.setOrientation(LinearLayout.VERTICAL);
         body.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
-        mCheckBoxGroups[0] = new CheckBoxGroup(getContext());
+        /*mCheckBoxGroups[0] = new CheckBoxGroup(getContext());
         mCheckBoxGroups[0].addItem("仅收藏");
         mCheckBoxGroups[0].setOnCheckedChangeListener(new CheckBoxGroup.OnCheckedChangeListener() {
             @Override
@@ -117,7 +116,7 @@ public class ShipDisplayFragment extends BaseSearchFragment {
         });
 
         body.addView(mCheckBoxGroups[0]);
-        body.addDivider();
+        body.addDivider();*/
 
         /*mRadioButtonGroups[0] = new RadioButtonGroup(getContext());
         mRadioButtonGroups[0].addItem("全部");
@@ -180,6 +179,20 @@ public class ShipDisplayFragment extends BaseSearchFragment {
         mScrollView.setPadding(0, Utils.dpToPx(4), 0, Utils.dpToPx(4));
         mScrollView.setClipToPadding(false);
         mScrollView.addView(body);
+
+        ((MainActivity) getActivity()).getSwitch().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int checked = ((IconSwitchCompat) v).isChecked() ? 1 : 0;
+
+                BusProvider.instance().post(new ShipAction.OnlyBookmarkedChangeAction(checked > 0));
+
+                mBookmarked = checked > 0;
+                Settings
+                        .instance(getContext())
+                        .putBoolean(Settings.SHIP_BOOKMARKED, checked > 0);
+            }
+        });
     }
 
     private void postSetDrawerView() {
@@ -200,7 +213,8 @@ public class ShipDisplayFragment extends BaseSearchFragment {
                 .instance(getContext())
                 .getBoolean(Settings.SHIP_BOOKMARKED, false);
 
-        mCheckBoxGroups[0].setChecked(mBookmarked ? 1 : 0);
+        ((MainActivity) getActivity()).getSwitch().setChecked(mBookmarked);
+        //mCheckBoxGroups[0].setChecked(mBookmarked ? 1 : 0);
 
         mSpeed = Settings
                 .instance(getContext())
@@ -218,11 +232,22 @@ public class ShipDisplayFragment extends BaseSearchFragment {
     }
 
     @Override
+    protected boolean getRightDrawerLock() {
+        return true;
+    }
+
+    @Override
+    protected boolean getSwitchVisible() {
+        return true;
+    }
+
+    @Override
     public void onShow() {
+        super.onShow();
+
         BusProvider.instance().post(new ShipAction.KeywordChanged(null));
 
         MainActivity activity = ((MainActivity) getActivity());
-        activity.getTabLayout().setVisibility(TAB_LAYOUT_VISIBILITY);
         activity.getTabLayout().setupWithViewPager(mViewPager);
         activity.getSupportActionBar().setTitle(getString(R.string.ship));
 

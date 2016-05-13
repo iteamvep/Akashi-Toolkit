@@ -1,11 +1,13 @@
 package rikka.akashitoolkit.adapter;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +17,7 @@ import rikka.akashitoolkit.model.Ship;
 import rikka.akashitoolkit.model.ShipClass;
 import rikka.akashitoolkit.staticdata.ShipClassList;
 import rikka.akashitoolkit.staticdata.ShipList;
+import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.ui.ShipDisplayActivity;
 import rikka.akashitoolkit.utils.Utils;
 import rx.Observable;
@@ -36,6 +39,8 @@ public class ShipAdapter extends BaseRecyclerAdapter<ViewHolder.Ship> {
     private boolean mBookmarked;
     private String mKeyword;
     private boolean mIsSearching;
+
+    private Toast mToast;
 
     public ShipAdapter(Activity activity) {
         mData = new ArrayList<>();
@@ -150,7 +155,7 @@ public class ShipAdapter extends BaseRecyclerAdapter<ViewHolder.Ship> {
                 break;
         }
 
-        if (mBookmarked && !item.isBookmarked()) {
+        if (mBookmarked && (!mIsSearching) && !item.isBookmarked()) {
             return false;
         }
         /*if (mShowVersion && (item.getRemodel().getId_to() != 0 &&
@@ -259,6 +264,28 @@ public class ShipAdapter extends BaseRecyclerAdapter<ViewHolder.Ship> {
 
                 v.getContext().startActivity(intent);
                 mActivity.overridePendingTransition(0, 0);
+            }
+        });
+
+        holder.mLinearLayout.setOnLongClickListener(new View.OnLongClickListener() {
+            @SuppressLint("DefaultLocale")
+            @Override
+            public boolean onLongClick(View v) {
+                mData.get(position).setBookmarked(!mData.get(position).isBookmarked());
+
+                Settings.instance2(mActivity)
+                        .putBoolean(String.format("ship_%d_%d", mData.get(position).getCtype(), mData.get(position).getCnum()), mData.get(position).isBookmarked());
+
+                if (mToast != null) {
+                    mToast.cancel();
+                }
+
+                mToast = Toast.makeText(mActivity, mData.get(position).isBookmarked() ? mActivity.getString(R.string.bookmark_add) : mActivity.getString(R.string.bookmark_remove), Toast.LENGTH_SHORT);
+                mToast.show();
+
+                notifyItemChanged(position);
+
+                return false;
             }
         });
     }
