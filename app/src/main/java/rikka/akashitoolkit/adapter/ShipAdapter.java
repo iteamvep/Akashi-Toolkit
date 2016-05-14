@@ -15,6 +15,8 @@ import java.util.List;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.model.Ship;
 import rikka.akashitoolkit.model.ShipClass;
+import rikka.akashitoolkit.otto.BookmarkNoItemAction;
+import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.staticdata.ShipClassList;
 import rikka.akashitoolkit.staticdata.ShipList;
 import rikka.akashitoolkit.support.Settings;
@@ -125,6 +127,10 @@ public class ShipAdapter extends BaseRecyclerAdapter<ViewHolder.Ship> {
                                 mData.add(item);
                             }
                         }
+
+                        if (mData.size() == 0 && mBookmarked) {
+                            BusProvider.instance().post(new BookmarkNoItemAction());
+                        }
                         notifyDataSetChanged();
                     }
 
@@ -141,18 +147,20 @@ public class ShipAdapter extends BaseRecyclerAdapter<ViewHolder.Ship> {
     }
 
     private boolean check(Ship item) {
-        switch (mShowVersion) {
-            case 1:
-                if (item.getRemodel().getId_from() != 0) {
-                    return false;
-                }
-                break;
-            case 2:
-                if ((item.getRemodel().getId_to() != 0 &&
-                        item.getRemodel().getId_to() != item.getRemodel().getId_from())) {
-                    return false;
-                }
-                break;
+        if (!mIsSearching) {
+            switch (mShowVersion) {
+                case 1:
+                    if (item.getRemodel().getId_from() != 0) {
+                        return false;
+                    }
+                    break;
+                case 2:
+                    if ((item.getRemodel().getId_to() != 0 &&
+                            item.getRemodel().getId_to() != item.getRemodel().getId_from())) {
+                        return false;
+                    }
+                    break;
+            }
         }
 
         if (mBookmarked && (!mIsSearching) && !item.isBookmarked()) {

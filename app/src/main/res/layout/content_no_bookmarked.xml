@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:gravity="center"
+              android:background="@color/bookmarkNoItemBackground">
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/bt_ic_zero_pinned"
+            android:contentDescription="@null"/>
+
+        <ImageView
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            app:srcCompat="@drawable/ic_bookmark_no_item_24dp"
+            android:layout_gravity="center"
+            android:contentDescription="@null"/>
+
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nothing bookmarked"
+        android:layout_marginTop="24dp"
+        android:textSize="18sp"
+        android:textColor="@android:color/white"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxWidth="240dp"
+        android:text="You can add item to bookmark by long press it or click bookmark in detail view."
+        android:layout_marginTop="8dp"
+        android:textSize="16sp"
+        android:textColor="@android:color/white"/>
+
+</LinearLayout>

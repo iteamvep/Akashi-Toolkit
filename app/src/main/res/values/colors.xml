@@ -20,6 +20,9 @@
     <color name="itemDisplayTitle">#000</color>
     <color name="itemDisplaySubtitle">#ff757575</color>
 
+    <color name="bookmarkNoItem">@color/colorPrimary</color>
+    <color name="bookmarkNoItemBackground">@color/material_pink_400</color>
+
     <color name="FAB">#FFF</color>
     <color name="text">#8A000000</color>
 

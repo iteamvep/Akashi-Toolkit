@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -17,10 +18,12 @@ import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 
+import com.squareup.otto.Subscribe;
+
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.ViewPagerAdapter;
+import rikka.akashitoolkit.otto.BookmarkNoItemAction;
 import rikka.akashitoolkit.otto.BusProvider;
-import rikka.akashitoolkit.otto.DataChangedAction;
 import rikka.akashitoolkit.otto.ShipAction;
 import rikka.akashitoolkit.staticdata.ShipList;
 import rikka.akashitoolkit.support.Settings;
@@ -28,7 +31,6 @@ import rikka.akashitoolkit.support.Statistics;
 import rikka.akashitoolkit.ui.MainActivity;
 import rikka.akashitoolkit.utils.Utils;
 import rikka.akashitoolkit.widget.CheckBoxGroup;
-import rikka.akashitoolkit.widget.IconSwitchCompat;
 import rikka.akashitoolkit.widget.RadioButtonGroup;
 import rikka.akashitoolkit.widget.SimpleDrawerView;
 
@@ -192,6 +194,10 @@ public class ShipDisplayFragment extends BaseSearchFragment {
                 Settings
                         .instance(getContext())
                         .putBoolean(Settings.SHIP_BOOKMARKED, checked > 0);
+
+                if (mViewPager.getCurrentItem() == 1 && !mBookmarked) {
+                    mViewPager.setCurrentItem(0);
+                }
             }
         });
     }
@@ -240,6 +246,18 @@ public class ShipDisplayFragment extends BaseSearchFragment {
     @Override
     protected boolean getSwitchVisible() {
         return true;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        BusProvider.instance().register(this);
+    }
+
+    @Override
+    public void onStop() {
+        BusProvider.instance().unregister(this);
+        super.onStop();
     }
 
     @Override
@@ -374,6 +392,26 @@ public class ShipDisplayFragment extends BaseSearchFragment {
         View view = inflater.inflate(R.layout.content_viewpager, container, false);
         mViewPager = (ViewPager) view.findViewById(R.id.view_pager);
         mViewPager.setAdapter(getAdapter());
+        mViewPager.setPageTransformer(false, new ViewPager.PageTransformer() {
+            @Override
+            public void transformPage(View page, float position) {
+                page.setTranslationX(page.getWidth() * -position);
+
+                if (position <= -1 || position >= 1) {
+                    page.setAlpha(0);
+                } else if (position == 0) {
+                    page.setAlpha(1f);
+                } else {
+                    page.setAlpha(1f - Math.abs(position));
+                }
+            }
+        });
+        mViewPager.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return true;
+            }
+        });
 
         if (!isHiddenBeforeSaveInstanceState()) {
             onShow();
@@ -396,6 +434,7 @@ public class ShipDisplayFragment extends BaseSearchFragment {
             }
         };
         adapter.addFragment(ShipFragment.class, "全部");
+        adapter.addFragment(BookmarkNoItemFragment.class, "全部");
 
         return adapter;
     }
@@ -403,5 +442,10 @@ public class ShipDisplayFragment extends BaseSearchFragment {
     @Override
     public String getSearchHint() {
         return "搜索名称、罗马音、中文名拼音…";
+    }
+
+    @Subscribe
+    public void onlyBookmarkedChanged(BookmarkNoItemAction action) {
+        mViewPager.setCurrentItem(1);
     }
 }
