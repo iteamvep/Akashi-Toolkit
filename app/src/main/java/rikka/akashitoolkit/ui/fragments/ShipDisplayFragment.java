@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 
@@ -180,10 +181,10 @@ public class ShipDisplayFragment extends BaseSearchFragment {
         mScrollView.setClipToPadding(false);
         mScrollView.addView(body);
 
-        ((MainActivity) getActivity()).getSwitch().setOnClickListener(new View.OnClickListener() {
+        ((MainActivity) getActivity()).getSwitch().setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onClick(View v) {
-                int checked = ((IconSwitchCompat) v).isChecked() ? 1 : 0;
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                int checked = buttonView.isChecked() ? 1 : 0;
 
                 BusProvider.instance().post(new ShipAction.OnlyBookmarkedChangeAction(checked > 0));
 

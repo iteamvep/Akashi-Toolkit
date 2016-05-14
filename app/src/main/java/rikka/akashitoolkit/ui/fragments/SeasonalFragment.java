@@ -67,6 +67,8 @@ public class SeasonalFragment extends BaseFragment {
 
     @Override
     public void onShow() {
+        super.onShow();
+
         MainActivity activity = ((MainActivity) getActivity());
         activity.getSupportActionBar().setTitle(mTitle);
 

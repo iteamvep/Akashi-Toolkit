@@ -28,6 +28,7 @@ import android.graphics.Rect;
 import android.graphics.Region;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.StateListDrawable;
 import android.os.Build;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v4.view.MotionEventCompat;
@@ -229,13 +230,21 @@ public class IconSwitchCompat extends CompoundButton {
         mSwitchMinWidth = a.getDimensionPixelSize(
                 R.styleable.IconSwitchCompat_minWidth, 0);
 
-        mIconDrawable = a.getDrawable(R.styleable.IconSwitchCompat_iconDrawable);
+        Drawable icon = a.getDrawable(R.styleable.IconSwitchCompat_iconDrawable);
+        Drawable iconChecked = a.getDrawable(R.styleable.IconSwitchCompat_iconDrawableChecked);
+
+        DrawableCompat.setTintList(icon,
+                a.getColorStateList(R.styleable.IconSwitchCompat_iconColor));
+
+        DrawableCompat.setTintList(iconChecked,
+                a.getColorStateList(R.styleable.IconSwitchCompat_iconColor));
+
+        mIconDrawable = new StateListDrawable();
+        ((StateListDrawable) mIconDrawable).addState(CHECKED_STATE_SET, iconChecked);
+        ((StateListDrawable) mIconDrawable).addState(new int[]{}, icon);
 
         if (mIconDrawable != null) {
             mIconDrawable.setCallback(this);
-
-            DrawableCompat.setTintList(mIconDrawable,
-                    a.getColorStateList(R.styleable.IconSwitchCompat_iconColor));
         }
 
         /*if (mThumbDrawable != null) {

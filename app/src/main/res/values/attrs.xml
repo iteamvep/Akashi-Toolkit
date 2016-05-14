@@ -12,5 +12,6 @@
         <attr name="iconColor" format="color|reference"/>
 
         <attr name="iconDrawable" format="reference"/>
+        <attr name="iconDrawableChecked" format="reference"/>
     </declare-styleable>
 </resources>
