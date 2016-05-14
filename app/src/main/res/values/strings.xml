@@ -145,4 +145,11 @@ Activity &amp; Extra:
     <string name="action_bookmark">Bookmark</string>
     <string name="bookmark_add">Bookmarked</string>
     <string name="bookmark_remove">Removed</string>
+
+    <string name="night_mode_require_restart">You need to restart app to take effect.</string>
+    <string name="restart_app">Restart app</string>
+    <string name="continue_use">Not now</string>
+
+    <string name="night_mode_system_auto">The night mode setting of your system is auto, set in app will not take effect.</string>
+
 </resources>

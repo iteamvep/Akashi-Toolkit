@@ -341,6 +341,7 @@ public class ShipDisplayFragment extends BaseSearchFragment {
     @Override
     public void onSearchExpand() {
         BusProvider.instance().post(new ShipAction.IsSearchingChanged(true));
+        BusProvider.instance().post(new ShipAction.KeywordChanged(null));
     }
 
     @Override

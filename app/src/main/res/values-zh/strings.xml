@@ -127,4 +127,11 @@
     <string name="action_bookmark">收藏</string>
     <string name="bookmark_add">已收藏</string>
     <string name="bookmark_remove">已移除</string>
+
+    <string name="night_mode_require_restart">您需要重启应用来试设置生效。</string>
+    <string name="restart_app">立即重启</string>
+    <string name="continue_use">继续使用</string>
+
+    <string name="night_mode_system_auto">您的系统夜间模式设置为自动，应用内设置为自动可能不会生效。</string>
+
 </resources>

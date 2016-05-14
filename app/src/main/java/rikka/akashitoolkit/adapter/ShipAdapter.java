@@ -194,11 +194,11 @@ public class ShipAdapter extends BaseRecyclerAdapter<ViewHolder.Ship> {
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder.Ship holder, final int position) {
+    public void onBindViewHolder(final ViewHolder.Ship holder, int position) {
         Ship item = mData.get(position);
 
         boolean showDivider;
-        boolean showTitle = false;
+        boolean showTitle;
         String curType = null;
         int cType;
 
@@ -233,29 +233,31 @@ public class ShipAdapter extends BaseRecyclerAdapter<ViewHolder.Ship> {
         holder.mDummyView.setVisibility(!showDivider ? View.VISIBLE : View.GONE);
         holder.mDummyView2.setVisibility(showTitle && position != 0 ? View.VISIBLE : View.GONE);
 
-        holder.mName.setText(String.format(mData.get(position).isBookmarked() ? "%s ★" : "%s",
-                mData.get(position).getName().get(holder.mName.getContext())));
+        holder.mName.setText(String.format(item.isBookmarked() ? "%s ★" : "%s",
+                item.getName().get(holder.mName.getContext())));
 
-        ShipClass shipClass = ShipClassList.findItemById(mActivity, mData.get(position).getCtype());
+        ShipClass shipClass = ShipClassList.findItemById(mActivity, item.getCtype());
 
         if (shipClass != null) {
             String c;
             if (mSort == 0) {
-                c = String.format("%s%s号舰", shipClass.getName(), Utils.getChineseNumberString(mData.get(position).getCnum()));
+                c = String.format("%s%s号舰", shipClass.getName(), Utils.getChineseNumberString(item.getCnum()));
                 //c = "";
             } else {
-                c = String.format("%s号舰", Utils.getChineseNumberString(mData.get(position).getCnum()));
+                c = String.format("%s号舰", Utils.getChineseNumberString(item.getCnum()));
             }
             holder.mName2.setText(c);
         } else {
-            Log.d("ShipDisplayActivity", "No ship class: " + mData.get(position).getName().get(mActivity));
+            Log.d("ShipDisplayActivity", "No ship class: " + item.getName().get(mActivity));
         }
 
         holder.mLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Ship item = mData.get(holder.getAdapterPosition());
+
                 Intent intent = new Intent(v.getContext(), ShipDisplayActivity.class);
-                intent.putExtra(ShipDisplayActivity.EXTRA_ITEM_ID, mData.get(position).getId());
+                intent.putExtra(ShipDisplayActivity.EXTRA_ITEM_ID, item.getId());
 
                 int[] location = new int[2];
                 holder.mLinearLayout.getLocationOnScreen(location);
@@ -271,19 +273,21 @@ public class ShipAdapter extends BaseRecyclerAdapter<ViewHolder.Ship> {
             @SuppressLint("DefaultLocale")
             @Override
             public boolean onLongClick(View v) {
-                mData.get(position).setBookmarked(!mData.get(position).isBookmarked());
+                Ship item = mData.get(holder.getAdapterPosition());
+
+                item.setBookmarked(!item.isBookmarked());
 
                 Settings.instance2(mActivity)
-                        .putBoolean(String.format("ship_%d_%d", mData.get(position).getCtype(), mData.get(position).getCnum()), mData.get(position).isBookmarked());
+                        .putBoolean(String.format("ship_%d_%d", item.getCtype(), item.getCnum()), item.isBookmarked());
 
                 if (mToast != null) {
                     mToast.cancel();
                 }
 
-                mToast = Toast.makeText(mActivity, mData.get(position).isBookmarked() ? mActivity.getString(R.string.bookmark_add) : mActivity.getString(R.string.bookmark_remove), Toast.LENGTH_SHORT);
+                mToast = Toast.makeText(mActivity, item.isBookmarked() ? mActivity.getString(R.string.bookmark_add) : mActivity.getString(R.string.bookmark_remove), Toast.LENGTH_SHORT);
                 mToast.show();
 
-                notifyItemChanged(position);
+                notifyItemChanged(holder.getAdapterPosition());
 
                 return false;
             }

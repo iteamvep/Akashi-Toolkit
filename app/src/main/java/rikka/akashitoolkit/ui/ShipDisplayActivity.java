@@ -1,12 +1,10 @@
 package rikka.akashitoolkit.ui;
 
 import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.media.MediaPlayer;
@@ -41,7 +39,6 @@ import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
-import android.view.animation.AlphaAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -1046,6 +1043,11 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.ship_display, menu);
         menu.findItem(R.id.action_bookmark).setIcon(mItem.isBookmarked() ? R.drawable.ic_bookmark_24dp : R.drawable.ic_bookmark_border_24dp);
+
+        /*Drawable drawable = ContextCompat.getDrawable(this, mItem.isBookmarked() ? R.drawable.ic_bookmark_24dp : R.drawable.ic_bookmark_border_24dp);
+        drawable.setColorFilter(ContextCompat.getColor(this, R.color.itemDisplayTitle), PorterDuff.Mode.SRC_ATOP);
+
+        menu.findItem(R.id.action_bookmark).setIcon(drawable);*/
 
         return true;
     }
