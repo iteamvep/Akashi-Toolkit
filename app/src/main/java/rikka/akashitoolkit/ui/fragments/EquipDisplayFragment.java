@@ -97,8 +97,8 @@ public class EquipDisplayFragment extends BaseFragment {
 
 
                 mViewPagerAdapter.notifyDataSetChanged();
-                /*mViewPager.setAdapter(mViewPagerAdapter);
-                MainActivity activity = ((MainActivity) getActivity());
+                mViewPager.setAdapter(mViewPagerAdapter);
+                /*MainActivity activity = ((MainActivity) getActivity());
                 activity.getTabLayout().setupWithViewPager(mViewPager);*/
 
                 if (!mBookmarked) {
@@ -111,6 +111,8 @@ public class EquipDisplayFragment extends BaseFragment {
                         }
                     }, 500);*/
                 }
+
+                mViewPager.setSwipeEnabled(!mBookmarked);
 
                 setTabLayoutVisible();
             }

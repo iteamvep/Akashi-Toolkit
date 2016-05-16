@@ -21,13 +21,6 @@ public class MyViewPager extends ViewPager {
 
         mSwipeEnabled = true;
 
-        setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                return !mSwipeEnabled;
-            }
-        });
-
         setPageTransformer(false, new ViewPager.PageTransformer() {
             @Override
             public void transformPage(View page, float position) {
@@ -46,6 +39,24 @@ public class MyViewPager extends ViewPager {
                 }
             }
         });
+    }
+
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent event) {
+        if (!mSwipeEnabled) {
+            return true;
+        }
+
+        return super.onInterceptTouchEvent(event);
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        if (!mSwipeEnabled) {
+            return true;
+        }
+
+        return super.onTouchEvent(event);
     }
 
     public boolean isSwipeEnabled() {
