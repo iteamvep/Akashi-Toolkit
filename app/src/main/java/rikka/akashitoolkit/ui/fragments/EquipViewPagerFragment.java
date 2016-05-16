@@ -45,22 +45,6 @@ public class EquipViewPagerFragment extends Fragment {
         mViewPager.setSwipeEnabled(!action.isBookmarked());
     }
 
-    /*@Override
-    public void onResume() {
-        super.onResume();
-        Log.d("QAQ", "onResume");
-
-        ((MainActivity) getActivity()).getTabLayout().setupWithViewPager(mViewPager);
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        Log.d("QAQ", "onStart");
-
-        ((MainActivity) getActivity()).getTabLayout().setupWithViewPager(mViewPager);
-    }*/
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -69,7 +53,12 @@ public class EquipViewPagerFragment extends Fragment {
         mViewPager.setAdapter(getAdapter());
         mViewPager.setCurrentItem(0, false);
 
-        ((MainActivity) getActivity()).getTabLayout().setupWithViewPager(mViewPager);
+        mViewPager.post(new Runnable() {
+            @Override
+            public void run() {
+                ((MainActivity) getActivity()).getTabLayout().setupWithViewPager(mViewPager);
+            }
+        });
 
         return view;
     }

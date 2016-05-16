@@ -483,7 +483,7 @@ public class SeasonalFragment extends BaseDrawerItemFragment {
             Log.d(getClass().getSimpleName(), url);
 
             ImageView imageView = (ImageView) LayoutInflater.from(getContext())
-                    .inflate(R.layout.item_illustrations, container, false)
+                    .inflate(R.layout.ship_illustrations, container, false)
                     .findViewById(R.id.imageView);
 
             LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(Utils.dpToPx(content.getWidth()), Utils.dpToPx(content.getHeight()));

@@ -2,7 +2,6 @@ package rikka.akashitoolkit.ui;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.Color;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.content.ContextCompat;
@@ -21,6 +20,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import rikka.akashitoolkit.R;
@@ -30,7 +32,6 @@ import rikka.akashitoolkit.model.ShipType;
 import rikka.akashitoolkit.staticdata.EquipList;
 import rikka.akashitoolkit.staticdata.EquipImprovementList;
 import rikka.akashitoolkit.staticdata.EquipTypeList;
-import rikka.akashitoolkit.staticdata.QuestList;
 import rikka.akashitoolkit.staticdata.ShipTypeList;
 import rikka.akashitoolkit.support.StaticData;
 import rikka.akashitoolkit.utils.KCStringFormatter;
@@ -255,6 +256,8 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
             }
         }
 
+        addIllustration(mLinearLayout);
+
         if (mItem.getIntroduction() != null
                 && mItem.getIntroduction().get(this) != null
                 && mItem.getIntroduction().get(this).length() > 0) {
@@ -457,6 +460,49 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
 
         if (attr % 2 == 0) {
             mCurAttrLinearLayout = null;
+        }
+    }
+
+    @SuppressLint("DefaultLocale")
+    private void addIllustration(ViewGroup parent) {
+        parent = addCell(parent, R.string.illustration);
+
+        ViewGroup view = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.ship_illustrations_container, parent);
+        LinearLayout container = (LinearLayout) view.findViewById(R.id.content_container);
+
+        final List<String> urlList = new ArrayList<>();
+        urlList.add(Utils.getKCWikiFileUrl(String.format("Soubi%03dFull.png", mItem.getId())));
+        urlList.add(Utils.getKCWikiFileUrl(String.format("Soubi%03dArnament.png", mItem.getId())));
+        urlList.add(Utils.getKCWikiFileUrl(String.format("Soubi%03dFairy.png", mItem.getId())));
+
+        for (int i = 0; i < urlList.size(); i++) {
+            String url = urlList.get(i);
+
+            Log.d(getClass().getSimpleName(), url);
+
+            ImageView imageView = (ImageView) LayoutInflater.from(this)
+                    .inflate(R.layout.equip_illustrations, container, false)
+                    .findViewById(R.id.imageView);
+            container.addView(imageView);
+
+            Log.d("QAQ", url);
+
+            final int finalI = i;
+            imageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(EquipDisplayActivity.this, ImageDisplayActivity.class);
+                    intent.putStringArrayListExtra(ImageDisplayActivity.EXTRA_URL, (ArrayList<String>) urlList);
+                    intent.putExtra(ImageDisplayActivity.EXTRA_POSITION, finalI);
+                    intent.putExtra(ImageDisplayActivity.EXTRA_TITLE, getTaskDescriptionLabel());
+                    startActivity(intent);
+                }
+            });
+
+            Glide.with(this)
+                    .load(Utils.getGlideUrl(url))
+                    .crossFade()
+                    .into(imageView);
         }
     }
 }

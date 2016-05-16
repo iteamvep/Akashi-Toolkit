@@ -687,7 +687,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
             Log.d(getClass().getSimpleName(), url);
 
             ImageView imageView = (ImageView) LayoutInflater.from(this)
-                    .inflate(R.layout.item_illustrations, container, false)
+                    .inflate(R.layout.ship_illustrations, container, false)
                     .findViewById(R.id.imageView);
             container.addView(imageView);
 
