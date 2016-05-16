@@ -69,7 +69,7 @@ public class EquipTypeList {
                 list) {
 
             if (sParentList.get(item.getParent()) == null) {
-                sParentList.put(item.getParent(), sParentList.size());
+                sParentList.put(item.getParent(), sParentList.size() + 1);
             }
         }
     }
@@ -285,14 +285,19 @@ public class EquipTypeList {
     }*/
 
     public static void setIntoImageView(ImageView imageView, int id) {
+        if (imageView.getTag() != null
+                && (int) imageView.getTag() == id) {
+            return;
+        }
+
         try {
+            imageView.setTag(id);
             imageView.setImageResource(ICON[id]);
             imageView.setColorFilter(ContextCompat.getColor(
                     imageView.getContext(),
                     COLOR[Utils.isNightMode(imageView.getContext().getResources()) ? 1 : 0][id]));
         } catch (Exception e) {
             e.printStackTrace();
-            Log.e("QAQ", Integer.toString(id));
         }
     }
 }

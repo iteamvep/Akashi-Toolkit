@@ -59,7 +59,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import rikka.akashitoolkit.R;
-import rikka.akashitoolkit.adapter.ViewPagerAdapter;
+import rikka.akashitoolkit.adapter.ViewPagerStateAdapter;
 import rikka.akashitoolkit.model.Equip;
 import rikka.akashitoolkit.model.ExtraIllustration;
 import rikka.akashitoolkit.model.Ship;
@@ -642,7 +642,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
         //ViewPager viewPager = new ViewPager(this);
         viewPager.setPadding(0, Utils.dpToPx(4), 0, 0);
         viewPager.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, Utils.dpToPx(32) * 6 + Utils.dpToPx(16)));
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager()) {
+        ViewPagerStateAdapter adapter = new ViewPagerStateAdapter(getSupportFragmentManager()) {
             @Override
             public Bundle getArgs(int position) {
                 Bundle bundle = new Bundle();

@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by Rikka on 2016/3/26.
  */
-public class Equip {
+public class Equip extends BaseDataModel {
     /**
      * id : 8
      * name : {"zh_cn":"35.6cm连装炮","ja":"35.6cm连装炮"}
@@ -19,12 +19,6 @@ public class Equip {
      * icon : 0
      * shipLimit : [0,1,2,3]
      * improvement : {"secretary":[{"name":"夕立改二","day":[false,true,true,true,false,false,false]},{"name":"绫波改二","day":[false,true,true,true,false,false,false]}],"resource":{"base":[10,10,10,10],"item":[[7,9,5,7,1,2],[7,9,5,7,1,2]],"levelup":1}}
-     */
-
-    private int id;
-    /**
-     * zh_cn : 35.6cm连装炮
-     * ja : 35.6cm连装炮
      */
 
     private MultiLanguageEntry name;
@@ -56,14 +50,6 @@ public class Equip {
     private List<Integer> shipLimit;
 
     private GetEntity get;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public MultiLanguageEntry getName() {
         return name;

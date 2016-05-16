@@ -1,5 +1,6 @@
 package rikka.akashitoolkit.staticdata;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 
 import com.google.gson.reflect.TypeToken;
@@ -48,6 +49,7 @@ public class ShipList {
         sList = null;
     }
 
+    @SuppressLint("DefaultLocale")
     private static void setBookmarked(Context context, List<Ship> list) {
         for (Ship ship :
                 list) {

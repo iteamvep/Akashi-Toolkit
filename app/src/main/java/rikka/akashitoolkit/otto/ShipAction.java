@@ -69,22 +69,6 @@ public class ShipAction {
         }
     }
 
-    public static class OnlyBookmarkedChangeAction {
-        private boolean bookmarked;
-
-        public OnlyBookmarkedChangeAction(boolean bookmarked) {
-            this.bookmarked = bookmarked;
-        }
-
-        public boolean isBookmarked() {
-            return bookmarked;
-        }
-
-        public void setBookmarked(boolean bookmarked) {
-            this.bookmarked = bookmarked;
-        }
-    }
-
     public static class KeywordChanged {
         private String keyword;
 

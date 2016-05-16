@@ -27,8 +27,9 @@ public abstract class BaseDisplayFragment<T extends BaseRecyclerAdapter> extends
     private RecyclerView mRecyclerView;
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
         mBusEventListener = new Object() {
             @Subscribe
             public void dataChanged(final DataChangedAction event) {

@@ -14,7 +14,7 @@
     <color name="itemDisplaySubtitle">#DEFFFFFF</color>
 
     <color name="bookmarkNoItem">@android:color/black</color>
-    <color name="bookmarkNoItemBackground">@android:color/black</color>
+    <color name="bookmarkNoItemBackground">@color/material_grey_850</color>
 
 
     <color name="FAB">#b5000000</color>

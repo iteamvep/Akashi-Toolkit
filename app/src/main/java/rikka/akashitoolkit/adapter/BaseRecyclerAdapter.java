@@ -5,6 +5,8 @@ import android.util.Log;
 
 import com.squareup.otto.Subscribe;
 
+import java.util.List;
+
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.DataChangedAction;
 
@@ -26,6 +28,10 @@ public abstract class BaseRecyclerAdapter<VH extends RecyclerView.ViewHolder> ex
     }*/
 
     public abstract void rebuildDataList();
+
+    public void onDataListRebuilt(List data) {
+
+    }
 
     /*@Subscribe
     public void dataChanged(DataChangedAction action) {

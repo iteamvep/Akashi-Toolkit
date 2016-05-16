@@ -51,13 +51,18 @@ public abstract class BaseFragment extends Fragment {
 
     public void onShow() {
         MainActivity activity = ((MainActivity) getActivity());
-        activity.getTabLayout().setVisibility(getTabLayoutVisible() ? View.VISIBLE : View.GONE);
+        setTabLayoutVisible();
         activity.setRightDrawerLocked(getRightDrawerLock());
         activity.getSwitch().setVisibility(getSwitchVisible() ? View.VISIBLE : View.GONE);
     }
 
     public void onHide() {
 
+    }
+
+    public void setTabLayoutVisible() {
+        MainActivity activity = ((MainActivity) getActivity());
+        activity.getTabLayout().setVisibility(getTabLayoutVisible() ? View.VISIBLE : View.GONE);
     }
 
     public void showSnackbar(CharSequence text, @Snackbar.Duration int duration) {

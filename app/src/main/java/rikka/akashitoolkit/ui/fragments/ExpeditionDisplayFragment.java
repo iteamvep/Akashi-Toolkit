@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import rikka.akashitoolkit.R;
-import rikka.akashitoolkit.adapter.ViewPagerAdapter;
+import rikka.akashitoolkit.adapter.ViewPagerStateAdapter;
 import rikka.akashitoolkit.support.Statistics;
 import rikka.akashitoolkit.ui.MainActivity;
 
@@ -55,8 +55,8 @@ public class ExpeditionDisplayFragment extends BaseFragment {
         return view;
     }
 
-    private ViewPagerAdapter getAdapter() {
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager()) {
+    private ViewPagerStateAdapter getAdapter() {
+        ViewPagerStateAdapter adapter = new ViewPagerStateAdapter(getChildFragmentManager()) {
             @Override
             public Bundle getArgs(int position) {
                 Bundle bundle = new Bundle();

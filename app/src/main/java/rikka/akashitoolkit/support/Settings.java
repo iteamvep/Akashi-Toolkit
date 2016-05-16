@@ -27,7 +27,9 @@ public class Settings {
     public static final String SHIP_FINAL_VERSION = "ship_show_final_version";
     public static final String SHIP_SPEED = "ship_show_speed";
     public static final String SHIP_SORT = "ship_show_sort";
+
     public static final String SHIP_BOOKMARKED = "ship_show_bookmarked";
+    public static final String EQUIP_BOOKMARKED = "equip_show_bookmarked";
 
     public static final String DATA_LANGUAGE = "data_language";
     public static final String DATA_TITLE_LANGUAGE = "data_title_language";

@@ -1,24 +1,20 @@
 package rikka.akashitoolkit.ui.fragments;
 
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
-import android.support.v4.widget.NestedScrollView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 import com.squareup.otto.Subscribe;
 
 import rikka.akashitoolkit.R;
-import rikka.akashitoolkit.adapter.ViewPagerAdapter;
+import rikka.akashitoolkit.adapter.ViewPagerStateAdapter;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.QuestAction;
 import rikka.akashitoolkit.support.Settings;
@@ -32,7 +28,7 @@ import rikka.akashitoolkit.widget.CheckBoxGroup;
  */
 public class QuestDisplayFragment extends BaseSearchFragment implements CheckBoxGroup.OnCheckedChangeListener {
     private ViewPager mViewPager;
-    private ViewPagerAdapter[] mViewPagerAdapter;
+    private ViewPagerStateAdapter[] mViewPagerStateAdapter;
     private MainActivity mActivity;
     private int mType;
     private int mFlag = -1;
@@ -142,9 +138,9 @@ public class QuestDisplayFragment extends BaseSearchFragment implements CheckBox
 
         View view = inflater.inflate(R.layout.content_viewpager, container, false);
         mViewPager = (ViewPager) view.findViewById(R.id.view_pager);
-        mViewPagerAdapter = new ViewPagerAdapter[2];
-        mViewPagerAdapter[0] = getAdapter(0);
-        mViewPagerAdapter[1] = getAdapter(1);
+        mViewPagerStateAdapter = new ViewPagerStateAdapter[2];
+        mViewPagerStateAdapter[0] = getAdapter(0);
+        mViewPagerStateAdapter[1] = getAdapter(1);
 
         if (!isHiddenBeforeSaveInstanceState()) {
             onShow();
@@ -154,17 +150,17 @@ public class QuestDisplayFragment extends BaseSearchFragment implements CheckBox
     }
 
     private void setUpViewPager(int type) {
-        mViewPager.setAdapter(mViewPagerAdapter[type]);
+        mViewPager.setAdapter(mViewPagerStateAdapter[type]);
         mViewPager.setCurrentItem(type);
         mActivity.getTabLayout().setupWithViewPager(mViewPager);
         mType = type;
     }
 
-    private ViewPagerAdapter getAdapter(int type) {
-        ViewPagerAdapter adapter;
+    private ViewPagerStateAdapter getAdapter(int type) {
+        ViewPagerStateAdapter adapter;
 
         if (type == 0) {
-            adapter = new ViewPagerAdapter(getChildFragmentManager()) {
+            adapter = new ViewPagerStateAdapter(getChildFragmentManager()) {
                 @Override
                 public Bundle getArgs(int position) {
                     Bundle bundle = new Bundle();
@@ -187,7 +183,7 @@ public class QuestDisplayFragment extends BaseSearchFragment implements CheckBox
             adapter.addFragment(QuestFragment.class, "工廠");
             adapter.addFragment(QuestFragment.class, "改裝");
         } else {
-            adapter = new ViewPagerAdapter(getChildFragmentManager()) {
+            adapter = new ViewPagerStateAdapter(getChildFragmentManager()) {
                 @Override
                 public Bundle getArgs(int position) {
                     Bundle bundle = new Bundle();

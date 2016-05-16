@@ -15,8 +15,6 @@ import java.util.List;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.model.Ship;
 import rikka.akashitoolkit.model.ShipClass;
-import rikka.akashitoolkit.otto.BookmarkNoItemAction;
-import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.staticdata.ShipClassList;
 import rikka.akashitoolkit.staticdata.ShipList;
 import rikka.akashitoolkit.support.Settings;
@@ -31,14 +29,13 @@ import rx.schedulers.Schedulers;
 /**
  * Created by Rikka on 2016/3/30.
  */
-public class ShipAdapter extends BaseRecyclerAdapter<ViewHolder.Ship> {
+public class ShipAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Ship> {
     private List<Ship> mData;
     private Activity mActivity;
     private int mShowVersion;
     private int mTypeFlag;
     private int mShowSpeed;
     private int mSort;
-    private boolean mBookmarked;
     private String mKeyword;
     private boolean mIsSearching;
 
@@ -56,7 +53,8 @@ public class ShipAdapter extends BaseRecyclerAdapter<ViewHolder.Ship> {
         mTypeFlag = typeFlag;
         mShowSpeed = showSpeed;
         mSort = sort;
-        mBookmarked = bookmarked;
+
+        setBookmarked(bookmarked);
 
         mActivity = activity;
 
@@ -69,10 +67,6 @@ public class ShipAdapter extends BaseRecyclerAdapter<ViewHolder.Ship> {
 
     public void setSort(int sort) {
         mSort = sort;
-    }
-
-    public void setBookmarked(boolean bookmarked) {
-        mBookmarked = bookmarked;
     }
 
     public void setShowSpeed(int showSpeed) {
@@ -128,9 +122,7 @@ public class ShipAdapter extends BaseRecyclerAdapter<ViewHolder.Ship> {
                             }
                         }
 
-                        if (mData.size() == 0 && mBookmarked) {
-                            BusProvider.instance().post(new BookmarkNoItemAction());
-                        }
+                        onDataListRebuilt(mData);
                         notifyDataSetChanged();
                     }
 
@@ -163,7 +155,7 @@ public class ShipAdapter extends BaseRecyclerAdapter<ViewHolder.Ship> {
             }
         }
 
-        if (mBookmarked && (!mIsSearching) && !item.isBookmarked()) {
+        if (requireBookmarked() && (!mIsSearching) && !item.isBookmarked()) {
             return false;
         }
         /*if (mShowVersion && (item.getRemodel().getId_to() != 0 &&

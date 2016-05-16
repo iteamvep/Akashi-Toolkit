@@ -44,7 +44,7 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 import rikka.akashitoolkit.R;
-import rikka.akashitoolkit.adapter.ViewPagerAdapter;
+import rikka.akashitoolkit.adapter.ViewPagerStateAdapter;
 import rikka.akashitoolkit.utils.Utils;
 
 public class ImageDisplayActivity extends BaseActivity implements View.OnClickListener {
@@ -96,7 +96,7 @@ public class ImageDisplayActivity extends BaseActivity implements View.OnClickLi
         mTextView2.setText(Integer.toString(mList.size()));
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager()) {
+        ViewPagerStateAdapter adapter = new ViewPagerStateAdapter(getSupportFragmentManager()) {
             @Override
             public Bundle getArgs(int position) {
                 Bundle bundle = new Bundle();

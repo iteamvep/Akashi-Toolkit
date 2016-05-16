@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import com.squareup.otto.Subscribe;
 
 import rikka.akashitoolkit.R;
-import rikka.akashitoolkit.adapter.ViewPagerAdapter;
+import rikka.akashitoolkit.adapter.ViewPagerStateAdapter;
 import rikka.akashitoolkit.model.MapType;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.DataChangedAction;
@@ -82,8 +82,8 @@ public class MapDisplayFragment extends BaseFragment {
         return view;
     }
 
-    private ViewPagerAdapter getAdapter() {
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager()) {
+    private ViewPagerStateAdapter getAdapter() {
+        ViewPagerStateAdapter adapter = new ViewPagerStateAdapter(getChildFragmentManager()) {
             @Override
             public Bundle getArgs(int position) {
                 Bundle bundle = new Bundle();

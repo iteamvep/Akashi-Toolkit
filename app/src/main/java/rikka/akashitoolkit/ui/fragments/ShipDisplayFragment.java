@@ -3,13 +3,11 @@ package rikka.akashitoolkit.ui.fragments;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.GravityCompat;
-import android.support.v4.view.ViewPager;
 import android.support.v4.widget.NestedScrollView;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -22,7 +20,8 @@ import com.squareup.otto.Subscribe;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.ViewPagerAdapter;
-import rikka.akashitoolkit.otto.BookmarkNoItemAction;
+import rikka.akashitoolkit.adapter.ViewPagerStateAdapter;
+import rikka.akashitoolkit.otto.BookmarkAction;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.ShipAction;
 import rikka.akashitoolkit.staticdata.ShipList;
@@ -31,6 +30,7 @@ import rikka.akashitoolkit.support.Statistics;
 import rikka.akashitoolkit.ui.MainActivity;
 import rikka.akashitoolkit.utils.Utils;
 import rikka.akashitoolkit.widget.CheckBoxGroup;
+import rikka.akashitoolkit.widget.MyViewPager;
 import rikka.akashitoolkit.widget.RadioButtonGroup;
 import rikka.akashitoolkit.widget.SimpleDrawerView;
 
@@ -38,7 +38,7 @@ import rikka.akashitoolkit.widget.SimpleDrawerView;
  * Created by Rikka on 2016/3/30.
  */
 public class ShipDisplayFragment extends BaseSearchFragment {
-    private ViewPager mViewPager;
+    private MyViewPager mViewPager;
     private MainActivity mActivity;
     private int mFlag;
     private int mFinalVersion;
@@ -188,7 +188,7 @@ public class ShipDisplayFragment extends BaseSearchFragment {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 int checked = buttonView.isChecked() ? 1 : 0;
 
-                BusProvider.instance().post(new ShipAction.OnlyBookmarkedChangeAction(checked > 0));
+                BusProvider.instance().post(new BookmarkAction.Changed(checked > 0));
 
                 mBookmarked = checked > 0;
                 Settings
@@ -360,6 +360,10 @@ public class ShipDisplayFragment extends BaseSearchFragment {
     public void onSearchExpand() {
         BusProvider.instance().post(new ShipAction.IsSearchingChanged(true));
         BusProvider.instance().post(new ShipAction.KeywordChanged(null));
+
+        if (mViewPager.getCurrentItem() == 1) {
+            mViewPager.setCurrentItem(0);
+        }
     }
 
     @Override
@@ -390,28 +394,9 @@ public class ShipDisplayFragment extends BaseSearchFragment {
         mActivity = (MainActivity) getActivity();
 
         View view = inflater.inflate(R.layout.content_viewpager, container, false);
-        mViewPager = (ViewPager) view.findViewById(R.id.view_pager);
+        mViewPager = (MyViewPager) view.findViewById(R.id.view_pager);
         mViewPager.setAdapter(getAdapter());
-        mViewPager.setPageTransformer(false, new ViewPager.PageTransformer() {
-            @Override
-            public void transformPage(View page, float position) {
-                page.setTranslationX(page.getWidth() * -position);
-
-                if (position <= -1 || position >= 1) {
-                    page.setAlpha(0);
-                } else if (position == 0) {
-                    page.setAlpha(1f);
-                } else {
-                    page.setAlpha(1f - Math.abs(position));
-                }
-            }
-        });
-        mViewPager.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                return true;
-            }
-        });
+        mViewPager.setSwipeEnabled(false);
 
         if (!isHiddenBeforeSaveInstanceState()) {
             onShow();
@@ -445,7 +430,7 @@ public class ShipDisplayFragment extends BaseSearchFragment {
     }
 
     @Subscribe
-    public void onlyBookmarkedChanged(BookmarkNoItemAction action) {
+    public void onlyBookmarkedChanged(BookmarkAction.NoItem action) {
         mViewPager.setCurrentItem(1);
     }
 }

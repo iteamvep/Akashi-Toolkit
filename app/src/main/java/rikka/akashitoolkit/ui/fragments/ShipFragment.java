@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import com.squareup.otto.Subscribe;
 
 import rikka.akashitoolkit.adapter.ShipAdapter;
+import rikka.akashitoolkit.otto.BookmarkAction;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.ShipAction;
 import rikka.akashitoolkit.utils.Utils;
@@ -99,7 +100,7 @@ public class ShipFragment extends BaseDisplayFragment<ShipAdapter> {
     }
 
     @Subscribe
-    public void onlyBookmarkedChanged(ShipAction.OnlyBookmarkedChangeAction action) {
+    public void onlyBookmarkedChanged(BookmarkAction.Changed action) {
         getAdapter().setBookmarked(action.isBookmarked());
         getAdapter().rebuildDataList();
     }
