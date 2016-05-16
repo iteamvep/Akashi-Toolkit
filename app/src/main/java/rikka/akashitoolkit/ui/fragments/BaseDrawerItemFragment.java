@@ -1,5 +1,6 @@
 package rikka.akashitoolkit.ui.fragments;
 
+import android.animation.LayoutTransition;
 import android.os.Bundle;
 import android.support.annotation.StringRes;
 import android.support.design.widget.Snackbar;
@@ -11,7 +12,7 @@ import rikka.akashitoolkit.ui.MainActivity;
 /**
  * Created by Rikka on 2016/3/10.
  */
-public abstract class BaseFragment extends Fragment {
+public abstract class BaseDrawerItemFragment extends Fragment {
     private static final String HIDDEN = "HIDDEN";
     private boolean mHidden;
 

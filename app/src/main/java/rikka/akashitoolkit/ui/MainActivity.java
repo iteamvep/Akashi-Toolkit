@@ -18,7 +18,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.widget.Switch;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -178,6 +177,10 @@ public class MainActivity extends BaseActivity
 
     public TabLayout getTabLayout() {
         return mTabLayout;
+    }
+
+    public AppBarLayout getAppBarLayout() {
+        return mAppBarLayout;
     }
 
     @Override

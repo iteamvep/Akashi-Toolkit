@@ -430,7 +430,7 @@ public class ShipDisplayFragment extends BaseSearchFragment {
     }
 
     @Subscribe
-    public void onlyBookmarkedChanged(BookmarkAction.NoItem action) {
+    public void bookmarkNoItem(BookmarkAction.NoItem action) {
         mViewPager.setCurrentItem(1);
     }
 }

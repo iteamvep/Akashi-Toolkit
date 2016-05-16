@@ -15,7 +15,7 @@ import rikka.akashitoolkit.ui.MainActivity;
 /**
  * Created by Rikka on 2016/3/14.
  */
-public class ExpeditionDisplayFragment extends BaseFragment {
+public class ExpeditionDisplayFragment extends BaseDrawerItemFragment {
     private ViewPager mViewPager;
 
     @Override

@@ -20,7 +20,7 @@ import rikka.akashitoolkit.ui.MainActivity;
 /**
  * Created by Rikka on 2016/3/17.
  */
-public class EquipImprovementDisplayFragment extends BaseFragment {
+public class EquipImprovementDisplayFragment extends BaseDrawerItemFragment {
     private ViewPager mViewPager;
     private int mDay;
 

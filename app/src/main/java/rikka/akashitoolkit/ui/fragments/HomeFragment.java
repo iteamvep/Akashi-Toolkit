@@ -56,7 +56,7 @@ import static rikka.akashitoolkit.support.ApiConstParam.JSON_VERSION;
 /**
  * Created by Rikka on 2016/3/6.
  */
-public class HomeFragment extends BaseFragment {
+public class HomeFragment extends BaseDrawerItemFragment {
     private LinearLayout mLinearLayout;
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private ButtonCardView mUpdateCardView;

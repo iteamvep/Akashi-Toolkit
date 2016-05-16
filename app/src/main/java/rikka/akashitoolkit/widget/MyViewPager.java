@@ -21,6 +21,13 @@ public class MyViewPager extends ViewPager {
 
         mSwipeEnabled = true;
 
+        setOnTouchListener(new OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return !mSwipeEnabled;
+            }
+        });
+
         setPageTransformer(false, new ViewPager.PageTransformer() {
             @Override
             public void transformPage(View page, float position) {
@@ -41,26 +48,27 @@ public class MyViewPager extends ViewPager {
         });
     }
 
-    @Override
+    /*@Override
     public boolean onInterceptTouchEvent(MotionEvent event) {
-        if (!mSwipeEnabled) {
-            return true;
-        }
-
-        return super.onInterceptTouchEvent(event);
-    }
+        return !mSwipeEnabled && super.onInterceptTouchEvent(event);
+    }*/
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         if (!mSwipeEnabled) {
             return true;
         }
-
         return super.onTouchEvent(event);
     }
 
+
     public boolean isSwipeEnabled() {
         return mSwipeEnabled;
+    }
+
+    @Override
+    public boolean canScrollHorizontally(int direction) {
+        return mSwipeEnabled && super.canScrollHorizontally(direction);
     }
 
     public void setSwipeEnabled(boolean swipeEnabled) {

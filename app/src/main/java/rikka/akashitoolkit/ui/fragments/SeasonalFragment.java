@@ -1,6 +1,5 @@
 package rikka.akashitoolkit.ui.fragments;
 
-import android.app.ActivityOptions;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.media.MediaPlayer;
@@ -47,7 +46,6 @@ import rikka.akashitoolkit.model.ShipVoice;
 import rikka.akashitoolkit.network.NetworkUtils;
 import rikka.akashitoolkit.network.RetrofitAPI;
 import rikka.akashitoolkit.staticdata.ShipList;
-import rikka.akashitoolkit.staticdata.ShipVoiceExtraList;
 import rikka.akashitoolkit.support.Statistics;
 import rikka.akashitoolkit.ui.ImageDisplayActivity;
 import rikka.akashitoolkit.ui.MainActivity;
@@ -57,7 +55,7 @@ import rikka.akashitoolkit.utils.Utils;
 /**
  * Created by Rikka on 2016/4/30.
  */
-public class SeasonalFragment extends BaseFragment {
+public class SeasonalFragment extends BaseDrawerItemFragment {
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private RecyclerView mRecyclerView;
     private Adapter mAdapter;

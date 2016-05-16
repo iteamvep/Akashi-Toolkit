@@ -15,7 +15,7 @@ import rikka.akashitoolkit.ui.MainActivity;
 /**
  * Created by Rikka on 2016/4/9.
  */
-public class ToolsFragment extends BaseFragment {
+public class ToolsFragment extends BaseDrawerItemFragment {
     @Override
     public void onShow() {
         super.onShow();

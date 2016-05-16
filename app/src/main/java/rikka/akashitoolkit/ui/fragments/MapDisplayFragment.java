@@ -21,7 +21,7 @@ import rikka.akashitoolkit.ui.MainActivity;
 /**
  * Created by Rikka on 2016/4/9.
  */
-public class MapDisplayFragment extends BaseFragment {
+public class MapDisplayFragment extends BaseDrawerItemFragment {
     private ViewPager mViewPager;
 
     protected Object mBusEventListener;

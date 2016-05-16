@@ -9,6 +9,7 @@ public class BookmarkAction {
 
     public static class Changed {
         private boolean bookmarked;
+        private int type;
 
         public Changed(boolean bookmarked) {
             this.bookmarked = bookmarked;
@@ -20,6 +21,32 @@ public class BookmarkAction {
 
         public void setBookmarked(boolean bookmarked) {
             this.bookmarked = bookmarked;
+        }
+    }
+
+    public static class Changed2 {
+        private boolean bookmarked;
+        private int type;
+
+        public Changed2(boolean bookmarked, int type) {
+            this.bookmarked = bookmarked;
+            this.type = type;
+        }
+
+        public boolean isBookmarked() {
+            return bookmarked;
+        }
+
+        public void setBookmarked(boolean bookmarked) {
+            this.bookmarked = bookmarked;
+        }
+
+        public int getType() {
+            return type;
+        }
+
+        public void setType(int type) {
+            this.type = type;
         }
     }
 }
