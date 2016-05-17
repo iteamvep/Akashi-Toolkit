@@ -1,6 +1,7 @@
 package rikka.akashitoolkit.support;
 
 import android.content.Context;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 
 import static rikka.akashitoolkit.support.ApiConstParam.Language.ZH_CN;
@@ -13,6 +14,7 @@ public class StaticData {
 
     public int language;
     public int versionCode;
+    public String versionName;
 
     private StaticData(Context context) {
         language = Settings
@@ -20,7 +22,9 @@ public class StaticData {
                 .getIntFromString(Settings.DATA_LANGUAGE, ZH_CN);
 
         try {
-            versionCode = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
+            PackageInfo pi = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+            versionCode = pi.versionCode;
+            versionName = pi.versionName;
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
             versionCode = -1;

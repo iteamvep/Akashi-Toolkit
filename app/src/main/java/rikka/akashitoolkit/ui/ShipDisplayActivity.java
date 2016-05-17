@@ -19,6 +19,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
+import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.support.v7.widget.GridLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.ListPopupWindow;
@@ -39,6 +40,8 @@ import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -217,11 +220,10 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
             mRecyclerView.setAdapter(mAdapter);
         } else {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                mAppBarLayout.setAlpha(1);
-                mAppBarLayout.animate()
-                        .setDuration(FADE_IN)
-                        .alpha(0)
-                        .start();
+                AlphaAnimation animation = new AlphaAnimation(1, 0);
+                animation.setDuration(FADE_IN);
+                animation.setInterpolator(new FastOutSlowInInterpolator());
+                mAppBarLayout.startAnimation(animation);
 
                 getWindow().setBackgroundDrawable(new ColorDrawable(ContextCompat.getColor(ShipDisplayActivity.this, R.color.colorItemDisplayStatusBar)));
 
@@ -238,60 +240,54 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
                         });
             }
 
-            mRecyclerView.setAlpha(1);
-            mRecyclerView.animate()
-                    .setDuration(FADE_IN)
-                    .alpha(0)
-                    .setListener(new Animator.AnimatorListener() {
+            AlphaAnimation animation = new AlphaAnimation(1, 0);
+            animation.setDuration(FADE_IN);
+            animation.setFillAfter(true);
+            animation.setInterpolator(new FastOutSlowInInterpolator());
+            animation.setAnimationListener(new Animation.AnimationListener() {
+                @Override
+                public void onAnimationStart(Animation animation) {
+
+                }
+
+                @Override
+                public void onAnimationEnd(Animation _animation) {
+                    _animation.cancel();
+
+                    if (mItem.getName() != null) {
+                        setToolbarTitle();
+                    }
+
+                    mRecyclerView.setAdapter(mAdapter);
+
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        mCoordinatorLayout.setBackgroundColor(ContextCompat.getColor(ShipDisplayActivity.this, R.color.background));
+
+                        animateRevealColorFromCoordinates(mCoordinatorLayout, R.color.background, mX, mY, true);
+
+                        mAppBarLayout.setAlpha(1);
+                        mRecyclerView.setAlpha(1);
+                    } else {
+                        AlphaAnimation animation = new AlphaAnimation(0, 1);
+                        animation.setDuration(FADE_IN);
+                        animation.setInterpolator(new AccelerateDecelerateInterpolator());
+                        mRecyclerView.startAnimation(animation);
+                    }
+
+                    mRecyclerView.post(new Runnable() {
                         @Override
-                        public void onAnimationStart(Animator animation) {
-
+                        public void run() {
+                            mRecyclerView.scrollBy(0, y);
                         }
+                    });
+                }
 
-                        @Override
-                        public void onAnimationEnd(Animator animation) {
-                            if (mItem.getName() != null) {
-                                setToolbarTitle();
-                            }
+                @Override
+                public void onAnimationRepeat(Animation animation) {
 
-                            mRecyclerView.setAdapter(mAdapter);
-                            mRecyclerView.animate().setListener(null);
-                            mRecyclerView.animate().cancel();
-
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                                mCoordinatorLayout.setBackgroundColor(ContextCompat.getColor(ShipDisplayActivity.this, R.color.background));
-
-                                animateRevealColorFromCoordinates(mCoordinatorLayout, R.color.background, mX, mY, true);
-
-                                mAppBarLayout.setAlpha(1);
-                                mRecyclerView.setAlpha(1);
-                            } else {
-                                mRecyclerView.animate()
-                                        .setStartDelay(100)
-                                        .setInterpolator(new AccelerateDecelerateInterpolator())
-                                        .alpha(1)
-                                        .start();
-                            }
-
-                            mRecyclerView.post(new Runnable() {
-                                @Override
-                                public void run() {
-                                    mRecyclerView.scrollBy(0, y);
-                                }
-                            });
-                        }
-
-                        @Override
-                        public void onAnimationCancel(Animator animation) {
-
-                        }
-
-                        @Override
-                        public void onAnimationRepeat(Animator animation) {
-
-                        }
-                    })
-                    .start();
+                }
+            });
+            mRecyclerView.startAnimation(animation);
         }
 
         Retrofit retrofit = new Retrofit.Builder()
@@ -703,11 +699,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
             imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(ShipDisplayActivity.this, ImageDisplayActivity.class);
-                    intent.putStringArrayListExtra(ImageDisplayActivity.EXTRA_URL, (ArrayList<String>) urlList);
-                    intent.putExtra(ImageDisplayActivity.EXTRA_POSITION, finalI);
-                    intent.putExtra(ImageDisplayActivity.EXTRA_TITLE, getTaskDescriptionLabel());
-                    startActivity(intent);
+                    ImageDisplayActivity.start(v.getContext(), urlList, finalI, getTaskDescriptionLabel());
                 }
             });
 

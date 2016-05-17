@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Created by Rikka on 2016/3/17.
  */
-public class EquipImprovement {
+public class EquipImprovement extends BaseDataModel {
 
     /**
      * name : 12.7cm連装砲
@@ -16,7 +16,6 @@ public class EquipImprovement {
      */
 
     private String name;
-    private int id;
     private String type;
     private int icon;
     /**
@@ -28,10 +27,6 @@ public class EquipImprovement {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public void setType(String type) {
@@ -48,10 +43,6 @@ public class EquipImprovement {
 
     public String getName() {
         return name;
-    }
-
-    public int getId() {
-        return id;
     }
 
     public String getType() {

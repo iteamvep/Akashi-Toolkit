@@ -136,6 +136,6 @@ public abstract class BaseBookmarkFragment extends BaseDrawerItemFragment {
 
     @Subscribe
     public void dataRebuiltFinished(DataListRebuiltFinished action) {
-        //setTabLayoutVisibleWithAnim();
+        //setTabLayoutVisible();
     }
 }

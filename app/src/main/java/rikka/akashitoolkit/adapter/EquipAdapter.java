@@ -47,8 +47,6 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Item> {
     private Activity mActivity;
     private int mType;
 
-    private Toast mToast;
-
     @Override
     public long getItemId(int position) {
         return mData.get(position).id;
@@ -183,12 +181,7 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Item> {
                         Settings.instance2(mActivity)
                                 .putBoolean(String.format("equip_%d", item.getId()), item.isBookmarked());
 
-                        if (mToast != null) {
-                            mToast.cancel();
-                        }
-
-                        mToast = Toast.makeText(mActivity, item.isBookmarked() ? mActivity.getString(R.string.bookmark_add) : mActivity.getString(R.string.bookmark_remove), Toast.LENGTH_SHORT);
-                        mToast.show();
+                        showToast(mActivity, item.isBookmarked());
 
                         notifyItemChanged(holder.getAdapterPosition());
 

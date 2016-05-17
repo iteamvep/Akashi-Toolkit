@@ -42,6 +42,7 @@ import rikka.akashitoolkit.otto.DataChangedAction;
 import rikka.akashitoolkit.otto.PreferenceChangedAction;
 import rikka.akashitoolkit.otto.ReadStatusResetAction;
 import rikka.akashitoolkit.support.Settings;
+import rikka.akashitoolkit.support.StaticData;
 import rikka.akashitoolkit.support.Statistics;
 import rikka.akashitoolkit.ui.MainActivity;
 import rikka.akashitoolkit.utils.UpdateCheck;
@@ -140,7 +141,7 @@ public class HomeFragment extends BaseDrawerItemFragment {
                 public void run() {
                     refresh();
                 }
-            }, 500);
+            }, 200);
         }
 
         mLinearLayout = (LinearLayout) view.findViewById(R.id.linearLayout);
@@ -242,20 +243,16 @@ public class HomeFragment extends BaseDrawerItemFragment {
         UpdateCheck.instance().check(getContext(), new Callback<CheckUpdate>() {
             @Override
             public void onResponse(Call<CheckUpdate> call, final Response<CheckUpdate> response) {
-                int versionCode;
-                String versionName;
-
                 if (getContext() == null) {
                     return;
                 }
 
-                try {
-                    versionCode = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0).versionCode;
-                    versionName = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0).versionName;
-                } catch (PackageManager.NameNotFoundException e) {
-                    e.printStackTrace();
-                    return;
-                }
+                int versionCode;
+                String versionName;
+
+                versionCode = StaticData.instance(getContext()).versionCode;
+                versionName = StaticData.instance(getContext()).versionName;
+
 
                 if (response.body() == null
                         || response.body().getMessages() == null) {
@@ -459,16 +456,6 @@ public class HomeFragment extends BaseDrawerItemFragment {
     @Subscribe
     public void preferenceChanged(PreferenceChangedAction action) {
         if (action.getKey().equals(Settings.UPDATE_CHECK_CHANNEL)) {
-            /*int count = mLinearLayout.getChildCount();
-            for (int i = 0; i < count; i++) {
-                View view = mLinearLayout.getChildAt(i);
-                if (view instanceof ButtonCardView) {
-                    view.setVisibility(View.GONE);
-                    mLinearLayout.removeView(view);
-
-                }
-            }*/
-
             mLinearLayout.removeAllViews();
 
             mMessageReadStatus = new MessageReadStatus();

@@ -3,6 +3,7 @@ package rikka.akashitoolkit.ui;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.ActivityManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -40,6 +41,8 @@ import com.bumptech.glide.request.target.Target;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -61,6 +64,24 @@ public class ImageDisplayActivity extends BaseActivity implements View.OnClickLi
     private TextView mTextView;
     private TextView mTextView2;
     private CoordinatorLayout mCoordinatorLayout;
+
+    public static void start(Context context, String url) {
+        start(context, new String[]{url}, 0);
+    }
+
+    public static void start(Context context, String[] url, int position) {
+        List<String> list = new ArrayList<>();
+        list.addAll(Arrays.asList(url));
+        start(context, list, position, null);
+    }
+
+    public static void start(Context context, List<String> url, int position, String title) {
+        Intent intent = new Intent(context, ImageDisplayActivity.class);
+        intent.putStringArrayListExtra(ImageDisplayActivity.EXTRA_URL, (ArrayList<String>) url);
+        intent.putExtra(ImageDisplayActivity.EXTRA_POSITION, position);
+        intent.putExtra(ImageDisplayActivity.EXTRA_TITLE, title);
+        context.startActivity(intent);
+    }
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -91,6 +112,14 @@ public class ImageDisplayActivity extends BaseActivity implements View.OnClickLi
         mList = getIntent().getStringArrayListExtra(EXTRA_URL);
         mPosition = getIntent().getIntExtra(EXTRA_POSITION, 0);
         mIsDownloaded = new boolean[mList.size()];
+
+        for (String s : mList) {
+            Log.d(getClass().getSimpleName(), s);
+        }
+
+        if (mList.size() == 1) {
+            findViewById(R.id.content_container).setVisibility(View.GONE);
+        }
 
         mTextView.setText(Integer.toString(mPosition + 1));
         mTextView2.setText(Integer.toString(mList.size()));

@@ -1,5 +1,6 @@
 package rikka.akashitoolkit.adapter;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -7,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,24 +19,33 @@ import rikka.akashitoolkit.model.EquipImprovement;
 import rikka.akashitoolkit.staticdata.EquipList;
 import rikka.akashitoolkit.staticdata.EquipTypeList;
 import rikka.akashitoolkit.staticdata.EquipImprovementList;
+import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.ui.EquipDisplayActivity;
 
 /**
  * Created by Rikka on 2016/3/17.
  */
-public class EquipImprovementAdapter extends BaseRecyclerAdapter<ViewHolder.ItemImprovement> {
+public class EquipImprovementAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.ItemImprovement> {
     private List<EquipImprovement> mData;
     private List<String> mDataShip;
     private Activity mActivity;
     private int mType;
 
-    public EquipImprovementAdapter(final Activity activity, int type) {
+    public EquipImprovementAdapter(final Activity activity, int type, boolean bookmarked) {
         mActivity = activity;
         mData = new ArrayList<>();
         mDataShip = new ArrayList<>();
         mType = type;
 
+        setBookmarked(bookmarked);
+        setHasStableIds(true);
+
         rebuildDataList();
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return mData.get(position).getId() + mType * 10000;
     }
 
     @Override
@@ -43,45 +54,65 @@ public class EquipImprovementAdapter extends BaseRecyclerAdapter<ViewHolder.Item
         return new ViewHolder.ItemImprovement(itemView);
     }
 
+    @SuppressLint({"DefaultLocale", "SetTextI18n"})
     @Override
-    public void onBindViewHolder(final ViewHolder.ItemImprovement holder, final int position) {
+    public void onBindViewHolder(final ViewHolder.ItemImprovement holder, int position) {
         Equip equip = EquipList.findItemById(mActivity, mData.get(position).getId());
+
         if (equip != null) {
-            holder.mName.setText(equip.getName().get(mActivity));
+            EquipImprovement item = mData.get(position);
+
+            if (!item.isBookmarked()) {
+                holder.mName.setText(equip.getName().get(mActivity));
+            } else {
+                holder.mName.setText(equip.getName().get(mActivity) + " ★");
+            }
         }
-        //holder.mName.setText(mData.get(position).getName());
-        //holder.mType.setText(mData.get(position).getType());
+
         holder.mShip.setText("二号舰娘: " + mDataShip.get(position));
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), EquipDisplayActivity.class);
-                intent.putExtra(EquipDisplayActivity.EXTRA_ITEM_ID, mData.get(position).getId());
+                intent.putExtra(EquipDisplayActivity.EXTRA_ITEM_ID, mData.get(holder.getAdapterPosition()).getId());
 
                 int[] location = new int[2];
                 holder.itemView.getLocationOnScreen(location);
                 intent.putExtra(EquipDisplayActivity.EXTRA_START_Y, location[1]);
                 intent.putExtra(EquipDisplayActivity.EXTRA_START_HEIGHT, holder.itemView.getHeight());
-                /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    v.getContext().startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(mActivity).toBundle());
-                } else {
-                    v.getContext().startActivity(intent);
-                }*/
-                //v.getContext().startActivity(intent, ActivityOptions.makeCustomAnimation(v.getContext(), 0, 0).toBundle());
 
                 v.getContext().startActivity(intent);
                 mActivity.overridePendingTransition(0, 0);
             }
         });
 
-        //holder.mImageView.setImageResource(EquipTypeList.getResourceId(holder.itemView.getContext(), mData.get(position).getIcon()));
+        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            @SuppressLint("DefaultLocale")
+            @Override
+            public boolean onLongClick(View v) {
+                EquipImprovement item = mData.get(holder.getAdapterPosition());
+
+                item.setBookmarked(!item.isBookmarked());
+
+                Settings.instance2(mActivity)
+                        .putBoolean(String.format("equip_improve_%d", item.getId()), item.isBookmarked());
+
+                showToast(mActivity, item.isBookmarked());
+
+                notifyItemChanged(holder.getAdapterPosition());
+
+                return true;
+            }
+        });
+
         EquipTypeList.setIntoImageView(holder.mImageView, mData.get(position).getIcon());
     }
 
     @Override
     public void rebuildDataList() {
         new AsyncTask<Void, Void, Void>() {
+            @SuppressLint("DefaultLocale")
             @Override
             protected Void doInBackground(Void... params) {
                 mData.clear();
@@ -101,10 +132,14 @@ public class EquipImprovementAdapter extends BaseRecyclerAdapter<ViewHolder.Item
                     }
 
                     if (add) {
-                        mData.add(item);
-                        mDataShip.add(sb.toString());
-                    }
+                        item.setBookmarked(Settings.instance2(mActivity)
+                                .getBoolean(String.format("equip_improve_%d", item.getId()), false));
 
+                        if (!requireBookmarked() || item.isBookmarked()) {
+                            mData.add(item);
+                            mDataShip.add(sb.toString());
+                        }
+                    }
                 }
                 return null;
             }

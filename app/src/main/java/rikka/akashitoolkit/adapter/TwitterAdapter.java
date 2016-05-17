@@ -1,5 +1,6 @@
 package rikka.akashitoolkit.adapter;
 
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.v4.app.FragmentManager;
@@ -19,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import rikka.akashitoolkit.R;
+import rikka.akashitoolkit.ui.ImageDisplayActivity;
 import rikka.akashitoolkit.ui.fragments.ImageDialogFragment;
 
 import static rikka.akashitoolkit.support.ApiConstParam.TwitterContentLanguage.JP_AND_ZH;
@@ -126,12 +128,9 @@ public class TwitterAdapter extends RecyclerView.Adapter<TwitterAdapter.ViewHold
                     .load(mAvatarUrl)
                     .crossFade()
                     .into(holder.mAvatar);
+
+            holder.mAvatar.setOnClickListener(mAvatarOnClickListener);
         }
-        /*Glide.with(holder.mAvatar.getContext())
-                    .load("http://static.kcwiki.moe/KanColleStaffAvatar.png")
-                    .signature(new StringSignature(String.valueOf(System.currentTimeMillis() / (1000 * 60 * 60 * 24))))
-                    .crossFade()
-                    .into(holder.mAvatar);*/
 
         holder.mName.setText("「艦これ」開発/運営");
 
@@ -228,7 +227,8 @@ public class TwitterAdapter extends RecyclerView.Adapter<TwitterAdapter.ViewHold
         @Override
         public void onClick(View v) {
             if (v == mImageView && mFragmentManager != null) {
-                ImageDialogFragment.showDialog(mFragmentManager, mSource);
+                //ImageDialogFragment.showDialog(mFragmentManager, mSource);
+                ImageDisplayActivity.start(v.getContext(), mSource);
             }
         }
     }
@@ -249,4 +249,12 @@ public class TwitterAdapter extends RecyclerView.Adapter<TwitterAdapter.ViewHold
         Glide.clear(holder.mImage);
     }
 
+    private AvatarOnClickListener mAvatarOnClickListener = new AvatarOnClickListener();
+
+    public class AvatarOnClickListener implements View.OnClickListener {
+        @Override
+        public void onClick(View v) {
+            ImageDisplayActivity.start(v.getContext(), mAvatarUrl);
+        }
+    }
 }

@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SimpleItemAnimator;
+import android.util.Log;
 import android.view.View;
 
 import com.squareup.otto.Subscribe;
@@ -20,6 +21,7 @@ import rikka.akashitoolkit.utils.Utils;
  */
 public class EquipFragment extends BaseDisplayFragment<EquipAdapter> {
     private int mType;
+    private int mPosition;
 
     @Override
     public void onStart() {
@@ -34,6 +36,20 @@ public class EquipFragment extends BaseDisplayFragment<EquipAdapter> {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+
+        Log.d("onResume", Integer.toString(mType));
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        Log.d("onPause", Integer.toString(mType));
+    }
+
+    @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -42,6 +58,7 @@ public class EquipFragment extends BaseDisplayFragment<EquipAdapter> {
         if (args != null) {
             mType = args.getInt("TYPE");
             bookmark = args.getBoolean("BOOKMARKED");
+            mPosition = args.getInt("POSITION");
         }
 
         setAdapter(new EquipAdapter(getActivity(), mType, bookmark));
@@ -77,13 +94,15 @@ public class EquipFragment extends BaseDisplayFragment<EquipAdapter> {
     }
 
     @Subscribe
-    public void onlyBookmarkedChanged(BookmarkAction.Changed action) {
-        if (action.isBookmarked()) {
+    public void onlyBookmarkedChanged(BookmarkAction.Changed2 action) {
+        if (action.isBookmarked() && action.getType() == mPosition) {
             getAdapter().setType(0);
-        } else {
+            getAdapter().setBookmarked(action.isBookmarked());
+            getAdapter().rebuildDataList();
+        } else if (!action.isBookmarked()) {
             getAdapter().setType(mType);
+            getAdapter().setBookmarked(action.isBookmarked());
+            getAdapter().rebuildDataList();
         }
-        getAdapter().setBookmarked(action.isBookmarked());
-        getAdapter().rebuildDataList();
     }
 }

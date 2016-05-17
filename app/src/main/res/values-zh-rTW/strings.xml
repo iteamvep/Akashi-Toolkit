@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Akashi Toolkit</string>
+
+    <string name="navigation_drawer_open">打開抽屜</string>
+    <string name="navigation_drawer_close">關閉抽屜</string>
+
+    <string name="action_settings">設置</string>
+    <string name="home">主頁</string>
+    <string name="official_twitter">官推</string>
+    <string name="about">關於</string>
+    <string name="maps">海域</string>
+    <string name="setting">設置</string>
+
+    <string name="night_mode">夜間模式</string>
+    <string name="night_mode_off">關閉</string>
+    <string name="night_mode_on">開啟</string>
+    <string name="night_mode_auto">自動</string>
+    <string name="night_mode_follow_system">跟隨系統</string>
+
+    <string name="quest">任務</string>
+    <string name="refresh_fail">刷新失敗</string>
+    <string name="new_twitter">%d 更新推文</string>
+
+    <string name="action_refresh">刷新</string>
+
+    <string name="category_general">通用</string>
+    <string name="category_twitter">官推</string>
+    <string name="twitter_count">推文數量</string>
+    <string name="twitter_display_language">顯示語言</string>
+    <string name="twitter_display_language_both">原文及翻譯</string>
+    <string name="twitter_display_language_ja">原文 (日語)</string>
+    <string name="twitter_display_language_zh">翻譯 (簡體中文)</string>
+    <string name="no_new_tweet">沒有新推文</string>
+    <string name="ship">艦娘</string>
+
+    <string name="quest_reward">獎勵</string>
+    <string name="quest_require">條件</string>
+    <string name="quest_consume">消耗</string>
+    <string name="expedition">遠征</string>
+
+    <string name="expedition_flagship_format">旗艦等級: %s</string>
+    <string name="expedition_flagship_total">合計等級: %s</string>
+
+    <string name="version_format" formatted="false">%s (%d)</string>
+    <string name="version">版本</string>
+    <string name="check_update">檢查更新</string>
+    <string name="check_update_summary">獲取大致是每周一次的更新</string>
+
+    <string name="category_update">更新和消息</string>
+    <string name="update_check_channel">更新通道</string>
+    <string name="every_time_open_app">每次訪問首頁 (顯示在首頁)</string>
+    <string name="manually">手動</string>
+    <string name="no_translated">(翻譯處理中)</string>
+    <string name="item_improvement">改修</string>
+    <string name="reset_read">重置已讀</string>
+    <string name="got_it">知道啦</string>
+    <string name="not_now">才不要</string>
+    <string name="ignore_update">才不要 (忽略本次升級)</string>
+    <string name="download">去下載</string>
+    <string name="reset_read_summary">重置已讀消息包括升級提示</string>
+    <string name="read_status_reset">已讀消息已重置</string>
+    <string name="stable">穩定版 (每周更新)</string>
+    <string name="latest">最新版 (可能有更多問題)</string>
+    <string name="please_refresh">請手動刷新</string>
+    <string name="open_link">打開連結</string>
+    <string name="todo_card_format" formatted="false">當前版本: %s\n%s</string>
+    <string name="today">(今日)</string>
+    <string name="action_filter">篩選</string>
+    <string name="action_search">搜索</string>
+    <string name="item">裝備</string>
+    <string name="attributes">屬性</string>
+    <string name="item_improvement_data">改修數據</string>
+    <string name="remark">備註</string>
+    <string name="item_get">獲取途徑</string>
+    <string name="data_source">數據來源</string>
+    <string name="category_item">裝備</string>
+    <string name="display_enemy">顯示敵人裝備</string>
+    <string name="introduction">圖鑑說明</string>
+    <string name="ship_can_equip">可裝備艦種</string>
+    <string name="image_load_error">圖片載入失敗</string>
+    <string name="tools">工具</string>
+    <string name="exp_calc">經驗計算器</string>
+    <string name="exp_calc_map">海域</string>
+    <string name="exp_calc_result">結果</string>
+    <string name="exp_calc_cur_lv">當前等級</string>
+    <string name="exp_calc_target_lv">目標等級</string>
+    <string name="exp_calc_to_next">距離下一級</string>
+
+    <string name="data_language">數據語言</string>
+    <string name="language_zh">簡體中文</string>
+    <string name="language_ja">日語</string>
+    <string name="data_language_title">使用日語標題</string>
+    <string name="data_language_title_summary">對任務標題等顯示日語</string>
+    <string name="action_picture">圖片</string>
+    <string name="illustration">?圖鑑</string>
+    <string name="remodel">改造</string>
+    <string name="equip_and_load">初始裝備 &amp; 搭載量</string>
+    <string name="equip_not_found">找不到裝備 (id: %d)</string>
+    <string name="not_equipped">未裝備</string>
+    <string name="initial">初期值</string>
+    <string name="saved">已保存 %s</string>
+    <string name="save_failed">保存失敗</string>
+    <string name="require_write_external_storage_permission">需要寫外置儲存權限才能保存</string>
+    <string name="open">開啟</string>
+    <string name="download_wifi_only">只在有WiFi的情況下才能下載圖片</string>
+    <string name="voice">語音</string>
+    <string name="new_content">季節性</string>
+
+    <string name="category_notification">通知</string>
+    <string name="notification_sound">通知提示音</string>
+    <string name="notification_priority">通知優先</string>
+    <string name="data_feedback">回饋</string>
+
+    <string-array name="notification_priority">
+        <item>最低</item>
+        <item>低</item>
+        <item>默認</item>
+        <item>高</item>
+        <item>最高</item>
+    </string-array>
+
+    <string name="sort">排序</string>
+    <string name="ship_type">類型</string>
+    <string name="ship_class">艦級</string>
+
+    <string name="action_bookmark">收藏</string>
+    <string name="bookmark_add">已收藏</string>
+    <string name="bookmark_remove">已移除</string>
+
+    <string name="night_mode_require_restart">您需要重启应用来试设置生效。</string>
+    <string name="restart_app">立即重启</string>
+    <string name="continue_use">继续使用</string>
+
+    <string name="night_mode_system_auto">您的系统夜间模式设置为自动，应用内设置为自动可能不会生效。</string>
+</resources>
