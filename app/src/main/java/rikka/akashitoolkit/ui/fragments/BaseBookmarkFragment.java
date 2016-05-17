@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,15 +15,16 @@ import com.squareup.otto.Subscribe;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.otto.BookmarkAction;
 import rikka.akashitoolkit.otto.BusProvider;
+import rikka.akashitoolkit.otto.DataListRebuiltFinished;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.ui.MainActivity;
-import rikka.akashitoolkit.widget.MyViewPager;
+import rikka.akashitoolkit.widget.UnScrollableViewPager;
 
 /**
  * Created by Rikka on 2016/5/16.
  */
 public abstract class BaseBookmarkFragment extends BaseDrawerItemFragment {
-    private MyViewPager mViewPager;
+    private UnScrollableViewPager mViewPager;
 
     private boolean mBookmarked;
 
@@ -48,7 +50,10 @@ public abstract class BaseBookmarkFragment extends BaseDrawerItemFragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 mBookmarked = buttonView.isChecked();
-                //mViewPager.setCurrentItem(mBookmarked ? 1 : 0);
+
+                if (mViewPager.getCurrentItem() == 1 && !mBookmarked) {
+                    mViewPager.setCurrentItem(0);
+                }
 
                 BusProvider.instance().post(new BookmarkAction.Changed(mBookmarked));
 
@@ -68,10 +73,9 @@ public abstract class BaseBookmarkFragment extends BaseDrawerItemFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.content_viewpager, container, false);
+        View view = inflater.inflate(R.layout.content_unscrollable_viewpager, container, false);
 
-        mViewPager = (MyViewPager) view.findViewById(R.id.view_pager);
-        mViewPager.setSwipeEnabled(false);
+        mViewPager = (UnScrollableViewPager) view.findViewById(R.id.view_pager);
         mViewPager.setAdapter(new FragmentPagerAdapter(getChildFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
@@ -97,21 +101,41 @@ public abstract class BaseBookmarkFragment extends BaseDrawerItemFragment {
         return view;
     }
 
+
+    protected Object mBusEventListener;
+
     @Override
     public void onStart() {
         super.onStart();
-        BusProvider.instance().register(this);
+
+        mBusEventListener = new Object() {
+            @Subscribe
+            public void dataChanged(BookmarkAction.NoItem event) {
+                BaseBookmarkFragment.this.bookmarkNoItem(event);
+            }
+
+            @Subscribe
+            public void dataRebuiltFinished(DataListRebuiltFinished event) {
+                BaseBookmarkFragment.this.dataRebuiltFinished(event);
+            }
+        };
+
+        BusProvider.instance().register(mBusEventListener);
     }
 
     @Override
     public void onStop() {
-        BusProvider.instance().unregister(this);
+        BusProvider.instance().unregister(mBusEventListener);
         super.onStop();
     }
 
     @Subscribe
     public void bookmarkNoItem(BookmarkAction.NoItem action) {
-        mViewPager.setSwipeEnabled(false);
         mViewPager.setCurrentItem(1);
+    }
+
+    @Subscribe
+    public void dataRebuiltFinished(DataListRebuiltFinished action) {
+        //setTabLayoutVisibleWithAnim();
     }
 }

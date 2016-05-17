@@ -3,6 +3,7 @@ package rikka.akashitoolkit.ui.fragments;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.NestedScrollView;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -33,12 +34,13 @@ import rikka.akashitoolkit.widget.CheckBoxGroup;
 import rikka.akashitoolkit.widget.MyViewPager;
 import rikka.akashitoolkit.widget.RadioButtonGroup;
 import rikka.akashitoolkit.widget.SimpleDrawerView;
+import rikka.akashitoolkit.widget.UnScrollableViewPager;
 
 /**
  * Created by Rikka on 2016/3/30.
  */
 public class ShipDisplayFragment extends BaseSearchFragment {
-    private MyViewPager mViewPager;
+    private ViewPager mViewPager;
     private MainActivity mActivity;
     private int mFlag;
     private int mFinalVersion;
@@ -196,7 +198,7 @@ public class ShipDisplayFragment extends BaseSearchFragment {
                         .putBoolean(Settings.SHIP_BOOKMARKED, checked > 0);
 
                 if (mViewPager.getCurrentItem() == 1 && !mBookmarked) {
-                    mViewPager.setCurrentItem(0);
+                    mViewPager.setCurrentItem(0, false);
                 }
             }
         });
@@ -393,10 +395,9 @@ public class ShipDisplayFragment extends BaseSearchFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mActivity = (MainActivity) getActivity();
 
-        View view = inflater.inflate(R.layout.content_viewpager, container, false);
-        mViewPager = (MyViewPager) view.findViewById(R.id.view_pager);
+        View view = inflater.inflate(R.layout.content_unscrollable_viewpager, container, false);
+        mViewPager = (UnScrollableViewPager) view.findViewById(R.id.view_pager);
         mViewPager.setAdapter(getAdapter());
-        mViewPager.setSwipeEnabled(false);
 
         if (!isHiddenBeforeSaveInstanceState()) {
             onShow();
@@ -431,6 +432,6 @@ public class ShipDisplayFragment extends BaseSearchFragment {
 
     @Subscribe
     public void bookmarkNoItem(BookmarkAction.NoItem action) {
-        mViewPager.setCurrentItem(1);
+        mViewPager.setCurrentItem(1, false);
     }
 }

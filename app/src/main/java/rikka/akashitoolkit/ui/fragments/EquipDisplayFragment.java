@@ -17,7 +17,6 @@ public class EquipDisplayFragment extends BaseBookmarkFragment {
     @Override
     public void onShow() {
         super.onShow();
-        Log.d("QAQ", "onShow");
 
         ((MainActivity) getActivity()).getSupportActionBar().setTitle(getString(R.string.item));
 

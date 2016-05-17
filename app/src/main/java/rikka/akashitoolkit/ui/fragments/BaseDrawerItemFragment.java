@@ -61,6 +61,12 @@ public abstract class BaseDrawerItemFragment extends Fragment {
 
     }
 
+    public void setTabLayoutVisibleWithAnim() {
+        MainActivity activity = ((MainActivity) getActivity());
+        activity.getTabLayout().setLayoutTransition(new LayoutTransition());
+        activity.getTabLayout().setVisibility(getTabLayoutVisible() ? View.VISIBLE : View.GONE);
+    }
+
     public void setTabLayoutVisible() {
         MainActivity activity = ((MainActivity) getActivity());
         activity.getTabLayout().setVisibility(getTabLayoutVisible() ? View.VISIBLE : View.GONE);

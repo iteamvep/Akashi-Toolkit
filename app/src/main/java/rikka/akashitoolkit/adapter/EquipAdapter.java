@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.squareup.otto.Bus;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +19,8 @@ import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.model.Equip;
 import rikka.akashitoolkit.model.EquipType;
 import rikka.akashitoolkit.model.Ship;
+import rikka.akashitoolkit.otto.BusProvider;
+import rikka.akashitoolkit.otto.DataListRebuiltFinished;
 import rikka.akashitoolkit.staticdata.EquipList;
 import rikka.akashitoolkit.staticdata.EquipTypeList;
 import rikka.akashitoolkit.support.Settings;
@@ -114,11 +118,10 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Item> {
 
             @Override
             protected void onPostExecute(Void aVoid) {
-                long time = System.currentTimeMillis();
                 mData.clear();
                 mData.addAll(newList);
                 notifyDataSetChanged();
-                Log.d("notifyDataSetChanged", Long.toString(System.currentTimeMillis() - time));
+                BusProvider.instance().post(new DataListRebuiltFinished());
             }
         }.execute();
     }
@@ -139,6 +142,12 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Item> {
     public void onBindViewHolder(final ViewHolder.Item holder, int position) {
         switch (getItemViewType(position)) {
             case 0:
+                if (position >= (getItemCount() - 1) || getItemViewType(position + 1) == 1) {
+                    holder.mDivider.setVisibility(View.GONE);
+                } else {
+                    holder.mDivider.setVisibility(View.VISIBLE);
+                }
+
                 Equip item = (Equip) mData.get(position).data;
 
                 holder.mName.setText(String.format(item.isBookmarked() ? "%s ★" : "%s",

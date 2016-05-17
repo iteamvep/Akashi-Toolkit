@@ -52,17 +52,17 @@ public class EquipFragment extends BaseDisplayFragment<EquipAdapter> {
     public void onPostCreateView(RecyclerView recyclerView) {
         super.onPostCreateView(recyclerView);
 
-        /*RecyclerView.ItemAnimator animator = recyclerView.getItemAnimator();
+        RecyclerView.ItemAnimator animator = recyclerView.getItemAnimator();
 
         if (animator instanceof SimpleItemAnimator) {
             ((SimpleItemAnimator) animator).setSupportsChangeAnimations(false);
         }
 
-        if (animator instanceof DefaultItemAnimator) {
+        /*/*if (animator instanceof DefaultItemAnimator) {
             ((DefaultItemAnimator) animator).setSupportsChangeAnimations(false);
         }*/
 
-        recyclerView.setItemAnimator(null);
+        //recyclerView.setItemAnimator(null);
 
         recyclerView.addItemDecoration(new RecyclerView.ItemDecoration() {
             @Override

@@ -670,8 +670,16 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
         LinearLayout container = (LinearLayout) view.findViewById(R.id.content_container);
 
         final List<String> urlList = new ArrayList<>();
-        urlList.add(Utils.getKCWikiFileUrl(String.format("KanMusu%sIllust.png", mItem.getWiki_id().replace("a", ""))));
-        urlList.add(Utils.getKCWikiFileUrl(String.format("KanMusu%sDmgIllust.png", mItem.getWiki_id().replace("a", ""))));
+
+        if (mItem.getWiki_id().equals("030a")) {
+            urlList.add(Utils.getKCWikiFileUrl(String.format("KanMusu%sIllust.png", mItem.getWiki_id())));
+            urlList.add(Utils.getKCWikiFileUrl(String.format("KanMusu%sDmgIllust.png", mItem.getWiki_id())));
+
+        } else {
+            urlList.add(Utils.getKCWikiFileUrl(String.format("KanMusu%sIllust.png", mItem.getWiki_id().replace("a", ""))));
+            urlList.add(Utils.getKCWikiFileUrl(String.format("KanMusu%sDmgIllust.png", mItem.getWiki_id().replace("a", ""))));
+        }
+
 
         ExtraIllustration extraIllustration = ExtraIllustrationList.findItemById(this, mItem.getWiki_id());
         if (extraIllustration != null) {
@@ -904,11 +912,13 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
                 mToast = Toast.makeText(this, mItem.isBookmarked() ? getString(R.string.bookmark_add) : getString(R.string.bookmark_remove), Toast.LENGTH_SHORT);
                 mToast.show();
 
-                item.setIcon(mItem.isBookmarked() ? R.drawable.ic_bookmark_24dp : R.drawable.ic_bookmark_border_24dp);
+                item.setIcon(
+                        ContextCompat.getDrawable(this, mItem.isBookmarked() ? R.drawable.ic_bookmark_24dp : R.drawable.ic_bookmark_border_24dp));
+
                 break;
             case R.id.action_feedback:
                 SendReportActivity.sendEmail(this,
-                        "Akashi Toolkit 装备数据反馈",
+                        "Akashi Toolkit 舰娘数据反馈",
                         String.format("应用版本: %d\n舰娘名称: %s\n\n请写下您的建议或是指出错误的地方。\n\n",
                                 StaticData.instance(this).versionCode,
                                 getTaskDescriptionLabel()));
@@ -1042,7 +1052,9 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.ship_display, menu);
-        menu.findItem(R.id.action_bookmark).setIcon(mItem.isBookmarked() ? R.drawable.ic_bookmark_24dp : R.drawable.ic_bookmark_border_24dp);
+
+        menu.findItem(R.id.action_bookmark).setIcon(
+                ContextCompat.getDrawable(this, mItem.isBookmarked() ? R.drawable.ic_bookmark_24dp : R.drawable.ic_bookmark_border_24dp));
 
         /*Drawable drawable = ContextCompat.getDrawable(this, mItem.isBookmarked() ? R.drawable.ic_bookmark_24dp : R.drawable.ic_bookmark_border_24dp);
         drawable.setColorFilter(ContextCompat.getColor(this, R.color.itemDisplayTitle), PorterDuff.Mode.SRC_ATOP);
