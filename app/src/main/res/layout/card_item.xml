@@ -1,84 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content">
-    <View
-        android:id="@+id/dummy_view2"
-        android:layout_width="match_parent"
-        android:layout_height="4dp">
-    </View>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/item_height"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp"
+    android:background="@color/cardBackground"
+    android:foreground="?attr/selectableItemBackground"
+    android:outlineProvider="bounds"
+    android:elevation="2dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:contentDescription="@null"
+        android:src="@drawable/system_icon_01_24dp"
+        android:scaleType="fitCenter"
+        android:layout_gravity="center_vertical"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@color/cardBackground"
-        android:elevation="2dp">
-
-        <TextView
-            android:id="@android:id/title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
-            android:textColor="?attr/colorAccent"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            tools:text="小口径主炮"/>
-
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/item_height"
-            android:paddingLeft="16dp"
-            android:paddingRight="12dp"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            android:clickable="true"
-            android:foreground="?attr/selectableItemBackground">
-
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:contentDescription="@null"
-                android:src="@drawable/system_icon_01_24dp"
-                android:scaleType="fitCenter"
-                android:layout_gravity="center_vertical"/>
-
-            <TextView
-                android:id="@+id/textView"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="12cm単装砲"
-                android:maxLines="1"
-                android:textSize="16sp"
-                android:textAppearance="@style/TextAppearance.AppCompat"
-                android:gravity="center_vertical"
-                android:layout_gravity="center_vertical"/>
-        </LinearLayout>
-
-        <View
-            android:id="@+id/divider"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="56dp"
-            android:layout_marginStart="56dp"
-            android:background="@drawable/line_divider">
-        </View>
-
-    </LinearLayout>
-
-
-    <View
-        android:id="@+id/dummy_view"
-        android:layout_width="match_parent"
-        android:layout_height="4dp">
-    </View>
-
+        tools:text="12cm単装砲"
+        android:maxLines="1"
+        android:textSize="16sp"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:gravity="center_vertical"
+        android:layout_gravity="center_vertical"/>
 </LinearLayout>
+
+

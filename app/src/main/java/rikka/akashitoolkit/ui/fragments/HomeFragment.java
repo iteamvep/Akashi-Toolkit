@@ -257,6 +257,11 @@ public class HomeFragment extends BaseDrawerItemFragment {
                     return;
                 }
 
+                if (response.body() == null
+                        || response.body().getMessages() == null) {
+                    onFailure(call, new NullPointerException());
+                }
+
                 for (final CheckUpdate.MessagesEntity entity :
                         response.body().getMessages()) {
                     if (checkId(entity.getId())) {

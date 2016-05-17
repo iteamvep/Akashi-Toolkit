@@ -41,13 +41,16 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Ship> {
 
     private Toast mToast;
 
-    public ShipAdapter(Activity activity) {
-        mData = new ArrayList<>();
-        mActivity = activity;
+    @Override
+    public long getItemId(int position) {
+        return (long) mData.get(position).getId();
     }
 
     public ShipAdapter(Activity activity, int showVersion, int typeFlag, int showSpeed, int sort, boolean bookmarked) {
-        this(activity);
+        mData = new ArrayList<>();
+        mActivity = activity;
+
+        setHasStableIds(true);
 
         mShowVersion = showVersion;
         mTypeFlag = typeFlag;
@@ -289,7 +292,7 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Ship> {
 
                 notifyItemChanged(holder.getAdapterPosition());
 
-                return false;
+                return true;
             }
         });
     }
