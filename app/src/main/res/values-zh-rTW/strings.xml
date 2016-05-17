@@ -93,7 +93,7 @@
     <string name="data_language_title">使用日語標題</string>
     <string name="data_language_title_summary">對任務標題等顯示日語</string>
     <string name="action_picture">圖片</string>
-    <string name="illustration">?圖鑑</string>
+    <string name="illustration">圖鑑</string>
     <string name="remodel">改造</string>
     <string name="equip_and_load">初始裝備 &amp; 搭載量</string>
     <string name="equip_not_found">找不到裝備 (id: %d)</string>
