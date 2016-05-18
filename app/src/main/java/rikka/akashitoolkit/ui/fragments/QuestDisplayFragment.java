@@ -208,7 +208,7 @@ public class QuestDisplayFragment extends BaseSearchFragment implements CheckBox
         mJumpToQuestType = action.getType();
         mJumpToQuestIndex = action.getIndex();
 
-        mViewPager.setCurrentItem(isSearching() ? 0 : action.getType() - 1);
+        mViewPager.setCurrentItem(isSearching() ? 0 : action.getType());
     }
 
     @Subscribe
