@@ -55,6 +55,10 @@ public abstract class BaseBookmarkFragment extends BaseDrawerItemFragment {
                     mViewPager.setCurrentItem(0);
                 }
 
+                Settings
+                        .instance(getContext())
+                        .putBoolean(getSettingKey(), mBookmarked);
+
                 BusProvider.instance().post(new BookmarkAction.Changed(mBookmarked));
 
                 setTabLayoutVisible();

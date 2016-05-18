@@ -79,7 +79,7 @@ public class EquipFragment extends BaseDisplayFragment<EquipAdapter> {
             ((DefaultItemAnimator) animator).setSupportsChangeAnimations(false);
         }*/
 
-        //recyclerView.setItemAnimator(null);
+        recyclerView.setItemAnimator(null);
 
         recyclerView.addItemDecoration(new RecyclerView.ItemDecoration() {
             @Override

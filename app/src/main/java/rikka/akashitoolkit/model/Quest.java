@@ -17,6 +17,15 @@ public class Quest {
      * reward : {"resource":[400,0,0,0],"ship":[1],"equip":[1],"item":[0,1,1,1],"str":""}
      * note : 1-3BossS胜3次即可(只含1轻巡且其他舰船均为驱逐舰即可完成)
      */
+    private boolean highlight;
+
+    public boolean isHighlight() {
+        return highlight;
+    }
+
+    public void setHighlight(boolean highlight) {
+        this.highlight = highlight;
+    }
 
     private int id;
     private String code;

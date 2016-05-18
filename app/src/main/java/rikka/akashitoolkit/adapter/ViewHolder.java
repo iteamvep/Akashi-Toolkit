@@ -58,19 +58,6 @@ public class ViewHolder {
                         ContextCompat.getColor(itemView.getContext(), R.color.colorAccent),
                         PorterDuff.Mode.SRC_ATOP);
             }*/
-
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (mExpandableLayout.isExpanded()) {
-                        mExpandableLayout.setExpanded(false);
-                        mName.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
-                    } else {
-                        mExpandableLayout.setExpanded(true);
-                        mName.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
-                    }
-                }
-            });
         }
     }
 

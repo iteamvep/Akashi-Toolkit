@@ -2,7 +2,9 @@ package rikka.akashitoolkit.ui.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import com.squareup.otto.Subscribe;
 
@@ -87,12 +89,16 @@ public class QuestFragment extends BaseDisplayFragment<QuestAdapter> {
         }
     }
 
-    private void jumpTo(int index) {
-        final int position = getAdapter().getPositionByIndex(index);
+    private void jumpTo(final int index) {
         getRecyclerView().post(new Runnable() {
             @Override
             public void run() {
-                getRecyclerView().scrollToPosition(position);
+                final int position = getAdapter().getPositionByIndex(index);
+                Log.d("QuestFragment", String.format("jump to %d", position));
+
+                ((LinearLayoutManager) getRecyclerView().getLayoutManager())
+                        .scrollToPositionWithOffset(position, 0);
+                //getRecyclerView().smoothScrollToPosition(position);
                 getAdapter().notifyItemChanged(position);
             }
         });

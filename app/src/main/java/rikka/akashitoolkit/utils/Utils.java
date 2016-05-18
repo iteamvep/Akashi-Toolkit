@@ -125,18 +125,18 @@ public class Utils {
         String a = md5.substring(0, 1);
         String b = md5.substring(0, 2);
 
-        return String.format("http://kcwiki.acg9.cn:8080/commons/%s/%s/%s", a, b, fileName);
+        return String.format("http://kc.6candy.com/commons/%s/%s/%s", a, b, fileName);
     }
 
     public static GlideUrl getGlideUrl(String url) {
         /*return new GlideUrl(url, new LazyHeaders.Builder()
                 .addHeader("User-Agent", "AkashiToolkit")
                 .build());*/
-        if (url.contains("kcwiki.acg9.cn")) {
+        if (url.contains("http://kc.6candy.com/")) {
             return new GlideUrl(url, new LazyHeaders.Builder()
                     .addHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36")
                     .addHeader("Accept-Language", "zh-CN,zh;q=0.8,zh-TW;q=0.6,en-US;q=0.4,en;q=0.2")
-                    .addHeader("Host", "upload.kcwiki.moe")
+                    .addHeader("Host", "kc.6candy.com")
                     .addHeader("Referer", "http://zh.kcwiki.moe/wiki/%E8%88%B0%E5%A8%98%E7%99%BE%E7%A7%91")
                     .build());
         } else {

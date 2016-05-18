@@ -21,7 +21,12 @@ public class EquipDisplayFragment extends BaseBookmarkFragment {
         ((MainActivity) getActivity()).getSupportActionBar().setTitle(getString(R.string.item));
 
         if (mEquipViewPagerFragment != null) {
-            ((MainActivity) getActivity()).getTabLayout().setupWithViewPager(mEquipViewPagerFragment.getViewPager());
+            ((MainActivity) getActivity()).getTabLayout().post(new Runnable() {
+                @Override
+                public void run() {
+                    ((MainActivity) getActivity()).getTabLayout().setupWithViewPager(mEquipViewPagerFragment.getViewPager());
+                }
+            });
         }
 
         Statistics.onFragmentStart("EquipDisplayFragment");

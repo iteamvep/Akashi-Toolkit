@@ -39,6 +39,11 @@ public class QuestAdapter extends BaseRecyclerAdapter<ViewHolder.Quest> {
     private boolean mIsSearching;
     private boolean mLatestOnly;
 
+    @Override
+    public long getItemId(int position) {
+        return mData.get(position).getId();
+    }
+
     public QuestAdapter(Context context, int type, int flag, boolean isSearching, boolean latestOnly) {
         mType = type;
         mData = new ArrayList<>();
@@ -46,6 +51,7 @@ public class QuestAdapter extends BaseRecyclerAdapter<ViewHolder.Quest> {
         mContext = context;
         mIsSearching = isSearching;
         mLatestOnly = latestOnly;
+        setHasStableIds(true);
         rebuildDataList();
     }
 
@@ -216,18 +222,22 @@ public class QuestAdapter extends BaseRecyclerAdapter<ViewHolder.Quest> {
     private static final String[] PERIOD = {"", "日","周","月"};
 
     @Override
-    public void onBindViewHolder(ViewHolder.Quest holder, int position) {
-        holder.mExpandableLayout.setExpanded(false, false);
-        holder.mName.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
-
+    public void onBindViewHolder(final ViewHolder.Quest holder, int position) {
         Quest quest = mData.get(position);
+
+        if (!quest.isHighlight()) {
+            holder.mExpandableLayout.setExpanded(false, false);
+            holder.mName.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+        } else {
+            setViewDetail(holder, position);
+            holder.mExpandableLayout.setExpanded(true, false);
+            holder.mName.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+        }
 
         holder.mName.setText(
                 String.format("%s %s",
                         quest.getCode(),
                         quest.getTitle().get(mContext, true)));
-
-        holder.mDetail.setText(Html.fromHtml(quest.getContent().get(holder.itemView.getContext())));
 
         holder.mType[0].setVisibility(View.INVISIBLE);
         holder.mType[1].setVisibility(View.INVISIBLE);
@@ -255,6 +265,26 @@ public class QuestAdapter extends BaseRecyclerAdapter<ViewHolder.Quest> {
             holder.mNote.setVisibility(View.GONE);
         }
 
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (holder.mExpandableLayout.isExpanded()) {
+                    holder.mExpandableLayout.setExpanded(false);
+                    holder.mName.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+                } else {
+                    setViewDetail(holder, holder.getAdapterPosition());
+                    holder.mExpandableLayout.setExpanded(true);
+                    holder.mName.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+                }
+            }
+        });
+    }
+
+    private void setViewDetail(ViewHolder.Quest holder, int position) {
+        Quest quest = mData.get(position);
+
+        holder.mDetail.setText(Html.fromHtml(quest.getContent().get(holder.itemView.getContext())));
+
         setRewardText(holder, position, 0);
         setRewardText(holder, position, 1);
         setRewardText(holder, position, 2);
@@ -264,7 +294,7 @@ public class QuestAdapter extends BaseRecyclerAdapter<ViewHolder.Quest> {
 
         holder.mQuestContainer.removeAllViews();
         if (mData.get(position).getUnlock().size() > 0) {
-            for (String code: mData.get(position).getUnlock()) {
+            for (String code : mData.get(position).getUnlock()) {
                 if (code.length() == 0) {
                     continue;
                 }
@@ -282,6 +312,11 @@ public class QuestAdapter extends BaseRecyclerAdapter<ViewHolder.Quest> {
                 view.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        for (Quest q : QuestList.get(v.getContext())) {
+                            q.setHighlight(false);
+                        }
+
+                        unlockQuest.setHighlight(true);
                         BusProvider.instance().post(new QuestAction.JumpToQuest(unlockQuest.getType(), unlockQuest.getId()));
                     }
                 });

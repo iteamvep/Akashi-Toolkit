@@ -17,6 +17,7 @@ import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.ViewPagerStateAdapter;
 import rikka.akashitoolkit.otto.BookmarkAction;
 import rikka.akashitoolkit.otto.BusProvider;
+import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.Statistics;
 import rikka.akashitoolkit.ui.MainActivity;
 
@@ -60,8 +61,18 @@ public class EquipImprovementDisplayFragment extends BaseDrawerItemFragment {
                 mBookmarked = buttonView.isChecked();
 
                 BusProvider.instance().post(new BookmarkAction.Changed(mBookmarked));
+
+                Settings
+                        .instance(getContext())
+                        .putBoolean(Settings.EQUIP_IMPROVEMENT_BOOKMARKED, mBookmarked);
             }
         });
+
+        mBookmarked = Settings
+                .instance(getContext())
+                .getBoolean(Settings.EQUIP_IMPROVEMENT_BOOKMARKED, false);
+
+        ((MainActivity) getActivity()).getSwitch().setChecked(mBookmarked);
 
         Statistics.onFragmentStart("EquipImprovementDisplayFragment");
     }

@@ -37,6 +37,7 @@ public class EquipImprovementFragment extends BaseDisplayFragment<EquipImproveme
         super.onPostCreateView(recyclerView);
 
         recyclerView.addItemDecoration(new BaseRecyclerViewItemDecoration(getContext()));
+        recyclerView.setItemAnimator(null);
     }
 
     @Override

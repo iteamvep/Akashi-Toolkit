@@ -30,6 +30,7 @@ public class Settings {
 
     public static final String SHIP_BOOKMARKED = "ship_show_bookmarked";
     public static final String EQUIP_BOOKMARKED = "equip_show_bookmarked";
+    public static final String EQUIP_IMPROVEMENT_BOOKMARKED = "equip_i_show_bookmarked";
 
     public static final String DATA_LANGUAGE = "data_language";
     public static final String DATA_TITLE_LANGUAGE = "data_title_language";
