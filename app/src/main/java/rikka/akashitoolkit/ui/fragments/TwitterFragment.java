@@ -52,8 +52,8 @@ import rikka.akashitoolkit.utils.Utils;
 public class TwitterFragment extends BaseDrawerItemFragment {
     private static final String TAG = "TwitterFragment";
 
-    private static final String CACHE_TWITTER_JSON_NAME = "/json/twitter.json";
-    private String CACHE_DIR;
+    private static final String JSON_NAME = "/json/twitter.json";
+    private String CACHE_FILE;
 
     private RecyclerView mRecyclerView;
     private TwitterAdapter mTwitterAdapter;
@@ -102,7 +102,7 @@ public class TwitterFragment extends BaseDrawerItemFragment {
 
         BusProvider.instance().register(this);
 
-        CACHE_DIR = getContext().getCacheDir().getAbsolutePath();
+        CACHE_FILE = getContext().getCacheDir().getAbsolutePath() + JSON_NAME;
     }
 
     @Override
@@ -187,7 +187,7 @@ public class TwitterFragment extends BaseDrawerItemFragment {
         try {
             Gson gson = new Gson();
             twitter = gson.fromJson(
-                    new FileReader(CACHE_DIR + CACHE_TWITTER_JSON_NAME),
+                    new FileReader(CACHE_FILE),
                     Twitter.class);
 
             updateData(twitter, false);
@@ -335,7 +335,7 @@ public class TwitterFragment extends BaseDrawerItemFragment {
                 // save result to local
                 Gson gson = new Gson();
                 Utils.saveStreamToFile(new ByteArrayInputStream(gson.toJson(response.body()).getBytes()),
-                        CACHE_DIR + CACHE_TWITTER_JSON_NAME);
+                        CACHE_FILE);
             }
 
             @Override

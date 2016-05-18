@@ -95,7 +95,7 @@ public class EquipImprovementAdapter extends BaseBookmarkRecyclerAdapter<ViewHol
 
                 item.setBookmarked(!item.isBookmarked());
 
-                Settings.instance2(mActivity)
+                Settings.instance(mActivity)
                         .putBoolean(String.format("equip_improve_%d", item.getId()), item.isBookmarked());
 
                 showToast(mActivity, item.isBookmarked());
@@ -132,7 +132,7 @@ public class EquipImprovementAdapter extends BaseBookmarkRecyclerAdapter<ViewHol
                     }
 
                     if (add) {
-                        item.setBookmarked(Settings.instance2(mActivity)
+                        item.setBookmarked(Settings.instance(mActivity)
                                 .getBoolean(String.format("equip_improve_%d", item.getId()), false));
 
                         if (!requireBookmarked() || item.isBookmarked()) {

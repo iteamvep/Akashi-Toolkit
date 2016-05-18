@@ -24,8 +24,12 @@ import rikka.akashitoolkit.utils.MySpannableFactory;
 public class ButtonCardView extends FrameLayout {
     private LinearLayout mButtonContainer;
     private LinearLayout mButtonContainerOuter;
-    private TextView mTitle;
-    private TextView mBody;
+    private TextView mTextViewTitle;
+    private TextView mTextViewBody;
+
+    private String mTitle;
+    private String mBody;
+
 
     public ButtonCardView(Context context) {
         this(context, null);
@@ -37,9 +41,9 @@ public class ButtonCardView extends FrameLayout {
         LayoutInflater.from(context).inflate(R.layout.button_card_view, this);
         mButtonContainer = (LinearLayout) findViewById(R.id.buttonCardViewButtonContainer);
         mButtonContainerOuter = (LinearLayout) findViewById(R.id.buttonCardViewButtonContainerOuter);
-        mButtonContainerOuter.setVisibility(ButtonCardView.GONE);
-        mTitle = (TextView) findViewById(R.id.text_title);
-        mBody = (TextView) findViewById(R.id.text_body);
+        mButtonContainerOuter.setVisibility(View.GONE);
+        mTextViewTitle = (TextView) findViewById(R.id.text_title);
+        mTextViewBody = (TextView) findViewById(R.id.text_body);
     }
 
     public ButtonCardView setTitle(int textId) {
@@ -48,7 +52,8 @@ public class ButtonCardView extends FrameLayout {
     }
 
     public ButtonCardView setTitle(CharSequence text) {
-        mTitle.setText(text);
+        mTitle = text.toString();
+        mTextViewTitle.setText(text);
         return this;
     }
 
@@ -58,16 +63,25 @@ public class ButtonCardView extends FrameLayout {
     }
 
     public ButtonCardView setMessage(CharSequence text) {
-        mBody.setText(text);
+        mTitle = text.toString();
+        return setMessage(text, false);
+    }
+
+    public ButtonCardView setMessage(CharSequence text, boolean isHtml) {
+        if (isHtml) {
+            mTextViewBody.setText(Html.fromHtml(text.toString()));
+            mTextViewBody.setMovementMethod(LinkMovementMethod.getInstance());
+            mTextViewBody.setClickable(true);
+            mTextViewBody.setSpannableFactory(MySpannableFactory.getInstance());
+        } else {
+            mTextViewBody.setText(text);
+        }
         return this;
     }
 
-    public ButtonCardView setMessageHtml(String text) {
-        mBody.setText(Html.fromHtml(text));
-        mBody.setMovementMethod(LinkMovementMethod.getInstance());
-        mBody.setClickable(true);
-        mBody.setSpannableFactory(MySpannableFactory.getInstance());
-        return this;
+    public void removeButtons() {
+        mButtonContainer.removeAllViews();
+        mButtonContainerOuter.setVisibility(View.GONE);
     }
 
     public ButtonCardView addButton(int textId) {
@@ -87,6 +101,11 @@ public class ButtonCardView extends FrameLayout {
 
     public ButtonCardView addButton(CharSequence text, boolean clickHide) {
         addButton(text, null, false, clickHide);
+        return this;
+    }
+
+    public ButtonCardView addButton(int textId, OnClickListener listener) {
+        addButton(getContext().getString(textId), listener, false, false);
         return this;
     }
 
@@ -159,5 +178,13 @@ public class ButtonCardView extends FrameLayout {
                     }
                 })
                 .start();
+    }
+
+    public String getTitle() {
+        return mTitle;
+    }
+
+    public String getBody() {
+        return mBody;
     }
 }

@@ -178,7 +178,7 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Item> {
 
                         item.setBookmarked(!item.isBookmarked());
 
-                        Settings.instance2(mActivity)
+                        Settings.instance(mActivity)
                                 .putBoolean(String.format("equip_%d", item.getId()), item.isBookmarked());
 
                         showToast(mActivity, item.isBookmarked());

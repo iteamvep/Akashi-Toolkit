@@ -1,6 +1,5 @@
 package rikka.akashitoolkit.adapter;
 
-import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.v4.app.FragmentManager;
@@ -21,7 +20,6 @@ import java.util.List;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.ui.ImageDisplayActivity;
-import rikka.akashitoolkit.ui.fragments.ImageDialogFragment;
 
 import static rikka.akashitoolkit.support.ApiConstParam.TwitterContentLanguage.JP_AND_ZH;
 import static rikka.akashitoolkit.support.ApiConstParam.TwitterContentLanguage.ONLY_JP;

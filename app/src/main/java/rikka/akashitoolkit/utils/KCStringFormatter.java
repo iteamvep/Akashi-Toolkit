@@ -50,7 +50,7 @@ public class KCStringFormatter {
             case 5:
                 return "单横";
             default:
-                return "不存在的阵形?";
+                return "?";
         }
     }
 

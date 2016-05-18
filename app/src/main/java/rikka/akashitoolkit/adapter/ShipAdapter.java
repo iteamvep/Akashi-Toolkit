@@ -280,7 +280,7 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Ship> {
 
                 item.setBookmarked(!item.isBookmarked());
 
-                Settings.instance2(mActivity)
+                Settings.instance(mActivity)
                         .putBoolean(String.format("ship_%d_%d", item.getCtype(), item.getCnum()), item.isBookmarked());
 
                 if (mToast != null) {

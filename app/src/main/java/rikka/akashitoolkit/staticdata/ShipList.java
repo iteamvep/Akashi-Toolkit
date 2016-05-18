@@ -53,7 +53,7 @@ public class ShipList {
     private static void setBookmarked(Context context, List<Ship> list) {
         for (Ship ship :
                 list) {
-            ship.setBookmarked(Settings.instance2(context)
+            ship.setBookmarked(Settings.instance(context)
                     .getBoolean(String.format("ship_%d_%d", ship.getCtype(), ship.getCnum()), false));
         }
     }

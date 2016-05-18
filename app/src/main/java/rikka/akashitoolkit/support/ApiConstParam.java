@@ -24,7 +24,14 @@ public class ApiConstParam {
         public static final int JA = 1;
     }
 
-    public static Map<String, Integer> JSON_VERSION = new HashMap<String, Integer>() {
+    public static final class Message {
+        public static final int NOT_DISMISSIBLE = 1 << 0;
+        public static final int HTML_CONTENT = 1 << 1;
+        public static final int ACTION_VIEW_BUTTON = 1 << 2;
+        public static final int COUNT_DOWN = 1 << 3;
+    }
+
+    public static Map<String, Integer> DATA_JSON_VERSION = new HashMap<String, Integer>() {
         @Override
         public Integer get(Object key) {
             return containsKey(key) ? super.get(key) : 1;
@@ -32,42 +39,42 @@ public class ApiConstParam {
     };
 
     static {
-        JSON_VERSION.put("EquipImprovement.json", 4);
-        JSON_VERSION.put("Equip.json", 10);
-        JSON_VERSION.put("EquipType.json", 10);
+        DATA_JSON_VERSION.put("EquipImprovement.json", 4);
+        DATA_JSON_VERSION.put("Equip.json", 10);
+        DATA_JSON_VERSION.put("EquipType.json", 10);
 
-        JSON_VERSION.put("Ship.json", 10);
-        JSON_VERSION.put("ShipType.json", 1);
+        DATA_JSON_VERSION.put("Ship.json", 10);
+        DATA_JSON_VERSION.put("ShipType.json", 1);
 
-        JSON_VERSION.put("Item.json", 7);
+        DATA_JSON_VERSION.put("Item.json", 7);
 
-        JSON_VERSION.put("Map.json", 2);
-        JSON_VERSION.put("MapDetail.json", 4);
-        JSON_VERSION.put("MapType.json", 1);
+        DATA_JSON_VERSION.put("Map.json", 2);
+        DATA_JSON_VERSION.put("MapDetail.json", 4);
+        DATA_JSON_VERSION.put("MapType.json", 1);
 
-        JSON_VERSION.put("Quest.json", 2);
+        DATA_JSON_VERSION.put("Quest.json", 2);
 
-        JSON_VERSION.put("EnemyShip.json", 1);
+        DATA_JSON_VERSION.put("EnemyShip.json", 1);
     }
 
-    public static Map<String, String> JSON_NAME = new HashMap<>();
+    public static Map<String, String> DATA_JSON_NAME = new HashMap<>();
 
     static {
-        JSON_NAME.put("EquipImprovement.json", "改修数据");
-        JSON_NAME.put("Equip.json", "装备数据");
-        JSON_NAME.put("EquipType.json", "装备类型数据");
+        DATA_JSON_NAME.put("EquipImprovement.json", "改修数据");
+        DATA_JSON_NAME.put("Equip.json", "装备数据");
+        DATA_JSON_NAME.put("EquipType.json", "装备类型数据");
 
-        JSON_NAME.put("Ship.json", "舰娘数据");
-        JSON_NAME.put("ShipType.json", "舰娘类型数据");
+        DATA_JSON_NAME.put("Ship.json", "舰娘数据");
+        DATA_JSON_NAME.put("ShipType.json", "舰娘类型数据");
 
-        JSON_NAME.put("Item.json", "物品数据");
+        DATA_JSON_NAME.put("Item.json", "物品数据");
 
-        JSON_NAME.put("Map.json", "带路数据");
-        JSON_NAME.put("MapType.json", "海图类型数据");
-        JSON_NAME.put("MapDetail.json", "海图数据");
+        DATA_JSON_NAME.put("Map.json", "带路数据");
+        DATA_JSON_NAME.put("MapType.json", "海图类型数据");
+        DATA_JSON_NAME.put("MapDetail.json", "海图数据");
 
-        JSON_NAME.put("Quest.json", "任务数据");
+        DATA_JSON_NAME.put("Quest.json", "任务数据");
 
-        JSON_NAME.put("EnemyShip.json", "敌舰数据");
+        DATA_JSON_NAME.put("EnemyShip.json", "敌舰数据");
     }
 }

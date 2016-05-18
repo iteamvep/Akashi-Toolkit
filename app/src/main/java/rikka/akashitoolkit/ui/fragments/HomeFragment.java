@@ -1,14 +1,16 @@
 package rikka.akashitoolkit.ui.fragments;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -18,9 +20,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.google.gson.Gson;
 import com.squareup.otto.Subscribe;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
@@ -52,12 +58,18 @@ import rx.Observable;
 import rx.Subscriber;
 import rx.schedulers.Schedulers;
 
-import static rikka.akashitoolkit.support.ApiConstParam.JSON_NAME;
-import static rikka.akashitoolkit.support.ApiConstParam.JSON_VERSION;
+import static rikka.akashitoolkit.support.ApiConstParam.DATA_JSON_NAME;
+import static rikka.akashitoolkit.support.ApiConstParam.DATA_JSON_VERSION;
+
+import static rikka.akashitoolkit.support.ApiConstParam.Message.*;
+
 /**
  * Created by Rikka on 2016/3/6.
  */
 public class HomeFragment extends BaseDrawerItemFragment {
+    private static final String JSON_NAME = "/json/home.json";
+    private String CACHE_FILE;
+
     private LinearLayout mLinearLayout;
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private ButtonCardView mUpdateCardView;
@@ -65,6 +77,8 @@ public class HomeFragment extends BaseDrawerItemFragment {
     private Map<Integer, ButtonCardView> mMessageCardView;
     private MessageReadStatus mMessageReadStatus;
     private int mUpdateVersionCode;
+
+    private CountDownTimer mCountDownTimer;
 
     @Override
     public void onShow() {
@@ -89,6 +103,7 @@ public class HomeFragment extends BaseDrawerItemFragment {
     public void onStop() {
         UpdateCheck.instance().recycle();
         saveReadStatus();
+        mCountDownTimer.cancel();
         super.onStop();
     }
 
@@ -97,6 +112,7 @@ public class HomeFragment extends BaseDrawerItemFragment {
         super.onCreate(savedInstanceState);
         BusProvider.instance().register(this);
         setHasOptionsMenu(true);
+        CACHE_FILE = getContext().getCacheDir().getAbsolutePath() + JSON_NAME;
     }
 
     @Override
@@ -159,15 +175,13 @@ public class HomeFragment extends BaseDrawerItemFragment {
         }
 
         mMessageCardView = new HashMap<>();
+
         addLocalCard();
+        loadFromCache();
 
         if (!isHiddenBeforeSaveInstanceState()) {
             onShow();
         }
-
-        /*if (Settings.instance(getContext()).getIntFromString(Settings.UPDATE_CHECK_PERIOD, 0) == 0) {
-            refresh();
-        }*/
 
         return view;
     }
@@ -188,13 +202,13 @@ public class HomeFragment extends BaseDrawerItemFragment {
                 list.add(card.getKey());
             }
         }
+
         Settings.instance(getContext())
                 .putGSON(Settings.MESSAGE_READ_STATUS, messageReadStatus);
     }
 
-    private boolean checkId(int id) {
-        for (int i:
-        mMessageReadStatus.getMessageId()){
+    private boolean isIdReaded(int id) {
+        for (int i : mMessageReadStatus.getMessageId()) {
             if (i == id) {
                 return true;
             }
@@ -203,14 +217,6 @@ public class HomeFragment extends BaseDrawerItemFragment {
     }
 
     private void addLocalCard() {
-        if (checkId(-1)) {
-            return;
-        }
-
-        if (mMessageCardView.get(-1) != null) {
-            return;
-        }
-
         ButtonCardView card;
 
         if (!BuildConfig.isGooglePlay) {
@@ -227,12 +233,55 @@ public class HomeFragment extends BaseDrawerItemFragment {
                     .addButton(R.string.got_it)
                     .setMessage("Akashi Toolkit是一个舰队Collection的wiki类手机App，目前由Yūbari Kaigun Kokusho开发，kcwiki舰娘百科提供数据支持。\n" +
                             "目前应用的各项功能正在逐渐添加和完善中。\n" +
-                            "如果您想体验测试版，在主页的加入测试卡片（如果有）进入链接后选择加入，稍后您收到测试版本更新。\n" +
                             "关注我们的最新消息 微博@kcwiki舰娘百科");
         }
 
-        mLinearLayout.addView(card);
-        mMessageCardView.put(-1, card);
+        addCard(card);
+    }
+
+    private boolean addCard(ButtonCardView card) {
+        return addCard(card, (card.getTitle() + card.getBody()).hashCode());
+    }
+
+    private boolean addCard(ButtonCardView card, int id) {
+        return addCard(card, id, -1);
+    }
+
+    private boolean addCard(ButtonCardView card, int id, int position) {
+        if (isIdReaded(id)) {
+            return false;
+        }
+
+        if (mMessageCardView.get(id) == null) {
+            mLinearLayout.addView(card, position);
+            mMessageCardView.put(id, card);
+
+            return true;
+        }
+        return false;
+    }
+
+    private void loadFromCache() {
+        CheckUpdate data;
+        try {
+            Gson gson = new Gson();
+            data = gson.fromJson(
+                    new FileReader(CACHE_FILE),
+                    CheckUpdate.class);
+
+            updateData(data);
+        } catch (FileNotFoundException ignored) {
+        }
+    }
+
+    private void updateData(CheckUpdate data) {
+        if (data == null) {
+            return;
+        }
+
+        addMessageCard(data.getMessages());
+        addUpdateCard(data.getUpdate());
+        checkDataUpdate(data.getData());
     }
 
     private void refresh() {
@@ -244,191 +293,22 @@ public class HomeFragment extends BaseDrawerItemFragment {
             @Override
             public void onResponse(Call<CheckUpdate> call, final Response<CheckUpdate> response) {
                 if (getContext() == null) {
+                    Log.d("HomeFragment", "onResponse context == null");
                     return;
                 }
 
-                int versionCode;
-                String versionName;
-
-                versionCode = StaticData.instance(getContext()).versionCode;
-                versionName = StaticData.instance(getContext()).versionName;
-
-
-                if (response.body() == null
-                        || response.body().getMessages() == null) {
+                if (response.body() == null) {
                     onFailure(call, new NullPointerException());
                 }
 
-                for (final CheckUpdate.MessagesEntity entity :
-                        response.body().getMessages()) {
-                    if (checkId(entity.getId())) {
-                        continue;
-                    }
-
-                    ButtonCardView card = mMessageCardView.get(entity.getId());
-
-                    if (card == null) {
-                        card = new ButtonCardView(getContext());
-                        card.setTitle(entity.getTitle())
-                                .setMessage(entity.getMessage())
-                                .addButton(R.string.got_it);
-
-                        switch (entity.getType()) {
-                            case 1:
-                                card.addButton(entity.getAction_name() != null ? entity.getAction_name() : getContext().getString(R.string.open_link), new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View v) {
-                                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(entity.getLink())));
-                                    }
-                                }, true, false);
-                                break;
-                            case 2:
-                                card.setMessage(String.format(
-                                                getContext().getString(R.string.todo_card_format),
-                                                versionName,
-                                                entity.getMessage()
-                                        )
-                                );
-                                break;
-                            case 3:
-                                card.setMessageHtml(entity.getMessage());
-                                if (entity.getLink() != null) {
-                                    card.addButton(entity.getAction_name() != null ? entity.getAction_name() : getContext().getString(R.string.open_link), new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-                                            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(entity.getLink())));
-                                        }
-                                    }, true, false);
-                                }
-                                break;
-                        }
-
-                        mMessageCardView.put(entity.getId(), card);
-                        mLinearLayout.addView(card);
-                    }
-                }
-
-                final StringBuilder sb = new StringBuilder();
-                if (!BuildConfig.isGooglePlay) {
-                    final CheckUpdate.UpdateEntity entity = response.body().getUpdate();
-                    mUpdateVersionCode = entity.getVersionCode();
-
-                    if (mMessageReadStatus.getVersionCode() < mUpdateVersionCode && (mUpdateVersionCode > versionCode || BuildConfig.DEBUG)) {
-                        if (mUpdateCardView == null || mUpdateCardView.getVisibility() != View.VISIBLE) {
-                            mUpdateCardView = new ButtonCardView(getContext());
-                            mUpdateCardView.addButton(R.string.ignore_update, new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    mMessageReadStatus.setVersionCode(mUpdateVersionCode);
-                                }
-                            }, false, true);
-                            mUpdateCardView.addButton(R.string.download, new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(entity.getUrl()));
-                                    getContext().startActivity(intent);
-                                }
-                            }, true, false);
-                            mLinearLayout.addView(mUpdateCardView, 0);
-                        }
-
-                        mUpdateCardView.setMessage(String.format("更新内容:\n%s", entity.getChange()));
-                        mUpdateCardView.setTitle(String.format("有新版本啦 (%s - %d)", entity.getVersionName(), entity.getVersionCode()));
-                    } else {
-                        //sb.append("应用已是最新版本").append('\n');
-                    }
-                }
-
-                if (mDataUpdateCardView == null) {
-                    mDataUpdateCardView = new ButtonCardView(getContext());
-                    mDataUpdateCardView.setTitle("数据更新");
-                    mDataUpdateCardView.addButton(R.string.got_it);
-                }
-
-                Observable
-                        .from(response.body().getData())
-                        .observeOn(Schedulers.io())
-                        .subscribe(new Subscriber<CheckUpdate.DataEntity>() {
-                            @Override
-                            public void onNext(CheckUpdate.DataEntity dataEntity) {
-                                File file = new File(getContext().getFilesDir().getAbsolutePath() + "/json/" + dataEntity.getName());
-
-                                int savedVersion = Settings
-                                        .instance(getContext())
-                                        .getInt(dataEntity.getName(), JSON_VERSION.get(dataEntity.getName()));
-                                int builtInVersion = JSON_VERSION.get(dataEntity.getName());
-                                int latestVersion = dataEntity.getVersion();
-
-                                if (!file.exists()) {
-                                    savedVersion = 0;
-                                }
-
-                                if (builtInVersion > savedVersion) {
-                                    file.delete();
-                                    return;
-                                } else if (savedVersion >= latestVersion || builtInVersion >= latestVersion) {
-                                    return;
-                                }
-
-                                Retrofit retrofit = new Retrofit.Builder()
-                                        .baseUrl("http://www.minamion.com/")
-                                        .build();
-
-                                RetrofitAPI.CheckUpdateService service = retrofit.create(RetrofitAPI.CheckUpdateService.class);
-                                try {
-                                    Utils.saveStreamToFile(
-                                            service.download(dataEntity.getName()).execute().body().byteStream(),
-                                            getContext().getFilesDir().getAbsolutePath() + "/json/" + dataEntity.getName());
-
-                                    Settings.instance(getContext())
-                                            .putInt(dataEntity.getName(), dataEntity.getVersion());
-
-                                    String name = dataEntity.getName().replace(".json", "");
-                                    Class<?> c;
-                                    c = Class.forName(String.format(
-                                            "rikka.akashitoolkit.staticdata.%sList",
-                                            name));
-                                    c.getMethod("clear").invoke(null);
-                                    //c.getMethod("get").invoke(null, getContext());
-
-                                    BusProvider.instance().post(new DataChangedAction(name + "Fragment"));
-
-                                    sb.append(JSON_NAME.get(dataEntity.getName())).append("已更新 (").append(dataEntity.getData()).append(") \n");
-
-                                    Log.d("DownloadData", dataEntity.getName() + " version: "+ Integer.toString(dataEntity.getVersion()));
-                                } catch (IOException | ClassNotFoundException | NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
-                                    e.printStackTrace();
-                                }
-                            }
-
-                            @Override
-                            public void onCompleted() {
-                                Handler mainHandler = new Handler(getContext().getMainLooper());
-                                mainHandler.post(
-                                        new Runnable() {
-                                            @Override
-                                            public void run() {
-                                                if (sb.length() > 0) {
-                                                    mDataUpdateCardView.setMessage(sb.toString().trim());
-                                                    if (mDataUpdateCardView.getParent() == null) {
-                                                        mLinearLayout.addView(mDataUpdateCardView, 0);
-                                                    } else if (mDataUpdateCardView.getVisibility() == View.GONE) {
-                                                        mDataUpdateCardView.setVisibility(View.VISIBLE);
-                                                    }
-                                                }
-                                            }
-                                        }
-                                );
-                            }
-
-                            @Override
-                            public void onError(Throwable e) {
-
-                            }
-                        });
+                updateData(response.body());
 
                 UpdateCheck.instance().recycle();
                 mSwipeRefreshLayout.setRefreshing(false);
+
+                Gson gson = new Gson();
+                Utils.saveStreamToFile(new ByteArrayInputStream(gson.toJson(response.body()).getBytes()),
+                        CACHE_FILE);
             }
 
             @Override
@@ -441,16 +321,242 @@ public class HomeFragment extends BaseDrawerItemFragment {
         });
     }
 
+    private void checkDataUpdate(List<CheckUpdate.DataEntity> data) {
+        if (data == null) {
+            return;
+        }
+
+        final StringBuilder sb = new StringBuilder();
+
+        if (mDataUpdateCardView == null) {
+            mDataUpdateCardView = new ButtonCardView(getContext());
+            mDataUpdateCardView.setTitle("数据更新");
+            mDataUpdateCardView.addButton(R.string.got_it);
+        }
+
+        Observable
+                .from(data)
+                .observeOn(Schedulers.io())
+                .subscribe(new Subscriber<CheckUpdate.DataEntity>() {
+                    @Override
+                    public void onNext(CheckUpdate.DataEntity dataEntity) {
+                        File file = new File(getContext().getFilesDir().getAbsolutePath() + "/json/" + dataEntity.getName());
+
+                        int savedVersion = Settings
+                                .instance(getContext())
+                                .getInt(dataEntity.getName(), DATA_JSON_VERSION.get(dataEntity.getName()));
+                        int builtInVersion = DATA_JSON_VERSION.get(dataEntity.getName());
+                        int latestVersion = dataEntity.getVersion();
+
+                        if (!file.exists()) {
+                            savedVersion = 0;
+                        }
+
+                        if (builtInVersion > savedVersion) {
+                            file.delete();
+                            return;
+                        } else if (savedVersion >= latestVersion || builtInVersion >= latestVersion) {
+                            return;
+                        }
+
+                        Retrofit retrofit = new Retrofit.Builder()
+                                .baseUrl("http://www.minamion.com/")
+                                .build();
+
+                        RetrofitAPI.CheckUpdateService service = retrofit.create(RetrofitAPI.CheckUpdateService.class);
+                        try {
+                            Utils.saveStreamToFile(
+                                    service.download(dataEntity.getName()).execute().body().byteStream(),
+                                    getContext().getFilesDir().getAbsolutePath() + "/json/" + dataEntity.getName());
+
+                            Settings.instance(getContext())
+                                    .putInt(dataEntity.getName(), dataEntity.getVersion());
+
+                            String name = dataEntity.getName().replace(".json", "");
+                            Class<?> c;
+                            c = Class.forName(String.format(
+                                    "rikka.akashitoolkit.staticdata.%sList",
+                                    name));
+                            c.getMethod("clear").invoke(null);
+                            //c.getMethod("get").invoke(null, getContext());
+
+                            BusProvider.instance().post(new DataChangedAction(name + "Fragment"));
+
+                            sb.append(DATA_JSON_NAME.get(dataEntity.getName())).append("已更新 (").append(dataEntity.getData()).append(") \n");
+
+                            Log.d("DownloadData", dataEntity.getName() + " version: " + Integer.toString(dataEntity.getVersion()));
+                        } catch (IOException | ClassNotFoundException | NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    @Override
+                    public void onCompleted() {
+                        Handler mainHandler = new Handler(getContext().getMainLooper());
+                        mainHandler.post(
+                                new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        if (sb.length() > 0) {
+                                            mDataUpdateCardView.setMessage(sb.toString().trim());
+                                            if (mDataUpdateCardView.getParent() == null) {
+                                                mLinearLayout.addView(mDataUpdateCardView, 0);
+                                            } else if (mDataUpdateCardView.getVisibility() == View.GONE) {
+                                                mDataUpdateCardView.setVisibility(View.VISIBLE);
+                                            }
+                                        }
+                                    }
+                                }
+                        );
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+                });
+    }
+
+    private void addMessageCard(List<CheckUpdate.MessagesEntity> list) {
+        if (list == null) {
+            return;
+        }
+
+        for (final CheckUpdate.MessagesEntity entity :
+                list) {
+            int id = (entity.getTitle() + entity.getMessage()).hashCode();
+
+            if (isIdReaded(id)) {
+                continue;
+            }
+
+            ButtonCardView card = mMessageCardView.get(id);
+
+            if (card == null) {
+                card = new ButtonCardView(getContext());
+            } else {
+                card.removeButtons();
+            }
+
+            card.setTitle(entity.getTitle());
+
+            if (!((entity.getType() & NOT_DISMISSIBLE) > 0)) {
+                card.addButton(R.string.got_it);
+            }
+
+            boolean isHtml = false;
+            if ((entity.getType() & HTML_CONTENT) > 0) {
+                isHtml = true;
+            }
+
+            if ((entity.getType() & COUNT_DOWN) > 0) {
+                if (mCountDownTimer != null) {
+                    mCountDownTimer.cancel();
+                }
+
+                final ButtonCardView finalCard = card;
+                final boolean finalIsHtml = isHtml;
+                final String format = entity.getMessage();
+                mCountDownTimer = new CountDownTimer(
+                        entity.getTime() * DateUtils.SECOND_IN_MILLIS - System.currentTimeMillis(), 1000) {
+
+                    public void onTick(long millisUntilFinished) {
+                        finalCard.setMessage(String.format(format, fromatLeftTime(millisUntilFinished)), finalIsHtml);
+                    }
+
+                    public void onFinish() {
+                        finalCard.setMessage("done!");
+                    }
+                }.start();
+            } else {
+                card.setMessage(entity.getMessage(), isHtml);
+            }
+
+            if ((entity.getType() & ACTION_VIEW_BUTTON) > 0) {
+                card.addButton(entity.getAction_name() != null ? entity.getAction_name() : getContext().getString(R.string.open_link), new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(entity.getLink())));
+                    }
+                }, true, false);
+            }
+
+            Log.d("HomeFragment", String.format("[add card] title: %s id: %d type: %d", entity.getTitle(), id, entity.getType()));
+            addCard(card, id);
+        }
+    }
+
+    private void addUpdateCard(final CheckUpdate.UpdateEntity entity) {
+        if (BuildConfig.isGooglePlay) {
+            return;
+        }
+
+        if (entity == null) {
+            return;
+        }
+
+        int versionCode = StaticData.instance(getContext()).versionCode;
+
+        mUpdateVersionCode = entity.getVersionCode();
+
+        if (mMessageReadStatus.getVersionCode() < mUpdateVersionCode && (mUpdateVersionCode > versionCode || BuildConfig.DEBUG)) {
+            if (mUpdateCardView == null || mUpdateCardView.getVisibility() != View.VISIBLE) {
+                mUpdateCardView = new ButtonCardView(getContext());
+                mUpdateCardView.addButton(R.string.ignore_update, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        mMessageReadStatus.setVersionCode(mUpdateVersionCode);
+                    }
+                }, false, true);
+                mUpdateCardView.addButton(R.string.download, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(entity.getUrl()));
+                        getContext().startActivity(intent);
+                    }
+                }, true, false);
+                mLinearLayout.addView(mUpdateCardView, 0);
+            }
+
+            mUpdateCardView.setMessage(String.format("更新内容:\n%s", entity.getChange()));
+            mUpdateCardView.setTitle(String.format("有新版本啦 (%s - %d)", entity.getVersionName(), entity.getVersionCode()));
+        }
+    }
+
+    @SuppressLint("DefaultLocale")
+    private String fromatLeftTime(long time) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(String.format("%d 天", time / DateUtils.DAY_IN_MILLIS));
+        time = time % DateUtils.DAY_IN_MILLIS;
+
+
+        sb.append(String.format(" %d 小时", time / DateUtils.HOUR_IN_MILLIS));
+        time = time % DateUtils.HOUR_IN_MILLIS;
+
+        sb.append(String.format(" %d 分钟", time / DateUtils.MINUTE_IN_MILLIS));
+        time = time % DateUtils.MINUTE_IN_MILLIS;
+
+        sb.append(String.format(" %d 秒", time / DateUtils.SECOND_IN_MILLIS));
+
+        return sb.toString();
+    }
+
     @Subscribe
     public void readStatusReset(ReadStatusResetAction action) {
-        int count = mLinearLayout.getChildCount();
+        /*int count = mLinearLayout.getChildCount();
         for (int i = 0; i < count; i++) {
             View view = mLinearLayout.getChildAt(i);
             if (view instanceof ButtonCardView) {
                 view.setVisibility(View.VISIBLE);
                 view.setTranslationX(0);
             }
+        }*/
+
+        if (mMessageReadStatus != null) {
+            mMessageReadStatus.setMessageId(new ArrayList<Integer>());
         }
+
+        refresh();
     }
 
     @Subscribe
@@ -466,6 +572,7 @@ public class HomeFragment extends BaseDrawerItemFragment {
                     .putGSON(Settings.MESSAGE_READ_STATUS, mMessageReadStatus);
 
             mUpdateCardView = null;
+            mDataUpdateCardView = null;
             mMessageCardView.clear();
 
             addLocalCard();

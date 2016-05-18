@@ -12,8 +12,6 @@ import java.util.Set;
  */
 public class Settings {
     public static final String XML_NAME = "settings";
-    public static final String XML_NAME2 = "bookmark";
-
 
     public static final String NIGHT_MODE = "night_mode";
     public static final String TWITTER_COUNT = "twitter_count";
@@ -50,14 +48,6 @@ public class Settings {
     public static synchronized BaseSetting instance(Context context) {
         if (sInstance == null) {
             sInstance = new BaseSetting(context, XML_NAME);
-        }
-
-        return sInstance;
-    }
-
-    public static synchronized BaseSetting instance2(Context context) {
-        if (sInstance == null) {
-            sInstance = new BaseSetting(context, XML_NAME2);
         }
 
         return sInstance;

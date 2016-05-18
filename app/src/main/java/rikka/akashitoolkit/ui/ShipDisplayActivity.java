@@ -894,7 +894,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
             case R.id.action_bookmark:
                 mItem.setBookmarked(!mItem.isBookmarked());
 
-                Settings.instance2(this)
+                Settings.instance(this)
                         .putBoolean(String.format("ship_%d_%d", mItem.getCtype(), mItem.getCnum()), mItem.isBookmarked());
 
                 if (mToast != null) {

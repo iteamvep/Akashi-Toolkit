@@ -41,7 +41,7 @@ public class EquipList {
     private static void setBookmarked(Context context, List<Equip> list) {
         for (Equip equip :
                 list) {
-            equip.setBookmarked(Settings.instance2(context)
+            equip.setBookmarked(Settings.instance(context)
                     .getBoolean(String.format("equip_%d", equip.getId()), false));
         }
     }

@@ -116,16 +116,12 @@ public class CheckUpdate {
     }
 
     public static class MessagesEntity {
-        private int id;
         private String title;
         private String message;
         private int type;
         private String link;
         private String action_name;
-
-        public void setId(int id) {
-            this.id = id;
-        }
+        private int time;
 
         public void setTitle(String title) {
             this.title = title;
@@ -147,10 +143,6 @@ public class CheckUpdate {
             this.action_name = action_name;
         }
 
-        public int getId() {
-            return id;
-        }
-
         public String getTitle() {
             return title;
         }
@@ -169,6 +161,14 @@ public class CheckUpdate {
 
         public String getAction_name() {
             return action_name;
+        }
+
+        public int getTime() {
+            return time;
+        }
+
+        public void setTime(int time) {
+            this.time = time;
         }
     }
 }
