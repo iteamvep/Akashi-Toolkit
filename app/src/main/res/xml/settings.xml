@@ -29,6 +29,12 @@
             app:myEntryValues="@array/night_mode_value"
             android:defaultValue="0"/>
 
+        <rikka.materialpreference.SwitchPreference
+            android:key="nav_bar_color"
+            android:title="@string/nav_bar_color"
+            android:summary="@string/nav_bar_color_summary"
+            android:defaultValue="false"/>
+
     </PreferenceCategory>
 
     <PreferenceCategory

@@ -158,6 +158,15 @@ public class SettingActivity extends BaseActivity {
                             .instance()
                             .post(new DataChangedAction("any"));
                     break;
+                case Settings.NAV_BAR_COLOR:
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        if (Settings.instance(getActivity()).getBoolean(Settings.NAV_BAR_COLOR, false)) {
+                            getActivity().getWindow().setNavigationBarColor(ContextCompat.getColor(getActivity(), R.color.colorPrimary));
+                        } else {
+                            getActivity().getWindow().setNavigationBarColor(ContextCompat.getColor(getActivity(), android.R.color.black));
+                        }
+                    }
+                    break;
             }
 
             BusProvider

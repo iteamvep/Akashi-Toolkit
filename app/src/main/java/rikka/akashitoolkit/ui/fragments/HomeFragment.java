@@ -461,7 +461,7 @@ public class HomeFragment extends BaseDrawerItemFragment {
                         entity.getTime() * DateUtils.SECOND_IN_MILLIS - System.currentTimeMillis(), 1000) {
 
                     public void onTick(long millisUntilFinished) {
-                        finalCard.setMessage(String.format(format, fromatLeftTime(millisUntilFinished)), finalIsHtml);
+                        finalCard.setMessage(String.format(format, formatLeftTime(millisUntilFinished)), finalIsHtml);
                     }
 
                     public void onFinish() {
@@ -524,7 +524,7 @@ public class HomeFragment extends BaseDrawerItemFragment {
     }
 
     @SuppressLint("DefaultLocale")
-    private String fromatLeftTime(long time) {
+    private String formatLeftTime(long time) {
         StringBuilder sb = new StringBuilder();
         sb.append(String.format("%d 天", time / DateUtils.DAY_IN_MILLIS));
         time = time % DateUtils.DAY_IN_MILLIS;

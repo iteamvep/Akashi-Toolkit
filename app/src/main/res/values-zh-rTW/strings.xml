@@ -133,4 +133,7 @@
     <string name="continue_use">继续使用</string>
 
     <string name="night_mode_system_auto">您的系统夜间模式设置为自动，应用内设置为自动可能不会生效。</string>
+
+    <string name="nav_bar_color">导航栏颜色</string>
+    <string name="nav_bar_color_summary">使用主题颜色</string>
 </resources>

@@ -152,4 +152,6 @@ Activity &amp; Extra:
 
     <string name="night_mode_system_auto">The night mode setting of your system is auto, set in app will not take effect.</string>
 
+    <string name="nav_bar_color">Navigation bar color</string>
+    <string name="nav_bar_color_summary">Use theme color</string>
 </resources>
