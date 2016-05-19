@@ -2,6 +2,7 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
                   xmlns:app="http://schemas.android.com/apk/res-auto">
     <PreferenceCategory
+        android:key="general"
         android:title="@string/category_general">
 
         <rikka.materialpreference.DropDownPreference

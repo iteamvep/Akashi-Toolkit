@@ -187,10 +187,15 @@ public class HomeFragment extends BaseDrawerItemFragment {
     }
 
     private void saveReadStatus() {
-        MessageReadStatus messageReadStatus = new MessageReadStatus();
-        List<Integer> list = new ArrayList<>();
-        messageReadStatus.setMessageId(list);
-        messageReadStatus.setVersionCode(0);
+        if (mMessageReadStatus == null) {
+            return;
+        }
+
+        MessageReadStatus messageReadStatus = mMessageReadStatus;
+        List<Integer> list = messageReadStatus.getMessageId();
+        if (messageReadStatus.getMessageId() == null) {
+            return;
+        }
 
         if (mUpdateCardView != null && mUpdateCardView.getVisibility() == View.GONE) {
             messageReadStatus.setVersionCode(mUpdateVersionCode);
@@ -198,7 +203,8 @@ public class HomeFragment extends BaseDrawerItemFragment {
 
         for (Map.Entry<Integer, ButtonCardView> card:
                 mMessageCardView.entrySet()) {
-            if (card.getValue().getVisibility() == View.GONE) {
+            if (card.getValue().getVisibility() == View.GONE
+                    && list.indexOf(card.getKey()) == -1) {
                 list.add(card.getKey());
             }
         }
@@ -207,7 +213,7 @@ public class HomeFragment extends BaseDrawerItemFragment {
                 .putGSON(Settings.MESSAGE_READ_STATUS, messageReadStatus);
     }
 
-    private boolean isIdReaded(int id) {
+    private boolean isIdRead(int id) {
         for (int i : mMessageReadStatus.getMessageId()) {
             if (i == id) {
                 return true;
@@ -248,7 +254,7 @@ public class HomeFragment extends BaseDrawerItemFragment {
     }
 
     private boolean addCard(ButtonCardView card, int id, int position) {
-        if (isIdReaded(id)) {
+        if (isIdRead(id)) {
             return false;
         }
 
@@ -426,7 +432,7 @@ public class HomeFragment extends BaseDrawerItemFragment {
                 list) {
             int id = (entity.getTitle() + entity.getMessage()).hashCode();
 
-            if (isIdReaded(id)) {
+            if (isIdRead(id)) {
                 continue;
             }
 

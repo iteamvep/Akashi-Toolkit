@@ -103,6 +103,10 @@ public class SettingActivity extends BaseActivity {
             if (BuildConfig.isGooglePlay) {
                 ((PreferenceCategory) findPreference("update")).removePreference(findPreference("update_check_channel"));
             }
+
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+                ((PreferenceCategory) findPreference("general")).removePreference(findPreference("nav_bar_color"));
+            }
         }
 
         @Override
