@@ -48,6 +48,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.GlideBuilder;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import java.io.File;
 import java.io.IOException;
@@ -713,6 +715,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
             } else */{
                 Glide.with(this)
                         .load(Utils.getGlideUrl(url))
+                        .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                         .crossFade()
                         .into(imageView);
             }

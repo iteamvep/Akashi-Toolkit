@@ -1,5 +1,7 @@
 package rikka.akashitoolkit;
 
+import com.bumptech.glide.Glide;
+
 import moe.xing.daynightmode.DayNightMode;
 import rikka.akashitoolkit.support.CrashHandler;
 import rikka.akashitoolkit.support.Settings;

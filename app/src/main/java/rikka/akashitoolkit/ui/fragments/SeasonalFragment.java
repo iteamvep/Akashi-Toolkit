@@ -26,6 +26,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import java.io.File;
 import java.io.IOException;
@@ -507,6 +508,7 @@ public class SeasonalFragment extends BaseDrawerItemFragment {
 
             Glide.with(this)
                     .load(Utils.getGlideUrl(url))
+                    .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                     .crossFade()
                     .into(imageView);
         }

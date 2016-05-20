@@ -271,7 +271,7 @@ public class ImageDisplayActivity extends BaseActivity implements View.OnClickLi
 
             Glide.with(this)
                     .load(Utils.getGlideUrl(getArguments().getString("URL")))
-                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                     .crossFade()
                     .listener(new RequestListener<GlideUrl, GlideDrawable>() {
                         @Override
