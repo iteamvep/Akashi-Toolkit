@@ -50,6 +50,7 @@ import rikka.akashitoolkit.staticdata.ShipList;
 import rikka.akashitoolkit.support.Statistics;
 import rikka.akashitoolkit.ui.ImageDisplayActivity;
 import rikka.akashitoolkit.ui.MainActivity;
+import rikka.akashitoolkit.support.MusicPlayer;
 import rikka.akashitoolkit.utils.MySpannableFactory;
 import rikka.akashitoolkit.utils.Utils;
 
@@ -80,7 +81,7 @@ public class SeasonalFragment extends BaseDrawerItemFragment {
 
         mSwipeRefreshLayout.setRefreshing(false);
 
-        stopMusic();
+        MusicPlayer.stop();
 
         Statistics.onFragmentEnd("SeasonalFragment");
     }
@@ -316,11 +317,11 @@ public class SeasonalFragment extends BaseDrawerItemFragment {
                             ((ViewHolderImage) holder).mContainer,
                             (Seasonal.DataEntity.ContentEntity) mData.get(position));
                     break;
-                case TYPE_ITEM_VOICE:
+                /*case TYPE_ITEM_VOICE:
                     try {
-                        final ShipVoice.DataEntity.VoiceEntity voice = (ShipVoice.DataEntity.VoiceEntity) mData.get(position);
-                        ((ViewHolderVoice) holder).mContent.setText(URLDecoder.decode(voice.getJaSub(), "UTF-8"));
-                        ((ViewHolderVoice) holder).mContent2.setText(URLDecoder.decode(voice.getZhSub(), "UTF-8"));
+                        final ShipVoice voice = (ShipVoice) mData.get(position);
+                        ((ViewHolderVoice) holder).mContent.setText(URLDecoder.decode(voice.getJp(), "UTF-8"));
+                        ((ViewHolderVoice) holder).mContent2.setText(URLDecoder.decode(voice.getZh(), "UTF-8"));
 
                         Ship ship = ShipList.findItemByWikiId(getContext(), voice.getIndex());
                         if (ship != null) {
@@ -335,35 +336,7 @@ public class SeasonalFragment extends BaseDrawerItemFragment {
                                 try {
                                     String url = URLDecoder.decode(voice.getUrl(), "UTF-8");
                                     Log.d("VoicePlay", "url " + url);
-                                    Uri uri = Uri.parse(url);
-                                    String filename = uri.getLastPathSegment();
-                                    Log.d("VoicePlay", "filename " + filename);
-
-                                    final String path = getContext().getCacheDir().getAbsolutePath() + "/" + filename;
-                                    File file = new File(path);
-
-                                    if (file.exists()) {
-                                        Log.d("VoicePlay", "play exists file " + filename);
-                                        playMusic(path);
-                                    } else {
-                                        Log.d("VoicePlay", "download file " + filename);
-
-                                        NetworkUtils.get(url, new okhttp3.Callback() {
-                                            @Override
-                                            public void onResponse(okhttp3.Call call, okhttp3.Response response) throws IOException {
-                                                Log.d("VoicePlay", "download file finished");
-
-                                                Utils.saveStreamToFile(response.body().byteStream(), path);
-
-                                                playMusic(path);
-                                            }
-
-                                            @Override
-                                            public void onFailure(okhttp3.Call call, IOException e) {
-
-                                            }
-                                        });
-                                    }
+                                    MusicPlayer.play(url);
                                 } catch (IOException e) {
                                     e.printStackTrace();
                                 }
@@ -372,7 +345,7 @@ public class SeasonalFragment extends BaseDrawerItemFragment {
                     } catch (UnsupportedEncodingException e) {
                         e.printStackTrace();
                     }
-                    break;
+                    break;*/
             }
         }
 
@@ -430,40 +403,6 @@ public class SeasonalFragment extends BaseDrawerItemFragment {
         }*/
 
         mAdapter.notifyChanged();
-    }
-
-    private String lastPlayed;
-
-    private void playMusic(String path) throws IOException {
-        stopMusic();
-
-        if (lastPlayed != null && path.equals(lastPlayed)) {
-            lastPlayed = null;
-            return;
-        }
-
-        lastPlayed = path;
-        mMediaPlayer = new MediaPlayer();
-        mMediaPlayer.setDataSource(path);
-        mMediaPlayer.prepare();
-        mMediaPlayer.start();
-        mMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-            @Override
-            public void onCompletion(MediaPlayer mp) {
-                lastPlayed = null;
-            }
-        });
-    }
-
-    private void stopMusic() {
-        if (mMediaPlayer != null) {
-            if (mMediaPlayer.isPlaying()) {
-                mMediaPlayer.stop();
-            }
-
-            mMediaPlayer.release();
-            mMediaPlayer = null;
-        }
     }
 
     private void setIllustrationContainer(LinearLayout container, Seasonal.DataEntity.ContentEntity content) {

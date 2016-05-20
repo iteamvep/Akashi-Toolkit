@@ -1,134 +1,61 @@
 package rikka.akashitoolkit.model;
 
-import java.util.List;
-
 /**
  * Created by Rikka on 2016/4/28.
  */
 public class ShipVoice {
 
     /**
-     * state : 0
-     * data : [{"sort":"0","ja":"%E7%9D%A6%E6%9C%88","zh":"%E7%9D%A6%E6%9C%88","voice":[{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2F3304c9cedf7ea73ed7103644da8f46ed.mp3","scene":"%E5%85%A5%E6%89%8B%2F%E7%99%BB%E5%85%A5%E6%97%B6","jaSub":"%E7%9D%A6%E6%9C%88%E3%81%A7%E3%81%99%E3%80%82%E3%81%AF%E3%82%8A%E3%81%8D%E3%81%A3%E3%81%A6%E3%80%81%E3%81%BE%E3%81%84%E3%82%8A%E3%81%BE%E3%81%97%E3%82%87%E3%83%BC%EF%BC%81","zhSub":"%E6%88%91%E6%98%AF%E7%9D%A6%E6%9C%88%EF%BC%81%E4%B8%80%E9%BC%93%E4%BD%9C%E6%B0%94%E5%90%91%E5%89%8D%E5%86%B2%E5%90%A7%EF%BC%81"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2F07d077f80353345c14ae31d3adb8607d.mp3","scene":"%E7%A7%98%E4%B9%A6%E8%88%B01","jaSub":"%E3%81%8A%E3%82%88%E3%80%81%E6%8F%90%E7%9D%A3%EF%BC%9F%E7%9D%A6%E6%9C%88%E3%80%81%E5%91%BC%E3%82%93%E3%81%A0%EF%BC%9F","zhSub":"%E5%93%A6%E5%93%9F%EF%BC%8C%E6%8F%90%E7%9D%A3%E5%91%80%EF%BC%8C%E4%BD%A0%E5%8F%AB%E6%88%91%E5%95%A6%EF%BC%9F"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2F23563f1193d39fb3da24754bb81a7a0e.mp3","scene":"%E7%A7%98%E4%B9%A6%E8%88%B02","jaSub":"%E3%81%AA%E3%82%93%E3%81%A7%E3%81%99%E3%81%8B%E3%81%AA%E3%82%93%E3%81%A7%E3%81%99%E3%81%8B%E3%81%81%E3%83%BC%EF%BC%9F","zhSub":"%E4%BB%80%E4%B9%88%E6%83%85%E5%86%B5%E5%91%80%E4%BB%80%E4%B9%88%E6%83%85%E5%86%B5%E5%91%80%E2%80%94%EF%BC%9F"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2F1e7aed657c199e8dc4f76f378f6057fa.mp3","scene":"%E7%A7%98%E4%B9%A6%E8%88%B03","jaSub":"%E3%81%9D%E3%82%93%E3%81%AA%E3%81%AB%E7%A7%81%E3%81%AE%E3%81%93%E3%81%A8%E3%81%8C%E6%B0%97%E3%81%AB%E3%81%AA%E3%82%8A%E3%81%BE%E3%81%99%E3%81%8B%E3%81%81%E3%83%BC%EF%BC%9F%E3%81%86%E3%81%B5%E3%81%B5%E3%81%A3%E2%99%AA","zhSub":"%E5%AF%B9%E6%88%91%E5%B0%B1%E8%BF%99%E4%B9%88%E5%9C%A8%E6%84%8F%E5%90%97%EF%BC%9F%E5%91%BC%E5%91%BC%E5%91%BC%E2%99%AA"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2Fca59a0204b16f0d67442c93e225e2555.mp3","scene":"%E5%BB%BA%E9%80%A0%E5%AE%8C%E6%88%90","jaSub":"%E6%96%B0%E5%9E%8B%E7%99%BB%E5%A0%B4%E2%99%AA%E3%81%98%E3%82%83%E3%81%98%E3%82%83%E3%83%BC%E3%82%93%EF%BC%81","zhSub":"%E6%96%B0%E5%9E%8B%E8%88%B0%E7%99%BB%E5%9C%BA%E2%99%AA%E5%BD%93%E5%BD%93%E2%80%94%EF%BC%81"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2Fae368219e50d701903eb22eea4a4fdc4.mp3","scene":"%E5%BD%92%E6%9D%A5","jaSub":"%E4%BD%9C%E6%88%A6%E5%AE%8C%E4%BA%86%E3%81%AE%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B%E3%81%AA%E3%81%AE%E3%81%A7%E3%81%99%EF%BC%81","zhSub":"%E8%BF%99%E9%87%8C%E6%98%AF%E6%9C%AC%E6%AC%A1%E6%88%98%E6%9E%9C%E7%9A%84%E6%8A%A5%E5%91%8A%E5%93%9F%EF%BC%81"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2F59d9af0e36f17c60a90861f44b893328.mp3","scene":"%E6%88%98%E7%BB%A9","jaSub":"%E3%81%AA%E3%82%93%E3%81%8B%E3%80%81%E6%89%8B%E7%B4%99%E5%B1%8A%E3%81%84%E3%81%A6%E3%82%8B%E3%82%88%EF%BC%9F","zhSub":"%E5%A5%BD%E5%83%8F%EF%BC%8C%E6%9C%89%E4%BD%A0%E7%9A%84%E4%BF%A1%E5%93%9F%EF%BC%9F"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2Ffbee1842fc7df6552803cb043c5db868.mp3","scene":"%E8%A3%85%E5%A4%87%2F%E6%94%B9%E4%BF%AE%2F%E6%94%B9%E9%80%A01","jaSub":"%E3%81%8A%E3%81%89%E3%83%BC%E3%80%81%E3%81%93%E3%81%AE%E3%81%BF%E3%81%AA%E3%81%8E%E3%82%8B%E3%83%91%E3%83%AF%E3%83%BC%EF%BC%81%E7%9D%A6%E6%9C%88%E3%80%81%E6%84%9F%E6%BF%80%E3%81%83%EF%BC%81","zhSub":"%E5%93%A6%E5%93%A6%E2%80%94%EF%BC%8C%E8%BF%99%E6%BB%A1%E6%BB%A1%E7%9A%84%E5%8A%9B%E9%87%8F%EF%BC%81%E7%9D%A6%E6%9C%88%E6%88%91%E9%9D%9E%E5%B8%B8%E6%84%9F%E6%BF%80%E5%91%80%EF%BC%81"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2F77cbaf36fd7ea825edcb25fa7e941c59.mp3","scene":"%E8%A3%85%E5%A4%87%2F%E6%94%B9%E4%BF%AE%2F%E6%94%B9%E9%80%A02","jaSub":"%E7%9D%A6%E6%9C%88%E3%80%81%E8%B2%A0%E3%81%91%E3%82%8B%E6%B0%97%E3%81%8C%E3%81%97%E3%81%AA%E3%81%84%E3%81%AE%E3%81%AD%EF%BC%81%E3%81%A6%E3%81%B8%E3%81%A3%E2%99%AA","zhSub":"%E6%88%91%E8%A7%89%E5%BE%97%E6%A0%B9%E6%9C%AC%E6%B2%A1%E6%B3%95%E8%BE%93%E5%91%80%EF%BC%81%E5%98%BF%E5%98%BF%E2%80%A6%E2%99%AA"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2F3d82be4d027162314df9a65ea22b3c5f.mp3","scene":"%E5%B0%8F%E7%A0%B4%E5%85%A5%E6%B8%A0","jaSub":"%E3%81%A1%E3%82%87%E3%81%A3%E3%81%A8%E4%BC%91%E3%81%BF%E3%81%9F%E3%81%84%E3%81%AE%E3%81%AD%E3%80%82","zhSub":"%E6%83%B3%E8%A6%81%E5%B0%8F%E6%86%A9%E4%B8%80%E4%B8%8B%E5%91%A2%E3%80%82"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2F0c0d87472b414c221d42bffe3d9a31d1.mp3","scene":"%E4%B8%AD%E7%A0%B4%E5%85%A5%E6%B8%A0","jaSub":"%E3%81%B5%E3%81%88%E3%81%87%E3%81%87%E3%81%87%E2%80%A6%E7%A7%81%E3%81%A8%E3%81%97%E3%81%9F%E3%81%93%E3%81%A8%E3%81%8C%E2%80%A6%E3%80%82%E6%83%85%E3%81%91%E3%81%AA%E3%81%84%E3%81%AE%E3%81%A7%E3%81%99%E2%80%A6%E3%80%82","zhSub":"%E5%91%9C%E5%95%8A%E5%95%8A%E2%80%A6%E5%AF%B9%E6%88%91%E6%9D%A5%E8%AF%B4%E7%9C%9F%E6%98%AF%E2%80%A6%E6%B2%A1%E8%84%B8%E8%A7%81%E4%BA%BA%E4%BA%86%E2%80%A6"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2Fc1e2041be84a60930534e402d7299776.mp3","scene":"%E7%BC%96%E6%88%90","jaSub":"%E7%9D%A6%E6%9C%88%E3%81%AE%E8%89%A6%E9%9A%8A%E3%80%81%E3%81%84%E3%81%96%E5%8F%82%E3%82%8A%E3%81%BE%E3%81%99%E3%82%88%E3%83%BC%EF%BC%81","zhSub":"%E7%9D%A6%E6%9C%88%E7%8E%87%E9%A2%86%E7%9A%84%E8%88%B0%E9%98%9F%EF%BC%8C%E5%87%BA%E5%8F%91%EF%BC%81"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2Fff91c2322c21546bb10f0600da80039e.mp3","scene":"%E5%87%BA%E5%BE%81","jaSub":"%E3%81%BF%E3%82%93%E3%81%AA%E3%80%81%E5%87%BA%E6%92%83%E6%BA%96%E5%82%99%E3%81%AF%E3%81%84%E3%81%84%E3%81%8B%E3%81%AB%E3%82%83%EF%BD%9E%E3%82%93%E2%99%AA","zhSub":"%E5%90%84%E4%BD%8D%EF%BC%8C%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87%E6%80%8E%E4%B9%88%E6%A0%B7%E4%BA%86%E5%96%B5%EF%BC%9F"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2Fd3deb0f2c92b2b325ed44cb228c907ba.mp3","scene":"%E6%88%98%E6%96%97%E5%BC%80%E5%A7%8B","jaSub":"%E7%9D%A6%E6%9C%88%E3%80%81%E7%A0%B2%E9%9B%B7%E6%92%83%E6%88%A6%E5%A7%8B%E3%82%81%E3%82%8B%E3%82%88%E2%99%AA","zhSub":"%E7%9D%A6%E6%9C%88%EF%BC%8C%E7%82%AE%E5%87%BB%E9%9B%B7%E5%87%BB%E5%BC%80%E5%A7%8B%E4%BA%86%E5%93%A6%EF%BC%81"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2F74dc59278fa223c445630154a56e112d.mp3","scene":"%E6%94%BB%E5%87%BB1","jaSub":"%E3%81%A6%E3%81%87%E3%81%88%E3%81%88%E3%81%88%EF%BD%9E%E3%81%84%EF%BC%81%EF%BC%81","zhSub":"%E8%AF%B6%E8%AF%B6%E8%AF%B6%E8%AF%B6%EF%BC%81"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2F8ea93f6fce0a5800e2678ff1556ecd3d.mp3","scene":"%E6%94%BB%E5%87%BB2","jaSub":"%E4%B8%BB%E7%A0%B2%E3%82%82%E9%AD%9A%E9%9B%B7%E3%82%82%E3%81%82%E3%82%8B%E3%82%93%E3%81%A0%E3%82%88%E3%81%A3%EF%BC%81","zhSub":"%E7%82%AE%E5%BC%B9%E5%92%8C%E9%B1%BC%E9%9B%B7%E9%83%BD%E6%9C%89%E5%93%A6%EF%BC%81"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2F470d22bdd892ce9873f8a5b7a43b3329.mp3","scene":"%E5%A4%9C%E6%88%98","jaSub":"%E3%81%93%E3%81%AE%E5%8B%9D%E8%B2%A0%E3%80%81%E7%9D%A6%E6%9C%88%E3%81%8C%E3%82%82%E3%82%89%E3%81%A3%E3%81%9F%E3%81%AE%E3%81%A7%E3%81%99%EF%BC%81","zhSub":"%E5%B0%B1%E8%AE%A9%E7%9D%A6%E6%9C%88%E6%9D%A5%E6%8B%BF%E4%B8%8B%E8%BF%99%E5%9C%BA%E6%AF%94%E8%B5%9B%E7%9A%84%E8%83%9C%E5%88%A9%E5%90%A7%EF%BC%81"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2Fc19cf24338c8cc4403acca1d269d417a.mp3","scene":"%E5%B0%8F%E7%A0%B41","jaSub":"%E3%81%B5%E3%81%81%E3%81%A3%EF%BC%81%EF%BC%9F","zhSub":"%E5%91%9C%E5%93%87%E2%80%A6%EF%BC%81%EF%BC%9F"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2Fc0aa0573ae25a075c23a52304cc006dd.mp3","scene":"%E5%B0%8F%E7%A0%B42","jaSub":"%E3%81%B5%E3%81%88%E3%81%87%E3%81%87%E3%81%87%E2%80%A6%E7%9D%A6%E6%9C%88%E3%80%81%E8%A3%85%E7%94%B2%E7%B4%99%E3%81%AA%E3%82%93%E3%81%A0%E3%81%91%E3%81%A9%E3%81%89%E2%80%A6","zhSub":"%E5%91%9C%E5%95%8A%E5%95%8A%E2%80%A6%E6%88%91%E7%9A%84%E8%A3%85%E7%94%B2%E8%B7%9F%E7%BA%B8%E7%B3%8A%E7%9A%84%E4%B8%80%E6%A0%B7%E2%80%A6"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2Ff07106d46209139aa753888951833ec7.mp3","scene":"%E4%B8%AD%E7%A0%B4","jaSub":"%E3%81%AB%E3%82%83%E3%81%A3%EF%BC%81%EF%BC%9F%E3%81%93%E3%80%81%E3%81%93%E3%81%AE%E7%A8%8B%E5%BA%A6%E3%81%AA%E3%82%89%E3%81%BE%E3%81%A0%E3%81%A3%E3%80%82","zhSub":"%E5%96%B5%E2%80%A6%E5%8C%BA%E5%8C%BA%E5%B0%8F%E4%BC%A4%EF%BC%8C%E8%BF%98%E8%83%BD%E8%A1%8C%EF%BC%81"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2F2dff6ebe056435cb5200718f23746958.mp3","scene":"%E5%87%BB%E6%B2%89","jaSub":"%E5%B0%91%E3%81%97%E3%81%AF%E2%80%A6%E5%BD%B9%E3%81%AB%E2%80%A6%E7%AB%8B%E3%81%A6%E3%81%9F%E3%81%AE%E3%81%8B%E2%80%A6%E3%81%AB%E3%82%83%E2%80%A6","zhSub":"%E6%9C%89%E6%B2%A1%E6%9C%89%E5%B8%AE%E4%B8%8A%E5%BF%99%E5%95%8A%E2%80%A6%E4%B8%80%E7%82%B9%E7%82%B9%E4%B9%9F%E5%A5%BD%E2%80%A6%E5%96%B5"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2F6f4a0c5c5da8fb3608522a4dc9ea8e22.mp3","scene":"MVP","jaSub":"%E7%9D%A6%E6%9C%88%E3%82%92%E3%82%82%E3%81%A3%E3%81%A8%E3%82%82%E3%81%A3%E3%81%A8%E8%A4%92%E3%82%81%E3%82%8B%E3%81%8C%E3%82%88%E3%81%84%E3%81%9E%EF%BC%81%E8%A4%92%E3%82%81%E3%81%A6%E4%BC%B8%E3%81%B3%E3%82%8B%E3%82%BF%E3%82%A4%E3%83%97%E3%81%AB%E3%82%83%E3%81%97%E3%81%83%E3%80%81%E3%81%84%E3%81%B2%E3%81%B2%E3%81%A3%EF%BC%81","zhSub":"%E5%BF%AB%E5%86%8D%E5%A4%9A%E5%A4%B8%E6%88%91%E5%87%A0%E5%8F%A5%EF%BC%81%E8%B6%8A%E5%A4%B8%E8%B6%8A%E5%8E%89%E5%AE%B3%E5%93%9F%EF%BC%8C%E8%AF%B6%E5%98%BF%E5%98%BF%E2%80%A6%EF%BC%81"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2F8f3cb4a456abece6aee0daad77edab9e.mp3","scene":"%E7%BB%93%E5%A9%9A","jaSub":"%E5%AE%9F%E3%81%AF%E3%80%81%E5%8F%B8%E4%BB%A4%E5%AE%98%E6%AE%BF%E3%81%AB%E8%A4%92%E3%82%81%E3%81%A6%E3%82%82%E3%82%89%E3%81%84%E3%81%9F%E3%81%8F%E3%81%A6%E3%80%81%E3%81%A8%E3%81%A3%E3%81%A6%E3%82%82%E3%81%A8%E3%81%A3%E3%81%A6%E3%82%82%E3%80%81%E7%9D%A6%E6%9C%88%E3%80%81%E9%A0%91%E5%BC%B5%E3%81%A3%E3%81%A6%E3%81%84%E3%81%9F%E3%81%AE%E3%81%A7%E3%81%99%E3%80%82","zhSub":"%E5%85%B6%E5%AE%9E%E5%91%A2%EF%BC%8C%E5%9B%A0%E4%B8%BA%E6%83%B3%E8%A6%81%E8%8E%B7%E5%BE%97%E5%8F%B8%E4%BB%A4%E5%AE%98%E6%AE%BF%E4%B8%8B%E6%82%A8%E7%9A%84%E8%B5%9E%E8%B5%8F%EF%BC%8C%E6%88%91%E4%B8%80%E7%9B%B4%E9%9D%9E%E5%B8%B8%E9%9D%9E%E5%B8%B8%E5%9C%B0%E5%8A%AA%E5%8A%9B%E5%93%A6%E3%80%82"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2F3e1d3c285a8624fc93fb335e070e9210.mp3","scene":"%E5%9B%BE%E9%89%B4%E4%BB%8B%E7%BB%8D","jaSub":"%E5%B8%9D%E5%9B%BD%E6%B5%B7%E8%BB%8D%E3%81%AE%E9%A7%86%E9%80%90%E8%89%A6%E3%81%A7%E5%88%9D%E3%82%81%E3%81%A6%E5%A4%A7%E5%9E%8B%E3%81%A7%E5%BC%B7%E5%8A%9B%E3%81%AA61cm%E9%AD%9A%E9%9B%B7%E3%82%92%E6%90%AD%E8%BC%89%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%E3%80%81%E7%9D%A6%E6%9C%88%E3%81%A7%E3%81%99%EF%BC%81%E6%97%A7%E5%BC%8F%E3%81%AA%E3%81%8C%E3%82%89%E3%80%81%E7%AC%AC%E4%B8%80%E7%B7%9A%E3%81%A7%E9%A0%91%E5%BC%B5%E3%81%A3%E3%81%9F%E3%81%AE%E3%81%A7%E3%81%99%EF%BC%81","zhSub":"%E5%B8%9D%E5%9B%BD%E6%B5%B7%E5%86%9B%E4%B8%AD%E9%A6%96%E8%89%98%E9%85%8D%E5%A4%87%E4%BA%86%E5%A4%A7%E5%9E%8B%E4%B8%94%E5%BC%BA%E5%8A%9B%E7%9A%8461cm%E9%B1%BC%E9%9B%B7%E7%9A%84%E9%A9%B1%E9%80%90%E8%88%B0%E2%80%94%E2%80%94%E7%9D%A6%E6%9C%88%EF%BC%81%E8%99%BD%E7%84%B6%E6%98%AF%E6%97%A7%E5%9E%8B%E5%8F%B7%E8%88%B0%E8%88%B9%EF%BC%8C%E4%BD%86%E4%B9%9F%E5%9C%A8%E6%9C%80%E5%89%8D%E7%BA%BF%E5%A5%8B%E6%88%98%E8%BF%87%E4%BA%86%E5%93%9F%EF%BC%81"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2F787bb93d4a4fb6984fa86157bdcd4109.mp3","scene":"%E8%A3%85%E5%A4%87","jaSub":"%E3%81%8A%E3%82%88%EF%BC%9F","zhSub":"%E5%93%A6%E5%93%9F%EF%BC%9F"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2Fc5570712b7308856bb0ba967e02281a8.mp3","scene":"%E8%A1%A5%E7%BB%99","jaSub":"%E3%81%8A%E3%81%89%E3%83%BC%E3%80%81%E3%81%93%E3%81%AE%E3%81%BF%E3%81%AA%E3%81%8E%E3%82%8B%E3%83%91%E3%83%AF%E3%83%BC%EF%BC%81%E7%9D%A6%E6%9C%88%E3%80%81%E6%84%9F%E6%BF%80%E3%81%83%EF%BC%81","zhSub":"%E5%93%A6%E5%93%A6%E2%80%94%EF%BC%8C%E8%BF%99%E6%BB%A1%E6%BB%A1%E7%9A%84%E5%8A%9B%E9%87%8F%EF%BC%81%E7%9D%A6%E6%9C%88%E6%88%91%E9%9D%9E%E5%B8%B8%E6%84%9F%E6%BF%80%E5%91%80%EF%BC%81"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2Fe2faf0b5536fa746306369d688666874.mp3","scene":"%E7%A7%98%E4%B9%A6%E8%88%B0%EF%BC%88%E5%A9%9A%E5%90%8E%EF%BC%89","jaSub":"%E3%81%8A%E3%82%88%EF%BC%9F","zhSub":"%E5%93%A6%E5%93%9F%EF%BC%9F"}]},{"sort":"1","ja":"%E7%9D%A6%E6%9C%88%E6%94%B9","zh":"%E7%9D%A6%E6%9C%88%E6%94%B9","voice":[{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2F54f489c52d231015b2237ab9561d2f49.mp3","scene":"%E8%A1%A5%E7%BB%99","jaSub":"%E7%9D%A6%E6%9C%88%E3%80%81%E8%A3%9C%E7%B5%A6%E3%81%8B%E3%82%93%E3%81%92%E3%81%8D%EF%BD%9E%E2%98%86","zhSub":"%E6%88%91%E5%AF%B9%E8%A1%A5%E7%BB%99%E8%B6%85%E6%84%9F%E6%BF%80%7E%E2%98%86"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2Fd992eb44908d58b04c6e1e0d8fedee7a.mp3","scene":"%E7%A7%98%E4%B9%A6%E8%88%B0%EF%BC%88%E5%A9%9A%E5%90%8E%EF%BC%89","jaSub":"%E6%8F%90%E7%9D%A3%EF%BC%9F%E3%80%80%E7%9D%A6%E6%9C%88%E3%82%82%E6%9C%AC%E6%B0%97%E3%81%AB%E3%81%AA%E3%82%8C%E3%81%B0%E3%80%81%E3%81%A1%E3%82%83%EF%BD%9E%E3%82%93%E3%81%A8%E6%88%A6%E3%81%88%E3%82%8B%E3%81%8B%E3%82%89%E3%81%81%E3%81%A3%EF%BC%81%E3%80%80%E3%81%8A%E3%82%8A%E3%82%87%EF%BC%9F%E3%80%80%E3%81%9D%E3%81%AE%E9%A1%94%E3%81%AF%E4%BD%95%E3%81%AB%E3%82%83%E3%81%81%EF%BC%81%EF%BC%9F","zhSub":"%E6%8F%90%E7%9D%A3%EF%BC%8C%E6%88%91%E8%A6%81%E6%98%AF%E8%AE%A4%E7%9C%9F%E8%B5%B7%E6%9D%A5%E6%88%91%E8%87%AA%E5%B7%B1%E9%83%BD%E6%80%95%E5%93%9F%EF%BC%81%E5%93%A6%E5%95%A6%EF%BC%9F%E4%BD%A0%E8%BF%99%E8%A1%A8%E6%83%85%E6%98%AF%E4%BB%80%E4%B9%88%E6%84%8F%E6%80%9D%E5%92%A9%EF%BC%9F"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2Fba1241806e942b4bbb704655b77120d7.mp3","scene":"%E6%94%BE%E7%BD%AE","jaSub":"%E3%81%AB%E3%82%83%EF%BD%9E%E6%8F%90%E7%9D%A3%E3%81%85%E2%80%A6%E7%9D%A6%E6%9C%88%E3%81%A1%E3%82%87%E3%81%A3%E3%81%A8%E9%80%80%E5%B1%88%E3%81%A7%E3%81%99%E3%81%85%E2%80%A6","zhSub":"%E5%96%B5%7E%E6%8F%90%E7%9D%A3%E2%80%A6%E6%88%91%E6%9C%89%E7%82%B9%E6%97%A0%E8%81%8A%E4%BA%86%E5%91%A2%E3%80%82"}]},{"sort":"2","ja":"%E7%9D%A6%E6%9C%88%E6%94%B9%E4%BA%8C","zh":"%E7%9D%A6%E6%9C%88%E6%94%B9%E4%BA%8C","voice":[{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2F9f7ac38d3cdd2d06116c7fe9a619f0df.mp3","scene":"%E6%88%98%E7%BB%A9","jaSub":"%E3%81%8A%E3%82%88%EF%BC%9F%E6%83%85%E5%A0%B1%E3%82%92%E8%A6%8B%E3%82%8B%E3%81%AE%E3%81%8B%E3%81%AB%E3%82%83%EF%BC%9F%E3%81%AF%E3%81%84%E3%80%81%E7%9D%A6%E6%9C%88%E3%81%8C%E7%94%A8%E6%84%8F%E3%81%99%E3%82%8B%E3%81%AD%E3%80%82","zhSub":"%E5%93%A6%E5%93%9F%EF%BC%9F%E8%A6%81%E7%9C%8B%E6%88%98%E6%96%97%E6%8A%A5%E5%91%8A%E5%92%A9%EF%BC%9F%E5%A5%BD%EF%BC%8C%E6%88%91%E8%BF%99%E5%B0%B1%E5%8E%BB%E5%87%86%E5%A4%87%E5%93%9F%EF%BC%81"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2F4399ce6babaafc199347ec2134621711.mp3","scene":"%E7%BC%96%E6%88%90","jaSub":"%E6%97%97%E8%89%A6%E3%80%81%E5%85%88%E9%A0%AD%EF%BC%81%E7%9D%A6%E6%9C%88%E3%81%AE%E8%89%A6%E9%9A%8A%E3%80%81%E3%81%84%E3%81%96%E5%8F%82%E3%82%8A%E3%81%BE%E3%81%99%EF%BC%81","zhSub":"%E5%85%88%E9%94%8B%E6%97%97%E8%88%B0%EF%BC%81%E7%9D%A6%E6%9C%88%E8%88%B0%E9%98%9F%EF%BC%8C%E5%87%BA%E5%8F%91%EF%BC%81"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2Fb478adbc0f01637e8055669b64164eeb.mp3","scene":"%E6%88%98%E6%96%97%E5%BC%80%E5%A7%8B","jaSub":"%E6%94%B9%E8%A3%85%E3%81%95%E3%82%8C%E3%81%9F%E7%9D%A6%E6%9C%88%E3%81%AE%E6%88%A6%E3%81%84%E2%80%A6%E5%A7%8B%E3%82%81%E3%82%8B%E3%81%AE%E3%81%A7%E3%81%99%EF%BC%81%E6%92%83%E3%81%A1%E6%96%B9%E3%80%81%E5%A7%8B%E3%82%81%EF%BD%9E%EF%BC%81","zhSub":"%E6%94%B9%E9%80%A0%E5%AE%8C%E6%88%90%E7%9A%84%E7%9D%A6%E6%9C%88%EF%BC%8C%E5%BC%80%E5%A7%8B%E6%88%98%E6%96%97%EF%BC%81%E5%BC%80%E5%A7%8B%E7%82%AE%E5%87%BB%EF%BC%81"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2Fc74c0e230f89838068006173fd39cd47.mp3","scene":"%E5%A4%9C%E6%88%98","jaSub":"%E3%81%93%E3%81%AE%E5%8B%9D%E8%B2%A0%E3%80%81%E6%94%B9%E8%A3%85%E5%BC%B7%E5%8C%96%E3%81%95%E3%82%8C%E3%81%9F%E7%9D%A6%E6%9C%88%E3%81%8C%E3%82%82%E3%82%89%E3%81%A3%E3%81%9F%E3%81%AE%E3%81%A7%E3%81%99%EF%BC%81","zhSub":"%E8%BF%99%E5%9C%BA%E8%83%9C%E5%88%A9%EF%BC%8C%E5%B0%B1%E5%BD%92%E5%B7%B2%E7%BB%8F%E5%8F%98%E5%BC%BA%E7%9A%84%E6%88%91%E4%BA%86%EF%BC%81"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2F9a7aca0f551928c3183e2a23ce9da350.mp3","scene":"%E5%B0%8F%E7%A0%B42","jaSub":"%E3%81%B5%E3%81%88%E3%81%87%E3%81%87%E3%81%87%E2%80%A6%E7%9D%A6%E6%9C%88%E3%80%81%E9%98%B2%E5%BE%A1%E5%8A%9B%E3%81%AF%E3%81%9D%E3%82%93%E3%81%AA%E3%81%AB%E5%A4%89%E3%82%8F%E3%81%A3%E3%81%A6%E3%81%AA%E3%81%84%E3%82%93%E3%81%A0%E3%81%91%E3%81%A9%E3%81%89%E2%80%A6","zhSub":"%E5%91%9C%E5%95%8A%E5%95%8A%E2%80%A6%E6%88%91%E7%9A%84%E9%98%B2%E5%BE%A1%E5%8A%9B%E5%8F%AF%E6%B2%A1%E6%80%8E%E4%B9%88%E5%8F%98%E9%AB%98%E5%91%80%E3%80%82"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2F8938dd055a6dac82b1d7d504cd34ec29.mp3","scene":"%E4%B8%AD%E7%A0%B4","jaSub":"%E3%81%AB%E3%82%83%E3%82%93%E3%81%AB%E3%82%83%E2%80%A6%E4%BB%8A%E3%81%AE%E7%9D%A6%E6%9C%88%E3%81%AA%E3%82%89%E3%80%81%E3%81%93%E3%81%AE%E7%A8%8B%E5%BA%A6%E2%80%A6%EF%BC%81","zhSub":"%E5%96%B5%E5%91%9C%E2%80%A6%E7%8E%B0%E5%9C%A8%E7%9A%84%E6%88%91%E2%80%A6%E6%89%8D%E4%B8%8D%E4%BC%9A%E5%9B%A0%E4%B8%BA%E8%BF%99%E7%82%B9%E5%B0%8F%E4%BC%A4%E2%80%A6%EF%BC%81"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2F88a56f4a48801cf45c17445ede04a28d.mp3","scene":"%E8%A3%85%E5%A4%87","jaSub":"%E3%81%8A%E3%82%88%EF%BC%9F%E3%81%8A%E3%82%88%E3%82%88%EF%BC%9F","zhSub":"%E5%93%A6%E5%93%9F%EF%BC%9F%E5%93%A6%E5%93%9F%E5%93%9F%EF%BC%9F"}]}]
+     * zh : 我是睦月！一鼓作气向前冲吧！
+     * jp : 睦月です。はりきって、まいりましょー！
+     * url : http://upload.kcwiki.moe/commons/a/a1/031-Intro.mp3
+     * scene : 入手/登入时
+     * voiceId : 1
      */
 
-    private int state;
-    /**
-     * sort : 0
-     * ja : %E7%9D%A6%E6%9C%88
-     * zh : %E7%9D%A6%E6%9C%88
-     * voice : [{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2F3304c9cedf7ea73ed7103644da8f46ed.mp3","scene":"%E5%85%A5%E6%89%8B%2F%E7%99%BB%E5%85%A5%E6%97%B6","jaSub":"%E7%9D%A6%E6%9C%88%E3%81%A7%E3%81%99%E3%80%82%E3%81%AF%E3%82%8A%E3%81%8D%E3%81%A3%E3%81%A6%E3%80%81%E3%81%BE%E3%81%84%E3%82%8A%E3%81%BE%E3%81%97%E3%82%87%E3%83%BC%EF%BC%81","zhSub":"%E6%88%91%E6%98%AF%E7%9D%A6%E6%9C%88%EF%BC%81%E4%B8%80%E9%BC%93%E4%BD%9C%E6%B0%94%E5%90%91%E5%89%8D%E5%86%B2%E5%90%A7%EF%BC%81"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2F07d077f80353345c14ae31d3adb8607d.mp3","scene":"%E7%A7%98%E4%B9%A6%E8%88%B01","jaSub":"%E3%81%8A%E3%82%88%E3%80%81%E6%8F%90%E7%9D%A3%EF%BC%9F%E7%9D%A6%E6%9C%88%E3%80%81%E5%91%BC%E3%82%93%E3%81%A0%EF%BC%9F","zhSub":"%E5%93%A6%E5%93%9F%EF%BC%8C%E6%8F%90%E7%9D%A3%E5%91%80%EF%BC%8C%E4%BD%A0%E5%8F%AB%E6%88%91%E5%95%A6%EF%BC%9F"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2F23563f1193d39fb3da24754bb81a7a0e.mp3","scene":"%E7%A7%98%E4%B9%A6%E8%88%B02","jaSub":"%E3%81%AA%E3%82%93%E3%81%A7%E3%81%99%E3%81%8B%E3%81%AA%E3%82%93%E3%81%A7%E3%81%99%E3%81%8B%E3%81%81%E3%83%BC%EF%BC%9F","zhSub":"%E4%BB%80%E4%B9%88%E6%83%85%E5%86%B5%E5%91%80%E4%BB%80%E4%B9%88%E6%83%85%E5%86%B5%E5%91%80%E2%80%94%EF%BC%9F"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2F1e7aed657c199e8dc4f76f378f6057fa.mp3","scene":"%E7%A7%98%E4%B9%A6%E8%88%B03","jaSub":"%E3%81%9D%E3%82%93%E3%81%AA%E3%81%AB%E7%A7%81%E3%81%AE%E3%81%93%E3%81%A8%E3%81%8C%E6%B0%97%E3%81%AB%E3%81%AA%E3%82%8A%E3%81%BE%E3%81%99%E3%81%8B%E3%81%81%E3%83%BC%EF%BC%9F%E3%81%86%E3%81%B5%E3%81%B5%E3%81%A3%E2%99%AA","zhSub":"%E5%AF%B9%E6%88%91%E5%B0%B1%E8%BF%99%E4%B9%88%E5%9C%A8%E6%84%8F%E5%90%97%EF%BC%9F%E5%91%BC%E5%91%BC%E5%91%BC%E2%99%AA"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2Fca59a0204b16f0d67442c93e225e2555.mp3","scene":"%E5%BB%BA%E9%80%A0%E5%AE%8C%E6%88%90","jaSub":"%E6%96%B0%E5%9E%8B%E7%99%BB%E5%A0%B4%E2%99%AA%E3%81%98%E3%82%83%E3%81%98%E3%82%83%E3%83%BC%E3%82%93%EF%BC%81","zhSub":"%E6%96%B0%E5%9E%8B%E8%88%B0%E7%99%BB%E5%9C%BA%E2%99%AA%E5%BD%93%E5%BD%93%E2%80%94%EF%BC%81"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2Fae368219e50d701903eb22eea4a4fdc4.mp3","scene":"%E5%BD%92%E6%9D%A5","jaSub":"%E4%BD%9C%E6%88%A6%E5%AE%8C%E4%BA%86%E3%81%AE%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B%E3%81%AA%E3%81%AE%E3%81%A7%E3%81%99%EF%BC%81","zhSub":"%E8%BF%99%E9%87%8C%E6%98%AF%E6%9C%AC%E6%AC%A1%E6%88%98%E6%9E%9C%E7%9A%84%E6%8A%A5%E5%91%8A%E5%93%9F%EF%BC%81"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2F59d9af0e36f17c60a90861f44b893328.mp3","scene":"%E6%88%98%E7%BB%A9","jaSub":"%E3%81%AA%E3%82%93%E3%81%8B%E3%80%81%E6%89%8B%E7%B4%99%E5%B1%8A%E3%81%84%E3%81%A6%E3%82%8B%E3%82%88%EF%BC%9F","zhSub":"%E5%A5%BD%E5%83%8F%EF%BC%8C%E6%9C%89%E4%BD%A0%E7%9A%84%E4%BF%A1%E5%93%9F%EF%BC%9F"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2Ffbee1842fc7df6552803cb043c5db868.mp3","scene":"%E8%A3%85%E5%A4%87%2F%E6%94%B9%E4%BF%AE%2F%E6%94%B9%E9%80%A01","jaSub":"%E3%81%8A%E3%81%89%E3%83%BC%E3%80%81%E3%81%93%E3%81%AE%E3%81%BF%E3%81%AA%E3%81%8E%E3%82%8B%E3%83%91%E3%83%AF%E3%83%BC%EF%BC%81%E7%9D%A6%E6%9C%88%E3%80%81%E6%84%9F%E6%BF%80%E3%81%83%EF%BC%81","zhSub":"%E5%93%A6%E5%93%A6%E2%80%94%EF%BC%8C%E8%BF%99%E6%BB%A1%E6%BB%A1%E7%9A%84%E5%8A%9B%E9%87%8F%EF%BC%81%E7%9D%A6%E6%9C%88%E6%88%91%E9%9D%9E%E5%B8%B8%E6%84%9F%E6%BF%80%E5%91%80%EF%BC%81"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2F77cbaf36fd7ea825edcb25fa7e941c59.mp3","scene":"%E8%A3%85%E5%A4%87%2F%E6%94%B9%E4%BF%AE%2F%E6%94%B9%E9%80%A02","jaSub":"%E7%9D%A6%E6%9C%88%E3%80%81%E8%B2%A0%E3%81%91%E3%82%8B%E6%B0%97%E3%81%8C%E3%81%97%E3%81%AA%E3%81%84%E3%81%AE%E3%81%AD%EF%BC%81%E3%81%A6%E3%81%B8%E3%81%A3%E2%99%AA","zhSub":"%E6%88%91%E8%A7%89%E5%BE%97%E6%A0%B9%E6%9C%AC%E6%B2%A1%E6%B3%95%E8%BE%93%E5%91%80%EF%BC%81%E5%98%BF%E5%98%BF%E2%80%A6%E2%99%AA"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2F3d82be4d027162314df9a65ea22b3c5f.mp3","scene":"%E5%B0%8F%E7%A0%B4%E5%85%A5%E6%B8%A0","jaSub":"%E3%81%A1%E3%82%87%E3%81%A3%E3%81%A8%E4%BC%91%E3%81%BF%E3%81%9F%E3%81%84%E3%81%AE%E3%81%AD%E3%80%82","zhSub":"%E6%83%B3%E8%A6%81%E5%B0%8F%E6%86%A9%E4%B8%80%E4%B8%8B%E5%91%A2%E3%80%82"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2F0c0d87472b414c221d42bffe3d9a31d1.mp3","scene":"%E4%B8%AD%E7%A0%B4%E5%85%A5%E6%B8%A0","jaSub":"%E3%81%B5%E3%81%88%E3%81%87%E3%81%87%E3%81%87%E2%80%A6%E7%A7%81%E3%81%A8%E3%81%97%E3%81%9F%E3%81%93%E3%81%A8%E3%81%8C%E2%80%A6%E3%80%82%E6%83%85%E3%81%91%E3%81%AA%E3%81%84%E3%81%AE%E3%81%A7%E3%81%99%E2%80%A6%E3%80%82","zhSub":"%E5%91%9C%E5%95%8A%E5%95%8A%E2%80%A6%E5%AF%B9%E6%88%91%E6%9D%A5%E8%AF%B4%E7%9C%9F%E6%98%AF%E2%80%A6%E6%B2%A1%E8%84%B8%E8%A7%81%E4%BA%BA%E4%BA%86%E2%80%A6"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2Fc1e2041be84a60930534e402d7299776.mp3","scene":"%E7%BC%96%E6%88%90","jaSub":"%E7%9D%A6%E6%9C%88%E3%81%AE%E8%89%A6%E9%9A%8A%E3%80%81%E3%81%84%E3%81%96%E5%8F%82%E3%82%8A%E3%81%BE%E3%81%99%E3%82%88%E3%83%BC%EF%BC%81","zhSub":"%E7%9D%A6%E6%9C%88%E7%8E%87%E9%A2%86%E7%9A%84%E8%88%B0%E9%98%9F%EF%BC%8C%E5%87%BA%E5%8F%91%EF%BC%81"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2Fff91c2322c21546bb10f0600da80039e.mp3","scene":"%E5%87%BA%E5%BE%81","jaSub":"%E3%81%BF%E3%82%93%E3%81%AA%E3%80%81%E5%87%BA%E6%92%83%E6%BA%96%E5%82%99%E3%81%AF%E3%81%84%E3%81%84%E3%81%8B%E3%81%AB%E3%82%83%EF%BD%9E%E3%82%93%E2%99%AA","zhSub":"%E5%90%84%E4%BD%8D%EF%BC%8C%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87%E6%80%8E%E4%B9%88%E6%A0%B7%E4%BA%86%E5%96%B5%EF%BC%9F"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2Fd3deb0f2c92b2b325ed44cb228c907ba.mp3","scene":"%E6%88%98%E6%96%97%E5%BC%80%E5%A7%8B","jaSub":"%E7%9D%A6%E6%9C%88%E3%80%81%E7%A0%B2%E9%9B%B7%E6%92%83%E6%88%A6%E5%A7%8B%E3%82%81%E3%82%8B%E3%82%88%E2%99%AA","zhSub":"%E7%9D%A6%E6%9C%88%EF%BC%8C%E7%82%AE%E5%87%BB%E9%9B%B7%E5%87%BB%E5%BC%80%E5%A7%8B%E4%BA%86%E5%93%A6%EF%BC%81"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2F74dc59278fa223c445630154a56e112d.mp3","scene":"%E6%94%BB%E5%87%BB1","jaSub":"%E3%81%A6%E3%81%87%E3%81%88%E3%81%88%E3%81%88%EF%BD%9E%E3%81%84%EF%BC%81%EF%BC%81","zhSub":"%E8%AF%B6%E8%AF%B6%E8%AF%B6%E8%AF%B6%EF%BC%81"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2F8ea93f6fce0a5800e2678ff1556ecd3d.mp3","scene":"%E6%94%BB%E5%87%BB2","jaSub":"%E4%B8%BB%E7%A0%B2%E3%82%82%E9%AD%9A%E9%9B%B7%E3%82%82%E3%81%82%E3%82%8B%E3%82%93%E3%81%A0%E3%82%88%E3%81%A3%EF%BC%81","zhSub":"%E7%82%AE%E5%BC%B9%E5%92%8C%E9%B1%BC%E9%9B%B7%E9%83%BD%E6%9C%89%E5%93%A6%EF%BC%81"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2F470d22bdd892ce9873f8a5b7a43b3329.mp3","scene":"%E5%A4%9C%E6%88%98","jaSub":"%E3%81%93%E3%81%AE%E5%8B%9D%E8%B2%A0%E3%80%81%E7%9D%A6%E6%9C%88%E3%81%8C%E3%82%82%E3%82%89%E3%81%A3%E3%81%9F%E3%81%AE%E3%81%A7%E3%81%99%EF%BC%81","zhSub":"%E5%B0%B1%E8%AE%A9%E7%9D%A6%E6%9C%88%E6%9D%A5%E6%8B%BF%E4%B8%8B%E8%BF%99%E5%9C%BA%E6%AF%94%E8%B5%9B%E7%9A%84%E8%83%9C%E5%88%A9%E5%90%A7%EF%BC%81"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2Fc19cf24338c8cc4403acca1d269d417a.mp3","scene":"%E5%B0%8F%E7%A0%B41","jaSub":"%E3%81%B5%E3%81%81%E3%81%A3%EF%BC%81%EF%BC%9F","zhSub":"%E5%91%9C%E5%93%87%E2%80%A6%EF%BC%81%EF%BC%9F"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2Fc0aa0573ae25a075c23a52304cc006dd.mp3","scene":"%E5%B0%8F%E7%A0%B42","jaSub":"%E3%81%B5%E3%81%88%E3%81%87%E3%81%87%E3%81%87%E2%80%A6%E7%9D%A6%E6%9C%88%E3%80%81%E8%A3%85%E7%94%B2%E7%B4%99%E3%81%AA%E3%82%93%E3%81%A0%E3%81%91%E3%81%A9%E3%81%89%E2%80%A6","zhSub":"%E5%91%9C%E5%95%8A%E5%95%8A%E2%80%A6%E6%88%91%E7%9A%84%E8%A3%85%E7%94%B2%E8%B7%9F%E7%BA%B8%E7%B3%8A%E7%9A%84%E4%B8%80%E6%A0%B7%E2%80%A6"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2Ff07106d46209139aa753888951833ec7.mp3","scene":"%E4%B8%AD%E7%A0%B4","jaSub":"%E3%81%AB%E3%82%83%E3%81%A3%EF%BC%81%EF%BC%9F%E3%81%93%E3%80%81%E3%81%93%E3%81%AE%E7%A8%8B%E5%BA%A6%E3%81%AA%E3%82%89%E3%81%BE%E3%81%A0%E3%81%A3%E3%80%82","zhSub":"%E5%96%B5%E2%80%A6%E5%8C%BA%E5%8C%BA%E5%B0%8F%E4%BC%A4%EF%BC%8C%E8%BF%98%E8%83%BD%E8%A1%8C%EF%BC%81"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2F2dff6ebe056435cb5200718f23746958.mp3","scene":"%E5%87%BB%E6%B2%89","jaSub":"%E5%B0%91%E3%81%97%E3%81%AF%E2%80%A6%E5%BD%B9%E3%81%AB%E2%80%A6%E7%AB%8B%E3%81%A6%E3%81%9F%E3%81%AE%E3%81%8B%E2%80%A6%E3%81%AB%E3%82%83%E2%80%A6","zhSub":"%E6%9C%89%E6%B2%A1%E6%9C%89%E5%B8%AE%E4%B8%8A%E5%BF%99%E5%95%8A%E2%80%A6%E4%B8%80%E7%82%B9%E7%82%B9%E4%B9%9F%E5%A5%BD%E2%80%A6%E5%96%B5"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2F6f4a0c5c5da8fb3608522a4dc9ea8e22.mp3","scene":"MVP","jaSub":"%E7%9D%A6%E6%9C%88%E3%82%92%E3%82%82%E3%81%A3%E3%81%A8%E3%82%82%E3%81%A3%E3%81%A8%E8%A4%92%E3%82%81%E3%82%8B%E3%81%8C%E3%82%88%E3%81%84%E3%81%9E%EF%BC%81%E8%A4%92%E3%82%81%E3%81%A6%E4%BC%B8%E3%81%B3%E3%82%8B%E3%82%BF%E3%82%A4%E3%83%97%E3%81%AB%E3%82%83%E3%81%97%E3%81%83%E3%80%81%E3%81%84%E3%81%B2%E3%81%B2%E3%81%A3%EF%BC%81","zhSub":"%E5%BF%AB%E5%86%8D%E5%A4%9A%E5%A4%B8%E6%88%91%E5%87%A0%E5%8F%A5%EF%BC%81%E8%B6%8A%E5%A4%B8%E8%B6%8A%E5%8E%89%E5%AE%B3%E5%93%9F%EF%BC%8C%E8%AF%B6%E5%98%BF%E5%98%BF%E2%80%A6%EF%BC%81"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2F8f3cb4a456abece6aee0daad77edab9e.mp3","scene":"%E7%BB%93%E5%A9%9A","jaSub":"%E5%AE%9F%E3%81%AF%E3%80%81%E5%8F%B8%E4%BB%A4%E5%AE%98%E6%AE%BF%E3%81%AB%E8%A4%92%E3%82%81%E3%81%A6%E3%82%82%E3%82%89%E3%81%84%E3%81%9F%E3%81%8F%E3%81%A6%E3%80%81%E3%81%A8%E3%81%A3%E3%81%A6%E3%82%82%E3%81%A8%E3%81%A3%E3%81%A6%E3%82%82%E3%80%81%E7%9D%A6%E6%9C%88%E3%80%81%E9%A0%91%E5%BC%B5%E3%81%A3%E3%81%A6%E3%81%84%E3%81%9F%E3%81%AE%E3%81%A7%E3%81%99%E3%80%82","zhSub":"%E5%85%B6%E5%AE%9E%E5%91%A2%EF%BC%8C%E5%9B%A0%E4%B8%BA%E6%83%B3%E8%A6%81%E8%8E%B7%E5%BE%97%E5%8F%B8%E4%BB%A4%E5%AE%98%E6%AE%BF%E4%B8%8B%E6%82%A8%E7%9A%84%E8%B5%9E%E8%B5%8F%EF%BC%8C%E6%88%91%E4%B8%80%E7%9B%B4%E9%9D%9E%E5%B8%B8%E9%9D%9E%E5%B8%B8%E5%9C%B0%E5%8A%AA%E5%8A%9B%E5%93%A6%E3%80%82"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2F3e1d3c285a8624fc93fb335e070e9210.mp3","scene":"%E5%9B%BE%E9%89%B4%E4%BB%8B%E7%BB%8D","jaSub":"%E5%B8%9D%E5%9B%BD%E6%B5%B7%E8%BB%8D%E3%81%AE%E9%A7%86%E9%80%90%E8%89%A6%E3%81%A7%E5%88%9D%E3%82%81%E3%81%A6%E5%A4%A7%E5%9E%8B%E3%81%A7%E5%BC%B7%E5%8A%9B%E3%81%AA61cm%E9%AD%9A%E9%9B%B7%E3%82%92%E6%90%AD%E8%BC%89%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%E3%80%81%E7%9D%A6%E6%9C%88%E3%81%A7%E3%81%99%EF%BC%81%E6%97%A7%E5%BC%8F%E3%81%AA%E3%81%8C%E3%82%89%E3%80%81%E7%AC%AC%E4%B8%80%E7%B7%9A%E3%81%A7%E9%A0%91%E5%BC%B5%E3%81%A3%E3%81%9F%E3%81%AE%E3%81%A7%E3%81%99%EF%BC%81","zhSub":"%E5%B8%9D%E5%9B%BD%E6%B5%B7%E5%86%9B%E4%B8%AD%E9%A6%96%E8%89%98%E9%85%8D%E5%A4%87%E4%BA%86%E5%A4%A7%E5%9E%8B%E4%B8%94%E5%BC%BA%E5%8A%9B%E7%9A%8461cm%E9%B1%BC%E9%9B%B7%E7%9A%84%E9%A9%B1%E9%80%90%E8%88%B0%E2%80%94%E2%80%94%E7%9D%A6%E6%9C%88%EF%BC%81%E8%99%BD%E7%84%B6%E6%98%AF%E6%97%A7%E5%9E%8B%E5%8F%B7%E8%88%B0%E8%88%B9%EF%BC%8C%E4%BD%86%E4%B9%9F%E5%9C%A8%E6%9C%80%E5%89%8D%E7%BA%BF%E5%A5%8B%E6%88%98%E8%BF%87%E4%BA%86%E5%93%9F%EF%BC%81"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2F787bb93d4a4fb6984fa86157bdcd4109.mp3","scene":"%E8%A3%85%E5%A4%87","jaSub":"%E3%81%8A%E3%82%88%EF%BC%9F","zhSub":"%E5%93%A6%E5%93%9F%EF%BC%9F"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2Fc5570712b7308856bb0ba967e02281a8.mp3","scene":"%E8%A1%A5%E7%BB%99","jaSub":"%E3%81%8A%E3%81%89%E3%83%BC%E3%80%81%E3%81%93%E3%81%AE%E3%81%BF%E3%81%AA%E3%81%8E%E3%82%8B%E3%83%91%E3%83%AF%E3%83%BC%EF%BC%81%E7%9D%A6%E6%9C%88%E3%80%81%E6%84%9F%E6%BF%80%E3%81%83%EF%BC%81","zhSub":"%E5%93%A6%E5%93%A6%E2%80%94%EF%BC%8C%E8%BF%99%E6%BB%A1%E6%BB%A1%E7%9A%84%E5%8A%9B%E9%87%8F%EF%BC%81%E7%9D%A6%E6%9C%88%E6%88%91%E9%9D%9E%E5%B8%B8%E6%84%9F%E6%BF%80%E5%91%80%EF%BC%81"},{"url":"http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2Fe2faf0b5536fa746306369d688666874.mp3","scene":"%E7%A7%98%E4%B9%A6%E8%88%B0%EF%BC%88%E5%A9%9A%E5%90%8E%EF%BC%89","jaSub":"%E3%81%8A%E3%82%88%EF%BC%9F","zhSub":"%E5%93%A6%E5%93%9F%EF%BC%9F"}]
-     */
+    private String zh;
+    private String jp;
+    private String url;
+    private String scene;
+    private int voiceId;
 
-    private List<DataEntity> data;
-
-    public int getState() {
-        return state;
+    public String getZh() {
+        return zh;
     }
 
-    public void setState(int state) {
-        this.state = state;
+    public void setZh(String zh) {
+        this.zh = zh;
     }
 
-    public List<DataEntity> getData() {
-        return data;
+    public String getJp() {
+        return jp;
     }
 
-    public void setData(List<DataEntity> data) {
-        this.data = data;
+    public void setJp(String jp) {
+        this.jp = jp;
     }
 
-    public static class DataEntity {
-        private String sort;
-        private String ja;
-        private String zh;
-        /**
-         * url : http%3A%2F%2Fwww.ibangumi.cn%2Faudiocache%2F3304c9cedf7ea73ed7103644da8f46ed.mp3
-         * scene : %E5%85%A5%E6%89%8B%2F%E7%99%BB%E5%85%A5%E6%97%B6
-         * jaSub : %E7%9D%A6%E6%9C%88%E3%81%A7%E3%81%99%E3%80%82%E3%81%AF%E3%82%8A%E3%81%8D%E3%81%A3%E3%81%A6%E3%80%81%E3%81%BE%E3%81%84%E3%82%8A%E3%81%BE%E3%81%97%E3%82%87%E3%83%BC%EF%BC%81
-         * zhSub : %E6%88%91%E6%98%AF%E7%9D%A6%E6%9C%88%EF%BC%81%E4%B8%80%E9%BC%93%E4%BD%9C%E6%B0%94%E5%90%91%E5%89%8D%E5%86%B2%E5%90%A7%EF%BC%81
-         */
+    public String getUrl() {
+        return url;
+    }
 
-        private List<VoiceEntity> voice;
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
-        public String getSort() {
-            return sort;
-        }
+    public String getScene() {
+        return scene;
+    }
 
-        public void setSort(String sort) {
-            this.sort = sort;
-        }
+    public void setScene(String scene) {
+        this.scene = scene;
+    }
 
-        public String getJa() {
-            return ja;
-        }
+    public int getVoiceId() {
+        return voiceId;
+    }
 
-        public void setJa(String ja) {
-            this.ja = ja;
-        }
-
-        public String getZh() {
-            return zh;
-        }
-
-        public void setZh(String zh) {
-            this.zh = zh;
-        }
-
-        public List<VoiceEntity> getVoice() {
-            return voice;
-        }
-
-        public void setVoice(List<VoiceEntity> voice) {
-            this.voice = voice;
-        }
-
-        public static class VoiceEntity {
-            private String url;
-            private String index;
-            private String scene;
-            private String jaSub;
-            private String zhSub;
-
-            public String getUrl() {
-                return url;
-            }
-
-            public void setUrl(String url) {
-                this.url = url;
-            }
-
-            public String getIndex() {
-                return index;
-            }
-
-            public void setIndex(String index) {
-                this.index = index;
-            }
-
-            public String getScene() {
-                return scene;
-            }
-
-            public void setScene(String scene) {
-                this.scene = scene;
-            }
-
-            public String getJaSub() {
-                return jaSub;
-            }
-
-            public void setJaSub(String jaSub) {
-                this.jaSub = jaSub;
-            }
-
-            public String getZhSub() {
-                return zhSub;
-            }
-
-            public void setZhSub(String zhSub) {
-                this.zhSub = zhSub;
-            }
-        }
+    public void setVoiceId(int voiceId) {
+        this.voiceId = voiceId;
     }
 }

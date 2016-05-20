@@ -154,4 +154,11 @@ Activity &amp; Extra:
 
     <string name="nav_bar_color">Navigation bar color</string>
     <string name="nav_bar_color_summary">Use theme color</string>
+
+    <string name="category_cache">Cache</string>
+    <string name="cache_max_size">Max cache size</string>
+    <string name="no_limit">No limit</string>
+    <string name="clear_cache">Clear cache</string>
+    <string name="clear_cache_summary">Clear cache of image, voice…</string>
+
 </resources>

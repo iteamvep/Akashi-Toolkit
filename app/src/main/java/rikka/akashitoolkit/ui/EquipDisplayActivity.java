@@ -486,8 +486,6 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
                     .findViewById(R.id.imageView);
             container.addView(imageView);
 
-            Log.d("QAQ", url);
-
             final int finalI = i;
             imageView.setOnClickListener(new View.OnClickListener() {
                 @Override

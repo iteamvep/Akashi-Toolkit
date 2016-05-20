@@ -1,5 +1,7 @@
 package rikka.akashitoolkit.network;
 
+import java.util.List;
+
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -42,9 +44,15 @@ public class RetrofitAPI {
                 @Query("api_version") int api_version);
     }
 
-    public interface Voice {
+    /*public interface Voice {
         @GET("JKancolle/voice.do")
         Call<ShipVoice> get(
                 @Query("id") int shipId);
+    }*/
+
+    public interface Voice {
+        @GET("subtitle/detail/{shipId}")
+        Call<List<ShipVoice>> get(
+                @Path("shipId") int shipId);
     }
 }

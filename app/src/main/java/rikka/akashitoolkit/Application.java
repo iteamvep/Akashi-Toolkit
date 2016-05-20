@@ -1,9 +1,7 @@
 package rikka.akashitoolkit;
 
-import com.bumptech.glide.Glide;
-
 import moe.xing.daynightmode.DayNightMode;
-import rikka.akashitoolkit.support.CrashHandler;
+import rikka.akashitoolkit.cache.DiskCacheProvider;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.Statistics;
 
@@ -19,6 +17,8 @@ public class Application extends android.app.Application {
                 Settings.instance(this)
                         .getIntFromString(Settings.NIGHT_MODE, 0)
         );
+
+        DiskCacheProvider.init(this);
 
         /*if (!BuildConfig.DEBUG) {
             CrashHandler.init(getApplicationContext());

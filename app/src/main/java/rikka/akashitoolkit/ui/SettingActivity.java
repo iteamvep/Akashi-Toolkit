@@ -4,6 +4,7 @@ import android.app.UiModeManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
@@ -13,6 +14,8 @@ import android.support.v7.preference.PreferenceCategory;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
 
 import moe.xing.daynightmode.BaseDayNightModeActivity;
 import moe.xing.daynightmode.DayNightMode;
@@ -77,6 +80,8 @@ public class SettingActivity extends BaseActivity {
     public static class SettingFragment extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener {
         private DropDownPreference mDropDownPreference;
 
+        private AsyncTask<Void, Void, Void> mTask;
+
         @Override
         public void onCreatePreferences(Bundle bundle, String s) {
             getPreferenceManager().setSharedPreferencesName(Settings.XML_NAME);
@@ -107,6 +112,33 @@ public class SettingActivity extends BaseActivity {
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
                 ((PreferenceCategory) findPreference("general")).removePreference(findPreference("nav_bar_color"));
             }
+
+            findPreference("clear_cache").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                @Override
+                public boolean onPreferenceClick(Preference preference) {
+                    if (mTask != null && mTask.getStatus() != AsyncTask.Status.FINISHED) {
+                        return false;
+                    }
+
+                    mTask = new AsyncTask<Void, Void, Void>() {
+                        @Override
+                        protected Void doInBackground(Void... params) {
+                            Glide.get(getActivity()).clearDiskCache();
+                            return null;
+                        }
+
+                        @Override
+                        protected void onPostExecute(Void aVoid) {
+                            if (isVisible()) {
+                                Toast.makeText(getActivity(), "Cleared", Toast.LENGTH_SHORT).show();
+                            }
+
+                            super.onPostExecute(aVoid);
+                        }
+                    }.execute();
+                    return false;
+                }
+            });
         }
 
         @Override

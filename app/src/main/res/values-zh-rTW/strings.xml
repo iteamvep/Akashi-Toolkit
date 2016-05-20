@@ -136,4 +136,11 @@
 
     <string name="nav_bar_color">导航栏颜色</string>
     <string name="nav_bar_color_summary">使用主题颜色</string>
+
+    <string name="category_cache">缓存</string>
+    <string name="cache_max_size">最大缓存空间</string>
+    <string name="no_limit">无限制</string>
+    <string name="clear_cache">清除缓存</string>
+    <string name="clear_cache_summary">清除图片、语音等的缓存</string>
+
 </resources>

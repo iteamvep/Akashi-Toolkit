@@ -39,6 +39,23 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:title="@string/category_cache">
+
+        <rikka.materialpreference.DropDownPreference
+            android:key="cache_max_size"
+            android:title="@string/cache_max_size"
+            app:myEntries="@array/cache_max_size"
+            app:myEntryValues="@array/cache_max_size_value"
+            android:defaultValue="0"/>
+
+        <Preference
+            android:key="clear_cache"
+            android:title="@string/clear_cache"
+            android:summary="@string/clear_cache_summary"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:title="@string/category_notification">
 
         <rikka.materialpreference.SwitchPreference

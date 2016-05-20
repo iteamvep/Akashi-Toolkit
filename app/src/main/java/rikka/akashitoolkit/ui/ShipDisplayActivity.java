@@ -7,7 +7,6 @@ import android.annotation.TargetApi;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
-import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -48,16 +47,23 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.GlideBuilder;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.engine.cache.DiskCache;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.StringReader;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.List;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -65,6 +71,9 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.ViewPagerStateAdapter;
+import rikka.akashitoolkit.cache.DiskCacheProvider;
+import rikka.akashitoolkit.cache.SimpleKey;
+import rikka.akashitoolkit.cache.StreamWriter;
 import rikka.akashitoolkit.model.Equip;
 import rikka.akashitoolkit.model.ExtraIllustration;
 import rikka.akashitoolkit.model.Ship;
@@ -79,6 +88,7 @@ import rikka.akashitoolkit.staticdata.ShipList;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.StaticData;
 import rikka.akashitoolkit.utils.KCStringFormatter;
+import rikka.akashitoolkit.support.MusicPlayer;
 import rikka.akashitoolkit.utils.MySpannableFactory;
 import rikka.akashitoolkit.utils.Utils;
 
@@ -95,8 +105,6 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
     private Ship mItem;
     private int mId;
     private Adapter mAdapter;
-
-    private MediaPlayer mMediaPlayer;
 
     private int mScrollY;
 
@@ -293,23 +301,23 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
         }
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://api.2ds.tv:8080")
+                .baseUrl("http://api.kcwiki.moe")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         RetrofitAPI.Voice service = retrofit.create(RetrofitAPI.Voice.class);
-        Call<ShipVoice> call = service.get(mItem.getId());
+        Call<List<ShipVoice>> call = service.get(mItem.getId());
 
-        Log.d("ShipDisplayActivity", "JKancolle/voice.do " + Integer.toString(mItem.getId()));
-
-        call.enqueue(new Callback<ShipVoice>() {
+        call.enqueue(new Callback<List<ShipVoice>>() {
             @Override
-            public void onResponse(Call<ShipVoice> call, Response<ShipVoice> response) {
-                mAdapter.setData(response.body().getData());
+            public void onResponse(Call<List<ShipVoice>> call, Response<List<ShipVoice>> response) {
+                //Gson gson = new Gson();
+                //mAdapter.setData((List<ShipVoice>) gson.fromJson(new JsonReader(new InputStreamReader(response.body().byteStream())), new TypeToken<ArrayList<ShipVoice>>() {}.getType()));
+                mAdapter.setData(response.body());
             }
 
             @Override
-            public void onFailure(Call<ShipVoice> call, Throwable t) {
+            public void onFailure(Call<List<ShipVoice>> call, Throwable t) {
 
             }
         });
@@ -359,9 +367,9 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
 
         class Voice {
             String type;
-            ShipVoice.DataEntity.VoiceEntity voice;
+            ShipVoice voice;
 
-            public Voice(String type, ShipVoice.DataEntity.VoiceEntity voice) {
+            public Voice(String type, ShipVoice voice) {
                 this.type = type;
                 this.voice = voice;
             }
@@ -377,34 +385,17 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
             mData = new ArrayList<>();
         }
 
-        public void setData(List<ShipVoice.DataEntity> data) {
+        public void setData(List<ShipVoice> data) {
             mData.clear();
 
-            // so bad
-            /*Ship cur = mItem;
-            while (cur.getRemodel().getId_from() != 0) {
-                cur = ShipList.findItemById(ShipDisplayActivity.this, cur.getRemodel().getId_from());
+            if (data == null) {
+                return;
             }
 
-            ShipVoice v = ShipVoiceExtraList.get(ShipDisplayActivity.this);
-            for (ShipVoice.DataEntity entity : v.getData()) {
-                for (ShipVoice.DataEntity.VoiceEntity voice : entity.getVoice()) {
-                    if (entity.getZh().equals("%E8%8F%8A%E6%B0%B4%E7%89%B9%E6%94%BB") || entity.getZh().equals("%E6%9C%80%E5%90%8E%E4%B8%80%E6%AC%A1%E5%87%BA%E5%87%BB")) {
-                        continue;
-                    }
-
-                    if (cur.getWiki_id().equals(voice.getIndex())) {
-                        voice.setScene("");
-                        mData.add(new Voice("2016年三周年纪念", voice));
-                    }
-                }
-            }*/
-
-            for (ShipVoice.DataEntity entity : data) {
-                for (ShipVoice.DataEntity.VoiceEntity voice : entity.getVoice()) {
-                    mData.add(new Voice(entity.getZh(), voice));
-                }
+            for (ShipVoice voice : data) {
+                mData.add(new Voice(""/*voice.getZh()*/, voice));
             }
+
             notifyDataSetChanged();
         }
 
@@ -448,17 +439,14 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
                     ((ViewHolderHead2) holder).mTitle.setText(R.string.voice);
                     break;
                 default:
-                    try {
                         final Voice item = mData.get(position - 2);
 
-                        if (position == 2 || !mData.get(position - 3).type.equals(item.type)) {
+                        /*if (position == 2 || !mData.get(position - 3).type.equals(item.type)) {
                             ((ViewHolderItem) holder).mTitle.setVisibility(View.VISIBLE);
-                            ((ViewHolderItem) holder).mTitle.setText(
-                                    URLDecoder.decode(item.type, "UTF-8")
-                            );
-                        } else {
-                            ((ViewHolderItem) holder).mTitle.setVisibility(View.GONE);
-                        }
+                            ((ViewHolderItem) holder).mTitle.setText(item.type);
+                        } else {*/
+                    //((ViewHolderItem) holder).mTitle.setVisibility(View.GONE);
+                    //}
 
                         /*if (item.voice.getScene().length() == 0) {
                             ((ViewHolderItem) holder).mScene.setVisibility(View.GONE);
@@ -466,61 +454,23 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
                             ((ViewHolderItem) holder).mScene.setVisibility(View.VISIBLE);
                         }*/
 
-                        ((ViewHolderItem) holder).mScene.setText(
-                                URLDecoder.decode(item.voice.getScene(), "UTF-8"));
-                        ((ViewHolderItem) holder).mContent.setText(
-                                URLDecoder.decode(item.voice.getJaSub(), "UTF-8"));
-                        ((ViewHolderItem) holder).mContent2.setText(
-                                URLDecoder.decode(item.voice.getZhSub(), "UTF-8"));
+                    ((ViewHolderItem) holder).mScene.setText(item.voice.getScene());
+                    ((ViewHolderItem) holder).mContent.setText(item.voice.getJp());
+                    ((ViewHolderItem) holder).mContent2.setText(item.voice.getZh());
 
                         ((ViewHolderItem) holder).mLinearLayout.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 try {
-                                    String url = URLDecoder.decode(item.voice.getUrl(), "UTF-8");
+                                    final String url = item.voice.getUrl();
                                     Log.d("VoicePlay", "url " + url);
-                                    Uri uri = Uri.parse(url);
-                                    String filename = uri.getLastPathSegment();
-                                    Log.d("VoicePlay", "filename " + filename);
-
-                                    final String path = getCacheDir().getAbsolutePath() + "/" + filename;
-                                    File file = new File(path);
-
-                                    if (file.exists()) {
-                                        Log.d("VoicePlay", "play exists file " + filename);
-                                        playMusic(path);
-                                    } else {
-                                        Log.d("VoicePlay", "download file " + filename);
-
-                                        NetworkUtils.get(url, new okhttp3.Callback() {
-                                            @Override
-                                            public void onResponse(okhttp3.Call call, okhttp3.Response response) throws IOException {
-                                                Log.d("VoicePlay", "download file finished");
-
-                                                Utils.saveStreamToFile(response.body().byteStream(), path);
-
-                                                playMusic(path);
-                                            }
-
-                                            @Override
-                                            public void onFailure(okhttp3.Call call, IOException e) {
-
-                                            }
-                                        });
-                                    }
-
-                                    /*MediaPlayer mp = new MediaPlayer();
-                                    mp.setDataSource(url);
-                                    mp.prepare();
-                                    mp.start();*/
+                                    MusicPlayer.play(url);
                                 } catch (IOException e) {
                                     e.printStackTrace();
                                 }
                             }
                         });
-                    } catch (UnsupportedEncodingException e) {
-                        e.printStackTrace();
-                    }
+
 
                     break;
             }
@@ -532,43 +482,10 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
         }
     }
 
-    private String lastPlayed;
-
-    private void playMusic(String path) throws IOException {
-        stopMusic();
-
-        if (lastPlayed != null && path.equals(lastPlayed)) {
-            lastPlayed = null;
-            return;
-        }
-
-        lastPlayed = path;
-        mMediaPlayer = new MediaPlayer();
-        mMediaPlayer.setDataSource(path);
-        mMediaPlayer.prepare();
-        mMediaPlayer.start();
-        mMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-            @Override
-            public void onCompletion(MediaPlayer mp) {
-                lastPlayed = null;
-            }
-        });
-    }
-
-    private void stopMusic() {
-        if (mMediaPlayer != null) {
-            if (mMediaPlayer.isPlaying()) {
-                mMediaPlayer.stop();
-            }
-
-            mMediaPlayer.release();
-            mMediaPlayer = null;
-        }
-    }
 
     @Override
     protected void onStop() {
-        stopMusic();
+        MusicPlayer.stop();
 
         super.onStop();
     }

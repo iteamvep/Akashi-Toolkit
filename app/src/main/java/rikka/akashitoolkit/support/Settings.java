@@ -43,6 +43,8 @@ public class Settings {
 
     public static final String NAV_BAR_COLOR = "nav_bar_color";
 
+    public static final String CACHE_MAX_SIZE = "cache_max_size";
+
     public static final String DEVELOPER = "developer";
 
     private static BaseSetting sInstance;
