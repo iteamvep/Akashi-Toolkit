@@ -20,6 +20,8 @@ import rikka.akashitoolkit.utils.Utils;
  * Created by Rikka on 2016/3/23.
  */
 public class EquipFragment extends BaseDisplayFragment<EquipAdapter> {
+    public static final String TAG = "EquipFragment";
+
     private int mType;
     private int mPosition;
 
@@ -95,6 +97,10 @@ public class EquipFragment extends BaseDisplayFragment<EquipAdapter> {
 
     @Subscribe
     public void onlyBookmarkedChanged(BookmarkAction.Changed2 action) {
+        if (!action.getTag().equals(TAG)) {
+            return;
+        }
+
         if (action.isBookmarked() && action.getType() == mPosition) {
             getAdapter().setType(0);
             getAdapter().setBookmarked(action.isBookmarked());

@@ -60,7 +60,8 @@ public class EquipImprovementDisplayFragment extends BaseDrawerItemFragment {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 mBookmarked = buttonView.isChecked();
 
-                BusProvider.instance().post(new BookmarkAction.Changed(mBookmarked));
+                BusProvider.instance().post(
+                        new BookmarkAction.Changed(EquipImprovementFragment.TAG, mBookmarked));
 
                 Settings
                         .instance(getContext())

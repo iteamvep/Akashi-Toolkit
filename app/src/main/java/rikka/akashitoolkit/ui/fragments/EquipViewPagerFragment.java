@@ -42,9 +42,14 @@ public class EquipViewPagerFragment extends Fragment {
 
     @Subscribe
     public void onlyBookmarkedChanged(BookmarkAction.Changed action) {
+        if (!action.getTag().equals(EquipFragment.TAG)) {
+            return;
+        }
+
         mViewPager.setSwipeEnabled(!action.isBookmarked());
 
-        BusProvider.instance().post(new BookmarkAction.Changed2(action.isBookmarked(), mViewPager.getCurrentItem()));
+        BusProvider.instance().post(
+                new BookmarkAction.Changed2(action.getTag(), action.isBookmarked(), mViewPager.getCurrentItem()));
     }
 
     @Nullable

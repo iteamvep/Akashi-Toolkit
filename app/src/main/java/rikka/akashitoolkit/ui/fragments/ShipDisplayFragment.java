@@ -160,15 +160,19 @@ public class ShipDisplayFragment extends BaseSearchFragment {
         body.addDivider();
 
         mCheckBoxGroups[2] = new CheckBoxGroup(getContext());
-        for (int i = 2; i < ShipList.shipType.length; i++) {
-            mCheckBoxGroups[2].addItem(ShipList.shipType[i]);
+        for (int i = 2; i < ShipList.shipType2.length; i++) {
+            if (i == 12 || i == 15) {
+                continue;
+            }
+
+            mCheckBoxGroups[2].addItem(ShipList.shipType2[i], i);
         }
         mCheckBoxGroups[2].setOnCheckedChangeListener(new CheckBoxGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(View view, int checked) {
-                BusProvider.instance().post(new ShipAction.TypeChangeAction(checked << 2));
+                BusProvider.instance().post(new ShipAction.TypeChangeAction(checked));
 
-                mFlag = checked << 2;
+                mFlag = checked;
                 Settings
                         .instance(getContext())
                         .putInt(Settings.SHIP_FILTER, checked);
@@ -188,7 +192,8 @@ public class ShipDisplayFragment extends BaseSearchFragment {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 int checked = buttonView.isChecked() ? 1 : 0;
 
-                BusProvider.instance().post(new BookmarkAction.Changed(checked > 0));
+                BusProvider.instance().post(
+                        new BookmarkAction.Changed(ShipFragment.TAG, checked > 0));
 
                 mBookmarked = checked > 0;
                 Settings

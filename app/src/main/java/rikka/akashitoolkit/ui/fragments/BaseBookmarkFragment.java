@@ -32,6 +32,9 @@ public abstract class BaseBookmarkFragment extends BaseDrawerItemFragment {
 
     protected abstract String getSettingKey();
 
+    protected abstract String getFragmentTAG();
+
+
     @Override
     protected boolean getTabLayoutVisible() {
         return !mBookmarked;
@@ -59,7 +62,7 @@ public abstract class BaseBookmarkFragment extends BaseDrawerItemFragment {
                         .instance(getContext())
                         .putBoolean(getSettingKey(), mBookmarked);
 
-                BusProvider.instance().post(new BookmarkAction.Changed(mBookmarked));
+                BusProvider.instance().post(new BookmarkAction.Changed(getFragmentTAG(), mBookmarked));
 
                 setTabLayoutVisible();
             }

@@ -16,6 +16,8 @@ import rikka.akashitoolkit.utils.Utils;
  * Created by Rikka on 2016/3/30.
  */
 public class ShipFragment extends BaseDisplayFragment<ShipAdapter> {
+    public static final String TAG = "ShipFragment";
+
     @Override
     public void onStart() {
         super.onStart();
@@ -102,6 +104,10 @@ public class ShipFragment extends BaseDisplayFragment<ShipAdapter> {
 
     @Subscribe
     public void onlyBookmarkedChanged(BookmarkAction.Changed action) {
+        if (!action.getTag().equals(TAG)) {
+            return;
+        }
+
         getAdapter().setBookmarked(action.isBookmarked());
         getAdapter().rebuildDataList();
     }

@@ -1,6 +1,7 @@
 package rikka.akashitoolkit.widget;
 
 import android.content.Context;
+import android.support.v4.util.ArrayMap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.utils.Utils;
@@ -20,7 +22,7 @@ public class CheckBoxGroup extends LinearLayout {
     private int mItemLayoutResId;
     private int mTitleLayoutResId;
     private int mChecked;
-    private List<CheckBox> mCheckBoxList;
+    private Map<CheckBox, Integer> mMap;
     private OnCheckedChangeListener mOnCheckedChangeListener;
 
     public interface OnCheckedChangeListener {
@@ -31,7 +33,7 @@ public class CheckBoxGroup extends LinearLayout {
         super(context);
         setOrientation(VERTICAL);
 
-        mCheckBoxList = new ArrayList<>();
+        mMap = new ArrayMap<>();
         mItemLayoutResId = R.layout.drawer_item_check_box;
         mTitleLayoutResId = R.layout.drawer_item_title;
     }
@@ -49,6 +51,10 @@ public class CheckBoxGroup extends LinearLayout {
     }
 
     public void addItem(String title) {
+        addItem(title, mMap.size());
+    }
+
+    public void addItem(String title, int index) {
         View view = LayoutInflater.from(getContext())
                 .inflate(mItemLayoutResId, this, false);
 
@@ -71,7 +77,7 @@ public class CheckBoxGroup extends LinearLayout {
 
 
         addView(view);
-        mCheckBoxList.add(checkBox);
+        mMap.put(checkBox, index);
     }
 
     public void addDivider() {
@@ -92,17 +98,18 @@ public class CheckBoxGroup extends LinearLayout {
 
     private void calcChecked() {
         mChecked = 0;
-        for (int i = 0; i < mCheckBoxList.size(); i++) {
-            if (mCheckBoxList.get(i).isChecked()) {
-                mChecked |= (1<<i);
+        for (Map.Entry<CheckBox, Integer> entry : mMap.entrySet()) {
+            if (entry.getKey().isChecked()) {
+                mChecked |= (1 << entry.getValue());
             }
         }
     }
 
     private void check(int checked) {
         mChecked = checked;
-        for (int i = 0; i < mCheckBoxList.size(); i++) {
-            mCheckBoxList.get(i).setChecked((checked & 1 << i) > 0);
+
+        for (Map.Entry<CheckBox, Integer> entry : mMap.entrySet()) {
+            entry.getKey().setChecked((checked & 1 << entry.getValue()) > 0);
         }
     }
 

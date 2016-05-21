@@ -52,4 +52,9 @@ public class EquipDisplayFragment extends BaseBookmarkFragment {
     protected String getSettingKey() {
         return Settings.EQUIP_BOOKMARKED;
     }
+
+    @Override
+    protected String getFragmentTAG() {
+        return EquipFragment.TAG;
+    }
 }

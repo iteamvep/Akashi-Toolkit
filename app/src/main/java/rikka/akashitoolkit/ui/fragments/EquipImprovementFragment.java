@@ -16,6 +16,8 @@ import rikka.materialpreference.BaseRecyclerViewItemDecoration;
  * Created by Rikka on 2016/3/17.
  */
 public class EquipImprovementFragment extends BaseDisplayFragment<EquipImprovementAdapter> {
+    public static final String TAG = "EquipImprovementFragment";
+
     private int mType;
 
     @Override
@@ -54,6 +56,10 @@ public class EquipImprovementFragment extends BaseDisplayFragment<EquipImproveme
 
     @Subscribe
     public void onlyBookmarkedChanged(BookmarkAction.Changed action) {
+        if (!action.getTag().equals(TAG)) {
+            return;
+        }
+
         getAdapter().setBookmarked(action.isBookmarked());
         getAdapter().rebuildDataList();
     }

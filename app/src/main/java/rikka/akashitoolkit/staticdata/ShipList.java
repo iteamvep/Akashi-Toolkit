@@ -165,7 +165,10 @@ public class ShipList {
                 if (lhs.getCtype() != rhs.getCtype()) {
                     return 1;
                 }
-                return lhs.getCnum() - rhs.getCnum();
+                if (lhs.getCnum() < rhs.getCnum()) {
+                    return -1;
+                }
+                return 0;
             }
         });
         list.addAll(newList);
@@ -224,5 +227,35 @@ public class ShipList {
             "潜水母舰",
             "练习巡洋舰",
             "补给舰"
+    };
+
+    public static final String[] shipType2 = {
+            "",
+            "海防舰",
+            "驱逐舰 (DD)",
+            "轻巡洋舰 (CL)",
+            "重雷装巡洋舰 (CLT)", // 5
+
+            "重巡洋舰 (CA)",
+            "航空巡洋舰 (CAV)",
+            "轻空母 (CVL)",
+            "高速战舰 (BB)",
+            "低速战舰 (BB)", // 10
+
+            "航空战舰 (BBV)",
+            "正规空母 (CV)",
+            "超弩级战舰",
+            "潜水舰 (SS)",
+            "潜水空母 (SSV)", // 15
+
+            "补给舰 (AP)",
+            "水上机母舰 (AV)",
+            "扬陆舰 (LHA)",
+            "装甲空母 (CVB)",
+            "工作舰 (AR)",
+
+            "潜水母舰 (AS)",
+            "练习巡洋舰 (CLP)",
+            "补给舰 (AP)"
     };
 }
