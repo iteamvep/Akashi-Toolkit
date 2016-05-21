@@ -77,6 +77,7 @@
     <string name="display_enemy">Display enemy item</string>
     <string name="introduction">Introduction</string>
     <string name="ship_can_equip">Ship can equip</string>
+    <string name="ship_initial_equip">Initial equipped ships</string>
     <string name="image_load_error">Image load error</string>
     <string name="tools">Tools</string>
     <string name="exp_calc">Experience calculator</string>

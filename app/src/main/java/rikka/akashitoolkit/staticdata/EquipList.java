@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import rikka.akashitoolkit.model.Equip;
+import rikka.akashitoolkit.model.Ship;
 import rikka.akashitoolkit.support.Settings;
 
 /**
@@ -26,6 +27,7 @@ public class EquipList {
                 public void afterRead(List<Equip> list) {
                     sort(list);
                     setBookmarked(context, list);
+                    makeEquippedShipList(context, list);
                     modifyItemIntroduction(list);
                 }
             }.get(context, FILE_NAME, new TypeToken<ArrayList<Equip>>() {}.getType());
@@ -35,6 +37,28 @@ public class EquipList {
 
     public static synchronized void clear() {
         sList = null;
+    }
+
+    private static void makeEquippedShipList(Context context, List<Equip> list) {
+        List<Ship> ships = ShipList.get(context);
+
+        for (Equip equip : list) {
+            List<Integer> ids = new ArrayList<>();
+            equip.setShipFrom(ids);
+
+            for (Ship ship : ships) {
+                if (ship.getEquip() == null || ship.getEquip().get(0) == null) {
+                    continue;
+                }
+
+                for (int equipId : ship.getEquip().get(0)) {
+                    if (equipId == equip.getId()
+                            && ids.indexOf(ship.getId()) == -1) {
+                        ids.add(ship.getId());
+                    }
+                }
+            }
+        }
     }
 
     @SuppressLint("DefaultLocale")

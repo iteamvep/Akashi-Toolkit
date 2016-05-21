@@ -78,6 +78,7 @@
     <string name="display_enemy">顯示敵人裝備</string>
     <string name="introduction">圖鑑說明</string>
     <string name="ship_can_equip">可裝備艦種</string>
+    <string name="ship_initial_equip">初始装备舰娘</string>
     <string name="image_load_error">圖片載入失敗</string>
     <string name="tools">工具</string>
     <string name="exp_calc">經驗計算器</string>

@@ -48,6 +48,7 @@ public class Equip extends BaseDataModel {
     private ImprovementEntity improvement;
     private List<Integer> discard;
     private List<Integer> shipLimit;
+    private List<Integer> shipFrom;
 
     private GetEntity get;
 
@@ -137,6 +138,14 @@ public class Equip extends BaseDataModel {
 
     public void setShipLimit(List<Integer> shipLimit) {
         this.shipLimit = shipLimit;
+    }
+
+    public List<Integer> getShipFrom() {
+        return shipFrom;
+    }
+
+    public void setShipFrom(List<Integer> shipFrom) {
+        this.shipFrom = shipFrom;
     }
 
     public GetEntity getGet() {

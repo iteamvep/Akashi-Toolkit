@@ -29,10 +29,12 @@ import java.util.List;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.model.Equip;
 import rikka.akashitoolkit.model.EquipImprovement;
+import rikka.akashitoolkit.model.Ship;
 import rikka.akashitoolkit.model.ShipType;
 import rikka.akashitoolkit.staticdata.EquipList;
 import rikka.akashitoolkit.staticdata.EquipImprovementList;
 import rikka.akashitoolkit.staticdata.EquipTypeList;
+import rikka.akashitoolkit.staticdata.ShipList;
 import rikka.akashitoolkit.staticdata.ShipTypeList;
 import rikka.akashitoolkit.support.StaticData;
 import rikka.akashitoolkit.utils.KCStringFormatter;
@@ -139,10 +141,60 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
         addAttrView(mLinearLayout, "射程", mItem.getAttr().getRange(), R.drawable.item_attr_range);
 
         addShipType();
+        addShip();
 
         addItemImprovementView();
 
         addOther(mLinearLayout);
+    }
+
+    private void addShip() {
+        if (mItem.getShipFrom() == null) {
+            return;
+        }
+
+        ViewGroup parent = addCell(mLinearLayout, R.string.ship_initial_equip);
+
+        LinearLayout linearLayout = null;
+
+        int i = 0;
+        for (Integer shipId : mItem.getShipFrom()) {
+            if (i % 3 == 0) {
+                linearLayout = new LinearLayout(this);
+                linearLayout.setOrientation(LinearLayout.HORIZONTAL);
+                linearLayout.setWeightSum(3);
+
+                parent.addView(linearLayout);
+
+                i = 0;
+            }
+
+            TextView view = (TextView) LayoutInflater.from(this).inflate(R.layout.clickable_textview, linearLayout, false);
+            view.setText(ShipList.findItemById(this, shipId).getName().get(this));
+
+            final int id = shipId;
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(EquipDisplayActivity.this, ShipDisplayActivity.class);
+                    intent.putExtra(ShipDisplayActivity.EXTRA_ITEM_ID, id);
+                    startActivity(intent);
+                }
+            });
+
+            /*textView.setText();
+            textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+            textView.setLayoutParams(new LinearLayout.LayoutParams(0, Utils.dpToPx(48), 1));
+            textView.setGravity(Gravity.CENTER_VERTICAL);
+            textView.setSingleLine(true);
+            //textView.setPadding(i == 0 ? Utils.dpToPx(16) : Utils.dpToPx(4), Utils.dpToPx(2), i == 2 ? Utils.dpToPx(16) : Utils.dpToPx(4), Utils.dpToPx(2));
+            textView.setPadding(Utils.dpToPx(16), 0, Utils.dpToPx(16), 0);*/
+
+            linearLayout.addView(view);
+
+            i ++;
+        }
+
     }
 
     private void addShipType() {
@@ -174,11 +226,14 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
             textView.setLayoutParams(new LinearLayout.LayoutParams(0, Utils.dpToPx(36), 1));
             textView.setGravity(Gravity.CENTER_VERTICAL);
             textView.setSingleLine(true);
+
             //textView.setGravity(Gravity.CENTER_HORIZONTAL);
-            textView.setPadding(i == 0 ? Utils.dpToPx(16) : Utils.dpToPx(4), Utils.dpToPx(2), i == 2 ? Utils.dpToPx(16) : Utils.dpToPx(4), Utils.dpToPx(2));
+            //textView.setPadding(i == 0 ? Utils.dpToPx(16) : Utils.dpToPx(4), Utils.dpToPx(2), i == 2 ? Utils.dpToPx(16) : Utils.dpToPx(4), Utils.dpToPx(2));
+            textView.setPadding(Utils.dpToPx(16), 0, Utils.dpToPx(16), 0);
+
             linearLayout.addView(textView);
 
-            i ++;
+            i++;
         }
 
     }
