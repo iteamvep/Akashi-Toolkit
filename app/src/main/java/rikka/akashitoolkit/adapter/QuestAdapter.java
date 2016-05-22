@@ -1,5 +1,6 @@
 package rikka.akashitoolkit.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
@@ -26,11 +27,12 @@ import rikka.akashitoolkit.staticdata.EquipList;
 import rikka.akashitoolkit.staticdata.ItemList;
 import rikka.akashitoolkit.staticdata.QuestList;
 import rikka.akashitoolkit.staticdata.ShipList;
+import rikka.akashitoolkit.support.Settings;
 
 /**
  * Created by Rikka on 2016/3/9.
  */
-public class QuestAdapter extends BaseRecyclerAdapter<ViewHolder.Quest> {
+public class QuestAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Quest> {
     private List<Quest> mData;
     private int mType;
     private int mFilterFlag;
@@ -44,7 +46,9 @@ public class QuestAdapter extends BaseRecyclerAdapter<ViewHolder.Quest> {
         return mData.get(position).getId();
     }
 
-    public QuestAdapter(Context context, int type, int flag, boolean isSearching, boolean latestOnly) {
+    public QuestAdapter(Context context, int type, int flag, boolean isSearching, boolean latestOnly, boolean bookmarked) {
+        super(bookmarked);
+
         mType = type;
         mData = new ArrayList<>();
         mFilterFlag = flag;
@@ -79,6 +83,10 @@ public class QuestAdapter extends BaseRecyclerAdapter<ViewHolder.Quest> {
     }
 
     private boolean check(Quest item) {
+        if (requireBookmarked() && !item.isBookmarked()) {
+            return false;
+        }
+
         if (mLatestOnly && !item.isNewMission()) {
             return false;
         }
@@ -226,7 +234,7 @@ public class QuestAdapter extends BaseRecyclerAdapter<ViewHolder.Quest> {
         Quest quest = mData.get(position);
 
         if (!quest.isHighlight()) {
-            holder.mExpandableLayout.setExpanded(false, false);
+            //holder.mExpandableLayout.setExpanded(false, false);
             holder.mName.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
         } else {
             setViewDetail(holder, position);
@@ -235,7 +243,7 @@ public class QuestAdapter extends BaseRecyclerAdapter<ViewHolder.Quest> {
         }
 
         holder.mName.setText(
-                String.format("%s %s",
+                String.format(quest.isBookmarked() ? "%s %s ★" : "%s %s",
                         quest.getCode(),
                         quest.getTitle().get(mContext, true)));
 
@@ -278,6 +286,25 @@ public class QuestAdapter extends BaseRecyclerAdapter<ViewHolder.Quest> {
                 }
             }
         });
+
+        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            @SuppressLint("DefaultLocale")
+            @Override
+            public boolean onLongClick(View v) {
+                Quest item = mData.get(holder.getAdapterPosition());
+
+                item.setBookmarked(!item.isBookmarked());
+
+                Settings.instance(mContext)
+                        .putBoolean(String.format("quest_%d", item.getId()), item.isBookmarked());
+
+                showToast(mContext, item.isBookmarked());
+
+                notifyItemChanged(holder.getAdapterPosition());
+
+                return true;
+            }
+        });
     }
 
     private void setViewDetail(ViewHolder.Quest holder, int position) {
@@ -293,36 +320,51 @@ public class QuestAdapter extends BaseRecyclerAdapter<ViewHolder.Quest> {
         setRewardText(quest, holder.mRewardText[4]);
 
         holder.mQuestContainer.removeAllViews();
-        if (mData.get(position).getUnlock().size() > 0) {
-            for (String code : mData.get(position).getUnlock()) {
-                if (code.length() == 0) {
-                    continue;
-                }
 
-                final Quest unlockQuest = QuestList.findItemByCode(mContext, code);
-                if (unlockQuest == null) {
-                    Log.d("QuestAdapter", "Quest not found: " + code);
-                    continue;
-                }
+        if (mData.get(position).getUnlock() != null && mData.get(position).getUnlock().size() > 0) {
+            View view = LayoutInflater.from(mContext).inflate(R.layout.card_quest_next_header, holder.mQuestContainer, false);
+            ((TextView) view).setText("前置任务");
+            holder.mQuestContainer.addView(view);
+            addUnlockQuestViews(holder, mData.get(position).getUnlock(), "%s %s");
+        }
 
-                View view = LayoutInflater.from(mContext).inflate(R.layout.card_quest_next, holder.mQuestContainer, false);
-                ((TextView) view).setText(
-                        String.format("前置任务: %s %s", unlockQuest.getCode(), unlockQuest.getTitle().get(mContext, true)));
+        if (mData.get(position).getAfter() != null && mData.get(position).getAfter().size() > 0) {
+            View view = LayoutInflater.from(mContext).inflate(R.layout.card_quest_next_header, holder.mQuestContainer, false);
+            ((TextView) view).setText("后续任务");
+            holder.mQuestContainer.addView(view);
+            addUnlockQuestViews(holder, mData.get(position).getAfter(), "%s %s");
+        }
+    }
 
-                view.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        for (Quest q : QuestList.get(v.getContext())) {
-                            q.setHighlight(false);
-                        }
-
-                        unlockQuest.setHighlight(true);
-                        BusProvider.instance().post(new QuestAction.JumpToQuest(unlockQuest.getType(), unlockQuest.getId()));
-                    }
-                });
-
-                holder.mQuestContainer.addView(view);
+    private void addUnlockQuestViews(ViewHolder.Quest holder, List<String> ids, String format) {
+        for (String code : ids) {
+            if (code.length() == 0) {
+                continue;
             }
+
+            final Quest unlockQuest = QuestList.findItemByCode(mContext, code);
+            if (unlockQuest == null) {
+                Log.d("QuestAdapter", "Quest not found: " + code);
+                continue;
+            }
+
+            View view = LayoutInflater.from(mContext).inflate(R.layout.card_quest_next, holder.mQuestContainer, false);
+            ((TextView) view).setText(
+                    String.format(format, unlockQuest.getCode(), unlockQuest.getTitle().get(mContext, true)));
+
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    for (Quest q : QuestList.get(v.getContext())) {
+                        q.setHighlight(false);
+                    }
+
+                    unlockQuest.setHighlight(true);
+                    BusProvider.instance().post(new QuestAction.JumpToQuest(unlockQuest.getType(), unlockQuest.getId()));
+                }
+            });
+
+            holder.mQuestContainer.addView(view);
         }
     }
 
@@ -362,5 +404,12 @@ public class QuestAdapter extends BaseRecyclerAdapter<ViewHolder.Quest> {
                 notifyDataSetChanged();
             }
         }.execute();
+    }
+
+    @Override
+    public void onViewRecycled(ViewHolder.Quest holder) {
+        super.onViewRecycled(holder);
+
+        holder.mExpandableLayout.setExpanded(false, false);
     }
 }

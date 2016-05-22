@@ -1,14 +1,19 @@
 package rikka.akashitoolkit.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.Toast;
 
 import java.util.List;
 
 import rikka.akashitoolkit.R;
+import rikka.akashitoolkit.model.BaseDataModel;
+import rikka.akashitoolkit.model.EquipImprovement;
 import rikka.akashitoolkit.otto.BookmarkAction;
 import rikka.akashitoolkit.otto.BusProvider;
+import rikka.akashitoolkit.support.Settings;
 
 /**
  * Created by Rikka on 2016/5/15.
@@ -23,6 +28,10 @@ public abstract class BaseBookmarkRecyclerAdapter<VH extends RecyclerView.ViewHo
     }
 
     public void setBookmarked(boolean bookmarked) {
+        mBookmarked = bookmarked;
+    }
+
+    public BaseBookmarkRecyclerAdapter(boolean bookmarked) {
         mBookmarked = bookmarked;
     }
 

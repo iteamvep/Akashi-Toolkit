@@ -55,4 +55,10 @@ public class RetrofitAPI {
         Call<List<ShipVoice>> get(
                 @Path("shipId") int shipId);
     }
+
+    /*public interface Voice {
+        @GET("JKancolle/voice.do")
+        Call<ShipVoice> get(
+                @Query("id") int shipId);
+    }*/
 }

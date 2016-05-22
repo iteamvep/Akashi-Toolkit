@@ -9,6 +9,7 @@ import android.util.Log;
 import com.squareup.otto.Subscribe;
 
 import rikka.akashitoolkit.adapter.QuestAdapter;
+import rikka.akashitoolkit.otto.BookmarkAction;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.QuestAction;
 import rikka.materialpreference.BaseRecyclerViewItemDecoration;
@@ -17,6 +18,8 @@ import rikka.materialpreference.BaseRecyclerViewItemDecoration;
  * Created by Rikka on 2016/3/6.
  */
 public class QuestFragment extends BaseDisplayFragment<QuestAdapter> {
+    public static final String TAG = "QuestFragment";
+
     private boolean mSearching;
 
     private int mType;
@@ -42,6 +45,8 @@ public class QuestFragment extends BaseDisplayFragment<QuestAdapter> {
         int flag = 0;
         boolean latest = false;
         Bundle args = getArguments();
+        boolean bookmarked = false;
+
         if (args != null) {
             mType = args.getInt("TYPE");
             flag = args.getInt("FLAG");
@@ -49,15 +54,17 @@ public class QuestFragment extends BaseDisplayFragment<QuestAdapter> {
             mJumpIndex = args.getInt("JUMP_INDEX");
             mJumpType = args.getInt("JUMP_TYPE");
             latest = args.getBoolean("LATEST_ONLY");
+            bookmarked = args.getBoolean("BOOKMARKED");
         }
 
-        setAdapter(new QuestAdapter(getContext(), mType, flag, mSearching, latest));
+        setAdapter(new QuestAdapter(getContext(), mType, flag, mSearching, latest, bookmarked));
     }
 
     @Override
     public void onPostCreateView(RecyclerView recyclerView) {
         super.onPostCreateView(recyclerView);
 
+        recyclerView.setItemAnimator(null);
         recyclerView.addItemDecoration(new BaseRecyclerViewItemDecoration(getContext()));
 
         if (mJumpIndex != -1 && mJumpType == mType) {
@@ -104,5 +111,15 @@ public class QuestFragment extends BaseDisplayFragment<QuestAdapter> {
         });
 
         BusProvider.instance().post(new QuestAction.JumpedToQuest());
+    }
+
+    @Subscribe
+    public void onlyBookmarkedChanged(BookmarkAction.Changed action) {
+        if (!action.getTag().equals(TAG)) {
+            return;
+        }
+
+        getAdapter().setBookmarked(action.isBookmarked());
+        getAdapter().rebuildDataList();
     }
 }

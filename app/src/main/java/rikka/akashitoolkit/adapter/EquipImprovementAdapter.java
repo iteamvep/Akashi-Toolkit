@@ -32,12 +32,13 @@ public class EquipImprovementAdapter extends BaseBookmarkRecyclerAdapter<ViewHol
     private int mType;
 
     public EquipImprovementAdapter(final Activity activity, int type, boolean bookmarked) {
+        super(bookmarked);
+
         mActivity = activity;
         mData = new ArrayList<>();
         mDataShip = new ArrayList<>();
         mType = type;
 
-        setBookmarked(bookmarked);
         setHasStableIds(true);
 
         rebuildDataList();

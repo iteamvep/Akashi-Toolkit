@@ -47,6 +47,8 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Ship> {
     }
 
     public ShipAdapter(Activity activity, int showVersion, int typeFlag, int showSpeed, int sort, boolean bookmarked) {
+        super(bookmarked);
+
         mData = new ArrayList<>();
         mActivity = activity;
 
@@ -56,8 +58,6 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Ship> {
         mTypeFlag = typeFlag;
         mShowSpeed = showSpeed;
         mSort = sort;
-
-        setBookmarked(bookmarked);
 
         mActivity = activity;
 

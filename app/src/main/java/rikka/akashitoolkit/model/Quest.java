@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Created by Rikka on 2016/4/19.
  */
-public class Quest {
+public class Quest extends BaseDataModel {
 
     /**
      * id : 0
@@ -27,7 +27,6 @@ public class Quest {
         this.highlight = highlight;
     }
 
-    private int id;
     private String code;
     private boolean newMission;
     private int period;
@@ -55,14 +54,7 @@ public class Quest {
     private RewardEntity reward;
     private String note;
     private List<String> unlock;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+    private List<String> after;
 
     public String getCode() {
         return code;
@@ -134,6 +126,14 @@ public class Quest {
 
     public void setUnlock(List<String> unlock) {
         this.unlock = unlock;
+    }
+
+    public List<String> getAfter() {
+        return after;
+    }
+
+    public void setAfter(List<String> after) {
+        this.after = after;
     }
 
     public static class RewardEntity {

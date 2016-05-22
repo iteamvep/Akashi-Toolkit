@@ -58,13 +58,13 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Item> {
     }
 
     public EquipAdapter(Activity activity, int type, boolean bookmarked) {
+        super(bookmarked);
+
         setHasStableIds(true);
 
         mActivity = activity;
         mType = type;
         mData = new ArrayList<>();
-
-        setBookmarked(bookmarked);
 
         rebuildDataList();
     }

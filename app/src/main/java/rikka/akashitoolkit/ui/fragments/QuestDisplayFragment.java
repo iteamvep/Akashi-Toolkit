@@ -10,11 +10,13 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 
 import com.squareup.otto.Subscribe;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.ViewPagerStateAdapter;
+import rikka.akashitoolkit.otto.BookmarkAction;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.QuestAction;
 import rikka.akashitoolkit.support.Settings;
@@ -35,6 +37,8 @@ public class QuestDisplayFragment extends BaseSearchFragment implements CheckBox
     private int mJumpToQuestIndex = -1;
     private int mJumpToQuestType = -1;
 
+    private boolean mBookmarked;
+
     @Override
     public void onHide() {
         super.onHide();
@@ -49,6 +53,11 @@ public class QuestDisplayFragment extends BaseSearchFragment implements CheckBox
 
     @Override
     protected boolean getTabLayoutVisible() {
+        return true;
+    }
+
+    @Override
+    protected boolean getSwitchVisible() {
         return true;
     }
 
@@ -78,6 +87,26 @@ public class QuestDisplayFragment extends BaseSearchFragment implements CheckBox
         cbg.setPadding(0, Utils.dpToPx(4), 0, Utils.dpToPx(4));
 
         mActivity.getRightDrawerContent().addView(cbg);
+
+        ((MainActivity) getActivity()).getSwitch().setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                mBookmarked = buttonView.isChecked();
+
+                BusProvider.instance().post(
+                        new BookmarkAction.Changed(QuestFragment.TAG, mBookmarked));
+
+                Settings
+                        .instance(getContext())
+                        .putBoolean(Settings.QUEST_BOOKMARKED, mBookmarked);
+            }
+        });
+
+        mBookmarked = Settings
+                .instance(getContext())
+                .getBoolean(Settings.QUEST_BOOKMARKED, false);
+
+        ((MainActivity) getActivity()).getSwitch().setChecked(mBookmarked);
 
         Statistics.onFragmentStart("QuestDisplayFragment");
     }
@@ -170,6 +199,7 @@ public class QuestDisplayFragment extends BaseSearchFragment implements CheckBox
                     bundle.putInt("JUMP_INDEX", mJumpToQuestIndex);
                     bundle.putInt("JUMP_TYPE", mJumpToQuestType);
                     bundle.putBoolean("LATEST_ONLY", position == 0);
+                    bundle.putBoolean("BOOKMARKED", mBookmarked);
                     return bundle;
                 }
             };
@@ -205,6 +235,8 @@ public class QuestDisplayFragment extends BaseSearchFragment implements CheckBox
 
     @Subscribe
     public void jumpTo(QuestAction.JumpToQuest action) {
+        ((MainActivity) getActivity()).getSwitch().setChecked(false);
+
         mJumpToQuestType = action.getType();
         mJumpToQuestIndex = action.getIndex();
 
