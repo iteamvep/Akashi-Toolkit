@@ -14,4 +14,13 @@
         android:layout_height="64dp"
         android:text="@string/exp_calc"
         android:id="@+id/button"/>
+
+    <!--<Button
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/ranking"
+        android:id="@+id/button2"/>-->
+
 </LinearLayout>

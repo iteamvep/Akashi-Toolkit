@@ -7,7 +7,6 @@ import android.annotation.TargetApi;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.ColorRes;
@@ -19,6 +18,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.animation.FastOutSlowInInterpolator;
+import android.support.v7.widget.AppCompatDrawableManager;
 import android.support.v7.widget.GridLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.ListPopupWindow;
@@ -48,22 +48,11 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.bumptech.glide.load.engine.cache.DiskCache;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.stream.JsonReader;
 
-import java.io.ByteArrayInputStream;
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.StringReader;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.List;
 
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -71,24 +60,20 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.ViewPagerStateAdapter;
-import rikka.akashitoolkit.cache.DiskCacheProvider;
-import rikka.akashitoolkit.cache.SimpleKey;
-import rikka.akashitoolkit.cache.StreamWriter;
 import rikka.akashitoolkit.model.Equip;
 import rikka.akashitoolkit.model.ExtraIllustration;
 import rikka.akashitoolkit.model.Ship;
 import rikka.akashitoolkit.model.ShipClass;
 import rikka.akashitoolkit.model.ShipVoice;
-import rikka.akashitoolkit.network.NetworkUtils;
 import rikka.akashitoolkit.network.RetrofitAPI;
 import rikka.akashitoolkit.staticdata.EquipList;
 import rikka.akashitoolkit.staticdata.ExtraIllustrationList;
 import rikka.akashitoolkit.staticdata.ShipClassList;
 import rikka.akashitoolkit.staticdata.ShipList;
+import rikka.akashitoolkit.support.MusicPlayer;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.StaticData;
 import rikka.akashitoolkit.utils.KCStringFormatter;
-import rikka.akashitoolkit.support.MusicPlayer;
 import rikka.akashitoolkit.utils.MySpannableFactory;
 import rikka.akashitoolkit.utils.Utils;
 
@@ -825,7 +810,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
                 mToast.show();
 
                 item.setIcon(
-                        ContextCompat.getDrawable(this, mItem.isBookmarked() ? R.drawable.ic_bookmark_24dp : R.drawable.ic_bookmark_border_24dp));
+                        AppCompatDrawableManager.get().getDrawable(this, mItem.isBookmarked() ? R.drawable.ic_bookmark_24dp : R.drawable.ic_bookmark_border_24dp));
 
                 break;
             case R.id.action_feedback:
@@ -966,7 +951,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
         getMenuInflater().inflate(R.menu.ship_display, menu);
 
         menu.findItem(R.id.action_bookmark).setIcon(
-                ContextCompat.getDrawable(this, mItem.isBookmarked() ? R.drawable.ic_bookmark_24dp : R.drawable.ic_bookmark_border_24dp));
+                AppCompatDrawableManager.get().getDrawable(this, mItem.isBookmarked() ? R.drawable.ic_bookmark_24dp : R.drawable.ic_bookmark_border_24dp));
 
         /*Drawable drawable = ContextCompat.getDrawable(this, mItem.isBookmarked() ? R.drawable.ic_bookmark_24dp : R.drawable.ic_bookmark_border_24dp);
         drawable.setColorFilter(ContextCompat.getColor(this, R.color.itemDisplayTitle), PorterDuff.Mode.SRC_ATOP);

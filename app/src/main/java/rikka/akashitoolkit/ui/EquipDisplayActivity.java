@@ -6,6 +6,8 @@ import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.content.ContextCompat;
 import android.os.Bundle;
+import android.support.v4.graphics.drawable.DrawableCompat;
+import android.support.v7.widget.AppCompatDrawableManager;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.text.Spanned;
@@ -13,12 +15,14 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -36,6 +40,7 @@ import rikka.akashitoolkit.staticdata.EquipImprovementList;
 import rikka.akashitoolkit.staticdata.EquipTypeList;
 import rikka.akashitoolkit.staticdata.ShipList;
 import rikka.akashitoolkit.staticdata.ShipTypeList;
+import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.StaticData;
 import rikka.akashitoolkit.utils.KCStringFormatter;
 import rikka.akashitoolkit.utils.Utils;
@@ -49,6 +54,8 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
     private AppBarLayout mAppBarLayout;
     private Equip mItem;
     private LinearLayout mItemAttrContainer;
+
+    private Toast mToast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -149,7 +156,7 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
     }
 
     private void addShip() {
-        if (mItem.getShipFrom() == null) {
+        if (mItem.getShipFrom() == null || mItem.getShipFrom().size() == 0) {
             return;
         }
 
@@ -251,6 +258,23 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
                         String.format("应用版本: %d\n装备名称: %s\n\n请写下您的建议或是指出错误的地方。\n\n",
                                 StaticData.instance(this).versionCode,
                                 getTaskDescriptionLabel()));
+                break;
+            case R.id.action_bookmark:
+                mItem.setBookmarked(!mItem.isBookmarked());
+
+                Settings.instance(this)
+                        .putBoolean(String.format("equip_%d", mItem.getId()), mItem.isBookmarked());
+
+                if (mToast != null) {
+                    mToast.cancel();
+                }
+
+                mToast = Toast.makeText(this, mItem.isBookmarked() ? getString(R.string.bookmark_add) : getString(R.string.bookmark_remove), Toast.LENGTH_SHORT);
+                mToast.show();
+
+                item.setIcon(
+                        AppCompatDrawableManager.get().getDrawable(this, mItem.isBookmarked() ? R.drawable.ic_bookmark_24dp : R.drawable.ic_bookmark_border_24dp));
+
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -559,5 +583,15 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
                     .crossFade()
                     .into(imageView);
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.ship_display, menu);
+
+        menu.findItem(R.id.action_bookmark).setIcon(
+                AppCompatDrawableManager.get().getDrawable(this, mItem.isBookmarked() ? R.drawable.ic_bookmark_24dp : R.drawable.ic_bookmark_border_24dp));
+
+        return true;
     }
 }

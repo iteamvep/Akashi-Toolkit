@@ -81,7 +81,7 @@ public class AboutActivity extends BaseActivity {
                 @Override
                 public boolean onPreferenceClick(Preference preference) {
                     ClipBoardUtils.putTextIntoClipboard(getActivity(), "437033068");
-                    Toast.makeText(getActivity(), String.format("%s copied to clipboard.", "437033068"), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), String.format(getString(R.string.copied_to_clipborad), "437033068"), Toast.LENGTH_SHORT).show();
                     return false;
                 }
             });
@@ -92,7 +92,8 @@ public class AboutActivity extends BaseActivity {
                 public boolean onPreferenceClick(Preference preference) {
                     SendReportActivity.sendEmail(getActivity(),
                             "Akashi Toolkit 反馈",
-                            String.format("应用版本: %d\n是否为 Google Play 版: %s\n",
+                            String.format("系统版本: %s (API %d)\n应用版本: %d\n是否为 Google Play 版: %s",
+                                    Build.VERSION.RELEASE, Build.VERSION.SDK_INT,
                                     StaticData.instance(getActivity()).versionCode,
                                     BuildConfig.isGooglePlay ? "是" : "否"));
                     return false;

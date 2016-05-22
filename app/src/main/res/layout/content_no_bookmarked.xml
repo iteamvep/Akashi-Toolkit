@@ -29,7 +29,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nothing bookmarked"
+        android:text="@string/nothing_bookmarked"
         android:layout_marginTop="24dp"
         android:textSize="18sp"
         android:textColor="@android:color/white"/>
@@ -38,7 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:maxWidth="240dp"
-        android:text="You can add item to bookmark by long press it or click bookmark in detail view."
+        android:text="@string/nothing_bookmarked_summary"
         android:layout_marginTop="8dp"
         android:textSize="16sp"
         android:textColor="@android:color/white"/>

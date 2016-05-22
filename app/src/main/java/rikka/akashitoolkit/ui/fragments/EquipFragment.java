@@ -41,14 +41,12 @@ public class EquipFragment extends BaseDisplayFragment<EquipAdapter> {
     public void onResume() {
         super.onResume();
 
-        Log.d("onResume", Integer.toString(mType));
+        getAdapter().notifyDataSetChanged();
     }
 
     @Override
     public void onPause() {
         super.onPause();
-
-        Log.d("onPause", Integer.toString(mType));
     }
 
     @Override

@@ -60,7 +60,7 @@
     <string name="download">去下載</string>
     <string name="reset_read_summary">重置已讀消息包括升級提示</string>
     <string name="read_status_reset">已讀消息已重置</string>
-    <string name="stable">穩定版 (每周更新)</string>
+    <string name="stable">穩定版</string>
     <string name="latest">最新版 (可能有更多問題)</string>
     <string name="please_refresh">請手動刷新</string>
     <string name="open_link">打開連結</string>
@@ -143,5 +143,22 @@
     <string name="no_limit">无限制</string>
     <string name="clear_cache">清除缓存</string>
     <string name="clear_cache_summary">清除图片、语音等的缓存</string>
+    <string name="ranking">战果查询</string>
+
+    <string name="feedback_summary">发送邮件给开发者</string>
+    <string name="donate">捐赠</string>
+    <string name="telegram_group">Telegram 群组</string>
+    <string name="telegram_group_join">点击加入 (如果有兴趣加入开发)</string>
+    <string name="qq_group">QQ群</string>
+    <string name="source_code">源码</string>
+
+    <string name="send_via">发送方式</string>
+    <string name="no_mail_app">没有邮件客户端的样子</string>
+    <!--<string name="feedback_mail_format" formatted="false">系统版本: %s (API %d)\n应用版本: %d\n是否为 Google Play 版: %s</string>-->
+
+    <string name="copied_to_clipborad">%s 已复制到剪贴板</string>
+
+    <string name="nothing_bookmarked">没有书签</string>
+    <string name="nothing_bookmarked_summary">您可以通过长按和在详情视图中按下书签图标来将该项目加入书签。</string>
 
 </resources>

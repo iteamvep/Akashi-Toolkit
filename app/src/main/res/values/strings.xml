@@ -59,7 +59,7 @@
     <string name="download">Go download</string>
     <string name="reset_read_summary">Reset read messages including update notification</string>
     <string name="read_status_reset">Read status reset</string>
-    <string name="stable">Stable (weekly)</string>
+    <string name="stable">Stable</string>
     <string name="latest">Latest (maybe more problems)</string>
     <string name="please_refresh">Please refresh manually</string>
     <string name="open_link">Open link</string>
@@ -161,5 +161,22 @@ Activity &amp; Extra:
     <string name="no_limit">No limit</string>
     <string name="clear_cache">Clear cache</string>
     <string name="clear_cache_summary">Clear cache of image, voice…</string>
+    <string name="ranking">Ranking</string>
+
+    <string name="feedback_summary">Send email to developer</string>
+    <string name="donate">Donate</string>
+    <string name="telegram_group">Telegram group</string>
+    <string name="telegram_group_join">Click to join (if you want to help develop)</string>
+    <string name="qq_group">QQ group</string>
+    <string name="source_code">Source code</string>
+
+    <string name="send_via">Send via</string>
+    <string name="no_mail_app">No mail app</string>
+    <!--<string name="feedback_mail_format" formatted="false">System version: %s (API %d)\nApp version: %d\nInstall from Google Play: %s</string>-->
+
+    <string name="copied_to_clipborad">%s copied to clipboard.</string>
+
+    <string name="nothing_bookmarked">Nothing bookmarked</string>
+    <string name="nothing_bookmarked_summary">You can add item to bookmark by long press it or click bookmark in detail view.</string>
 
 </resources>

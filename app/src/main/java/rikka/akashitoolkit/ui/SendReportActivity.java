@@ -67,10 +67,10 @@ public class SendReportActivity extends BaseActivity {
         intent.putExtra(Intent.EXTRA_TEXT, body);
 
         if (IntentUtils.isValid(context, intent)) {
-            intent = Intent.createChooser(intent, "send via"/*getString(R.string.send_via)*/);
+            intent = Intent.createChooser(intent, context.getString(R.string.send_via)/*getString(R.string.send_via)*/);
             context.startActivity(intent);
         } else {
-            Toast.makeText(context, "没有邮件客户端的样子"/*R.string.app_crash_no_email_client*/, Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, context.getString(R.string.no_mail_app)/*R.string.app_crash_no_email_client*/, Toast.LENGTH_SHORT).show();
         }
 
     }

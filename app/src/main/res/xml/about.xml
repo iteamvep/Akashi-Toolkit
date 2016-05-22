@@ -10,11 +10,11 @@
     <Preference
         android:key="feedback"
         android:title="@string/data_feedback"
-        android:summary="向开发者发送邮件"/>
+        android:summary="@string/feedback_summary"/>
 
     <Preference
         android:key="donate"
-        android:title="捐赠"
+        android:title="@string/donate"
         android:summary="支付宝: rikka@xing.moe"/>
 
     <Preference
@@ -31,7 +31,7 @@
 
     </Preference>
 
-    <Preference
+    <!--<Preference
         android:title="SVG 图标来源"
         android:summary="edwardaaaa">
 
@@ -45,11 +45,11 @@
         android:title="打滚求开发"
         android:summary="程序员、设计师什么的都可以啦qwq">
 
-    </Preference>
+    </Preference>-->
 
     <Preference
-        android:title="Telegram 群组"
-        android:summary="点击加入 (如果有兴趣加入开发)">
+        android:title="@string/telegram_group"
+        android:summary="@string/telegram_group_join">
 
         <intent
             android:action="android.intent.action.VIEW"
@@ -59,13 +59,13 @@
 
     <Preference
         android:key="qq_group"
-        android:title="QQ群"
+        android:title="@string/qq_group"
         android:summary="437033068">
 
     </Preference>
 
     <Preference
-        android:title="源码"
+        android:title="@string/source_code"
         android:summary="https://github.com/YubariNavalArsenal/Akashi-Toolkit">
 
         <intent
