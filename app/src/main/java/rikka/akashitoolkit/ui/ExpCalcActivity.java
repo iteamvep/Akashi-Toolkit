@@ -219,6 +219,12 @@ public class ExpCalcActivity extends AppCompatActivity {
             mTextViewResult.setText("数据有误");
             return;
         }
+        
+        if (mCurLv > mTargetLv) {
+            mTextViewResult.setText(“当前等级不能大于目标等级”);
+            return;
+        }
+
 
         int exp_map = (int) (MAP_EXP[mMap] * EXP_PERCENT[mResult]);
 
