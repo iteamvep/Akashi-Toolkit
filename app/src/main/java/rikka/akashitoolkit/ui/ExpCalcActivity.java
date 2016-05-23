@@ -221,7 +221,7 @@ public class ExpCalcActivity extends AppCompatActivity {
         }
         
         if (mCurLv > mTargetLv) {
-            mTextViewResult.setText(“当前等级不能大于目标等级”);
+            mTextViewResult.setText("当前等级不能大于目标等级");
             return;
         }
 
