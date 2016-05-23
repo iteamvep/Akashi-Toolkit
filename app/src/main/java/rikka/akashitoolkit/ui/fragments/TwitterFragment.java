@@ -215,7 +215,9 @@ public class TwitterFragment extends BaseDrawerItemFragment {
                     };
                 }
 
-                mRecyclerView.addItemDecoration(mItemDecoration);
+                if (getResources().getDimension(R.dimen.card_width) != -1) {
+                    mRecyclerView.addItemDecoration(mItemDecoration);
+                }
             }
 
         } else {

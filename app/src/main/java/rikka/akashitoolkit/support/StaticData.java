@@ -3,6 +3,7 @@ package rikka.akashitoolkit.support;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 
 import rikka.akashitoolkit.R;
 
@@ -33,7 +34,8 @@ public class StaticData {
             versionCode = -1;
         }
 
-        isTablet = context.getResources().getBoolean(R.bool.is_tablet);
+        isTablet = (context.getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK)
+                >= Configuration.SCREENLAYOUT_SIZE_LARGE;
     }
 
     public static synchronized StaticData instance(Context context) {
