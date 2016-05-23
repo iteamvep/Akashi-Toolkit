@@ -10,8 +10,8 @@
     android:gravity="center_vertical">
 
     <TextView
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginLeft="@dimen/item_activity_margin"
+        android:layout_marginStart="@dimen/item_activity_margin"
         android:id="@android:id/title"
         android:layout_width="0dp"
         android:layout_weight="1.2"

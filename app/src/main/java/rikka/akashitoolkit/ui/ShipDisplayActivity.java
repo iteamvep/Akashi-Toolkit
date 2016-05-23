@@ -220,7 +220,8 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
                 animation.setInterpolator(new FastOutSlowInInterpolator());
                 mAppBarLayout.startAnimation(animation);
 
-                getWindow().setBackgroundDrawable(new ColorDrawable(ContextCompat.getColor(ShipDisplayActivity.this, R.color.colorItemDisplayStatusBar)));
+                if (!StaticData.instance(this).isTablet)
+                    getWindow().setBackgroundDrawable(new ColorDrawable(ContextCompat.getColor(ShipDisplayActivity.this, R.color.colorItemDisplayStatusBar)));
 
                 Utils.colorAnimation(
                         ContextCompat.getColor(this, R.color.background),
@@ -667,11 +668,6 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
                         ((TextView) v.findViewById(android.R.id.title)).setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
 
                         setItem(finalCur.getId(), true);
-
-                        /*Intent intent = new Intent(ShipDisplayActivity.this, ShipDisplayActivity.class);
-                        intent.putExtra(ShipDisplayActivity.EXTRA_ITEM_ID, finalCur.getId());
-                        startActivity(intent);*/
-                        //startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("akashitoolkit://ship/" + Integer.toString(finalCur.getId()))));
                     }
                 });
 

@@ -13,8 +13,8 @@
         android:layout_weight="1.2"
         android:layout_height="48dp"
         android:textSize="@dimen/card_font_large"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginStart="@dimen/item_activity_margin"
+        android:layout_marginLeft="@dimen/item_activity_margin"
         android:gravity="center_vertical"
         tools:text="必要资源"
         android:singleLine="true"/>

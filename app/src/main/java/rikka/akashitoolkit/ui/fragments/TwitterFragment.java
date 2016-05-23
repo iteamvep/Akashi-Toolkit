@@ -1,13 +1,17 @@
 package rikka.akashitoolkit.ui.fragments;
 
+import android.content.pm.PackageInfo;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -42,6 +46,7 @@ import rikka.akashitoolkit.network.RetrofitAPI;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.PreferenceChangedAction;
 import rikka.akashitoolkit.support.Settings;
+import rikka.akashitoolkit.support.StaticData;
 import rikka.akashitoolkit.support.Statistics;
 import rikka.akashitoolkit.ui.MainActivity;
 import rikka.akashitoolkit.utils.Utils;
@@ -131,7 +136,7 @@ public class TwitterFragment extends BaseDrawerItemFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.content_swipe_refresh, container, false);
+        View view = inflater.inflate(R.layout.content_twitter_container, container, false);
 
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         mTwitterAdapter = new TwitterAdapter();
@@ -151,8 +156,31 @@ public class TwitterFragment extends BaseDrawerItemFragment {
         FragmentManager fragmentManager = getFragmentManager();
         mTwitterAdapter.openImageShow(fragmentManager);
 
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-        //layoutManager.setAutoMeasureEnabled(false);
+        RecyclerView.LayoutManager layoutManager;
+        if (StaticData.instance(getActivity()).isTablet) {
+            if (Settings.instance(getActivity()).getBoolean(Settings.TWITTER_GRID_LAYOUT, false)) {
+                layoutManager = new StaggeredGridLayoutManager(2, RecyclerView.VERTICAL);
+            } else {
+                layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+
+                mRecyclerView.addItemDecoration(new RecyclerView.ItemDecoration() {
+                    int width = 0;
+
+                    @Override
+                    public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+                        if (width == 0) {
+                            width = Utils.dpToPx(480 + 8 + 8 + 8 + 8);
+                        }
+
+                        outRect.left = (mRecyclerView.getWidth() - width) / 2;
+                        outRect.right = (mRecyclerView.getWidth() - width) / 2;
+                    }
+                });
+            }
+
+        } else {
+            layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+        }
         mRecyclerView.setLayoutManager(layoutManager);
 
         mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefreshLayout);

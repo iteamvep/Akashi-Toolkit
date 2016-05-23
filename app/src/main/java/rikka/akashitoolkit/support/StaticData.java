@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 
+import rikka.akashitoolkit.R;
+
 import static rikka.akashitoolkit.support.ApiConstParam.Language.ZH_CN;
 
 /**
@@ -15,6 +17,7 @@ public class StaticData {
     public int language;
     public int versionCode;
     public String versionName;
+    public boolean isTablet;
 
     private StaticData(Context context) {
         language = Settings
@@ -29,6 +32,8 @@ public class StaticData {
             e.printStackTrace();
             versionCode = -1;
         }
+
+        isTablet = context.getResources().getBoolean(R.bool.is_tablet);
     }
 
     public static synchronized StaticData instance(Context context) {

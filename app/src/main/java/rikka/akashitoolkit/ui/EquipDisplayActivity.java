@@ -236,7 +236,7 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
 
             //textView.setGravity(Gravity.CENTER_HORIZONTAL);
             //textView.setPadding(i == 0 ? Utils.dpToPx(16) : Utils.dpToPx(4), Utils.dpToPx(2), i == 2 ? Utils.dpToPx(16) : Utils.dpToPx(4), Utils.dpToPx(2));
-            textView.setPadding(Utils.dpToPx(16), 0, Utils.dpToPx(16), 0);
+            textView.setPadding((int) getResources().getDimension(R.dimen.item_activity_margin), 0, (int) getResources().getDimension(R.dimen.item_activity_margin), 0);
 
             linearLayout.addView(textView);
 
@@ -283,7 +283,7 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
     private void addOther(ViewGroup parent) {
         if (mItem.getRemark() != null && mItem.getRemark().length() > 0) {
             ViewGroup cell = addCell(parent, R.string.remark);
-            addTextView(cell, Html.fromHtml(mItem.getRemark())).setPadding(Utils.dpToPx(16), Utils.dpToPx(4), Utils.dpToPx(16), 0);
+            addTextView(cell, Html.fromHtml(mItem.getRemark())).setPadding((int) getResources().getDimension(R.dimen.item_activity_margin), Utils.dpToPx(4), (int) getResources().getDimension(R.dimen.item_activity_margin), 0);
         }
 
         if (mItem.getGet().getQuest() != null ||
@@ -320,7 +320,7 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
                     sb.append(item).append('\n');
                 }
 
-                addTextView(cell, sb.toString()).setPadding(Utils.dpToPx(16), 0, Utils.dpToPx(16), 0);
+                addTextView(cell, sb.toString()).setPadding((int) getResources().getDimension(R.dimen.item_activity_margin), 0, (int) getResources().getDimension(R.dimen.item_activity_margin), 0);
             }
 
 
@@ -332,7 +332,7 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
                     sb.append(item).append('\n');
                 }
 
-                addTextView(cell, sb.toString()).setPadding(Utils.dpToPx(16), 0, Utils.dpToPx(16), 0);
+                addTextView(cell, sb.toString()).setPadding((int) getResources().getDimension(R.dimen.item_activity_margin), 0, (int) getResources().getDimension(R.dimen.item_activity_margin), 0);
             }
         }
 
@@ -342,7 +342,7 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
                 && mItem.getIntroduction().get(this) != null
                 && mItem.getIntroduction().get(this).length() > 0) {
             ViewGroup cell = addCell(parent, R.string.introduction);
-            addTextView(cell, Html.fromHtml(mItem.getIntroduction().get(this))).setPadding(Utils.dpToPx(16), 0, Utils.dpToPx(16), 0);
+            addTextView(cell, Html.fromHtml(mItem.getIntroduction().get(this))).setPadding((int) getResources().getDimension(R.dimen.item_activity_margin), 0, (int) getResources().getDimension(R.dimen.item_activity_margin), 0);
         }
     }
 
@@ -366,7 +366,7 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
             LinearLayout linearLayout = new LinearLayout(this);
             linearLayout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
             linearLayout.setOrientation(LinearLayout.HORIZONTAL);
-            linearLayout.setPadding(Utils.dpToPx(16), Utils.dpToPx(4), Utils.dpToPx(16), Utils.dpToPx(4));
+            linearLayout.setPadding((int) getResources().getDimension(R.dimen.item_activity_margin), Utils.dpToPx(4), (int) getResources().getDimension(R.dimen.item_activity_margin), Utils.dpToPx(4));
 
             for (int i = 0; i < entry.getDay().size(); i++) {
                 TextView view = (TextView) LayoutInflater.from(this).inflate(R.layout.day_cricle, null);
@@ -376,7 +376,7 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
             }
 
             TextView view = new TextView(this);
-            view.setPadding(Utils.dpToPx(16), 0, Utils.dpToPx(16), 0);
+            view.setPadding((int) getResources().getDimension(R.dimen.item_activity_margin), 0, (int) getResources().getDimension(R.dimen.item_activity_margin), 0);
             view.setText(entry.getName());
             view.setTextSize(16);
             linearLayout.addView(view);

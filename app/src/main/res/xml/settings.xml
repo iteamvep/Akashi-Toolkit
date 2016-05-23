@@ -89,6 +89,12 @@
             app:myEntryValues="@array/twitter_display_language_value"
             android:defaultValue="0"/>
 
+        <rikka.materialpreference.SwitchPreference
+            android:key="twitter_grid_layout"
+            android:title="Grid layout on tablet"
+            android:summary="Restart app to take effect"
+            android:defaultValue="false"/>
+
     </PreferenceCategory>
 
     <!--<PreferenceCategory

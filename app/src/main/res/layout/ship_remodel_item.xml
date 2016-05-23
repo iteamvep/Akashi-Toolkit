@@ -9,8 +9,8 @@
               android:layout_width="0dp"
               tools:layout_width="match_parent"
               android:layout_height="wrap_content"
-              android:paddingLeft="16dp"
-              android:paddingRight="16dp">
+              android:paddingLeft="@dimen/item_activity_margin"
+              android:paddingRight="@dimen/item_activity_margin">
 
     <TextView
         android:id="@android:id/title"

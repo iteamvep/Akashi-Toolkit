@@ -22,6 +22,7 @@ import android.view.animation.AccelerateInterpolator;
 import moe.xing.daynightmode.BaseDayNightModeActivity;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.staticdata.ShipList;
+import rikka.akashitoolkit.support.StaticData;
 import rikka.akashitoolkit.utils.Utils;
 
 /**
@@ -50,6 +51,10 @@ public abstract class BaseItemDisplayActivity extends BaseActivity {
             mItemY =  intent.getIntExtra(EXTRA_START_Y, 0);
             mItemHeight = intent.getIntExtra(EXTRA_START_HEIGHT, 0);
             mShouldAnim = true;
+        }
+
+        if (StaticData.instance(this).isTablet) {
+            mShouldAnim = false;
         }
     }
 
@@ -193,6 +198,7 @@ public abstract class BaseItemDisplayActivity extends BaseActivity {
     public void onBackPressed() {
         if (!mShouldAnim) {
             super.onBackPressed();
+            return;
         } else {
             getWindow().setBackgroundDrawable(new ColorDrawable(0));
         }
