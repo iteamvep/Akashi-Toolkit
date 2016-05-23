@@ -1,14 +1,11 @@
 package rikka.akashitoolkit.ui.fragments;
 
-import android.content.pm.PackageInfo;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
@@ -139,6 +136,7 @@ public class TwitterFragment extends BaseDrawerItemFragment {
         View view = inflater.inflate(R.layout.content_twitter_container, container, false);
 
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
+
         mTwitterAdapter = new TwitterAdapter();
         mRecyclerView.setAdapter(mTwitterAdapter);
         mTwitterAdapter.setMaxItem(Settings
@@ -153,35 +151,7 @@ public class TwitterFragment extends BaseDrawerItemFragment {
                 .instance(getContext())
                 .getString(Settings.TWITTER_AVATAR_URL, ""));
 
-        FragmentManager fragmentManager = getFragmentManager();
-        mTwitterAdapter.openImageShow(fragmentManager);
-
-        RecyclerView.LayoutManager layoutManager;
-        if (StaticData.instance(getActivity()).isTablet) {
-            if (Settings.instance(getActivity()).getBoolean(Settings.TWITTER_GRID_LAYOUT, false)) {
-                layoutManager = new StaggeredGridLayoutManager(2, RecyclerView.VERTICAL);
-            } else {
-                layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-
-                mRecyclerView.addItemDecoration(new RecyclerView.ItemDecoration() {
-                    int width = 0;
-
-                    @Override
-                    public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-                        if (width == 0) {
-                            width = Utils.dpToPx(480 + 8 + 8 + 8 + 8);
-                        }
-
-                        outRect.left = (mRecyclerView.getWidth() - width) / 2;
-                        outRect.right = (mRecyclerView.getWidth() - width) / 2;
-                    }
-                });
-            }
-
-        } else {
-            layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-        }
-        mRecyclerView.setLayoutManager(layoutManager);
+        setUpRecyclerView(false);
 
         mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefreshLayout);
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -208,6 +178,59 @@ public class TwitterFragment extends BaseDrawerItemFragment {
         }
 
         return view;
+    }
+
+    private RecyclerView.ItemDecoration mItemDecoration;
+
+    private void setUpRecyclerView(boolean refresh) {
+        /*if (mTwitterAdapter != null) {
+            mTwitterAdapter.setData(new ArrayList<TwitterAdapter.DataModel>());
+            mTwitterAdapter.notifyDataSetChanged();
+        }*/
+
+        RecyclerView.LayoutManager layoutManager;
+        if (StaticData.instance(getActivity()).isTablet) {
+            if (Settings.instance(getActivity()).getBoolean(Settings.TWITTER_GRID_LAYOUT, false)) {
+                layoutManager = new StaggeredGridLayoutManager(2, RecyclerView.VERTICAL);
+
+                if (mItemDecoration != null) {
+                    mRecyclerView.removeItemDecoration(mItemDecoration);
+                }
+            } else {
+                layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+
+                if (mItemDecoration == null) {
+                    mItemDecoration = new RecyclerView.ItemDecoration() {
+                        int width = 0;
+
+                        @Override
+                        public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+                            if (width == 0) {
+                                width = Utils.dpToPx(480 + 8 + 8 + 8 + 8);
+                            }
+
+                            outRect.left = (mRecyclerView.getWidth() - width) / 2;
+                            outRect.right = (mRecyclerView.getWidth() - width) / 2;
+                        }
+                    };
+                }
+
+                mRecyclerView.addItemDecoration(mItemDecoration);
+            }
+
+        } else {
+            layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+        }
+        mRecyclerView.setLayoutManager(layoutManager);
+
+        /*if (refresh) {
+            mRecyclerView.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    loadFromCache();
+                }
+            }, 3000);
+        }*/
     }
 
     private void loadFromCache() {
@@ -383,33 +406,40 @@ public class TwitterFragment extends BaseDrawerItemFragment {
 
     @Subscribe
     public void preferenceChanged(PreferenceChangedAction action) {
-        if (action.getKey().equals(Settings.TWITTER_COUNT)) {
-            mTwitterAdapter.setMaxItem(
-                    Settings
-                            .instance(getContext())
-                            .getIntFromString(Settings.TWITTER_COUNT, 30));
+        switch (action.getKey()) {
+            case Settings.TWITTER_COUNT:
+                mTwitterAdapter.setMaxItem(
+                        Settings
+                                .instance(getContext())
+                                .getIntFromString(Settings.TWITTER_COUNT, 30));
 
-            mTwitterAdapter.getData().clear();
-            mTwitterAdapter.notifyDataSetChanged();
+                mTwitterAdapter.getData().clear();
+                mTwitterAdapter.notifyDataSetChanged();
 
-            mRecyclerView.post(new Runnable() {
-                @Override
-                public void run() {
-                    loadFromCache();
-                }
-            });
-        } else if (action.getKey().equals(Settings.TWITTER_LANGUAGE)) {
-            mTwitterAdapter.setLanguage(
-                    Settings
-                            .instance(getContext())
-                            .getIntFromString(Settings.TWITTER_LANGUAGE, 0));
+                mRecyclerView.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        loadFromCache();
+                    }
+                });
+                break;
+            case Settings.TWITTER_LANGUAGE:
+                mTwitterAdapter.setLanguage(
+                        Settings
+                                .instance(getContext())
+                                .getIntFromString(Settings.TWITTER_LANGUAGE, 0));
 
-            mRecyclerView.post(new Runnable() {
-                @Override
-                public void run() {
-                    mTwitterAdapter.notifyDataSetChanged();
-                }
-            });
+                mRecyclerView.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        mTwitterAdapter.notifyDataSetChanged();
+                    }
+                });
+                break;
+            case Settings.TWITTER_GRID_LAYOUT:
+                setUpRecyclerView(true);
+                break;
         }
+
     }
 }

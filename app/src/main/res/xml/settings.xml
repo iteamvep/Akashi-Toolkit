@@ -73,6 +73,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="twitter"
         android:title="@string/category_twitter">
 
         <rikka.materialpreference.EditTextPreference
@@ -91,8 +92,8 @@
 
         <rikka.materialpreference.SwitchPreference
             android:key="twitter_grid_layout"
-            android:title="Grid layout on tablet"
-            android:summary="Restart app to take effect"
+            android:title="@string/twitter_grid_layout"
+            android:summary="@string/twitter_grid_layout_summary"
             android:defaultValue="false"/>
 
     </PreferenceCategory>

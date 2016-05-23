@@ -26,6 +26,7 @@ import rikka.akashitoolkit.otto.DataChangedAction;
 import rikka.akashitoolkit.otto.PreferenceChangedAction;
 import rikka.akashitoolkit.otto.ReadStatusResetAction;
 import rikka.akashitoolkit.support.Settings;
+import rikka.akashitoolkit.support.StaticData;
 import rikka.materialpreference.DropDownPreference;
 import rikka.materialpreference.PreferenceFragment;
 
@@ -106,11 +107,15 @@ public class SettingActivity extends BaseActivity {
             });
 
             if (BuildConfig.isGooglePlay) {
-                ((PreferenceCategory) findPreference("update")).removePreference(findPreference("update_check_channel"));
+                ((PreferenceCategory) findPreference("update")).removePreference(findPreference(Settings.UPDATE_CHECK_CHANNEL));
             }
 
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-                ((PreferenceCategory) findPreference("general")).removePreference(findPreference("nav_bar_color"));
+                ((PreferenceCategory) findPreference("general")).removePreference(findPreference(Settings.NAV_BAR_COLOR));
+            }
+
+            if (!StaticData.instance(getActivity()).isTablet) {
+                ((PreferenceCategory) findPreference("twitter")).removePreference(findPreference(Settings.TWITTER_GRID_LAYOUT));
             }
 
             findPreference("clear_cache").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {

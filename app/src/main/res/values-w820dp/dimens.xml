@@ -6,6 +6,11 @@
 
     <dimen name="item_activity_margin">24dp</dimen>
 
+    <!-- Activity width -->
+    <dimen name="activity_width_item">500dp</dimen>
+    <dimen name="activity_width_ship">540dp</dimen>
+    <dimen name="activity_width_map">640dp</dimen>
+
     <bool name="is_tablet">true</bool>
 
     <dimen name="grid_padding">4dp</dimen>

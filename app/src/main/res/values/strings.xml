@@ -31,6 +31,9 @@
     <string name="twitter_display_language_ja">Original (Japanese)</string>
     <string name="twitter_display_language_zh">Translated (Simplified Chinese)</string>
     <string name="no_new_tweet">No new tweet</string>
+    <string name="twitter_grid_layout">Grid layout</string>
+    <string name="twitter_grid_layout_summary">Display two rows</string>
+
     <string name="ship">Ship</string>
 
     <string name="quest_reward">Reward</string>

@@ -32,6 +32,10 @@
     <string name="twitter_display_language_ja">原文 (日语)</string>
     <string name="twitter_display_language_zh">翻译 (简体中文)</string>
     <string name="no_new_tweet">没有新推文</string>
+    <string name="twitter_grid_layout">网格布局</string>
+    <string name="twitter_grid_layout_summary">同时展示两列内容</string>
+
+
     <string name="ship">舰娘</string>
 
     <string name="quest_reward">奖励</string>

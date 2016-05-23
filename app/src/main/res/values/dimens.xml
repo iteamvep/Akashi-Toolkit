@@ -15,6 +15,11 @@
 
     <dimen name="item_activity_margin">16dp</dimen>
 
+    <!-- Activity width -->
+    <dimen name="activity_width_item">@dimen/match_parent</dimen>
+    <dimen name="activity_width_ship">@dimen/match_parent</dimen>
+    <dimen name="activity_width_map">@dimen/match_parent</dimen>
+
     <!-- List padding -->
     <dimen name="grid_padding">0dp</dimen>
     <dimen name="list_padding">4dp</dimen>
