@@ -148,8 +148,6 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
         addAttrView(mLinearLayout, "射程", mItem.getAttr().getRange(), R.drawable.item_attr_range);
 
         addShipType();
-        addShip();
-
         addItemImprovementView();
 
         addOther(mLinearLayout);
@@ -344,6 +342,8 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
             ViewGroup cell = addCell(parent, R.string.introduction);
             addTextView(cell, Html.fromHtml(mItem.getIntroduction().get(this))).setPadding((int) getResources().getDimension(R.dimen.item_activity_margin), 0, (int) getResources().getDimension(R.dimen.item_activity_margin), 0);
         }
+
+        addShip();
     }
 
     private ViewGroup addCell(ViewGroup parent, int ResId) {

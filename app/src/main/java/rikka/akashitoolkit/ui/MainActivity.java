@@ -74,7 +74,7 @@ public class MainActivity extends BaseActivity
         mCoordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinatorLayout);
 
         mTabLayout = (TabLayout) findViewById(R.id.tab_layout);
-        mTabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
+        //mTabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
 
         mNavigationView = (NavigationView) findViewById(R.id.nav_view);
         mNavigationView.setNavigationItemSelectedListener(this);

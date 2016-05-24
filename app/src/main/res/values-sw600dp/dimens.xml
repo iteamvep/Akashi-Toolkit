@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="item_activity_margin">24dp</dimen>
+
+    <bool name="is_tablet">true</bool>
+
+    <!-- Activity width
+    <dimen name="activity_width_item">440dp</dimen>
+    <dimen name="activity_width_ship">480dp</dimen>
+    <dimen name="activity_width_map">500dp</dimen>-->
+
+    <dimen name="card_home_margin_vertical">4dp</dimen>
+    <dimen name="card_home_margin_horizontal">8dp</dimen>
+
+    <dimen name="card_twitter_margin_vertical">4dp</dimen>
+    <dimen name="card_twitter_margin_horizontal">4dp</dimen>
+
+    <dimen name="card_margin_vertical">2dp</dimen>
+    <dimen name="card_margin_horizontal">4dp</dimen>
+
+    <dimen name="tab_layout_padding">24dp</dimen>
+    <dimen name="tab_padding">24dp</dimen>
+
+    <dimen name="item_padding">24dp</dimen>
+    <dimen name="item_equip_divider_padding">44dp</dimen>
+
+</resources>

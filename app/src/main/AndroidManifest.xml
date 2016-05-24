@@ -37,12 +37,12 @@
         <activity
             android:name=".ui.SettingActivity"
             android:label="@string/setting"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.Settings">
         </activity>
         <activity
             android:name=".ui.AboutActivity"
             android:label="@string/about"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.Settings">
         </activity>
 
         <!--

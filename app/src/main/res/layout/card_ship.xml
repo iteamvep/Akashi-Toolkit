@@ -24,16 +24,16 @@
             android:textColor="?attr/colorAccent"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="8dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
+            android:layout_marginLeft="@dimen/item_padding"
+            android:layout_marginRight="@dimen/item_padding"
             tools:text="驱逐舰"/>
 
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="@dimen/item_height"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
+            android:paddingLeft="@dimen/item_padding"
+            android:paddingRight="@dimen/item_padding"
             android:paddingTop="8dp"
             android:paddingBottom="8dp"
             android:clickable="true"

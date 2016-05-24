@@ -48,7 +48,7 @@ public class CheckUpdate {
 
     public class DataEntity {
         String filename;
-        int version;
+        long version;
         String data;
 
         public String getName() {
@@ -59,11 +59,11 @@ public class CheckUpdate {
             this.filename = name;
         }
 
-        public int getVersion() {
+        public long getVersion() {
             return version;
         }
 
-        public void setVersion(int version) {
+        public void setVersion(long version) {
             this.version = version;
         }
 

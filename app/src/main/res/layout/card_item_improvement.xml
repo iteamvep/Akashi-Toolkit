@@ -1,81 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/cardView"
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:clickable="true"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:paddingLeft="@dimen/item_padding"
+    android:paddingRight="@dimen/item_padding"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp"
     android:foreground="?attr/selectableItemBackground"
-    android:background="@color/cardBackground">
+    android:background="@color/cardBackground"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!--<android.support.v7.widget.CardView
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:contentDescription="@null"
+        android:visibility="visible"
+        tools:visibility="visible"
+        tools:src="@drawable/system_icon_01_24dp"
+        android:scaleType="fitCenter"
+        android:layout_gravity="center_vertical"/>
 
-        card_view:cardBackgroundColor="@color/cardBackground"
-        card_view:cardCornerRadius="2dp"
-        card_view:cardElevation="2dp"
-        card_view:cardMaxElevation="4dp">-->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="0.84"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp">
+        <!--android:layout_marginLeft="12dp"
+        android:layout_marginStart="12dp"-->
 
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:orientation="horizontal"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp">
+        <TextView
+            android:id="@+id/text_card_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="12.7cm連装砲"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textSize="@dimen/card_font_large"/>
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="0dp"
-                android:layout_height="36dp"
-                android:layout_weight="0.10"
-                android:contentDescription="@null"
-                android:visibility="visible"
-                tools:visibility="visible"
-                tools:src="@drawable/system_icon_01_24dp"
-                android:scaleType="fitCenter"
-                android:layout_gravity="center_vertical"/>
+        <TextView
+            android:id="@+id/text_card_item_improve_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            tools:text="小口径主砲"
+            android:visibility="gone"
+            android:textSize="@dimen/card_font_medium"/>
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_weight="0.84"
-                android:layout_marginLeft="16dp"
-                android:layout_marginStart="16dp">
-                <!--android:layout_marginLeft="12dp"
-                android:layout_marginStart="12dp"-->
+        <TextView
+            android:id="@+id/text_card_item_improve_ship"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            tools:text="二号舰娘: 无"
+            android:textSize="@dimen/card_font_medium"/>
 
-            <TextView
-                android:id="@+id/text_card_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="12.7cm連装砲"
-                android:textAppearance="@style/TextAppearance.AppCompat"
-                android:textSize="@dimen/card_font_large" />
-
-            <TextView
-                android:id="@+id/text_card_item_improve_type"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                tools:text="小口径主砲"
-                android:visibility="gone"
-                android:textSize="@dimen/card_font_medium" />
-
-            <TextView
-                android:id="@+id/text_card_item_improve_ship"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                tools:text="二号舰娘: 无"
-                android:textSize="@dimen/card_font_medium" />
-
-
-        </LinearLayout>
 
     </LinearLayout>
 
-<!--</android.support.v7.widget.CardView>-->
-</FrameLayout>
+</LinearLayout>

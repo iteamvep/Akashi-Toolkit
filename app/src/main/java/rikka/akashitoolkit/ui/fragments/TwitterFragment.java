@@ -206,7 +206,7 @@ public class TwitterFragment extends BaseDrawerItemFragment {
                         @Override
                         public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
                             if (width == 0) {
-                                width = Utils.dpToPx(480 + 8 + 8 + 8 + 8);
+                                width = Utils.dpToPx(560 + 8 + 8 + 8);
                             }
 
                             outRect.left = (mRecyclerView.getWidth() - width) / 2;

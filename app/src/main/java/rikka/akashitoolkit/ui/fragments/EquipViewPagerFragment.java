@@ -52,6 +52,18 @@ public class EquipViewPagerFragment extends Fragment {
                 new BookmarkAction.Changed2(action.getTag(), action.isBookmarked(), mViewPager.getCurrentItem()));
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        /*mViewPager.post(new Runnable() {
+            @Override
+            public void run() {
+                ((MainActivity) getActivity()).getTabLayout().setupWithViewPager(mViewPager);
+            }
+        });*/
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

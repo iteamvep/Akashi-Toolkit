@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme.BaseItemActivity" parent="AppTheme.Dialog.DialogWhenLarge">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorPrimary">#ffffff</item>
+        <item name="colorPrimaryDark">@color/colorItemDisplayStatusBar</item>
+        <item name="actionOverflowButtonStyle">@style/AppTheme.ActionButton.Overflow.Dark</item>
+    </style>
+
+    <style name="AppTheme.ItemActivity" parent="AppTheme.BaseItemActivity">
+        <item name="windowFixedHeightMinor">75%</item>
+        <item name="windowFixedHeightMajor">75%</item>
+        <!--<item name="windowFixedWidthMinor">85%</item>
+        <item name="windowFixedWidthMajor">85%</item>-->
+    </style>
+
+    <style name="AppTheme.Settings" parent="AppTheme.Dialog.DialogWhenLarge">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="preferenceTheme">@style/PreferenceTheme.Material</item>
+
+        <item name="windowActionModeOverlay">true</item>
+        <item name="actionModeBackground">@color/colorPrimary</item>
+
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+</resources>

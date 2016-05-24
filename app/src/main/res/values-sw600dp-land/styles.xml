@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme.ItemActivity" parent="AppTheme.BaseItemActivity">
+        <item name="windowFixedHeightMinor">95%</item>
+        <item name="windowFixedHeightMajor">95%</item>
+    </style>
+</resources>

@@ -16,8 +16,8 @@
         android:textColor="?attr/colorAccent"
         android:paddingTop="16dp"
         android:paddingBottom="8dp"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
+        android:paddingLeft="@dimen/item_padding"
+        android:paddingRight="@dimen/item_padding"
         tools:text="小口径主炮"/>
 
 </LinearLayout>

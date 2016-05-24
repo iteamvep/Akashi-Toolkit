@@ -51,9 +51,13 @@
                 android:id="@+id/tab_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp"
+                android:paddingLeft="@dimen/tab_layout_padding"
+                android:paddingRight="@dimen/tab_layout_padding"
                 android:clipToPadding="false"
+                app:tabMinWidth="0dp"
+                app:tabMode="scrollable"
+                app:tabPaddingStart="@dimen/tab_padding"
+                app:tabPaddingEnd="@dimen/tab_padding"
                 app:tabIndicatorColor="@color/material_indigo_accent_100"/>
         </android.support.design.widget.AppBarLayout>
 

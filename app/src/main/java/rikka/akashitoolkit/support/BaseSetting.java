@@ -39,6 +39,18 @@ public class BaseSetting {
         return mPrefs.getInt(key, defValue);
     }
 
+    public BaseSetting putLong(String key, long value) {
+        mPrefs.edit()
+                .putLong(key, value)
+                .apply();
+
+        return this;
+    }
+
+    public long getLong(String key, long defValue) {
+        return mPrefs.getLong(key, defValue);
+    }
+
     public BaseSetting putString(String key, String value) {
         mPrefs.edit()
                 .putString(key, value)

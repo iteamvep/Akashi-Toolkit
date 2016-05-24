@@ -348,11 +348,11 @@ public class HomeFragment extends BaseDrawerItemFragment {
                     public void onNext(CheckUpdate.DataEntity dataEntity) {
                         File file = new File(getContext().getFilesDir().getAbsolutePath() + "/json/" + dataEntity.getName());
 
-                        int savedVersion = Settings
+                        long savedVersion = Settings
                                 .instance(getContext())
-                                .getInt(dataEntity.getName(), DATA_JSON_VERSION.get(dataEntity.getName()));
-                        int builtInVersion = DATA_JSON_VERSION.get(dataEntity.getName());
-                        int latestVersion = dataEntity.getVersion();
+                                .getLong(dataEntity.getName(), DATA_JSON_VERSION.get(dataEntity.getName()));
+                        long builtInVersion = DATA_JSON_VERSION.get(dataEntity.getName());
+                        long latestVersion = dataEntity.getVersion();
 
                         if (!file.exists()) {
                             savedVersion = 0;
@@ -376,7 +376,7 @@ public class HomeFragment extends BaseDrawerItemFragment {
                                     getContext().getFilesDir().getAbsolutePath() + "/json/" + dataEntity.getName());
 
                             Settings.instance(getContext())
-                                    .putInt(dataEntity.getName(), dataEntity.getVersion());
+                                    .putLong(dataEntity.getName(), dataEntity.getVersion());
 
                             String name = dataEntity.getName().replace(".json", "");
                             Class<?> c;
@@ -390,7 +390,7 @@ public class HomeFragment extends BaseDrawerItemFragment {
 
                             sb.append(DATA_JSON_NAME.get(dataEntity.getName())).append("已更新 (").append(dataEntity.getData()).append(") \n");
 
-                            Log.d("DownloadData", dataEntity.getName() + " version: " + Integer.toString(dataEntity.getVersion()));
+                            Log.d("DownloadData", dataEntity.getName() + " version: " + Long.toString(dataEntity.getVersion()));
                         } catch (IOException | ClassNotFoundException | NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
                             e.printStackTrace();
                         }

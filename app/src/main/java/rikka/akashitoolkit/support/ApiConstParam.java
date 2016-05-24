@@ -3,6 +3,8 @@ package rikka.akashitoolkit.support;
 import java.util.HashMap;
 import java.util.Map;
 
+import rikka.akashitoolkit.BuildConfig;
+
 /**
  * Created by etby on 16-3-15.
  */
@@ -31,30 +33,30 @@ public class ApiConstParam {
         public static final int COUNT_DOWN = 1 << 3;
     }
 
-    public static Map<String, Integer> DATA_JSON_VERSION = new HashMap<String, Integer>() {
+    public static Map<String, Long> DATA_JSON_VERSION = new HashMap<String, Long>() {
         @Override
-        public Integer get(Object key) {
+        public Long get(Object key) {
             return containsKey(key) ? super.get(key) : 1;
         }
     };
 
     static {
-        DATA_JSON_VERSION.put("EquipImprovement.json", 4);
-        DATA_JSON_VERSION.put("Equip.json", 10);
-        DATA_JSON_VERSION.put("EquipType.json", 10);
+        DATA_JSON_VERSION.put("EquipImprovement.json", BuildConfig.TIMESTAMP);
+        DATA_JSON_VERSION.put("Equip.json", BuildConfig.TIMESTAMP);
+        DATA_JSON_VERSION.put("EquipType.json", BuildConfig.TIMESTAMP);
 
-        DATA_JSON_VERSION.put("Ship.json", 10);
-        DATA_JSON_VERSION.put("ShipType.json", 1);
+        DATA_JSON_VERSION.put("Ship.json", BuildConfig.TIMESTAMP);
+        DATA_JSON_VERSION.put("ShipType.json", BuildConfig.TIMESTAMP);
 
-        DATA_JSON_VERSION.put("Item.json", 7);
+        DATA_JSON_VERSION.put("Item.json", BuildConfig.TIMESTAMP);
 
-        DATA_JSON_VERSION.put("Map.json", 2);
-        DATA_JSON_VERSION.put("MapDetail.json", 4);
-        DATA_JSON_VERSION.put("MapType.json", 1);
+        DATA_JSON_VERSION.put("Map.json", BuildConfig.TIMESTAMP);
+        DATA_JSON_VERSION.put("MapDetail.json", BuildConfig.TIMESTAMP);
+        DATA_JSON_VERSION.put("MapType.json", BuildConfig.TIMESTAMP);
 
-        DATA_JSON_VERSION.put("Quest.json", 2);
+        DATA_JSON_VERSION.put("Quest.json", BuildConfig.TIMESTAMP);
 
-        DATA_JSON_VERSION.put("EnemyShip.json", 1);
+        DATA_JSON_VERSION.put("EnemyShip.json", BuildConfig.TIMESTAMP);
     }
 
     public static Map<String, String> DATA_JSON_NAME = new HashMap<>();

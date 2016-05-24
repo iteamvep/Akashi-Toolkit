@@ -4,24 +4,18 @@ import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.app.ActivityManager;
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AccelerateInterpolator;
 
-import moe.xing.daynightmode.BaseDayNightModeActivity;
 import rikka.akashitoolkit.R;
-import rikka.akashitoolkit.staticdata.ShipList;
 import rikka.akashitoolkit.support.StaticData;
 import rikka.akashitoolkit.utils.Utils;
 
