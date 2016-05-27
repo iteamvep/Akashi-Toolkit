@@ -19,6 +19,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.squareup.otto.Subscribe;
@@ -103,7 +104,10 @@ public class HomeFragment extends BaseDrawerItemFragment {
     public void onStop() {
         UpdateCheck.instance().recycle();
         saveReadStatus();
-        mCountDownTimer.cancel();
+        if (mCountDownTimer != null) {
+            mCountDownTimer.cancel();
+        }
+
         super.onStop();
     }
 
@@ -562,7 +566,10 @@ public class HomeFragment extends BaseDrawerItemFragment {
             mMessageReadStatus.setMessageId(new ArrayList<Integer>());
         }
 
+        addLocalCard();
         refresh();
+
+        Toast.makeText(getActivity(), R.string.read_status_reset, Toast.LENGTH_SHORT).show();
     }
 
     @Subscribe

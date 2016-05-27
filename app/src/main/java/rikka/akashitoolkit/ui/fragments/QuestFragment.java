@@ -1,13 +1,16 @@
 package rikka.akashitoolkit.ui.fragments;
 
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
 import com.squareup.otto.Subscribe;
 
+import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.QuestAdapter;
 import rikka.akashitoolkit.otto.BookmarkAction;
 import rikka.akashitoolkit.otto.BusProvider;
@@ -66,7 +69,7 @@ public class QuestFragment extends BaseDisplayFragment<QuestAdapter> {
 
         recyclerView.setItemAnimator(null);
         recyclerView.addItemDecoration(new BaseRecyclerViewItemDecoration(getContext()));
-
+        recyclerView.setBackgroundDrawable(new ColorDrawable(ContextCompat.getColor(getActivity(), R.color.cardBackground)));
         if (mJumpIndex != -1 && mJumpType == mType) {
             jumpTo(mJumpIndex);
         }

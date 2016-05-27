@@ -1,6 +1,7 @@
 package rikka.akashitoolkit.ui;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.StringRes;
@@ -16,8 +17,10 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.graphics.drawable.DrawerArrowDrawable;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -25,6 +28,7 @@ import java.util.Map;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.support.Push;
 import rikka.akashitoolkit.support.Settings;
+import rikka.akashitoolkit.support.StaticData;
 import rikka.akashitoolkit.ui.fragments.EquipDisplayFragment;
 import rikka.akashitoolkit.ui.fragments.EquipImprovementDisplayFragment;
 import rikka.akashitoolkit.ui.fragments.ExpeditionDisplayFragment;
@@ -37,6 +41,7 @@ import rikka.akashitoolkit.ui.fragments.ToolsFragment;
 import rikka.akashitoolkit.ui.fragments.TwitterFragment;
 import rikka.akashitoolkit.widget.IconSwitchCompat;
 import rikka.akashitoolkit.widget.SimpleDrawerView;
+import rikka.minidrawer.MiniDrawerLayout;
 
 public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -45,6 +50,7 @@ public class MainActivity extends BaseActivity
     private AppBarLayout mAppBarLayout;
     private TabLayout mTabLayout;
     private NavigationView mNavigationView;
+    private MiniDrawerLayout mMiniDrawerLayout;
     private ScrimInsetsFrameLayout mNavigationViewRight;
     private DrawerLayout mDrawerLayout;
     private CoordinatorLayout mCoordinatorLayout;
@@ -76,19 +82,31 @@ public class MainActivity extends BaseActivity
         mTabLayout = (TabLayout) findViewById(R.id.tab_layout);
         //mTabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
 
-        mNavigationView = (NavigationView) findViewById(R.id.nav_view);
-        mNavigationView.setNavigationItemSelectedListener(this);
-        mNavigationView.setCheckedItem(R.id.nav_home);
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+        if (!StaticData.instance(this).isTablet) {
+            mNavigationView = (NavigationView) findViewById(R.id.nav_view);
+            mNavigationView.setNavigationItemSelectedListener(this);
+            mNavigationView.setCheckedItem(R.id.nav_home);
+
+            ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                    this, mDrawerLayout, mToolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+            mDrawerLayout.addDrawerListener(toggle);
+            toggle.syncState();
+        } else {
+            mMiniDrawerLayout = (MiniDrawerLayout) findViewById(R.id.mini_drawer_layout);
+            mMiniDrawerLayout.setNavigationItemSelectedListener(this);
+            mMiniDrawerLayout.setCheckedItem(R.id.nav_home);
+
+            DrawerArrowDrawable drawable = new DrawerArrowDrawable(this);
+            drawable.setColor(Color.parseColor("#FFFFFF"));
+            getSupportActionBar().setHomeAsUpIndicator(drawable);
+            getSupportActionBar().setHomeButtonEnabled(true);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
 
         mNavigationViewRight = (ScrimInsetsFrameLayout) findViewById(R.id.nav_view_right_out);
         mRightDrawerContent = (SimpleDrawerView) findViewById(R.id.nav_view_right);
-
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, mDrawerLayout, mToolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        mDrawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
 
         mFragmentMap = new HashMap<>();
 
@@ -154,7 +172,12 @@ public class MainActivity extends BaseActivity
                     id = R.id.nav_home;
             }
 
-            mNavigationView.setCheckedItem(id);
+            if (!StaticData.instance(this).isTablet) {
+                mNavigationView.setCheckedItem(id);
+            } else {
+                mMiniDrawerLayout.setCheckedItem(id);
+            }
+
             selectDrawerItem(id);
         }
     }
@@ -191,7 +214,11 @@ public class MainActivity extends BaseActivity
             mDrawerLayout.closeDrawer(GravityCompat.END);
         } else if (mLastDrawerItemId != R.id.nav_home) {
             selectDrawerItem(R.id.nav_home);
-            mNavigationView.setCheckedItem(R.id.nav_home);
+            if (!StaticData.instance(this).isTablet)
+                mNavigationView.setCheckedItem(R.id.nav_home);
+            else {
+                mMiniDrawerLayout.setCheckedItem(R.id.nav_home);
+            }
         } else {
             super.onBackPressed();
         }
@@ -218,6 +245,19 @@ public class MainActivity extends BaseActivity
             mDrawerLayout.closeDrawer(GravityCompat.START);
         }
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (!StaticData.instance(this).isTablet) {
+            return super.onOptionsItemSelected(item);
+        }
+
+        if (item.getItemId() == android.R.id.home) {
+            mMiniDrawerLayout.toggle();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     private String generateFragmentTAG(int id) {

@@ -35,10 +35,10 @@ public class StaticData {
                 versionCode = -1;
             }
 
-            isTablet = context.getResources().getBoolean(R.bool.is_tablet);
-
             init = true;
         }
+
+        isTablet = context.getResources().getBoolean(R.bool.is_tablet);
     }
 
     public static synchronized StaticData instance(Context context) {

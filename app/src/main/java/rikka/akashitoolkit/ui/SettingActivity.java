@@ -97,8 +97,6 @@ public class SettingActivity extends BaseActivity {
                     Settings.instance(getActivity())
                             .putString(Settings.MESSAGE_READ_STATUS, "");
 
-                    Toast.makeText(getActivity(), R.string.read_status_reset, Toast.LENGTH_SHORT).show();
-
                     BusProvider.instance()
                             .post(new ReadStatusResetAction());
 
