@@ -92,8 +92,11 @@ public class AboutActivity extends BaseActivity {
                 public boolean onPreferenceClick(Preference preference) {
                     SendReportActivity.sendEmail(getActivity(),
                             "Akashi Toolkit 反馈",
-                            String.format("系统版本: %s (API %d)\n应用版本: %d\n是否为 Google Play 版: %s",
-                                    Build.VERSION.RELEASE, Build.VERSION.SDK_INT,
+                            String.format("系统版本: %s (API %d)\n设备型号: %s\n设备制造商: %s\n应用版本: %d\n是否为 Google Play 版: %s",
+                                    Build.VERSION.RELEASE,
+                                    Build.VERSION.SDK_INT,
+                                    Build.MODEL,
+                                    Build.MANUFACTURER,
                                     StaticData.instance(getActivity()).versionCode,
                                     BuildConfig.isGooglePlay ? "是" : "否"));
                     return false;

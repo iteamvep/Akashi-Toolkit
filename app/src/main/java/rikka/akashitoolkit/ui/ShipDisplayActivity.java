@@ -293,7 +293,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
             mRecyclerView.startAnimation(animation);
         }
 
-        cache_file = getCacheDir().getAbsolutePath() + "/json/" + mItem.getId();
+        cache_file = getCacheDir().getAbsolutePath() + "/json/voice/" + mItem.getId() + ".json";
         File file = new File(cache_file);
 
         if (file.exists()) {
@@ -484,6 +484,8 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
 
                     if (item.voice.getVoiceId() == 22) {
                         setTextViewMode((ViewHolderItem) holder, true);
+                    } else {
+                        setTextViewMode((ViewHolderItem) holder, false);
                     }
 
                     ((ViewHolderItem) holder).mLinearLayout.setOnClickListener(new View.OnClickListener() {
