@@ -2,7 +2,6 @@ package rikka.akashitoolkit.ui;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
@@ -29,7 +28,7 @@ import rikka.akashitoolkit.staticdata.ShipList;
 import rikka.akashitoolkit.support.StaticData;
 import rikka.akashitoolkit.utils.KCStringFormatter;
 import rikka.akashitoolkit.utils.Utils;
-import rikka.akashitoolkit.widget.ExpandableLayout;
+import rikka.akashitoolkit.ui.widget.ExpandableLayout;
 
 public class MapActivity extends BaseItemDisplayActivity {
     public static final String EXTRA_ITEM_ID = "EXTRA_ITEM_ID";

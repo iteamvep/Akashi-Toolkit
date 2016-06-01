@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.PagerAdapter;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +18,7 @@ import rikka.akashitoolkit.otto.BookmarkAction;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.staticdata.EquipTypeList;
 import rikka.akashitoolkit.ui.MainActivity;
-import rikka.akashitoolkit.widget.MyViewPager;
+import rikka.akashitoolkit.ui.widget.MyViewPager;
 
 /**
  * Created by Rikka on 2016/3/23.

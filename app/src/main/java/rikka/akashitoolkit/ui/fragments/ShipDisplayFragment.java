@@ -29,10 +29,10 @@ import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.Statistics;
 import rikka.akashitoolkit.ui.MainActivity;
 import rikka.akashitoolkit.utils.Utils;
-import rikka.akashitoolkit.widget.CheckBoxGroup;
-import rikka.akashitoolkit.widget.RadioButtonGroup;
-import rikka.akashitoolkit.widget.SimpleDrawerView;
-import rikka.akashitoolkit.widget.UnScrollableViewPager;
+import rikka.akashitoolkit.ui.widget.CheckBoxGroup;
+import rikka.akashitoolkit.ui.widget.RadioButtonGroup;
+import rikka.akashitoolkit.ui.widget.SimpleDrawerView;
+import rikka.akashitoolkit.ui.widget.UnScrollableViewPager;
 
 /**
  * Created by Rikka on 2016/3/30.
@@ -225,7 +225,7 @@ public class ShipDisplayFragment extends BaseSearchFragment {
                 .instance(getContext())
                 .getBoolean(Settings.SHIP_BOOKMARKED, false);
 
-        ((MainActivity) getActivity()).getSwitch().setChecked(mBookmarked);
+        ((MainActivity) getActivity()).getSwitch().setChecked(mBookmarked, true);
         //mCheckBoxGroups[0].setChecked(mBookmarked ? 1 : 0);
 
         mSpeed = Settings

@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +18,7 @@ import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.DataListRebuiltFinished;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.ui.MainActivity;
-import rikka.akashitoolkit.widget.UnScrollableViewPager;
+import rikka.akashitoolkit.ui.widget.UnScrollableViewPager;
 
 /**
  * Created by Rikka on 2016/5/16.
@@ -52,6 +52,8 @@ public abstract class BaseBookmarkFragment extends BaseDrawerItemFragment {
         ((MainActivity) getActivity()).getSwitch().setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                Log.d("QAQ", "switch listener called base display");
+
                 mBookmarked = buttonView.isChecked();
 
                 if (mViewPager.getCurrentItem() == 1 && !mBookmarked) {
@@ -74,7 +76,7 @@ public abstract class BaseBookmarkFragment extends BaseDrawerItemFragment {
                 .instance(getContext())
                 .getBoolean(getSettingKey(), false);
 
-        ((MainActivity) getActivity()).getSwitch().setChecked(mBookmarked);
+        ((MainActivity) getActivity()).getSwitch().setChecked(mBookmarked, true);
     }
 
     @Nullable

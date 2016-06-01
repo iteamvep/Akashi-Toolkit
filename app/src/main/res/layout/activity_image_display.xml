@@ -56,7 +56,7 @@
             android:layout_margin="@dimen/fab_margin"
             android:layout_gravity="bottom|start"
             android:orientation="horizontal"
-            app:layout_behavior="rikka.akashitoolkit.widget.ShowAboveSnackbarBehavior">
+            app:layout_behavior="rikka.akashitoolkit.ui.widget.ShowAboveSnackbarBehavior">
 
             <TextView
                 android:id="@+id/textView"

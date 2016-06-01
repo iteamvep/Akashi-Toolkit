@@ -1,4 +1,4 @@
-package rikka.akashitoolkit.widget;
+package rikka.akashitoolkit.ui.widget;
 
 import android.content.Context;
 import android.support.v4.util.ArrayMap;
@@ -8,8 +8,6 @@ import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 import rikka.akashitoolkit.R;

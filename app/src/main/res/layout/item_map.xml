@@ -17,7 +17,7 @@
         android:fontFamily="sans-serif-medium"
         tools:text="路线分歧"/>
 
-    <rikka.akashitoolkit.widget.ExpandableLayout
+    <rikka.akashitoolkit.ui.widget.ExpandableLayout
         android:id="@+id/expandableLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -32,6 +32,6 @@
 
         </LinearLayout>
 
-    </rikka.akashitoolkit.widget.ExpandableLayout>
+    </rikka.akashitoolkit.ui.widget.ExpandableLayout>
 
 </LinearLayout>

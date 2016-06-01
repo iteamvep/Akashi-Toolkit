@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package rikka.akashitoolkit.widget;
+package rikka.akashitoolkit.ui.widget;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
@@ -77,6 +77,7 @@ public class IconSwitchCompat extends CompoundButton {
     private static final int SERIF = 2;
     private static final int MONOSPACE = 3;
 
+    private OnCheckedChangeListener mOnCheckedChangeListener;
 
     private Drawable mThumbDrawable;
     private Drawable mTrackDrawable;
@@ -842,6 +843,16 @@ public class IconSwitchCompat extends CompoundButton {
         setChecked(!isChecked());
     }
 
+    public void setChecked(boolean checked, boolean alwaysCallListener) {
+        if (alwaysCallListener && isChecked() == checked) {
+            if (mOnCheckedChangeListener != null) {
+                mOnCheckedChangeListener.onCheckedChanged(this, checked);
+            }
+        }
+
+        setChecked(checked);
+    }
+
     @Override
     public void setChecked(boolean checked) {
         super.setChecked(checked);
@@ -1254,5 +1265,12 @@ public class IconSwitchCompat extends CompoundButton {
         protected void applyTransformation(float interpolatedTime, Transformation t) {
             setThumbPosition(mStartPosition + (mDiff * interpolatedTime));
         }
+    }
+
+    @Override
+    public void setOnCheckedChangeListener(OnCheckedChangeListener listener) {
+        super.setOnCheckedChangeListener(listener);
+
+        mOnCheckedChangeListener = listener;
     }
 }

@@ -71,7 +71,7 @@
     </style>
 
     <style name="AppTheme.ActionButton.Overflow.Dark" parent="Widget.AppCompat.ActionButton.Overflow">
-        <item name="srcCompat">@drawable/ic_more_vert_24dp</item>
+        <item name="srcCompat">@drawable/ic_more_vert_black_24dp</item>
     </style>
 
     <style name="ItemActivity.Title" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">

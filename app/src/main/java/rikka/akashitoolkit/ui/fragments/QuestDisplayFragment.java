@@ -23,7 +23,7 @@ import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.Statistics;
 import rikka.akashitoolkit.ui.MainActivity;
 import rikka.akashitoolkit.utils.Utils;
-import rikka.akashitoolkit.widget.CheckBoxGroup;
+import rikka.akashitoolkit.ui.widget.CheckBoxGroup;
 
 /**
  * Created by Rikka on 2016/3/6.
@@ -106,7 +106,7 @@ public class QuestDisplayFragment extends BaseSearchFragment implements CheckBox
                 .instance(getContext())
                 .getBoolean(Settings.QUEST_BOOKMARKED, false);
 
-        ((MainActivity) getActivity()).getSwitch().setChecked(mBookmarked);
+        ((MainActivity) getActivity()).getSwitch().setChecked(mBookmarked, true);
 
         Statistics.onFragmentStart("QuestDisplayFragment");
     }

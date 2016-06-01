@@ -1,4 +1,4 @@
-package rikka.akashitoolkit.widget;
+package rikka.akashitoolkit.ui.widget;
 
 import android.content.Context;
 import android.support.v7.widget.AppCompatTextView;

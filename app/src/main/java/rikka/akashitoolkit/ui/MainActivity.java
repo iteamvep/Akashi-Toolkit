@@ -20,7 +20,6 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.graphics.drawable.DrawerArrowDrawable;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.view.View;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -39,8 +38,8 @@ import rikka.akashitoolkit.ui.fragments.SeasonalFragment;
 import rikka.akashitoolkit.ui.fragments.ShipDisplayFragment;
 import rikka.akashitoolkit.ui.fragments.ToolsFragment;
 import rikka.akashitoolkit.ui.fragments.TwitterFragment;
-import rikka.akashitoolkit.widget.IconSwitchCompat;
-import rikka.akashitoolkit.widget.SimpleDrawerView;
+import rikka.akashitoolkit.ui.widget.IconSwitchCompat;
+import rikka.akashitoolkit.ui.widget.SimpleDrawerView;
 import rikka.minidrawer.MiniDrawerLayout;
 
 public class MainActivity extends BaseActivity

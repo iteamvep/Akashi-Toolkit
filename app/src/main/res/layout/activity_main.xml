@@ -30,7 +30,7 @@
                 app:popupTheme="@style/AppTheme.PopupOverlay"
                 app:layout_scrollFlags="scroll|enterAlways">
 
-                <rikka.akashitoolkit.widget.IconSwitchCompat
+                <rikka.akashitoolkit.ui.widget.IconSwitchCompat
                     android:id="@+id/switch_bookmark"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -90,13 +90,13 @@
         android:background="@color/background"
         android:fillViewport="false">
 
-        <rikka.akashitoolkit.widget.SimpleDrawerView
+        <rikka.akashitoolkit.ui.widget.SimpleDrawerView
             android:id="@+id/nav_view_right"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-        </rikka.akashitoolkit.widget.SimpleDrawerView>
+        </rikka.akashitoolkit.ui.widget.SimpleDrawerView>
 
     </android.support.design.internal.ScrimInsetsFrameLayout>
 

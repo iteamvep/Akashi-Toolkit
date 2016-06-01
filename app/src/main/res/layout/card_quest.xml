@@ -78,7 +78,7 @@
             tools:text="以两艘以上的阵容编成“舰队”！"
             android:gravity="fill_vertical"/>
 
-        <rikka.akashitoolkit.widget.ExpandableLayout
+        <rikka.akashitoolkit.ui.widget.ExpandableLayout
             android:id="@+id/expandableLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -142,6 +142,6 @@
 
             </LinearLayout>
 
-        </rikka.akashitoolkit.widget.ExpandableLayout>
+        </rikka.akashitoolkit.ui.widget.ExpandableLayout>
 
     </LinearLayout>-->

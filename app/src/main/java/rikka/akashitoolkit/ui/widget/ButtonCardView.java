@@ -1,4 +1,4 @@
-package rikka.akashitoolkit.widget;
+package rikka.akashitoolkit.ui.widget;
 
 import android.animation.Animator;
 import android.content.Context;

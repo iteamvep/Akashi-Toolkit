@@ -42,6 +42,9 @@
     <dimen name="card_margin_vertical">-2dp</dimen>
     <dimen name="card_margin_horizontal">0dp</dimen>
 
+    <dimen name="card_twitter_padding_vertical">8dp</dimen>
+    <dimen name="card_twitter_padding_horizontal">8dp</dimen>
+
     <!-- Right drawer -->
     <dimen name="drawer_header">56dp</dimen>
     <dimen name="drawer_item">48dp</dimen>

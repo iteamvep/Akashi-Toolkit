@@ -55,7 +55,7 @@
 
     </LinearLayout>
 
-    <rikka.akashitoolkit.widget.ExpandableLayout
+    <rikka.akashitoolkit.ui.widget.ExpandableLayout
         android:id="@+id/expandableLinearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -111,6 +111,6 @@
 
         </LinearLayout>
 
-    </rikka.akashitoolkit.widget.ExpandableLayout>
+    </rikka.akashitoolkit.ui.widget.ExpandableLayout>
 
 </LinearLayout>

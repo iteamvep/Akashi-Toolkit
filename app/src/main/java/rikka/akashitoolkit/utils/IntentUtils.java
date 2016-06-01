@@ -26,4 +26,12 @@ public class IntentUtils {
         List<ResolveInfo> activities = packageManager.queryIntentActivities(intent, 0);
         return activities.size() > minSize;
     }
+
+    public static boolean startActivity(Context context, Intent intent) {
+        if (isValid(context, intent)) {
+            context.startActivity(intent);
+            return true;
+        }
+        return false;
+    }
 }

@@ -54,7 +54,7 @@ import rikka.akashitoolkit.support.Statistics;
 import rikka.akashitoolkit.ui.MainActivity;
 import rikka.akashitoolkit.utils.UpdateCheck;
 import rikka.akashitoolkit.utils.Utils;
-import rikka.akashitoolkit.widget.ButtonCardView;
+import rikka.akashitoolkit.ui.widget.ButtonCardView;
 import rx.Observable;
 import rx.Subscriber;
 import rx.schedulers.Schedulers;

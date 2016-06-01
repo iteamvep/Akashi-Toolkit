@@ -177,9 +177,14 @@ Activity &amp; Extra:
     <string name="send_via">Send via</string>
     <string name="no_mail_app">No mail app</string>
 
-    <string name="copied_to_clipboard">%s copied to clipboard.</string>
+    <string name="copied_to_clipboard_format">%s copied to clipboard.</string>
+    <string name="copied_to_clipboard">Copied to clipboard.</string>
 
     <string name="nothing_bookmarked">Nothing bookmarked</string>
     <string name="nothing_bookmarked_summary">You can add item to bookmark by long press it or click bookmark in detail view.</string>
 
+    <string name="share">Share</string>
+    <string name="share_text">Share text only</string>
+    <string name="copy_original_text">Copy original text</string>
+    <string name="copy_translated_text">Copy translated text</string>
 </resources>

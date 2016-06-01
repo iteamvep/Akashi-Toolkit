@@ -160,9 +160,14 @@
     <string name="send_via">发送方式</string>
     <string name="no_mail_app">没有邮件客户端的样子</string>
 
-    <string name="copied_to_clipboard">%s 已复制到剪贴板</string>
+    <string name="copied_to_clipboard_format">%s 已复制到剪贴板</string>
+    <string name="copied_to_clipboard">已复制到剪贴板</string>
 
     <string name="nothing_bookmarked">没有书签</string>
     <string name="nothing_bookmarked_summary">您可以通过长按和在详情视图中按下书签图标来将该项目加入书签。</string>
 
+    <string name="share">分享</string>
+    <string name="share_text">仅分享文字</string>
+    <string name="copy_original_text">复制原文</string>
+    <string name="copy_translated_text">复制译文</string>
 </resources>

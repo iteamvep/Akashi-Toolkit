@@ -1,9 +1,6 @@
 package rikka.akashitoolkit.adapter;
 
-import android.graphics.PorterDuff;
 import android.graphics.Typeface;
-import android.media.Image;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -12,7 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import rikka.akashitoolkit.R;
-import rikka.akashitoolkit.widget.ExpandableLayout;
+import rikka.akashitoolkit.ui.widget.ExpandableLayout;
 
 /**
  * Created by Rikka on 2016/3/12.

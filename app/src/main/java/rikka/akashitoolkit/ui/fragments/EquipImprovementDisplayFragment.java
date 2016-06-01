@@ -73,7 +73,7 @@ public class EquipImprovementDisplayFragment extends BaseDrawerItemFragment {
                 .instance(getContext())
                 .getBoolean(Settings.EQUIP_IMPROVEMENT_BOOKMARKED, false);
 
-        ((MainActivity) getActivity()).getSwitch().setChecked(mBookmarked);
+        ((MainActivity) getActivity()).getSwitch().setChecked(mBookmarked, true);
 
         Statistics.onFragmentStart("EquipImprovementDisplayFragment");
     }

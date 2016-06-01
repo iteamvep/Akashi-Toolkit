@@ -1,4 +1,4 @@
-package rikka.akashitoolkit.widget;
+package rikka.akashitoolkit.ui.widget;
 
 import android.animation.Animator;
 import android.animation.ValueAnimator;
@@ -7,7 +7,6 @@ import android.content.Context;
 import android.os.Build;
 import android.support.v7.widget.TintTypedArray;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.widget.FrameLayout;
 
 import rikka.akashitoolkit.R;

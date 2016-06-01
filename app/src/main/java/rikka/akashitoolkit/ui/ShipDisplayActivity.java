@@ -635,7 +635,9 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
 
         final List<String> urlList = new ArrayList<>();
 
-        if (mItem.getWiki_id().equals("030a")) {
+        if (mItem.getWiki_id().equals("030a")
+                || mItem.getWiki_id().equals("026a")
+                || mItem.getWiki_id().equals("027a")) {
             urlList.add(Utils.getKCWikiFileUrl(String.format("KanMusu%sIllust.png", mItem.getWiki_id())));
             urlList.add(Utils.getKCWikiFileUrl(String.format("KanMusu%sDmgIllust.png", mItem.getWiki_id())));
 

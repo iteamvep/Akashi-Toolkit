@@ -51,7 +51,7 @@ import rikka.akashitoolkit.utils.Utils;
 /**
  * Created by Rikka on 2016/3/6.
  */
-public class TwitterFragment extends BaseDrawerItemFragment {
+public class TwitterFragment extends BaseDrawerItemFragment implements TwitterAdapter.OnMoreButtonClickedListener {
     private static final String TAG = "TwitterFragment";
 
     private static final String JSON_NAME = "/json/twitter.json";
@@ -138,6 +138,7 @@ public class TwitterFragment extends BaseDrawerItemFragment {
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
 
         mTwitterAdapter = new TwitterAdapter();
+        mTwitterAdapter.setOnMoreButtonClickedListener(this);
         mRecyclerView.setAdapter(mTwitterAdapter);
         mTwitterAdapter.setMaxItem(Settings
                 .instance(getContext())
@@ -405,7 +406,6 @@ public class TwitterFragment extends BaseDrawerItemFragment {
         return string.substring(a.length(), len - b.length());
     }
 
-
     @Subscribe
     public void preferenceChanged(PreferenceChangedAction action) {
         switch (action.getKey()) {
@@ -443,5 +443,17 @@ public class TwitterFragment extends BaseDrawerItemFragment {
                 break;
         }
 
+    }
+
+    @Override
+    public void onClicked(TwitterAdapter.ShareDataModel data) {
+        TwitterMoreDialogFragment f = new TwitterMoreDialogFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString("TEXT", data.text);
+        bundle.putString("TRANSLATE", data.translated);
+        f.setArguments(bundle);
+
+        f.setTargetFragment(this, 0);
+        f.show(getChildFragmentManager(), TAG);
     }
 }

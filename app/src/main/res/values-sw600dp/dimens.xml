@@ -24,4 +24,7 @@
     <dimen name="item_padding">24dp</dimen>
     <dimen name="item_equip_divider_padding">44dp</dimen>
 
+    <dimen name="card_twitter_padding_vertical">8dp</dimen>
+    <dimen name="card_twitter_padding_horizontal">8dp</dimen>
+
 </resources>

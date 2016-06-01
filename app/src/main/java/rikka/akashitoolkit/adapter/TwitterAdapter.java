@@ -2,7 +2,6 @@ package rikka.akashitoolkit.adapter;
 
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.text.TextUtils;
@@ -30,7 +29,6 @@ import static rikka.akashitoolkit.support.ApiConstParam.TwitterContentLanguage.O
  */
 public class TwitterAdapter extends RecyclerView.Adapter<TwitterAdapter.ViewHolder> {
     private static final String TAG = "TwitterAdapter";
-    private FragmentManager mFragmentManager;
 
     public static class DataModel {
         public int id;
@@ -80,10 +78,38 @@ public class TwitterAdapter extends RecyclerView.Adapter<TwitterAdapter.ViewHold
         }
     }
 
+    public static class ShareDataModel {
+        public String text;
+        public String translated;
+        public String url;
+        public String title;
+        public String date;
+
+        public ShareDataModel() {
+        }
+
+        public ShareDataModel(String text, String translated, String url, String title) {
+            this.text = text;
+            this.translated = translated;
+            this.url = url;
+            this.title = title;
+        }
+    }
+
     private List<DataModel> mData;
     private int mMaxItem;
     private int mLanguage;
     private String mAvatarUrl;
+
+    public interface OnMoreButtonClickedListener {
+        void onClicked(ShareDataModel data);
+    }
+
+    private OnMoreButtonClickedListener mOnMoreButtonClickedListener;
+
+    public void setOnMoreButtonClickedListener(OnMoreButtonClickedListener onMoreButtonClickedListener) {
+        mOnMoreButtonClickedListener = onMoreButtonClickedListener;
+    }
 
     public void setAvatarUrl(String avatarUrl) {
         if (avatarUrl.length() > 0 && !avatarUrl.equals(mAvatarUrl)) {
@@ -120,7 +146,7 @@ public class TwitterAdapter extends RecyclerView.Adapter<TwitterAdapter.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, int position) {
         if (mAvatarUrl != null) {
             Glide.with(holder.mAvatar.getContext())
                     .load(mAvatarUrl)
@@ -172,6 +198,22 @@ public class TwitterAdapter extends RecyclerView.Adapter<TwitterAdapter.ViewHold
 
         holder.mTvContent.setTextIsSelectable(true);
         holder.mTvContentTranslated.setTextIsSelectable(true);
+
+        holder.mMoreButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ShareDataModel shareData = new ShareDataModel();
+                shareData.text = holder.mTvContent.getText().toString();
+                shareData.translated = holder.mTvContentTranslated.getText().toString();
+                shareData.url = mAvatarUrl;
+                shareData.date = holder.mTime.getText().toString();
+                shareData.title = "「艦これ」開発/運営";
+
+                if (mOnMoreButtonClickedListener != null) {
+                    mOnMoreButtonClickedListener.onClicked(shareData);
+                }
+            }
+        });
     }
 
     @Override
@@ -187,6 +229,7 @@ public class TwitterAdapter extends RecyclerView.Adapter<TwitterAdapter.ViewHold
         protected TextView mTvContentTranslated;
         protected TextView mTime;
         protected ImageView mImage;
+        protected ImageView mMoreButton;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -197,6 +240,7 @@ public class TwitterAdapter extends RecyclerView.Adapter<TwitterAdapter.ViewHold
             mTvContentTranslated = (TextView) itemView.findViewById(R.id.text_twitter_content_translated);
             mTime = (TextView) itemView.findViewById(R.id.text_twitter_time);
             mImage = (ImageView) itemView.findViewById(R.id.image_twitter_content);
+            mMoreButton = (ImageView) itemView.findViewById(R.id.more_button);
         }
     }
 
@@ -224,22 +268,13 @@ public class TwitterAdapter extends RecyclerView.Adapter<TwitterAdapter.ViewHold
 
         @Override
         public void onClick(View v) {
-            if (v == mImageView && mFragmentManager != null) {
+            if (v == mImageView) {
                 //ImageDialogFragment.showDialog(mFragmentManager, mSource);
                 ImageDisplayActivity.start(v.getContext(), mSource);
             }
         }
     }
 
-
-    /**
-     * 开启图片展示 关闭传入null
-     *
-     * @param fragmentManager
-     */
-    public void openImageShow(FragmentManager fragmentManager) {
-        mFragmentManager = fragmentManager;
-    }
 
     @Override
     public void onViewRecycled(ViewHolder holder) {
