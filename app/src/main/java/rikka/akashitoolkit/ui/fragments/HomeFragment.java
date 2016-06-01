@@ -279,6 +279,7 @@ public class HomeFragment extends BaseDrawerItemFragment {
                     new FileReader(CACHE_FILE),
                     CheckUpdate.class);
 
+            data.getMessages().clear();
             updateData(data);
         } catch (FileNotFoundException ignored) {
         }
