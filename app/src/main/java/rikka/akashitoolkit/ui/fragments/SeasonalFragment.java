@@ -2,8 +2,6 @@ package rikka.akashitoolkit.ui.fragments;
 
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
@@ -28,10 +26,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
-import java.io.File;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,11 +37,8 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.model.Seasonal;
-import rikka.akashitoolkit.model.Ship;
 import rikka.akashitoolkit.model.ShipVoice;
-import rikka.akashitoolkit.network.NetworkUtils;
 import rikka.akashitoolkit.network.RetrofitAPI;
-import rikka.akashitoolkit.staticdata.ShipList;
 import rikka.akashitoolkit.support.Statistics;
 import rikka.akashitoolkit.ui.ImageDisplayActivity;
 import rikka.akashitoolkit.ui.MainActivity;
@@ -58,11 +50,14 @@ import rikka.akashitoolkit.utils.Utils;
  * Created by Rikka on 2016/4/30.
  */
 public class SeasonalFragment extends BaseDrawerItemFragment {
+    private static final int TYPE_GALLERY = 0;
+    private static final int TYPE_TEXT = 1;
+    private static final int TYPE_VOICE = 2;
+
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private RecyclerView mRecyclerView;
     private Adapter mAdapter;
 
-    private MediaPlayer mMediaPlayer;
     private String mTitle;
 
     @Override
@@ -317,35 +312,26 @@ public class SeasonalFragment extends BaseDrawerItemFragment {
                             ((ViewHolderImage) holder).mContainer,
                             (Seasonal.DataEntity.ContentEntity) mData.get(position));
                     break;
-                /*case TYPE_ITEM_VOICE:
-                    try {
-                        final ShipVoice voice = (ShipVoice) mData.get(position);
-                        ((ViewHolderVoice) holder).mContent.setText(URLDecoder.decode(voice.getJp(), "UTF-8"));
-                        ((ViewHolderVoice) holder).mContent2.setText(URLDecoder.decode(voice.getZh(), "UTF-8"));
+                case TYPE_ITEM_VOICE:
+                    final ShipVoice voice = (ShipVoice) mData.get(position);
+                    ((ViewHolderVoice) holder).mContent.setText(voice.getJp());
+                    ((ViewHolderVoice) holder).mContent2.setText(voice.getZh());
 
-                        Ship ship = ShipList.findItemByWikiId(getContext(), voice.getIndex());
-                        if (ship != null) {
-                            ((ViewHolderVoice) holder).mScene.setText(ship.getName().get(getContext()));
-                        } else {
-                            ((ViewHolderVoice) holder).mScene.setText(voice.getIndex());
-                        }
+                    ((ViewHolderVoice) holder).mScene.setText(voice.getScene());
 
-                        ((ViewHolderVoice) holder).itemView.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                try {
-                                    String url = URLDecoder.decode(voice.getUrl(), "UTF-8");
-                                    Log.d("VoicePlay", "url " + url);
-                                    MusicPlayer.play(url);
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
+                    ((ViewHolderVoice) holder).itemView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            try {
+                                Log.d("VoicePlay", "url " + voice.getUrl());
+                                MusicPlayer.play(voice.getUrl());
+                            } catch (IOException e) {
+                                e.printStackTrace();
                             }
-                        });
-                    } catch (UnsupportedEncodingException e) {
-                        e.printStackTrace();
-                    }
-                    break;*/
+                        }
+                    });
+
+                    break;
             }
         }
 
@@ -372,35 +358,25 @@ public class SeasonalFragment extends BaseDrawerItemFragment {
             for (Seasonal.DataEntity.ContentEntity content :
                     data.getContent()) {
                 switch (content.getType()) {
-                    case 0:
+                    case TYPE_GALLERY:
                         mAdapter.addData(Adapter.TYPE_SUBTITLE, content.getTitle());
                         mAdapter.addData(Adapter.TYPE_ITEM_IMAGE, content);
                         break;
-                    case 1:
+                    case TYPE_TEXT:
                         mAdapter.addData(Adapter.TYPE_SUBTITLE, content.getTitle());
                         mAdapter.addData(Adapter.TYPE_ITEM_TEXT, content.getText());
+                        break;
+                    case TYPE_VOICE:
+                        ShipVoice item = new ShipVoice();
+                        item.setJp(content.getJp());
+                        item.setZh(content.getZh());
+                        item.setScene(content.getText());
+                        item.setUrl(content.getUrl());
+                        mAdapter.addData(Adapter.TYPE_ITEM_VOICE, item);
                         break;
                 }
             }
         }
-
-        /*mAdapter.addData(Adapter.TYPE_TITLE, "2016年新增三周年语音");
-
-        for (ShipVoice.DataEntity entity :
-                ShipVoiceExtraList.get(getContext()).getData()) {
-
-            try {
-                mAdapter.addData(Adapter.TYPE_SUBTITLE, URLDecoder.decode(entity.getZh(), "UTF-8"));
-
-                for (ShipVoice.DataEntity.VoiceEntity voice :
-                        entity.getVoice()) {
-
-                    mAdapter.addData(Adapter.TYPE_ITEM_VOICE, voice);
-                }
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-            }
-        }*/
 
         mAdapter.notifyChanged();
     }
@@ -429,7 +405,7 @@ public class SeasonalFragment extends BaseDrawerItemFragment {
             LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(Utils.dpToPx(content.getWidth()), Utils.dpToPx(content.getHeight()));
             lp.rightMargin = Utils.dpToPx(8);
             imageView.setLayoutParams(lp);
-            imageView.setScaleType(ImageView.ScaleType.valueOf(content.getSacle_type()));
+            imageView.setScaleType(ImageView.ScaleType.valueOf(content.getScale_type()));
 
             container.addView(imageView);
 

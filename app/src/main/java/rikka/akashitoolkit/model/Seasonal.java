@@ -64,12 +64,18 @@ public class Seasonal {
 
         public static class ContentEntity {
             private int type;
+
             private int width;
             private int height;
             private String scale_type;
+            private List<String> file;
+
             private String title;
             private String text;
-            private List<String> file;
+
+            private String zh;
+            private String jp;
+            private String url;
 
             public int getType() {
                 return type;
@@ -95,11 +101,11 @@ public class Seasonal {
                 this.height = height;
             }
 
-            public String getSacle_type() {
+            public String getScale_type() {
                 return scale_type;
             }
 
-            public void setSacle_type(String scale_type) {
+            public void setScale_type(String scale_type) {
                 this.scale_type = scale_type;
             }
 
@@ -125,6 +131,30 @@ public class Seasonal {
 
             public void setFile(List<String> file) {
                 this.file = file;
+            }
+
+            public String getZh() {
+                return zh;
+            }
+
+            public void setZh(String zh) {
+                this.zh = zh;
+            }
+
+            public String getJp() {
+                return jp;
+            }
+
+            public void setJp(String jp) {
+                this.jp = jp;
+            }
+
+            public String getUrl() {
+                return url;
+            }
+
+            public void setUrl(String url) {
+                this.url = url;
             }
         }
     }
