@@ -78,7 +78,7 @@
                 android:padding="6dp"
                 android:layout_gravity="end"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:src="@drawable/ic_more_vert_24dp"/>
+                app:srcCompat="@drawable/ic_more_vert_24dp"/>
 
         </LinearLayout>
 
