@@ -53,6 +53,7 @@ public class SeasonalFragment extends BaseDrawerItemFragment {
     private static final int TYPE_GALLERY = 0;
     private static final int TYPE_TEXT = 1;
     private static final int TYPE_VOICE = 2;
+    private static final int TYPE_SUBTITLE = 3;
 
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private RecyclerView mRecyclerView;
@@ -154,7 +155,7 @@ public class SeasonalFragment extends BaseDrawerItemFragment {
                 .build();
 
         RetrofitAPI.SeasonalAPI service = retrofit.create(RetrofitAPI.SeasonalAPI.class);
-        Call<Seasonal> call = service.get(1);
+        Call<Seasonal> call = service.get(2);
 
         call.enqueue(new Callback<Seasonal>() {
             @Override
@@ -366,6 +367,9 @@ public class SeasonalFragment extends BaseDrawerItemFragment {
                         mAdapter.addData(Adapter.TYPE_SUBTITLE, content.getTitle());
                         mAdapter.addData(Adapter.TYPE_ITEM_TEXT, content.getText());
                         break;
+                    case TYPE_SUBTITLE:
+                        mAdapter.addData(Adapter.TYPE_SUBTITLE, content.getText());
+                        break;
                     case TYPE_VOICE:
                         ShipVoice item = new ShipVoice();
                         item.setJp(content.getJp());
@@ -404,6 +408,7 @@ public class SeasonalFragment extends BaseDrawerItemFragment {
 
             LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(Utils.dpToPx(content.getWidth()), Utils.dpToPx(content.getHeight()));
             lp.rightMargin = Utils.dpToPx(8);
+            imageView.setPadding(Utils.dpToPx(8), Utils.dpToPx(8), Utils.dpToPx(8), Utils.dpToPx(8));
             imageView.setLayoutParams(lp);
             imageView.setScaleType(ImageView.ScaleType.valueOf(content.getScale_type()));
 
