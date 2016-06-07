@@ -271,7 +271,7 @@ public class TwitterAdapter extends RecyclerView.Adapter<TwitterAdapter.ViewHold
             if (v == mImageView) {
                 //ImageDialogFragment.showDialog(mFragmentManager, mSource);
                 if (mSource != null) {
-                    ImageDisplayActivity.start(v.getContext(), mSource);
+                    ImageDisplayActivity.start(v.getContext(), mSource.replaceAll("-\\d+x\\d+", ""));
                 }
             }
         }

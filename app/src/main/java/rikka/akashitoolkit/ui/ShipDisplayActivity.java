@@ -465,19 +465,6 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
                 default:
                     final Voice item = mData.get(position - 2);
 
-                        /*if (position == 2 || !mData.get(position - 3).type.equals(item.type)) {
-                            ((ViewHolderItem) holder).mTitle.setVisibility(View.VISIBLE);
-                            ((ViewHolderItem) holder).mTitle.setText(item.type);
-                        } else {*/
-                    //((ViewHolderItem) holder).mTitle.setVisibility(View.GONE);
-                    //}
-
-                        /*if (item.voice.getScene().length() == 0) {
-                            ((ViewHolderItem) holder).mScene.setVisibility(View.GONE);
-                        } else {
-                            ((ViewHolderItem) holder).mScene.setVisibility(View.VISIBLE);
-                        }*/
-
                     ((ViewHolderItem) holder).mScene.setText(item.voice.getScene());
                     ((ViewHolderItem) holder).mContent.setText(item.voice.getJp());
                     ((ViewHolderItem) holder).mContent2.setText(item.voice.getZh());
@@ -491,7 +478,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
                     ((ViewHolderItem) holder).mLinearLayout.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            if (((ViewHolderItem) holder).mContent.getInputType() == InputType.TYPE_TEXT_VARIATION_PASSWORD) {
+                            if (((ViewHolderItem) holder).mContent.getTransformationMethod() != null) {
                                 setTextViewMode((ViewHolderItem) holder, false);
                             } else {
                                 try {
@@ -511,14 +498,14 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
 
         private void setTextViewMode(ViewHolderItem holder, boolean hide) {
             if (hide) {
-                holder.mContent.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
-                holder.mContent2.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                //holder.mContent.setInputType(holder.mContent.getInputType() | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                //holder.mContent2.setInputType(holder.mContent.getInputType() | InputType.TYPE_TEXT_VARIATION_PASSWORD);
 
                 holder.mContent.setTransformationMethod(MyPasswordTransformationMethod.getInstance());
                 holder.mContent2.setTransformationMethod(MyPasswordTransformationMethod.getInstance());
             } else {
-                holder.mContent.setInputType(InputType.TYPE_NULL);
-                holder.mContent2.setInputType(InputType.TYPE_NULL);
+                //holder.mContent.setInputType(holder.mContent.getInputType() &~ InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                //holder.mContent2.setInputType(holder.mContent.getInputType() &~ InputType.TYPE_TEXT_VARIATION_PASSWORD);
 
                 holder.mContent.setTransformationMethod(null);
                 holder.mContent2.setTransformationMethod(null);
