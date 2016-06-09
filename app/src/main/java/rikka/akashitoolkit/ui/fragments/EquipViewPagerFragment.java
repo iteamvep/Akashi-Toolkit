@@ -88,10 +88,11 @@ public class EquipViewPagerFragment extends Fragment {
             @Override
             public Bundle getArgs(int position) {
                 Bundle bundle = new Bundle();
-                if (position == EquipTypeList.getsParentList(getContext()).size() - 1) {
+                /*if (position == EquipTypeList.getsParentList(getContext()).size() - 1) {
                     bundle.putInt("TYPE", 0);
                     bundle.putBoolean("BOOKMARKED", true);
-                } else {
+                } else */
+                {
                     bundle.putInt("TYPE", position + 1);
                     bundle.putBoolean("BOOKMARKED", false);
                 }
@@ -106,13 +107,9 @@ public class EquipViewPagerFragment extends Fragment {
             }
         };
 
-        for (int i = 0; i < EquipTypeList.getsParentList(getContext()).size(); i++) {
-            for (Map.Entry<String, Integer> entry:
-                    EquipTypeList.getsParentList(getContext()).entrySet()){
-                if (i == entry.getValue()) {
-                    mViewPagerAdapter.addFragment(EquipFragment.class, entry.getKey());
-                }
-            }
+        for (Map.Entry<String, Integer> entry :
+                EquipTypeList.getsParentList(getContext()).entrySet()) {
+            mViewPagerAdapter.addFragment(EquipFragment.class, entry.getKey());
         }
 
         return mViewPagerAdapter;

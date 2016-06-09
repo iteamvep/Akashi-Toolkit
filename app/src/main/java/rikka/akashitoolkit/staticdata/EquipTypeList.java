@@ -9,6 +9,7 @@ import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -63,7 +64,7 @@ public class EquipTypeList {
             return;
         }
 
-        sParentList = new HashMap<>();
+        sParentList = new LinkedHashMap<>();
 
         for (EquipType item:
                 list) {
