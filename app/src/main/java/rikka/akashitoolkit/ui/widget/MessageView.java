@@ -3,71 +3,77 @@ package rikka.akashitoolkit.ui.widget;
 import android.animation.Animator;
 import android.content.Context;
 import android.content.res.Resources;
+import android.support.annotation.Nullable;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.util.AttributeSet;
 import android.util.TypedValue;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.utils.MySpannableFactory;
+import rikka.akashitoolkit.utils.Utils;
 
 /**
  * Created by Rikka on 2016/3/16.
  */
-public class ButtonCardView extends FrameLayout {
+public class MessageView extends FrameLayout {
     private LinearLayout mButtonContainer;
-    private LinearLayout mButtonContainerOuter;
+    private LinearLayout mGalleryContainer;
     private TextView mTextViewTitle;
     private TextView mTextViewBody;
+    private View mDivider;
 
     private String mTitle;
     private String mBody;
 
-
-    public ButtonCardView(Context context) {
+    public MessageView(Context context) {
         this(context, null);
     }
 
-    public ButtonCardView(Context context, AttributeSet attrs) {
+    public MessageView(Context context, AttributeSet attrs) {
         super(context, attrs);
 
-        LayoutInflater.from(context).inflate(R.layout.button_card_view, this);
-        mButtonContainer = (LinearLayout) findViewById(R.id.buttonCardViewButtonContainer);
-        mButtonContainerOuter = (LinearLayout) findViewById(R.id.buttonCardViewButtonContainerOuter);
-        mButtonContainerOuter.setVisibility(View.GONE);
+        inflate(getContext(), R.layout.button_card_view, this);
+
+        mButtonContainer = (LinearLayout) findViewById(R.id.content_container);
+        mGalleryContainer = (LinearLayout) findViewById(R.id.gallery_container);
         mTextViewTitle = (TextView) findViewById(R.id.text_title);
         mTextViewBody = (TextView) findViewById(R.id.text_body);
+        mDivider = findViewById(R.id.divider);
     }
 
-    public ButtonCardView setTitle(int textId) {
+    public MessageView setTitle(int textId) {
         setTitle(getContext().getString(textId));
         return this;
     }
 
-    public ButtonCardView setTitle(CharSequence text) {
+    public MessageView setTitle(CharSequence text) {
         mTitle = text.toString();
         mTextViewTitle.setText(text);
         return this;
     }
 
-    public ButtonCardView setMessage(int textId) {
+    public MessageView setMessage(int textId) {
         setMessage(getContext().getString(textId));
         return this;
     }
 
-    public ButtonCardView setMessage(CharSequence text) {
+    public MessageView setMessage(CharSequence text) {
         mTitle = text.toString();
         return setMessage(text, false);
     }
 
-    public ButtonCardView setMessage(CharSequence text, boolean isHtml) {
+    public MessageView setMessage(CharSequence text, boolean isHtml) {
         if (isHtml) {
             mTextViewBody.setText(Html.fromHtml(text.toString()));
             mTextViewBody.setMovementMethod(LinkMovementMethod.getInstance());
@@ -79,49 +85,35 @@ public class ButtonCardView extends FrameLayout {
         return this;
     }
 
-    public void removeButtons() {
+    public void clear() {
         mButtonContainer.removeAllViews();
-        mButtonContainerOuter.setVisibility(View.GONE);
+        mGalleryContainer.removeAllViews();
+        mDivider.setVisibility(GONE);
     }
 
-    public ButtonCardView addButton(int textId) {
-        addButton(getContext().getString(textId), null, false, true);
-        return this;
+    public MessageView addPositiveButton(int textId, @Nullable OnClickListener listener) {
+        return addPositiveButton(getContext().getString(textId), listener);
     }
 
-    public ButtonCardView addButton(CharSequence text) {
-        addButton(text, null, false, true);
-        return this;
+    public MessageView addPositiveButton(CharSequence text, @Nullable OnClickListener listener) {
+        return addButton(text, listener, true, false);
     }
 
-    public ButtonCardView addButton(int textId, boolean clickHide) {
-        addButton(getContext().getString(textId), null, false, clickHide);
-        return this;
+    public MessageView addNegativeButton(int textId, @Nullable OnClickListener listener) {
+        return addNegativeButton(getContext().getString(textId), listener);
     }
 
-    public ButtonCardView addButton(CharSequence text, boolean clickHide) {
-        addButton(text, null, false, clickHide);
-        return this;
+    public MessageView addNegativeButton(CharSequence text, @Nullable OnClickListener listener) {
+        return addButton(text, listener, false, true);
     }
 
-    public ButtonCardView addButton(int textId, OnClickListener listener) {
-        addButton(getContext().getString(textId), listener, false, false);
-        return this;
-    }
+    public MessageView addButton(CharSequence text, @Nullable OnClickListener listener, boolean useAccentColor, boolean clickHide) {
+        Button button = (Button) inflate(getContext(), R.layout.button_borderless, null);
 
-    public ButtonCardView addButton(int textId, OnClickListener listener, boolean useAccentColor, boolean clickHide) {
-        addButton(getContext().getString(textId), listener, useAccentColor, clickHide);
-        return this;
-    }
-
-    public ButtonCardView addButton(CharSequence text, OnClickListener listener, boolean useAccentColor, boolean clickHide) {
-        Button button = (Button) inflate(getContext(), R.layout.button_card_view_button, null);
-        //Button button = new Button(getContext(), null, R.attr.borderlessButtonStyle);
         button.setText(text);
         if (listener != null) {
             button.setOnClickListener(listener);
         }
-        //button.setMinWidth(0);
 
         if (useAccentColor) {
             TypedValue typedValue = new TypedValue();
@@ -132,9 +124,9 @@ public class ButtonCardView extends FrameLayout {
         }
 
         mButtonContainer.addView(button);
-        mButtonContainerOuter.setVisibility(ButtonCardView.VISIBLE);
+        mDivider.setVisibility(VISIBLE);
 
-        if (clickHide) {
+        if (clickHide && listener == null) {
             button.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -143,6 +135,24 @@ public class ButtonCardView extends FrameLayout {
             });
         }
         return this;
+    }
+
+    public void addImage(String url) {
+        ImageView imageView = new ImageView(getContext());
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(Utils.dpToPx(80), Utils.dpToPx(80));
+        imageView.setLayoutParams(lp);
+        imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
+
+        if (mGalleryContainer.getChildCount() > 0) {
+            lp.leftMargin = Utils.dpToPx(8);
+        }
+
+        Glide.with(getContext())
+                .load(Utils.getGlideUrl(url))
+                .crossFade()
+                .into(imageView);
+
+        mGalleryContainer.addView(imageView);
     }
 
     public void hide() {

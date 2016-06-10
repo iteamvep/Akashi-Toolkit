@@ -17,16 +17,6 @@
     card_view:cardElevation="2dp"
     card_view:cardMaxElevation="4dp">
 
-    <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <include layout="@layout/button_card_view_body"/>
-
-        <include layout="@layout/button_card_view_buttons"/>
-
-    </LinearLayout>
+    <include layout="@layout/message_view"/>
 
 </android.support.v7.widget.CardView>

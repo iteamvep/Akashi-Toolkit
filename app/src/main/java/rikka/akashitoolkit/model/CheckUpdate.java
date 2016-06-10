@@ -122,6 +122,7 @@ public class CheckUpdate {
         private String link;
         private String action_name;
         private int time;
+        private List<String> images;
 
         public void setTitle(String title) {
             this.title = title;
@@ -169,6 +170,14 @@ public class CheckUpdate {
 
         public void setTime(int time) {
             this.time = time;
+        }
+
+        public List<String> getImages() {
+            return images;
+        }
+
+        public void setImages(List<String> images) {
+            this.images = images;
         }
     }
 }

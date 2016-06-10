@@ -54,7 +54,7 @@ import rikka.akashitoolkit.support.Statistics;
 import rikka.akashitoolkit.ui.MainActivity;
 import rikka.akashitoolkit.utils.UpdateCheck;
 import rikka.akashitoolkit.utils.Utils;
-import rikka.akashitoolkit.ui.widget.ButtonCardView;
+import rikka.akashitoolkit.ui.widget.MessageView;
 import rx.Observable;
 import rx.Subscriber;
 import rx.schedulers.Schedulers;
@@ -73,9 +73,9 @@ public class HomeFragment extends BaseDrawerItemFragment {
 
     private LinearLayout mLinearLayout;
     private SwipeRefreshLayout mSwipeRefreshLayout;
-    private ButtonCardView mUpdateCardView;
-    private ButtonCardView mDataUpdateCardView;
-    private Map<Integer, ButtonCardView> mMessageCardView;
+    private MessageView mUpdateCardView;
+    private MessageView mDataUpdateCardView;
+    private Map<Integer, MessageView> mMessageCardView;
     private MessageReadStatus mMessageReadStatus;
     private int mUpdateVersionCode;
 
@@ -205,7 +205,7 @@ public class HomeFragment extends BaseDrawerItemFragment {
             messageReadStatus.setVersionCode(mUpdateVersionCode);
         }
 
-        for (Map.Entry<Integer, ButtonCardView> card:
+        for (Map.Entry<Integer, MessageView> card :
                 mMessageCardView.entrySet()) {
             if (card.getValue().getVisibility() == View.GONE
                     && list.indexOf(card.getKey()) == -1) {
@@ -227,20 +227,20 @@ public class HomeFragment extends BaseDrawerItemFragment {
     }
 
     private void addLocalCard() {
-        ButtonCardView card;
+        MessageView card;
 
         if (!BuildConfig.isGooglePlay) {
-            card = new ButtonCardView(getContext())
+            card = new MessageView(getContext())
                     .setTitle("欢迎使用Akashi Toolkit！")
-                    .addButton(R.string.got_it)
+                    .addNegativeButton(R.string.got_it, null)
                     .setMessage("Akashi Toolkit是一个舰队Collection的wiki类手机App，目前由Yūbari Kaigun Kokusho开发，kcwiki舰娘百科提供数据支持。\n" +
                             "目前应用的各项功能正在逐渐添加和完善中，我们会在每周六晚发布一个Akashi Toolkit的正式版本，保证每周的更新。\n" +
                             "如果您想体验测试版，在设置-更新通道中选择测试版。\n" +
                             "关注我们的最新消息 微博@kcwiki舰娘百科");
         } else {
-            card = new ButtonCardView(getContext())
+            card = new MessageView(getContext())
                     .setTitle("欢迎使用Akashi Toolkit！")
-                    .addButton(R.string.got_it)
+                    .addNegativeButton(R.string.got_it, null)
                     .setMessage("Akashi Toolkit是一个舰队Collection的wiki类手机App，目前由Yūbari Kaigun Kokusho开发，kcwiki舰娘百科提供数据支持。\n" +
                             "目前应用的各项功能正在逐渐添加和完善中。\n" +
                             "关注我们的最新消息 微博@kcwiki舰娘百科");
@@ -249,15 +249,15 @@ public class HomeFragment extends BaseDrawerItemFragment {
         addCard(card);
     }
 
-    private boolean addCard(ButtonCardView card) {
+    private boolean addCard(MessageView card) {
         return addCard(card, (card.getTitle() + card.getBody()).hashCode());
     }
 
-    private boolean addCard(ButtonCardView card, int id) {
+    private boolean addCard(MessageView card, int id) {
         return addCard(card, id, -1);
     }
 
-    private boolean addCard(ButtonCardView card, int id, int position) {
+    private boolean addCard(MessageView card, int id, int position) {
         if (isIdRead(id)) {
             return false;
         }
@@ -340,9 +340,9 @@ public class HomeFragment extends BaseDrawerItemFragment {
         final StringBuilder sb = new StringBuilder();
 
         if (mDataUpdateCardView == null) {
-            mDataUpdateCardView = new ButtonCardView(getContext());
+            mDataUpdateCardView = new MessageView(getContext());
             mDataUpdateCardView.setTitle("数据更新");
-            mDataUpdateCardView.addButton(R.string.got_it);
+            mDataUpdateCardView.addNegativeButton(R.string.got_it, null);
         }
 
         Observable
@@ -441,18 +441,18 @@ public class HomeFragment extends BaseDrawerItemFragment {
                 continue;
             }
 
-            ButtonCardView card = mMessageCardView.get(id);
+            MessageView card = mMessageCardView.get(id);
 
             if (card == null) {
-                card = new ButtonCardView(getContext());
+                card = new MessageView(getContext());
             } else {
-                card.removeButtons();
+                card.clear();
             }
 
             card.setTitle(entity.getTitle());
 
             if (!((entity.getType() & NOT_DISMISSIBLE) > 0)) {
-                card.addButton(R.string.got_it);
+                card.addNegativeButton(R.string.got_it, null);
             }
 
             boolean isHtml = false;
@@ -465,7 +465,7 @@ public class HomeFragment extends BaseDrawerItemFragment {
                     mCountDownTimer.cancel();
                 }
 
-                final ButtonCardView finalCard = card;
+                final MessageView finalCard = card;
                 final boolean finalIsHtml = isHtml;
                 final String format = entity.getMessage();
                 mCountDownTimer = new CountDownTimer(
@@ -476,7 +476,7 @@ public class HomeFragment extends BaseDrawerItemFragment {
                     }
 
                     public void onFinish() {
-                        finalCard.setMessage("done!");
+                        finalCard.hide();
                     }
                 }.start();
             } else {
@@ -484,12 +484,18 @@ public class HomeFragment extends BaseDrawerItemFragment {
             }
 
             if ((entity.getType() & ACTION_VIEW_BUTTON) > 0) {
-                card.addButton(entity.getAction_name() != null ? entity.getAction_name() : getContext().getString(R.string.open_link), new View.OnClickListener() {
+                card.addPositiveButton(entity.getAction_name() != null ? entity.getAction_name() : getContext().getString(R.string.open_link), new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(entity.getLink())));
                     }
-                }, true, false);
+                });
+            }
+
+            if (entity.getImages() != null) {
+                for (String url : entity.getImages()) {
+                    card.addImage(url);
+                }
             }
 
             Log.d("HomeFragment", String.format("[add card] title: %s id: %d type: %d", entity.getTitle(), id, entity.getType()));
@@ -512,20 +518,21 @@ public class HomeFragment extends BaseDrawerItemFragment {
 
         if (mMessageReadStatus.getVersionCode() < mUpdateVersionCode && (mUpdateVersionCode > versionCode || BuildConfig.DEBUG)) {
             if (mUpdateCardView == null || mUpdateCardView.getVisibility() != View.VISIBLE) {
-                mUpdateCardView = new ButtonCardView(getContext());
-                mUpdateCardView.addButton(R.string.ignore_update, new View.OnClickListener() {
+                mUpdateCardView = new MessageView(getContext());
+                mUpdateCardView.addNegativeButton(R.string.ignore_update, new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         mMessageReadStatus.setVersionCode(mUpdateVersionCode);
+                        mUpdateCardView.hide();
                     }
-                }, false, true);
-                mUpdateCardView.addButton(R.string.download, new View.OnClickListener() {
+                });
+                mUpdateCardView.addPositiveButton(R.string.download, new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(entity.getUrl()));
                         getContext().startActivity(intent);
                     }
-                }, true, false);
+                });
                 mLinearLayout.addView(mUpdateCardView, 0);
             }
 

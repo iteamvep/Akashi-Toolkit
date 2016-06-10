@@ -54,11 +54,13 @@ public class ImageDisplayActivity extends BaseActivity implements View.OnClickLi
     public static final String EXTRA_URL = "EXTRA_URL";
     public static final String EXTRA_POSITION = "EXTRA_POSITION";
     public static final String EXTRA_TITLE = "EXTRA_TITLE";
+    public static final String EXTRA_DOWNLOADABLE = "EXTRA_DOWNLOADABLE";
 
     private List<String> mList;
     private int mPosition;
     private AsyncTask mDownloadTask;
     private boolean[] mIsDownloaded;
+    private boolean mDownloadable;
 
     private FloatingActionButton mFAB;
     private TextView mTextView;
