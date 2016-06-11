@@ -13,13 +13,13 @@ public class MessageReadStatus {
      */
 
     private int versionCode;
-    private List<Integer> messageId;
+    private List<Long> messageId;
 
     public void setVersionCode(int versionCode) {
         this.versionCode = versionCode;
     }
 
-    public void setMessageId(List<Integer> messageId) {
+    public void setMessageId(List<Long> messageId) {
         this.messageId = messageId;
     }
 
@@ -27,7 +27,7 @@ public class MessageReadStatus {
         return versionCode;
     }
 
-    public List<Integer> getMessageId() {
+    public List<Long> getMessageId() {
         return messageId;
     }
 }

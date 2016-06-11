@@ -59,7 +59,7 @@
     <string name="got_it">Got it</string>
     <string name="not_now">Not now</string>
     <string name="ignore_update">Ignore this update</string>
-    <string name="download">Go download</string>
+    <string name="download">Download</string>
     <string name="reset_read_summary">Reset read messages including update notification</string>
     <string name="read_status_reset">Read status reset</string>
     <string name="stable">Stable</string>

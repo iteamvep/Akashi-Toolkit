@@ -28,16 +28,15 @@ import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.support.Push;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.StaticData;
+import rikka.akashitoolkit.ui.fragments.BaseDrawerItemFragment;
 import rikka.akashitoolkit.ui.fragments.EquipDisplayFragment;
 import rikka.akashitoolkit.ui.fragments.EquipImprovementDisplayFragment;
 import rikka.akashitoolkit.ui.fragments.ExpeditionDisplayFragment;
 import rikka.akashitoolkit.ui.fragments.HomeFragment;
 import rikka.akashitoolkit.ui.fragments.MapDisplayFragment;
 import rikka.akashitoolkit.ui.fragments.QuestDisplayFragment;
-import rikka.akashitoolkit.ui.fragments.SeasonalFragment;
 import rikka.akashitoolkit.ui.fragments.ShipDisplayFragment;
 import rikka.akashitoolkit.ui.fragments.ToolsFragment;
-import rikka.akashitoolkit.ui.fragments.TwitterFragment;
 import rikka.akashitoolkit.ui.widget.IconSwitchCompat;
 import rikka.akashitoolkit.ui.widget.SimpleDrawerView;
 import rikka.minidrawer.MiniDrawerLayout;
@@ -120,20 +119,20 @@ public class MainActivity extends BaseActivity
                     case "nav_home":
                         id = R.id.nav_home;
                         break;
-                    case "nav_twitter":
+                    /*case "nav_twitter":
                         id = R.id.nav_twitter;
                         break;
                     case "nav_new":
-                        id = R.id.nav_new;
-                        break;
+                        id = R.id.nav_new;*/
+                    //break;
                 }
             }
         }
 
         if (savedInstanceState != null) {
             findFragmentByNavId(mFragmentMap, R.id.nav_home);
-            findFragmentByNavId(mFragmentMap, R.id.nav_twitter);
-            findFragmentByNavId(mFragmentMap, R.id.nav_new);
+            /*findFragmentByNavId(mFragmentMap, R.id.nav_twitter);
+            findFragmentByNavId(mFragmentMap, R.id.nav_new);*/
             findFragmentByNavId(mFragmentMap, R.id.nav_item_improve);
             findFragmentByNavId(mFragmentMap, R.id.nav_item);
             findFragmentByNavId(mFragmentMap, R.id.nav_quest);
@@ -157,8 +156,8 @@ public class MainActivity extends BaseActivity
         } else {
             switch (id) {
                 case R.id.nav_home:
-                case R.id.nav_twitter:
-                case R.id.nav_new:
+                /*case R.id.nav_twitter:
+                case R.id.nav_new:*/
                 case R.id.nav_item_improve:
                 case R.id.nav_item:
                 case R.id.nav_quest:
@@ -280,6 +279,9 @@ public class MainActivity extends BaseActivity
         Fragment to = mFragmentMap.get(id);
         if (to == null) {
             to = instanceFragment(id);
+            if (!(to instanceof BaseDrawerItemFragment)) {
+                throw new RuntimeException("must be subclass of BaseDrawerItemFragment");
+            }
             mFragmentMap.put(id, to);
         }
 
@@ -290,10 +292,10 @@ public class MainActivity extends BaseActivity
         switch (id) {
             case R.id.nav_home:
                 return new HomeFragment();
-            case R.id.nav_twitter:
+            /*case R.id.nav_twitter:
                 return new TwitterFragment();
             case R.id.nav_new:
-                return new SeasonalFragment();
+                return new SeasonalFragment();*/
             case R.id.nav_item_improve:
                 return new EquipImprovementDisplayFragment();
             case R.id.nav_item:

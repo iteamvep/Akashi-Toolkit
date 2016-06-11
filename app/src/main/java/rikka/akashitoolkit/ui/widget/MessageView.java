@@ -3,6 +3,7 @@ package rikka.akashitoolkit.ui.widget;
 import android.animation.Animator;
 import android.content.Context;
 import android.content.res.Resources;
+import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
@@ -19,7 +20,11 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
+import java.util.Collection;
+import java.util.List;
+
 import rikka.akashitoolkit.R;
+import rikka.akashitoolkit.ui.ImageDisplayActivity;
 import rikka.akashitoolkit.utils.MySpannableFactory;
 import rikka.akashitoolkit.utils.Utils;
 
@@ -42,14 +47,18 @@ public class MessageView extends FrameLayout {
 
     public MessageView(Context context, AttributeSet attrs) {
         super(context, attrs);
+    }
 
-        inflate(getContext(), R.layout.button_card_view, this);
+    public MessageView setLayout(@LayoutRes int layout) {
+        inflate(getContext(), layout, this);
 
         mButtonContainer = (LinearLayout) findViewById(R.id.content_container);
         mGalleryContainer = (LinearLayout) findViewById(R.id.gallery_container);
         mTextViewTitle = (TextView) findViewById(R.id.text_title);
         mTextViewBody = (TextView) findViewById(R.id.text_body);
         mDivider = findViewById(R.id.divider);
+
+        return this;
     }
 
     public MessageView setTitle(int textId) {
@@ -137,7 +146,21 @@ public class MessageView extends FrameLayout {
         return this;
     }
 
-    public void addImage(String url) {
+    public void addImages(final List<String> urls) {
+        int i = 0;
+        for (String url : urls) {
+            final int finalI = i;
+            addImage(url, new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ImageDisplayActivity.start(getContext(), urls, finalI, null, false);
+                }
+            });
+            i++;
+        }
+    }
+
+    public void addImage(final String url, OnClickListener listener) {
         ImageView imageView = new ImageView(getContext());
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(Utils.dpToPx(80), Utils.dpToPx(80));
         imageView.setLayoutParams(lp);
@@ -153,6 +176,8 @@ public class MessageView extends FrameLayout {
                 .into(imageView);
 
         mGalleryContainer.addView(imageView);
+
+        imageView.setOnClickListener(listener);
     }
 
     public void hide() {

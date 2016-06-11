@@ -124,6 +124,10 @@ public class CheckUpdate {
         private int time;
         private List<String> images;
 
+        public long getId() {
+            return (title + message).hashCode();
+        }
+
         public void setTitle(String title) {
             this.title = title;
         }

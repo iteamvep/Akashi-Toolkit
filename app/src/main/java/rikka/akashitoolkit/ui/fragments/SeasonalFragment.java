@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
@@ -25,7 +26,11 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.google.gson.Gson;
 
+import java.io.ByteArrayInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -49,45 +54,25 @@ import rikka.akashitoolkit.utils.Utils;
 /**
  * Created by Rikka on 2016/4/30.
  */
-public class SeasonalFragment extends BaseDrawerItemFragment {
+public class SeasonalFragment extends Fragment {
     private static final int TYPE_GALLERY = 0;
     private static final int TYPE_TEXT = 1;
     private static final int TYPE_VOICE = 2;
     private static final int TYPE_SUBTITLE = 3;
 
+    private static final String JSON_NAME = "/json/seasonal.json";
+    private String CACHE_FILE;
+
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private RecyclerView mRecyclerView;
     private Adapter mAdapter;
-
-    private String mTitle;
-
-    @Override
-    public void onShow() {
-        super.onShow();
-
-        MainActivity activity = ((MainActivity) getActivity());
-        activity.getSupportActionBar().setTitle(mTitle);
-
-        Statistics.onFragmentStart("SeasonalFragment");
-    }
-
-    @Override
-    public void onHide() {
-        super.onHide();
-
-        mSwipeRefreshLayout.setRefreshing(false);
-
-        MusicPlayer.stop();
-
-        Statistics.onFragmentEnd("SeasonalFragment");
-    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
 
-        mTitle = getString(R.string.new_content);
+        CACHE_FILE = getContext().getCacheDir().getAbsolutePath() + JSON_NAME;
     }
 
     @Override
@@ -137,11 +122,27 @@ public class SeasonalFragment extends BaseDrawerItemFragment {
             }, 500);
         }
 
-        if (!isHiddenBeforeSaveInstanceState()) {
-            onShow();
-        }
+        loadFromCache();
 
         return view;
+    }
+
+    private void loadFromCache() {
+        Seasonal data;
+        try {
+            Gson gson = new Gson();
+            data = gson.fromJson(
+                    new FileReader(CACHE_FILE),
+                    Seasonal.class);
+
+            updateData(data);
+        } catch (FileNotFoundException ignored) {
+        }
+    }
+
+    private void updateData(Seasonal data) {
+        mSwipeRefreshLayout.setRefreshing(false);
+        setAdapter(data);
     }
 
     private void refresh() {
@@ -164,8 +165,11 @@ public class SeasonalFragment extends BaseDrawerItemFragment {
                     return;
                 }
 
-                mSwipeRefreshLayout.setRefreshing(false);
-                setAdapter(response.body());
+                updateData(response.body());
+
+                Gson gson = new Gson();
+                Utils.saveStreamToFile(new ByteArrayInputStream(gson.toJson(response.body()).getBytes()),
+                        CACHE_FILE);
             }
 
             @Override
@@ -346,11 +350,10 @@ public class SeasonalFragment extends BaseDrawerItemFragment {
         mAdapter.clearData();
 
         MainActivity activity = ((MainActivity) getActivity());
-        mTitle = body.getTitle();
 
-        if (!isHidden()) {
+        /*if (!isHidden()) {
             activity.getSupportActionBar().setTitle(mTitle);
-        }
+        }*/
 
         for (Seasonal.DataEntity data: body.getData()) {
 

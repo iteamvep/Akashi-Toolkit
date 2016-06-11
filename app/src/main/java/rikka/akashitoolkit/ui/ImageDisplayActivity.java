@@ -78,10 +78,15 @@ public class ImageDisplayActivity extends BaseActivity implements View.OnClickLi
     }
 
     public static void start(Context context, List<String> url, int position, String title) {
+        start(context, url, position, title, true);
+    }
+
+    public static void start(Context context, List<String> url, int position, String title, boolean downloadable) {
         Intent intent = new Intent(context, ImageDisplayActivity.class);
         intent.putStringArrayListExtra(ImageDisplayActivity.EXTRA_URL, (ArrayList<String>) url);
         intent.putExtra(ImageDisplayActivity.EXTRA_POSITION, position);
         intent.putExtra(ImageDisplayActivity.EXTRA_TITLE, title);
+        intent.putExtra(ImageDisplayActivity.EXTRA_DOWNLOADABLE, downloadable);
         context.startActivity(intent);
     }
 
@@ -114,6 +119,8 @@ public class ImageDisplayActivity extends BaseActivity implements View.OnClickLi
         mList = getIntent().getStringArrayListExtra(EXTRA_URL);
         mPosition = getIntent().getIntExtra(EXTRA_POSITION, 0);
         mIsDownloaded = new boolean[mList.size()];
+
+        mDownloadable = getIntent().getBooleanExtra(EXTRA_DOWNLOADABLE, true);
 
         for (String s : mList) {
             Log.d(getClass().getSimpleName(), s);
@@ -306,6 +313,10 @@ public class ImageDisplayActivity extends BaseActivity implements View.OnClickLi
     }
 
     private void setFAB() {
+        if (!mDownloadable) {
+            return;
+        }
+
         if (mIsDownloaded[mPosition]) {
             showFAB();
         } else {

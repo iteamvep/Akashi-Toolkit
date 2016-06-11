@@ -4,6 +4,7 @@ import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
@@ -51,7 +52,7 @@ import rikka.akashitoolkit.utils.Utils;
 /**
  * Created by Rikka on 2016/3/6.
  */
-public class TwitterFragment extends BaseDrawerItemFragment implements TwitterAdapter.OnMoreButtonClickedListener {
+public class TwitterFragment extends Fragment implements TwitterAdapter.OnMoreButtonClickedListener {
     private static final String TAG = "TwitterFragment";
 
     private static final String JSON_NAME = "/json/twitter.json";
@@ -64,7 +65,7 @@ public class TwitterFragment extends BaseDrawerItemFragment implements TwitterAd
     private Call<Twitter> mCall;
     private Call<ResponseBody> mCall2;
 
-    @Override
+    /*@Override
     public void onShow() {
         super.onShow();
 
@@ -74,7 +75,7 @@ public class TwitterFragment extends BaseDrawerItemFragment implements TwitterAd
         mSwipeRefreshLayout.setRefreshing(false);
 
         Statistics.onFragmentStart("TwitterFragment");
-    }
+    }*/
 
     @Override
     public void onStop() {
@@ -89,12 +90,12 @@ public class TwitterFragment extends BaseDrawerItemFragment implements TwitterAd
         super.onStop();
     }
 
-    @Override
+    /*@Override
     public void onHide() {
         super.onHide();
 
         Statistics.onFragmentEnd("TwitterFragment");
-    }
+    }*/
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -174,9 +175,9 @@ public class TwitterFragment extends BaseDrawerItemFragment implements TwitterAd
             }, 500);
         }
 
-        if (!isHiddenBeforeSaveInstanceState()) {
+        /*if (!isHiddenBeforeSaveInstanceState()) {
             onShow();
-        }
+        }*/
 
         return view;
     }
@@ -322,11 +323,11 @@ public class TwitterFragment extends BaseDrawerItemFragment implements TwitterAd
             mTwitterAdapter.notifyItemRangeChanged(added, modified);
             if (added > 0 && mRecyclerView.getScrollY() <= 50) {
                 mRecyclerView.scrollToPosition(0);
-                showSnackbar(String.format(getString(R.string.new_twitter), added), Snackbar.LENGTH_SHORT);
+                //showSnackbar(String.format(getString(R.string.new_twitter), added), Snackbar.LENGTH_SHORT);
             }
 
             if (added == 0) {
-                showSnackbar(R.string.no_new_tweet, Snackbar.LENGTH_SHORT);
+                //showSnackbar(R.string.no_new_tweet, Snackbar.LENGTH_SHORT);
             }
         }
         else {
@@ -396,7 +397,7 @@ public class TwitterFragment extends BaseDrawerItemFragment implements TwitterAd
             public void onFailure(Call<Twitter> call, Throwable t) {
                 mSwipeRefreshLayout.setRefreshing(false);
 
-                showSnackbar(R.string.refresh_fail, Snackbar.LENGTH_SHORT);
+                //showSnackbar(R.string.refresh_fail, Snackbar.LENGTH_SHORT);
             }
         });
     }
