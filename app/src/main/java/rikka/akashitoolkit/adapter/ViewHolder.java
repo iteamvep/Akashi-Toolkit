@@ -1,11 +1,14 @@
 package rikka.akashitoolkit.adapter;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.CountDownTimer;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.text.format.DateUtils;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -13,10 +16,22 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.squareup.otto.Subscribe;
 
+import java.util.Calendar;
 import java.util.List;
+import java.util.TimeZone;
 
 import rikka.akashitoolkit.R;
+import rikka.akashitoolkit.model.Equip;
+import rikka.akashitoolkit.model.EquipImprovement;
+import rikka.akashitoolkit.otto.BusProvider;
+import rikka.akashitoolkit.otto.ChangeNavigationDrawerItemAction;
+import rikka.akashitoolkit.staticdata.EquipImprovementList;
+import rikka.akashitoolkit.staticdata.EquipList;
+import rikka.akashitoolkit.staticdata.EquipTypeList;
+import rikka.akashitoolkit.support.Settings;
+import rikka.akashitoolkit.ui.EquipDisplayActivity;
 import rikka.akashitoolkit.ui.ImageDisplayActivity;
 import rikka.akashitoolkit.ui.widget.ExpandableLayout;
 import rikka.akashitoolkit.utils.MySpannableFactory;
@@ -286,5 +301,95 @@ public class ViewHolder {
             return sb.toString();
         }
 
+    }
+
+    public static class MessageEquip extends RecyclerView.ViewHolder {
+        protected LinearLayout mContainer;
+        protected TextView mSummary;
+
+        protected BusEventListener mBusEventListener;
+
+        protected static class BusEventListener {
+            public boolean isRegistered;
+        }
+
+        public MessageEquip(View itemView) {
+            super(itemView);
+
+            mSummary = (TextView) itemView.findViewById(android.R.id.summary);
+            mContainer = (LinearLayout) itemView.findViewById(android.R.id.content);
+        }
+
+        public void setContent() {
+            Context context = itemView.getContext();
+            mContainer.removeAllViews();
+
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTimeZone(TimeZone.getTimeZone("GMT+9:00"));
+            int type = calendar.get(Calendar.DAY_OF_WEEK) - 1;
+
+            int count = 0;
+            for (EquipImprovement item :
+                    EquipImprovementList.get(context)) {
+                if (count > 4) {
+                    break;
+                }
+
+                boolean add = false;
+                StringBuilder sb = new StringBuilder();
+                for (EquipImprovement.SecretaryEntity entity : item.getSecretary()) {
+                    if (entity.getDay().get(type)) {
+                        add = true;
+                        sb.append(sb.length() > 0 ? " / " : "");
+                        sb.append(entity.getName());
+                    }
+                }
+
+                if (add) {
+                    item.setBookmarked(Settings.instance(context)
+                            .getBoolean(String.format("equip_improve_%d", item.getId()), false));
+
+                    if (item.isBookmarked()) {
+                        final Equip equip = EquipList.findItemById(context, item.getId());
+                        if (equip != null) {
+                            count++;
+
+                            View view = LayoutInflater.from(context).inflate(R.layout.item_message_equip, mContainer, false);
+                            EquipTypeList.setIntoImageView((ImageView) view.findViewById(android.R.id.icon), item.getIcon());
+                            ((TextView) view.findViewById(android.R.id.title)).setText(
+                                    String.format("%s (%s)", equip.getName().get(context), sb.toString()));
+
+                            view.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    Intent intent = new Intent(v.getContext(), EquipDisplayActivity.class);
+                                    intent.putExtra(EquipDisplayActivity.EXTRA_ITEM_ID, equip.getId());
+
+                                    v.getContext().startActivity(intent);
+                                }
+                            });
+
+                            mContainer.addView(view);
+                        }
+                    }
+                }
+            }
+
+            if (count == 0) {
+                View view = LayoutInflater.from(context).inflate(R.layout.item_message_text, mContainer, false);
+                ((TextView) view.findViewById(android.R.id.title)).setText(R.string.bookmarked_items_no);
+                mContainer.addView(view);
+            }
+
+            View view = LayoutInflater.from(context).inflate(R.layout.item_message_more, mContainer, false);
+            ((TextView) view.findViewById(android.R.id.title)).setText(R.string.all_equip_improve_item);
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    BusProvider.instance().post(new ChangeNavigationDrawerItemAction(R.id.nav_item_improve));
+                }
+            });
+            mContainer.addView(view);
+        }
     }
 }

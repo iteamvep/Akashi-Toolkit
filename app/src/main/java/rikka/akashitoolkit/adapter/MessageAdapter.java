@@ -1,5 +1,7 @@
 package rikka.akashitoolkit.adapter;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.CountDownTimer;
@@ -7,15 +9,35 @@ import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.text.format.DateUtils;
 import android.text.method.LinkMovementMethod;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.squareup.otto.Subscribe;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import java.util.TimeZone;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.model.CheckUpdate;
+import rikka.akashitoolkit.model.Equip;
+import rikka.akashitoolkit.model.EquipImprovement;
+import rikka.akashitoolkit.otto.BookmarkAction;
+import rikka.akashitoolkit.otto.BookmarkItemChanged;
+import rikka.akashitoolkit.otto.BusProvider;
+import rikka.akashitoolkit.otto.ChangeNavigationDrawerItemAction;
+import rikka.akashitoolkit.otto.DataListRebuiltFinished;
+import rikka.akashitoolkit.staticdata.EquipImprovementList;
+import rikka.akashitoolkit.staticdata.EquipList;
+import rikka.akashitoolkit.staticdata.EquipTypeList;
+import rikka.akashitoolkit.support.Settings;
+import rikka.akashitoolkit.ui.EquipDisplayActivity;
+import rikka.akashitoolkit.ui.MainActivity;
 
 import static rikka.akashitoolkit.support.ApiConstParam.Message.ACTION_VIEW_BUTTON;
 import static rikka.akashitoolkit.support.ApiConstParam.Message.COUNT_DOWN;
@@ -106,15 +128,18 @@ public class MessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 return new ViewHolder.Message(LayoutInflater.from(parent.getContext()).inflate(R.layout.card_message, parent, false));
             case 1:
                 return new ViewHolder.Message(LayoutInflater.from(parent.getContext()).inflate(R.layout.card_message, parent, false));
+            case 2:
+                return new ViewHolder.MessageEquip(LayoutInflater.from(parent.getContext()).inflate(R.layout.card_message_equip, parent, false));
         }
         return null;
     }
 
+    @SuppressLint("DefaultLocale")
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder _holder, int position) {
+        Context context = _holder.itemView.getContext();
+
         if (getItemViewType(position) == 0) {
-
-
             final ViewHolder.Message holder = (ViewHolder.Message) _holder;
             CheckUpdate.MessagesEntity data = (CheckUpdate.MessagesEntity) mData.get(position).data;
 
@@ -207,9 +232,9 @@ public class MessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             final ViewHolder.Message holder = (ViewHolder.Message) _holder;
             final CheckUpdate.UpdateEntity data = (CheckUpdate.UpdateEntity) mData.get(position).data;
 
-            holder.mTitle.setText("有新版本啦");
-            holder.mSummary.setText(String.format("新版本: %s - %d", data.getVersionName(), data.getVersionCode()));
-            holder.mContent.setText("更新内容:\n" + data.getChange());
+            holder.mTitle.setText(R.string.new_version_available);
+            holder.mSummary.setText(String.format(context.getString(R.string.new_version_summary), data.getVersionName(), data.getVersionCode()));
+            holder.mContent.setText(String.format(context.getString(R.string.new_version_content), data.getChange()));
             holder.mPositiveButton.setText(R.string.download);
             holder.mPositiveButton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -227,6 +252,24 @@ public class MessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                     remove(_holder.getAdapterPosition());
                 }
             });
+        } else if (getItemViewType(position) == 2) {
+            final ViewHolder.MessageEquip holder = (ViewHolder.MessageEquip) _holder;
+
+            if (holder.mBusEventListener == null) {
+                holder.mBusEventListener = new ViewHolder.MessageEquip.BusEventListener() {
+                    @Subscribe
+                    public void bookmarkedChanged(BookmarkItemChanged event) {
+                        holder.setContent();
+                    }
+                };
+            }
+
+            if (!holder.mBusEventListener.isRegistered) {
+                BusProvider.instance().register(holder.mBusEventListener);
+                holder.mBusEventListener.isRegistered = true;
+            }
+
+            holder.setContent();
         }
     }
 
@@ -237,12 +280,17 @@ public class MessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     @Override
     public void onViewRecycled(RecyclerView.ViewHolder _holder) {
-        switch (getItemViewType(_holder.getItemViewType())) {
-            case 0:
-                ViewHolder.Message holder = (ViewHolder.Message) _holder;
-                if (holder.mCountDownTimer != null) {
-                    holder.mCountDownTimer.cancel();
-                }
+        if (_holder instanceof ViewHolder.Message) {
+            ViewHolder.Message holder = (ViewHolder.Message) _holder;
+            if (holder.mCountDownTimer != null) {
+                holder.mCountDownTimer.cancel();
+            }
+        } else if (_holder instanceof ViewHolder.MessageEquip) {
+            ViewHolder.MessageEquip holder = (ViewHolder.MessageEquip) _holder;
+            if (holder.mBusEventListener != null) {
+                BusProvider.instance().unregister(holder.mBusEventListener);
+                holder.mBusEventListener.isRegistered = false;
+            }
         }
     }
 }

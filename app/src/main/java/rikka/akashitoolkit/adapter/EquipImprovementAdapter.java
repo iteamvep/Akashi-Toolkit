@@ -16,6 +16,8 @@ import java.util.List;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.model.Equip;
 import rikka.akashitoolkit.model.EquipImprovement;
+import rikka.akashitoolkit.otto.BookmarkItemChanged;
+import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.staticdata.EquipList;
 import rikka.akashitoolkit.staticdata.EquipTypeList;
 import rikka.akashitoolkit.staticdata.EquipImprovementList;
@@ -102,6 +104,8 @@ public class EquipImprovementAdapter extends BaseBookmarkRecyclerAdapter<ViewHol
                 showToast(mActivity, item.isBookmarked());
 
                 notifyItemChanged(holder.getAdapterPosition());
+
+                BusProvider.instance().post(new BookmarkItemChanged());
 
                 return true;
             }

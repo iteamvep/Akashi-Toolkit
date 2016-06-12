@@ -21,10 +21,14 @@ import android.support.v7.graphics.drawable.DrawerArrowDrawable;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import com.squareup.otto.Subscribe;
+
 import java.util.HashMap;
 import java.util.Map;
 
 import rikka.akashitoolkit.R;
+import rikka.akashitoolkit.otto.BusProvider;
+import rikka.akashitoolkit.otto.ChangeNavigationDrawerItemAction;
 import rikka.akashitoolkit.support.Push;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.StaticData;
@@ -348,5 +352,28 @@ public class MainActivity extends BaseActivity
     public void showSnackbar(CharSequence text, @Snackbar.Duration int duration) {
         Snackbar.make(mCoordinatorLayout, text, duration)
                 .show();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        BusProvider.instance().register(this);
+    }
+
+    @Override
+    protected void onStop() {
+        BusProvider.instance().unregister(this);
+        super.onStop();
+    }
+
+    @Subscribe
+    public void changeNavigationItem(ChangeNavigationDrawerItemAction action) {
+        selectDrawerItem(action.getItem());
+
+        if (mMiniDrawerLayout != null) {
+            mMiniDrawerLayout.setCheckedItem(action.getItem());
+        } else {
+            mNavigationView.setCheckedItem(action.getItem());
+        }
     }
 }

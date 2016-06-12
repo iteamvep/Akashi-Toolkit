@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            android:paddingTop="16dp"
+            android:paddingTop="24dp"
             android:paddingBottom="6dp"
             tools:text="Title"
             android:textAppearance="@style/Base.TextAppearance.AppCompat"

@@ -170,4 +170,14 @@
     <string name="share_text">仅分享文字</string>
     <string name="copy_original_text">复制原文</string>
     <string name="copy_translated_text">复制译文</string>
+
+    <string name="daily_equip_improve">今日改修</string>
+    <string name="bookmarked_items">收藏的项目</string>
+    <string name="bookmarked_items_no">没有收藏的项目</string>
+    <string name="all_equip_improve_item">全部改修项目</string>
+
+    <string name="new_version_available">有新版本啦</string>
+    <string name="new_version_summary" formatted="false">新版本: %s - %d</string>
+    <string name="new_version_content" formatted="false">更新内容: \n%s</string>
+
 </resources>

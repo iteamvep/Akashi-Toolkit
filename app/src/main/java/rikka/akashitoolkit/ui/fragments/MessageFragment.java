@@ -206,12 +206,16 @@ public class MessageFragment extends Fragment {
 
         mAdapter.clear();
 
-        //addLocalCard();
+        addLocalCard();
         addMessageCard(data.getMessages());
         addUpdateCard(data.getUpdate());
         /*checkDataUpdate(data.getData());*/
 
         mAdapter.notifyDataSetChanged();
+    }
+
+    private void addLocalCard() {
+        mAdapter.add(2, null, 0);
     }
 
     private void addUpdateCard(final CheckUpdate.UpdateEntity entity) {

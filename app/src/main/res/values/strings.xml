@@ -187,4 +187,14 @@ Activity &amp; Extra:
     <string name="share_text">Share text only</string>
     <string name="copy_original_text">Copy original text</string>
     <string name="copy_translated_text">Copy translated text</string>
+
+    <string name="daily_equip_improve">Equip improvement today</string>
+    <string name="bookmarked_items">Bookmarked items</string>
+    <string name="bookmarked_items_no">No bookmarked item</string>
+    <string name="all_equip_improve_item">All items</string>
+
+    <string name="new_version_available">New version available</string>
+    <string name="new_version_summary" formatted="false">Version: %s - %d</string>
+    <string name="new_version_content" formatted="false">Detail: \n%s</string>
+
 </resources>

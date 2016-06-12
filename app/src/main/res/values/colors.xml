@@ -42,7 +42,12 @@
     <color name="day_bg_text_disabled_dark">#78ffffff</color>
 
 
+    <color name="primary_text_light">#DE000000</color>
+    <color name="secondary_text_light">#8A000000</color>
 
+    <color name="primary_text_dark">#FFFFFFFF</color>
+    <color name="secondary_text_dark">#B3FFFFFF</color>
+    <color name="disable_text_dark">#7FFFFFFF</color>
 
 
 
@@ -84,9 +89,13 @@
     <color name="material_amber_500">#FFC107</color>
     <color name="material_amber_200">#FFE082</color>
 
-    <color name="material_orange_500">#FF9800</color>
     <color name="material_orange_200">#FFCC80</color>
+    <color name="material_orange_300">#FFB74D</color>
     <color name="material_orange_400">#FFA726</color>
+    <color name="material_orange_500">#FF9800</color>
+    <color name="material_orange_600">#FB8C00</color>
+    <color name="material_orange_700">#F57C00</color>
+    <color name="material_orange_800">#EF6C00</color>
 
     <color name="material_grey_200">#EEEEEE</color>
     <color name="material_grey_400">#BDBDBD</color>
