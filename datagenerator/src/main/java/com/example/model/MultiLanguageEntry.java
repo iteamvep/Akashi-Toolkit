@@ -32,4 +32,12 @@ public class MultiLanguageEntry {
     public void setJa(String ja) {
         this.ja = ja;
     }
+
+    @Override
+    public String toString() {
+        return "{" +
+                "zh_cn='" + zh_cn + '\'' +
+                ", ja='" + ja + '\'' +
+                '}';
+    }
 }
