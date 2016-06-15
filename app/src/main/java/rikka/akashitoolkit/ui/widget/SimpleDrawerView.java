@@ -1,6 +1,7 @@
 package rikka.akashitoolkit.ui.widget;
 
 import android.content.Context;
+import android.support.annotation.StringRes;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -44,6 +45,10 @@ public class SimpleDrawerView extends LinearLayout {
         view.setBackgroundResource(R.drawable.line_divider);
 
         addView(view);
+    }
+
+    public View addTitle(@StringRes int resId) {
+        return addTitle(getContext().getString(resId));
     }
 
     public View addTitle(String title) {

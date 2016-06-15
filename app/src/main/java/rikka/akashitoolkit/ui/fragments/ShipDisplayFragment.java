@@ -240,7 +240,6 @@ public class ShipDisplayFragment extends BaseSearchFragment {
 
         mCheckBoxGroups[2].setChecked(mFlag);
 
-        mActivity.getRightDrawerContent().addView(mScrollView);
     }
 
     @Override

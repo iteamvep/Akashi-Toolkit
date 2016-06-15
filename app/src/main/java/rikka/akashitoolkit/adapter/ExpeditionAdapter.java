@@ -1,38 +1,51 @@
 package rikka.akashitoolkit.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 import rikka.akashitoolkit.R;
+import rikka.akashitoolkit.model.Expedition;
 import rikka.akashitoolkit.staticdata.ExpeditionList;
 
 /**
  * Created by Rikka on 2016/3/14.
  */
 public class ExpeditionAdapter extends RecyclerView.Adapter<ViewHolder.Expedition> {
-    private List<ExpeditionList.Expedition> mData;
+    private List<Expedition> mData;
+    private List<Integer> mFilter;
 
-    public ExpeditionAdapter(final Context context, final int type) {
+    public ExpeditionAdapter(final Context context) {
         mData = new ArrayList<>();
 
+        rebuildDataList(context);
+    }
+
+    public void setFilter(List<Integer> filter, Context context) {
+        mFilter = filter;
+
+        rebuildDataList(context);
+    }
+
+    public void rebuildDataList(final Context context) {
         new AsyncTask<Void, Void, Void>() {
             @Override
             protected Void doInBackground(Void... params) {
-                List<ExpeditionList.Expedition> data = ExpeditionList.get(context);
+                List<Expedition> data = ExpeditionList.get(context);
                 mData = new ArrayList<>();
 
-                for (ExpeditionList.Expedition item :
+                for (Expedition item :
                         data) {
-                    if (item.getType() == type) {
+                    if (mFilter == null || mFilter.size() == 0 || mFilter.indexOf(item.getId()) != -1) {
                         mData.add(item);
                     }
                 }
@@ -52,34 +65,45 @@ public class ExpeditionAdapter extends RecyclerView.Adapter<ViewHolder.Expeditio
         return new ViewHolder.Expedition(itemView);
     }
 
+    @SuppressLint("DefaultLocale")
     @Override
-    public void onBindViewHolder(ViewHolder.Expedition holder, int position) {
-        holder.mName.setText(String.format(Locale.getDefault(), "%d %s", mData.get(position).getIndex(), mData.get(position).getName()));
-        holder.mRequire.setText(formatRequire(
-                holder.mRequire.getContext(),
-                mData.get(position).getRequire(),
-                mData.get(position).getFlagShipLevel(),
-                mData.get(position).getTotalShipLevel()));
+    public void onBindViewHolder(final ViewHolder.Expedition holder, int position) {
+        Context context = holder.itemView.getContext();
+        Expedition item = mData.get(position);
 
-        setCostText(holder, position, 0);
-        setCostText(holder, position, 1);
-        ((LinearLayout)holder.mConsumeText[2].getParent()).setVisibility(View.GONE);
-        ((LinearLayout)holder.mConsumeText[3].getParent()).setVisibility(View.GONE);
-        holder.mConsumeText[4].setText(formatTime(mData.get(position).getTime()));
+        holder.mTitle.setText(String.format("%d %s", item.getId(), item.getName().get(context)));
+        holder.mTime.setText(Html.fromHtml(item.getTimeString()));
 
-        setRewardText(holder, position, 0);
-        setRewardText(holder, position, 1);
-        setRewardText(holder, position, 2);
-        setRewardText(holder, position, 3);
-
-        holder.mRewardText[4].setVisibility(View.GONE);
-
-        /*holder.itemView.setOnClickListener(new View.OnClickListener() {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                if (holder.mExpandableLayout.isExpanded()) {
+                    holder.mExpandableLayout.setExpanded(false);
+                    holder.mTitle.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+                } else {
+                    setViewDetail(holder, holder.getAdapterPosition());
+                    holder.mExpandableLayout.setExpanded(true);
+                    holder.mTitle.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+                }
             }
-        });*/
+        });
+    }
+
+    private void setViewDetail(ViewHolder.Expedition holder, int position) {
+        Expedition item = mData.get(position);
+
+        for (int i = 0; i < 4; i++) {
+            holder.setRewardResource(item.getReward().getResourceString().get(i), i);
+        }
+        holder.setRewardText(item.getReward().getAward(), item.getReward().getAward2());
+
+        Expedition.RequireEntity require = item.getRequire();
+        //holder.mRequireNumber[0].setText(Html.fromHtml(item.getTimeString()));
+        holder.setRequireResource(require.getConsumeString().get(0), 1);
+        holder.setRequireResource(require.getConsumeString().get(1), 2);
+
+        holder.setFleetRequire(require.getTotalLevel(), require.getFlagshipLevel(), require.getMinShips());
+        holder.setShipRequire(require.getEssentialShip(), require.getBucket());
     }
 
     private String formatRequire(Context context, String base, String flagShip, String total) {
@@ -98,39 +122,22 @@ public class ExpeditionAdapter extends RecyclerView.Adapter<ViewHolder.Expeditio
     }
 
     private String formatTime(int time) {
-        if (time > 3600) {
-            return String.format("%d:%02d:%d:00", time / 3600, time % 3600 / 60, time % 60);
-        } else if (time > 60) {
+        if (time > 60) {
             return String.format("%d:%02d:00", time / 60, time % 60);
         } else {
             return String.format("%d:00", time);
         }
     }
 
-    private void setCostText(ViewHolder.Expedition holder, int position, int id) {
-        String text = mData.get(position).getCost(id);
-        if (text != null &&text.length() > 0) {
-            ((LinearLayout)holder.mConsumeText[id].getParent()).setVisibility(View.VISIBLE);
-            holder.mConsumeText[id].setText(String.format("%s%%", text));
-        } else {
-            ((LinearLayout)holder.mConsumeText[id].getParent()).setVisibility(View.GONE);
-        }
-    }
-
-    private void setRewardText(ViewHolder.Expedition holder, int position, int id) {
-        String text = mData.get(position).getAward(id);
-        if (text != null && text.length() > 0) {
-            ((LinearLayout)holder.mRewardText[id].getParent()).setVisibility(View.VISIBLE);
-            float rewardPreHour = Float.parseFloat(text) / (float) mData.get(position).getTime() * 60;
-            holder.mRewardText[id].setText(String.format("%s\n%d/h", text, (int) rewardPreHour));
-        } else {
-            ((LinearLayout)holder.mRewardText[id].getParent()).setVisibility(View.GONE);
-        }
-    }
-
     @Override
     public int getItemCount() {
         return mData.size();
+    }
+
+    @Override
+    public void onViewRecycled(ViewHolder.Expedition holder) {
+        holder.mExpandableLayout.setExpanded(false, false);
+        super.onViewRecycled(holder);
     }
 }
 

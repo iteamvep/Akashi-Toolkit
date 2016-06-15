@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@android:id/title"
+    android:background="?attr/selectableItemBackground"
+    tools:text="Title"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/drawer_item"
+    android:textSize="14sp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:maxLines="1"
+    android:gravity="center_vertical"/>
+

@@ -2,6 +2,7 @@ package rikka.akashitoolkit.ui.widget;
 
 import android.content.Context;
 import android.os.Build;
+import android.support.annotation.StringRes;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,6 +38,19 @@ public class RadioButtonGroup extends LinearLayout {
 
     public void setOnCheckedChangeListener(OnCheckedChangeListener onCheckedChangeListener) {
         mOnCheckedChangeListener = onCheckedChangeListener;
+    }
+
+    public void addTitle(String title) {
+        View view = LayoutInflater.from(getContext())
+                .inflate(R.layout.draw_itme_subtitle, this, false);
+
+        ((TextView) view.findViewById(android.R.id.title)).setText(title);
+
+        addView(view);
+    }
+
+    public void addItem(@StringRes int resId) {
+        addItem(getContext().getString(resId));
     }
 
     public void addItem(String title) {

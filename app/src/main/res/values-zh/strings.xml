@@ -181,5 +181,6 @@
     <string name="new_version_content" formatted="false">更新内容: \n%s</string>
 
     <string name="enemy">深海栖舰</string>
+    <string name="all">全部</string>
 
 </resources>
