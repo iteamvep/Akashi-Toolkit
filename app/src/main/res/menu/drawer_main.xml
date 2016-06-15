@@ -38,6 +38,12 @@
             android:title="@string/maps"/>
 
         <item
+            android:id="@+id/nav_enemy"
+            android:visible="false"
+            android:icon="@drawable/ic_nav_expedition_24dp"
+            android:title="@string/enemy"/>
+
+        <item
             android:id="@+id/nav_quest"
             android:icon="@drawable/ic_nav_quest_24dp"
             android:title="@string/quest"/>

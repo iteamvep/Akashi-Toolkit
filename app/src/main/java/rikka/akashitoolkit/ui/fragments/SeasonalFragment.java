@@ -11,6 +11,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
+import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.util.TypedValue;
@@ -310,7 +311,9 @@ public class SeasonalFragment extends Fragment {
                     //((ViewHolderTitle) holder).mTitle.getLayoutParams().height = Utils.dpToPx(32);
                     break;
                 case TYPE_ITEM_TEXT:
-                    ((ViewHolderText) holder).mText.setText(Html.fromHtml((String) mData.get(position)));
+                    Spanned htmlDescription = Html.fromHtml((String) mData.get(position));
+                    String descriptionWithOutExtraSpace = htmlDescription.toString().trim();
+                    ((ViewHolderText) holder).mText.setText(htmlDescription.subSequence(0, descriptionWithOutExtraSpace.length()));
                     break;
                 case TYPE_ITEM_IMAGE:
                     setIllustrationContainer(

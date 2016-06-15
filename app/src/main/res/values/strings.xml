@@ -196,5 +196,6 @@ Activity &amp; Extra:
     <string name="new_version_available">New version available</string>
     <string name="new_version_summary" formatted="false">Version: %s - %d</string>
     <string name="new_version_content" formatted="false">Detail: \n%s</string>
+    <string name="enemy">Enemy</string>
 
 </resources>

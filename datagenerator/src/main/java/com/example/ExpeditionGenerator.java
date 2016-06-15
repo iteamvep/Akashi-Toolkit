@@ -10,6 +10,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static com.example.utils.Utils.getUrlStream;
+import static com.example.utils.Utils.objectToJsonFile;
 
 /**
  * Created by Rikka on 2016/6/15.
@@ -18,18 +19,24 @@ public class ExpeditionGenerator {
     private static List<Expedition> list = new ArrayList<>();
 
     public static void main(String[] args) throws IOException {
-        getReward();
-        getRequire();
-    }
-
-    private static void getReward() throws IOException {
         System.out.println("getInputStream..");
         String originStr = Utils.streamToString(getUrlStream("http://zh.kcwiki.moe/index.php?title=远征列表&action=raw"));
         System.out.println("finished..");
 
-        originStr = originStr.replaceAll("<span style=\"color:#f00\">([^<]*)</span>", "<b>$1</b>");
+        originStr = originStr.replaceAll("<span style=\"color:#f00\">([^<]*)</span>", "<b>$1</b>").replaceAll("\\s*=\\s*", "=");
+        originStr = originStr.replace("<b>请参见</b><br />[[经验值和头衔#远征32:远洋练习航海经验|'''远征32相关''']]", "(基础经验值＋僚舰加成) ×等级补正");
+        getReward(originStr);
+        getRequire(originStr);
 
-        Pattern r = Pattern.compile("\\{\\{远征报酬表\\|编号 =(\\d+)\\|日文名字 =(.+)\\|中文名字 =(.+)\\|耗时 =(.*\\d+:\\d+.*)\\|提督经验值 =(\\d*)\\|舰娘经验值 =(.*)\\|燃料 =(.*)\\|弹药 =(.*)\\|钢铁 =(.*)\\|铝 =([^\\|]*)(\\|奖励 = ([^\\|]*))?(\\|大成功奖励 = (.*))?\\}\\}\n");
+        for (Expedition e : list) {
+            System.out.println(e);
+        }
+
+        objectToJsonFile(list, "app/src/main/assets/Expdition.json");
+    }
+
+    private static void getReward(String originStr) throws IOException {
+        Pattern r = Pattern.compile("\\{\\{远征报酬表\\|编号 =(\\d+)\\|日文名字 =(.+)\\|中文名字 =(.+)\\|耗时 =(.*\\d+:\\d+.*)\\|提督经验值 =(\\d*)\\|舰娘经验值 =(.*)\\|燃料 =(.*)\\|弹药 =(.*)\\|钢铁 =(.*)\\|铝 =([^\\|\\}]*)(\\|奖励 = ([^\\|]*))?(\\|大成功奖励 = (.*))?\\}\\}".replace(" ", ""));
         Matcher m = r.matcher(originStr);
 
         while (m.find()) {
@@ -70,14 +77,8 @@ public class ExpeditionGenerator {
         }
     }
 
-    private static void getRequire() throws IOException {
-        System.out.println("getInputStream..");
-        String originStr = Utils.streamToString(getUrlStream("http://zh.kcwiki.moe/index.php?title=远征列表&action=raw"));
-        System.out.println("finished..");
-
-        originStr = originStr.replaceAll("<span style=\"color:#f00\">([^<]*)</span>", "<b>$1</b>");
-
-        Pattern r = Pattern.compile("\\{\\{远征需求表\\|编号 =(\\d+)\\|日文名字 =.+\\|中文名字 =.+\\|耗时 =.+\\|舰队总等级 =(\\d*)\\|旗舰等级 =(\\d*)\\|最低舰娘数 =(\\d*)\\|必要舰娘 =(.*)\\|输送桶 =(\\d*)\\|燃料消耗 =(-?\\d*)\\|弹药消耗 =(-?\\d*)}}\n");
+    private static void getRequire(String originStr) throws IOException {
+        Pattern r = Pattern.compile("\\{\\{远征需求表\\|编号 =(\\d+)\\|日文名字 =.+\\|中文名字 =.+\\|耗时 =.+\\|舰队总等级 =(\\d*)\\|旗舰等级 =(\\d*)\\|最低舰娘数 =(\\d*)\\|必要舰娘 =(.*)\\|输送桶 =(.*)\\|燃料消耗 =(-?\\d*)\\|弹药消耗 =(-?\\d*)}}".replace(" ", ""));
         Matcher m = r.matcher(originStr);
 
         while (m.find()) {
@@ -90,18 +91,16 @@ public class ExpeditionGenerator {
             }
 
             if (item == null) {
-                continue;
+                throw new RuntimeException("wtf " + m.group());
             }
 
             item.getRequire().setTotalLevel(toInt(m.group(2)));
             item.getRequire().setFlagshipLevel(toInt(m.group(3)));
             item.getRequire().setMinShips(toInt(m.group(4)));
-            item.getRequire().setEssentialShip(m.group(5).replace("<br />", " "));
-            item.getRequire().setBucket(m.group(6));
+            item.getRequire().setEssentialShip(brToSpace(m.group(5)));
+            item.getRequire().setBucket(brToSpace(m.group(6)));
             item.getRequire().getConsume().add(toInt(m.group(7)));
             item.getRequire().getConsume().add(toInt(m.group(8)));
-
-            System.out.println(item);
         }
     }
 
@@ -120,13 +119,32 @@ public class ExpeditionGenerator {
         }
     }
 
+    public static float toFloat(String in) {
+        try {
+            if (in.contains("+")) {
+                return Float.parseFloat(in.replace(" ", "").replace("+", ""));
+            }
+            if (in.contains("-")) {
+                return -Float.parseFloat(in.replace(" ", "").replace("-", ""));
+            } else {
+                return Float.parseFloat(in.replace(" ", ""));
+            }
+        } catch (Exception e) {
+            return 0;
+        }
+    }
+
+    private static String brToSpace(String s) {
+        return s.replace("<br />", " ").replace("<br/>", " ").replace("<br>", " ");
+    }
+
 
     private static String rewardResource(String s) {
         if (s == null) {
             return null;
         }
 
-        return s.replaceAll("(\\D*)(\\d+)(\\D*)/(\\D*)(\\d+)(\\D*)", "$1$2$3\n$4$5/h$6");
+        return s.replaceAll("(\\D*)(\\d+)(\\D*)/(\\D*)(\\d+.?\\d+)(\\D*)", "$1$2$3\n$4$5/h$6");
     }
 
     private static String remove(String s) {

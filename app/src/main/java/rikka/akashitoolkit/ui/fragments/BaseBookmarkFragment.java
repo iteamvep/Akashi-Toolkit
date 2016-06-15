@@ -25,6 +25,7 @@ import rikka.akashitoolkit.ui.widget.UnScrollableViewPager;
  */
 public abstract class BaseBookmarkFragment extends BaseDrawerItemFragment {
     private UnScrollableViewPager mViewPager;
+    protected FragmentPagerAdapter mFragmentPagerAdapter;
 
     private boolean mBookmarked;
 
@@ -33,7 +34,6 @@ public abstract class BaseBookmarkFragment extends BaseDrawerItemFragment {
     protected abstract String getSettingKey();
 
     protected abstract String getFragmentTAG();
-
 
     @Override
     protected boolean getTabLayoutVisible() {
@@ -52,7 +52,7 @@ public abstract class BaseBookmarkFragment extends BaseDrawerItemFragment {
         ((MainActivity) getActivity()).getSwitch().setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                Log.d("QAQ", "switch listener called base display");
+                Log.d("BaseBookmarkFragment", "switch listener called base display");
 
                 mBookmarked = buttonView.isChecked();
 
@@ -85,7 +85,7 @@ public abstract class BaseBookmarkFragment extends BaseDrawerItemFragment {
         View view = inflater.inflate(R.layout.content_unscrollable_viewpager, container, false);
 
         mViewPager = (UnScrollableViewPager) view.findViewById(R.id.view_pager);
-        mViewPager.setAdapter(new FragmentPagerAdapter(getChildFragmentManager()) {
+        mFragmentPagerAdapter = new FragmentPagerAdapter(getChildFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
                 switch (position) {
@@ -101,7 +101,8 @@ public abstract class BaseBookmarkFragment extends BaseDrawerItemFragment {
             public int getCount() {
                 return 2;
             }
-        });
+        };
+        mViewPager.setAdapter(mFragmentPagerAdapter);
 
         if (!isHiddenBeforeSaveInstanceState()) {
             onShow();

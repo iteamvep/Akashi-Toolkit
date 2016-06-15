@@ -26,7 +26,6 @@ import rikka.akashitoolkit.ui.widget.MyViewPager;
 public class EquipViewPagerFragment extends Fragment {
     private MyViewPager mViewPager;
 
-
     @Override
     public void onStart() {
         super.onStart();
@@ -52,15 +51,19 @@ public class EquipViewPagerFragment extends Fragment {
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+    }
 
-        /*mViewPager.post(new Runnable() {
-            @Override
-            public void run() {
-                ((MainActivity) getActivity()).getTabLayout().setupWithViewPager(mViewPager);
-            }
-        });*/
+    public void setViewPager() {
+        if (mViewPager != null) {
+            ((MainActivity) getActivity()).getTabLayout().post(new Runnable() {
+                @Override
+                public void run() {
+                    ((MainActivity) getActivity()).getTabLayout().setupWithViewPager(mViewPager);
+                }
+            });
+        }
     }
 
     @Nullable
@@ -70,13 +73,7 @@ public class EquipViewPagerFragment extends Fragment {
         mViewPager = (MyViewPager) view.findViewById(R.id.view_pager);
         mViewPager.setAdapter(getAdapter());
         mViewPager.setCurrentItem(0, false);
-
-        mViewPager.post(new Runnable() {
-            @Override
-            public void run() {
-                ((MainActivity) getActivity()).getTabLayout().setupWithViewPager(mViewPager);
-            }
-        });
+        setViewPager();
 
         return view;
     }
@@ -99,11 +96,6 @@ public class EquipViewPagerFragment extends Fragment {
                 bundle.putInt("POSITION", position);
 
                 return bundle;
-            }
-
-            @Override
-            public int getCount() {
-                return super.getCount();
             }
         };
 

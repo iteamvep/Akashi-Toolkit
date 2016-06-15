@@ -12,21 +12,20 @@ import rikka.akashitoolkit.ui.MainActivity;
  * Created by Rikka on 2016/5/16.
  */
 public class EquipDisplayFragment extends BaseBookmarkFragment {
-    private EquipViewPagerFragment mEquipViewPagerFragment;
-
     @Override
     public void onShow() {
         super.onShow();
 
         ((MainActivity) getActivity()).getSupportActionBar().setTitle(getString(R.string.item));
 
-        if (mEquipViewPagerFragment != null) {
-            ((MainActivity) getActivity()).getTabLayout().post(new Runnable() {
-                @Override
-                public void run() {
-                    ((MainActivity) getActivity()).getTabLayout().setupWithViewPager(mEquipViewPagerFragment.getViewPager());
+        // so bad way
+        if (getChildFragmentManager().getFragments() != null) {
+            for (Fragment f :
+                    getChildFragmentManager().getFragments()) {
+                if (f instanceof EquipViewPagerFragment) {
+                    ((EquipViewPagerFragment) f).setViewPager();
                 }
-            });
+            }
         }
 
         Statistics.onFragmentStart("EquipDisplayFragment");
@@ -41,11 +40,7 @@ public class EquipDisplayFragment extends BaseBookmarkFragment {
 
     @Override
     protected Fragment getInsideFragment() {
-        if (mEquipViewPagerFragment == null) {
-            mEquipViewPagerFragment = new EquipViewPagerFragment();
-        }
-
-        return mEquipViewPagerFragment;
+        return new EquipViewPagerFragment();
     }
 
     @Override

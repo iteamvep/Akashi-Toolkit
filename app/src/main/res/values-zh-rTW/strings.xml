@@ -180,4 +180,6 @@
     <string name="new_version_summary" formatted="false">新版本: %s - %d</string>
     <string name="new_version_content" formatted="false">更新内容: \n%s</string>
 
+    <string name="enemy">深海栖舰</string>
+
 </resources>

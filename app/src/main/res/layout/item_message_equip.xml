@@ -30,8 +30,8 @@
         <TextView
             android:id="@android:id/title"
             android:layout_marginLeft="24dp"
-            android:layout_marginRight="24dp"
-            android:layout_width="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:text="12cm単装砲"
             android:maxLines="1"
