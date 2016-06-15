@@ -117,9 +117,11 @@ public class Expedition {
         private String essentialShip;
         private String bucket;
         private List<Integer> consume;
+        private List<String> consumeString;
 
         public RequireEntity() {
             consume = new ArrayList<>();
+            consumeString = new ArrayList<>();
         }
 
         public void setTotalLevel(int totalLevel) {
@@ -168,6 +170,18 @@ public class Expedition {
 
         public List<Integer> getConsume() {
             return consume;
+        }
+
+        public void setConsume(List<Integer> consume) {
+            this.consume = consume;
+        }
+
+        public List<String> getConsumeString() {
+            return consumeString;
+        }
+
+        public void setConsumeString(List<String> consumeString) {
+            this.consumeString = consumeString;
         }
 
         @Override

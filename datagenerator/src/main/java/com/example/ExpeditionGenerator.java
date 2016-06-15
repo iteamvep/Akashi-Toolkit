@@ -32,7 +32,7 @@ public class ExpeditionGenerator {
             System.out.println(e);
         }
 
-        objectToJsonFile(list, "app/src/main/assets/Expdition.json");
+        objectToJsonFile(list, "app/src/main/assets/Expedition.json");
     }
 
     private static void getReward(String originStr) throws IOException {
@@ -101,6 +101,8 @@ public class ExpeditionGenerator {
             item.getRequire().setBucket(brToSpace(m.group(6)));
             item.getRequire().getConsume().add(toInt(m.group(7)));
             item.getRequire().getConsume().add(toInt(m.group(8)));
+            item.getRequire().getConsumeString().add(m.group(7));
+            item.getRequire().getConsumeString().add(m.group(8));
         }
     }
 
@@ -144,7 +146,7 @@ public class ExpeditionGenerator {
             return null;
         }
 
-        return s.replaceAll("(\\D*)(\\d+)(\\D*)/(\\D*)(\\d+.?\\d+)(\\D*)", "$1$2$3\n$4$5/h$6");
+        return s.replaceAll("(\\D*)(\\d+)(\\D*)/(\\D*)(\\d+.?\\d+)(\\D*)", "$1$2$3<br>$4$5/h$6");
     }
 
     private static String remove(String s) {
