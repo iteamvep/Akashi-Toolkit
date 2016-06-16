@@ -2,6 +2,8 @@ package rikka.akashitoolkit.ui;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
+import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
@@ -11,6 +13,8 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.storage.StorageManager;
+import android.os.storage.StorageVolume;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.CoordinatorLayout;
@@ -18,6 +22,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.provider.DocumentFile;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.util.Log;
@@ -40,7 +45,10 @@ import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -189,11 +197,30 @@ public class ImageDisplayActivity extends BaseActivity implements View.OnClickLi
             mDownloadTask.cancel(true);
         }
 
-        if (!checkPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-            getPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE, 0);
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
+            if (!checkPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                getPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE, 0);
+            } else {
+                startDownload(null);
+            }
         } else {
-            startDownload();
+            StorageManager sm = (StorageManager) getSystemService(Context.STORAGE_SERVICE);
+            StorageVolume volume = sm.getPrimaryStorageVolume();
+            Intent intent = volume.createAccessIntent(Environment.DIRECTORY_PICTURES);
+            startActivityForResult(intent, 0);
         }
+    }
+
+    @TargetApi(Build.VERSION_CODES.N)
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 0 && resultCode == Activity.RESULT_OK) {
+            getContentResolver().takePersistableUriPermission(data.getData(),
+                    Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+
+            startDownload(data.getData());
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
     @Override
@@ -201,7 +228,7 @@ public class ImageDisplayActivity extends BaseActivity implements View.OnClickLi
         switch (requestCode) {
             case 0:
                 if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    startDownload();
+                    startDownload(null);
                 } else {
                     Snackbar.make(mCoordinatorLayout, getString(R.string.require_write_external_storage_permission), Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
@@ -212,12 +239,14 @@ public class ImageDisplayActivity extends BaseActivity implements View.OnClickLi
         }
     }
 
-    private void startDownload() {
+    private void startDownload(final Uri data) {
         mDownloadTask = new AsyncTask<Void, Void, String>() {
             @Override
             protected void onPreExecute() {
-                if (!checkPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-                    getPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE, 0);
+                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
+                    if (!checkPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                        getPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE, 0);
+                    }
                 }
             }
 
@@ -230,11 +259,49 @@ public class ImageDisplayActivity extends BaseActivity implements View.OnClickLi
                 try {
                     String fileName = "/AkashiToolkit/" + Uri.parse(mList.get(mPosition)).getLastPathSegment();
 
-                    File file = mFileFutureTarget.get();
+                    File src = mFileFutureTarget.get();
                     File dst = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+                    dst = new File(dst.getAbsolutePath() + fileName);
 
-                    Utils.copyFile(file,
-                            new File(dst.getAbsolutePath() + "/" + fileName));
+                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
+                        Utils.copyFile(src, dst);
+                    } else {
+                        DocumentFile pickedDir = DocumentFile.fromTreeUri(ImageDisplayActivity.this, data);
+                        DocumentFile dir = pickedDir.findFile("AkashiToolkit");
+
+                        if (dir == null)
+                            pickedDir = pickedDir.createDirectory("AkashiToolkit");
+                        else
+                            pickedDir = dir;
+
+                        Uri file = Uri.parse(mList.get(mPosition));
+                        DocumentFile newFile = pickedDir.findFile(file.getLastPathSegment());
+                        if (newFile != null) {
+                            newFile.delete();
+                        }
+                        newFile = pickedDir.createFile(Utils.getMimeType(fileName), file.getLastPathSegment());
+
+                        try {
+                            OutputStream out = getContentResolver().openOutputStream(newFile.getUri());
+                            if (out == null) {
+                                return null;
+                            }
+
+                            InputStream in = new FileInputStream(src);
+
+                            byte[] buf = new byte[1024];
+                            int len;
+                            while ((len = in.read(buf)) > 0) {
+                                out.write(buf, 0, len);
+                            }
+                            in.close();
+                            out.close();
+                            out.close();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                            return null;
+                        }
+                    }
 
                     return Environment.DIRECTORY_PICTURES + fileName;
                 } catch (InterruptedException | ExecutionException | IOException e) {

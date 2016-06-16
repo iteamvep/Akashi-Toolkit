@@ -10,6 +10,7 @@ import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.util.Log;
+import android.webkit.MimeTypeMap;
 
 import com.bumptech.glide.load.model.GlideUrl;
 import com.bumptech.glide.load.model.LazyHeaders;
@@ -183,5 +184,10 @@ public class Utils {
         } catch (PackageManager.NameNotFoundException e) {
             return false;
         }
+    }
+
+    public static String getMimeType(String fileUrl) {
+        String extension = MimeTypeMap.getFileExtensionFromUrl(fileUrl);
+        return MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension);
     }
 }
