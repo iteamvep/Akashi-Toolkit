@@ -19,9 +19,11 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.support.v7.widget.AppCompatDrawableManager;
+import android.support.v7.widget.ForwardingListener;
 import android.support.v7.widget.GridLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.ListPopupWindow;
+import android.support.v7.widget.MenuPopupWindow;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
@@ -558,7 +560,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
                     popupMenu.getMenu().add(0, cur.getId(), i, cur.getName().get(v.getContext()));
                     i++;
                 }
-
+                popupMenu.setGravity(Gravity.TOP);
                 popupMenu.show();
 
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -571,12 +573,12 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
                     }
                 });
 
-                if (popupMenu.getDragToOpenListener() instanceof ListPopupWindow.ForwardingListener) {
-                    ListPopupWindow.ForwardingListener listener = (ListPopupWindow.ForwardingListener) popupMenu.getDragToOpenListener();
-                    listener.getPopup().setVerticalOffset(-v.getHeight());
-                    listener.getPopup().setHorizontalOffset(Utils.dpToPx(2));
+                /*if (popupMenu.getDragToOpenListener() instanceof ForwardingListener) {
+                    ForwardingListener listener = (ForwardingListener) popupMenu.getDragToOpenListener();
+                    (() listener.getPopup()).setVerticalOffset(-v.getHeight());
+                    (() listener.getPopup()).setHorizontalOffset(Utils.dpToPx(2));
                     listener.getPopup().show();
-                }
+                }*/
             }
         });
     }

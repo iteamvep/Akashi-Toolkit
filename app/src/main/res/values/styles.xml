@@ -11,6 +11,8 @@
 
         <item name="windowActionModeOverlay">true</item>
         <item name="actionModeBackground">@color/colorPrimary</item>
+
+        <item name="popupMenuStyle">@style/AppTheme.PopupMenu</item>
     </style>
 
     <style name="AppTheme.NavigationView">
@@ -47,6 +49,8 @@
 
         <!--<item name="homeAsUpIndicator">@drawable/ic_clear_24dp</item>-->
         <item name="actionOverflowButtonStyle">@style/AppTheme.ActionButton.Overflow.Dark</item>
+
+        <item name="popupMenuStyle">@style/AppTheme.PopupMenu</item>
     </style>
 
     <style name="AppTheme.ImagesActivity" parent="AppTheme">
@@ -90,6 +94,11 @@
     <style name="AppTheme.Switch.Bookmark" parent="@style/Widget.AppCompat.CompoundButton.Switch">
         <item name="track">@drawable/switch_track_bookmark</item>
         <item name="android:thumb">@drawable/switch_thumb_bookmark</item>
+    </style>
+
+    <style name="AppTheme.PopupMenu" parent="@style/Widget.AppCompat.PopupMenu">
+        <item name="overlapAnchor">true</item>
+        <item name="android:dropDownHorizontalOffset">-4dip</item>
     </style>
 
 </resources>
