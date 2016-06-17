@@ -40,8 +40,8 @@ public class ExpeditionDisplayFragment extends BaseDrawerItemFragment implements
     public void onShow() {
         super.onShow();
 
-        MainActivity activity = ((MainActivity) getActivity());
-        activity.getSupportActionBar().setTitle(getString(R.string.expedition));
+        mActivity.getSupportActionBar().setTitle(getString(R.string.expedition));
+        mActivity.getRightDrawerContent().removeAllViews();
 
         Statistics.onFragmentStart("ExpeditionDisplayFragment");
 
