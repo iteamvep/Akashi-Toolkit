@@ -1,9 +1,11 @@
 package rikka.akashitoolkit.ui.fragments;
 
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import com.squareup.otto.Subscribe;
 
@@ -62,5 +64,12 @@ public class EquipImprovementFragment extends BaseDisplayFragment<EquipImproveme
 
         getAdapter().setBookmarked(action.isBookmarked());
         getAdapter().rebuildDataList();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        getAdapter().notifyDataSetChanged();
     }
 }

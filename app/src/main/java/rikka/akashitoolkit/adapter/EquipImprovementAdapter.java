@@ -77,6 +77,8 @@ public class EquipImprovementAdapter extends BaseBookmarkRecyclerAdapter<ViewHol
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                EquipImprovement item = mData.get(holder.getAdapterPosition());
+
                 Intent intent = new Intent(v.getContext(), EquipDisplayActivity.class);
                 intent.putExtra(EquipDisplayActivity.EXTRA_ITEM_ID, mData.get(holder.getAdapterPosition()).getId());
 
@@ -84,6 +86,7 @@ public class EquipImprovementAdapter extends BaseBookmarkRecyclerAdapter<ViewHol
                 holder.itemView.getLocationOnScreen(location);
                 intent.putExtra(EquipDisplayActivity.EXTRA_START_Y, location[1]);
                 intent.putExtra(EquipDisplayActivity.EXTRA_START_HEIGHT, holder.itemView.getHeight());
+                intent.putExtra(EquipDisplayActivity.EXTRA_EQUIP_IMPROVE_ID, item.getId());
 
                 v.getContext().startActivity(intent);
                 mActivity.overridePendingTransition(0, 0);

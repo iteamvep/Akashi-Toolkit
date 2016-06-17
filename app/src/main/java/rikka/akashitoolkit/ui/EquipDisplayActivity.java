@@ -6,7 +6,6 @@ import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.content.ContextCompat;
 import android.os.Bundle;
-import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.widget.AppCompatDrawableManager;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
@@ -33,7 +32,6 @@ import java.util.List;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.model.Equip;
 import rikka.akashitoolkit.model.EquipImprovement;
-import rikka.akashitoolkit.model.Ship;
 import rikka.akashitoolkit.model.ShipType;
 import rikka.akashitoolkit.staticdata.EquipList;
 import rikka.akashitoolkit.staticdata.EquipImprovementList;
@@ -47,16 +45,19 @@ import rikka.akashitoolkit.utils.Utils;
 
 public class EquipDisplayActivity extends BaseItemDisplayActivity {
     public static final String EXTRA_ITEM_ID = "EXTRA_ITEM_ID";
+    public static final String EXTRA_EQUIP_IMPROVE_ID = "EXTRA_EQUIP_IMPROVE_ID";
 
     private Toolbar mToolbar;
     private LinearLayout mLinearLayout;
     private CoordinatorLayout mCoordinatorLayout;
     private AppBarLayout mAppBarLayout;
     private Equip mItem;
+    private EquipImprovement mItem2;
     private LinearLayout mItemAttrContainer;
 
     private Toast mToast;
 
+    @SuppressLint("DefaultLocale")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,6 +83,12 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
                 } catch (Exception ignored) {
                 }
             }
+        }
+
+        if (getIntent().hasExtra(EXTRA_EQUIP_IMPROVE_ID)) {
+            mItem2 = EquipImprovementList.findItemById(this, getIntent().getIntExtra(EXTRA_EQUIP_IMPROVE_ID, -1));
+        } else {
+            mItem2 = null;
         }
 
         mItem = EquipList.findItemById(this, id);
@@ -258,20 +265,33 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
                                 getTaskDescriptionLabel()));
                 break;
             case R.id.action_bookmark:
-                mItem.setBookmarked(!mItem.isBookmarked());
-
-                Settings.instance(this)
-                        .putBoolean(String.format("equip_%d", mItem.getId()), mItem.isBookmarked());
-
                 if (mToast != null) {
                     mToast.cancel();
                 }
 
-                mToast = Toast.makeText(this, mItem.isBookmarked() ? getString(R.string.bookmark_add) : getString(R.string.bookmark_remove), Toast.LENGTH_SHORT);
-                mToast.show();
+                if (mItem2 == null) {
+                    mItem.setBookmarked(!mItem.isBookmarked());
 
-                item.setIcon(
-                        AppCompatDrawableManager.get().getDrawable(this, mItem.isBookmarked() ? R.drawable.ic_bookmark_24dp : R.drawable.ic_bookmark_border_24dp));
+                    Settings.instance(this)
+                            .putBoolean(String.format("equip_%d", mItem.getId()), mItem.isBookmarked());
+
+                    item.setIcon(
+                            AppCompatDrawableManager.get().getDrawable(this, mItem.isBookmarked() ? R.drawable.ic_bookmark_24dp : R.drawable.ic_bookmark_border_24dp));
+
+                    mToast = Toast.makeText(this, mItem.isBookmarked() ? getString(R.string.bookmark_add) : getString(R.string.bookmark_remove), Toast.LENGTH_SHORT);
+                } else {
+                    mItem2.setBookmarked(!mItem2.isBookmarked());
+
+                    Settings.instance(this)
+                            .putBoolean(String.format("equip_improve_%d", mItem2.getId()), mItem2.isBookmarked());
+
+                    item.setIcon(
+                            AppCompatDrawableManager.get().getDrawable(this, mItem2.isBookmarked() ? R.drawable.ic_bookmark_24dp : R.drawable.ic_bookmark_border_24dp));
+
+                    mToast = Toast.makeText(this, mItem2.isBookmarked() ? getString(R.string.bookmark_add) : getString(R.string.bookmark_remove), Toast.LENGTH_SHORT);
+                }
+
+                mToast.show();
 
                 break;
         }
@@ -589,8 +609,13 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.ship_display, menu);
 
-        menu.findItem(R.id.action_bookmark).setIcon(
-                AppCompatDrawableManager.get().getDrawable(this, mItem.isBookmarked() ? R.drawable.ic_bookmark_24dp : R.drawable.ic_bookmark_border_24dp));
+        if (mItem2 == null) {
+            menu.findItem(R.id.action_bookmark).setIcon(
+                    AppCompatDrawableManager.get().getDrawable(this, mItem.isBookmarked() ? R.drawable.ic_bookmark_24dp : R.drawable.ic_bookmark_border_24dp));
+        } else {
+            menu.findItem(R.id.action_bookmark).setIcon(
+                    AppCompatDrawableManager.get().getDrawable(this, mItem2.isBookmarked() ? R.drawable.ic_bookmark_24dp : R.drawable.ic_bookmark_border_24dp));
+        }
 
         return true;
     }
