@@ -66,11 +66,11 @@
 
     <Preference
         android:title="@string/source_code"
-        android:summary="https://github.com/YubariNavalArsenal/Akashi-Toolkit">
+        android:summary="https://github.com/kcwikizh/Akashi-Toolkit">
 
         <intent
             android:action="android.intent.action.VIEW"
-            android:data="https://github.com/YubariNavalArsenal/Akashi-Toolkit"/>
+            android:data="https://github.com/kcwikizh/Akashi-Toolkit"/>
 
     </Preference>
 
