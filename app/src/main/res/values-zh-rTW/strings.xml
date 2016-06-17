@@ -182,5 +182,10 @@
 
     <string name="enemy">深海栖舰</string>
     <string name="all">全部</string>
+    <string name="all_expedition_item">全部远征项目</string>
+    <string name="expedition_finished">远征已完成</string>
+    <string name="expedition_notify">远征提醒</string>
+    <string name="finished">已完成</string>
+    <string name="not_started">未开始</string>
 
 </resources>

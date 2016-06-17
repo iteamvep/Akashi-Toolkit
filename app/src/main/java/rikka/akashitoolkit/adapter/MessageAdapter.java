@@ -130,6 +130,8 @@ public class MessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 return new ViewHolder.Message(LayoutInflater.from(parent.getContext()).inflate(R.layout.card_message, parent, false));
             case 2:
                 return new ViewHolder.MessageEquip(LayoutInflater.from(parent.getContext()).inflate(R.layout.card_message_equip, parent, false));
+            case 3:
+                return new ViewHolder.MessageExpedition(LayoutInflater.from(parent.getContext()).inflate(R.layout.card_message_expedition, parent, false));
         }
         return null;
     }
@@ -258,7 +260,25 @@ public class MessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             if (holder.mBusEventListener == null) {
                 holder.mBusEventListener = new ViewHolder.MessageEquip.BusEventListener() {
                     @Subscribe
-                    public void bookmarkedChanged(BookmarkItemChanged event) {
+                    public void bookmarkedChanged(BookmarkItemChanged.ItemImprovement event) {
+                        holder.setContent();
+                    }
+                };
+            }
+
+            if (!holder.mBusEventListener.isRegistered) {
+                BusProvider.instance().register(holder.mBusEventListener);
+                holder.mBusEventListener.isRegistered = true;
+            }
+
+            holder.setContent();
+        } else if (getItemViewType(position) == 3) {
+            final ViewHolder.MessageExpedition holder = (ViewHolder.MessageExpedition) _holder;
+
+            if (holder.mBusEventListener == null) {
+                holder.mBusEventListener = new ViewHolder.MessageExpedition.BusEventListener() {
+                    @Subscribe
+                    public void bookmarkedChanged(BookmarkItemChanged.Expedition event) {
                         holder.setContent();
                     }
                 };
@@ -287,6 +307,12 @@ public class MessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             }
         } else if (_holder instanceof ViewHolder.MessageEquip) {
             ViewHolder.MessageEquip holder = (ViewHolder.MessageEquip) _holder;
+            if (holder.mBusEventListener != null) {
+                BusProvider.instance().unregister(holder.mBusEventListener);
+                holder.mBusEventListener.isRegistered = false;
+            }
+        } else if (_holder instanceof ViewHolder.MessageExpedition) {
+            ViewHolder.MessageExpedition holder = (ViewHolder.MessageExpedition) _holder;
             if (holder.mBusEventListener != null) {
                 BusProvider.instance().unregister(holder.mBusEventListener);
                 holder.mBusEventListener.isRegistered = false;

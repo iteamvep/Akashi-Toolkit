@@ -107,6 +107,8 @@
             android:label="@string/ranking"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
+
+        <receiver android:name=".receiver.ExpeditionAlarmReceiver"/>
     </application>
 
 </manifest>

@@ -216,6 +216,7 @@ public class MessageFragment extends Fragment {
 
     private void addLocalCard() {
         mAdapter.add(2, null, 0);
+        mAdapter.add(3, null, 0);
     }
 
     private void addUpdateCard(final CheckUpdate.UpdateEntity entity) {

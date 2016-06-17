@@ -108,7 +108,7 @@ public class EquipImprovementAdapter extends BaseBookmarkRecyclerAdapter<ViewHol
 
                 notifyItemChanged(holder.getAdapterPosition());
 
-                BusProvider.instance().post(new BookmarkItemChanged());
+                BusProvider.instance().post(new BookmarkItemChanged.ItemImprovement());
 
                 return true;
             }

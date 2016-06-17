@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
-import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,36 +14,55 @@ import java.util.List;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.model.Expedition;
+import rikka.akashitoolkit.otto.BookmarkItemChanged;
+import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.staticdata.ExpeditionList;
+import rikka.akashitoolkit.support.Settings;
 
 /**
  * Created by Rikka on 2016/3/14.
  */
-public class ExpeditionAdapter extends RecyclerView.Adapter<ViewHolder.Expedition> {
+public class ExpeditionAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Expedition> {
+    private Context mContext;
+
     private List<Expedition> mData;
     private List<Integer> mFilter;
 
-    public ExpeditionAdapter(final Context context) {
-        mData = new ArrayList<>();
+    public ExpeditionAdapter(Context context, boolean bookmarked) {
+        super(bookmarked);
 
-        rebuildDataList(context);
+        mData = new ArrayList<>();
+        mContext = context;
+
+        rebuildDataList();
+        setHasStableIds(true);
     }
 
-    public void setFilter(List<Integer> filter, Context context) {
+    @Override
+    public long getItemId(int position) {
+        return mData.get(position).getId();
+    }
+
+    public void setFilter(List<Integer> filter) {
         mFilter = filter;
 
-        rebuildDataList(context);
+        rebuildDataList();
     }
 
-    public void rebuildDataList(final Context context) {
+    @Override
+    public void rebuildDataList() {
         new AsyncTask<Void, Void, Void>() {
             @Override
             protected Void doInBackground(Void... params) {
-                List<Expedition> data = ExpeditionList.get(context);
+                List<Expedition> data = ExpeditionList.get(mContext);
                 mData = new ArrayList<>();
 
                 for (Expedition item :
                         data) {
+                    if (!item.isBookmarked() && requireBookmarked()) {
+                        continue;
+                    }
+
                     if (mFilter == null || mFilter.size() == 0 || mFilter.indexOf(item.getId()) != -1) {
                         mData.add(item);
                     }
@@ -71,7 +89,7 @@ public class ExpeditionAdapter extends RecyclerView.Adapter<ViewHolder.Expeditio
         Context context = holder.itemView.getContext();
         Expedition item = mData.get(position);
 
-        holder.mTitle.setText(String.format("%d %s", item.getId(), item.getName().get(context)));
+        holder.mTitle.setText(String.format(item.isBookmarked() ? "%d %s ★" : "%d %s", item.getId(), item.getName().get(context)));
         holder.mTime.setText(Html.fromHtml(item.getTimeString()));
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -87,9 +105,29 @@ public class ExpeditionAdapter extends RecyclerView.Adapter<ViewHolder.Expeditio
                 }
             }
         });
+
+        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            @SuppressLint("DefaultLocale")
+            @Override
+            public boolean onLongClick(View view) {
+                Expedition item = mData.get(holder.getAdapterPosition());
+
+                item.setBookmarked(!item.isBookmarked());
+
+                Settings.instance(view.getContext())
+                        .putBoolean(String.format("expedition_%d", item.getId()), item.isBookmarked());
+
+                showToast(view.getContext(), item.isBookmarked());
+
+                BusProvider.instance().post(new BookmarkItemChanged.Expedition());
+
+                notifyItemChanged(holder.getAdapterPosition());
+                return true;
+            }
+        });
     }
 
-    private void setViewDetail(ViewHolder.Expedition holder, int position) {
+    private void setViewDetail(final ViewHolder.Expedition holder, int position) {
         Expedition item = mData.get(position);
 
         for (int i = 0; i < 4; i++) {
@@ -104,29 +142,6 @@ public class ExpeditionAdapter extends RecyclerView.Adapter<ViewHolder.Expeditio
 
         holder.setFleetRequire(require.getTotalLevel(), require.getFlagshipLevel(), require.getMinShips());
         holder.setShipRequire(require.getEssentialShip(), require.getBucket());
-    }
-
-    private String formatRequire(Context context, String base, String flagShip, String total) {
-        StringBuilder sb = new StringBuilder();
-        sb.append(base);
-
-        if (flagShip != null && !flagShip.equals("0")) {
-            sb.append('\n').append(String.format(context.getString(R.string.expedition_flagship_format), flagShip));
-        }
-
-        if (total != null && !total.equals("0")) {
-            sb.append('\n').append(String.format(context.getString(R.string.expedition_flagship_total), total));
-        }
-
-        return sb.toString();
-    }
-
-    private String formatTime(int time) {
-        if (time > 60) {
-            return String.format("%d:%02d:00", time / 60, time % 60);
-        } else {
-            return String.format("%d:00", time);
-        }
     }
 
     @Override

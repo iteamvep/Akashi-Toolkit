@@ -52,8 +52,6 @@ public class ShipDisplayFragment extends BaseSearchFragment {
     private NestedScrollView mScrollView;
 
     private void setDrawerView() {
-        mActivity.setRightDrawerLocked(false);
-
         mActivity.getRightDrawerContent().removeAllViews();
         //mActivity.getRightDrawerContent().addTitle("排序"/*getString(R.string.sort)*/);
         //mActivity.getRightDrawerContent().addDividerHead();
@@ -187,7 +185,7 @@ public class ShipDisplayFragment extends BaseSearchFragment {
         mScrollView.setClipToPadding(false);
         mScrollView.addView(body);
 
-        ((MainActivity) getActivity()).getSwitch().setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        mActivity.getSwitch().setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 int checked = buttonView.isChecked() ? 1 : 0;
@@ -205,6 +203,8 @@ public class ShipDisplayFragment extends BaseSearchFragment {
                 }
             }
         });
+
+        mActivity.getRightDrawerContent().addView(mScrollView);
     }
 
     private void postSetDrawerView() {
@@ -244,7 +244,7 @@ public class ShipDisplayFragment extends BaseSearchFragment {
 
     @Override
     protected boolean getRightDrawerLock() {
-        return true;
+        return false;
     }
 
     @Override

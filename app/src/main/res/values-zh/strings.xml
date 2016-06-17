@@ -175,6 +175,7 @@
     <string name="bookmarked_items">收藏的项目</string>
     <string name="bookmarked_items_no">没有收藏的项目</string>
     <string name="all_equip_improve_item">全部改修项目</string>
+    <string name="all_expedition_item">全部远征项目</string>
 
     <string name="new_version_available">有新版本啦</string>
     <string name="new_version_summary" formatted="false">新版本: %s - %d</string>
@@ -182,5 +183,9 @@
 
     <string name="enemy">深海栖舰</string>
     <string name="all">全部</string>
+    <string name="expedition_finished">远征已完成</string>
+    <string name="expedition_notify">远征提醒</string>
+    <string name="finished">已完成</string>
+    <string name="not_started">未开始</string>
 
 </resources>

@@ -248,6 +248,7 @@
                             android:contentDescription="@null"
                             android:scaleType="fitCenter"
                             android:src="@drawable/res_fuel"
+                            android:gravity="center_vertical"
                             android:layout_gravity="top"/>
 
                         <TextView
@@ -271,6 +272,7 @@
                             android:layout_height="16dp"
                             android:contentDescription="@null"
                             android:scaleType="fitCenter"
+                            android:gravity="center_vertical"
                             android:src="@drawable/res_ammo"/>
 
                         <TextView

@@ -13,6 +13,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
@@ -89,6 +90,15 @@ public class ExpeditionDisplayFragment extends BaseDrawerItemFragment implements
         mActivity.getRightDrawerContent().addTitle(R.string.action_filter);
         mActivity.getRightDrawerContent().addDividerHead();
         mActivity.getRightDrawerContent().addView(scrollView);
+
+        mActivity.getSwitch().setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton button, boolean checked) {
+                mAdapter.setBookmarked(checked);
+                mAdapter.rebuildDataList();
+            }
+        });
+        mActivity.getSwitch().setChecked(false);
     }
 
     @Override
@@ -183,7 +193,7 @@ public class ExpeditionDisplayFragment extends BaseDrawerItemFragment implements
                 break;
         }
 
-        mAdapter.setFilter(list, mActivity);
+        mAdapter.setFilter(list);
     }
 
     @Override
@@ -223,6 +233,11 @@ public class ExpeditionDisplayFragment extends BaseDrawerItemFragment implements
         return false;
     }
 
+    @Override
+    protected boolean getSwitchVisible() {
+        return true;
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -230,7 +245,7 @@ public class ExpeditionDisplayFragment extends BaseDrawerItemFragment implements
 
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         recyclerView.setPadding(0, Utils.dpToPx(2), 0, Utils.dpToPx(2));
-        mAdapter = new ExpeditionAdapter(getContext());
+        mAdapter = new ExpeditionAdapter(getContext(), mActivity.getSwitch().isChecked());
         recyclerView.setAdapter(mAdapter);
         recyclerView.addItemDecoration(new BaseRecyclerViewItemDecoration(getContext()));
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);

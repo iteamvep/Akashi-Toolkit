@@ -9,7 +9,7 @@
     <string name="official_twitter">Official Twitter</string>
     <string name="about">About</string>
     <string name="maps">Map</string>
-    <string name="setting">Setting</string>
+    <string name="setting">Settings</string>
 
     <string name="night_mode">Night mode</string>
     <string name="night_mode_off">Off</string>
@@ -198,5 +198,11 @@ Activity &amp; Extra:
     <string name="new_version_content" formatted="false">Detail: \n%s</string>
     <string name="enemy">Enemy</string>
     <string name="all">All</string>
+    <string name="all_expedition_item">All items</string>
+
+    <string name="expedition_finished">Expedition finished</string>
+    <string name="expedition_notify">Expedition notify</string>
+    <string name="finished">Finished</string>
+    <string name="not_started">Not started</string>
 
 </resources>
