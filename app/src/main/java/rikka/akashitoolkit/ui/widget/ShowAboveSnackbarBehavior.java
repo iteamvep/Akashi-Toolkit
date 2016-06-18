@@ -39,6 +39,12 @@ public class ShowAboveSnackbarBehavior extends CoordinatorLayout.Behavior<View> 
 
     private void updateTranslationForSnackbar(CoordinatorLayout parent,
                                               final View view, View snackbar) {
+        // If view is not be affected
+        if (snackbar.getX() > view.getX() + view.getWidth() ||
+                snackbar.getX() + snackbar.getWidth() < view.getX()) {
+            return;
+        }
+
         final float targetTransY = getTranslationYForSnackbar(parent, view);
         if (mFabTranslationY == targetTransY) {
             // We're already at (or currently animating to) the target value, return...
