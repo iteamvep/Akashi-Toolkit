@@ -29,7 +29,7 @@
 
         <item
             android:id="@+id/nav_ship"
-            android:icon="@drawable/ic_nav_expedition_24dp"
+            android:icon="@drawable/ic_nav_ship_24dp"
             android:title="@string/ship"/>
 
         <item
@@ -40,7 +40,7 @@
         <item
             android:id="@+id/nav_enemy"
             android:visible="false"
-            android:icon="@drawable/ic_nav_expedition_24dp"
+            android:icon="@drawable/ic_nav_ship_24dp"
             android:title="@string/enemy"/>
 
         <item
