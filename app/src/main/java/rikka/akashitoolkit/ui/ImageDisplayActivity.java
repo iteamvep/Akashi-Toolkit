@@ -239,8 +239,18 @@ public class ImageDisplayActivity extends BaseActivity implements View.OnClickLi
         }
     }
 
+    class TaskReturn {
+        String filename;
+        Uri uri;
+
+        public TaskReturn(String filename, Uri uri) {
+            this.filename = filename;
+            this.uri = uri;
+        }
+    }
+
     private void startDownload(final Uri data) {
-        mDownloadTask = new AsyncTask<Void, Void, String>() {
+        mDownloadTask = new AsyncTask<Void, Void, TaskReturn>() {
             @Override
             protected void onPreExecute() {
                 if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
@@ -251,7 +261,7 @@ public class ImageDisplayActivity extends BaseActivity implements View.OnClickLi
             }
 
             @Override
-            protected String doInBackground(Void... params) {
+            protected TaskReturn doInBackground(Void... params) {
                 mFileFutureTarget = Glide.with(getApplicationContext())
                         .load(Utils.getGlideUrl(mList.get(mPosition)))
                         .downloadOnly(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL);
@@ -265,6 +275,8 @@ public class ImageDisplayActivity extends BaseActivity implements View.OnClickLi
 
                     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
                         Utils.copyFile(src, dst);
+
+                        return new TaskReturn(Environment.DIRECTORY_PICTURES + fileName, null);
                     } else {
                         DocumentFile pickedDir = DocumentFile.fromTreeUri(ImageDisplayActivity.this, data);
                         DocumentFile dir = pickedDir.findFile("AkashiToolkit");
@@ -301,9 +313,9 @@ public class ImageDisplayActivity extends BaseActivity implements View.OnClickLi
                             e.printStackTrace();
                             return null;
                         }
-                    }
 
-                    return Environment.DIRECTORY_PICTURES + fileName;
+                        return new TaskReturn(Uri.parse(mList.get(mPosition)).getLastPathSegment(), newFile.getUri());
+                    }
                 } catch (InterruptedException | ExecutionException | IOException e) {
                     e.printStackTrace();
                     return null;
@@ -311,18 +323,48 @@ public class ImageDisplayActivity extends BaseActivity implements View.OnClickLi
             }
 
             @Override
-            protected void onPostExecute(final String filename) {
-                if (filename != null) {
-                    Snackbar.make(mCoordinatorLayout, String.format(getString(R.string.saved), filename), Snackbar.LENGTH_LONG)
-                            .setAction(R.string.open, new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    Intent intent = new Intent(Intent.ACTION_VIEW);
-                                    intent.setDataAndType(Uri.fromFile(new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + filename)), "image/*");
-                                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                    startActivity(intent);
-                                }
-                            }).show();
+            protected void onPostExecute(final TaskReturn data) {
+                if (data != null) {
+                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
+                        Snackbar.make(mCoordinatorLayout, String.format(getString(R.string.saved), data.filename), Snackbar.LENGTH_LONG)
+                                .setAction(R.string.open, new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        Intent intent = new Intent(Intent.ACTION_VIEW);
+                                        intent.setDataAndType(Uri.fromFile(new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + data.filename)), "image/*");
+                                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                        startActivity(intent);
+                                    }
+                                }).show();
+                    } else {
+                        Context context = ImageDisplayActivity.this;
+
+                        File picturePath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+                        File imagePath = new File(picturePath, "AkashiToolkit");
+                        File image = new File(imagePath, data.filename);
+
+                        /*final Intent intent = new Intent(Intent.ACTION_VIEW);
+                        intent.setType("image/*");
+                        Uri uri = FileProvider.getUriForFile(
+                                context, "rikka.akashitoolkit.fileprovider", image);
+
+                        intent.setData(uri);
+                        intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+
+                        List<ResolveInfo> resInfoList = context.getPackageManager().queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
+                        for (ResolveInfo resolveInfo : resInfoList) {
+                            String packageName = resolveInfo.activityInfo.packageName;
+                            context.grantUriPermission(packageName, uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                        }*/
+
+                        Snackbar.make(mCoordinatorLayout, String.format(getString(R.string.saved), Uri.fromFile(picturePath).getLastPathSegment() + "/AkashiToolkit/" + data.filename), Snackbar.LENGTH_LONG)
+                                /*.setAction(R.string.open, new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        startActivity(intent);
+                                    }
+                                })*/.show();
+                    }
                 } else {
                     Snackbar.make(mCoordinatorLayout, getString(R.string.save_failed), Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
@@ -451,136 +493,4 @@ public class ImageDisplayActivity extends BaseActivity implements View.OnClickLi
 
         Log.d(getClass().getSimpleName(), "hide FAB " + Integer.toString(mPosition));
     }
-
-    /*
-    for (final String url :
-                urlList) {
-            Log.d(MapActivity.class.getSimpleName(), url);
-
-            if (url != null) {
-                final ImageView imageView = (ImageView) LayoutInflater.from(this)
-                        .inflate(R.layout.item_illustrations, container, false)
-                        .findViewById(R.id.imageView);
-
-                container.addView(imageView);
-
-                imageView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(ShipDisplayActivity.this, ImageDisplayActivity.class);
-                        intent.putExtra(ImageDisplayActivity.EXTRA_URL, url);
-                        startActivity(intent);
-                    }
-                });
-
-                mDownloadTask = new AsyncTask<Void, Void, File>() {
-                    @Override
-                    protected File doInBackground(Void... params) {
-                        FutureTarget<File> future = Glide.with(getApplicationContext())
-                                .load(url)
-                                .downloadOnly(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL);
-                        try {
-                            File file = future.get();
-                            File dst = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-                            if (dst != null) {
-                                Utils.copyFile(file,
-                                        new File(dst.getAbsolutePath() + "/" + Uri.parse(url).getLastPathSegment()));
-                            }
-
-                            return future.get();
-                        } catch (InterruptedException | ExecutionException e) {
-                            e.printStackTrace();
-                            return null;
-                        }
-                    }
-
-                    @Override
-                    protected void onPostExecute(File file) {
-                        if (!mIsDestroyed && file != null) {
-                            Glide.with(ShipDisplayActivity.this)
-                                    .load(file)
-                                    .crossFade()
-                                    .into(imageView);
-                        }
-                    }
-                }.execute();
-            }
-     */
-
-    /*Glide.with(this)
-                .load(getIntent().getStringExtra(EXTRA_URL))
-                .crossFade()
-                .into((ImageView) findViewById(R.id.imageView));*/
-
-        /*mTask = new AsyncTask<Void, Void, File>() {
-            @Override
-            protected File doInBackground(Void... params) {
-                String url = getIntent().getStringExtra(EXTRA_URL);
-
-                File dst = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-                mFileName = dst.getAbsolutePath() + "/" + Uri.parse(url).getLastPathSegment();
-
-                FutureTarget<File> future = Glide.with(getApplicationContext())
-                        .load(url)
-                        .downloadOnly(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL);
-
-                try {
-                    mFile = future.get();
-
-                    return future.get();
-                } catch (InterruptedException | ExecutionException e) {
-                    e.printStackTrace();
-                    return null;
-                }
-            }
-
-            @Override
-            protected void onPostExecute(final File file) {
-                //mFAB.show();
-
-                mFAB.setVisibility(View.VISIBLE);
-                ScaleAnimation anim = new ScaleAnimation(0f, 1f, 0f, 1f,
-                        Animation.RELATIVE_TO_SELF, 0.5f,
-                        Animation.RELATIVE_TO_SELF, 0.5f);
-                anim.setDuration(300);
-                mFAB.startAnimation(anim);
-
-                if (!mIsDestroyed && file != null) {
-                    Glide.with(ImageDisplayActivity.this)
-                            .load(file)
-                            .crossFade()
-                            .into((ImageView) findViewById(R.id.imageView));
-                }
-
-                mFAB.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(final View view) {
-                        new AsyncTask<Void, Void, Boolean>() {
-                            @Override
-                            protected Boolean doInBackground(Void... params) {
-                                try {
-                                    Utils.copyFile(mFile, new File(mFileName));
-                                    return true;
-
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                    return false;
-                                }
-                            }
-
-                            @Override
-                            protected void onPostExecute(Boolean aBoolean) {
-                                if (aBoolean) {
-                                    Snackbar.make(view, "Saved" + " " + mFileName, Snackbar.LENGTH_LONG)
-                                            .setAction("Action", null).show();
-                                } else {
-                                    Snackbar.make(view, "Failed", Snackbar.LENGTH_LONG)
-                                            .setAction("Action", null).show();
-                                }
-                            }
-                        }.execute();
-                    }
-                });
-            }
-        }.execute();*/
 }
