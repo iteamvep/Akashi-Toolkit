@@ -31,7 +31,6 @@ import java.util.TimeZone;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.model.Equip;
 import rikka.akashitoolkit.model.EquipImprovement;
-import rikka.akashitoolkit.model.Expedition;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.ChangeNavigationDrawerItemAction;
 import rikka.akashitoolkit.receiver.ExpeditionAlarmReceiver;
@@ -275,49 +274,29 @@ public class ViewHolder {
     }
 
     public static class Map extends RecyclerView.ViewHolder {
-        //protected ExpandableLinearLayout mLinearLayout;
         protected ExpandableLayout mDetailContainer;
         protected TextView mTitle;
         protected TextView mTextView;
-        protected ImageView mImageView;
+        protected Button mButton;
 
         public Map(View itemView) {
             super(itemView);
 
-            //mLinearLayout = (ExpandableLinearLayout) itemView.findViewById(R.id.expandableLinearLayout);
             mDetailContainer = (ExpandableLayout) itemView.findViewById(R.id.expandableLinearLayout);
             mTitle = (TextView) itemView.findViewById(android.R.id.title);
-            mTextView = (TextView) itemView.findViewById(R.id.textView);
-            mImageView = (ImageView) itemView.findViewById(R.id.imageView);
-
-            /*mDetailContainer.post(new Runnable() {
-                @Override
-                public void run() {
-                    //mDetailContainer.setExpanded(false);
-                }
-            });*/
+            mTextView = (TextView) itemView.findViewById(android.R.id.content);
+            mButton = (Button) itemView.findViewById(android.R.id.button1);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    /*mTitle.setTypeface(
-                            mDetailContainer.getVisibility() == View.GONE ?
-                                    Typeface.defaultFromStyle(Typeface.BOLD) :
-                                    Typeface.defaultFromStyle(Typeface.NORMAL));*/
-
                     if (mDetailContainer.isExpanded()) {
                         mDetailContainer.setExpanded(false);
                         mTitle.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
-                        //mDetailContainer.moveChild(0);
                     } else {
                         mDetailContainer.setExpanded(true);
                         mTitle.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
-                        //mDetailContainer.moveChild(1);
                     }
-
-                    //mDetailContainer.toggle();
-                    //mDetailContainer.setVisibility(
-                    //       mDetailContainer.getVisibility() == View.GONE ? View.VISIBLE : View.GONE);
                 }
             });
         }

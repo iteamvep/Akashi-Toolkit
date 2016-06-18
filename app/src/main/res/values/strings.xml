@@ -204,5 +204,6 @@ Activity &amp; Extra:
     <string name="expedition_notify">Expedition notify</string>
     <string name="finished">Finished</string>
     <string name="not_started">Not started</string>
+    <string name="detail">Detail</string>
 
 </resources>

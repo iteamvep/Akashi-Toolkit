@@ -187,5 +187,6 @@
     <string name="expedition_notify">远征提醒</string>
     <string name="finished">已完成</string>
     <string name="not_started">未开始</string>
+    <string name="detail">详情</string>
 
 </resources>

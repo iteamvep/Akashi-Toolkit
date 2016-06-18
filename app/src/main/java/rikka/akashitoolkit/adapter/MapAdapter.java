@@ -49,7 +49,7 @@ public class MapAdapter extends BaseRecyclerAdapter<ViewHolder.Map> {
         String descriptionWithOutExtraSpace = htmlDescription.toString().trim();
         holder.mTextView.setText(htmlDescription.subSequence(0, descriptionWithOutExtraSpace.length()));
 
-        holder.mImageView.setOnClickListener(new View.OnClickListener() {
+        holder.mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, MapActivity.class);
