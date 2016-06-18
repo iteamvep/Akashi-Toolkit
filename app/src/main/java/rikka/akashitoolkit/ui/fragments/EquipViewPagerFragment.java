@@ -17,6 +17,7 @@ import rikka.akashitoolkit.adapter.ViewPagerStateAdapter;
 import rikka.akashitoolkit.otto.BookmarkAction;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.staticdata.EquipTypeList;
+import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.ui.MainActivity;
 import rikka.akashitoolkit.ui.widget.MyViewPager;
 
@@ -73,7 +74,10 @@ public class EquipViewPagerFragment extends Fragment {
         mViewPager = (MyViewPager) view.findViewById(R.id.view_pager);
         mViewPager.setAdapter(getAdapter());
         mViewPager.setCurrentItem(0, false);
-        setViewPager();
+
+        if (Settings.instance(getActivity())
+                .getInt(Settings.LAST_DRAWER_ITEM_ID, 0) == R.id.nav_item)
+            setViewPager();
 
         return view;
     }
@@ -85,14 +89,8 @@ public class EquipViewPagerFragment extends Fragment {
             @Override
             public Bundle getArgs(int position) {
                 Bundle bundle = new Bundle();
-                /*if (position == EquipTypeList.getsParentList(getContext()).size() - 1) {
-                    bundle.putInt("TYPE", 0);
-                    bundle.putBoolean("BOOKMARKED", true);
-                } else */
-                {
-                    bundle.putInt("TYPE", position + 1);
-                    bundle.putBoolean("BOOKMARKED", false);
-                }
+                bundle.putInt("TYPE", position + 1);
+                bundle.putBoolean("BOOKMARKED", false);
                 bundle.putInt("POSITION", position);
 
                 return bundle;
@@ -105,9 +103,5 @@ public class EquipViewPagerFragment extends Fragment {
         }
 
         return mViewPagerAdapter;
-    }
-
-    public MyViewPager getViewPager() {
-        return mViewPager;
     }
 }

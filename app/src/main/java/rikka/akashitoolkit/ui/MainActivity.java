@@ -1,5 +1,6 @@
 package rikka.akashitoolkit.ui;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -265,6 +266,7 @@ public class MainActivity extends BaseActivity
         return super.onOptionsItemSelected(item);
     }
 
+    @SuppressLint("DefaultLocale")
     private String generateFragmentTAG(int id) {
         return String.format("%s %d", "FragmentTag", id);
     }
