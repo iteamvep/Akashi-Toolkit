@@ -4,19 +4,19 @@
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="@dimen/card_width"
-    tools:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:clickable="true"
-    android:foreground="?attr/selectableItemBackground"
-    android:layout_marginTop="@dimen/card_twitter_margin_vertical"
+    android:layout_gravity="center_horizontal"
     android:layout_marginBottom="@dimen/card_twitter_margin_vertical"
     android:layout_marginLeft="@dimen/card_twitter_margin_horizontal"
     android:layout_marginRight="@dimen/card_twitter_margin_horizontal"
-    android:layout_gravity="center_horizontal"
+    android:layout_marginTop="@dimen/card_twitter_margin_vertical"
+    android:clickable="true"
+    android:foreground="?attr/selectableItemBackground"
     card_view:cardBackgroundColor="@color/cardBackground"
     card_view:cardCornerRadius="2dp"
     card_view:cardElevation="2dp"
-    card_view:cardMaxElevation="4dp">
+    card_view:cardMaxElevation="4dp"
+    tools:layout_width="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,36 +27,36 @@
             android:id="@android:id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingBottom="6dp"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
             android:paddingTop="24dp"
-            android:paddingBottom="6dp"
-            tools:text="Title"
             android:textAppearance="@style/Base.TextAppearance.AppCompat"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            tools:text="Title"/>
 
         <TextView
             android:id="@android:id/summary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingBottom="6dp"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            android:paddingBottom="6dp"
-            tools:text="summary"
-            android:textSize="@dimen/card_font_medium"/>
+            android:textSize="@dimen/card_font_medium"
+            tools:text="summary"/>
 
         <TextView
             android:id="@android:id/content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:lineSpacingMultiplier="1.1"
+            android:paddingBottom="6dp"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
             android:paddingTop="6dp"
-            android:paddingBottom="6dp"
-            tools:text="body\nbody\nbody"
-            android:lineSpacingMultiplier="1.1"
             android:textAppearance="@style/Base.TextAppearance.AppCompat"
-            android:textSize="@dimen/card_font_medium"/>
+            android:textSize="@dimen/card_font_medium"
+            tools:text="body\nbody\nbody"/>
 
         <HorizontalScrollView
             android:layout_width="match_parent"
@@ -67,11 +67,11 @@
                 android:id="@+id/content_container"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="6dp"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
-                android:paddingTop="6dp"
-                android:paddingBottom="6dp"
-                android:orientation="horizontal">
+                android:paddingTop="6dp">
 
             </LinearLayout>
 
@@ -80,30 +80,30 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp"
-            android:paddingBottom="4dp"
             android:layout_marginTop="4dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingBottom="4dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp">
 
             <Button
                 android:id="@android:id/button1"
+                style="?attr/borderlessButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:minWidth="0px"
                 android:textColor="?attr/colorAccent"
-                tools:text="action"
-                style="?attr/borderlessButtonStyle">
+                tools:text="action">
             </Button>
 
             <Button
                 android:id="@android:id/button2"
+                style="?attr/borderlessButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:minWidth="0px"
-                tools:text="action"
                 android:textColor="?attr/colorAccent"
-                style="?attr/borderlessButtonStyle">
+                tools:text="action">
             </Button>
 
         </LinearLayout>

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:singleLine="true"
+    android:fontFamily="sans-serif-medium"
+    android:gravity="bottom"
     android:paddingLeft="@dimen/item_padding"
     android:paddingRight="@dimen/item_padding"
     android:paddingTop="8dp"
-    tools:text="前置任务"
+    android:singleLine="true"
     android:textSize="@dimen/card_font_medium"
-    android:fontFamily="sans-serif-medium"
-    android:gravity="bottom"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"/>
+    tools:text="前置任务"/>

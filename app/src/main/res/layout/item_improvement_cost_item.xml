@@ -9,28 +9,28 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="36dp"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:weightSum="5.2"
-        android:gravity="center_vertical">
+        android:weightSum="5.2">
 
         <TextView
-            android:layout_marginLeft="@dimen/item_activity_margin"
-            android:layout_marginStart="@dimen/item_activity_margin"
             android:id="@android:id/title"
             android:layout_width="0dp"
-            android:layout_weight="1.2"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/card_font_large"
+            android:layout_marginLeft="@dimen/item_activity_margin"
+            android:layout_marginStart="@dimen/item_activity_margin"
+            android:layout_weight="1.2"
             android:gravity="center_vertical"
-            tools:text="★+0 ~ +6"
-            android:singleLine="true"/>
+            android:singleLine="true"
+            android:textSize="@dimen/card_font_large"
+            tools:text="★+0 ~ +6"/>
 
         <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
-            android:layout_width="0dp"
             android:layout_weight="1.2"
-            android:layout_height="match_parent"
             android:gravity="center_vertical">
 
             <ImageView
@@ -44,18 +44,18 @@
                 android:id="@+id/text_number_0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="center_vertical"
                 android:paddingLeft="2dp"
                 android:paddingRight="2dp"
                 android:textSize="@dimen/card_font_large"
-                android:gravity="center_vertical"
                 tools:text="1(2)"/>
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_weight="1.2"
             android:layout_height="match_parent"
+            android:layout_weight="1.2"
             android:gravity="center_vertical">
 
             <ImageView
@@ -69,10 +69,10 @@
                 android:id="@+id/text_number_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="center_vertical"
                 android:paddingLeft="2dp"
                 android:paddingRight="2dp"
                 android:textSize="@dimen/card_font_large"
-                android:gravity="center_vertical"
                 tools:text="1(2)"/>
         </LinearLayout>
 
@@ -86,19 +86,19 @@
         android:weightSum="5.2">
 
         <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/item_activity_margin"
             android:layout_marginStart="@dimen/item_activity_margin"
-            android:layout_width="0dp"
-            android:layout_weight="1.2"
-            android:layout_height="wrap_content"/>
+            android:layout_weight="1.2"/>
 
         <LinearLayout
-            android:background="?attr/selectableItemBackground"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
-            android:layout_width="0dp"
             android:layout_weight="4"
-            android:layout_height="match_parent"
+            android:background="?attr/selectableItemBackground"
             android:gravity="center_vertical">
 
             <ImageView
@@ -113,10 +113,10 @@
                 android:id="@+id/text_number_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="center_vertical"
                 android:paddingLeft="2dp"
                 android:paddingRight="2dp"
                 android:textSize="@dimen/card_font_large"
-                android:gravity="center_vertical"
                 tools:text="10cm连装高角炮x2"/>
 
         </LinearLayout>

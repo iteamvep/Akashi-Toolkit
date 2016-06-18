@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
+              android:background="@color/bookmarkNoItemBackground"
               android:gravity="center"
-              android:background="@color/bookmarkNoItemBackground">
+              android:orientation="vertical">
 
     <FrameLayout
         android:layout_width="wrap_content"
@@ -14,34 +14,34 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/bt_ic_zero_pinned"
-            android:contentDescription="@null"/>
+            android:contentDescription="@null"
+            android:src="@drawable/bt_ic_zero_pinned"/>
 
         <ImageView
             android:layout_width="52dp"
             android:layout_height="52dp"
-            app:srcCompat="@drawable/ic_bookmark_no_item_24dp"
             android:layout_gravity="center"
-            android:contentDescription="@null"/>
+            android:contentDescription="@null"
+            app:srcCompat="@drawable/ic_bookmark_no_item_24dp"/>
 
     </FrameLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/nothing_bookmarked"
         android:layout_marginTop="24dp"
-        android:textSize="18sp"
-        android:textColor="@android:color/white"/>
+        android:text="@string/nothing_bookmarked"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:maxWidth="240dp"
-        android:text="@string/nothing_bookmarked_summary"
         android:layout_marginTop="12dp"
         android:lineSpacingExtra="2dp"
-        android:textSize="16sp"
-        android:textColor="@android:color/white"/>
+        android:maxWidth="240dp"
+        android:text="@string/nothing_bookmarked_summary"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"/>
 
 </LinearLayout>

@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:orientation="horizontal"
               android:layout_width="match_parent"
-              android:clickable="true"
-              android:background="?attr/selectableItemBackground"
               android:layout_height="@dimen/drawer_item"
-              android:gravity="center_vertical">
+              android:background="?attr/selectableItemBackground"
+              android:clickable="true"
+              android:gravity="center_vertical"
+              android:orientation="horizontal">
 
     <android.support.v7.widget.AppCompatSpinner
         android:id="@+id/spinner"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
 
     </android.support.v7.widget.AppCompatSpinner>
 

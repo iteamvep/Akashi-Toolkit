@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
               xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:orientation="horizontal"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:background="?attr/selectableItemBackground"
               android:clickable="true"
               android:focusable="true"
-              android:background="?attr/selectableItemBackground"
-              android:layout_width="0dp"
-              tools:layout_width="match_parent"
-              android:layout_height="wrap_content"
+              android:orientation="horizontal"
               android:paddingLeft="@dimen/item_activity_margin"
-              android:paddingRight="@dimen/item_activity_margin">
+              android:paddingRight="@dimen/item_activity_margin"
+              tools:layout_width="match_parent">
 
     <TextView
         android:id="@android:id/title"
         android:layout_width="0dp"
         android:layout_height="48dp"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
         android:gravity="center_vertical"
-        android:textSize="16sp"
         android:maxWidth="0dp"
         android:singleLine="true"
-        android:layout_weight="1"
-        android:layout_gravity="center_vertical"
+        android:textSize="16sp"
         tools:text="吹雪"/>
 
     <ImageView
@@ -29,7 +29,7 @@
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_gravity="center_vertical|end"
-        app:srcCompat="@drawable/ic_arrow_forward_24dp"
-        android:contentDescription="@null"/>
+        android:contentDescription="@null"
+        app:srcCompat="@drawable/ic_arrow_forward_24dp"/>
 
 </LinearLayout>

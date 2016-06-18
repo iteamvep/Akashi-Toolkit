@@ -22,6 +22,6 @@
     android:layout_height="24dp"
     android:background="@drawable/day_bg_circle"
     android:gravity="center"
-    tools:text="五"
     android:textColor="@color/day_text_color"
-    android:textSize="16sp"/>
+    android:textSize="16sp"
+    tools:text="五"/>

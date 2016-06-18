@@ -27,23 +27,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="?attr/colorPrimary"
-                app:popupTheme="@style/AppTheme.PopupOverlay"
-                app:layout_scrollFlags="scroll|enterAlways">
+                app:layout_scrollFlags="scroll|enterAlways"
+                app:popupTheme="@style/AppTheme.PopupOverlay">
 
                 <rikka.akashitoolkit.ui.widget.IconSwitchCompat
                     android:id="@+id/switch_bookmark"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
-                    android:layout_marginRight="8dp"
                     android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
                     android:theme="@style/BookmarkSwitch"
-                    app:minWidth="52dp"
+                    app:iconColor="@color/icon_switch_icon"
                     app:iconDrawable="@drawable/ic_bookmark_border_24dp"
                     app:iconDrawableChecked="@drawable/ic_bookmark_24dp"
+                    app:minWidth="52dp"
                     app:thumbColor="@color/icon_switch_thumb"
-                    app:trackColor="@color/icon_switch_track"
-                    app:iconColor="@color/icon_switch_icon"/>
+                    app:trackColor="@color/icon_switch_track"/>
 
             </android.support.v7.widget.Toolbar>
 
@@ -51,11 +51,11 @@
                 android:id="@+id/tab_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:clipToPadding="false"
                 android:paddingLeft="@dimen/tab_layout_padding"
                 android:paddingRight="@dimen/tab_layout_padding"
-                android:clipToPadding="false"
-                app:tabMode="scrollable"
-                app:tabIndicatorColor="@color/material_indigo_accent_100"/>
+                app:tabIndicatorColor="@color/material_indigo_accent_100"
+                app:tabMode="scrollable"/>
         </android.support.design.widget.AppBarLayout>
 
         <FrameLayout
@@ -83,12 +83,12 @@
         android:layout_width="300dp"
         android:layout_height="match_parent"
         android:layout_gravity="end"
-        android:fitsSystemWindows="false"
-        app:insetForeground="#4000"
-        android:clickable="true"
-        android:focusable="true"
         android:background="@color/background"
-        android:fillViewport="false">
+        android:clickable="true"
+        android:fillViewport="false"
+        android:fitsSystemWindows="false"
+        android:focusable="true"
+        app:insetForeground="#4000">
 
         <rikka.akashitoolkit.ui.widget.SimpleDrawerView
             android:id="@+id/nav_view_right"

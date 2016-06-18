@@ -1,8 +1,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:tools="http://schemas.android.com/tools"
-              android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="wrap_content">
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
     <View
         android:id="@+id/dummy_view2"
         android:layout_width="match_parent"
@@ -12,53 +13,53 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:background="@color/cardBackground"
-        android:elevation="2dp">
+        android:elevation="2dp"
+        android:orientation="vertical">
 
         <TextView
             android:id="@android:id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
-            android:textColor="?attr/colorAccent"
-            android:layout_marginTop="16dp"
             android:layout_marginBottom="8dp"
             android:layout_marginLeft="@dimen/item_padding"
             android:layout_marginRight="@dimen/item_padding"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="?attr/colorAccent"
             tools:text="驱逐舰"/>
 
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="@dimen/item_height"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:paddingBottom="8dp"
             android:paddingLeft="@dimen/item_padding"
             android:paddingRight="@dimen/item_padding"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            android:clickable="true"
-            android:foreground="?attr/selectableItemBackground">
+            android:paddingTop="8dp">
 
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="睦月"
-                android:maxLines="1"
-                android:textSize="16sp"
-                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:layout_gravity="center_vertical"
                 android:gravity="center_vertical"
-                android:layout_gravity="center_vertical"/>
+                android:maxLines="1"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textSize="16sp"
+                tools:text="睦月"/>
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:text="睦月型一号舰"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical|end"
                 android:maxLines="1"
                 android:textSize="16sp"
-                android:gravity="center_vertical|end"
-                android:layout_gravity="center_vertical"/>
+                tools:text="睦月型一号舰"/>
         </LinearLayout>
 
         <View

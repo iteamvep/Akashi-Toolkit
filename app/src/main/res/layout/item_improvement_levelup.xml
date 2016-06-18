@@ -10,22 +10,22 @@
     <TextView
         android:id="@android:id/title"
         android:layout_width="0dp"
-        android:layout_weight="1.2"
         android:layout_height="48dp"
-        android:textSize="@dimen/card_font_large"
-        android:layout_marginStart="@dimen/item_activity_margin"
         android:layout_marginLeft="@dimen/item_activity_margin"
+        android:layout_marginStart="@dimen/item_activity_margin"
+        android:layout_weight="1.2"
         android:gravity="center_vertical"
-        tools:text="必要资源"
-        android:singleLine="true"/>
+        android:singleLine="true"
+        android:textSize="@dimen/card_font_large"
+        tools:text="必要资源"/>
 
     <LinearLayout
-        android:background="?attr/selectableItemBackground"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
-        android:layout_width="0dp"
         android:layout_weight="4"
-        android:layout_height="48dp"
+        android:background="?attr/selectableItemBackground"
         android:gravity="center_vertical">
 
         <ImageView
@@ -40,10 +40,10 @@
             android:id="@+id/text_number_0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="center_vertical"
             android:paddingLeft="2dp"
             android:paddingRight="2dp"
             android:textSize="@dimen/card_font_large"
-            android:gravity="center_vertical"
             tools:text="0"/>
     </LinearLayout>
 

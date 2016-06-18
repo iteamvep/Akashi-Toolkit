@@ -1,47 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
+    android:id="@+id/linearLayout"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
     android:background="@color/cardBackground"
+    android:elevation="2dp"
     android:foreground="?attr/selectableItemBackground"
     android:gravity="center"
-    android:outlineProvider="bounds"
-    android:elevation="2dp">
+    android:orientation="vertical"
+    android:outlineProvider="bounds">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/item_height"
+        android:orientation="horizontal"
+        android:paddingBottom="8dp"
         android:paddingLeft="@dimen/item_padding"
         android:paddingRight="@dimen/item_padding"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp"
-        android:orientation="horizontal">
+        android:paddingTop="8dp">
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="24dp"
             android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
             android:contentDescription="@null"
-            android:src="@drawable/system_icon_01_24dp"
             android:scaleType="fitCenter"
-            android:layout_gravity="center_vertical"/>
+            android:src="@drawable/system_icon_01_24dp"/>
 
         <TextView
             android:id="@+id/textView"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="12cm単装砲"
-            android:maxLines="1"
-            android:textSize="16sp"
-            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
             android:gravity="center_vertical"
-            android:layout_gravity="center_vertical"/>
+            android:maxLines="1"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textSize="16sp"
+            tools:text="12cm単装砲"/>
 
     </LinearLayout>
 

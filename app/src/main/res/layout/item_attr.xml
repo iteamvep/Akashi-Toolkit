@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:tools="http://schemas.android.com/tools"
-              android:orientation="horizontal"
               android:layout_width="match_parent"
               android:layout_height="32dp"
+              android:orientation="horizontal"
               android:visibility="invisible"
               tools:visibility="visible">
 
@@ -16,20 +16,20 @@
         android:contentDescription="@null"/>-->
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView"
+        android:layout_gravity="center_vertical"
         android:textSize="16sp"
-        tools:text="火力"
-        android:layout_gravity="center_vertical"/>
+        tools:text="火力"/>
 
     <TextView
+        android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView2"
-        android:fontFamily="sans-serif-medium"
-        tools:text="+15"
-        android:textSize="16sp"
         android:layout_gravity="center_vertical"
-        android:gravity="end"/>
+        android:fontFamily="sans-serif-medium"
+        android:gravity="end"
+        android:textSize="16sp"
+        tools:text="+15"/>
 </LinearLayout>

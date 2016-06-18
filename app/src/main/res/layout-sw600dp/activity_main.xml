@@ -33,15 +33,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
-                    android:layout_marginRight="8dp"
                     android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
                     android:theme="@style/BookmarkSwitch"
-                    app:minWidth="52dp"
+                    app:iconColor="@color/icon_switch_icon"
                     app:iconDrawable="@drawable/ic_bookmark_border_24dp"
                     app:iconDrawableChecked="@drawable/ic_bookmark_24dp"
+                    app:minWidth="52dp"
                     app:thumbColor="@color/icon_switch_thumb"
-                    app:trackColor="@color/icon_switch_track"
-                    app:iconColor="@color/icon_switch_icon"/>
+                    app:trackColor="@color/icon_switch_track"/>
 
             </android.support.v7.widget.Toolbar>
 
@@ -51,20 +51,20 @@
             android:id="@+id/mini_drawer_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
             app:drawer_menu="@menu/drawer_main"
+            app:drawer_padding="8dp"
             app:drawer_width="72dp"
             app:drawer_width_expanded="288dp"
-            app:drawer_padding="8dp">
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <LinearLayout
                 android:id="@+id/fragment_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:background="?android:attr/windowBackground"
                 android:clickable="true"
                 android:elevation="4dp"
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:orientation="vertical">
 
                 <android.support.design.widget.TabLayout
                     android:id="@+id/tab_layout"
@@ -72,11 +72,11 @@
                     android:layout_height="wrap_content"
                     android:background="@color/cardBackground"
                     android:clipToPadding="false"
+                    app:tabIndicatorColor="@color/material_indigo_accent_100"
                     app:tabMinWidth="0dp"
                     app:tabMode="scrollable"
-                    app:tabPaddingStart="@dimen/tab_padding"
                     app:tabPaddingEnd="@dimen/tab_padding"
-                    app:tabIndicatorColor="@color/material_indigo_accent_100"/>
+                    app:tabPaddingStart="@dimen/tab_padding"/>
             </LinearLayout>
 
         </rikka.minidrawer.MiniDrawerLayout>
@@ -88,12 +88,12 @@
         android:layout_width="300dp"
         android:layout_height="match_parent"
         android:layout_gravity="end"
-        android:fitsSystemWindows="false"
-        app:insetForeground="#4000"
-        android:clickable="true"
-        android:focusable="true"
         android:background="@color/background"
-        android:fillViewport="false">
+        android:clickable="true"
+        android:fillViewport="false"
+        android:fitsSystemWindows="false"
+        android:focusable="true"
+        app:insetForeground="#4000">
 
         <rikka.akashitoolkit.ui.widget.SimpleDrawerView
             android:id="@+id/nav_view_right"

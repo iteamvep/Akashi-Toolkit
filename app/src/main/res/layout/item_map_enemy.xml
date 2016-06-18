@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:tools="http://schemas.android.com/tools"
-              android:orientation="horizontal"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
+              android:orientation="horizontal"
               android:paddingLeft="16dp"
               android:paddingRight="16dp">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="0dp"
-        android:layout_weight="1"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:gravity="center"
-        android:paddingTop="8dp"
         android:paddingBottom="8dp"
+        android:paddingTop="8dp"
         tools:text="A"/>
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="0dp"
-        android:layout_weight="1"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp"
         android:layout_marginLeft="4dp"
         android:layout_marginStart="4dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
         tools:text="单横"/>
 
     <TextView
         android:id="@+id/text_content"
         android:layout_width="0dp"
-        android:layout_weight="7"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp"
-        android:lineSpacingExtra="1dp"
         android:layout_marginLeft="4dp"
         android:layout_marginStart="4dp"
+        android:layout_weight="7"
+        android:gravity="center_vertical"
+        android:lineSpacingExtra="1dp"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
         tools:text="軽巡ヘ級\n軽巡ヘ級\n軽巡ヘ級"/>
 
 </LinearLayout>

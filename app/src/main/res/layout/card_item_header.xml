@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:tools="http://schemas.android.com/tools"
-              android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              android:outlineProvider="bounds"
-              android:elevation="2dp">
+              android:elevation="2dp"
+              android:orientation="vertical"
+              android:outlineProvider="bounds">
 
     <TextView
         android:id="@android:id/title"
@@ -13,11 +13,11 @@
         android:layout_height="match_parent"
         android:background="@color/cardBackground"
         android:fontFamily="sans-serif-medium"
-        android:textColor="?attr/colorAccent"
-        android:paddingTop="16dp"
         android:paddingBottom="8dp"
         android:paddingLeft="@dimen/item_padding"
         android:paddingRight="@dimen/item_padding"
+        android:paddingTop="16dp"
+        android:textColor="?attr/colorAccent"
         tools:text="小口径主炮"/>
 
 </LinearLayout>
