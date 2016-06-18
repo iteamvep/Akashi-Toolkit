@@ -18,7 +18,7 @@
     <dimen name="card_margin_vertical">2dp</dimen>
     <dimen name="card_margin_horizontal">4dp</dimen>
 
-    <dimen name="tab_layout_padding">24dp</dimen>
+    <dimen name="tab_layout_padding">0dp</dimen>
     <dimen name="tab_padding">24dp</dimen>
 
     <dimen name="item_padding">24dp</dimen>
