@@ -244,10 +244,14 @@ public class ExpeditionDisplayFragment extends BaseDrawerItemFragment implements
         View view = inflater.inflate(R.layout.content_recycler, container, false);
 
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
-        recyclerView.setPadding(0, Utils.dpToPx(2), 0, Utils.dpToPx(2));
         mAdapter = new ExpeditionAdapter(getContext(), mActivity.getSwitch().isChecked());
         recyclerView.setAdapter(mAdapter);
-        recyclerView.addItemDecoration(new BaseRecyclerViewItemDecoration(getContext()));
+        /*recyclerView.addItemDecoration(new BaseRecyclerViewItemDecoration(getContext()) {
+            @Override
+            public boolean canDraw(RecyclerView parent, View child, int childCount, int position) {
+                return mAdapter.getItemViewType(position - 1) super.canDraw(parent, child, childCount, position);
+            }
+        });*/
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         layoutManager.setAutoMeasureEnabled(false);
         recyclerView.setLayoutManager(layoutManager);

@@ -18,6 +18,7 @@ public class Expedition extends BaseDataModel {
     private MultiLanguageEntry name;
 
     private int time;
+    private int type;
     private String timeString;
     /**
      * playerXP : 10
@@ -45,6 +46,14 @@ public class Expedition extends BaseDataModel {
 
     public void setName(MultiLanguageEntry name) {
         this.name = name;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
     }
 
     public int getTime() {

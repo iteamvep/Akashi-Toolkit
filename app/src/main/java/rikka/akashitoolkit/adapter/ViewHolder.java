@@ -590,4 +590,16 @@ public class ViewHolder {
             alarmManager.cancel(alarmIntent);
         }
     }
+
+    public static class Subtitle extends RecyclerView.ViewHolder {
+        protected TextView mTitle;
+        protected View mDivider;
+
+        public Subtitle(View itemView) {
+            super(itemView);
+
+            mTitle = (TextView) itemView.findViewById(android.R.id.title);
+            mDivider = itemView.findViewById(R.id.divider);
+        }
+    }
 }

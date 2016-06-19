@@ -1,5 +1,7 @@
 package rikka.akashitoolkit.model;
 
+import android.content.Context;
+
 /**
  * Created by Rikka on 2016/4/20.
  */
@@ -17,6 +19,10 @@ public class MapType {
 
     public MultiLanguageEntry getName() {
         return name;
+    }
+
+    public String getName(Context context) {
+        return name.get(context);
     }
 
     public void setName(MultiLanguageEntry name) {

@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
+import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,18 +15,32 @@ import java.util.List;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.model.Expedition;
+import rikka.akashitoolkit.model.MapType;
 import rikka.akashitoolkit.otto.BookmarkItemChanged;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.staticdata.ExpeditionList;
+import rikka.akashitoolkit.staticdata.MapTypeList;
 import rikka.akashitoolkit.support.Settings;
 
 /**
  * Created by Rikka on 2016/3/14.
  */
-public class ExpeditionAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Expedition> {
+public class ExpeditionAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHolder> {
+    private static class Data {
+        protected Object data;
+        protected int type;
+        private long id;
+
+        public Data(Object data, int type, long id) {
+            this.data = data;
+            this.type = type;
+            this.id = id;
+        }
+    }
+
     private Context mContext;
 
-    private List<Expedition> mData;
+    private List<Data> mData;
     private List<Integer> mFilter;
 
     public ExpeditionAdapter(Context context, boolean bookmarked) {
@@ -40,7 +55,12 @@ public class ExpeditionAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Ex
 
     @Override
     public long getItemId(int position) {
-        return mData.get(position).getId();
+        return mData.get(position).id;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return mData.get(position).type;
     }
 
     public void setFilter(List<Integer> filter) {
@@ -57,6 +77,8 @@ public class ExpeditionAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Ex
                 List<Expedition> data = ExpeditionList.get(mContext);
                 mData = new ArrayList<>();
 
+                int type = -1;
+
                 for (Expedition item :
                         data) {
                     if (!item.isBookmarked() && requireBookmarked()) {
@@ -64,7 +86,12 @@ public class ExpeditionAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Ex
                     }
 
                     if (mFilter == null || mFilter.size() == 0 || mFilter.indexOf(item.getId()) != -1) {
-                        mData.add(item);
+                        if (type != item.getType()) {
+                            type = item.getType();
+                            mData.add(new Data(MapTypeList.get(mContext).get(type).getName(mContext), 1, RecyclerView.NO_ID));
+                        }
+
+                        mData.add(new Data(item, 0, item.getId()));
                     }
                 }
                 return null;
@@ -78,16 +105,32 @@ public class ExpeditionAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Ex
     }
 
     @Override
-    public ViewHolder.Expedition onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_expedition, parent, false);
-        return new ViewHolder.Expedition(itemView);
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        switch (viewType) {
+            case 0:
+                return new ViewHolder.Expedition(LayoutInflater.from(parent.getContext()).inflate(R.layout.card_expedition, parent, false));
+            case 1:
+                return new ViewHolder.Subtitle(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_subtitle, parent, false));
+        }
+        return null;
     }
 
     @SuppressLint("DefaultLocale")
     @Override
-    public void onBindViewHolder(final ViewHolder.Expedition holder, int position) {
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+        switch (getItemViewType(position)) {
+            case 0:
+                bindViewHolder((ViewHolder.Expedition) holder, position);
+                break;
+            case 1:
+                bindViewHolder((ViewHolder.Subtitle) holder, position);
+                break;
+        }
+    }
+
+    private void bindViewHolder(final ViewHolder.Expedition holder, int position) {
         Context context = holder.itemView.getContext();
-        Expedition item = mData.get(position);
+        Expedition item = (Expedition) mData.get(position).data;
 
         holder.mTitle.setText(String.format(item.isBookmarked() ? "%d %s ★" : "%d %s", item.getId(), item.getName().get(context)));
         holder.mTime.setText(Html.fromHtml(item.getTimeString()));
@@ -110,7 +153,7 @@ public class ExpeditionAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Ex
             @SuppressLint("DefaultLocale")
             @Override
             public boolean onLongClick(View view) {
-                Expedition item = mData.get(holder.getAdapterPosition());
+                Expedition item = (Expedition) mData.get(holder.getAdapterPosition()).data;
 
                 item.setBookmarked(!item.isBookmarked());
 
@@ -127,8 +170,13 @@ public class ExpeditionAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Ex
         });
     }
 
+    private void bindViewHolder(ViewHolder.Subtitle holder, int position) {
+        holder.mDivider.setVisibility(position == 0 ? View.GONE : View.VISIBLE);
+        holder.mTitle.setText((String) mData.get(position).data);
+    }
+
     private void setViewDetail(final ViewHolder.Expedition holder, int position) {
-        Expedition item = mData.get(position);
+        Expedition item = (Expedition) mData.get(position).data;
 
         for (int i = 0; i < 4; i++) {
             holder.setRewardResource(item.getReward().getResourceString().get(i), i);
@@ -150,8 +198,10 @@ public class ExpeditionAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Ex
     }
 
     @Override
-    public void onViewRecycled(ViewHolder.Expedition holder) {
-        holder.mExpandableLayout.setExpanded(false, false);
+    public void onViewRecycled(RecyclerView.ViewHolder holder) {
+        if (holder instanceof ViewHolder.Expedition) {
+            ((ViewHolder.Expedition) holder).mExpandableLayout.setExpanded(false, false);
+        }
         super.onViewRecycled(holder);
     }
 }

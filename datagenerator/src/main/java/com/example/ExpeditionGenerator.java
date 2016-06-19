@@ -54,8 +54,9 @@ public class ExpeditionGenerator {
             }
 
             Expedition item = new Expedition();
-
             item.setId(m.group(1));
+            item.setType(getType(item.getId()));
+
             item.getName().setJa(m.group(2));
             item.getName().setZh_cn(m.group(3));
             item.setTime(getTime(m.group(4)));
@@ -75,6 +76,19 @@ public class ExpeditionGenerator {
 
             list.add(item);
         }
+    }
+
+    private static int getType(int id) {
+        if (id <= 8)
+            return 0;
+        else if (id <= 16)
+            return 1;
+        else if (id <= 24)
+            return 2;
+        else if (id <= 32)
+            return 3;
+        else
+            return 4;
     }
 
     private static void getRequire(String originStr) throws IOException {

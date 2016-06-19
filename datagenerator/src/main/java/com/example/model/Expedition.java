@@ -27,6 +27,7 @@ public class Expedition {
     private int id;
     private MultiLanguageEntry name;
     private int time;
+    private int type;
     private String timeString;
     private RewardEntity reward;
     private RequireEntity require;
@@ -195,6 +196,14 @@ public class Expedition {
                     ", consume=" + consume +
                     '}';
         }
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
     }
 
     public void setId(int id) {
