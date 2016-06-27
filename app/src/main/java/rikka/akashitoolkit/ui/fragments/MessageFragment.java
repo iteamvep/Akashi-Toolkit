@@ -5,6 +5,7 @@ import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -102,11 +103,6 @@ public class MessageFragment extends Fragment {
     public void onDestroy() {
         BusProvider.instance().unregister(this);
         super.onDestroy();
-    }
-
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.twitter, menu);
     }
 
     @Override
@@ -268,6 +264,8 @@ public class MessageFragment extends Fragment {
         UpdateCheck.instance().check(getContext(), new Callback<CheckUpdate>() {
             @Override
             public void onResponse(Call<CheckUpdate> call, final Response<CheckUpdate> response) {
+                UpdateCheck.instance().recycle();
+
                 if (getContext() == null) {
                     Log.d("MessageFragment", "onResponse context == null");
                     return;
@@ -290,9 +288,13 @@ public class MessageFragment extends Fragment {
             @Override
             public void onFailure(Call<CheckUpdate> call, Throwable t) {
                 UpdateCheck.instance().recycle();
-                mSwipeRefreshLayout.setRefreshing(false);
 
-                //showSnackbar(R.string.refresh_fail, Snackbar.LENGTH_SHORT);
+                if (getContext() == null) {
+                    return;
+                }
+
+                mSwipeRefreshLayout.setRefreshing(false);
+                //Snackbar.make(mSwipeRefreshLayout, R.string.refresh_fail, Snackbar.LENGTH_SHORT).show();
             }
         });
     }

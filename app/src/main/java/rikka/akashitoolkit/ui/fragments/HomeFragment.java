@@ -6,6 +6,8 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -49,6 +51,17 @@ public class HomeFragment extends BaseDrawerItemFragment {
         mActivity.getTabLayout().setTabMode(TabLayout.MODE_SCROLLABLE);
         int padding = getResources().getDimensionPixelSize(R.dimen.tab_layout_padding);
         mActivity.getTabLayout().setPadding(padding, 0, padding, 0);
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.twitter, menu);
     }
 
     @Nullable

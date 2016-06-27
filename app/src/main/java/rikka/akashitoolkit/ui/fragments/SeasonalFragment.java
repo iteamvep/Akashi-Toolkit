@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -74,11 +75,6 @@ public class SeasonalFragment extends Fragment {
         setHasOptionsMenu(true);
 
         CACHE_FILE = getContext().getCacheDir().getAbsolutePath() + JSON_NAME;
-    }
-
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.twitter, menu);
     }
 
     @Override
@@ -181,6 +177,7 @@ public class SeasonalFragment extends Fragment {
                 }
 
                 mSwipeRefreshLayout.setRefreshing(false);
+                //Snackbar.make(mSwipeRefreshLayout, R.string.refresh_fail, Snackbar.LENGTH_SHORT).show();
             }
         });
     }
