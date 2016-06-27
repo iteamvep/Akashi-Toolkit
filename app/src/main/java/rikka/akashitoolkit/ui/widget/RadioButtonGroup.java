@@ -87,9 +87,9 @@ public class RadioButtonGroup extends LinearLayout {
         view = new View(getContext());
         view.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, 2));
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
-            view.setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.line_divider));
+            view.setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.preference_list_divider_material));
         } else {
-            view.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.line_divider));
+            view.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.preference_list_divider_material));
         }
         addView(view);
 

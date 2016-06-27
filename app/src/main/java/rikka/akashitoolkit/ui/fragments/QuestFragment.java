@@ -15,7 +15,7 @@ import rikka.akashitoolkit.adapter.QuestAdapter;
 import rikka.akashitoolkit.otto.BookmarkAction;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.QuestAction;
-import rikka.materialpreference.BaseRecyclerViewItemDecoration;
+import rikka.akashitoolkit.ui.widget.BaseRecyclerViewItemDecoration;
 
 /**
  * Created by Rikka on 2016/3/6.

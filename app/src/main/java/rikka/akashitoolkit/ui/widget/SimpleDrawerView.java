@@ -32,7 +32,7 @@ public class SimpleDrawerView extends LinearLayout {
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 1);
         //lp.setMargins(0, 0, 0, Utils.dpToPx(4));
         view.setLayoutParams(lp);
-        view.setBackgroundResource(R.drawable.line_divider);
+        view.setBackgroundResource(R.drawable.preference_list_divider_material);
 
         addView(view);
     }
@@ -42,7 +42,7 @@ public class SimpleDrawerView extends LinearLayout {
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 1);
         lp.setMargins(0, Utils.dpToPx(4), 0, Utils.dpToPx(4));
         view.setLayoutParams(lp);
-        view.setBackgroundResource(R.drawable.line_divider);
+        view.setBackgroundResource(R.drawable.preference_list_divider_material);
 
         addView(view);
     }
@@ -55,7 +55,7 @@ public class SimpleDrawerView extends LinearLayout {
         if (getChildCount() != 0) {
             View view = new View(getContext());
             view.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 1));
-            view.setBackgroundResource(R.drawable.line_divider);
+            view.setBackgroundResource(R.drawable.preference_list_divider_material);
 
             addView(view);
         }

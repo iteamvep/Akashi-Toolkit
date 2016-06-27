@@ -9,8 +9,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.preference.Preference;
-import android.support.v7.preference.PreferenceCategory;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -28,6 +26,8 @@ import rikka.akashitoolkit.otto.ReadStatusResetAction;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.StaticData;
 import rikka.materialpreference.DropDownPreference;
+import rikka.materialpreference.Preference;
+import rikka.materialpreference.PreferenceCategory;
 import rikka.materialpreference.PreferenceFragment;
 
 public class SettingActivity extends BaseActivity {

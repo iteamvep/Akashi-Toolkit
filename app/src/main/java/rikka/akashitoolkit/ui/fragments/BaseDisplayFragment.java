@@ -16,7 +16,6 @@ import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.BaseRecyclerAdapter;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.DataChangedAction;
-import rikka.materialpreference.BaseRecyclerViewItemDecoration;
 
 /**
  * Created by Rikka on 2016/4/13.

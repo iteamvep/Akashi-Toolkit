@@ -5,7 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 
 import rikka.akashitoolkit.adapter.MapAdapter;
-import rikka.materialpreference.BaseRecyclerViewItemDecoration;
+import rikka.akashitoolkit.ui.widget.BaseRecyclerViewItemDecoration;
 
 /**
  * Created by Rikka on 2016/4/9.

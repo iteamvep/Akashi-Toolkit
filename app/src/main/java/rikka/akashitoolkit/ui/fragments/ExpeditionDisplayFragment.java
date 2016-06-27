@@ -3,7 +3,6 @@ package rikka.akashitoolkit.ui.fragments;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.GravityCompat;
-import android.support.v4.view.ViewPager;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -15,21 +14,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.ExpeditionAdapter;
-import rikka.akashitoolkit.adapter.ViewPagerStateAdapter;
 import rikka.akashitoolkit.support.Statistics;
-import rikka.akashitoolkit.ui.MainActivity;
-import rikka.akashitoolkit.ui.widget.CheckBoxGroup;
 import rikka.akashitoolkit.ui.widget.RadioButtonGroup;
 import rikka.akashitoolkit.ui.widget.SimpleDrawerView;
 import rikka.akashitoolkit.utils.Utils;
-import rikka.materialpreference.BaseRecyclerViewItemDecoration;
 
 /**
  * Created by Rikka on 2016/3/14.

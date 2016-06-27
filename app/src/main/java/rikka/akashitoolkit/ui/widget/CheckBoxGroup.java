@@ -86,7 +86,7 @@ public class CheckBoxGroup extends LinearLayout {
 
         view = new View(getContext());
         view.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, 2));
-        view.setBackgroundResource(R.drawable.line_divider);
+        view.setBackgroundResource(R.drawable.preference_list_divider_material);
         addView(view);
 
         view = new View(getContext());
