@@ -10,6 +10,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -25,8 +26,14 @@ import java.io.ByteArrayInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
+import java.util.TimeZone;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -112,11 +119,6 @@ public class TwitterFragment extends Fragment implements TwitterAdapter.OnMoreBu
     public void onDestroy() {
         BusProvider.instance().unregister(this);
         super.onDestroy();
-    }
-
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.twitter, menu);
     }
 
     @Override
@@ -255,23 +257,19 @@ public class TwitterFragment extends Fragment implements TwitterAdapter.OnMoreBu
     }
 
     private void updateData(Twitter source, boolean animate) {
-        List<TwitterAdapter.DataModel> data;
-        int id = 0;
-
-        if (!animate) {
-            data = new ArrayList<>();
-        } else {
-            data = mTwitterAdapter.getData();
-            id = data.size() > 0 ? data.get(0).getId() : 0;
-        }
-
-        int added = 0;
-        int modified = 0;
-        int current = 0;
-
         if (source == null || source.getPosts() == null) {
             return;
         }
+
+        List<TwitterAdapter.DataModel> data;
+
+        int id = -1;
+        int added = 0;
+        if (mTwitterAdapter.getData().size() > 0) {
+            id = mTwitterAdapter.getData().get(0).getId();
+        }
+
+        data = new ArrayList<>();
 
         for (Twitter.PostsEntity entity:
                 source.getPosts()) {
@@ -298,40 +296,37 @@ public class TwitterFragment extends Fragment implements TwitterAdapter.OnMoreBu
             item.setDate(entity.getDate());
             item.setId(entity.getId());
             item.setModified(entity.getModified());
+            data.add(item);
 
-            if (animate) {
-                if (current >= data.size()) {
-                    data.add(item);
-                } else if (entity.getId() != 0 && entity.getId() <= id && !entity.getModified().equals(data.get(current).getModified())) {
-                    data.remove(current);
-                    data.add(current, item);
-                    modified ++;
-                } else if (entity.getId() > id) {
-                    data.add(added, item);
-                    added++;
-                    current++;
-                }
-                current ++;
-            } else {
-                data.add(item);
+            r = Pattern.compile("(\\d{4})-(\\d{2})-(\\d{2}) (\\d{2}):(\\d{2}):(\\d{2})");
+            m = r.matcher(entity.getDate());
+            if (m.find()) {
+                int yy = Integer.parseInt(m.group(1));
+                int MM = Integer.parseInt(m.group(2));
+                int DD = Integer.parseInt(m.group(3));
+                int HH = Integer.parseInt(m.group(4));
+                int mm = Integer.parseInt(m.group(5));
+                int ss = Integer.parseInt(m.group(6));
+                Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("GMT+08:00"), Locale.getDefault());
+                calendar.set(yy, MM - 1, DD, HH, mm, ss);
+                item.setTime(calendar.getTimeInMillis());
+            }
+
+            if (id != -1 && entity.getId() > id) {
+                added++;
             }
         }
 
         mTwitterAdapter.setData(data);
+        mTwitterAdapter.notifyDataSetChanged();
         if (animate) {
-            mTwitterAdapter.notifyItemRangeInserted(0, added);
-            mTwitterAdapter.notifyItemRangeChanged(added, modified);
-            if (added > 0 && mRecyclerView.getScrollY() <= 50) {
-                mRecyclerView.scrollToPosition(0);
-                //showSnackbar(String.format(getString(R.string.new_twitter), added), Snackbar.LENGTH_SHORT);
-            }
+            mRecyclerView.scrollToPosition(0);
 
-            if (added == 0) {
-                //showSnackbar(R.string.no_new_tweet, Snackbar.LENGTH_SHORT);
-            }
-        }
-        else {
-            mTwitterAdapter.notifyDataSetChanged();
+            /*if (added == 0) {
+                Snackbar.make(mSwipeRefreshLayout, R.string.no_new_tweet, Snackbar.LENGTH_SHORT).show();
+            } else {
+                Snackbar.make(mSwipeRefreshLayout, String.format(getString(R.string.new_twitter), added), Snackbar.LENGTH_SHORT).show();
+            }*/
         }
     }
 
@@ -395,9 +390,13 @@ public class TwitterFragment extends Fragment implements TwitterAdapter.OnMoreBu
 
             @Override
             public void onFailure(Call<Twitter> call, Throwable t) {
+                if (getContext() == null) {
+                    return;
+                }
+
                 mSwipeRefreshLayout.setRefreshing(false);
 
-                //showSnackbar(R.string.refresh_fail, Snackbar.LENGTH_SHORT);
+                Snackbar.make(mSwipeRefreshLayout, R.string.refresh_fail, Snackbar.LENGTH_SHORT).show();
             }
         });
     }

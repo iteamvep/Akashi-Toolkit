@@ -1,10 +1,13 @@
 package rikka.akashitoolkit.adapter;
 
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.text.TextUtils;
+import android.text.format.DateUtils;
 import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,6 +39,7 @@ public class TwitterAdapter extends RecyclerView.Adapter<TwitterAdapter.ViewHold
         public String translated;
         public String date;
         public String modified;
+        public long time;
 
         public int getId() {
             return id;
@@ -75,6 +79,14 @@ public class TwitterAdapter extends RecyclerView.Adapter<TwitterAdapter.ViewHold
 
         public void setModified(String modified) {
             this.modified = modified;
+        }
+
+        public long getTime() {
+            return time;
+        }
+
+        public void setTime(long time) {
+            this.time = time;
         }
     }
 
@@ -137,6 +149,13 @@ public class TwitterAdapter extends RecyclerView.Adapter<TwitterAdapter.ViewHold
 
     public TwitterAdapter() {
         mData = new ArrayList<>();
+
+        setHasStableIds(true);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return mData.get(position).getId();
     }
 
     @Override
@@ -157,6 +176,12 @@ public class TwitterAdapter extends RecyclerView.Adapter<TwitterAdapter.ViewHold
         }
 
         holder.mName.setText("「艦これ」開発/運営");
+        holder.mName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                view.getContext().startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/kancolle_staff")));
+            }
+        });
 
         holder.mTvContent.setText(
                 Html.fromHtml(
@@ -194,7 +219,17 @@ public class TwitterAdapter extends RecyclerView.Adapter<TwitterAdapter.ViewHold
                 break;
         }
 
-        holder.mTime.setText(mData.get(position).getDate());
+        if (System.currentTimeMillis() - mData.get(position).getTime() < DateUtils.DAY_IN_MILLIS) {
+            holder.mTime.setText(DateUtils.getRelativeTimeSpanString(
+                    mData.get(position).getTime(),
+                    System.currentTimeMillis(),
+                    0));
+        } else {
+            holder.mTime.setText(DateUtils.formatDateTime(
+                    holder.itemView.getContext(),
+                    mData.get(position).getTime(),
+                    DateUtils.FORMAT_SHOW_YEAR));
+        }
 
         holder.mTvContent.setTextIsSelectable(true);
         holder.mTvContentTranslated.setTextIsSelectable(true);
