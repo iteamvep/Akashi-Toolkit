@@ -630,6 +630,10 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
     }
 
     private void addIllustration(ViewGroup parent) {
+        if (mItem.getWikiId() == null) {
+            return;
+        }
+
         parent = addCell(parent, R.string.illustration);
 
         ViewGroup view = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.ship_illustrations_container, parent);
@@ -786,9 +790,13 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
 
     @SuppressLint("SetTextI18n")
     private void addEquip(ViewGroup parent) {
-        parent = addCell(parent, R.string.equip_and_load);
-
         Ship.EquipEntity equip = mItem.getEquip();
+
+        if (equip == null) {
+            return;
+        }
+
+        parent = addCell(parent, R.string.equip_and_load);
 
         for (int i = 0; i < equip.getSlots(); i++) {
             ViewGroup view = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.ship_equip, parent, false);
@@ -952,6 +960,10 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
                 addAttrView(mLinearLayout, R.string.attr_range, mItem.getAttr().getRange());
                 addAttrView(mLinearLayout, R.string.attr_luck, mItem.getAttr().getLuck(), i);
             } else {
+                if (mItem.getAttr().getHP().length == 0) {
+                    return mLinearLayout;
+                }
+
                 addAttrView(mLinearLayout, R.string.attr_hp, mItem.getAttr().getHP(), 0);
                 addAttrView(mLinearLayout, R.string.attr_firepower, mItem.getAttr().getFirepower(), 0);
                 addAttrView(mLinearLayout, R.string.attr_aa, mItem.getAttr().getAA(), 0);
