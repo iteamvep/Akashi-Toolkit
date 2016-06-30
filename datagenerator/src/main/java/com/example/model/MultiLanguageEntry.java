@@ -1,11 +1,13 @@
 package com.example.model;
 
+import com.google.gson.annotations.Expose;
+
 /**
  * Created by Rikka on 2016/4/16.
  */
 public class MultiLanguageEntry {
-    private String zh_cn;
-    private String ja;
+    @Expose private String zh_cn;
+    @Expose private String ja;
 
     public MultiLanguageEntry() {
         zh_cn = "";

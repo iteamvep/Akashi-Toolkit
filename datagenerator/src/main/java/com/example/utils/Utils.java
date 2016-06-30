@@ -52,7 +52,15 @@ public class Utils {
     }
 
     public static void objectToJsonFile(Object element, String outName) {
-        InputStream is = new ByteArrayInputStream(new Gson().toJson(element).getBytes());
+        objectToJsonFile(new Gson(), element, outName);
+    }
+
+    public static void objectToJsonFile(Gson gson, Object element, String outName) {
+        objectToJsonFile(gson.toJson(element), outName);
+    }
+
+    public static void objectToJsonFile(String element, String outName) {
+        InputStream is = new ByteArrayInputStream(element.getBytes());
 
         File file = new File(outName);
         if (!file.getParentFile().exists()) {
