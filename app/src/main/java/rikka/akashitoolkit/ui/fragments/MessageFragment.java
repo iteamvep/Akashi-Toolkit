@@ -189,7 +189,10 @@ public class MessageFragment extends Fragment {
                     new FileReader(CACHE_FILE),
                     CheckUpdate.class);
 
-            data.getMessages().clear();
+            // clear old messages
+            if (data.getMessages() != null)
+                data.getMessages().clear();
+
             updateData(data);
         } catch (FileNotFoundException ignored) {
         }

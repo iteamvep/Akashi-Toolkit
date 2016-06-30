@@ -550,7 +550,7 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
         ((TextView) cell.findViewById(R.id.textView)).setText(title);
 
         if (icon == R.drawable.item_attr_range) {
-            ((TextView) cell.findViewById(R.id.textView2)).setText(KCStringFormatter.getRange(value));
+            ((TextView) cell.findViewById(R.id.textView2)).setText(KCStringFormatter.getRange(cell.getContext(), value));
         } else {
             ((TextView) cell.findViewById(R.id.textView2)).setText(String.format("%s%d", value > 0 ? "+" : "", value));
             ((TextView) cell.findViewById(R.id.textView2)).setTextColor(ContextCompat.getColor(this, value > 0 ? R.color.material_green_300 : R.color.material_red_300));

@@ -54,7 +54,7 @@ public class ShipList {
         for (Ship ship :
                 list) {
             ship.setBookmarked(Settings.instance(context)
-                    .getBoolean(String.format("ship_%d_%d", ship.getCtype(), ship.getCnum()), false));
+                    .getBoolean(String.format("ship_%d_%d", ship.getClassType(), ship.getClassNum()), false));
         }
     }
 
@@ -65,8 +65,6 @@ public class ShipList {
                 return lhs.getId() - rhs.getId();
             }
         });
-
-
     }
 
     public static synchronized void sort() {
@@ -92,7 +90,12 @@ public class ShipList {
                     newList.add(ships[i]);
                     added[i] = true;
 
-                    int to = ships[i].getRemodel().getId_to();
+                    int to;
+                    if (ships[i].getRemodel() != null)
+                        to = ships[i].getRemodel().getToId();
+                    else
+                        to = 0;
+
                     while (to > 0) {
                         int index = findItemById(to, ships);
                         if (index == -1
@@ -105,7 +108,7 @@ public class ShipList {
                         newList.add(ships[index]);
                         added[index] = true;
 
-                        to = ships[index].getRemodel().getId_to();
+                        to = ships[index].getRemodel().getToId();
                     }
                 }
             }
@@ -134,15 +137,20 @@ public class ShipList {
         int curType = 0;
         while (newList.size() < list.size()) {
             for (int i = 0; i < ships.length; i++) {
-                if (!added[i] && curType == ships[i].getCtype()) {
+                if (!added[i] && curType == ships[i].getClassType()) {
                     newList.add(ships[i]);
                     added[i] = true;
 
-                    int to = ships[i].getRemodel().getId_to();
+                    int to;
+                    if (ships[i].getRemodel() != null)
+                        to = ships[i].getRemodel().getToId();
+                    else
+                        to = 0;
+
                     while (to > 0) {
                         int index = findItemById(to, ships);
                         if (index == -1
-                                || curType != ships[index].getCtype()
+                                || curType != ships[index].getClassType()
                                 /*|| ships[index].getRemodel().getId_to() == ships[index].getRemodel().getId_from()*/
                                 || added[index]) {
                             break;
@@ -151,7 +159,7 @@ public class ShipList {
                         newList.add(ships[index]);
                         added[index] = true;
 
-                        to = ships[index].getRemodel().getId_to();
+                        to = ships[index].getRemodel().getToId();
                     }
                 }
             }
@@ -162,10 +170,10 @@ public class ShipList {
         Collections.sort(newList, new Comparator<Ship>() {
             @Override
             public int compare(Ship lhs, Ship rhs) {
-                if (lhs.getCtype() != rhs.getCtype()) {
+                if (lhs.getClassType() != rhs.getClassType()) {
                     return 1;
                 }
-                if (lhs.getCnum() < rhs.getCnum()) {
+                if (lhs.getClassNum() < rhs.getClassNum()) {
                     return -1;
                 }
                 return 0;
@@ -196,7 +204,7 @@ public class ShipList {
     public static Ship findItemByWikiId(Context context, String wiki_id) {
         for (Ship item:
                 get(context)) {
-            if (item.getWiki_id().equals(wiki_id)) {
+            if (item.getWikiId().equals(wiki_id)) {
                 return item;
             }
         }

@@ -11,6 +11,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.ColorRes;
 import android.support.annotation.Nullable;
+import android.support.annotation.StringRes;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.TabLayout;
@@ -19,16 +20,12 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.support.v7.widget.AppCompatDrawableManager;
-import android.support.v7.widget.ForwardingListener;
 import android.support.v7.widget.GridLayout;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.ListPopupWindow;
-import android.support.v7.widget.MenuPopupWindow;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.text.InputType;
 import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
@@ -91,6 +88,7 @@ import rikka.akashitoolkit.utils.Utils;
  */
 public class ShipDisplayActivity extends BaseItemDisplayActivity implements View.OnTouchListener {
     public static final String EXTRA_ITEM_ID = "EXTRA_ITEM_ID";
+    public static final String EXTRA_IS_ENEMY = "EXTRA_IS_ENEMY";
 
     private Toolbar mToolbar;
     private CoordinatorLayout mCoordinatorLayout;
@@ -98,6 +96,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
     private RecyclerView mRecyclerView;
     private Ship mItem;
     private int mId;
+    private boolean mIsEnemy;
     private Adapter mAdapter;
 
     private int mScrollY;
@@ -126,6 +125,8 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
                 }
             }
         }
+
+        mIsEnemy = getIntent().getBooleanExtra(EXTRA_IS_ENEMY, false);
 
         setContentView(R.layout.activity_ship_display);
 
@@ -172,23 +173,23 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
             return 0;
         }
 
-        return item.getSlot();
+        return item.getEquip().getSlots();
     }
 
     @SuppressLint("DefaultLocale")
     private void setToolbarTitle() {
         if (mItem.getName() != null) {
-            ShipClass shipClass = ShipClassList.findItemById(this, mItem.getCtype());
+            ShipClass shipClass = ShipClassList.findItemById(this, mItem.getClassType());
 
             String c = "";
             if (shipClass != null) {
-                c = String.format("%s%s号舰", shipClass.getName(), Utils.getChineseNumberString(mItem.getCnum()));
+                c = String.format("%s%s号舰", shipClass.getName(), Utils.getChineseNumberString(mItem.getClassNum()));
             } else {
                 Log.d("ShipDisplayActivity", "No ship class: " + mItem.getName().get(this));
             }
             ((TextView) mToolbar.findViewById(android.R.id.title)).setText(mItem.getName().get(ShipDisplayActivity.this));
             ((TextView) mToolbar.findViewById(android.R.id.summary)).setText(String.format("No.%s %s",
-                    mItem.getWiki_id(),
+                    mItem.getWikiId(),
                     c/*,
                     ShipList.shipType[mItem.getType()]*/));
         }
@@ -540,6 +541,11 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
+        if (mIsEnemy) {
+            mToolbar.findViewById(android.R.id.icon).setVisibility(View.GONE);
+            return;
+        }
+
         mToolbar.findViewById(R.id.content_container).setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -548,15 +554,15 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
                 PopupMenu popupMenu = new PopupMenu(ShipDisplayActivity.this, v);
 
                 Ship cur = mItem;
-                while (cur.getRemodel().getId_from() != 0) {
-                    cur = ShipList.findItemById(v.getContext(), cur.getRemodel().getId_from());
+                while (cur.getRemodel().getFromId() != 0) {
+                    cur = ShipList.findItemById(v.getContext(), cur.getRemodel().getFromId());
                 }
                 popupMenu.getMenu().add(0, cur.getId(), 0, cur.getName().get(v.getContext()));
 
                 int i = 1;
-                while (cur.getRemodel().getId_to() != 0 &&
-                        cur.getRemodel().getId_to() != cur.getRemodel().getId_from()) {
-                    cur = ShipList.findItemById(v.getContext(), cur.getRemodel().getId_to());
+                while (cur.getRemodel().getToId() != 0 &&
+                        cur.getRemodel().getToId() != cur.getRemodel().getFromId()) {
+                    cur = ShipList.findItemById(v.getContext(), cur.getRemodel().getToId());
                     popupMenu.getMenu().add(0, cur.getId(), i, cur.getName().get(v.getContext()));
                     i++;
                 }
@@ -572,13 +578,6 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
                         return false;
                     }
                 });
-
-                /*if (popupMenu.getDragToOpenListener() instanceof ForwardingListener) {
-                    ForwardingListener listener = (ForwardingListener) popupMenu.getDragToOpenListener();
-                    (() listener.getPopup()).setVerticalOffset(-v.getHeight());
-                    (() listener.getPopup()).setHorizontalOffset(Utils.dpToPx(2));
-                    listener.getPopup().show();
-                }*/
             }
         });
     }
@@ -588,31 +587,45 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
             return;
         }
 
-        TabLayout tabLayout = new TabLayout(this);
-        linearLayout.addView(tabLayout);
-
         ViewPager viewPager = (ViewPager) LayoutInflater.from(this).inflate(R.layout.content_viewpager, linearLayout, true).findViewById(R.id.view_pager);
-        //ViewPager viewPager = new ViewPager(this);
+
         viewPager.setPadding(0, Utils.dpToPx(4), 0, 0);
-        viewPager.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, Utils.dpToPx(32) * 6 + Utils.dpToPx(16)));
+        if (!mIsEnemy)
+            viewPager.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, Utils.dpToPx(32) * 6 + Utils.dpToPx(16)));
+        else
+            viewPager.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, Utils.dpToPx(32) * 3 + Utils.dpToPx(16)));
+
         ViewPagerStateAdapter adapter = new ViewPagerStateAdapter(getSupportFragmentManager()) {
             @Override
             public Bundle getArgs(int position) {
                 Bundle bundle = new Bundle();
                 bundle.putInt("TYPE", position);
                 bundle.putInt("ITEM", mId);
+                bundle.putBoolean("ENEMY", mIsEnemy);
                 return bundle;
             }
         };
-        adapter.addFragment(AttrFragment.class, getString(R.string.initial));
-        adapter.addFragment(AttrFragment.class, "Lv.99");
-        adapter.addFragment(AttrFragment.class, "LV.155");
+        if (!mIsEnemy) {
+            adapter.addFragment(AttrFragment.class, getString(R.string.initial));
+            adapter.addFragment(AttrFragment.class, "Lv.99");
+            adapter.addFragment(AttrFragment.class, "LV.155");
+        } else {
+            adapter.addFragment(AttrFragment.class, getString(R.string.initial));
+        }
+
         viewPager.setAdapter(adapter);
-        tabLayout.setupWithViewPager(viewPager);
-        tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(this, R.color.colorPrimaryItemActivity));
+
+        if (!mIsEnemy) {
+            TabLayout tabLayout = new TabLayout(this);
+            linearLayout.addView(tabLayout);
+            tabLayout.setupWithViewPager(viewPager);
+            tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(this, R.color.colorPrimaryItemActivity));
+        }
 
         addEquip(linearLayout);
-        addRemodel(linearLayout);
+        if (!mIsEnemy) {
+            addRemodel(linearLayout);
+        }
         addIllustration(linearLayout);
     }
 
@@ -624,19 +637,22 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
 
         final List<String> urlList = new ArrayList<>();
 
-        if (mItem.getWiki_id().equals("030a")
-                || mItem.getWiki_id().equals("026a")
-                || mItem.getWiki_id().equals("027a")) {
-            urlList.add(Utils.getKCWikiFileUrl(String.format("KanMusu%sIllust.png", mItem.getWiki_id())));
-            urlList.add(Utils.getKCWikiFileUrl(String.format("KanMusu%sDmgIllust.png", mItem.getWiki_id())));
+        if (mItem.getWikiId().equals("030a")
+                || mItem.getWikiId().equals("026a")
+                || mItem.getWikiId().equals("027a")) {
+            urlList.add(Utils.getKCWikiFileUrl(String.format("KanMusu%sIllust.png", mItem.getWikiId())));
+            urlList.add(Utils.getKCWikiFileUrl(String.format("KanMusu%sDmgIllust.png", mItem.getWikiId())));
 
         } else {
-            urlList.add(Utils.getKCWikiFileUrl(String.format("KanMusu%sIllust.png", mItem.getWiki_id().replace("a", ""))));
-            urlList.add(Utils.getKCWikiFileUrl(String.format("KanMusu%sDmgIllust.png", mItem.getWiki_id().replace("a", ""))));
+            if (!mIsEnemy) {
+                urlList.add(Utils.getKCWikiFileUrl(String.format("KanMusu%sIllust.png", mItem.getWikiId().replace("a", ""))));
+                urlList.add(Utils.getKCWikiFileUrl(String.format("KanMusu%sDmgIllust.png", mItem.getWikiId().replace("a", ""))));
+            } else {
+                urlList.add(Utils.getKCWikiFileUrl(String.format("ShinkaiSeikan%s.png", mItem.getWikiId())));
+            }
         }
 
-
-        ExtraIllustration extraIllustration = ExtraIllustrationList.findItemById(this, mItem.getWiki_id());
+        ExtraIllustration extraIllustration = ExtraIllustrationList.findItemById(this, mItem.getWikiId());
         if (extraIllustration != null) {
             for (String name :
                     extraIllustration.getImage()) {
@@ -653,6 +669,11 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
                     .inflate(R.layout.ship_illustrations, container, false)
                     .findViewById(R.id.imageView);
             container.addView(imageView);
+
+            if (mIsEnemy) {
+                imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
+                imageView.setLayoutParams(new LinearLayout.LayoutParams(Utils.dpToPx(150), Utils.dpToPx(150)));
+            }
 
             final int finalI = i;
             imageView.setOnClickListener(new View.OnClickListener() {
@@ -680,6 +701,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
         }
     }
 
+    @SuppressLint("DefaultLocale")
     private void addRemodel(ViewGroup parent) {
         if (mItem.getRemodel() != null) {
             parent = addCell(parent, R.string.remodel);
@@ -688,8 +710,8 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
 
             //StringBuilder sb = new StringBuilder();
             Ship cur = mItem;
-            while (cur.getRemodel().getId_from() != 0) {
-                cur = ShipList.findItemById(this, cur.getRemodel().getId_from());
+            while (cur.getRemodel().getFromId() != 0) {
+                cur = ShipList.findItemById(this, cur.getRemodel().getFromId());
             }
 
             while (true) {
@@ -725,9 +747,9 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
                     }
                 });
 
-                if (cur.getRemodel().getId_from() != 0) {
-                    Ship prev = ShipList.findItemById(this, cur.getRemodel().getId_from());
-                    if (prev.getRemodel().getBlueprint() == 0) {
+                if (cur.getRemodel().getFromId() != 0) {
+                    Ship prev = ShipList.findItemById(this, cur.getRemodel().getFromId());
+                    if (!prev.getRemodel().isRequireBlueprint()) {
                         sb.append(String.format(" (%d)", prev.getRemodel().getLevel()));
                     } else {
                         sb.append(String.format(" (%d + 改装设计图)", prev.getRemodel().getLevel()));
@@ -740,15 +762,15 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
                     ((TextView) view.findViewById(android.R.id.title)).setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
                 }
 
-                if (cur.getRemodel().getId_to() == 0 ||
-                        cur.getRemodel().getId_from() == cur.getRemodel().getId_to()) {
+                if (cur.getRemodel().getToId() == 0 ||
+                        cur.getRemodel().getFromId() == cur.getRemodel().getToId()) {
 
                     view.findViewById(R.id.imageView).setVisibility(View.INVISIBLE);
                     break;
                 }
 
-                cur = ShipList.findItemById(this, cur.getRemodel().getId_to());
-                if (cur.getRemodel().getId_from() != cur.getRemodel().getId_to()) {
+                cur = ShipList.findItemById(this, cur.getRemodel().getToId());
+                if (cur.getRemodel().getFromId() != cur.getRemodel().getToId()) {
                     //sb.append(" → ");
                 } else {
                     //sb.append(" ↔ ");
@@ -762,22 +784,26 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private void addEquip(ViewGroup parent) {
         parent = addCell(parent, R.string.equip_and_load);
 
-        List<Integer> equipId = mItem.getEquip().get(0);
-        List<Integer> equipSlot = mItem.getEquip().get(1);
+        Ship.EquipEntity equip = mItem.getEquip();
 
-        for (int i = 0; i < mItem.getSlot(); i++) {
+        for (int i = 0; i < equip.getSlots(); i++) {
             ViewGroup view = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.ship_equip, parent, false);
 
-            if (equipId.get(i) > 0) {
-                final Equip item = EquipList.findItemById(this, equipId.get(i));
+            int id = equip.getId()[i];
+            if (id > 0) {
+                final Equip item = EquipList.findItemById(this, id);
+
+                TextView title = ((TextView) view.findViewById(android.R.id.title));
                 if (item == null) {
-                    ((TextView) view.findViewById(android.R.id.title)).setText(String.format(getString(R.string.equip_not_found), equipId.get(i)));
-                    view.findViewById(android.R.id.title).setEnabled(false);
+                    title.setText(String.format(getString(R.string.equip_not_found), id));
+                    title.setEnabled(false);
                 } else {
-                    ((TextView) view.findViewById(android.R.id.title)).setText(item.getName().get(this));
+                    title.setText(item.getName().get(this));
+
                     view.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -792,7 +818,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
                 view.findViewById(android.R.id.title).setEnabled(false);
             }
 
-            ((TextView) view.findViewById(R.id.textView)).setText(Integer.toString(equipSlot.get(i)));
+            ((TextView) view.findViewById(R.id.textView)).setText(Integer.toString(equip.getSpace()[i]));
 
             parent.addView(view);
         }
@@ -850,7 +876,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
                 mItem.setBookmarked(!mItem.isBookmarked());
 
                 Settings.instance(this)
-                        .putBoolean(String.format("ship_%d_%d", mItem.getCtype(), mItem.getCnum()), mItem.isBookmarked());
+                        .putBoolean(String.format("ship_%d_%d", mItem.getClassType(), mItem.getClassNum()), mItem.isBookmarked());
 
                 if (mToast != null) {
                     mToast.cancel();
@@ -891,30 +917,50 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
         private Ship mItem;
         private LinearLayout mLinearLayout;
 
+        private LinearLayout mCurAttrLinearLayout;
+        private int mCount = 0;
+
         @Nullable
         @Override
         public View onCreateView(LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState) {
             Bundle args = getArguments();
             int i = args.getInt("TYPE");
             int id = args.getInt("ITEM");
+            boolean enemy = args.getBoolean("ENEMY", false);
 
             mLinearLayout = new LinearLayout(getContext());
             mLinearLayout.setOrientation(LinearLayout.VERTICAL);
             mLinearLayout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
             mLinearLayout.setPadding(0, Utils.dpToPx(4), 0, 0);
+
             mItem = ShipList.findItemById(getContext(), id);
-            addAttrView(mLinearLayout, "耐久", mItem.getAttr().getHp(), i == 2 ? 2 : 0, R.drawable.item_attr_hp);
-            addAttrView(mLinearLayout, "火力", mItem.getAttr().getFire(), i, R.drawable.item_attr_fire);
-            addAttrView(mLinearLayout, "对空", mItem.getAttr().getAa(), i, R.drawable.item_attr_aa);
-            addAttrView(mLinearLayout, "雷装", mItem.getAttr().getTorpedo(), i, R.drawable.item_attr_torpedo);
-            addAttrView(mLinearLayout, "装甲", mItem.getAttr().getArmor(), i, R.drawable.item_attr_armor);
-            addAttrView(mLinearLayout, "对潜", mItem.getAttr().getAsw(), i, R.drawable.item_attr_asw);
-            addAttrView(mLinearLayout, "回避", mItem.getAttr().getEvasion(), i, R.drawable.item_attr_dodge);
-            addAttrView(mLinearLayout, "索敌", mItem.getAttr().getSearch(), i, R.drawable.item_attr_search);
-            addAttrView(mLinearLayout, "航速", mItem.getAttr().getSpeed(), R.drawable.item_attr_speed);
-            addAttrView(mLinearLayout, "射程", mItem.getAttr().getRange(), R.drawable.item_attr_range);
-            addAttrView(mLinearLayout, "运", mItem.getAttr().getLuck(), i, R.drawable.item_attr_luck);
-            /*attr = 0;
+
+            if (mItem == null || mItem.getAttr() == null) {
+                return mLinearLayout;
+            }
+
+            if (!enemy) {
+                addAttrView(mLinearLayout, R.string.attr_hp, mItem.getAttr().getHP(), i == 2 ? 1 : 0);
+                addAttrView(mLinearLayout, R.string.attr_firepower, mItem.getAttr().getFirepower(), i);
+                addAttrView(mLinearLayout, R.string.attr_aa, mItem.getAttr().getAA(), i);
+                addAttrView(mLinearLayout, R.string.attr_torpedo, mItem.getAttr().getTorpedo(), i);
+                addAttrView(mLinearLayout, R.string.attr_armor, mItem.getAttr().getArmor(), i);
+                addAttrView(mLinearLayout, R.string.attr_asw, mItem.getAttr().getASW(), i);
+                addAttrView(mLinearLayout, R.string.attr_evasion, mItem.getAttr().getEvasion(), i);
+                addAttrView(mLinearLayout, R.string.attr_los, mItem.getAttr().getLOS(), i);
+                addAttrView(mLinearLayout, R.string.attr_speed, mItem.getAttr().getSpeed());
+                addAttrView(mLinearLayout, R.string.attr_range, mItem.getAttr().getRange());
+                addAttrView(mLinearLayout, R.string.attr_luck, mItem.getAttr().getLuck(), i);
+            } else {
+                addAttrView(mLinearLayout, R.string.attr_hp, mItem.getAttr().getHP(), 0);
+                addAttrView(mLinearLayout, R.string.attr_firepower, mItem.getAttr().getFirepower(), 0);
+                addAttrView(mLinearLayout, R.string.attr_aa, mItem.getAttr().getAA(), 0);
+                addAttrView(mLinearLayout, R.string.attr_torpedo, mItem.getAttr().getTorpedo(), 0);
+                addAttrView(mLinearLayout, R.string.attr_armor, mItem.getAttr().getArmor(), 0);
+                addAttrView(mLinearLayout, R.string.attr_speed, mItem.getAttr().getSpeed());
+            }
+
+            /*mCount = 0;
             mCurAttrLinearLayout = null;
             addAttrView(mLinearLayout, "燃料消耗", mItem.getRemodel().getCost().get(0), 0);
             addAttrView(mLinearLayout, "弹药消耗", mItem.getRemodel().getCost().get(1), 0);*/
@@ -922,36 +968,30 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
             return mLinearLayout;
         }
 
-        private void addAttrView(ViewGroup parent, String title, List<Integer> value, int i, int icon) {
-            if (value.size() <= i) {
-                i = value.size() - 1;
+        private void addAttrView(ViewGroup parent, @StringRes int title, String[] value, int i) {
+            if (value.length <= i) {
+                i = value.length - 1;
             }
 
-            if (value.size() == 2) {
-                addAttrView(parent, title, String.format("%d / %d", value.get(0), value.get(1)), icon);
+            if (value.length == 2) {
+                addAttrView(parent, title, String.format("%s / %s", value[0], value[1]));
             } else {
-                addAttrView(parent, title, Integer.toString(value.get(i)), icon);
+                addAttrView(parent, title, value[i]);
             }
         }
 
-        private void addAttrView(ViewGroup parent, String title, int value, int icon) {
-            if (value == 0) {
-                return;
-            }
-            if (icon == R.drawable.item_attr_range) {
-                addAttrView(parent, title, KCStringFormatter.getRange(value), icon);
-            } else if (icon == R.drawable.item_attr_speed) {
-                addAttrView(parent, title, KCStringFormatter.getSpeed(value), icon);
+        private void addAttrView(ViewGroup parent, @StringRes int title, int value) {
+            if (title == R.string.attr_range) {
+                addAttrView(parent, title, KCStringFormatter.getRange(parent.getContext(), value));
+            } else if (title == R.string.attr_speed) {
+                addAttrView(parent, title, KCStringFormatter.getSpeed(parent.getContext(), value));
             } else {
-                addAttrView(parent, title, Integer.toString(value), icon);
+                addAttrView(parent, title, Integer.toString(value));
             }
         }
 
-        private LinearLayout mCurAttrLinearLayout;
-        private int attr = 0;
-
-        private void addAttrView(ViewGroup parent, String title, String value, int icon) {
-            attr ++;
+        private void addAttrView(ViewGroup parent, @StringRes int title, String value) {
+            mCount++;
 
             if (mCurAttrLinearLayout == null) {
                 mCurAttrLinearLayout = new LinearLayout(getContext());
@@ -959,20 +999,19 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
                 mCurAttrLinearLayout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, Utils.dpToPx(32)));
                 mCurAttrLinearLayout.setBaselineAligned(false);
                 mCurAttrLinearLayout.setGravity(Gravity.CENTER_VERTICAL);
-                LinearLayout view = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.item_attr_cell, mCurAttrLinearLayout);
+                LayoutInflater.from(getContext()).inflate(R.layout.item_attr_cell, mCurAttrLinearLayout);
                 parent.addView(mCurAttrLinearLayout);
             }
 
             View cell = mCurAttrLinearLayout
-                    .findViewById((attr % 2 == 0) ? R.id.item_attr_cell2 : R.id.item_attr_cell);
+                    .findViewById((mCount % 2 == 0) ? R.id.item_attr_cell2 : R.id.item_attr_cell);
 
             cell.setVisibility(View.VISIBLE);
 
             ((TextView) cell.findViewById(R.id.textView)).setText(title);
             ((TextView) cell.findViewById(R.id.textView2)).setText(value);
-            //((ImageView) cell.findViewById(R.id.imageView)).setImageDrawable(ContextCompat.getDrawable(getContext(), icon));
 
-            if (attr % 2 == 0) {
+            if (mCount % 2 == 0) {
                 mCurAttrLinearLayout = null;
             }
         }
@@ -1000,13 +1039,12 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.ship_display, menu);
 
-        menu.findItem(R.id.action_bookmark).setIcon(
-                AppCompatDrawableManager.get().getDrawable(this, mItem.isBookmarked() ? R.drawable.ic_bookmark_24dp : R.drawable.ic_bookmark_border_24dp));
-
-        /*Drawable drawable = ContextCompat.getDrawable(this, mItem.isBookmarked() ? R.drawable.ic_bookmark_24dp : R.drawable.ic_bookmark_border_24dp);
-        drawable.setColorFilter(ContextCompat.getColor(this, R.color.itemDisplayTitle), PorterDuff.Mode.SRC_ATOP);
-
-        menu.findItem(R.id.action_bookmark).setIcon(drawable);*/
+        if (!mIsEnemy) {
+            menu.findItem(R.id.action_bookmark).setIcon(
+                    AppCompatDrawableManager.get().getDrawable(this, mItem.isBookmarked() ? R.drawable.ic_bookmark_24dp : R.drawable.ic_bookmark_border_24dp));
+        } else {
+            menu.findItem(R.id.action_bookmark).setVisible(false);
+        }
 
         return true;
     }

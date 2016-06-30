@@ -47,11 +47,11 @@ public class EquipList {
             equip.setShipFrom(ids);
 
             for (Ship ship : ships) {
-                if (ship.getEquip() == null || ship.getEquip().get(0) == null) {
+                if (ship.getEquip() == null) {
                     continue;
                 }
 
-                for (int equipId : ship.getEquip().get(0)) {
+                for (int equipId : ship.getEquip().getId()) {
                     if (equipId == equip.getId()
                             && ids.indexOf(ship.getId()) == -1) {
                         ids.add(ship.getId());

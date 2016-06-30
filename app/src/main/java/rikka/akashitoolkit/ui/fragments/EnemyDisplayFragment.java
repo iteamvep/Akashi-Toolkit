@@ -64,7 +64,9 @@ public class EnemyDisplayFragment extends BaseDrawerItemFragment {
         ViewPagerStateAdapter adapter = new ViewPagerStateAdapter(getChildFragmentManager()) {
             @Override
             public Bundle getArgs(int position) {
-                return null;
+                Bundle bundle = new Bundle();
+                bundle.putBoolean("ENEMY", true);
+                return bundle;
             }
         };
         adapter.addFragment(ShipFragment.class, getString(R.string.enemy));

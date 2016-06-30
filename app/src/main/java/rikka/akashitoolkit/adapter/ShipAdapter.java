@@ -33,6 +33,7 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Ship> {
     private List<Ship> mData;
     private Activity mActivity;
     private int mShowVersion;
+    private boolean mEnemy;
     private int mTypeFlag;
     private int mShowSpeed;
     private int mSort;
@@ -46,7 +47,7 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Ship> {
         return (long) mData.get(position).getId();
     }
 
-    public ShipAdapter(Activity activity, int showVersion, int typeFlag, int showSpeed, int sort, boolean bookmarked) {
+    public ShipAdapter(Activity activity, int showVersion, int typeFlag, int showSpeed, int sort, boolean bookmarked, boolean enemy) {
         super(bookmarked);
 
         mData = new ArrayList<>();
@@ -58,6 +59,7 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Ship> {
         mTypeFlag = typeFlag;
         mShowSpeed = showSpeed;
         mSort = sort;
+        mEnemy = enemy;
 
         mActivity = activity;
 
@@ -142,16 +144,24 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Ship> {
     }
 
     private boolean check(Ship item) {
+        if (mEnemy) {
+            return item.getId() > 500;
+        }
+
+        if (!mEnemy && item.getId() > 500) {
+            return false;
+        }
+
         if (!mIsSearching) {
             switch (mShowVersion) {
                 case 1:
-                    if (item.getRemodel().getId_from() != 0) {
+                    if (item.getRemodel().getFromId() != 0) {
                         return false;
                     }
                     break;
                 case 2:
-                    if ((item.getRemodel().getId_to() != 0 &&
-                            item.getRemodel().getId_to() != item.getRemodel().getId_from())) {
+                    if ((item.getRemodel().getToId() != 0 &&
+                            item.getRemodel().getToId() != item.getRemodel().getFromId())) {
                         return false;
                     }
                     break;
@@ -161,10 +171,6 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Ship> {
         if (requireBookmarked() && (!mIsSearching) && !item.isBookmarked()) {
             return false;
         }
-        /*if (mShowVersion && (item.getRemodel().getId_to() != 0 &&
-                item.getRemodel().getId_to() != item.getRemodel().getId_from())) {
-            return false;
-        }*/
 
         if (mTypeFlag != 0 && (1 << item.getType() & mTypeFlag) == 0) {
             return false;
@@ -183,7 +189,7 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Ship> {
         if (mIsSearching && mKeyword != null &&
                 !item.getName().getJa().contains(mKeyword) &&
                 !item.getName().getZh_cn().contains(mKeyword) &&
-                (item.getName_for_search() == null || !item.getName_for_search().contains(mKeyword))) {
+                (item.getNameForSearch() == null || !item.getNameForSearch().contains(mKeyword))) {
             return false;
         }
 
@@ -212,17 +218,15 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Ship> {
             showDivider = position < mData.size() - 1
                     && curType.equals(ShipList.shipType[mData.get(position + 1).getType()]);
         } else {
-            cType = item.getCtype();
+            cType = item.getClassType();
             ShipClass shipClass = ShipClassList.findItemById(mActivity, cType);
-            if (shipClass == null) {
-                //Log.d("QAQ", item.getName().get(mActivity));
-            } else {
+            if (shipClass != null) {
                 curType = shipClass.getName();
             }
 
-            showTitle = position <= 0 || cType != mData.get(position - 1).getCtype();
+            showTitle = position <= 0 || cType != mData.get(position - 1).getClassType();
             showDivider = position < mData.size() - 1
-                    && cType == mData.get(position + 1).getCtype();
+                    && cType == mData.get(position + 1).getClassType();
         }
 
         if (showTitle) {
@@ -239,19 +243,21 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Ship> {
         holder.mName.setText(String.format(item.isBookmarked() ? "%s ★" : "%s",
                 item.getName().get(holder.mName.getContext())));
 
-        ShipClass shipClass = ShipClassList.findItemById(mActivity, item.getCtype());
+        if (!mEnemy) {
+            ShipClass shipClass = ShipClassList.findItemById(mActivity, item.getClassType());
 
-        if (shipClass != null) {
-            String c;
-            if (mSort == 0) {
-                c = String.format("%s%s号舰", shipClass.getName(), Utils.getChineseNumberString(item.getCnum()));
-                //c = "";
+            if (shipClass != null) {
+                String c;
+                if (mSort == 0) {
+                    c = String.format("%s%s号舰", shipClass.getName(), Utils.getChineseNumberString(item.getClassNum()));
+                } else {
+                    c = String.format("%s号舰", Utils.getChineseNumberString(item.getClassNum()));
+                }
+                holder.mName2.setText(c);
             } else {
-                c = String.format("%s号舰", Utils.getChineseNumberString(item.getCnum()));
+                Log.d("ShipAdapter", "No ship class: " + item.getName().get(mActivity));
+                holder.mName2.setText("");
             }
-            holder.mName2.setText(c);
-        } else {
-            Log.d("ShipDisplayActivity", "No ship class: " + item.getName().get(mActivity));
         }
 
         holder.mLinearLayout.setOnClickListener(new View.OnClickListener() {
@@ -261,6 +267,7 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Ship> {
 
                 Intent intent = new Intent(v.getContext(), ShipDisplayActivity.class);
                 intent.putExtra(ShipDisplayActivity.EXTRA_ITEM_ID, item.getId());
+                intent.putExtra(ShipDisplayActivity.EXTRA_IS_ENEMY, mEnemy);
 
                 int[] location = new int[2];
                 holder.mLinearLayout.getLocationOnScreen(location);
@@ -272,29 +279,31 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Ship> {
             }
         });
 
-        holder.mLinearLayout.setOnLongClickListener(new View.OnLongClickListener() {
-            @SuppressLint("DefaultLocale")
-            @Override
-            public boolean onLongClick(View v) {
-                Ship item = mData.get(holder.getAdapterPosition());
+        if (!mEnemy) {
+            holder.mLinearLayout.setOnLongClickListener(new View.OnLongClickListener() {
+                @SuppressLint("DefaultLocale")
+                @Override
+                public boolean onLongClick(View v) {
+                    Ship item = mData.get(holder.getAdapterPosition());
 
-                item.setBookmarked(!item.isBookmarked());
+                    item.setBookmarked(!item.isBookmarked());
 
-                Settings.instance(mActivity)
-                        .putBoolean(String.format("ship_%d_%d", item.getCtype(), item.getCnum()), item.isBookmarked());
+                    Settings.instance(mActivity)
+                            .putBoolean(String.format("ship_%d_%d", item.getClassType(), item.getClassNum()), item.isBookmarked());
 
-                if (mToast != null) {
-                    mToast.cancel();
+                    if (mToast != null) {
+                        mToast.cancel();
+                    }
+
+                    mToast = Toast.makeText(mActivity, item.isBookmarked() ? mActivity.getString(R.string.bookmark_add) : mActivity.getString(R.string.bookmark_remove), Toast.LENGTH_SHORT);
+                    mToast.show();
+
+                    notifyItemChanged(holder.getAdapterPosition());
+
+                    return true;
                 }
-
-                mToast = Toast.makeText(mActivity, item.isBookmarked() ? mActivity.getString(R.string.bookmark_add) : mActivity.getString(R.string.bookmark_remove), Toast.LENGTH_SHORT);
-                mToast.show();
-
-                notifyItemChanged(holder.getAdapterPosition());
-
-                return true;
-            }
-        });
+            });
+        }
     }
 
     @Override

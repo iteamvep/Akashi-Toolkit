@@ -3,6 +3,7 @@ package rikka.akashitoolkit.ui.fragments;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import com.squareup.otto.Subscribe;
 
@@ -18,15 +19,22 @@ import rikka.akashitoolkit.utils.Utils;
 public class ShipFragment extends BaseDisplayFragment<ShipAdapter> {
     public static final String TAG = "ShipFragment";
 
+    private boolean showEnemy;
+
     @Override
     public void onStart() {
         super.onStart();
-        BusProvider.instance().register(this);
+
+        if (!showEnemy) {
+            BusProvider.instance().register(this);
+        }
     }
 
     @Override
     public void onStop() {
-        BusProvider.instance().unregister(this);
+        if (!showEnemy) {
+            BusProvider.instance().unregister(this);
+        }
         super.onStop();
     }
 
@@ -45,6 +53,7 @@ public class ShipFragment extends BaseDisplayFragment<ShipAdapter> {
         int speed = 0;
         int sort = 0;
         int finalVersion = 0;
+        showEnemy = false;
         boolean bookmarked = false;
         Bundle args = getArguments();
         if (args != null) {
@@ -53,9 +62,10 @@ public class ShipFragment extends BaseDisplayFragment<ShipAdapter> {
             speed = args.getInt("SPEED");
             sort = args.getInt("SORT");
             bookmarked = args.getBoolean("BOOKMARKED");
+            showEnemy = args.getBoolean("ENEMY");
         }
 
-        setAdapter(new ShipAdapter(getActivity(), finalVersion, flag, speed, sort, bookmarked));
+        setAdapter(new ShipAdapter(getActivity(), finalVersion, flag, speed, sort, bookmarked, showEnemy));
     }
 
     @Override
@@ -70,25 +80,25 @@ public class ShipFragment extends BaseDisplayFragment<ShipAdapter> {
     @Subscribe
     public void showFinalVersionChanged(ShipAction.ShowFinalVersionChangeAction action) {
         getAdapter().setShowVersion(action.isShowFinalVersion());
-        getAdapter().rebuildDataList(/*getContext()*/);
+        getAdapter().rebuildDataList();
     }
 
     @Subscribe
     public void typeChanged(ShipAction.TypeChangeAction action) {
         getAdapter().setTypeFlag(action.getType());
-        getAdapter().rebuildDataList(/*getContext()*/);
+        getAdapter().rebuildDataList();
     }
 
     @Subscribe
     public void speedChanged(ShipAction.SpeedChangeAction action) {
         getAdapter().setShowSpeed(action.getType());
-        getAdapter().rebuildDataList(/*getContext()*/);
+        getAdapter().rebuildDataList();
     }
 
     @Subscribe
     public void keywordChanged(ShipAction.KeywordChanged action) {
         getAdapter().setKeyword(action.getKeyword());
-        getAdapter().rebuildDataList(/*getContext()*/);
+        getAdapter().rebuildDataList();
     }
 
     @Subscribe
@@ -99,7 +109,7 @@ public class ShipFragment extends BaseDisplayFragment<ShipAdapter> {
     @Subscribe
     public void sortChanged(ShipAction.SortChangeAction action) {
         getAdapter().setSort(action.getSort());
-        getAdapter().rebuildDataList(/*getContext()*/);
+        getAdapter().rebuildDataList();
     }
 
     @Subscribe

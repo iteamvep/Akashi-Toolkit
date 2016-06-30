@@ -1,6 +1,7 @@
 package rikka.akashitoolkit.model;
 
 import android.content.Context;
+import android.text.TextUtils;
 
 import rikka.akashitoolkit.support.Settings;
 
@@ -30,16 +31,24 @@ public class MultiLanguageEntry {
     }
 
     public String get(Context context) {
+        String s = null;
         switch (Settings
                 .instance(context)
                 .getIntFromString(Settings.DATA_LANGUAGE, ZH_CN)) {
             case ZH_CN:
-                return zh_cn;
+                s = zh_cn;
+                break;
             case JA:
-                return ja;
+                s = ja;
+                break;
             default:
-                return zh_cn;
+                s = zh_cn;
         }
+        if (TextUtils.isEmpty(s)) {
+            return ja;
+        }
+
+        return s;
     }
 
     public String getZh_cn() {

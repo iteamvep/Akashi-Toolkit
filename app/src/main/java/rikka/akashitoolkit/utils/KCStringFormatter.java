@@ -1,9 +1,11 @@
 package rikka.akashitoolkit.utils;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.text.Html;
 import android.text.Spanned;
 
+import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.model.Equip;
 
 /**
@@ -19,20 +21,28 @@ public class KCStringFormatter {
         return star;
     }
 
-    public static String getRange(int value) {
+    public static String getRange(Context context, int value) {
         switch (value) {
-            case 1: return "短";
-            case 2: return "中";
-            case 3: return "长";
-            case 4: return "超长";
+            case 1:
+                return context.getString(R.string.range_short);
+            case 2:
+                return context.getString(R.string.range_medium);
+            case 3:
+                return context.getString(R.string.range_long);
+            case 4:
+                return context.getString(R.string.range_very_long);
         }
         return "";
     }
 
-    public static String getSpeed(int value) {
+    public static String getSpeed(Context context, int value) {
         switch (value) {
-            case 10: return "高速";
-            case 5: return "低速";
+            case 10:
+                return context.getString(R.string.speed_fast);
+            case 5:
+                return context.getString(R.string.speed_slow);
+            case 0:
+                return context.getString(R.string.speed_none);
         }
         return "";
     }
