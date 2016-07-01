@@ -174,14 +174,10 @@ public class ShipGenerator {
             }
 
             if (ship.getClassNum() == 1) {
-                addToShipClassList(shipClassList, ship.getClassNum(), ship.getName().getZh_cn());
+                addToShipClassList(shipClassList, ship.getClassType(), ship.getName().getZh_cn());
             }
 
-            //boolean ok = false;
             if (ship.getClassNum() == 0) {
-                // ctype == null
-                // 尝试找改造前
-
                 NewShip cur = ship;
                 while (cur.getRemodel().getFromId() != 0) {
                     cur = findById(cur.getRemodel().getFromId(), list);
@@ -192,7 +188,6 @@ public class ShipGenerator {
 
                 System.out.println(ship.getName().getZh_cn() + " 舰级为空 设定为了和 " + cur.getName().getZh_cn() + " 一样的类型");
             }
-            //ok = true;
         }
 
         for (NewShip ship : list) {
@@ -283,6 +278,7 @@ public class ShipGenerator {
             }
 
             list.add(shipClass);
+            System.out.println("" + type + shipName);
         }
     }
 
