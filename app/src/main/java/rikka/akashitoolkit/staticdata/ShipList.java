@@ -128,7 +128,7 @@ public class ShipList {
     }
 
     public static synchronized void sortByClass(List<Ship> list) {
-        Ship[] ships = new Ship[list.size()];
+        /*Ship[] ships = new Ship[list.size()];
         boolean[] added = new boolean[list.size()];
 
         list.toArray(ships);
@@ -151,7 +151,6 @@ public class ShipList {
                         int index = findItemById(to, ships);
                         if (index == -1
                                 || curType != ships[index].getClassType()
-                                /*|| ships[index].getRemodel().getId_to() == ships[index].getRemodel().getId_from()*/
                                 || added[index]) {
                             break;
                         }
@@ -165,21 +164,24 @@ public class ShipList {
             }
             curType++;
         }
-        list.clear();
+        list.clear();*/
 
-        Collections.sort(newList, new Comparator<Ship>() {
+        Collections.sort(list, new Comparator<Ship>() {
             @Override
             public int compare(Ship lhs, Ship rhs) {
+                /*if (lhs.getId() >= 500 && rhs.getId() < 500) {
+                    return 9;
+                }
                 if (lhs.getClassType() != rhs.getClassType()) {
                     return 1;
                 }
                 if (lhs.getClassNum() < rhs.getClassNum()) {
                     return -1;
-                }
-                return 0;
+                }*/
+                return (lhs.getClassType() * 100 + lhs.getClassNum()) - (rhs.getClassType() * 100 + rhs.getClassNum());
             }
         });
-        list.addAll(newList);
+        //list.addAll(newList);
     }
 
     public static int findItemById(int id, Ship[] ships) {

@@ -587,6 +587,13 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
             return;
         }
 
+        TabLayout tabLayout = null;
+        if (!mIsEnemy) {
+            tabLayout = new TabLayout(this);
+            linearLayout.addView(tabLayout);
+            tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(this, R.color.colorPrimaryItemActivity));
+        }
+
         ViewPager viewPager = (ViewPager) LayoutInflater.from(this).inflate(R.layout.content_viewpager, linearLayout, true).findViewById(R.id.view_pager);
 
         viewPager.setPadding(0, Utils.dpToPx(4), 0, 0);
@@ -616,10 +623,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
         viewPager.setAdapter(adapter);
 
         if (!mIsEnemy) {
-            TabLayout tabLayout = new TabLayout(this);
-            linearLayout.addView(tabLayout);
             tabLayout.setupWithViewPager(viewPager);
-            tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(this, R.color.colorPrimaryItemActivity));
         }
 
         addEquip(linearLayout);
