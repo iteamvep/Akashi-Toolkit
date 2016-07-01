@@ -2,16 +2,18 @@ package rikka.akashitoolkit.ui.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 
 import com.squareup.otto.Subscribe;
 
+import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.ShipAdapter;
 import rikka.akashitoolkit.otto.BookmarkAction;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.ShipAction;
-import rikka.akashitoolkit.utils.Utils;
+import rikka.akashitoolkit.ui.widget.ItemAnimator;
+import rikka.akashitoolkit.ui.widget.LinearLayoutManager;
 
 /**
  * Created by Rikka on 2016/3/30.
@@ -70,11 +72,11 @@ public class ShipFragment extends BaseDisplayFragment<ShipAdapter> {
 
     @Override
     public void onPostCreateView(RecyclerView recyclerView) {
-        super.onPostCreateView(recyclerView);
-
-        recyclerView.setPadding(0, Utils.dpToPx(2), 0, Utils.dpToPx(2));
-        recyclerView.setClipToPadding(false);
-        recyclerView.setItemAnimator(null);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+        layoutManager.setAutoMeasureEnabled(false);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setItemAnimator(new ItemAnimator());
+        recyclerView.setBackgroundColor(ContextCompat.getColor(recyclerView.getContext(), R.color.cardBackground));
     }
 
     @Subscribe

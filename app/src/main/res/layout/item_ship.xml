@@ -1,0 +1,35 @@
+<android.support.design.internal.ForegroundLinearLayout
+    android:id="@+id/linearLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/item_height"
+    android:background="@color/cardBackground"
+    android:foreground="?attr/selectableItemBackground"
+    android:paddingBottom="8dp"
+    android:paddingLeft="@dimen/item_padding"
+    android:paddingRight="@dimen/item_padding"
+    android:paddingTop="8dp">
+
+    <TextView
+        android:id="@android:id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"
+        android:maxLines="1"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textSize="16sp"
+        tools:text="睦月"/>
+
+    <TextView
+        android:id="@android:id/content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical|end"
+        android:maxLines="1"
+        android:textSize="16sp"
+        tools:text="睦月型一号舰"/>
+
+</android.support.design.internal.ForegroundLinearLayout>

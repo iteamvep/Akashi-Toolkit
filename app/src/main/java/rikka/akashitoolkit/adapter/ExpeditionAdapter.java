@@ -26,18 +26,6 @@ import rikka.akashitoolkit.support.Settings;
  * Created by Rikka on 2016/3/14.
  */
 public class ExpeditionAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHolder> {
-    private static class Data {
-        protected Object data;
-        protected int type;
-        private long id;
-
-        public Data(Object data, int type, long id) {
-            this.data = data;
-            this.type = type;
-            this.id = id;
-        }
-    }
-
     private Context mContext;
 
     private List<Data> mData;

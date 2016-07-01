@@ -247,7 +247,6 @@ public class ExpeditionDisplayFragment extends BaseDrawerItemFragment implements
             }
         });*/
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-        layoutManager.setAutoMeasureEnabled(false);
         recyclerView.setLayoutManager(layoutManager);
 
         if (!isHiddenBeforeSaveInstanceState()) {

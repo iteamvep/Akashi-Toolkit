@@ -3,6 +3,8 @@ package rikka.akashitoolkit.adapter;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.support.v7.widget.LinearSmoothScroller;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +12,9 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.model.Ship;
@@ -19,6 +23,7 @@ import rikka.akashitoolkit.staticdata.ShipClassList;
 import rikka.akashitoolkit.staticdata.ShipList;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.ui.ShipDisplayActivity;
+import rikka.akashitoolkit.ui.widget.LinearLayoutManager;
 import rikka.akashitoolkit.utils.Utils;
 import rx.Observable;
 import rx.Observer;
@@ -29,8 +34,10 @@ import rx.schedulers.Schedulers;
 /**
  * Created by Rikka on 2016/3/30.
  */
-public class ShipAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Ship> {
-    private List<Ship> mData;
+public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHolder> {
+    private List<Data> mData;
+    private Map<Long, Boolean> mExpanded;
+
     private Activity mActivity;
     private int mShowVersion;
     private boolean mEnemy;
@@ -44,13 +51,19 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Ship> {
 
     @Override
     public long getItemId(int position) {
-        return (long) mData.get(position).getId();
+        return mData.get(position).id;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return mData.get(position).type;
     }
 
     public ShipAdapter(Activity activity, int showVersion, int typeFlag, int showSpeed, int sort, boolean bookmarked, boolean enemy) {
         super(bookmarked);
 
         mData = new ArrayList<>();
+        mExpanded = new HashMap<>();
         mActivity = activity;
 
         setHasStableIds(true);
@@ -72,6 +85,7 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Ship> {
 
     public void setSort(int sort) {
         mSort = sort;
+        mExpanded.clear();
     }
 
     public void setShowSpeed(int showSpeed) {
@@ -120,10 +134,36 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Ship> {
                             ShipList.sort();
                         }
 
-                        for (Ship item :
-                                o) {
+                        String type = null;
+
+                        for (Ship item : o) {
                             if (check(item)) {
-                                mData.add(item);
+
+                                String curType = null;
+                                long id;
+                                if (mSort == 0) {
+                                    id = item.getType();
+                                    curType = ShipList.shipType[item.getType()];
+                                } else {
+                                    id = item.getClassType();
+                                    ShipClass shipClass = ShipClassList.findItemById(mActivity, item.getClassType());
+                                    if (shipClass != null) {
+                                        curType = shipClass.getName();
+                                    }
+                                    id = -id;
+                                }
+
+                                if (curType != null && !curType.equals(type)) {
+                                    type = curType;
+                                    mData.add(new Data(type, 1, id));
+
+                                    if (mExpanded.get(id) == null) {
+                                        mExpanded.put(id, false);
+                                    }
+                                }
+
+                                if (mExpanded.get(id))
+                                    mData.add(new Data(item, 0, item.getId() * 1000));
                             }
                         }
 
@@ -197,51 +237,33 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Ship> {
     }
 
     @Override
-    public ViewHolder.Ship onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_ship, parent, false);
-        return new ViewHolder.Ship(itemView);
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        switch (viewType) {
+            case 0:
+                return new ViewHolder.Ship(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_ship, parent, false));
+            case 1:
+                return new ViewHolder.Subtitle(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_ship_subtitle, parent, false));
+        }
+        return null;
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder.Ship holder, int position) {
-        Ship item = mData.get(position);
-
-        boolean showDivider;
-        boolean showTitle;
-        String curType = null;
-        int cType;
-
-        if (mSort == 0) {
-            curType = ShipList.shipType[item.getType()];
-
-            showTitle = position <= 0 || !curType.equals(ShipList.shipType[mData.get(position - 1).getType()]);
-            showDivider = position < mData.size() - 1
-                    && curType.equals(ShipList.shipType[mData.get(position + 1).getType()]);
-        } else {
-            cType = item.getClassType();
-            ShipClass shipClass = ShipClassList.findItemById(mActivity, cType);
-            if (shipClass != null) {
-                curType = shipClass.getName();
-            }
-
-            showTitle = position <= 0 || cType != mData.get(position - 1).getClassType();
-            showDivider = position < mData.size() - 1
-                    && cType == mData.get(position + 1).getClassType();
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+        switch (getItemViewType(position)) {
+            case 0:
+                bindViewHolder((ViewHolder.Ship) holder, position);
+                break;
+            case 1:
+                bindViewHolder((ViewHolder.Subtitle) holder, position);
+                break;
         }
+    }
 
-        if (showTitle) {
-            holder.mTitle.setText(curType);
-            holder.mTitle.setVisibility(View.VISIBLE);
-        } else {
-            holder.mTitle.setVisibility(View.GONE);
-        }
+    private void bindViewHolder(final ViewHolder.Ship holder, int position) {
+        Ship item = (Ship) mData.get(position).data;
 
-        holder.mDivider.setVisibility(showDivider ? View.VISIBLE : View.GONE);
-        holder.mDummyView.setVisibility(!showDivider ? View.VISIBLE : View.GONE);
-        holder.mDummyView2.setVisibility(showTitle && position != 0 ? View.VISIBLE : View.GONE);
-
-        holder.mName.setText(String.format(item.isBookmarked() ? "%s ★" : "%s",
-                item.getName().get(holder.mName.getContext())));
+        holder.mTitle.setText(String.format(item.isBookmarked() ? "%s ★" : "%s",
+                item.getName().get(holder.mTitle.getContext())));
 
         if (!mEnemy) {
             ShipClass shipClass = ShipClassList.findItemById(mActivity, item.getClassType());
@@ -253,26 +275,30 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Ship> {
                 } else {
                     c = String.format("%s号舰", Utils.getChineseNumberString(item.getClassNum()));
                 }
-                holder.mName2.setText(c);
+                holder.mContent.setText(c);
             } else {
                 Log.d("ShipAdapter", "No ship class: " + item.getName().get(mActivity));
-                holder.mName2.setText("");
+                holder.mContent.setText("");
             }
         }
 
-        holder.mLinearLayout.setOnClickListener(new View.OnClickListener() {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Ship item = mData.get(holder.getAdapterPosition());
+                if (holder.getAdapterPosition() < 0) {
+                    return;
+                }
+
+                Ship item = (Ship) mData.get(holder.getAdapterPosition()).data;
 
                 Intent intent = new Intent(v.getContext(), ShipDisplayActivity.class);
                 intent.putExtra(ShipDisplayActivity.EXTRA_ITEM_ID, item.getId());
                 intent.putExtra(ShipDisplayActivity.EXTRA_IS_ENEMY, mEnemy);
 
                 int[] location = new int[2];
-                holder.mLinearLayout.getLocationOnScreen(location);
+                holder.itemView.getLocationOnScreen(location);
                 intent.putExtra(ShipDisplayActivity.EXTRA_START_Y, location[1]);
-                intent.putExtra(ShipDisplayActivity.EXTRA_START_HEIGHT, holder.mLinearLayout.getHeight());
+                intent.putExtra(ShipDisplayActivity.EXTRA_START_HEIGHT, holder.itemView.getHeight());
 
                 v.getContext().startActivity(intent);
                 mActivity.overridePendingTransition(0, 0);
@@ -280,11 +306,11 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Ship> {
         });
 
         if (!mEnemy) {
-            holder.mLinearLayout.setOnLongClickListener(new View.OnLongClickListener() {
+            holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
                 @SuppressLint("DefaultLocale")
                 @Override
                 public boolean onLongClick(View v) {
-                    Ship item = mData.get(holder.getAdapterPosition());
+                    Ship item = (Ship) mData.get(holder.getAdapterPosition()).data;
 
                     item.setBookmarked(!item.isBookmarked());
 
@@ -306,8 +332,63 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Ship> {
         }
     }
 
+    private void bindViewHolder(final ViewHolder.Subtitle holder, int position) {
+        boolean expanded = mExpanded.get(getItemId(position));
+        boolean showDivider = position != 0 && expanded || position != 0 && (getItemViewType(position - 1) != getItemViewType(position));
+
+        holder.mDivider.setVisibility(showDivider ? View.VISIBLE : View.GONE);
+        holder.mTitle.setText((String) mData.get(position).data);
+
+        holder.itemView.setSelected(expanded);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                long id = getItemId(holder.getAdapterPosition());
+                Boolean expanded = mExpanded.get(id);
+                expanded = !expanded;
+                mExpanded.put(id, expanded);
+
+                if (expanded) {
+                    mRecyclerView.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            //mRecyclerView.smoothScrollToPosition(holder.getAdapterPosition());
+                            LinearLayoutManager layoutManager = (LinearLayoutManager) mRecyclerView.getLayoutManager();
+                            layoutManager.smoothScrollToPosition(mRecyclerView, holder.getAdapterPosition(), LinearSmoothScroller.SNAP_TO_START);
+
+                        }
+                    });
+                } else {
+                    mRecyclerView.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            LinearLayoutManager layoutManager = (LinearLayoutManager) mRecyclerView.getLayoutManager();
+                            layoutManager.smoothScrollToPosition(mRecyclerView, 0, LinearSmoothScroller.SNAP_TO_ANY);
+                        }
+                    });
+                }
+
+                rebuildDataList();
+            }
+        });
+    }
+
     @Override
     public int getItemCount() {
         return mData.size();
+    }
+
+    private RecyclerView mRecyclerView;
+
+    @Override
+    public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+        super.onAttachedToRecyclerView(recyclerView);
+        mRecyclerView = recyclerView;
+    }
+
+    @Override
+    public void onDetachedFromRecyclerView(RecyclerView recyclerView) {
+        mRecyclerView = null;
+        super.onDetachedFromRecyclerView(recyclerView);
     }
 }
