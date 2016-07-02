@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp">
 
-            <EditText
+            <android.support.design.widget.TextInputEditText
                 android:id="@+id/text_gcm_api_key"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp">
 
-            <EditText
+            <android.support.design.widget.TextInputEditText
                 android:id="@+id/text_lc_app_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -51,7 +51,7 @@
             android:layout_marginBottom="16dp"
             android:layout_marginTop="4dp">
 
-            <EditText
+            <android.support.design.widget.TextInputEditText
                 android:id="@+id/text_lc_app_key"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -64,7 +64,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <EditText
+            <android.support.design.widget.TextInputEditText
                 android:id="@+id/text_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -78,7 +78,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp">
 
-            <EditText
+            <android.support.design.widget.TextInputEditText
                 android:id="@+id/text_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -92,7 +92,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp">
 
-            <EditText
+            <android.support.design.widget.TextInputEditText
                 android:id="@+id/text_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -106,7 +106,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp">
 
-            <EditText
+            <android.support.design.widget.TextInputEditText
                 android:id="@+id/text_activity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -120,7 +120,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp">
 
-            <EditText
+            <android.support.design.widget.TextInputEditText
                 android:id="@+id/text_extra"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

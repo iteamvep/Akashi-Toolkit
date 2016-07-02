@@ -161,8 +161,15 @@ public class PushSendActivity extends AppCompatActivity implements View.OnClickL
         OutputStream outputStream = conn.getOutputStream();
         outputStream.write(jData.toString().getBytes());
 
+        int status = conn.getResponseCode();
         // Read GCM response.
-        InputStream inputStream = conn.getInputStream();
+        InputStream inputStream;
+
+        if (status < 400) {
+            inputStream = conn.getInputStream();
+        } else {
+            inputStream = conn.getErrorStream();
+        }
 
         int bufferSize = 1024;
         char[] buffer = new char[bufferSize];
