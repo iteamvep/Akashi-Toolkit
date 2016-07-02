@@ -163,7 +163,7 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
                                 if (curType != null && !curType.equals(type)) {
                                     type = curType;
                                     if (mExpanded.get(id) == null) {
-                                        mExpanded.put(id, false);
+                                        mExpanded.put(id, requireBookmarked());
                                     }
 
                                     mData.add(new Data(type, 1, id));
@@ -358,6 +358,8 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
             AnimatedVectorDrawable drawable = (AnimatedVectorDrawable) context.getDrawable(expanded ? R.drawable.ic_expand_more_to_less_24dp : R.drawable.ic_expand_less_to_more_24dp);
             drawable.start();
             TextViewCompat.setCompoundDrawablesRelativeWithIntrinsicBounds(holder.mTitle, null, null, drawable, null);
+
+            mItemId = -1;
         } else {
             Drawable drawable = AppCompatDrawableManager.get()
                     .getDrawable(context, expanded ? R.drawable.ic_expand_less_24dp : R.drawable.ic_expand_more_24dp);
@@ -395,6 +397,9 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
                     mRecyclerView.post(new Runnable() {
                         @Override
                         public void run() {
+                            if (mFirstVisibleItemPosition < 0) {
+                                mFirstVisibleItemPosition = 0;
+                            }
                             LinearLayoutManager layoutManager = (LinearLayoutManager) mRecyclerView.getLayoutManager();
                             layoutManager.smoothScrollToPosition(mRecyclerView, mFirstVisibleItemPosition, LinearSmoothScroller.SNAP_TO_ANY);
                         }
@@ -408,6 +413,10 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
 
     public boolean collapseLastType() {
         if (mLastHolder == null) {
+            return false;
+        }
+
+        if (getItemCount() == 0) {
             return false;
         }
 
