@@ -26,7 +26,7 @@ public class PushSendActivity extends AppCompatActivity implements View.OnClickL
     private TextView[] mTextView = new TextView[3];
     private boolean mHideKey;
 
-    private boolean mDestory;
+    private boolean mDestroyed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,12 +75,12 @@ public class PushSendActivity extends AppCompatActivity implements View.OnClickL
             }
         });
 
-        mDestory = false;
+        mDestroyed = false;
     }
 
     @Override
     protected void onDestroy() {
-        mDestory = true;
+        mDestroyed = true;
         super.onDestroy();
     }
 
@@ -112,7 +112,7 @@ public class PushSendActivity extends AppCompatActivity implements View.OnClickL
 
             @Override
             protected void onPostExecute(String value) {
-                if (mDestory) {
+                if (mDestroyed) {
                     return;
                 }
 
