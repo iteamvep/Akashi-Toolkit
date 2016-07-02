@@ -2,7 +2,14 @@ package rikka.akashitoolkit.adapter;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.AnimatedVectorDrawable;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
+import android.support.graphics.drawable.AnimatedVectorDrawableCompat;
+import android.support.v4.widget.TextViewCompat;
+import android.support.v7.widget.AppCompatDrawableManager;
 import android.support.v7.widget.LinearSmoothScroller;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -335,31 +342,52 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
     private ViewHolder.Subtitle mLastHolder;
 
     private int mFirstVisibleItemPosition = -1;
+    private long mItemId = -1;
 
     private void bindViewHolder(final ViewHolder.Subtitle holder, int position) {
+        Context context = holder.itemView.getContext();
+
         boolean expanded = mExpanded.get(getItemId(position));
         boolean showDivider = position != 0 && expanded || position != 0 && (getItemViewType(position - 1) != getItemViewType(position));
 
         holder.mDivider.setVisibility(showDivider ? View.VISIBLE : View.GONE);
         holder.mTitle.setText((String) mData.get(position).data);
 
+        if (mItemId == getItemId(holder.getAdapterPosition())
+                && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            AnimatedVectorDrawable drawable = (AnimatedVectorDrawable) context.getDrawable(expanded ? R.drawable.ic_expand_more_to_less_24dp : R.drawable.ic_expand_less_to_more_24dp);
+            drawable.start();
+            TextViewCompat.setCompoundDrawablesRelativeWithIntrinsicBounds(holder.mTitle, null, null, drawable, null);
+        } else {
+            Drawable drawable = AppCompatDrawableManager.get()
+                    .getDrawable(context, expanded ? R.drawable.ic_expand_less_24dp : R.drawable.ic_expand_more_24dp);
+            TextViewCompat.setCompoundDrawablesRelativeWithIntrinsicBounds(holder.mTitle, null, null, drawable, null);
+
+        }
+
         holder.itemView.setSelected(expanded);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                long id = getItemId(holder.getAdapterPosition());
-                Boolean expanded = mExpanded.get(id);
+                mItemId = getItemId(holder.getAdapterPosition());
+                Boolean expanded = mExpanded.get(mItemId);
                 expanded = !expanded;
-                mExpanded.put(id, expanded);
+                mExpanded.put(mItemId, expanded);
 
                 if (expanded) {
                     LinearLayoutManager layoutManager = (LinearLayoutManager) mRecyclerView.getLayoutManager();
                     mFirstVisibleItemPosition = layoutManager.findFirstCompletelyVisibleItemPosition();
+                    //mRecyclerView.scrollBy(0, Utils.dpToPx(9));
                     mRecyclerView.post(new Runnable() {
                         @Override
                         public void run() {
+                            int position = holder.getAdapterPosition();
                             LinearLayoutManager layoutManager = (LinearLayoutManager) mRecyclerView.getLayoutManager();
-                            layoutManager.smoothScrollToPosition(mRecyclerView, holder.getAdapterPosition(), LinearSmoothScroller.SNAP_TO_START);
+                            layoutManager.smoothScrollToPositionWithOffset(
+                                    mRecyclerView,
+                                    position,
+                                    LinearSmoothScroller.SNAP_TO_START,
+                                    position != 0 ? -Utils.dpToPx(5) : 0);
                             mLastHolder = holder;
                         }
                     });
