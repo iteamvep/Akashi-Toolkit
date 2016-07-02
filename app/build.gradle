@@ -8,7 +8,7 @@ android {
         applicationId "rikka.akashitoolkit"
         minSdkVersion 15
         targetSdkVersion 24
-        versionCode 86
+        versionCode 87
         versionName "0.0.37"
 
         vectorDrawables.useSupportLibrary = true
@@ -33,6 +33,7 @@ android {
 
         debug {
             applicationIdSuffix '.debug'
+            manifestPlaceholders = [APP_NAME: '@string/app_name_debug']
         }
     }
 
@@ -97,11 +98,11 @@ dependencies {
     compile 'io.reactivex:rxandroid:1.1.0'
 }
 
-gradle.projectsEvaluated {
+/*gradle.projectsEvaluated {
     prePlayDebugBuild.dependsOn(applyNewRelicByProperty)
     prePlayReleaseBuild.dependsOn(applyNewRelicByProperty)
 }
 
 task applyNewRelicByProperty {
     apply plugin: 'com.google.gms.google-services'
-}
+}*/
