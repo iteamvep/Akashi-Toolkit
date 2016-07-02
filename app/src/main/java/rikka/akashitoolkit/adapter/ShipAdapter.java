@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -63,7 +63,7 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
         super(bookmarked);
 
         mData = new ArrayList<>();
-        mExpanded = new HashMap<>();
+        mExpanded = new LinkedHashMap<>();
         mActivity = activity;
 
         setHasStableIds(true);
@@ -139,31 +139,31 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
                         for (Ship item : o) {
                             if (check(item)) {
 
+
                                 String curType = null;
                                 long id;
                                 if (mSort == 0) {
-                                    id = item.getType();
+                                    id = item.getType() * 10;
                                     curType = ShipList.shipType[item.getType()];
                                 } else {
-                                    id = item.getClassType();
                                     ShipClass shipClass = ShipClassList.findItemById(mActivity, item.getClassType());
                                     if (shipClass != null) {
                                         curType = shipClass.getName();
                                     }
-                                    id = -id;
+                                    id = -item.getClassType() * 10;
                                 }
 
                                 if (curType != null && !curType.equals(type)) {
                                     type = curType;
-                                    mData.add(new Data(type, 1, id));
-
                                     if (mExpanded.get(id) == null) {
                                         mExpanded.put(id, false);
                                     }
+
+                                    mData.add(new Data(type, 1, id));
                                 }
 
                                 if (mExpanded.get(id))
-                                    mData.add(new Data(item, 0, item.getId() * 1000));
+                                    mData.add(new Data(item, 0, item.getId() * 10000));
                             }
                         }
 
@@ -188,7 +188,7 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
             return item.getId() > 500;
         }
 
-        if (!mEnemy && item.getId() > 500) {
+        if (item.getId() > 500) {
             return false;
         }
 
@@ -332,6 +332,10 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
         }
     }
 
+    private ViewHolder.Subtitle mLastHolder;
+
+    private int mFirstVisibleItemPosition = -1;
+
     private void bindViewHolder(final ViewHolder.Subtitle holder, int position) {
         boolean expanded = mExpanded.get(getItemId(position));
         boolean showDivider = position != 0 && expanded || position != 0 && (getItemViewType(position - 1) != getItemViewType(position));
@@ -349,13 +353,14 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
                 mExpanded.put(id, expanded);
 
                 if (expanded) {
+                    LinearLayoutManager layoutManager = (LinearLayoutManager) mRecyclerView.getLayoutManager();
+                    mFirstVisibleItemPosition = layoutManager.findFirstCompletelyVisibleItemPosition();
                     mRecyclerView.post(new Runnable() {
                         @Override
                         public void run() {
-                            //mRecyclerView.smoothScrollToPosition(holder.getAdapterPosition());
                             LinearLayoutManager layoutManager = (LinearLayoutManager) mRecyclerView.getLayoutManager();
                             layoutManager.smoothScrollToPosition(mRecyclerView, holder.getAdapterPosition(), LinearSmoothScroller.SNAP_TO_START);
-
+                            mLastHolder = holder;
                         }
                     });
                 } else {
@@ -363,7 +368,7 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
                         @Override
                         public void run() {
                             LinearLayoutManager layoutManager = (LinearLayoutManager) mRecyclerView.getLayoutManager();
-                            layoutManager.smoothScrollToPosition(mRecyclerView, 0, LinearSmoothScroller.SNAP_TO_ANY);
+                            layoutManager.smoothScrollToPosition(mRecyclerView, mFirstVisibleItemPosition, LinearSmoothScroller.SNAP_TO_ANY);
                         }
                     });
                 }
@@ -371,6 +376,17 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
                 rebuildDataList();
             }
         });
+    }
+
+    public boolean collapseLastType() {
+        if (mLastHolder == null) {
+            return false;
+        }
+
+        mLastHolder.itemView.performClick();
+        mLastHolder = null;
+
+        return true;
     }
 
     @Override
@@ -389,6 +405,7 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
     @Override
     public void onDetachedFromRecyclerView(RecyclerView recyclerView) {
         mRecyclerView = null;
+        mLastHolder = null;
         super.onDetachedFromRecyclerView(recyclerView);
     }
 }

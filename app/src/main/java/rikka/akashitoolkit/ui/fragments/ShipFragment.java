@@ -71,6 +71,11 @@ public class ShipFragment extends BaseDisplayFragment<ShipAdapter> {
     }
 
     @Override
+    public boolean onBackPressed() {
+        return getAdapter().collapseLastType();
+    }
+
+    @Override
     public void onPostCreateView(RecyclerView recyclerView) {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         layoutManager.setAutoMeasureEnabled(false);

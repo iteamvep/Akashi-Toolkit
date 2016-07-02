@@ -15,7 +15,7 @@ import rikka.akashitoolkit.ui.MainActivity;
 /**
  * Created by Rikka on 2016/3/10.
  */
-public abstract class BaseDrawerItemFragment extends Fragment {
+public abstract class BaseDrawerItemFragment extends BaseFragment {
     private static final String HIDDEN = "HIDDEN";
     private boolean mHidden;
 

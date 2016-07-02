@@ -20,7 +20,7 @@ import rikka.akashitoolkit.otto.DataChangedAction;
 /**
  * Created by Rikka on 2016/4/13.
  */
-public abstract class BaseDisplayFragment<T extends BaseRecyclerAdapter> extends Fragment {
+public abstract class BaseDisplayFragment<T extends BaseRecyclerAdapter> extends BaseFragment {
     protected Object mBusEventListener;
     private T mAdapter;
     private RecyclerView mRecyclerView;

@@ -34,6 +34,7 @@ import rikka.akashitoolkit.support.Push;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.StaticData;
 import rikka.akashitoolkit.ui.fragments.BaseDrawerItemFragment;
+import rikka.akashitoolkit.ui.fragments.BaseFragment;
 import rikka.akashitoolkit.ui.fragments.EnemyDisplayFragment;
 import rikka.akashitoolkit.ui.fragments.EquipDisplayFragment;
 import rikka.akashitoolkit.ui.fragments.EquipImprovementDisplayFragment;
@@ -219,11 +220,36 @@ public class MainActivity extends BaseActivity
         } else if (mDrawerLayout.isDrawerOpen(GravityCompat.END)) {
             mDrawerLayout.closeDrawer(GravityCompat.END);
         } else if (mLastDrawerItemId != R.id.nav_home) {
-            selectDrawerItem(R.id.nav_home);
-            if (!StaticData.instance(this).isTablet)
-                mNavigationView.setCheckedItem(R.id.nav_home);
-            else {
-                mMiniDrawerLayout.setCheckedItem(R.id.nav_home);
+            boolean consumed = false;
+            for (Fragment f : getSupportFragmentManager().getFragments()) {
+                if (!f.isVisible()) {
+                    continue;
+                }
+
+                if (f.getChildFragmentManager().getFragments() != null) {
+                    for (Fragment f2 : f.getChildFragmentManager().getFragments()) {
+                        if (!f2.isVisible()) {
+                            continue;
+                        }
+
+                        if (f2 instanceof BaseFragment) {
+                            consumed |= ((BaseFragment) f2).onBackPressed();
+                        }
+                    }
+                }
+
+                if (f instanceof BaseFragment) {
+                    consumed |= ((BaseFragment) f).onBackPressed();
+                }
+            }
+
+            if (!consumed) {
+                selectDrawerItem(R.id.nav_home);
+                if (!StaticData.instance(this).isTablet)
+                    mNavigationView.setCheckedItem(R.id.nav_home);
+                else {
+                    mMiniDrawerLayout.setCheckedItem(R.id.nav_home);
+                }
             }
         } else {
             super.onBackPressed();
