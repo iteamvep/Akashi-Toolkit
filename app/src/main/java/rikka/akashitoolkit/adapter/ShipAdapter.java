@@ -119,6 +119,15 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
         mShowVersion = showVersion;
     }
 
+    @Override
+    public void setBookmarked(boolean bookmarked) {
+        for (Map.Entry<Long, Boolean> entry :
+                mExpanded.entrySet()) {
+            entry.setValue(bookmarked);
+        }
+        super.setBookmarked(bookmarked);
+    }
+
     public void rebuildDataList() {
         Observable
                 .create(new Observable.OnSubscribe<List<Ship>>() {
@@ -353,7 +362,7 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
         holder.mDivider.setVisibility(showDivider ? View.VISIBLE : View.GONE);
         holder.mTitle.setText((String) mData.get(position).data);
 
-        if (mItemId == getItemId(holder.getAdapterPosition())
+        if (holder.itemView.isSelected() != expanded
                 && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             AnimatedVectorDrawable drawable = (AnimatedVectorDrawable) context.getDrawable(expanded ? R.drawable.ic_expand_more_to_less_24dp : R.drawable.ic_expand_less_to_more_24dp);
             drawable.start();
@@ -412,7 +421,7 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
     }
 
     public boolean collapseLastType() {
-        if (mLastHolder == null) {
+        if (requireBookmarked() || mLastHolder == null) {
             return false;
         }
 
