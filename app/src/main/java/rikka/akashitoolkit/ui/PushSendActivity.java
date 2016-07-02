@@ -26,6 +26,8 @@ public class PushSendActivity extends AppCompatActivity implements View.OnClickL
     private TextView[] mTextView = new TextView[3];
     private boolean mHideKey;
 
+    private boolean mDestory;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,6 +74,14 @@ public class PushSendActivity extends AppCompatActivity implements View.OnClickL
                 Settings.instance(PushSendActivity.this).putBoolean("HIDE_KEY", mHideKey);
             }
         });
+
+        mDestory = false;
+    }
+
+    @Override
+    protected void onDestroy() {
+        mDestory = true;
+        super.onDestroy();
     }
 
     @Override
@@ -102,6 +112,10 @@ public class PushSendActivity extends AppCompatActivity implements View.OnClickL
 
             @Override
             protected void onPostExecute(String value) {
+                if (mDestory) {
+                    return;
+                }
+
                 v.setEnabled(true);
 
                 new AlertDialog.Builder(PushSendActivity.this)
