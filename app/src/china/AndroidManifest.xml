@@ -2,9 +2,12 @@
 <manifest package="rikka.akashitoolkit"
           xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <uses-permission android:name="rikka.akashitoolkit.permission.PushService"/>
+
     <application>
         <service android:name="com.avos.avoscloud.PushService"
-                 android:exported="true"/>
+                 android:exported="true"
+                 android:permission="rikka.akashitoolkit.permission.PushService"/>
 
         <receiver android:name="com.avos.avoscloud.AVBroadcastReceiver">
             <intent-filter>

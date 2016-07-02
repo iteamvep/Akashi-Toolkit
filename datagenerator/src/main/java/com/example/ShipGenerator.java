@@ -103,8 +103,8 @@ public class ShipGenerator {
             NewShip.EquipEntity equip = new NewShip.EquipEntity();
             item.setEquip(equip);
             equip.setSlots(row[COLUMN_SLOT_COUNT]);
-            equip.setIds(row[COLUMN_EQUIP_1], row[COLUMN_EQUIP_2], row[COLUMN_EQUIP_3], row[COLUMN_EQUIP_4]);
-            equip.setSpaces(row[COLUMN_SLOT_MAX_1], row[COLUMN_SLOT_MAX_2], row[COLUMN_SLOT_MAX_3], row[COLUMN_SLOT_MAX_4]);
+            equip.setIds(row[COLUMN_EQUIP_1], row[COLUMN_EQUIP_2], row[COLUMN_EQUIP_3], row[COLUMN_EQUIP_4], row[COLUMN_EQUIP_5]);
+            equip.setSpaces(row[COLUMN_SLOT_MAX_1], row[COLUMN_SLOT_MAX_2], row[COLUMN_SLOT_MAX_3], row[COLUMN_SLOT_MAX_4], row[COLUMN_SLOT_MAX_5]);
         }
 
         // 按id从小到大排序

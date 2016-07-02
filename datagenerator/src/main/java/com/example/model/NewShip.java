@@ -306,18 +306,20 @@ public class NewShip {
             this.slots = Integer.parseInt(slots);
         }
 
-        public void setIds(String id1, String id2, String id3, String id4) {
+        public void setIds(String id1, String id2, String id3, String id4, String id5) {
             this.id = new int[]{Utils.stringToInt(id1),
                     Utils.stringToInt(id2),
                     Utils.stringToInt(id3),
-                    Utils.stringToInt(id4)};
+                    Utils.stringToInt(id4),
+                    Utils.stringToInt(id5)};
         }
 
-        public void setSpaces(String id1, String id2, String id3, String id4) {
+        public void setSpaces(String id1, String id2, String id3, String id4, String id5) {
             this.space = new int[]{Utils.stringToInt(id1),
                     Utils.stringToInt(id2),
                     Utils.stringToInt(id3),
-                    Utils.stringToInt(id4)};
+                    Utils.stringToInt(id4),
+                    Utils.stringToInt(id5)};
         }
     }
 
