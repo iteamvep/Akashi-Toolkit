@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 
-import com.avos.avoscloud.AVOSCloud;
-import com.avos.avoscloud.BuildConfig;
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
@@ -19,13 +17,6 @@ public class Statistics {
     private static Tracker sTracker;
 
     public static synchronized void init(Application application) {
-        if (BuildConfig.DEBUG) {
-            return;
-        }
-
-        AVOSCloud.initialize(application, "q6Sj083vVxS6XrNgGD09w9kX-gzGzoHsz", "M9EUfoOVEnm9P5yoGXhAbwly");
-        //AVAnalytics.enableCrashReport(application, true);
-
         sTracker = getDefaultTracker(application);
     }
 
