@@ -222,13 +222,13 @@ public class MainActivity extends BaseActivity
         } else if (mLastDrawerItemId != R.id.nav_home) {
             boolean consumed = false;
             for (Fragment f : getSupportFragmentManager().getFragments()) {
-                if (!f.isVisible()) {
+                if (f == null || !f.isVisible()) {
                     continue;
                 }
 
                 if (f.getChildFragmentManager().getFragments() != null) {
                     for (Fragment f2 : f.getChildFragmentManager().getFragments()) {
-                        if (!f2.isVisible()) {
+                        if (f2 == null || !f2.isVisible()) {
                             continue;
                         }
 
