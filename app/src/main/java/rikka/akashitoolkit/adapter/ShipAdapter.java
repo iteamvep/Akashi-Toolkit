@@ -421,7 +421,7 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
     }
 
     public boolean collapseLastType() {
-        if (requireBookmarked() || mLastHolder == null) {
+        if (requireBookmarked() || mLastHolder == null || mItemId == -1) {
             return false;
         }
 
