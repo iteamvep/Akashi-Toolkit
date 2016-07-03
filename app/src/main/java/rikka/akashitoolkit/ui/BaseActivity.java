@@ -7,7 +7,10 @@ import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 
+import com.google.android.gms.analytics.Tracker;
+
 import moe.xing.daynightmode.BaseDayNightModeActivity;
+import rikka.akashitoolkit.Application;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.Statistics;

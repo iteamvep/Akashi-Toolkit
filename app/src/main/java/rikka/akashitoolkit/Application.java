@@ -1,5 +1,8 @@
 package rikka.akashitoolkit;
 
+import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.Tracker;
+
 import moe.xing.daynightmode.DayNightMode;
 import rikka.akashitoolkit.cache.DiskCacheProvider;
 import rikka.akashitoolkit.support.Settings;
