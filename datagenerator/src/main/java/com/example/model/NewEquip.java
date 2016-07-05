@@ -1,5 +1,6 @@
 package com.example.model;
 
+import com.example.list.ShipList;
 import com.example.utils.Utils;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -10,7 +11,8 @@ import java.util.List;
 /**
  * Created by Rikka on 2016/4/16.
  */
-public class Equip {
+public class NewEquip {
+    @Expose
     private int id;
 
     @SerializedName("中文名")
@@ -18,20 +20,50 @@ public class Equip {
     @SerializedName("日文名")
     private String name_jp;
 
+    @Expose
     private MultiLanguageEntry name;
     private MultiLanguageEntry introduction;
+    @SerializedName("备注")
+    @Expose
     private String remark;
-
+    @SerializedName("属性")
+    @Expose
     private AttrEntity attr;
+    private String 稀有度;
+    @Expose
+    @SerializedName("类别")
+    private int[] types;
+    @Expose
     private int rarity;
-    private int type;
-    private int subType;
-    private int icon;
-    private ImprovementEntity improvement;
-    private List<Integer> discard;
     private List<Integer> shipLimit;
 
-    private GetEntity get;
+    public int[] getTypes() {
+        return types;
+    }
+
+    @SerializedName("废弃")
+    @Expose
+    private int[] broken;
+
+    public int[] getBrokenResources() {
+        return broken;
+    }
+
+    public void setBrokenResources(int[] broken) {
+        this.broken = broken;
+    }
+
+    public String getNameCN() {
+        return name_cn;
+    }
+
+    public String getNameJP() {
+        return name_jp;
+    }
+
+    public String get稀有度() {
+        return 稀有度;
+    }
 
     public int getId() {
         return id;
@@ -81,46 +113,6 @@ public class Equip {
         this.rarity = rarity;
     }
 
-    public int getType() {
-        return type;
-    }
-
-    public void setType(int type) {
-        this.type = type;
-    }
-
-    public int getSubType() {
-        return subType;
-    }
-
-    public void setSubType(int subType) {
-        this.subType = subType;
-    }
-
-    public int getIcon() {
-        return icon;
-    }
-
-    public void setIcon(int icon) {
-        this.icon = icon;
-    }
-
-    public ImprovementEntity getImprovement() {
-        return improvement;
-    }
-
-    public void setImprovement(ImprovementEntity improvement) {
-        this.improvement = improvement;
-    }
-
-    public List<Integer> getDiscard() {
-        return discard;
-    }
-
-    public void setDiscard(List<Integer> discard) {
-        this.discard = discard;
-    }
-
     public List<Integer> getShipLimit() {
         return shipLimit;
     }
@@ -129,45 +121,149 @@ public class Equip {
         this.shipLimit = shipLimit;
     }
 
-    public GetEntity getGet() {
-        return get;
+
+    @SerializedName("装备改修")
+    private ImprovementEntity 装备改修;
+    @SerializedName("装备改修2")
+    private ImprovementEntity 装备改修2;
+
+    public ImprovementEntity get装备改修() {
+        return 装备改修;
     }
 
-    public void setGet(GetEntity get) {
-        this.get = get;
+    public ImprovementEntity get装备改修2() {
+        return 装备改修2;
+    }
+
+    @Expose
+    private ImprovementEntity[] improvements;
+
+    public ImprovementEntity[] getImprovements() {
+        return improvements;
+    }
+
+    public void setImprovements(ImprovementEntity[] improvements) {
+        this.improvements = improvements;
+    }
+
+    public static class ImprovementEntity {
+        @Expose
+        @SerializedName("改修备注")
+        private String remark;
+        @Expose
+        @SerializedName("资源消费")
+        private int[] cost;
+        @Expose
+        @SerializedName("初期消费")
+        private int[] item;
+        @Expose
+        @SerializedName("中段消费")
+        private int[] item2;
+        @Expose
+        @SerializedName("更新消费")
+        private int[] item3;
+        @SerializedName("日期")
+        private String[][] date;
+        @Expose
+        private List<List<Integer>> ship;
+        @Expose
+        @SerializedName("更新装备")
+        private int[] upgrade;
+
+        public String getRemark() {
+            return remark;
+        }
+
+        public int[] getCost() {
+            return cost;
+        }
+
+        public int[] getItem() {
+            return item;
+        }
+
+        public int[] getItem2() {
+            return item2;
+        }
+
+        public int[] getItem3() {
+            return item3;
+        }
+
+        public List<List<Integer>> getShips() {
+            return ship;
+        }
+
+        public String[][] getDate() {
+            return date;
+        }
+
+        public void setShips() {
+            ship = new ArrayList<>();
+
+            for (String[] array : date) {
+                List<Integer> list = new ArrayList<>();
+                for (String name : array) {
+                    if (name.equals("〇")) {
+                        list.add(0);
+                        break;
+                    } else {
+                        Ship ship = ShipList.findByName(name);
+                        if (ship == null) {
+                            System.out.println("ImprovementEntity: " + "找不到舰娘 " + name);
+                            continue;
+                        }
+                        list.add(ship.getId());
+                    }
+                }
+                ship.add(list);
+            }
+        }
+    }
+
+
+    public void set改修数据(NewEquip.ImprovementEntity 改修数据) {
+        this.装备改修 = 改修数据;
+    }
+
+    public void set改修数据2(NewEquip.ImprovementEntity 改修数据2) {
+        this.装备改修2 = 改修数据2;
     }
 
     public static class AttrEntity {
+        @SerializedName("射程")
         @Expose
         private int range;
-        @Expose
         private int speed;
+        @SerializedName("对空")
         @Expose
         private int aa;
+        @SerializedName("装甲")
         @Expose
         private int armor;
+        @SerializedName("对潜")
         @Expose
         private int asw;
+        @SerializedName("回避")
         @Expose
         private int evasion;
+        @SerializedName("火力")
         @Expose
         private int fire;
-        @Expose
         private int hp;
-        @Expose
         private int luck;
+        @SerializedName("索敌")
         @Expose
         private int los;
+        @SerializedName("雷装")
         @Expose
         private int torpedo;
+        @SerializedName("爆装")
         @Expose
         private int bomb;
+        @SerializedName("命中")
         @Expose
         private int accuracy;
-
-        public void setRange(int range) {
-            this.range = range;
-        }
 
         public void setSpeed(int speed) {
             this.speed = speed;
@@ -221,8 +317,8 @@ public class Equip {
             return range;
         }
 
-        public void setRange(String range) {
-            this.range = Integer.parseInt(range);
+        public void setRange(int range) {
+            this.range = range;
         }
 
         public int getSpeed() {
@@ -275,125 +371,6 @@ public class Equip {
 
         public void setAccuarcy(String acc) {
             this.torpedo = Utils.stringToInt(acc);
-        }
-    }
-
-    public static class ImprovementEntity {
-        /**
-         * base : [10,10,10,10]
-         * item : [[7,9,5,7,1,2],[7,9,5,7,1,2]]
-         * levelup : 1
-         */
-
-        private ResourceEntity resource;
-        /**
-         * name : 夕立改二
-         * day : [false,true,true,true,false,false,false]
-         */
-
-        private List<SecretaryEntity> secretary;
-
-        private int levelup;
-
-        public ResourceEntity getResource() {
-            return resource;
-        }
-
-        public void setResource(ResourceEntity resource) {
-            this.resource = resource;
-        }
-
-        public List<SecretaryEntity> getSecretary() {
-            return secretary;
-        }
-
-        public void setSecretary(List<SecretaryEntity> secretary) {
-            this.secretary = secretary;
-        }
-
-        public int getLevelup() {
-            return levelup;
-        }
-
-        public void setLevelup(int levelup) {
-            this.levelup = levelup;
-        }
-
-        public static class ResourceEntity {
-            private List<Integer> base;
-            private List<List<Integer>> item;
-
-            public ResourceEntity() {
-                base = new ArrayList<>();
-                item = new ArrayList<>();
-            }
-
-            public List<Integer> getBase() {
-                return base;
-            }
-
-            public void setBase(List<Integer> base) {
-                this.base = base;
-            }
-
-            public List<List<Integer>> getItem() {
-                return item;
-            }
-
-            public void setItem(List<List<Integer>> item) {
-                this.item = item;
-            }
-        }
-
-        public static class SecretaryEntity {
-            private String name;
-            private List<Boolean> day;
-
-            public String getName() {
-                return name;
-            }
-
-            public void setName(String name) {
-                this.name = name;
-            }
-
-            public List<Boolean> getDay() {
-                return day;
-            }
-
-            public void setDay(List<Boolean> day) {
-                this.day = day;
-            }
-        }
-    }
-
-    public static class GetEntity {
-        private String rank;
-        private String quest;
-        private String event;
-
-        public String getRank() {
-            return rank;
-        }
-
-        public void setRank(String rank) {
-            this.rank = rank;
-        }
-
-        public String getQuest() {
-            return quest;
-        }
-
-        public void setQuest(String quest) {
-            this.quest = quest;
-        }
-
-        public String getEvent() {
-            return event;
-        }
-
-        public void setEvent(String event) {
-            this.event = event;
         }
     }
 }
