@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">明石工具一式</string>
+
+    <string name="navigation_drawer_open">ドロワーメニューを開く</string>
+    <string name="navigation_drawer_close">ドロワーメニューを閉める</string>
+
+    <string name="action_settings">設定</string>
+    <string name="home">ホームページ</string>
+    <string name="official_twitter">公式ツイッター</string>
+    <string name="about">明石工具一式について</string>
+    <string name="maps">海域</string>
+    <string name="setting">設定</string>
+
+    <string name="night_mode">夜間モード</string>
+    <string name="night_mode_off">オフ</string>
+    <string name="night_mode_on">オン</string>
+    <string name="night_mode_auto">自動</string>
+    <string name="night_mode_follow_system">システムに従う</string>
+
+    <string name="quest">任務</string>
+    <string name="refresh_fail">更新失敗</string>
+    <string name="new_twitter">%d 件の新着ツイート</string>
+
+    <string name="action_refresh">更新</string>
+
+    <string name="category_general">一般</string>
+    <string name="category_twitter">公式ツイッター</string>
+    <string name="twitter_count">ツイート数</string>
+    <string name="twitter_display_language">表示言語</string>
+    <string name="twitter_display_language_both">原文及び翻訳</string>
+    <string name="twitter_display_language_ja">原文 (日本語)</string>
+    <string name="twitter_display_language_zh">翻訳 (簡体中国語)</string>
+    <string name="no_new_tweet">新着ツイート無し</string>
+    <string name="twitter_grid_layout">グリッドレイアウト</string>
+    <string name="twitter_grid_layout_summary">二列表示</string>
+
+
+    <string name="ship">艦娘</string>
+
+    <string name="quest_reward">獲得ボーナス</string>
+    <string name="quest_require">内容</string>
+    <string name="quest_consume">消費</string>
+    <string name="expedition">遠征</string>
+
+    <string name="expedition_flagship_format">旗艦レベル: %s</string>
+    <string name="expedition_flagship_total">合計レベル: %s</string>
+
+    <string name="version_format" formatted="false">%s (%d)</string>
+    <string name="version">バージョン</string>
+    <string name="check_update">更新チェック</string>
+    <string name="check_update_summary">約週一回の更新</string>
+
+    <string name="category_update">更新とメッセージ</string>
+    <string name="update_check_channel">更新チャンネル</string>
+    <string name="every_time_open_app">開く時ホームページへ</string>
+    <string name="manually">手動</string>
+    <string name="no_translated">(翻訳してないだぜ☆)</string>
+    <string name="item_improvement">改修</string>
+    <string name="reset_read">既読メッセージをリセット</string>
+    <string name="got_it">分かった</string>
+    <string name="not_now">嫌～</string>
+    <string name="ignore_update">嫌だ (今回のアップデートを無視)</string>
+    <string name="download">ダウンロード</string>
+    <string name="reset_read_summary">既読メッセージとアップグレード通知をリセット</string>
+    <string name="read_status_reset">リセットしました</string>
+    <string name="stable">安定バージョン</string>
+    <string name="latest">最新バージョン (もっと多くのバッグが出てしまうかも知れない)</string>
+    <string name="please_refresh">手動で更新してください</string>
+    <string name="open_link">リンクを開く</string>
+    <string name="todo_card_format" formatted="false">現在のバージョン: %s\n%s</string>
+    <string name="today">(本日)</string>
+    <string name="action_filter">フィルタ</string>
+    <string name="action_search">検索</string>
+    <string name="item">装備</string>
+    <string name="attributes">装備ステータス</string>
+    <string name="item_improvement_data">改修データ</string>
+    <string name="remark">備考</string>
+    <string name="item_get">入手方法</string>
+    <string name="data_source">情報元</string>
+    <string name="category_item">装備</string>
+    <string name="display_enemy">深海装備を表示</string>
+    <string name="introduction">図鑑内容</string>
+    <string name="ship_can_equip">装備可能艦種</string>
+    <string name="ship_initial_equip">艦船初期装備</string>
+    <string name="image_load_error">画像ロードエラー</string>
+    <string name="tools">工具</string>
+    <string name="exp_calc">経験値計算機</string>
+    <string name="exp_calc_map">海域</string>
+    <string name="exp_calc_result">評価</string>
+    <string name="exp_calc_cur_lv">今のレベル</string>
+    <string name="exp_calc_target_lv">目標レベル</string>
+    <string name="exp_calc_to_next">次のレベルまで</string>
+
+    <string name="data_language">データ言語</string>
+    <string name="language_zh">簡体中国語</string>
+    <string name="language_ja">日本語</string>
+    <string name="data_language_title">日本語タイトル</string>
+    <string name="data_language_title_summary">任務名などに日本語で表示する</string>
+    <string name="action_picture">画像</string>
+    <string name="illustration">図鑑</string>
+    <string name="remodel">改造</string>
+    <string name="equip_and_load">初期装備 &amp; 艦載</string>
+    <string name="equip_not_found">装備が見つからなかった (id: %d)</string>
+    <string name="not_equipped">未装備</string>
+    <string name="initial">初期ステータス</string>
+    <string name="saved">保存 %s</string>
+    <string name="save_failed">保存失敗</string>
+    <string name="require_write_external_storage_permission">保存するにはストレージへの書き込み権限が必要</string>
+    <string name="open">開く</string>
+    <string name="download_wifi_only">Wi-Fi接続時のみ画像を読み込む</string>
+    <string name="voice">ボイス</string>
+    <string name="new_content">季節性</string>
+
+    <string name="category_notification">通知</string>
+    <string name="notification_sound">通知とサウンド</string>
+    <string name="notification_priority">優先順位</string>
+    <string name="data_feedback">フィードバックを送る</string>
+
+    <string-array name="notification_priority">
+        <item>最低</item>
+        <item>低い</item>
+        <item>基本</item>
+        <item>高い</item>
+        <item>最高</item>
+    </string-array>
+
+    <string name="sort">順番</string>
+    <string name="ship_type">艦種</string>
+    <string name="ship_class">艦級</string>
+
+    <string name="action_bookmark">お気に入り</string>
+    <string name="bookmark_add">お気に入りに追加しました</string>
+    <string name="bookmark_remove">お気に入りを解除しました</string>
+
+    <string name="night_mode_require_restart">変更を反応するには再起動する必要があります。</string>
+    <string name="restart_app">再起動</string>
+    <string name="continue_use">使い続け</string>
+
+    <string name="night_mode_system_auto">システム夜間モード設定は自動となります、アプリ内で自動と設定しても無効の可能性があります。</string>
+
+    <string name="nav_bar_color">ナビバーの色を有効</string>
+    <string name="nav_bar_color_summary">テーマカラーを使う</string>
+
+    <string name="category_cache">キャッシュ</string>
+    <string name="cache_max_size">キャッシュ最大容量</string>
+    <string name="no_limit">無限制</string>
+    <string name="clear_cache">キャッシュの削除</string>
+    <string name="clear_cache_summary">画像とボイスの削除</string>
+    <string name="cleared">削除しました</string>
+    <string name="ranking">戦果検索</string>
+
+    <string name="feedback_summary">開発者へメールを送る</string>
+    <string name="donate">寄付</string>
+    <string name="telegram_group">Telegram グループ</string>
+    <string name="telegram_group_join">クリックして参加 (もしこのアプリの開発に興味があれば)</string>
+    <string name="qq_group">QQグループ</string>
+    <string name="source_code">ソースコード</string>
+
+    <string name="send_via">送信経由</string>
+    <string name="no_mail_app">メールアプリがないの様子</string>
+
+    <string name="copied_to_clipboard_format">%s コピーしています</string>
+    <string name="copied_to_clipboard">コピーしました</string>
+
+    <string name="nothing_bookmarked">お気に入り項目がありません</string>
+    <string name="nothing_bookmarked_summary">長押しまたは詳情ページ右上のブックマークアイコンをタップしてお気に入りに追加。</string>
+
+    <string name="share">シェア</string>
+    <string name="share_text">文字のみ</string>
+    <string name="copy_original_text">原文をコピー</string>
+    <string name="copy_translated_text">翻訳をコピー</string>
+
+    <string name="daily_equip_improve">本日改修</string>
+    <string name="bookmarked_items">お気に入りの項目</string>
+    <string name="bookmarked_items_no">お気に入りの項目がありません</string>
+    <string name="all_equip_improve_item">改修一覧表</string>
+    <string name="all_expedition_item">遠征一覧表</string>
+
+    <string name="new_version_available">新しいバージョンｷﾀ──</string>
+    <string name="new_version_summary" formatted="false">新しいバージョン: %s - %d</string>
+    <string name="new_version_content" formatted="false">更新情報: \n%s</string>
+
+    <string name="enemy">深海棲艦</string>
+    <string name="all">すべて</string>
+    <string name="expedition_finished">艦隊が母港に帰還しました</string>
+    <string name="expedition_notify">遠征アラーム</string>
+    <string name="finished">帰還しました</string>
+    <string name="not_started">出発準備中</string>
+    <string name="detail">詳情</string>
+
+    <string name="attr_firepower">火力</string>
+    <string name="attr_hp">耐久</string>
+    <string name="attr_aa">対空</string>
+    <string name="attr_torpedo">雷装</string>
+    <string name="attr_armor">装甲</string>
+    <string name="attr_asw">対潜</string>
+    <string name="attr_evasion">回避</string>
+    <string name="attr_los">索敵</string>
+    <string name="attr_speed">速力</string>
+    <string name="attr_range">射程</string>
+    <string name="attr_luck">運</string>
+    <string name="attr_accuracy">Accuracy</string>
+    <string name="attr_boom">Bombing</string>
+
+    <string name="range_short">短</string>
+    <string name="range_medium">中</string>
+    <string name="range_long">長</string>
+    <string name="range_very_long">超長</string>
+
+    <string name="speed_fast">高速</string>
+    <string name="speed_slow">低速</string>
+    <string name="speed_none">無し</string>
+
+    <string name="improvement_branch" formatted="false">Branch → %s</string>
+    <string name="improvement_any">Any</string>
+    <string name="improvement_resource">Resource</string>
+    <string name="improvement_upgrade">Upgrade</string>
+    <string name="improvement_upgrade_to">Upgrade to</string>
+
+</resources>
