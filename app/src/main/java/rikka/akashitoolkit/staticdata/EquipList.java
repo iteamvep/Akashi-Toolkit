@@ -65,6 +65,8 @@ public class EquipList {
     private static void setBookmarked(Context context, List<Equip> list) {
         for (Equip equip :
                 list) {
+            equip.setParentType(EquipTypeList.findItemById(context, equip.getType()).getPatentId());
+
             equip.setBookmarked(Settings.instance(context)
                     .getBoolean(String.format("equip_%d", equip.getId()), false));
         }
@@ -76,7 +78,7 @@ public class EquipList {
         while (newList.size() != list.size()) {
             for (Equip item :
                     list) {
-                if (curType == item.getSubType()) {
+                if (curType == item.getType()) {
                     newList.add(item);
                 }
             }
@@ -89,8 +91,8 @@ public class EquipList {
     private static void modifyItemIntroduction(List<Equip> list) {
         for (Equip item :
                 list) {
-            item.getIntroduction().setZh_cn(
-                    item.getIntroduction().getZh_cn().replace("<ref>", "（").replace("</ref>", "）"));
+            /*item.getIntroduction().setZh_cn(
+                    item.getIntroduction().getZh_cn().replace("<ref>", "（").replace("</ref>", "）"));*/
         }
     }
 

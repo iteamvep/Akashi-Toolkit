@@ -69,7 +69,7 @@ public class QuestFragment extends BaseDisplayFragment<QuestAdapter> {
 
         recyclerView.setItemAnimator(null);
         recyclerView.addItemDecoration(new BaseRecyclerViewItemDecoration(getContext()));
-        recyclerView.setBackgroundDrawable(new ColorDrawable(ContextCompat.getColor(getActivity(), R.color.cardBackground)));
+        recyclerView.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.cardBackground));
         if (mJumpIndex != -1 && mJumpType == mType) {
             jumpTo(mJumpIndex);
         }

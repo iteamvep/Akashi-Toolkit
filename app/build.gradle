@@ -8,7 +8,7 @@ android {
         applicationId "rikka.akashitoolkit"
         minSdkVersion 15
         targetSdkVersion 24
-        versionCode 88
+        versionCode 90
         versionName "0.0.37"
 
         vectorDrawables.useSupportLibrary = true
@@ -33,7 +33,6 @@ android {
 
         debug {
             applicationIdSuffix '.debug'
-            manifestPlaceholders = [APP_NAME: '@string/app_name_debug']
         }
     }
 

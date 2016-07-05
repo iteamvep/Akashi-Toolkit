@@ -1,5 +1,7 @@
 package rikka.akashitoolkit.model;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by Rikka on 2016/3/24.
  */
@@ -12,7 +14,9 @@ public class EquipType {
      */
 
     private int id;
-    private String parent;
+    private int patent_id;
+    @SerializedName("parent")
+    private String parent_name;
     private String name;
 
     public int getId() {
@@ -23,12 +27,20 @@ public class EquipType {
         this.id = id;
     }
 
-    public String getParent() {
-        return parent;
+    public int getPatentId() {
+        return patent_id;
     }
 
-    public void setParent(String parent) {
-        this.parent = parent;
+    public void setPatentId(int patent_id) {
+        this.patent_id = patent_id;
+    }
+
+    public String getParentName() {
+        return parent_name;
+    }
+
+    public void setParentName(String parent) {
+        this.parent_name = parent;
     }
 
     public String getName() {

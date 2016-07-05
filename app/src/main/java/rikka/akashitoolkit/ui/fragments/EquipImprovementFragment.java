@@ -2,10 +2,12 @@ package rikka.akashitoolkit.ui.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 
 import com.squareup.otto.Subscribe;
 
+import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.EquipImprovementAdapter;
 import rikka.akashitoolkit.otto.BookmarkAction;
 import rikka.akashitoolkit.otto.BusProvider;
@@ -38,6 +40,7 @@ public class EquipImprovementFragment extends BaseDisplayFragment<EquipImproveme
         super.onPostCreateView(recyclerView);
 
         recyclerView.addItemDecoration(new BaseRecyclerViewItemDecoration(getContext()));
+        recyclerView.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.cardBackground));
         recyclerView.setItemAnimator(null);
     }
 

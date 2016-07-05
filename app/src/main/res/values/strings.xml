@@ -218,6 +218,8 @@ Activity &amp; Extra:
     <string name="attr_speed">Speed</string>
     <string name="attr_range">Range</string>
     <string name="attr_luck">Luck</string>
+    <string name="attr_accuracy">Accuracy</string>
+    <string name="attr_boom">Bombing</string>
 
     <string name="range_short">Short</string>
     <string name="range_medium">Medium</string>
@@ -227,4 +229,11 @@ Activity &amp; Extra:
     <string name="speed_fast">Fast</string>
     <string name="speed_slow">Slow</string>
     <string name="speed_none">None</string>
+
+    <string name="improvement_branch" formatted="false">Branch → %s</string>
+    <string name="improvement_any">Any</string>
+    <string name="improvement_resource">Resource</string>
+    <string name="improvement_upgrade">Upgrade</string>
+    <string name="improvement_upgrade_to">Upgrade to</string>
+
 </resources>

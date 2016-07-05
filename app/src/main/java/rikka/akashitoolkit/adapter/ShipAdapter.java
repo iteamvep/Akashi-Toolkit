@@ -380,6 +380,10 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (holder.getAdapterPosition() == -1) {
+                    return;
+                }
+
                 mItemId = getItemId(holder.getAdapterPosition());
                 Boolean expanded = mExpanded.get(mItemId);
                 expanded = !expanded;
@@ -421,7 +425,7 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
     }
 
     public boolean collapseLastType() {
-        if (requireBookmarked() || mLastHolder == null || mItemId == -1) {
+        if (requireBookmarked() || mLastHolder == null) {
             return false;
         }
 

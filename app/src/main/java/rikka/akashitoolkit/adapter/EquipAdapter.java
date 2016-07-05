@@ -4,13 +4,9 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
-
-import com.squareup.otto.Bus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,14 +14,12 @@ import java.util.List;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.model.Equip;
 import rikka.akashitoolkit.model.EquipType;
-import rikka.akashitoolkit.model.Ship;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.DataListRebuiltFinished;
 import rikka.akashitoolkit.staticdata.EquipList;
 import rikka.akashitoolkit.staticdata.EquipTypeList;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.ui.EquipDisplayActivity;
-import rikka.akashitoolkit.utils.Utils;
 
 /**
  * Created by Rikka on 2016/3/23.
@@ -81,6 +75,7 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Item> {
             protected Void doInBackground(Void... params) {
                 newList.clear();
 
+                int lastType = -1;
 
                 for (Equip equip :
                         EquipList.get(mActivity)) {
@@ -88,24 +83,18 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Item> {
                         continue;
                     }
 
-                    if (mType == 0 || (EquipTypeList.getsParentList(mActivity).get(
-                            EquipTypeList.findItemById(mActivity, equip.getSubType()).getParent()) == mType)) {
-
-                        int lastType = -1;
-                        if (newList.size() > 0) {
-                            Data last = newList.get(newList.size() - 1);
-                            if (last.data != null && last.data instanceof Equip) {
-                                lastType = EquipTypeList.findItemById(mActivity, ((Equip) last.data).getSubType()).getId();
-                            }
-                        }
-
-                        if (newList.size() == 0 || lastType != -1 && lastType != EquipTypeList.findItemById(mActivity, equip.getSubType()).getId()) {
-                            EquipType equipType = EquipTypeList.findItemById(mActivity, equip.getSubType());
-                            newList.add(new Data(equipType.getName(), 1, equipType.getId() * 10000));
-                        }
-
-                        newList.add(new Data(equip, 0, equip.getId()));
+                    if (equip.getParentType() != mType && mType != 0) {
+                        continue;
                     }
+
+                    if (newList.size() == 0 || lastType != equip.getType()) {
+                        lastType = equip.getType();
+                        EquipType equipType = EquipTypeList.findItemById(mActivity, equip.getType());
+                        if (equipType != null)
+                            newList.add(new Data(equipType.getName(), 1, equipType.getId() * 10000));
+                    }
+
+                    newList.add(new Data(equip, 0, equip.getId()));
                 }
 
                 if (mType == 0) {

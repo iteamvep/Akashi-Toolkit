@@ -2,6 +2,7 @@ package rikka.akashitoolkit.ui.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.LinearLayoutManager;
@@ -248,6 +249,7 @@ public class ExpeditionDisplayFragment extends BaseDrawerItemFragment implements
         });*/
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.cardBackground));
 
         if (!isHiddenBeforeSaveInstanceState()) {
             onShow();

@@ -2,6 +2,7 @@ package rikka.akashitoolkit.ui;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.support.annotation.StringRes;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.content.ContextCompat;
@@ -26,12 +27,18 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
+import java.text.DateFormatSymbols;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Locale;
+import java.util.Map;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.model.Equip;
 import rikka.akashitoolkit.model.EquipImprovement;
+import rikka.akashitoolkit.model.Ship;
 import rikka.akashitoolkit.model.ShipType;
 import rikka.akashitoolkit.staticdata.EquipList;
 import rikka.akashitoolkit.staticdata.EquipImprovementList;
@@ -126,6 +133,7 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
         };
     }
 
+    @SuppressLint("DefaultLocale")
     private void setViews() {
         setToolBar(mToolbar);
 
@@ -138,24 +146,24 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
 
         /*((TextView) findViewById(R.id.text_title)).setText(*/
         getSupportActionBar().setSubtitle(String.format(
-                "No. %d %s %s",
+                "No. %d %s",
                 mItem.getId(),
-                EquipTypeList.findItemById(this, mItem.getSubType()).getName(),
-                KCStringFormatter.getStars(mItem.getRarity())));
+                EquipTypeList.findItemById(this, mItem.getParentType()).getName()
+                /*KCStringFormatter.getStars(mItem.getRarity())*/));
 
-        addAttrView(mLinearLayout, "火力", mItem.getAttr().getFire(), R.drawable.item_attr_fire);
-        addAttrView(mLinearLayout, "对空", mItem.getAttr().getAa(), R.drawable.item_attr_aa);
-        addAttrView(mLinearLayout, "命中", mItem.getAttr().getAcc(), R.drawable.item_attr_acc);
-        addAttrView(mLinearLayout, "雷装", mItem.getAttr().getTorpedo(), R.drawable.item_attr_torpedo);
-        addAttrView(mLinearLayout, "爆装", mItem.getAttr().getBomb(), R.drawable.item_attr_bomb);
-        addAttrView(mLinearLayout, "对潜", mItem.getAttr().getAsw(), R.drawable.item_attr_asw);
-        addAttrView(mLinearLayout, "回避", mItem.getAttr().getEvasion(), R.drawable.item_attr_dodge);
-        addAttrView(mLinearLayout, "索敌", mItem.getAttr().getSearch(), R.drawable.item_attr_search);
-        addAttrView(mLinearLayout, "装甲", mItem.getAttr().getArmor(), R.drawable.item_attr_armor);
-        addAttrView(mLinearLayout, "射程", mItem.getAttr().getRange(), R.drawable.item_attr_range);
+        addAttrView(mLinearLayout, R.string.attr_firepower, mItem.getAttr().getFirepower(), R.drawable.item_attr_fire);
+        addAttrView(mLinearLayout, R.string.attr_aa, mItem.getAttr().getAA(), R.drawable.item_attr_aa);
+        addAttrView(mLinearLayout, R.string.attr_accuracy, mItem.getAttr().getAccuracy(), R.drawable.item_attr_acc);
+        addAttrView(mLinearLayout, R.string.attr_torpedo, mItem.getAttr().getTorpedo(), R.drawable.item_attr_torpedo);
+        addAttrView(mLinearLayout, R.string.attr_boom, mItem.getAttr().getBombing(), R.drawable.item_attr_bomb);
+        addAttrView(mLinearLayout, R.string.attr_asw, mItem.getAttr().getASW(), R.drawable.item_attr_asw);
+        addAttrView(mLinearLayout, R.string.attr_evasion, mItem.getAttr().getEvasion(), R.drawable.item_attr_dodge);
+        addAttrView(mLinearLayout, R.string.attr_los, mItem.getAttr().getLOS(), R.drawable.item_attr_search);
+        addAttrView(mLinearLayout, R.string.attr_armor, mItem.getAttr().getArmor(), R.drawable.item_attr_armor);
+        addAttrView(mLinearLayout, R.string.attr_range, mItem.getAttr().getRange(), R.drawable.item_attr_range);
 
         addShipType();
-        addItemImprovementView();
+        addItemImprovementViews();
 
         addOther(mLinearLayout);
     }
@@ -193,14 +201,6 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
                     startActivity(intent);
                 }
             });
-
-            /*textView.setText();
-            textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
-            textView.setLayoutParams(new LinearLayout.LayoutParams(0, Utils.dpToPx(48), 1));
-            textView.setGravity(Gravity.CENTER_VERTICAL);
-            textView.setSingleLine(true);
-            //textView.setPadding(i == 0 ? Utils.dpToPx(16) : Utils.dpToPx(4), Utils.dpToPx(2), i == 2 ? Utils.dpToPx(16) : Utils.dpToPx(4), Utils.dpToPx(2));
-            textView.setPadding(Utils.dpToPx(16), 0, Utils.dpToPx(16), 0);*/
 
             linearLayout.addView(view);
 
@@ -304,10 +304,10 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
             addTextView(cell, Html.fromHtml(mItem.getRemark())).setPadding((int) getResources().getDimension(R.dimen.item_activity_margin), Utils.dpToPx(4), (int) getResources().getDimension(R.dimen.item_activity_margin), 0);
         }
 
-        if (mItem.getGet().getQuest() != null ||
+        /*if (mItem.getGet().getQuest() != null ||
                 mItem.getGet().getRank() != null ||
                 mItem.getGet().getEvent() != null) {
-            ViewGroup cell = addCell(parent, R.string.item_get);
+            ViewGroup cell = addCell(parent, R.string.item_get);*/
 
             /*if (mItem.getGet().getQuest() != null) {
                 StringBuilder sb = new StringBuilder();
@@ -328,7 +328,7 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
             }*/
 
 
-            if (mItem.getGet().getEvent() != null) {
+            /*if (mItem.getGet().getEvent() != null) {
                 StringBuilder sb = new StringBuilder();
 
                 //sb.append(getString(R.string.quest)).append(":\n");
@@ -352,7 +352,7 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
 
                 addTextView(cell, sb.toString()).setPadding((int) getResources().getDimension(R.dimen.item_activity_margin), 0, (int) getResources().getDimension(R.dimen.item_activity_margin), 0);
             }
-        }
+        }*/
 
         addIllustration(mLinearLayout);
 
@@ -373,64 +373,150 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
         return view;
     }
 
-    private void addItemImprovementView() {
-        EquipImprovement equipImprovement = EquipImprovementList.findItemById(this, mItem.getId());
-        if (equipImprovement == null || equipImprovement.getSecretary() == null) {
+    private void addItemImprovementViews() {
+        if (mItem.getImprovements() == null) {
             return;
         }
 
         ViewGroup parent = addCell(mLinearLayout, R.string.item_improvement_data);
 
-        for (EquipImprovement.SecretaryEntity entry:
-                equipImprovement.getSecretary()) {
+        for (int i = 0; i < mItem.getImprovements().length; i++) {
+            Equip.ImprovementEntity improvement = mItem.getImprovements()[i];
+
+            if (mItem.getImprovements().length > 1) {
+                String name = "";
+                if (improvement.getUpgrade() != null) {
+                    Equip equip = EquipList.findItemById(this, improvement.getUpgrade()[0]);
+                    if (equip != null) {
+                        name = equip.getName().get(this);
+                    }
+                }
+
+                TextView textView = (TextView) LayoutInflater.from(this).inflate(R.layout.item_improvement_branch, parent, false);
+                textView.setText(String.format(getString(R.string.improvement_branch), name));
+                if (i >= 1) {
+                    textView.setPadding(
+                            textView.getPaddingLeft(),
+                            Utils.dpToPx(24),
+                            textView.getPaddingRight(),
+                            textView.getPaddingBottom()
+                    );
+                }
+                parent.addView(textView);
+            }
+
+            addItemImprovementView(parent, improvement);
+
+        }
+    }
+
+    private void addItemImprovementView(ViewGroup parent, Equip.ImprovementEntity improvement) {
+        DateFormatSymbols symbols = new DateFormatSymbols(Locale.getDefault());
+        String[] dayNames = symbols.getShortWeekdays();
+
+        Map<Integer, List<Integer>> ships = new HashMap<>();
+        Map<Integer, Integer> ids = new LinkedHashMap<>();
+
+        for (List<Integer> entry : improvement.getShips()) {
+            for (Integer id : entry) {
+                if (id >= 0) {
+                    ids.put(id, 0);
+                }
+            }
+        }
+
+        for (Map.Entry<Integer, Integer> entry : ids.entrySet()) {
+            int id = entry.getKey();
+
+            int data = 0;
+            for (int i = 0; i < 7; i++) {
+                List<Integer> e = improvement.getShips().get(i);
+                for (Integer id2 : e) {
+                    if (id2 == id) {
+                        data |= (1 << i);
+                    }
+                }
+            }
+
+            List<Integer> list = ships.get(data);
+            if (list == null) {
+                list = new ArrayList<>();
+            }
+            list.add(id);
+            ships.put(data, list);
+        }
+
+        for (Map.Entry<Integer, List<Integer>> entry : ships.entrySet()) {
+            int flag = entry.getKey();
+            List<Integer> ship = entry.getValue();
+
             LinearLayout linearLayout = new LinearLayout(this);
             linearLayout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
             linearLayout.setOrientation(LinearLayout.HORIZONTAL);
-            linearLayout.setPadding((int) getResources().getDimension(R.dimen.item_activity_margin), Utils.dpToPx(4), (int) getResources().getDimension(R.dimen.item_activity_margin), Utils.dpToPx(4));
+            linearLayout.setPadding((int) getResources().getDimension(R.dimen.item_activity_margin), Utils.dpToPx(8), (int) getResources().getDimension(R.dimen.item_activity_margin), Utils.dpToPx(0));
+            linearLayout.setGravity(Gravity.CENTER_VERTICAL);
 
-            for (int i = 0; i < entry.getDay().size(); i++) {
-                TextView view = (TextView) LayoutInflater.from(this).inflate(R.layout.day_cricle, null);
-                view.setText(DAY[i]);
-                view.setEnabled(entry.getDay().get(i));
+            for (int i = 0; i < 7; i++) {
+                TextView view = (TextView) LayoutInflater.from(this).inflate(R.layout.day_cricle, parent, false);
+                view.setText(Character.toString(dayNames[i + 1].charAt(0)));
+                view.setEnabled((flag & 1 << i) > 0);
                 linearLayout.addView(view);
             }
 
+            StringBuilder sb = new StringBuilder();
+            for (int id : ship) {
+                if (sb.length() > 0) {
+                    sb.append(" / ");
+                }
+
+                if (id == 0) {
+                    sb.append(getString(R.string.improvement_any));
+                } else {
+                    Ship s = ShipList.findItemById(this, id);
+                    if (s != null)
+                        sb.append(s.getName().get(this));
+                }
+            }
             TextView view = new TextView(this);
-            view.setPadding((int) getResources().getDimension(R.dimen.item_activity_margin), 0, (int) getResources().getDimension(R.dimen.item_activity_margin), 0);
-            view.setText(entry.getName());
+            view.setPadding(Utils.dpToPx(16), 0, Utils.dpToPx(16), 0);
+            view.setText(sb.toString());
             view.setTextSize(16);
             linearLayout.addView(view);
 
             parent.addView(linearLayout);
         }
 
+        addItemImprovementInsideView(parent, 0, getString(R.string.improvement_resource), improvement.getCost());
 
-        if (mItem.getImprovement() == null) {
-            return;
+        if (improvement.getItem() != null) {
+            addItemImprovementInsideView(parent, 1, "~ ★+6", improvement.getItem());
         }
-
-        getItemImprovementInsideView(parent, 0, "必要资源", mItem.getImprovement().getResource().getBase());
-
-        for (int i = 0; i < mItem.getImprovement().getResource().getItem().size(); i++) {
-            List<Integer> list = mItem.getImprovement().getResource().getItem().get(i);
-
-            getItemImprovementInsideView(parent, 1, i == 0 ? "~ ★+6" : i == 1 ? "~ MAX" : "升级", list);
+        if (improvement.getItem2() != null) {
+            addItemImprovementInsideView(parent, 1, "~ MAX", improvement.getItem2());
         }
-
-        getItemImprovementInsideView(parent, "升级为", mItem.getImprovement().getLevelup());
+        if (improvement.getItem3() != null) {
+            addItemImprovementInsideView(parent, 1, getString(R.string.improvement_upgrade), improvement.getItem3());
+        }
+        if (improvement.getUpgrade() != null) {
+            addItemImprovementInsideView(parent, getString(R.string.improvement_upgrade_to), improvement.getUpgrade());
+        }
     }
 
-    private void getItemImprovementInsideView(ViewGroup parent, String title, int id) {
-        if (id <= 0) {
-            return;
-        }
+    private void addItemImprovementInsideView(ViewGroup parent, String title, int[] id) {
         LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this).inflate(R.layout.item_improvement_levelup, null);
         ((TextView) linearLayout.findViewById(android.R.id.title)).setText(title);
 
-        final Equip item = EquipList.findItemById(this, id);
-        ((TextView) linearLayout.findViewById(R.id.text_number_0)).setText(item.getName().get(this));
-        /*((ImageView) linearLayout.findViewById(R.id.imageView))
-                .setImageResource(EquipTypeList.getResourceId(this, equip.getIcon()));*/
+        final Equip item = EquipList.findItemById(this, id[0]);
+        if (item == null) {
+            return;
+        }
+
+        StringBuilder sb = new StringBuilder();
+        sb.append(item.getName().get(this));
+        if (id[1] > 0) {
+            sb.append(" ★+").append(id[1]);
+        }
+        ((TextView) linearLayout.findViewById(R.id.text_number_0)).setText(sb.toString());
 
         ((View) linearLayout.findViewById(R.id.text_number_0).getParent()).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -446,30 +532,28 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
         parent.addView(linearLayout);
     }
 
-    private void getItemImprovementInsideView(ViewGroup parent, int type, String title, List<Integer> res) {
+    @SuppressLint("DefaultLocale")
+    private void addItemImprovementInsideView(ViewGroup parent, int type, String title, int[] res) {
         if (type == 0) {
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this).inflate(R.layout.item_improvement_cost_base, null);
             ((TextView) linearLayout.findViewById(android.R.id.title)).setText(title);
-            ((TextView) linearLayout.findViewById(R.id.text_number_0)).setText(String.format("%d", res.get(0)));
-            ((TextView) linearLayout.findViewById(R.id.text_number_1)).setText(String.format("%d", res.get(1)));
-            ((TextView) linearLayout.findViewById(R.id.text_number_2)).setText(String.format("%d", res.get(2)));
-            ((TextView) linearLayout.findViewById(R.id.text_number_3)).setText(String.format("%d", res.get(3)));
+            ((TextView) linearLayout.findViewById(R.id.text_number_0)).setText(String.format("%d", res[0]));
+            ((TextView) linearLayout.findViewById(R.id.text_number_1)).setText(String.format("%d", res[1]));
+            ((TextView) linearLayout.findViewById(R.id.text_number_2)).setText(String.format("%d", res[2]));
+            ((TextView) linearLayout.findViewById(R.id.text_number_3)).setText(String.format("%d", res[3]));
             parent.addView(linearLayout);
         } else {
-            if (res.get(0) == 0) {
-                return;
-            }
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this).inflate(R.layout.item_improvement_cost_item, null);
             ((TextView) linearLayout.findViewById(android.R.id.title)).setText(title);
-            ((TextView) linearLayout.findViewById(R.id.text_number_0)).setText(String.format("%d(%d)", res.get(0), res.get(1)));
-            ((TextView) linearLayout.findViewById(R.id.text_number_1)).setText(String.format("%d(%d)", res.get(2), res.get(3)));
+            ((TextView) linearLayout.findViewById(R.id.text_number_0)).setText(String.format("%d(%d)", res[0], res[1]));
+            ((TextView) linearLayout.findViewById(R.id.text_number_1)).setText(String.format("%d(%d)", res[2], res[3]));
 
-            if (res.get(5) > 0) {
-                final Equip item = EquipList.findItemById(this, res.get(4));
+            if (res.length == 6) {
+                final Equip item = EquipList.findItemById(this, res[5]);
                 ((TextView) linearLayout.findViewById(R.id.text_number_2)).setText(
                         String.format("%s ×%d",
                                 item.getName().get(this),
-                                res.get(5)));
+                                res[4]));
 
                 ((View) linearLayout.findViewById(R.id.text_number_2).getParent()).setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -480,8 +564,6 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
                     }
                 });
 
-                /*((ImageView) linearLayout.findViewById(R.id.imageView))
-                        .setImageResource(EquipTypeList.getResourceId(this, equip.getIcon()));*/
                 EquipTypeList.setIntoImageView((ImageView) linearLayout.findViewById(R.id.imageView), item.getIcon());
             } else {
                 linearLayout.findViewById(R.id.linearLayout).setVisibility(View.GONE);
@@ -489,8 +571,6 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
             parent.addView(linearLayout);
         }
     }
-
-    private static final String[] DAY = {"日", "一", "二", "三", "四", "五", "六"};
 
     private TextView addTextView(ViewGroup parent, String text, int size) {
         TextView textView = new TextView(this);
@@ -518,17 +598,13 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
 
     private LinearLayout mCurAttrLinearLayout;
     private int attr = 0;
-    private void addAttrView(ViewGroup parent, String title, int value, int icon) {
+
+    private void addAttrView(ViewGroup parent, @StringRes int title, int value, int icon) {
         if (value == 0) {
             return;
         }
 
         mItemAttrContainer = (LinearLayout) parent;
-
-        /*if (mItemAttrContainer == null) {
-            mItemAttrContainer = (LinearLayout) addCell(mLinearLayout, R.string.attributes);
-            parent = mItemAttrContainer;
-        }*/
 
         attr ++;
 
@@ -553,10 +629,9 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
             ((TextView) cell.findViewById(R.id.textView2)).setText(KCStringFormatter.getRange(cell.getContext(), value));
         } else {
             ((TextView) cell.findViewById(R.id.textView2)).setText(String.format("%s%d", value > 0 ? "+" : "", value));
-            ((TextView) cell.findViewById(R.id.textView2)).setTextColor(ContextCompat.getColor(this, value > 0 ? R.color.material_green_300 : R.color.material_red_300));
+            if (value < 0)
+                ((TextView) cell.findViewById(R.id.textView2)).setTextColor(ContextCompat.getColor(this, R.color.material_red_300));
         }
-
-        //((ImageView) cell.findViewById(R.id.imageView)).setImageDrawable(ContextCompat.getDrawable(this, icon));
 
         if (attr % 2 == 0) {
             mCurAttrLinearLayout = null;
