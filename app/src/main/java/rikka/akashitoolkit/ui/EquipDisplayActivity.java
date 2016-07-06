@@ -148,7 +148,7 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
         getSupportActionBar().setSubtitle(String.format(
                 "No. %d %s",
                 mItem.getId(),
-                EquipTypeList.findItemById(this, mItem.getParentType()).getName()
+                EquipTypeList.findItemById(this, mItem.getType()).getName()
                 /*KCStringFormatter.getStars(mItem.getRarity())*/));
 
         addAttrView(mLinearLayout, R.string.attr_firepower, mItem.getAttr().getFirepower(), R.drawable.item_attr_fire);
@@ -360,7 +360,7 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
                 && mItem.getIntroduction().get(this) != null
                 && mItem.getIntroduction().get(this).length() > 0) {
             ViewGroup cell = addCell(parent, R.string.introduction);
-            addTextView(cell, Html.fromHtml(mItem.getIntroduction().get(this))).setPadding((int) getResources().getDimension(R.dimen.item_activity_margin), 0, (int) getResources().getDimension(R.dimen.item_activity_margin), 0);
+            addTextView(cell, mItem.getIntroduction().get(this)).setPadding((int) getResources().getDimension(R.dimen.item_activity_margin), 0, (int) getResources().getDimension(R.dimen.item_activity_margin), 0);
         }
 
         addShip();
@@ -523,7 +523,7 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(EquipDisplayActivity.this, EquipDisplayActivity.class);
                 intent.putExtra(ShipDisplayActivity.EXTRA_ITEM_ID, item.getId());
-                startActivity(intent);
+                BaseItemDisplayActivity.start(EquipDisplayActivity.this, intent);
             }
         });
 

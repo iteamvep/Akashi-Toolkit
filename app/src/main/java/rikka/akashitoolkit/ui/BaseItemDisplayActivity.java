@@ -2,7 +2,9 @@ package rikka.akashitoolkit.ui;
 
 import android.animation.Animator;
 import android.animation.ValueAnimator;
+import android.app.Activity;
 import android.app.ActivityManager;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
@@ -16,6 +18,7 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AccelerateInterpolator;
 
 import rikka.akashitoolkit.R;
+import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.StaticData;
 import rikka.akashitoolkit.utils.Utils;
 
@@ -35,6 +38,21 @@ public abstract class BaseItemDisplayActivity extends BaseActivity {
     private int mItemY;
 
     private boolean mShouldAnim;
+
+    public static void start(Context context, Intent intent) {
+        boolean newTask = Settings.instance(context).getBoolean(Settings.OPEN_IN_NEW_DOCUMENT, false);
+        if (newTask && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            intent.removeExtra(EXTRA_START_Y);
+            intent.addFlags(Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_DOCUMENT);
+            context.startActivity(intent);
+        } else {
+            context.startActivity(intent);
+            if (intent.hasExtra(EXTRA_START_Y) && context instanceof Activity) {
+                ((Activity) context).overridePendingTransition(0, 0);
+            }
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

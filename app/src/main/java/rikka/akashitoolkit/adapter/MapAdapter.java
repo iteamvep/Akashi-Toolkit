@@ -16,6 +16,7 @@ import java.util.List;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.model.Map;
 import rikka.akashitoolkit.staticdata.MapList;
+import rikka.akashitoolkit.ui.BaseItemDisplayActivity;
 import rikka.akashitoolkit.ui.MapActivity;
 
 /**
@@ -55,7 +56,8 @@ public class MapAdapter extends BaseRecyclerAdapter<ViewHolder.Map> {
                 Intent intent = new Intent(mContext, MapActivity.class);
                 intent.putExtra(MapActivity.EXTRA_ITEM_ID, item.getSea() * 10 + item.getArea());
                 intent.putExtra(MapActivity.EXTRA_ITEM_NAME, item.getMap());
-                mContext.startActivity(intent);
+
+                BaseItemDisplayActivity.start(mContext, intent);
             }
         });
     }

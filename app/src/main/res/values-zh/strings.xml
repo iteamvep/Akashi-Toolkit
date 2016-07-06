@@ -218,4 +218,7 @@
     <string name="improvement_upgrade">升级</string>
     <string name="improvement_upgrade_to">升级为</string>
 
+    <string name="open_in_new_document">分离任务</string>
+    <string name="open_in_new_document_summary">在概览屏幕以单独任务的形式展示每个详情视图</string>
+
 </resources>

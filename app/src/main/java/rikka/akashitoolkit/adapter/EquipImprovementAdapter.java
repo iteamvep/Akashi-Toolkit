@@ -22,6 +22,7 @@ import rikka.akashitoolkit.staticdata.EquipList;
 import rikka.akashitoolkit.staticdata.EquipTypeList;
 import rikka.akashitoolkit.staticdata.EquipImprovementList;
 import rikka.akashitoolkit.support.Settings;
+import rikka.akashitoolkit.ui.BaseItemDisplayActivity;
 import rikka.akashitoolkit.ui.EquipDisplayActivity;
 
 /**
@@ -88,8 +89,7 @@ public class EquipImprovementAdapter extends BaseBookmarkRecyclerAdapter<ViewHol
                 intent.putExtra(EquipDisplayActivity.EXTRA_START_HEIGHT, holder.itemView.getHeight());
                 intent.putExtra(EquipDisplayActivity.EXTRA_EQUIP_IMPROVE_ID, item.getId());
 
-                v.getContext().startActivity(intent);
-                mActivity.overridePendingTransition(0, 0);
+                BaseItemDisplayActivity.start(mActivity, intent);
             }
         });
 

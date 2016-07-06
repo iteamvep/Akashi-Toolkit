@@ -236,4 +236,6 @@ Activity &amp; Extra:
     <string name="improvement_upgrade">Upgrade</string>
     <string name="improvement_upgrade_to">Upgrade to</string>
 
+    <string name="open_in_new_document">Separate tasks</string>
+    <string name="open_in_new_document_summary">Represent detail views as separate tasks in overview screen</string>
 </resources>

@@ -2,6 +2,7 @@ package rikka.akashitoolkit.adapter;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.view.LayoutInflater;
@@ -19,6 +20,7 @@ import rikka.akashitoolkit.otto.DataListRebuiltFinished;
 import rikka.akashitoolkit.staticdata.EquipList;
 import rikka.akashitoolkit.staticdata.EquipTypeList;
 import rikka.akashitoolkit.support.Settings;
+import rikka.akashitoolkit.ui.BaseItemDisplayActivity;
 import rikka.akashitoolkit.ui.EquipDisplayActivity;
 
 /**
@@ -145,7 +147,9 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Item> {
                 holder.mLinearLayout.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(v.getContext(), EquipDisplayActivity.class);
+                        Context context = v.getContext();
+
+                        Intent intent = new Intent(context, EquipDisplayActivity.class);
                         intent.putExtra(EquipDisplayActivity.EXTRA_ITEM_ID,
                                 ((Equip) mData.get(holder.getAdapterPosition()).data).getId());
 
@@ -154,8 +158,7 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Item> {
                         intent.putExtra(EquipDisplayActivity.EXTRA_START_Y, location[1]);
                         intent.putExtra(EquipDisplayActivity.EXTRA_START_HEIGHT, holder.mLinearLayout.getHeight());
 
-                        v.getContext().startActivity(intent);
-                        mActivity.overridePendingTransition(0, 0);
+                        BaseItemDisplayActivity.start(mActivity, intent);
                     }
                 });
 

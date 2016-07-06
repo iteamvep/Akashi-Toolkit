@@ -24,6 +24,12 @@
             android:title="@string/download_wifi_only"
             android:defaultValue="false"/>-->
 
+        <SwitchPreference
+            android:key="open_in_new_document"
+            android:title="@string/open_in_new_document"
+            android:summary="@string/open_in_new_document_summary"
+            android:defaultValue="false"/>
+
         <DropDownPreference
             android:key="night_mode"
             android:title="@string/night_mode"

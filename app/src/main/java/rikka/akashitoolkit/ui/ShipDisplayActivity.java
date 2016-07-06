@@ -821,7 +821,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
                         public void onClick(View v) {
                             Intent intent = new Intent(ShipDisplayActivity.this, EquipDisplayActivity.class);
                             intent.putExtra(EquipDisplayActivity.EXTRA_ITEM_ID, item.getId());
-                            startActivity(intent);
+                            BaseItemDisplayActivity.start(ShipDisplayActivity.this, intent);
                         }
                     });
                 }

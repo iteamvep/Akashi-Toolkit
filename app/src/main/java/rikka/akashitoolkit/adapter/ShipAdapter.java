@@ -29,6 +29,7 @@ import rikka.akashitoolkit.model.ShipClass;
 import rikka.akashitoolkit.staticdata.ShipClassList;
 import rikka.akashitoolkit.staticdata.ShipList;
 import rikka.akashitoolkit.support.Settings;
+import rikka.akashitoolkit.ui.BaseItemDisplayActivity;
 import rikka.akashitoolkit.ui.ShipDisplayActivity;
 import rikka.akashitoolkit.ui.widget.LinearLayoutManager;
 import rikka.akashitoolkit.utils.Utils;
@@ -316,8 +317,7 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
                 intent.putExtra(ShipDisplayActivity.EXTRA_START_Y, location[1]);
                 intent.putExtra(ShipDisplayActivity.EXTRA_START_HEIGHT, holder.itemView.getHeight());
 
-                v.getContext().startActivity(intent);
-                mActivity.overridePendingTransition(0, 0);
+                BaseItemDisplayActivity.start(mActivity, intent);
             }
         });
 

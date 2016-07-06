@@ -54,19 +54,6 @@ public class SettingActivity extends BaseActivity {
         }
     }
 
-    /*@Override
-    public boolean shouldOverrideBackTransition() {
-        return false;
-    }*/
-
-    /*@Override
-    public void onBackPressed() {
-        if (shouldOverrideBackTransition()) {
-            overridePendingTransition(0, moe.xing.daynightmode.R.anim.activity_close_exit);
-        }
-        ActivityCompat.finishAfterTransition(this);
-    }*/
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -110,6 +97,7 @@ public class SettingActivity extends BaseActivity {
 
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
                 ((PreferenceCategory) findPreference("general")).removePreference(findPreference(Settings.NAV_BAR_COLOR));
+                ((PreferenceCategory) findPreference("general")).removePreference(findPreference(Settings.OPEN_IN_NEW_DOCUMENT));
             }
 
             if (!StaticData.instance(getActivity()).isTablet) {

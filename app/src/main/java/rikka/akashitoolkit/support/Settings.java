@@ -49,6 +49,8 @@ public class Settings {
 
     public static final String DEVELOPER = "developer";
 
+    public static final String OPEN_IN_NEW_DOCUMENT = "open_in_new_document";
+
     private static BaseSetting sInstance;
 
     public static synchronized BaseSetting instance(Context context) {
