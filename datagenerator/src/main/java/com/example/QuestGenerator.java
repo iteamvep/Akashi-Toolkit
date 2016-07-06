@@ -81,7 +81,6 @@ public class QuestGenerator {
             }
         }
 
-        // !!! 会直接掩盖项目里面已有的数据
         objectToJsonFile(list, "app/src/main/assets/Quest.json");
         objectToJsonFile(mItemList, "app/src/main/assets/Item.json");
     }

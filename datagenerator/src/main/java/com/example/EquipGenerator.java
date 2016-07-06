@@ -18,10 +18,6 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import okhttp3.Interceptor;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 import okhttp3.ResponseBody;
 import retrofit2.Retrofit;
 
@@ -38,11 +34,11 @@ public class EquipGenerator {
         /*ResponseBody body = service.getPage("模块:舰娘装备数据改", "raw").execute().body();
         Reader is = body.charStream();*/
 
-        Reader is = new FileReader(new File("datagenerator/equip.lua"));
+        Reader reader = new FileReader(new File("datagenerator/equip.lua"));
 
         int count = 0;
         StringBuilder sb = new StringBuilder();
-        for (int c = is.read(); c != -1; c = is.read()) {
+        for (int c = reader.read(); c != -1; c = reader.read()) {
             if ((char) c == '{') {
                 count++;
             }
@@ -59,7 +55,7 @@ public class EquipGenerator {
         String str = sb.toString()
                 .substring(2);
 
-        Reader reader = new StringReader(str);
+        reader = new StringReader(str);
         sb = new StringBuilder();
         boolean skipSpace = true;
         for (int c = reader.read(); c != -1; c = reader.read()) {
@@ -141,7 +137,8 @@ public class EquipGenerator {
                 }
             }
 
-            String s = Utils.streamToString(new FileInputStream(file));
+            String s = Utils.streamToString(new FileInputStream(file))
+                    .replaceAll("\\|([^\\|]+) =", "\\|$1=");
 
             Pattern r;
             Matcher m;
@@ -157,6 +154,97 @@ public class EquipGenerator {
             if (m.find()) {
                 item.getIntroduction().setZh_cn(a(m.group(1)));
             }
+        }
+
+        // 敌舰数据
+        reader = service.getPage("深海栖舰装备", "raw").execute().body().charStream();
+        sb = new StringBuilder();
+        for (int c = reader.read(); c != -1; c = reader.read()) {
+            sb.append((char) c);
+        }
+        str = sb.toString()
+                .replace("=短\"", "1")
+                .replace("=中\"", "2")
+                .replace("=长\"", "3")
+                .replace("=超长\"", "4");
+
+        Pattern r;
+        Matcher m;
+        r = Pattern.compile("\\{\\{深海装备列表\\|[^\\}]+}}");
+        m = r.matcher(str);
+        while (m.find()) {
+            Matcher m2;
+
+            NewEquip equip = new NewEquip();
+            list.add(equip);
+
+            str = m.group().replace("\n", "");
+
+            m2 = Pattern.compile("编号=(\\d+)").matcher(str);
+            if (m2.find())
+                equip.setId(Utils.stringToInt(m2.group(1)));
+
+            m2 = Pattern.compile("中文装备名字=([^\\|]+)").matcher(str);
+            if (m2.find())
+                equip.getName().setZh_cn(m2.group(1));
+
+            m2 = Pattern.compile("日文装备名字=([^\\|]+)").matcher(str);
+            if (m2.find())
+                equip.getName().setJa(m2.group(1));
+
+            m2 = Pattern.compile("图标=(\\d+)").matcher(str);
+            if (m2.find()) {
+                int type = Utils.stringToInt(m2.group(1));
+                equip.setTypes(new int[]{type, type, type, type});
+            }
+
+            m2 = Pattern.compile("等级=([^\\|]+)").matcher(str);
+            if (m2.find())
+                equip.setRarity(m2.group(1).length());
+
+            m2 = Pattern.compile("射程=(\\d+)").matcher(str);
+            if (m2.find())
+                equip.getAttr().setRange(Utils.stringToInt(m2.group(1)));
+
+            m2 = Pattern.compile("火力=(\\d+)").matcher(str);
+            if (m2.find())
+                equip.getAttr().setFirepower(Utils.stringToInt(m2.group(1)));
+
+            m2 = Pattern.compile("装甲=(\\d+)").matcher(str);
+            if (m2.find())
+                equip.getAttr().setArmor(Utils.stringToInt(m2.group(1)));
+
+            m2 = Pattern.compile("雷装=(\\d+)").matcher(str);
+            if (m2.find())
+                equip.getAttr().setTorpedo(Utils.stringToInt(m2.group(1)));
+
+            m2 = Pattern.compile("回避=(\\d+)").matcher(str);
+            if (m2.find())
+                equip.getAttr().setEvasion(Utils.stringToInt(m2.group(1)));
+
+            m2 = Pattern.compile("对空=(\\d+)").matcher(str);
+            if (m2.find())
+                equip.getAttr().setAA(Utils.stringToInt(m2.group(1)));
+
+            m2 = Pattern.compile("对潜=(\\d+)").matcher(str);
+            if (m2.find())
+                equip.getAttr().setASW(Utils.stringToInt(m2.group(1)));
+
+            m2 = Pattern.compile("索敌=(\\d+)").matcher(str);
+            if (m2.find())
+                equip.getAttr().setLOS(Utils.stringToInt(m2.group(1)));
+
+            m2 = Pattern.compile("爆装=(\\d+)").matcher(str);
+            if (m2.find())
+                equip.getAttr().setBombing(Utils.stringToInt(m2.group(1)));
+
+            m2 = Pattern.compile("命中=(\\d+)").matcher(str);
+            if (m2.find())
+                equip.getAttr().setAccuracy(Utils.stringToInt(m2.group(1)));
+
+            m2 = Pattern.compile("备注=([^\\|}]+)").matcher(str);
+            if (m2.find())
+                equip.setRemark(m2.group(1));
         }
 
         gson = new GsonBuilder()

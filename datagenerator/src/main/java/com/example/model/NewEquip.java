@@ -42,6 +42,10 @@ public class NewEquip {
         return types;
     }
 
+    public void setTypes(int[] types) {
+        this.types = types;
+    }
+
     @SerializedName("废弃")
     @Expose
     private int[] broken;
@@ -75,6 +79,9 @@ public class NewEquip {
     }
 
     public MultiLanguageEntry getName() {
+        if (name == null) {
+            name = new MultiLanguageEntry();
+        }
         return name;
     }
 
@@ -102,6 +109,9 @@ public class NewEquip {
     }
 
     public AttrEntity getAttr() {
+        if (attr == null) {
+            attr = new AttrEntity();
+        }
         return attr;
     }
 
@@ -301,7 +311,7 @@ public class NewEquip {
             this.luck = luck;
         }
 
-        public void setLos(int los) {
+        public void setLOS(int los) {
             this.los = los;
         }
 
