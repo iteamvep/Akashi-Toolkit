@@ -14,11 +14,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import java.util.Locale;
-
 import rikka.akashitoolkit.R;
 
-public class ExpCalcActivity extends AppCompatActivity {
+public class ExpCalcActivity extends BaseActivity {
 
     private static final String[] MAP_NAME = {
             "1-1 鎮守府正面海域", "1-2 南西諸島沖", "1-3 製油所地帯沿岸", "1-4 南西諸島防衛線", "1-5 [Extra] 鎮守府近海", "1-6 [Extra Operation] 鎮守府近海航路",
@@ -215,16 +213,10 @@ public class ExpCalcActivity extends AppCompatActivity {
     }
 
     private void calc() {
-        if (mCurLv < 1 || mCurLv > 155 || mTargetLv > 155 || mTargetLv < 1) {
-            mTextViewResult.setText("数据有误");
+        if (mCurLv < 1 || mCurLv > 155 || mTargetLv > 155 || mTargetLv < 1 || mCurLv > mTargetLv) {
+            mTextViewResult.setText(R.string.exp_calc_error);
             return;
         }
-
-        if (mCurLv > mTargetLv) {
-            mTextViewResult.setText("当前等级不能大于目标等级");
-            return;
-        }
-
 
         int exp_map = (int) (MAP_EXP[mMap] * EXP_PERCENT[mResult]);
 
@@ -234,7 +226,7 @@ public class ExpCalcActivity extends AppCompatActivity {
         int num = exp / exp_map;
 
         mTextViewResult.setText(
-                String.format(Locale.getDefault(), "合计经验\n%d\n\n每场经验 / 剩余场数\n基础 %d / %d\n旗舰 %d / %d\nMVP %d / %d\nMVP和旗舰 %d / %d",
+                String.format(getString(R.string.exp_calc_result_format),
                         exp,
                         (int) (exp_map * EXP_PERCENT_CONDITION[0]), (int) (num / EXP_PERCENT_CONDITION[0]),
                         (int) (exp_map * EXP_PERCENT_CONDITION[1]), (int) (num / EXP_PERCENT_CONDITION[1]),

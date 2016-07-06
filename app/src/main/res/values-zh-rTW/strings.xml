@@ -91,6 +91,8 @@
     <string name="exp_calc_cur_lv">當前等級</string>
     <string name="exp_calc_target_lv">目標等級</string>
     <string name="exp_calc_to_next">距離下一級</string>
+    <string name="exp_calc_result_format" formatted="false">合计经验\n%d\n\n每场经验 / 剩余场数\n基础 %d / %d\n旗舰 %d / %d\nMVP %d / %d\nMVP和旗舰 %d / %d</string>
+    <string name="exp_calc_error">数据有误</string>
 
     <string name="data_language">數據語言</string>
     <string name="language_zh">簡體中文</string>

@@ -91,6 +91,8 @@
     <string name="exp_calc_cur_lv">今のレベル</string>
     <string name="exp_calc_target_lv">目標レベル</string>
     <string name="exp_calc_to_next">次のレベルまで</string>
+    <string name="exp_calc_result_format" formatted="false">必要経験値\n%d\n\n1回あたり / 戦闘回数\n基礎 %d / %d\n旗艦 %d / %d\nMVP %d / %d\nMVP + 旗艦 %d / %d</string>
+    <string name="exp_calc_error">Data error</string>
 
     <string name="data_language">データ言語</string>
     <string name="language_zh">簡体中国語</string>
