@@ -28,7 +28,6 @@ public class EquipList {
                     sort(list);
                     setBookmarked(context, list);
                     makeEquippedShipList(context, list);
-                    modifyItemIntroduction(list);
                 }
             }.get(context, FILE_NAME, new TypeToken<ArrayList<Equip>>() {}.getType());
         }
@@ -67,6 +66,10 @@ public class EquipList {
                 list) {
             equip.setParentType(EquipTypeList.findItemById(context, equip.getType()).getPatentId());
 
+            if (equip.getId() > 500) {
+                continue;
+            }
+
             equip.setBookmarked(Settings.instance(context)
                     .getBoolean(String.format("equip_%d", equip.getId()), false));
         }
@@ -86,14 +89,6 @@ public class EquipList {
         }
         list.clear();
         list.addAll(newList);
-    }
-
-    private static void modifyItemIntroduction(List<Equip> list) {
-        for (Equip item :
-                list) {
-            /*item.getIntroduction().setZh_cn(
-                    item.getIntroduction().getZh_cn().replace("<ref>", "（").replace("</ref>", "）"));*/
-        }
     }
 
     public static Equip findItemById(Context context, int id) {

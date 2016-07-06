@@ -21,20 +21,20 @@ import rikka.akashitoolkit.ui.widget.LinearLayoutManager;
 public class ShipFragment extends BaseDisplayFragment<ShipAdapter> {
     public static final String TAG = "ShipFragment";
 
-    private boolean showEnemy;
+    private boolean mShowEnemy;
 
     @Override
     public void onStart() {
         super.onStart();
 
-        if (!showEnemy) {
+        if (!mShowEnemy) {
             BusProvider.instance().register(this);
         }
     }
 
     @Override
     public void onStop() {
-        if (!showEnemy) {
+        if (!mShowEnemy) {
             BusProvider.instance().unregister(this);
         }
         super.onStop();
@@ -44,7 +44,9 @@ public class ShipFragment extends BaseDisplayFragment<ShipAdapter> {
     public void onResume() {
         super.onResume();
 
-        getAdapter().notifyDataSetChanged();
+        if (!mShowEnemy) {
+            getAdapter().notifyDataSetChanged();
+        }
     }
 
     @Override
@@ -55,7 +57,7 @@ public class ShipFragment extends BaseDisplayFragment<ShipAdapter> {
         int speed = 0;
         int sort = 0;
         int finalVersion = 0;
-        showEnemy = false;
+        mShowEnemy = false;
         boolean bookmarked = false;
         Bundle args = getArguments();
         if (args != null) {
@@ -64,10 +66,10 @@ public class ShipFragment extends BaseDisplayFragment<ShipAdapter> {
             speed = args.getInt("SPEED");
             sort = args.getInt("SORT");
             bookmarked = args.getBoolean("BOOKMARKED");
-            showEnemy = args.getBoolean("ENEMY");
+            mShowEnemy = args.getBoolean("ENEMY");
         }
 
-        setAdapter(new ShipAdapter(getActivity(), finalVersion, flag, speed, sort, bookmarked, showEnemy));
+        setAdapter(new ShipAdapter(getActivity(), finalVersion, flag, speed, sort, bookmarked, mShowEnemy));
     }
 
     @Override

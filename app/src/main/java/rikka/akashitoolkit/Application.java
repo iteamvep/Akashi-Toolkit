@@ -5,6 +5,9 @@ import com.google.android.gms.analytics.Tracker;
 
 import moe.xing.daynightmode.DayNightMode;
 import rikka.akashitoolkit.cache.DiskCacheProvider;
+import rikka.akashitoolkit.model.Equip;
+import rikka.akashitoolkit.staticdata.EquipList;
+import rikka.akashitoolkit.staticdata.ShipList;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.Statistics;
 
@@ -22,6 +25,10 @@ public class Application extends android.app.Application {
         );
 
         DiskCacheProvider.init(this);
+
+        // so bad to avoid ConcurrentModificationException
+        ShipList.get(this);
+        EquipList.get(this);
 
         /*if (!BuildConfig.DEBUG) {
             CrashHandler.init(getApplicationContext());

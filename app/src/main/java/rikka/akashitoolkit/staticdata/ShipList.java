@@ -27,7 +27,6 @@ public class ShipList {
             sList = new BaseGSONList<Ship>() {
                 @Override
                 public void afterRead(List<Ship> list) {
-
                     setBookmarked(context, list);
                     sortById(list);
 
@@ -53,6 +52,10 @@ public class ShipList {
     private static void setBookmarked(Context context, List<Ship> list) {
         for (Ship ship :
                 list) {
+            if (ship.getId() > 500) {
+                continue;
+            }
+
             ship.setBookmarked(Settings.instance(context)
                     .getBoolean(String.format("ship_%d_%d", ship.getClassType(), ship.getClassNum()), false));
         }

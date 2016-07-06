@@ -24,16 +24,23 @@ public class EquipFragment extends BaseDisplayFragment<EquipAdapter> {
 
     private int mType;
     private int mPosition;
+    private boolean mShowEnemy;
 
     @Override
     public void onStart() {
         super.onStart();
-        BusProvider.instance().register(this);
+
+        if (!mShowEnemy) {
+            BusProvider.instance().register(this);
+        }
     }
 
     @Override
     public void onStop() {
-        BusProvider.instance().unregister(this);
+        if (!mShowEnemy) {
+            BusProvider.instance().unregister(this);
+        }
+
         super.onStop();
     }
 
@@ -41,7 +48,10 @@ public class EquipFragment extends BaseDisplayFragment<EquipAdapter> {
     public void onResume() {
         super.onResume();
 
-        getAdapter().notifyDataSetChanged();
+        if (!mShowEnemy) {
+            getAdapter().notifyDataSetChanged();
+        }
+
     }
 
     @Override
@@ -55,13 +65,16 @@ public class EquipFragment extends BaseDisplayFragment<EquipAdapter> {
 
         Bundle args = getArguments();
         boolean bookmark = false;
+        mShowEnemy = false;
+
         if (args != null) {
             mType = args.getInt("TYPE");
             bookmark = args.getBoolean("BOOKMARKED");
             mPosition = args.getInt("POSITION");
+            mShowEnemy = args.getBoolean("ENEMY");
         }
 
-        setAdapter(new EquipAdapter(getActivity(), mType, bookmark));
+        setAdapter(new EquipAdapter(getActivity(), mType, bookmark, mShowEnemy));
     }
 
 

@@ -10386,6 +10386,18 @@
       "zh_cn": "5英寸单装炮",
       "ja": "5inch単装砲"
     },
+    "attr": {
+      "range": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 1,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
     "type": [
       1,
       1,
@@ -10399,6 +10411,18 @@
     "name": {
       "zh_cn": "5英寸连装炮",
       "ja": "5inch連装砲"
+    },
+    "attr": {
+      "range": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 2,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
     },
     "type": [
       1,
@@ -10414,6 +10438,18 @@
       "zh_cn": "3英寸单装高角炮",
       "ja": "3inch単装高角砲"
     },
+    "attr": {
+      "range": 0,
+      "aa": 1,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 1,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
     "type": [
       16,
       16,
@@ -10427,6 +10463,18 @@
     "name": {
       "zh_cn": "5英寸单装高射炮",
       "ja": "5inch単装高射砲"
+    },
+    "attr": {
+      "range": 0,
+      "aa": 2,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 2,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
     },
     "type": [
       2,
@@ -10442,6 +10490,18 @@
       "zh_cn": "8英寸三连装炮",
       "ja": "8inch三連装砲"
     },
+    "attr": {
+      "range": 0,
+      "aa": 2,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 8,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
     "type": [
       2,
       2,
@@ -10455,6 +10515,18 @@
     "name": {
       "zh_cn": "6英寸连装速射炮",
       "ja": "6inch連装速射砲"
+    },
+    "attr": {
+      "range": 0,
+      "aa": 3,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 3,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
     },
     "type": [
       2,
@@ -10470,6 +10542,18 @@
       "zh_cn": "14英寸连装炮",
       "ja": "14inch連装砲"
     },
+    "attr": {
+      "range": 0,
+      "aa": 4,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 10,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
     "type": [
       3,
       3,
@@ -10483,6 +10567,18 @@
     "name": {
       "zh_cn": "16英寸连装炮",
       "ja": "16inch連装砲"
+    },
+    "attr": {
+      "range": 0,
+      "aa": 4,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 15,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
     },
     "type": [
       3,
@@ -10498,6 +10594,18 @@
       "zh_cn": "16英寸三连装炮",
       "ja": "16inch三連装砲"
     },
+    "attr": {
+      "range": 0,
+      "aa": 5,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 20,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
     "type": [
       3,
       3,
@@ -10511,6 +10619,18 @@
     "name": {
       "zh_cn": "5英寸单装高射炮",
       "ja": "5inch単装高射砲"
+    },
+    "attr": {
+      "range": 0,
+      "aa": 2,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 1,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
     },
     "type": [
       16,
@@ -10526,6 +10646,18 @@
       "zh_cn": "6英寸单装炮",
       "ja": "6inch単装砲"
     },
+    "attr": {
+      "range": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 1,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
     "type": [
       4,
       4,
@@ -10539,6 +10671,18 @@
     "name": {
       "zh_cn": "12.5英寸连装副炮",
       "ja": "12.5inch連装副砲"
+    },
+    "attr": {
+      "range": 0,
+      "aa": 3,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 7,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
     },
     "type": [
       4,
@@ -10554,6 +10698,18 @@
       "zh_cn": "21英寸鱼雷前期型",
       "ja": "21inch魚雷前期型"
     },
+    "attr": {
+      "range": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "los": 0,
+      "torpedo": 2,
+      "bomb": 0,
+      "accuracy": 0
+    },
     "type": [
       5,
       5,
@@ -10567,6 +10723,18 @@
     "name": {
       "zh_cn": "21英寸鱼雷后期型",
       "ja": "21inch魚雷後期型"
+    },
+    "attr": {
+      "range": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "los": 0,
+      "torpedo": 5,
+      "bomb": 0,
+      "accuracy": 0
     },
     "type": [
       5,
@@ -10582,6 +10750,18 @@
       "zh_cn": "高速深海鱼雷/22英寸鱼雷后期型",
       "ja": "高速深海魚雷/22inch魚雷後期型"
     },
+    "attr": {
+      "range": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "los": 0,
+      "torpedo": 10,
+      "bomb": 0,
+      "accuracy": 0
+    },
     "type": [
       5,
       5,
@@ -10595,6 +10775,18 @@
     "name": {
       "zh_cn": "深海栖舰攻",
       "ja": "深海棲艦攻"
+    },
+    "attr": {
+      "range": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 2,
+      "evasion": 0,
+      "fire": 0,
+      "los": 5,
+      "torpedo": 4,
+      "bomb": 0,
+      "accuracy": 0
     },
     "type": [
       8,
@@ -10610,6 +10802,18 @@
       "zh_cn": "深海栖舰攻 Mark.II",
       "ja": "深海棲艦攻 Mark.II"
     },
+    "attr": {
+      "range": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 4,
+      "evasion": 0,
+      "fire": 0,
+      "los": 5,
+      "torpedo": 6,
+      "bomb": 0,
+      "accuracy": 0
+    },
     "type": [
       8,
       8,
@@ -10623,6 +10827,18 @@
     "name": {
       "zh_cn": "深海栖舰攻 Mark.III",
       "ja": "深海棲艦攻 Mark.III"
+    },
+    "attr": {
+      "range": 0,
+      "aa": 4,
+      "armor": 0,
+      "asw": 7,
+      "evasion": 0,
+      "fire": 0,
+      "los": 5,
+      "torpedo": 11,
+      "bomb": 0,
+      "accuracy": 0
     },
     "type": [
       8,
@@ -10638,6 +10854,18 @@
       "zh_cn": "深海栖舰战",
       "ja": "深海棲艦戦"
     },
+    "attr": {
+      "range": 0,
+      "aa": 2,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
     "type": [
       6,
       6,
@@ -10651,6 +10879,18 @@
     "name": {
       "zh_cn": "深海栖舰战 Mark.II",
       "ja": "深海棲艦戦 Mark.II"
+    },
+    "attr": {
+      "range": 0,
+      "aa": 5,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
     },
     "type": [
       6,
@@ -10666,6 +10906,18 @@
       "zh_cn": "深海栖舰战 Mark.III",
       "ja": "深海棲艦戦 Mark.III"
     },
+    "attr": {
+      "range": 0,
+      "aa": 9,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
     "type": [
       6,
       6,
@@ -10679,6 +10931,18 @@
     "name": {
       "zh_cn": "飞鱼舰战",
       "ja": "飛び魚艦戦"
+    },
+    "attr": {
+      "range": 0,
+      "aa": 13,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
     },
     "type": [
       6,
@@ -10694,6 +10958,18 @@
       "zh_cn": "深海栖舰爆",
       "ja": "深海棲艦爆"
     },
+    "attr": {
+      "range": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 3,
+      "accuracy": 0
+    },
     "type": [
       7,
       7,
@@ -10707,6 +10983,18 @@
     "name": {
       "zh_cn": "深海栖舰爆 Mark.II",
       "ja": "深海棲艦爆 Mark.II"
+    },
+    "attr": {
+      "range": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 6,
+      "accuracy": 0
     },
     "type": [
       7,
@@ -10722,6 +11010,18 @@
       "zh_cn": "深海栖舰侦察机",
       "ja": "深海棲艦偵察機"
     },
+    "attr": {
+      "range": 0,
+      "aa": 1,
+      "armor": 0,
+      "asw": 1,
+      "evasion": 0,
+      "fire": 0,
+      "los": 5,
+      "torpedo": 0,
+      "bomb": 1,
+      "accuracy": 0
+    },
     "type": [
       10,
       10,
@@ -10735,6 +11035,18 @@
     "name": {
       "zh_cn": "飞鱼侦察机",
       "ja": "飛び魚偵察機 "
+    },
+    "attr": {
+      "range": 0,
+      "aa": 2,
+      "armor": 0,
+      "asw": 2,
+      "evasion": 0,
+      "fire": 0,
+      "los": 10,
+      "torpedo": 0,
+      "bomb": 4,
+      "accuracy": 0
     },
     "type": [
       10,
@@ -10750,6 +11062,18 @@
       "zh_cn": "对空雷达 Mark.I",
       "ja": "対空レーダー Mark.I"
     },
+    "attr": {
+      "range": 0,
+      "aa": 5,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "los": 5,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 5
+    },
     "type": [
       11,
       11,
@@ -10763,6 +11087,18 @@
     "name": {
       "zh_cn": "水上雷达 Mark.I",
       "ja": "水上レーダー Mark.I"
+    },
+    "attr": {
+      "range": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "los": 5,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 10
     },
     "type": [
       11,
@@ -10778,6 +11114,18 @@
       "zh_cn": "水上雷达 Mark.II",
       "ja": "水上レーダー Mark.II"
     },
+    "attr": {
+      "range": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "los": 10,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 15
+    },
     "type": [
       11,
       11,
@@ -10791,6 +11139,18 @@
     "name": {
       "zh_cn": "对空雷达 Mark.II",
       "ja": "対空レーダー Mark.II"
+    },
+    "attr": {
+      "range": 0,
+      "aa": 10,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "los": 10,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 5
     },
     "type": [
       11,
@@ -10806,6 +11166,18 @@
       "zh_cn": "深海水上雷达",
       "ja": "深海水上レーダー"
     },
+    "attr": {
+      "range": 0,
+      "aa": 5,
+      "armor": 0,
+      "asw": 5,
+      "evasion": 3,
+      "fire": 0,
+      "los": 16,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 24
+    },
     "type": [
       11,
       11,
@@ -10819,6 +11191,18 @@
     "name": {
       "zh_cn": "深海对空雷达",
       "ja": "深海対空レーダー"
+    },
+    "attr": {
+      "range": 0,
+      "aa": 18,
+      "armor": 0,
+      "asw": 5,
+      "evasion": 2,
+      "fire": 0,
+      "los": 12,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 16
     },
     "type": [
       11,
@@ -10834,6 +11218,18 @@
       "zh_cn": "改良型深海叶轮机",
       "ja": "改良型深海タービン"
     },
+    "attr": {
+      "range": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 10,
+      "fire": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
     "type": [
       19,
       19,
@@ -10847,6 +11243,18 @@
     "name": {
       "zh_cn": "强化型深海缶",
       "ja": "強化型深海缶"
+    },
+    "attr": {
+      "range": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 15,
+      "fire": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
     },
     "type": [
       19,
@@ -10862,6 +11270,18 @@
       "zh_cn": "对空散弹",
       "ja": "対空散弾"
     },
+    "attr": {
+      "range": 0,
+      "aa": 10,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
     "type": [
       12,
       12,
@@ -10875,6 +11295,18 @@
     "name": {
       "zh_cn": "劣化撤甲弹",
       "ja": "劣化徹甲弾"
+    },
+    "attr": {
+      "range": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 15,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 5
     },
     "type": [
       13,
@@ -10890,6 +11322,18 @@
       "zh_cn": "12.7mm机铳",
       "ja": "12.7mm機銃"
     },
+    "attr": {
+      "range": 0,
+      "aa": 2,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
     "type": [
       15,
       15,
@@ -10903,6 +11347,18 @@
     "name": {
       "zh_cn": "20mm机铳",
       "ja": "20mm機銃"
+    },
+    "attr": {
+      "range": 0,
+      "aa": 4,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
     },
     "type": [
       15,
@@ -10918,6 +11374,18 @@
       "zh_cn": "40mm二连装机关炮",
       "ja": "40mm二連装機関砲"
     },
+    "attr": {
+      "range": 0,
+      "aa": 8,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
     "type": [
       15,
       15,
@@ -10931,6 +11399,18 @@
     "name": {
       "zh_cn": "40mm四连装机关炮",
       "ja": "40mm四連装機関砲"
+    },
+    "attr": {
+      "range": 0,
+      "aa": 12,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
     },
     "type": [
       15,
@@ -10947,6 +11427,18 @@
       "ja": "深海烏賊魚雷"
     },
     "remark": "可开幕攻击",
+    "attr": {
+      "range": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "los": 0,
+      "torpedo": 18,
+      "bomb": 0,
+      "accuracy": 5
+    },
     "type": [
       5,
       5,
@@ -10960,6 +11452,18 @@
     "name": {
       "zh_cn": "深海爆雷投射机",
       "ja": "深海爆雷投射機"
+    },
+    "attr": {
+      "range": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 7,
+      "evasion": 0,
+      "fire": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
     },
     "type": [
       17,
@@ -10975,6 +11479,18 @@
       "zh_cn": "深海声呐",
       "ja": "深海ソナー"
     },
+    "attr": {
+      "range": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 9,
+      "evasion": 0,
+      "fire": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
     "type": [
       18,
       18,
@@ -10988,6 +11504,18 @@
     "name": {
       "zh_cn": "深海爆雷投射机 Mk.II",
       "ja": "深海爆雷投射機 Mk.II"
+    },
+    "attr": {
+      "range": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 13,
+      "evasion": 0,
+      "fire": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
     },
     "type": [
       17,
@@ -11003,6 +11531,18 @@
       "zh_cn": "深海声呐 Mk.II",
       "ja": "深海ソナー Mk.II"
     },
+    "attr": {
+      "range": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 16,
+      "evasion": 0,
+      "fire": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
     "type": [
       18,
       18,
@@ -11016,6 +11556,18 @@
     "name": {
       "zh_cn": "飞鱼舰爆",
       "ja": "飛び魚艦爆"
+    },
+    "attr": {
+      "range": 0,
+      "aa": 8,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 10,
+      "accuracy": 0
     },
     "type": [
       7,
@@ -11031,6 +11583,18 @@
       "zh_cn": "深海猫舰战 ",
       "ja": "深海猫艦戦"
     },
+    "attr": {
+      "range": 0,
+      "aa": 10,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 1
+    },
     "type": [
       6,
       6,
@@ -11044,6 +11608,18 @@
     "name": {
       "zh_cn": "深海地狱舰爆",
       "ja": "深海地獄艦爆"
+    },
+    "attr": {
+      "range": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "los": 3,
+      "torpedo": 0,
+      "bomb": 11,
+      "accuracy": 3
     },
     "type": [
       7,
@@ -11059,6 +11635,18 @@
       "zh_cn": "深海复仇舰攻",
       "ja": "深海復讐艦攻"
     },
+    "attr": {
+      "range": 0,
+      "aa": 4,
+      "armor": 0,
+      "asw": 5,
+      "evasion": 0,
+      "fire": 0,
+      "los": 5,
+      "torpedo": 13,
+      "bomb": 0,
+      "accuracy": 2
+    },
     "type": [
       8,
       8,
@@ -11072,6 +11660,18 @@
     "name": {
       "zh_cn": "5英寸连装两用荚炮",
       "ja": "5inch連装両用莢砲"
+    },
+    "attr": {
+      "range": 0,
+      "aa": 9,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 2,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 3
     },
     "type": [
       16,
@@ -11087,6 +11687,18 @@
       "zh_cn": "20英寸连装炮",
       "ja": "20inch連装砲"
     },
+    "attr": {
+      "range": 0,
+      "aa": 4,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 27,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 3
+    },
     "type": [
       3,
       3,
@@ -11100,6 +11712,18 @@
     "name": {
       "zh_cn": "15英寸要塞炮",
       "ja": "15inch要塞砲"
+    },
+    "attr": {
+      "range": 0,
+      "aa": 0,
+      "armor": 3,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 13,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 4
     },
     "type": [
       3,
@@ -11115,6 +11739,18 @@
       "zh_cn": "4英寸连装两用炮+CIC",
       "ja": "4inch連装両用砲+CIC"
     },
+    "attr": {
+      "range": 0,
+      "aa": 15,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 5,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 5
+    },
     "type": [
       16,
       16,
@@ -11128,6 +11764,18 @@
     "name": {
       "zh_cn": "深海水上攻击机",
       "ja": "深海水上攻撃機"
+    },
+    "attr": {
+      "range": 0,
+      "aa": 4,
+      "armor": 0,
+      "asw": 8,
+      "evasion": 0,
+      "fire": 0,
+      "los": 6,
+      "torpedo": 0,
+      "bomb": 8,
+      "accuracy": 1
     },
     "type": [
       10,
@@ -11143,6 +11791,18 @@
       "zh_cn": "深海水上攻击机改",
       "ja": "深海水上攻撃機改"
     },
+    "attr": {
+      "range": 0,
+      "aa": 9,
+      "armor": 0,
+      "asw": 10,
+      "evasion": 0,
+      "fire": 0,
+      "los": 7,
+      "torpedo": 0,
+      "bomb": 13,
+      "accuracy": 3
+    },
     "type": [
       10,
       10,
@@ -11156,6 +11816,18 @@
     "name": {
       "zh_cn": "深海猫舰战改",
       "ja": "深海猫艦戦改"
+    },
+    "attr": {
+      "range": 0,
+      "aa": 12,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 2,
+      "fire": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 2
     },
     "type": [
       6,
@@ -11171,6 +11843,18 @@
       "zh_cn": "深海地狱舰爆改",
       "ja": "深海地獄艦爆改"
     },
+    "attr": {
+      "range": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 8,
+      "evasion": 0,
+      "fire": 0,
+      "los": 5,
+      "torpedo": 0,
+      "bomb": 15,
+      "accuracy": 4
+    },
     "type": [
       7,
       7,
@@ -11184,6 +11868,18 @@
     "name": {
       "zh_cn": "深海复仇舰攻改",
       "ja": "深海復讐艦攻改"
+    },
+    "attr": {
+      "range": 0,
+      "aa": 5,
+      "armor": 0,
+      "asw": 9,
+      "evasion": 0,
+      "fire": 0,
+      "los": 6,
+      "torpedo": 16,
+      "bomb": 0,
+      "accuracy": 3
     },
     "type": [
       8,
@@ -11199,6 +11895,18 @@
       "zh_cn": "深海FCS+CIC",
       "ja": "深海FCS+CIC"
     },
+    "attr": {
+      "range": 0,
+      "aa": 6,
+      "armor": 0,
+      "asw": 20,
+      "evasion": 3,
+      "fire": 0,
+      "los": 3,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 5
+    },
     "type": [
       18,
       18,
@@ -11212,6 +11920,18 @@
     "name": {
       "zh_cn": "深海探照灯",
       "ja": "深海探照灯"
+    },
+    "attr": {
+      "range": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 2,
+      "los": 2,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
     },
     "type": [
       24,
@@ -11227,6 +11947,18 @@
       "zh_cn": "深海解放陆爆",
       "ja": "深海解放陸爆"
     },
+    "attr": {
+      "range": 0,
+      "aa": 3,
+      "armor": 0,
+      "asw": 5,
+      "evasion": 0,
+      "fire": 0,
+      "los": 3,
+      "torpedo": 0,
+      "bomb": 11,
+      "accuracy": 1
+    },
     "type": [
       7,
       7,
@@ -11240,6 +11972,18 @@
     "name": {
       "zh_cn": "深海解放陆爆Ace",
       "ja": "深海解放陸爆Ace"
+    },
+    "attr": {
+      "range": 0,
+      "aa": 5,
+      "armor": 0,
+      "asw": 7,
+      "evasion": 0,
+      "fire": 0,
+      "los": 4,
+      "torpedo": 0,
+      "bomb": 16,
+      "accuracy": 2
     },
     "type": [
       7,
@@ -11255,6 +11999,18 @@
       "zh_cn": "8英寸长射程连装炮",
       "ja": "8inch長射程連装砲"
     },
+    "attr": {
+      "range": 0,
+      "aa": 1,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 8,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": -1
+    },
     "type": [
       2,
       2,
@@ -11268,6 +12024,18 @@
     "name": {
       "zh_cn": "深海水上侦察观测机",
       "ja": "深海水上偵察観測機"
+    },
+    "attr": {
+      "range": 0,
+      "aa": 2,
+      "armor": 0,
+      "asw": 2,
+      "evasion": 0,
+      "fire": 0,
+      "los": 5,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 5
     },
     "type": [
       10,
@@ -11283,6 +12051,18 @@
       "zh_cn": "5英寸沿岸设置炮",
       "ja": "5inch沿岸設置砲"
     },
+    "attr": {
+      "range": 0,
+      "aa": 0,
+      "armor": 2,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 3,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 3
+    },
     "type": [
       1,
       1,
@@ -11296,6 +12076,18 @@
     "name": {
       "zh_cn": "深海猫舰战(爆装)",
       "ja": "深海猫艦戦(爆装)"
+    },
+    "attr": {
+      "range": 0,
+      "aa": 7,
+      "armor": 0,
+      "asw": 2,
+      "evasion": 0,
+      "fire": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 8,
+      "accuracy": 2
     },
     "type": [
       7,
@@ -11311,6 +12103,18 @@
       "zh_cn": "沿岸设置雷达",
       "ja": "沿岸設置レーダー"
     },
+    "attr": {
+      "range": 0,
+      "aa": 4,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "los": 8,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 16
+    },
     "type": [
       11,
       11,
@@ -11325,6 +12129,18 @@
       "zh_cn": "16英寸三连装炮",
       "ja": "16inch三連装砲"
     },
+    "attr": {
+      "range": 0,
+      "aa": 3,
+      "armor": 1,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 24,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 4
+    },
     "type": [
       3,
       3,
@@ -11338,6 +12154,18 @@
     "name": {
       "zh_cn": "深海侦察飞行艇",
       "ja": "深海偵察飛行艇"
+    },
+    "attr": {
+      "range": 0,
+      "aa": 1,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 3,
+      "los": 9,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 8
     },
     "type": [
       10,

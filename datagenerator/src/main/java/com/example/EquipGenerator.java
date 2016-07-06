@@ -202,43 +202,43 @@ public class EquipGenerator {
             if (m2.find())
                 equip.setRarity(m2.group(1).length());
 
-            m2 = Pattern.compile("射程=(\\d+)").matcher(str);
+            m2 = Pattern.compile("射程=([^\\|]+)").matcher(str);
             if (m2.find())
                 equip.getAttr().setRange(Utils.stringToInt(m2.group(1)));
 
-            m2 = Pattern.compile("火力=(\\d+)").matcher(str);
+            m2 = Pattern.compile("火力=([^\\|]+)").matcher(str);
             if (m2.find())
                 equip.getAttr().setFirepower(Utils.stringToInt(m2.group(1)));
 
-            m2 = Pattern.compile("装甲=(\\d+)").matcher(str);
+            m2 = Pattern.compile("装甲=([^\\|]+)").matcher(str);
             if (m2.find())
                 equip.getAttr().setArmor(Utils.stringToInt(m2.group(1)));
 
-            m2 = Pattern.compile("雷装=(\\d+)").matcher(str);
+            m2 = Pattern.compile("雷装=([^\\|]+)").matcher(str);
             if (m2.find())
                 equip.getAttr().setTorpedo(Utils.stringToInt(m2.group(1)));
 
-            m2 = Pattern.compile("回避=(\\d+)").matcher(str);
+            m2 = Pattern.compile("回避=([^\\|]+)").matcher(str);
             if (m2.find())
                 equip.getAttr().setEvasion(Utils.stringToInt(m2.group(1)));
 
-            m2 = Pattern.compile("对空=(\\d+)").matcher(str);
+            m2 = Pattern.compile("对空=([^\\|]+)").matcher(str);
             if (m2.find())
                 equip.getAttr().setAA(Utils.stringToInt(m2.group(1)));
 
-            m2 = Pattern.compile("对潜=(\\d+)").matcher(str);
+            m2 = Pattern.compile("对潜=([^\\|]+)").matcher(str);
             if (m2.find())
                 equip.getAttr().setASW(Utils.stringToInt(m2.group(1)));
 
-            m2 = Pattern.compile("索敌=(\\d+)").matcher(str);
+            m2 = Pattern.compile("索敌=([^\\|]+)").matcher(str);
             if (m2.find())
                 equip.getAttr().setLOS(Utils.stringToInt(m2.group(1)));
 
-            m2 = Pattern.compile("爆装=(\\d+)").matcher(str);
+            m2 = Pattern.compile("爆装=([^\\|]+)").matcher(str);
             if (m2.find())
                 equip.getAttr().setBombing(Utils.stringToInt(m2.group(1)));
 
-            m2 = Pattern.compile("命中=(\\d+)").matcher(str);
+            m2 = Pattern.compile("命中=([^\\|]+)").matcher(str);
             if (m2.find())
                 equip.getAttr().setAccuracy(Utils.stringToInt(m2.group(1)));
 

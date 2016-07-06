@@ -53,6 +53,7 @@ import rikka.akashitoolkit.utils.Utils;
 public class EquipDisplayActivity extends BaseItemDisplayActivity {
     public static final String EXTRA_ITEM_ID = "EXTRA_ITEM_ID";
     public static final String EXTRA_EQUIP_IMPROVE_ID = "EXTRA_EQUIP_IMPROVE_ID";
+    public static final String EXTRA_IS_ENEMY = "EXTRA_IS_ENEMY";
 
     private Toolbar mToolbar;
     private LinearLayout mLinearLayout;
@@ -60,7 +61,8 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
     private AppBarLayout mAppBarLayout;
     private Equip mItem;
     private EquipImprovement mItem2;
-    private LinearLayout mItemAttrContainer;
+
+    private boolean mIsEnemy;
 
     private Toast mToast;
 
@@ -97,6 +99,8 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
         } else {
             mItem2 = null;
         }
+
+        mIsEnemy = getIntent().getBooleanExtra(EXTRA_IS_ENEMY, false);
 
         mItem = EquipList.findItemById(this, id);
         if (mItem == null) {
@@ -151,62 +155,30 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
                 EquipTypeList.findItemById(this, mItem.getType()).getName()
                 /*KCStringFormatter.getStars(mItem.getRarity())*/));
 
-        addAttrView(mLinearLayout, R.string.attr_firepower, mItem.getAttr().getFirepower(), R.drawable.item_attr_fire);
-        addAttrView(mLinearLayout, R.string.attr_aa, mItem.getAttr().getAA(), R.drawable.item_attr_aa);
-        addAttrView(mLinearLayout, R.string.attr_accuracy, mItem.getAttr().getAccuracy(), R.drawable.item_attr_acc);
-        addAttrView(mLinearLayout, R.string.attr_torpedo, mItem.getAttr().getTorpedo(), R.drawable.item_attr_torpedo);
-        addAttrView(mLinearLayout, R.string.attr_boom, mItem.getAttr().getBombing(), R.drawable.item_attr_bomb);
-        addAttrView(mLinearLayout, R.string.attr_asw, mItem.getAttr().getASW(), R.drawable.item_attr_asw);
-        addAttrView(mLinearLayout, R.string.attr_evasion, mItem.getAttr().getEvasion(), R.drawable.item_attr_dodge);
-        addAttrView(mLinearLayout, R.string.attr_los, mItem.getAttr().getLOS(), R.drawable.item_attr_search);
-        addAttrView(mLinearLayout, R.string.attr_armor, mItem.getAttr().getArmor(), R.drawable.item_attr_armor);
-        addAttrView(mLinearLayout, R.string.attr_range, mItem.getAttr().getRange(), R.drawable.item_attr_range);
-
-        addShipType();
-        addItemImprovementViews();
-
-        addOther(mLinearLayout);
+        addAttrViews(mLinearLayout);
+        //addShipType();
+        addItemImprovementViews(mLinearLayout);
+        addRemark(mLinearLayout);
+        addIllustration(mLinearLayout);
+        addIntroduction(mLinearLayout);
+        addEquippedShip(mLinearLayout);
     }
 
-    private void addShip() {
-        if (mItem.getShipFrom() == null || mItem.getShipFrom().size() == 0) {
+    private void addAttrViews(ViewGroup parent) {
+        if (mItem.getAttr() == null) {
             return;
         }
 
-        ViewGroup parent = addCell(mLinearLayout, R.string.ship_initial_equip);
-
-        LinearLayout linearLayout = null;
-
-        int i = 0;
-        for (Integer shipId : mItem.getShipFrom()) {
-            if (i % 3 == 0) {
-                linearLayout = new LinearLayout(this);
-                linearLayout.setOrientation(LinearLayout.HORIZONTAL);
-                linearLayout.setWeightSum(3);
-
-                parent.addView(linearLayout);
-
-                i = 0;
-            }
-
-            TextView view = (TextView) LayoutInflater.from(this).inflate(R.layout.clickable_textview, linearLayout, false);
-            view.setText(ShipList.findItemById(this, shipId).getName().get(this));
-
-            final int id = shipId;
-            view.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(EquipDisplayActivity.this, ShipDisplayActivity.class);
-                    intent.putExtra(ShipDisplayActivity.EXTRA_ITEM_ID, id);
-                    startActivity(intent);
-                }
-            });
-
-            linearLayout.addView(view);
-
-            i ++;
-        }
-
+        addAttrView(parent, R.string.attr_firepower, mItem.getAttr().getFirepower(), R.drawable.item_attr_fire);
+        addAttrView(parent, R.string.attr_aa, mItem.getAttr().getAA(), R.drawable.item_attr_aa);
+        addAttrView(parent, R.string.attr_accuracy, mItem.getAttr().getAccuracy(), R.drawable.item_attr_acc);
+        addAttrView(parent, R.string.attr_torpedo, mItem.getAttr().getTorpedo(), R.drawable.item_attr_torpedo);
+        addAttrView(parent, R.string.attr_boom, mItem.getAttr().getBombing(), R.drawable.item_attr_bomb);
+        addAttrView(parent, R.string.attr_asw, mItem.getAttr().getASW(), R.drawable.item_attr_asw);
+        addAttrView(parent, R.string.attr_evasion, mItem.getAttr().getEvasion(), R.drawable.item_attr_dodge);
+        addAttrView(parent, R.string.attr_los, mItem.getAttr().getLOS(), R.drawable.item_attr_search);
+        addAttrView(parent, R.string.attr_armor, mItem.getAttr().getArmor(), R.drawable.item_attr_armor);
+        addAttrView(parent, R.string.attr_range, mItem.getAttr().getRange(), R.drawable.item_attr_range);
     }
 
     private void addShipType() {
@@ -298,72 +270,60 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void addOther(ViewGroup parent) {
+    private void addRemark(ViewGroup parent) {
         if (mItem.getRemark() != null && mItem.getRemark().length() > 0) {
             ViewGroup cell = addCell(parent, R.string.remark);
             addTextView(cell, Html.fromHtml(mItem.getRemark())).setPadding((int) getResources().getDimension(R.dimen.item_activity_margin), Utils.dpToPx(4), (int) getResources().getDimension(R.dimen.item_activity_margin), 0);
         }
+    }
 
-        /*if (mItem.getGet().getQuest() != null ||
-                mItem.getGet().getRank() != null ||
-                mItem.getGet().getEvent() != null) {
-            ViewGroup cell = addCell(parent, R.string.item_get);*/
-
-            /*if (mItem.getGet().getQuest() != null) {
-                StringBuilder sb = new StringBuilder();
-                //sb.append(getString(R.string.quest)).append(":\n");
-
-                for (String item:
-                    mItem.getGet().getQuest().split(",")) {
-                    int id = (int) Float.parseFloat(item);
-                    QuestList.Quest quest = QuestList.findItemById(this, id);
-                    if (quest != null && quest.getCode() != null) {
-                        sb.append(quest.getCode()).append(' ').append(quest.getTitle()).append('\n');
-                    } else {
-                        sb.append(item);
-                    }
-                }
-
-                addTextView(cell, sb.toString()).setPadding(Utils.dpToPx(16), 0, Utils.dpToPx(16), 0);
-            }*/
-
-
-            /*if (mItem.getGet().getEvent() != null) {
-                StringBuilder sb = new StringBuilder();
-
-                //sb.append(getString(R.string.quest)).append(":\n");
-
-                for (String item:
-                        mItem.getGet().getEvent().split(",")) {
-                    sb.append(item).append('\n');
-                }
-
-                addTextView(cell, sb.toString()).setPadding((int) getResources().getDimension(R.dimen.item_activity_margin), 0, (int) getResources().getDimension(R.dimen.item_activity_margin), 0);
-            }
-
-
-            if (mItem.getGet().getRank() != null) {
-                //sb.append(mItem.getGet().getRank());
-                StringBuilder sb = new StringBuilder();
-                for (String item:
-                        mItem.getGet().getRank().split(",")) {
-                    sb.append(item).append('\n');
-                }
-
-                addTextView(cell, sb.toString()).setPadding((int) getResources().getDimension(R.dimen.item_activity_margin), 0, (int) getResources().getDimension(R.dimen.item_activity_margin), 0);
-            }
-        }*/
-
-        addIllustration(mLinearLayout);
-
+    private void addIntroduction(ViewGroup parent) {
         if (mItem.getIntroduction() != null
                 && mItem.getIntroduction().get(this) != null
                 && mItem.getIntroduction().get(this).length() > 0) {
             ViewGroup cell = addCell(parent, R.string.introduction);
             addTextView(cell, mItem.getIntroduction().get(this)).setPadding((int) getResources().getDimension(R.dimen.item_activity_margin), 0, (int) getResources().getDimension(R.dimen.item_activity_margin), 0);
         }
+    }
 
-        addShip();
+    private void addEquippedShip(ViewGroup parent) {
+        if (mItem.getShipFrom() == null || mItem.getShipFrom().size() == 0) {
+            return;
+        }
+
+        parent = addCell(parent, R.string.ship_initial_equip);
+
+        LinearLayout linearLayout = null;
+
+        int i = 0;
+        for (Integer shipId : mItem.getShipFrom()) {
+            if (i % 3 == 0) {
+                linearLayout = new LinearLayout(this);
+                linearLayout.setOrientation(LinearLayout.HORIZONTAL);
+                linearLayout.setWeightSum(3);
+
+                parent.addView(linearLayout);
+
+                i = 0;
+            }
+
+            TextView view = (TextView) LayoutInflater.from(this).inflate(R.layout.clickable_textview, linearLayout, false);
+            view.setText(ShipList.findItemById(this, shipId).getName().get(this));
+
+            final int id = shipId;
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(EquipDisplayActivity.this, ShipDisplayActivity.class);
+                    intent.putExtra(ShipDisplayActivity.EXTRA_ITEM_ID, id);
+                    startActivity(intent);
+                }
+            });
+
+            linearLayout.addView(view);
+
+            i++;
+        }
     }
 
     private ViewGroup addCell(ViewGroup parent, int ResId) {
@@ -373,12 +333,12 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
         return view;
     }
 
-    private void addItemImprovementViews() {
+    private void addItemImprovementViews(ViewGroup parent) {
         if (mItem.getImprovements() == null) {
             return;
         }
 
-        ViewGroup parent = addCell(mLinearLayout, R.string.item_improvement_data);
+        parent = addCell(parent, R.string.item_improvement_data);
 
         for (int i = 0; i < mItem.getImprovements().length; i++) {
             Equip.ImprovementEntity improvement = mItem.getImprovements()[i];
@@ -604,8 +564,6 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
             return;
         }
 
-        mItemAttrContainer = (LinearLayout) parent;
-
         attr ++;
 
         if (mCurAttrLinearLayout == null) {
@@ -640,6 +598,10 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
 
     @SuppressLint("DefaultLocale")
     private void addIllustration(ViewGroup parent) {
+        if (mIsEnemy) {
+            return;
+        }
+
         parent = addCell(parent, R.string.illustration);
 
         ViewGroup view = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.ship_illustrations_container, parent);
@@ -684,12 +646,16 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.ship_display, menu);
 
-        if (mItem2 == null) {
-            menu.findItem(R.id.action_bookmark).setIcon(
-                    AppCompatDrawableManager.get().getDrawable(this, mItem.isBookmarked() ? R.drawable.ic_bookmark_24dp : R.drawable.ic_bookmark_border_24dp));
+        if (!mIsEnemy) {
+            if (mItem2 == null) {
+                menu.findItem(R.id.action_bookmark).setIcon(
+                        AppCompatDrawableManager.get().getDrawable(this, mItem.isBookmarked() ? R.drawable.ic_bookmark_24dp : R.drawable.ic_bookmark_border_24dp));
+            } else {
+                menu.findItem(R.id.action_bookmark).setIcon(
+                        AppCompatDrawableManager.get().getDrawable(this, mItem2.isBookmarked() ? R.drawable.ic_bookmark_24dp : R.drawable.ic_bookmark_border_24dp));
+            }
         } else {
-            menu.findItem(R.id.action_bookmark).setIcon(
-                    AppCompatDrawableManager.get().getDrawable(this, mItem2.isBookmarked() ? R.drawable.ic_bookmark_24dp : R.drawable.ic_bookmark_border_24dp));
+            menu.findItem(R.id.action_bookmark).setVisible(false);
         }
 
         return true;

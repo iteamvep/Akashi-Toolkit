@@ -42,6 +42,7 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Item> {
     private List<Data> mData;
     private Activity mActivity;
     private int mType;
+    private boolean mEnemy;
 
     @Override
     public long getItemId(int position) {
@@ -53,13 +54,14 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Item> {
         return mData.get(position).type;
     }
 
-    public EquipAdapter(Activity activity, int type, boolean bookmarked) {
+    public EquipAdapter(Activity activity, int type, boolean bookmarked, boolean enemy) {
         super(bookmarked);
 
         setHasStableIds(true);
 
         mActivity = activity;
         mType = type;
+        mEnemy = enemy;
         mData = new ArrayList<>();
 
         rebuildDataList();
@@ -81,6 +83,14 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Item> {
 
                 for (Equip equip :
                         EquipList.get(mActivity)) {
+                    if (mEnemy && equip.getId() < 500) {
+                        continue;
+                    }
+
+                    if (!mEnemy && equip.getId() > 500) {
+                        continue;
+                    }
+
                     if (requireBookmarked() && !equip.isBookmarked()) {
                         continue;
                     }
@@ -157,29 +167,33 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Item> {
                         holder.mLinearLayout.getLocationOnScreen(location);
                         intent.putExtra(EquipDisplayActivity.EXTRA_START_Y, location[1]);
                         intent.putExtra(EquipDisplayActivity.EXTRA_START_HEIGHT, holder.mLinearLayout.getHeight());
+                        intent.putExtra(EquipDisplayActivity.EXTRA_IS_ENEMY, mEnemy);
 
                         BaseItemDisplayActivity.start(mActivity, intent);
                     }
                 });
 
-                holder.mLinearLayout.setOnLongClickListener(new View.OnLongClickListener() {
-                    @SuppressLint("DefaultLocale")
-                    @Override
-                    public boolean onLongClick(View v) {
-                        Equip item = (Equip) mData.get(holder.getAdapterPosition()).data;
+                if (!mEnemy) {
+                    holder.mLinearLayout.setOnLongClickListener(new View.OnLongClickListener() {
+                        @SuppressLint("DefaultLocale")
+                        @Override
+                        public boolean onLongClick(View v) {
+                            Equip item = (Equip) mData.get(holder.getAdapterPosition()).data;
 
-                        item.setBookmarked(!item.isBookmarked());
+                            item.setBookmarked(!item.isBookmarked());
 
-                        Settings.instance(mActivity)
-                                .putBoolean(String.format("equip_%d", item.getId()), item.isBookmarked());
+                            Settings.instance(mActivity)
+                                    .putBoolean(String.format("equip_%d", item.getId()), item.isBookmarked());
 
-                        showToast(mActivity, item.isBookmarked());
+                            showToast(mActivity, item.isBookmarked());
 
-                        notifyItemChanged(holder.getAdapterPosition());
+                            notifyItemChanged(holder.getAdapterPosition());
 
-                        return true;
-                    }
-                });
+                            return true;
+                        }
+                    });
+                }
+
                 break;
             case 1:
                 holder.mTitle.setText((String) mData.get(position).data);
