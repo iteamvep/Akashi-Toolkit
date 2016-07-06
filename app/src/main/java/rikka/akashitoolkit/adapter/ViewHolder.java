@@ -230,8 +230,7 @@ public class ViewHolder {
     }
 
     public static class Item extends RecyclerView.ViewHolder {
-        protected LinearLayout mLinearLayout;
-        protected View mDivider;
+        protected View mLinearLayout;
         protected TextView mName;
         protected TextView mTitle;
         protected ImageView mImageView;
@@ -239,8 +238,7 @@ public class ViewHolder {
         public Item(View itemView) {
             super(itemView);
 
-            mDivider = itemView.findViewById(R.id.divider);
-            mLinearLayout = (LinearLayout) itemView.findViewById(R.id.linearLayout);
+            mLinearLayout = itemView.findViewById(R.id.linearLayout);
             mTitle = (TextView) itemView.findViewById(android.R.id.title);
             mName = (TextView) itemView.findViewById(R.id.textView);
             mImageView = (ImageView) itemView.findViewById(R.id.imageView);

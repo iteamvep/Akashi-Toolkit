@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +27,7 @@ import rikka.akashitoolkit.ui.EquipDisplayActivity;
 /**
  * Created by Rikka on 2016/3/23.
  */
-public class EquipAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Item> {
+public class EquipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHolder> {
     private static class Data {
         public Object data;
         public int type;
@@ -126,93 +127,96 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Item> {
     }
 
     @Override
-    public ViewHolder.Item onCreateViewHolder(ViewGroup parent, int viewType) {
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType == 0) {
             View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_item, parent, false);
             return new ViewHolder.Item(itemView);
         } else {
-            View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_item_header, parent, false);
-            return new ViewHolder.Item(itemView);
+            View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_subtitle, parent, false);
+            return new ViewHolder.Subtitle(itemView);
         }
 
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder.Item holder, int position) {
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position) {
         switch (getItemViewType(position)) {
             case 0:
-                if (position >= (getItemCount() - 1) || getItemViewType(position + 1) == 1) {
-                    holder.mDivider.setVisibility(View.GONE);
-                } else {
-                    holder.mDivider.setVisibility(View.VISIBLE);
-                }
-
-                Equip item = (Equip) mData.get(position).data;
-
-                holder.mName.setText(String.format(item.isBookmarked() ? "%s ★" : "%s",
-                        item.getName().get(holder.mName.getContext())));
-
-                EquipTypeList.setIntoImageView(holder.mImageView, item.getIcon());
-
-                holder.mLinearLayout.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Context context = v.getContext();
-
-                        Intent intent = new Intent(context, EquipDisplayActivity.class);
-                        intent.putExtra(EquipDisplayActivity.EXTRA_ITEM_ID,
-                                ((Equip) mData.get(holder.getAdapterPosition()).data).getId());
-
-                        int[] location = new int[2];
-                        holder.mLinearLayout.getLocationOnScreen(location);
-                        intent.putExtra(EquipDisplayActivity.EXTRA_START_Y, location[1]);
-                        intent.putExtra(EquipDisplayActivity.EXTRA_START_HEIGHT, holder.mLinearLayout.getHeight());
-                        intent.putExtra(EquipDisplayActivity.EXTRA_IS_ENEMY, mEnemy);
-
-                        BaseItemDisplayActivity.start(mActivity, intent);
-                    }
-                });
-
-                if (!mEnemy) {
-                    holder.mLinearLayout.setOnLongClickListener(new View.OnLongClickListener() {
-                        @SuppressLint("DefaultLocale")
-                        @Override
-                        public boolean onLongClick(View v) {
-                            Equip item = (Equip) mData.get(holder.getAdapterPosition()).data;
-
-                            item.setBookmarked(!item.isBookmarked());
-
-                            Settings.instance(mActivity)
-                                    .putBoolean(String.format("equip_%d", item.getId()), item.isBookmarked());
-
-                            showToast(mActivity, item.isBookmarked());
-
-                            notifyItemChanged(holder.getAdapterPosition());
-
-                            return true;
-                        }
-                    });
-                }
-
+                bindViewHolder((ViewHolder.Item) holder, position);
                 break;
             case 1:
-                holder.mTitle.setText((String) mData.get(position).data);
+                bindViewHolder((ViewHolder.Subtitle) holder, position);
                 break;
         }
-
     }
 
+    private void bindViewHolder(final ViewHolder.Item holder, int position) {
+        Equip item = (Equip) mData.get(position).data;
+
+        holder.mName.setText(String.format(item.isBookmarked() ? "%s ★" : "%s",
+                item.getName().get(holder.mName.getContext())));
+
+        EquipTypeList.setIntoImageView(holder.mImageView, item.getIcon());
+
+        holder.mLinearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Context context = v.getContext();
+
+                Intent intent = new Intent(context, EquipDisplayActivity.class);
+                intent.putExtra(EquipDisplayActivity.EXTRA_ITEM_ID,
+                        ((Equip) mData.get(holder.getAdapterPosition()).data).getId());
+
+                int[] location = new int[2];
+                holder.mLinearLayout.getLocationOnScreen(location);
+                intent.putExtra(EquipDisplayActivity.EXTRA_START_Y, location[1]);
+                intent.putExtra(EquipDisplayActivity.EXTRA_START_HEIGHT, holder.mLinearLayout.getHeight());
+                intent.putExtra(EquipDisplayActivity.EXTRA_IS_ENEMY, mEnemy);
+
+                BaseItemDisplayActivity.start(mActivity, intent);
+            }
+        });
+
+        if (!mEnemy) {
+            holder.mLinearLayout.setOnLongClickListener(new View.OnLongClickListener() {
+                @SuppressLint("DefaultLocale")
+                @Override
+                public boolean onLongClick(View v) {
+                    Equip item = (Equip) mData.get(holder.getAdapterPosition()).data;
+
+                    item.setBookmarked(!item.isBookmarked());
+
+                    Settings.instance(mActivity)
+                            .putBoolean(String.format("equip_%d", item.getId()), item.isBookmarked());
+
+                    showToast(mActivity, item.isBookmarked());
+
+                    notifyItemChanged(holder.getAdapterPosition());
+
+                    return true;
+                }
+            });
+        }
+    }
+
+    private void bindViewHolder(final ViewHolder.Subtitle holder, int position) {
+        boolean showDivider = position != 0 && (getItemViewType(position - 1) != getItemViewType(position));
+
+        holder.mDivider.setVisibility(showDivider ? View.VISIBLE : View.GONE);
+        holder.mTitle.setText((String) mData.get(position).data);
+        holder.itemView.setSelected(true);
+    }
     @Override
     public int getItemCount() {
         return mData.size();
     }
 
     @Override
-    public void onViewRecycled(ViewHolder.Item holder) {
+    public void onViewRecycled(RecyclerView.ViewHolder holder) {
         super.onViewRecycled(holder);
 
-        if (holder.getItemViewType() == 0) {
-            holder.mImageView.setTag(null);
+        if (holder instanceof ViewHolder.Item) {
+            ((ViewHolder.Item) holder).mImageView.setTag(null);
         }
     }
 }

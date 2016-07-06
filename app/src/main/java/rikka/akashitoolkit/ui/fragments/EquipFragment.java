@@ -3,6 +3,7 @@ package rikka.akashitoolkit.ui.fragments;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SimpleItemAnimator;
@@ -11,6 +12,7 @@ import android.view.View;
 
 import com.squareup.otto.Subscribe;
 
+import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.EquipAdapter;
 import rikka.akashitoolkit.otto.BookmarkAction;
 import rikka.akashitoolkit.otto.BusProvider;
@@ -93,17 +95,8 @@ public class EquipFragment extends BaseDisplayFragment<EquipAdapter> {
         }*/
 
         recyclerView.setItemAnimator(null);
+        recyclerView.setBackgroundColor(ContextCompat.getColor(recyclerView.getContext(), R.color.cardBackground));
 
-        recyclerView.addItemDecoration(new RecyclerView.ItemDecoration() {
-            @Override
-            public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-                int position = parent.getChildAdapterPosition(view);
-
-                if (position != 0 && getAdapter().getItemViewType(position) == 1) {
-                    outRect.top = Utils.dpToPx(8);
-                }
-            }
-        });
     }
 
     @Subscribe
