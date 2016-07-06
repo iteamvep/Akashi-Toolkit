@@ -22,6 +22,7 @@ public class NewEquip {
 
     @Expose
     private MultiLanguageEntry name;
+    @Expose
     private MultiLanguageEntry introduction;
     @SerializedName("备注")
     @Expose
@@ -82,6 +83,9 @@ public class NewEquip {
     }
 
     public MultiLanguageEntry getIntroduction() {
+        if (introduction == null) {
+            introduction = new MultiLanguageEntry();
+        }
         return introduction;
     }
 
@@ -210,7 +214,7 @@ public class NewEquip {
                     } else {
                         Ship ship = ShipList.findByName(name);
                         if (ship == null) {
-                            System.out.println("ImprovementEntity: " + "找不到舰娘 " + name);
+                            //System.out.println("ImprovementEntity: " + "找不到舰娘 " + name);
                             continue;
                         }
                         list.add(ship.getId());

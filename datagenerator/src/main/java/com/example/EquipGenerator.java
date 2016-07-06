@@ -2,29 +2,40 @@ package com.example;
 
 import com.example.model.MultiLanguageEntry;
 import com.example.model.NewEquip;
+import com.example.network.RetrofitAPI;
 import com.example.utils.Utils;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import okhttp3.Interceptor;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
+import retrofit2.Retrofit;
 
 /**
  * Created by Rikka on 2016/7/4.
  */
 public class EquipGenerator {
     public static void main(String[] args) throws IOException {
-        /*Retrofit retrofit = new Retrofit.Builder()
+        Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://zh.kcwiki.moe/")
                 .build();
 
         RetrofitAPI.KcwikiService service = retrofit.create(RetrofitAPI.KcwikiService.class);
-        ResponseBody body = service.getPage("模块:舰娘装备数据改", "raw").execute().body();
+        /*ResponseBody body = service.getPage("模块:舰娘装备数据改", "raw").execute().body();
         Reader is = body.charStream();*/
 
         Reader is = new FileReader(new File("datagenerator/equip.lua"));
@@ -46,8 +57,22 @@ public class EquipGenerator {
         }
 
         String str = sb.toString()
-                .substring(2)
-                .replace(" ", "")
+                .substring(2);
+
+        Reader reader = new StringReader(str);
+        sb = new StringBuilder();
+        boolean skipSpace = true;
+        for (int c = reader.read(); c != -1; c = reader.read()) {
+            if (c == '"') {
+                skipSpace = !skipSpace;
+            }
+
+            if (c != ' ' || !skipSpace) {
+                sb.append((char) c);
+            }
+        }
+
+        str = sb.toString()
                 .replace("\t", "")
                 .replace("{}", "null")
                 .replace("},\n}", "}\n}")
@@ -102,6 +127,36 @@ public class EquipGenerator {
                 item.get装备改修().setShips();
                 item.setImprovements(new NewEquip.ImprovementEntity[]{item.get装备改修()});
             }
+
+            File file = new File("datagenerator/data/equips/" + item.getNameCN().replace("/", "_") + ".txt");
+            if (!file.exists()) {
+                try {
+                    ResponseBody body = service.getPage(item.getNameCN(), "raw").execute().body();
+                    Utils.writeStreamToFile(body.byteStream(), file.getPath());
+                    //System.out.println();
+                } catch (Exception ignored) {
+                    System.out.print(item.getNameCN());
+                    System.out.println(" 炸裂了");
+                    continue;
+                }
+            }
+
+            String s = Utils.streamToString(new FileInputStream(file));
+
+            Pattern r;
+            Matcher m;
+
+            r = Pattern.compile("\\|图鉴说明原文=([^\\|}]+)");
+            m = r.matcher(s);
+            if (m.find()) {
+                item.getIntroduction().setJa(a(m.group(1)));
+            }
+
+            r = Pattern.compile("\\|图鉴说明译文=([^\\|}]+)");
+            m = r.matcher(s);
+            if (m.find()) {
+                item.getIntroduction().setZh_cn(a(m.group(1)));
+            }
         }
 
         gson = new GsonBuilder()
@@ -131,5 +186,19 @@ public class EquipGenerator {
                 .replace("\"类别\"", "\"type\"");
 
         Utils.objectToJsonFile(str, "app/src/main/assets/Equip.json");
+    }
+
+    private static String a(String s) {
+        if (s.contains("<poem>")) {
+            return s.replace("<poem>", "")
+                    .replace("</poem>", "")
+                    .trim();
+        } else {
+            return s.replace("\n", "")
+                    .replace("<br/>", "\n")
+                    .replace("<br>", "\n")
+                    .replace("<br />", "\n")
+                    .trim();
+        }
     }
 }
