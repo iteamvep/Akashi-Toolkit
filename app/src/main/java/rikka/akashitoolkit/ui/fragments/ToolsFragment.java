@@ -1,6 +1,8 @@
 package rikka.akashitoolkit.ui.fragments;
 
+import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -8,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import rikka.akashitoolkit.R;
+import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.Statistics;
 import rikka.akashitoolkit.ui.ExpCalcActivity;
 import rikka.akashitoolkit.ui.MainActivity;
@@ -41,7 +44,7 @@ public class ToolsFragment extends BaseDrawerItemFragment {
         view.findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getContext().startActivity(new Intent(getContext(), ExpCalcActivity.class));
+                startActivity(v.getContext(), ExpCalcActivity.class);
             }
         });
 
@@ -57,5 +60,16 @@ public class ToolsFragment extends BaseDrawerItemFragment {
         }
 
         return view;
+    }
+
+    private static void startActivity(Context context, Class cls) {
+        Intent intent = new Intent(context, cls);
+
+        boolean newTask = Settings.instance(context).getBoolean(Settings.OPEN_IN_NEW_DOCUMENT, false);
+        if (newTask && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            intent.addFlags(Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_DOCUMENT);
+        }
+        context.startActivity(intent);
     }
 }
