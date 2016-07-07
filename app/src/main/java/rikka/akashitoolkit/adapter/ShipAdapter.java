@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.graphics.drawable.AnimatedVectorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.graphics.drawable.AnimatedVectorDrawableCompat;
 import android.support.v4.widget.TextViewCompat;
 import android.support.v7.widget.AppCompatDrawableManager;
 import android.support.v7.widget.LinearSmoothScroller;
@@ -148,15 +147,13 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
                         if (mSort == 1) {
                             ShipList.sortByClass();
                         } else {
-                            ShipList.sort();
+                            ShipList.sortByType();
                         }
 
                         String type = null;
 
                         for (Ship item : o) {
                             if (check(item)) {
-
-
                                 String curType = null;
                                 long id;
                                 if (mSort == 0) {
@@ -179,7 +176,7 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
                                     mData.add(new Data(type, 1, id));
                                 }
 
-                                if (mExpanded.get(id))
+                                if (mIsSearching || mExpanded.get(id))
                                     mData.add(new Data(item, 0, item.getId() * 10000));
                             }
                         }
@@ -310,7 +307,6 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
 
                 Intent intent = new Intent(v.getContext(), ShipDisplayActivity.class);
                 intent.putExtra(ShipDisplayActivity.EXTRA_ITEM_ID, item.getId());
-                intent.putExtra(ShipDisplayActivity.EXTRA_IS_ENEMY, mEnemy);
 
                 int[] location = new int[2];
                 holder.itemView.getLocationOnScreen(location);
@@ -356,7 +352,7 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
     private void bindViewHolder(final ViewHolder.Subtitle holder, int position) {
         Context context = holder.itemView.getContext();
 
-        boolean expanded = mExpanded.get(getItemId(position));
+        boolean expanded = mIsSearching || mExpanded.get(getItemId(position));
         boolean showDivider = position != 0 && expanded || position != 0 && (getItemViewType(position - 1) != getItemViewType(position));
 
         holder.mDivider.setVisibility(showDivider ? View.VISIBLE : View.GONE);

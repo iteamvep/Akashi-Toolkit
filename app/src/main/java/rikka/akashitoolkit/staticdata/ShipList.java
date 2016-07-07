@@ -2,11 +2,11 @@ package rikka.akashitoolkit.staticdata;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.util.Log;
 
 import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -28,14 +28,13 @@ public class ShipList {
                 @Override
                 public void afterRead(List<Ship> list) {
                     setBookmarked(context, list);
-                    sortById(list);
 
                     if (Settings
                             .instance(context)
                             .getInt(Settings.SHIP_SORT, 0) == 0) {
-                        sort(list);
+                        _sortByType(list);
                     } else {
-                        sortByClass(list);
+                        _sortByClass(list);
                     }
 
                 }
@@ -61,7 +60,37 @@ public class ShipList {
         }
     }
 
-    public static synchronized void sortById(List<Ship> list) {
+    public static synchronized void sortByType() {
+        _sortByType(sList);
+    }
+
+    public static synchronized void sortByClass() {
+        _sortByClass(sList);
+    }
+
+    private static synchronized void _sortByClass(List<Ship> list) {
+        if (list == null) {
+            throw new NullPointerException();
+        }
+
+        sortById(list);
+        sortByRemodel(list);
+        sortByClass(list);
+        //sortByType(list);
+    }
+
+    private static synchronized void _sortByType(List<Ship> list) {
+        if (list == null) {
+            throw new NullPointerException();
+        }
+
+        sortById(list);
+        sortByRemodel(list);
+        //sortByClass(list);
+        sortByType(list);
+    }
+
+    private static synchronized void sortById(List<Ship> list) {
         Collections.sort(list, new Comparator<Ship>() {
             @Override
             public int compare(Ship lhs, Ship rhs) {
@@ -70,135 +99,93 @@ public class ShipList {
         });
     }
 
-    public static synchronized void sort() {
-        if (sList == null) {
-            throw new NullPointerException();
-        }
-
-        sortById(sList);
-        sort(sList);
-    }
-
-    public static synchronized void sort(List<Ship> list) {
-        Ship[] ships = new Ship[list.size()];
-        boolean[] added = new boolean[list.size()];
-
-        list.toArray(ships);
-
-        List<Ship> newList = new ArrayList<>();
-        int curType = 1;
-        while (newList.size() < list.size()) {
-            for (int i = 0; i < ships.length; i++) {
-                if (!added[i] && curType == ships[i].getType()) {
-                    newList.add(ships[i]);
-                    added[i] = true;
-
-                    int to;
-                    if (ships[i].getRemodel() != null)
-                        to = ships[i].getRemodel().getToId();
-                    else
-                        to = 0;
-
-                    while (to > 0) {
-                        int index = findItemById(to, ships);
-                        if (index == -1
-                                || curType != ships[index].getType()
-                                /*|| ships[index].getRemodel().getId_to() == ships[index].getRemodel().getId_from()*/
-                                || added[index]) {
-                            break;
-                        }
-
-                        newList.add(ships[index]);
-                        added[index] = true;
-
-                        to = ships[index].getRemodel().getToId();
-                    }
-                }
-            }
-            curType ++;
-        }
-        list.clear();
-        list.addAll(newList);
-    }
-
-    public static synchronized void sortByClass() {
-        if (sList == null) {
-            throw new NullPointerException();
-        }
-
-        sortById(sList);
-        sortByClass(sList);
-    }
-
-    public static synchronized void sortByClass(List<Ship> list) {
-        /*Ship[] ships = new Ship[list.size()];
-        boolean[] added = new boolean[list.size()];
-
-        list.toArray(ships);
-
-        List<Ship> newList = new ArrayList<>();
-        int curType = 0;
-        while (newList.size() < list.size()) {
-            for (int i = 0; i < ships.length; i++) {
-                if (!added[i] && curType == ships[i].getClassType()) {
-                    newList.add(ships[i]);
-                    added[i] = true;
-
-                    int to;
-                    if (ships[i].getRemodel() != null)
-                        to = ships[i].getRemodel().getToId();
-                    else
-                        to = 0;
-
-                    while (to > 0) {
-                        int index = findItemById(to, ships);
-                        if (index == -1
-                                || curType != ships[index].getClassType()
-                                || added[index]) {
-                            break;
-                        }
-
-                        newList.add(ships[index]);
-                        added[index] = true;
-
-                        to = ships[index].getRemodel().getToId();
-                    }
-                }
-            }
-            curType++;
-        }
-        list.clear();*/
-
+    private static synchronized void sortByType(List<Ship> list) {
         Collections.sort(list, new Comparator<Ship>() {
             @Override
             public int compare(Ship lhs, Ship rhs) {
-                /*if (lhs.getId() >= 500 && rhs.getId() < 500) {
-                    return 9;
+                return lhs.getType() - rhs.getType();
+            }
+        });
+    }
+
+    private static synchronized void sortByType(List<Ship> list, List<List<Ship>> _list) {
+        Collections.sort(_list, new Comparator<List<Ship>>() {
+            @Override
+            public int compare(List<Ship> lhs, List<Ship> rhs) {
+                return (lhs.get(0).getType() - rhs.get(0).getType());
+            }
+        });
+
+        list.clear();
+        for (List<Ship> l : _list) {
+            for (Ship s : l) {
+                list.add(s);
+            }
+        }
+    }
+
+    private static synchronized void sortByRemodel(List<Ship> list) {
+        List<List<Ship>> newShips = new ArrayList<>();
+        boolean[] added = new boolean[2000];
+
+        int count = 0;
+        while (count < list.size()) {
+            for (Ship ship : list) {
+                if (added[ship.getId()]) {
+                    continue;
                 }
-                if (lhs.getClassType() != rhs.getClassType()) {
-                    return 1;
+
+                List<Ship> newList = new ArrayList<>();
+                Ship s = ship;
+                if (s.getRemodel() != null) {
+                    while (s.getRemodel().getFromId() != 0) {
+                        Ship next = findItemById(s.getRemodel().getFromId(), list);
+                        if (next == null) {
+                            break;
+                        }
+                        s = next;
+                    }
                 }
-                if (lhs.getClassNum() < rhs.getClassNum()) {
-                    return -1;
-                }*/
+
+                while (true) {
+                    newList.add(s);
+                    count++;
+                    added[s.getId()] = true;
+
+                    if (s.getRemodel() == null ||
+                            s.getRemodel().getToId() == s.getRemodel().getFromId()) {
+                        break;
+                    }
+
+                    Ship next = findItemById(s.getRemodel().getToId(), list);
+                    if (next == null) {
+                        break;
+                    }
+                    s = next;
+                }
+                newShips.add(newList);
+            }
+        }
+
+        sortByType(list, newShips);
+    }
+
+    private static synchronized void sortByClass(List<Ship> list) {
+        Collections.sort(list, new Comparator<Ship>() {
+            @Override
+            public int compare(Ship lhs, Ship rhs) {
                 return (lhs.getClassType() * 100 + lhs.getClassNum()) - (rhs.getClassType() * 100 + rhs.getClassNum());
             }
         });
-        //list.addAll(newList);
     }
 
-    public static int findItemById(int id, Ship[] ships) {
-        for (int i = 0; i < ships.length; i++) {
-            if (ships[i].getId() == id) {
-                return i;
-            }
-        }
-        return -1;
-    }
 
     public static Ship findItemById(Context context, int id) {
-        for (Ship item:
-                get(context)) {
+        return findItemById(id, get(context));
+    }
+
+    public static Ship findItemById(int id, List<Ship> ships) {
+        for (Ship item : ships) {
             if (item.getId() == id) {
                 return item;
             }

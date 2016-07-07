@@ -8,6 +8,7 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -26,6 +27,7 @@ import android.support.v4.provider.DocumentFile;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -492,5 +494,15 @@ public class ImageDisplayActivity extends BaseActivity implements View.OnClickLi
         }
 
         Log.d(getClass().getSimpleName(), "hide FAB " + Integer.toString(mPosition));
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    @Override
+    protected void setNavigationBarColor() {
+        TypedValue typedValue = new TypedValue();
+        Resources.Theme theme = getTheme();
+        theme.resolveAttribute(R.attr.colorPrimaryDark, typedValue, true);
+
+        getWindow().setNavigationBarColor(typedValue.data);
     }
 }

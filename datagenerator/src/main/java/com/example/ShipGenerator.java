@@ -235,15 +235,20 @@ public class ShipGenerator {
                     shipClass.setName("俾斯麦级");
                     break;
                 case "Graf Zeppelin":
+                case "齐柏林":
                     shipClass.setName("齐柏林伯爵级");
                     break;
                 case "Libeccio改":
+                case "利伯齐奥":
+                case "利伯齐奥改":
                     shipClass.setName("西北风级");
                     break;
+                case "欧根亲王":
                 case "Prinz Eugen":
                     shipClass.setName("希佩尔海军上将级");
                     break;
                 case "Littorio":
+                case "利托里奥":
                     shipClass.setName("维内托级");
                     break;
                 case "伊168":

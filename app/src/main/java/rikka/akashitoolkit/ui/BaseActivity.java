@@ -1,16 +1,15 @@
 package rikka.akashitoolkit.ui;
 
+import android.annotation.TargetApi;
 import android.content.pm.PackageManager;
-import android.graphics.drawable.ColorDrawable;
+import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-
-import com.google.android.gms.analytics.Tracker;
+import android.util.TypedValue;
 
 import moe.xing.daynightmode.BaseDayNightModeActivity;
-import rikka.akashitoolkit.Application;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.Statistics;
@@ -39,11 +38,18 @@ public abstract class BaseActivity extends BaseDayNightModeActivity {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             if (Settings.instance(this).getBoolean(Settings.NAV_BAR_COLOR, false)) {
-                getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.colorPrimary));
-            } else {
-                getWindow().setNavigationBarColor(ContextCompat.getColor(this, android.R.color.black));
+                setNavigationBarColor();
             }
         }
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    protected void setNavigationBarColor() {
+        TypedValue typedValue = new TypedValue();
+        Resources.Theme theme = getTheme();
+        theme.resolveAttribute(R.attr.colorPrimary, typedValue, true);
+
+        getWindow().setNavigationBarColor(typedValue.data);
     }
 
     protected boolean checkPermission(String permission) {

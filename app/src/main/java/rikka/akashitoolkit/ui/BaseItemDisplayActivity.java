@@ -2,15 +2,18 @@ package rikka.akashitoolkit.ui;
 
 import android.animation.Animator;
 import android.animation.ValueAnimator;
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
+import android.util.TypedValue;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
@@ -223,5 +226,15 @@ public abstract class BaseItemDisplayActivity extends BaseActivity {
 
         toolbar.setTitleTextAppearance(this, R.style.ItemActivity_Title);
         toolbar.setSubtitleTextAppearance(this, R.style.ItemActivity_Subtitle);
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    @Override
+    protected void setNavigationBarColor() {
+        TypedValue typedValue = new TypedValue();
+        Resources.Theme theme = getTheme();
+        theme.resolveAttribute(R.attr.colorPrimaryDark, typedValue, true);
+
+        getWindow().setNavigationBarColor(typedValue.data);
     }
 }

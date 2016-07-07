@@ -171,7 +171,6 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewH
                 holder.mLinearLayout.getLocationOnScreen(location);
                 intent.putExtra(EquipDisplayActivity.EXTRA_START_Y, location[1]);
                 intent.putExtra(EquipDisplayActivity.EXTRA_START_HEIGHT, holder.mLinearLayout.getHeight());
-                intent.putExtra(EquipDisplayActivity.EXTRA_IS_ENEMY, mEnemy);
 
                 BaseItemDisplayActivity.start(mActivity, intent);
             }

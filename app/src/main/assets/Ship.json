@@ -33248,8 +33248,8 @@
     "remodel": {
       "blueprint": false,
       "from_id": 459,
-      "to_id": 0,
-      "level": 0,
+      "to_id": 469,
+      "level": 75,
       "cost": [
         0,
         0

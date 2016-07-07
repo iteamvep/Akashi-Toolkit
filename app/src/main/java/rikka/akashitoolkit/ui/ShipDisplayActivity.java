@@ -88,7 +88,6 @@ import rikka.akashitoolkit.utils.Utils;
  */
 public class ShipDisplayActivity extends BaseItemDisplayActivity implements View.OnTouchListener {
     public static final String EXTRA_ITEM_ID = "EXTRA_ITEM_ID";
-    public static final String EXTRA_IS_ENEMY = "EXTRA_IS_ENEMY";
 
     private Toolbar mToolbar;
     private CoordinatorLayout mCoordinatorLayout;
@@ -126,7 +125,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
             }
         }
 
-        mIsEnemy = getIntent().getBooleanExtra(EXTRA_IS_ENEMY, false);
+        mIsEnemy = id >= 500;
 
         setContentView(R.layout.activity_ship_display);
 
