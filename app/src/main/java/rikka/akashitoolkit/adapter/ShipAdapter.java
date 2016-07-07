@@ -17,6 +17,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -294,6 +296,17 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
                 Log.d("ShipAdapter", "No ship class: " + item.getName().get(mActivity));
                 holder.mContent.setText("");
             }
+
+            Glide.with(holder.itemView.getContext())
+                    .load(Utils.getKCWikiFileUrl(String.format("KanMusu%sBanner.jpg", item.getWikiId())))
+                    .crossFade()
+                    .into(holder.mIcon);
+        } else {
+            Glide.with(holder.itemView.getContext())
+                    .load(Utils.getKCWikiFileUrl(String.format("ShinkaiSeikan%dBanner.png", item.getId())))
+                    .crossFade()
+                    .centerCrop()
+                    .into(holder.mIcon);
         }
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -438,6 +451,15 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
     @Override
     public int getItemCount() {
         return mData.size();
+    }
+
+    @Override
+    public void onViewRecycled(RecyclerView.ViewHolder holder) {
+        super.onViewRecycled(holder);
+
+        if (holder instanceof ViewHolder.Ship) {
+            Glide.clear(((ViewHolder.Ship) holder).mIcon);
+        }
     }
 
     private RecyclerView mRecyclerView;

@@ -248,12 +248,14 @@ public class ViewHolder {
     public static class Ship extends RecyclerView.ViewHolder {
         protected TextView mTitle;
         protected TextView mContent;
+        protected ImageView mIcon;
 
         public Ship(View itemView) {
             super(itemView);
 
             mTitle = (TextView) itemView.findViewById(android.R.id.title);
             mContent = (TextView) itemView.findViewById(android.R.id.content);
+            mIcon = (ImageView) itemView.findViewById(android.R.id.icon);
         }
     }
 
