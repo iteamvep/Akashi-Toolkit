@@ -15,9 +15,6 @@ public class EquipImprovement extends BaseDataModel {
      * secretary : [{"name":"無","day":[true,true,true,true,true,true,true]}]
      */
 
-    private String name;
-    private String type;
-    private int icon;
     /**
      * name : 無
      * day : [true,true,true,true,true,true,true]
@@ -25,33 +22,11 @@ public class EquipImprovement extends BaseDataModel {
 
     private List<SecretaryEntity> secretary;
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public void setIcon(int icon) {
-        this.icon = icon;
-    }
 
     public void setSecretary(List<SecretaryEntity> secretary) {
         this.secretary = secretary;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public int getIcon() {
-        return icon;
-    }
 
     public List<SecretaryEntity> getSecretary() {
         return secretary;

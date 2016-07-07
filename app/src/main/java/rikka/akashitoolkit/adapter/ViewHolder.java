@@ -383,6 +383,7 @@ public class ViewHolder {
             mContainer = (LinearLayout) itemView.findViewById(android.R.id.content);
         }
 
+        @SuppressLint("DefaultLocale")
         public void setContent() {
             Context context = itemView.getContext();
             mContainer.removeAllViews();
@@ -418,7 +419,7 @@ public class ViewHolder {
                             count++;
 
                             View view = LayoutInflater.from(context).inflate(R.layout.item_message_equip, mContainer, false);
-                            EquipTypeList.setIntoImageView((ImageView) view.findViewById(android.R.id.icon), item.getIcon());
+                            EquipTypeList.setIntoImageView((ImageView) view.findViewById(android.R.id.icon), equip.getIcon());
                             ((TextView) view.findViewById(android.R.id.title)).setText(
                                     String.format("%s (%s)", equip.getName().get(context), sb.toString()));
 

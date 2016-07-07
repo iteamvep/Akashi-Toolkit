@@ -9,35 +9,19 @@ import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.text.format.DateUtils;
 import android.text.method.LinkMovementMethod;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.squareup.otto.Subscribe;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
-import java.util.TimeZone;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.model.CheckUpdate;
-import rikka.akashitoolkit.model.Equip;
-import rikka.akashitoolkit.model.EquipImprovement;
-import rikka.akashitoolkit.otto.BookmarkAction;
 import rikka.akashitoolkit.otto.BookmarkItemChanged;
 import rikka.akashitoolkit.otto.BusProvider;
-import rikka.akashitoolkit.otto.ChangeNavigationDrawerItemAction;
-import rikka.akashitoolkit.otto.DataListRebuiltFinished;
-import rikka.akashitoolkit.staticdata.EquipImprovementList;
-import rikka.akashitoolkit.staticdata.EquipList;
-import rikka.akashitoolkit.staticdata.EquipTypeList;
-import rikka.akashitoolkit.support.Settings;
-import rikka.akashitoolkit.ui.EquipDisplayActivity;
-import rikka.akashitoolkit.ui.MainActivity;
 
 import static rikka.akashitoolkit.support.ApiConstParam.Message.ACTION_VIEW_BUTTON;
 import static rikka.akashitoolkit.support.ApiConstParam.Message.COUNT_DOWN;

@@ -2,13 +2,12 @@ package rikka.akashitoolkit.adapter;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,9 +17,9 @@ import rikka.akashitoolkit.model.Equip;
 import rikka.akashitoolkit.model.EquipImprovement;
 import rikka.akashitoolkit.otto.BookmarkItemChanged;
 import rikka.akashitoolkit.otto.BusProvider;
+import rikka.akashitoolkit.staticdata.EquipImprovementList;
 import rikka.akashitoolkit.staticdata.EquipList;
 import rikka.akashitoolkit.staticdata.EquipTypeList;
-import rikka.akashitoolkit.staticdata.EquipImprovementList;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.ui.BaseItemDisplayActivity;
 import rikka.akashitoolkit.ui.EquipDisplayActivity;
@@ -61,16 +60,18 @@ public class EquipImprovementAdapter extends BaseBookmarkRecyclerAdapter<ViewHol
     @SuppressLint({"DefaultLocale", "SetTextI18n"})
     @Override
     public void onBindViewHolder(final ViewHolder.ItemImprovement holder, int position) {
-        Equip equip = EquipList.findItemById(mActivity, mData.get(position).getId());
+        Context context = holder.itemView.getContext();
+        EquipImprovement item = mData.get(position);
+        Equip equip = EquipList.findItemById(mActivity, item.getId());
 
-        if (equip != null) {
-            EquipImprovement item = mData.get(position);
-
-            if (!item.isBookmarked()) {
-                holder.mName.setText(equip.getName().get(mActivity));
-            } else {
-                holder.mName.setText(equip.getName().get(mActivity) + " ★");
-            }
+        if (equip == null) {
+            holder.mName.setText(String.format(context.getString(R.string.equip_not_found), mData.get(position).getId()));
+            return;
+        }
+        if (!item.isBookmarked()) {
+            holder.mName.setText(equip.getName().get(mActivity));
+        } else {
+            holder.mName.setText(equip.getName().get(mActivity) + " ★");
         }
 
         holder.mShip.setText("二号舰娘: " + mDataShip.get(position));
@@ -114,7 +115,7 @@ public class EquipImprovementAdapter extends BaseBookmarkRecyclerAdapter<ViewHol
             }
         });
 
-        EquipTypeList.setIntoImageView(holder.mImageView, mData.get(position).getIcon());
+        EquipTypeList.setIntoImageView(holder.mImageView, equip.getIcon());
     }
 
     @Override
