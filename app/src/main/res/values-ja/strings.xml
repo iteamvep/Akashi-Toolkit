@@ -16,7 +16,7 @@
     <string name="night_mode_off">オフ</string>
     <string name="night_mode_on">オン</string>
     <string name="night_mode_auto">自動</string>
-    <string name="night_mode_follow_system">システムに従う</string>
+    <string name="night_mode_follow_system">端末の設定に従う</string>
 
     <string name="quest">任務</string>
     <string name="refresh_fail">更新失敗</string>
@@ -53,16 +53,16 @@
 
     <string name="category_update">更新とメッセージ</string>
     <string name="update_check_channel">更新チャンネル</string>
-    <string name="every_time_open_app">開く時ホームページへ</string>
+    <string name="every_time_open_app">アプリを開く時ホームページへ</string>
     <string name="manually">手動</string>
     <string name="no_translated">(翻訳してないだぜ☆)</string>
     <string name="item_improvement">改修</string>
     <string name="reset_read">既読メッセージをリセット</string>
-    <string name="got_it">分かった</string>
+    <string name="got_it">了解</string>
     <string name="not_now">嫌～</string>
     <string name="ignore_update">嫌だ (今回のアップデートを無視)</string>
     <string name="download">ダウンロード</string>
-    <string name="reset_read_summary">既読メッセージとアップグレード通知をリセット</string>
+    <string name="reset_read_summary">既読メッセージとアップデート通知をリセット</string>
     <string name="read_status_reset">リセットしました</string>
     <string name="stable">安定バージョン</string>
     <string name="latest">最新バージョン (もっと多くのバッグが出てしまうかも知れない)</string>
@@ -92,7 +92,7 @@
     <string name="exp_calc_target_lv">目標レベル</string>
     <string name="exp_calc_to_next">次のレベルまで</string>
     <string name="exp_calc_result_format" formatted="false">必要経験値\n%d\n\n1回あたり / 戦闘回数\n基礎 %d / %d\n旗艦 %d / %d\nMVP %d / %d\nMVP + 旗艦 %d / %d</string>
-    <string name="exp_calc_error">Data error</string>
+    <string name="exp_calc_error">データエラー</string>
 
     <string name="data_language">データ言語</string>
     <string name="language_zh">簡体中国語</string>
@@ -202,8 +202,8 @@
     <string name="attr_speed">速力</string>
     <string name="attr_range">射程</string>
     <string name="attr_luck">運</string>
-    <string name="attr_accuracy">Accuracy</string>
-    <string name="attr_boom">Bombing</string>
+    <string name="attr_accuracy">命中</string>
+    <string name="attr_boom">爆装</string>
 
     <string name="range_short">短</string>
     <string name="range_medium">中</string>
@@ -214,13 +214,13 @@
     <string name="speed_slow">低速</string>
     <string name="speed_none">無し</string>
 
-    <string name="improvement_branch" formatted="false">Branch → %s</string>
-    <string name="improvement_any">Any</string>
-    <string name="improvement_resource">Resource</string>
-    <string name="improvement_upgrade">Upgrade</string>
-    <string name="improvement_upgrade_to">Upgrade to</string>
+    <string name="improvement_branch" formatted="false">分岐 → %s</string>
+    <string name="improvement_any">無</string>
+    <string name="improvement_resource">改修必要資材</string>
+    <string name="improvement_upgrade">更新必要資材</string>
+    <string name="improvement_upgrade_to">更新先</string>
 
-    <string name="open_in_new_document">Separate tasks</string>
-    <string name="open_in_new_document_summary">Represent detail views as separate tasks in overview screen</string>
+    <string name="open_in_new_document">分離タスク</string>
+    <string name="open_in_new_document_summary">最近使ったアプリ履歴画面に単なるタスクの形で別々の詳情ページを表示</string>
 
 </resources>
