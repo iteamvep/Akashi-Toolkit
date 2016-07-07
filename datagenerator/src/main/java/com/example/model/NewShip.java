@@ -404,6 +404,9 @@ public class NewShip {
     @Expose private AttrEntity attr;
 
     public AttrEntity getAttr() {
+        /*if (attr == null) {
+            attr = new AttrEntity();
+        }*/
         return attr;
     }
 
@@ -438,6 +441,14 @@ public class NewShip {
 
         public void setSpeed(String speed) {
             this.speed = Integer.parseInt(speed);
+        }
+
+        public void setSpeed(int speed) {
+            this.speed = speed;
+        }
+
+        public void setRange(int range) {
+            this.range = range;
         }
 
         public String[] getAA() {
@@ -534,8 +545,8 @@ public class NewShip {
     }
 
     public static class StatsEntity {
-        private int soku;
-        private int leng;
+        @SerializedName("soku") private int speed;
+        @SerializedName("leng") private int range;
         private int kaih;
         private int tais;
         private int slot_num;
@@ -544,30 +555,30 @@ public class NewShip {
         private int fuel_max;
         private int bull_max;
         private int build_time;
-        private List<Integer> taik;
-        private List<Integer> souk;
-        private List<Integer> houg;
-        private List<Integer> raig;
-        private List<Integer> tyku;
+        @SerializedName("taik") private List<Integer> hp;
+        @SerializedName("souk") private List<Integer> armor;
+        @SerializedName("houg") private List<Integer> firepower;
+        @SerializedName("raig") private List<Integer> torpedo;
+        @SerializedName("tyku") private List<Integer> aa;
         private List<Integer> luck;
         private List<Integer> max_eq;
         private List<Integer> broken;
         private List<Integer> pow_up;
 
-        public int getSoku() {
-            return soku;
+        public int getSpeed() {
+            return speed;
         }
 
-        public void setSoku(int soku) {
-            this.soku = soku;
+        public void setSpeed(int speed) {
+            this.speed = speed;
         }
 
-        public int getLeng() {
-            return leng;
+        public int getRange() {
+            return range;
         }
 
-        public void setLeng(int leng) {
-            this.leng = leng;
+        public void setRange(int range) {
+            this.range = range;
         }
 
         public int getKaih() {
@@ -634,44 +645,44 @@ public class NewShip {
             this.build_time = build_time;
         }
 
-        public List<Integer> getTaik() {
-            return taik;
+        public List<Integer> getHP() {
+            return hp;
         }
 
-        public void setTaik(List<Integer> taik) {
-            this.taik = taik;
+        public void setHp(List<Integer> hp) {
+            this.hp = hp;
         }
 
-        public List<Integer> getSouk() {
-            return souk;
+        public List<Integer> getArmor() {
+            return armor;
         }
 
-        public void setSouk(List<Integer> souk) {
-            this.souk = souk;
+        public void setArmor(List<Integer> armor) {
+            this.armor = armor;
         }
 
-        public List<Integer> getHoug() {
-            return houg;
+        public List<Integer> getFirepower() {
+            return firepower;
         }
 
-        public void setHoug(List<Integer> houg) {
-            this.houg = houg;
+        public void setFirepower(List<Integer> firepower) {
+            this.firepower = firepower;
         }
 
-        public List<Integer> getRaig() {
-            return raig;
+        public List<Integer> getTorpedo() {
+            return torpedo;
         }
 
-        public void setRaig(List<Integer> raig) {
-            this.raig = raig;
+        public void setTorpedo(List<Integer> torpedo) {
+            this.torpedo = torpedo;
         }
 
-        public List<Integer> getTyku() {
-            return tyku;
+        public List<Integer> getAA() {
+            return aa;
         }
 
-        public void setTyku(List<Integer> tyku) {
-            this.tyku = tyku;
+        public void setAA(List<Integer> aa) {
+            this.aa = aa;
         }
 
         public List<Integer> getLuck() {

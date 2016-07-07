@@ -36,6 +36,40 @@ public class ShipGenerator {
             item.getName().setJa(item.getNameJP());
             item.getName().setZh_cn(item.getNameCN());
 
+            if (item.getStats().getFirepower() != null) {
+                NewShip.AttrEntity attr = new NewShip.AttrEntity();
+                item.setAttr(attr);
+
+                /*item.getAttr().setHP(
+                        "" + item.getStats().getHP().get(0),
+                        "" + item.getStats().getHP().get(1));*/
+
+                item.getAttr().setArmor(
+                        "" + item.getStats().getArmor().get(0),
+                        "" + item.getStats().getArmor().get(1));
+
+                item.getAttr().setFirePower(
+                        "" + item.getStats().getFirepower().get(0),
+                        "" + item.getStats().getFirepower().get(1));
+
+                item.getAttr().setTorpedo(
+                        "" + item.getStats().getTorpedo().get(0),
+                        "" + item.getStats().getTorpedo().get(1));
+
+                item.getAttr().setAA(
+                        "" + item.getStats().getAA().get(0),
+                        "" + item.getStats().getAA().get(1));
+
+                item.getAttr().setLuck(
+                        "" + item.getStats().getLuck().get(0),
+                        "" + item.getStats().getLuck().get(1));
+
+                item.getAttr().setSpeed(item.getStats().getSpeed());
+                item.getAttr().setRange(item.getStats().getRange());
+            }
+
+            //System.out.println(item.getStats() + "  " + item.getStats().getFirepower());
+
             item.setNameForSearch(getNameForSearch(item));
         }
 
@@ -67,33 +101,40 @@ public class ShipGenerator {
                 remodel.setToId(row[COLUMN_REMODEL_AFTER]);
                 remodel.setRequireBlueprint(row[COLUMN_REMODEL_BLUEPRINT]);
 
-                NewShip.AttrEntity attr = new NewShip.AttrEntity();
-                item.setAttr(attr);
-                attr.setHP(row[COLUMN_HP], row[COLUMN_HP_WEDDING]);
-                attr.setAA(row[COLUMN_AA], row[COLUMN_AA_MAX]);
-                attr.setFirePower(row[COLUMN_FIRE], row[COLUMN_FIRE_MAX]);
-                attr.setTorpedo(row[COLUMN_TORPEDO], row[COLUMN_TORPEDO_MAX]);
-                attr.setArmor(row[COLUMN_ARMOR], row[COLUMN_ARMOR_MAX]);
-                attr.setLuck(row[COLUMN_LUCK], row[COLUMN_LUCK_MAX]);
-                attr.setASW(row[COLUMN_ASW], row[COLUMN_ASW_MAX], row[COLUMN_ASW_MAX]);
-                attr.setLOS(row[COLUMN_LOS], row[COLUMN_LOS_MAX], row[COLUMN_LOS_MAX]);
-                attr.setEvasion(row[COLUMN_EVASION], row[COLUMN_EVASION_MAX], row[COLUMN_EVASION_MAX]);
-                attr.setSpeed(row[COLUMN_SPEED]);
-                attr.setRange(row[COLUMN_RANGE]);
+                if (item.getAttr() == null) {
+                    NewShip.AttrEntity attr = new NewShip.AttrEntity();
+                    item.setAttr(attr);
+                    attr.setHP(row[COLUMN_HP], row[COLUMN_HP_WEDDING]);
+                    attr.setAA(row[COLUMN_AA], row[COLUMN_AA_MAX]);
+                    attr.setFirePower(row[COLUMN_FIRE], row[COLUMN_FIRE_MAX]);
+                    attr.setTorpedo(row[COLUMN_TORPEDO], row[COLUMN_TORPEDO_MAX]);
+                    attr.setArmor(row[COLUMN_ARMOR], row[COLUMN_ARMOR_MAX]);
+                    attr.setLuck(row[COLUMN_LUCK], row[COLUMN_LUCK_MAX]);
+                    attr.setSpeed(row[COLUMN_SPEED]);
+                    attr.setRange(row[COLUMN_RANGE]);
+                } else {
+                    NewShip.AttrEntity attr = item.getAttr();
+                    attr.setHP(row[COLUMN_HP], row[COLUMN_HP_WEDDING]);
+                    attr.setASW(row[COLUMN_ASW], row[COLUMN_ASW_MAX], row[COLUMN_ASW_MAX]);
+                    attr.setLOS(row[COLUMN_LOS], row[COLUMN_LOS_MAX], row[COLUMN_LOS_MAX]);
+                    attr.setEvasion(row[COLUMN_EVASION], row[COLUMN_EVASION_MAX], row[COLUMN_EVASION_MAX]);
+                }
             } else {
-                NewShip.AttrEntity attr = new NewShip.AttrEntity();
-                item.setAttr(attr);
-                attr.setHP(row[COLUMN_HP]);
-                attr.setAA(row[COLUMN_AA]);
-                attr.setFirePower(row[COLUMN_FIRE]);
-                attr.setTorpedo(row[COLUMN_TORPEDO]);
-                attr.setArmor(row[COLUMN_ARMOR]);
-                //attr.setLuck(row[COLUMN_LUCK], row[COLUMN_LUCK_MAX]);
-                //attr.setASW(row[COLUMN_ASW], row[COLUMN_ASW_MAX], row[COLUMN_ASW_MAX]);
-                //attr.setLOS(row[COLUMN_LOS], row[COLUMN_LOS_MAX], row[COLUMN_LOS_MAX]);
-                //attr.setEvasion(row[COLUMN_EVASION], row[COLUMN_EVASION_MAX], row[COLUMN_EVASION_MAX]);
-                attr.setSpeed(row[COLUMN_SPEED]);
-                attr.setRange(row[COLUMN_RANGE]);
+                if (item.getAttr() == null) {
+                    NewShip.AttrEntity attr = new NewShip.AttrEntity();
+                    item.setAttr(attr);
+                    attr.setHP(row[COLUMN_HP]);
+                    attr.setAA(row[COLUMN_AA]);
+                    attr.setFirePower(row[COLUMN_FIRE]);
+                    attr.setTorpedo(row[COLUMN_TORPEDO]);
+                    attr.setArmor(row[COLUMN_ARMOR]);
+                    //attr.setLuck(row[COLUMN_LUCK], row[COLUMN_LUCK_MAX]);
+                    //attr.setASW(row[COLUMN_ASW], row[COLUMN_ASW_MAX], row[COLUMN_ASW_MAX]);
+                    //attr.setLOS(row[COLUMN_LOS], row[COLUMN_LOS_MAX], row[COLUMN_LOS_MAX]);
+                    //attr.setEvasion(row[COLUMN_EVASION], row[COLUMN_EVASION_MAX], row[COLUMN_EVASION_MAX]);
+                    attr.setSpeed(row[COLUMN_SPEED]);
+                    attr.setRange(row[COLUMN_RANGE]);
+                }
 
                 // TODO 用来搜索的名字需要改
                 if (!row[COLUMN_READING].equals("-"))
@@ -186,7 +227,7 @@ public class ShipGenerator {
                 ship.setClassType(cur.getClassType());
                 ship.setClassNum(cur.getClassNum());
 
-                System.out.println(ship.getName().getZh_cn() + " 舰级为空 设定为了和 " + cur.getName().getZh_cn() + " 一样的类型");
+                //System.out.println(ship.getName().getZh_cn() + " 舰级为空 设定为了和 " + cur.getName().getZh_cn() + " 一样的类型");
             }
         }
 
@@ -196,9 +237,9 @@ public class ShipGenerator {
             }
 
             if (ship.getClassType() == 0) {
-                System.out.println(ship.getName().getZh_cn() + " 没有类型");
+                //System.out.println(ship.getName().getZh_cn() + " 没有类型");
             } else if (!isShipClassExist(shipClassList, ship.getClassType())) {
-                System.out.println(ship.getName().getZh_cn() + " 没有一号舰");
+                //System.out.println(ship.getName().getZh_cn() + " 没有一号舰");
                 addToShipClassList(shipClassList, ship.getClassType(), ship.getName().getZh_cn());
             }
         }
@@ -283,7 +324,6 @@ public class ShipGenerator {
             }
 
             list.add(shipClass);
-            System.out.println("" + type + shipName);
         }
     }
 
