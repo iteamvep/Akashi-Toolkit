@@ -646,7 +646,8 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
 
         if (mItem.getWikiId().equals("030a")
                 || mItem.getWikiId().equals("026a")
-                || mItem.getWikiId().equals("027a")) {
+                || mItem.getWikiId().equals("027a")
+                || mItem.getWikiId().equals("065a")) {
             urlList.add(Utils.getKCWikiFileUrl(String.format("KanMusu%sIllust.png", mItem.getWikiId())));
             urlList.add(Utils.getKCWikiFileUrl(String.format("KanMusu%sDmgIllust.png", mItem.getWikiId())));
 
@@ -988,7 +989,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
                 i = value.length - 1;
             }
 
-            if (value.length == 2) {
+            if (value.length == 2 && title != R.string.attr_hp) {
                 addAttrView(parent, title, String.format("%s / %s", value[0], value[1]));
             } else {
                 addAttrView(parent, title, value[i]);

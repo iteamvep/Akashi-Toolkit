@@ -453,7 +453,7 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
         if (improvement.getItem2() != null) {
             addItemImprovementInsideView(parent, 1, "~ MAX", improvement.getItem2());
         }
-        if (improvement.getItem3() != null) {
+        if (improvement.getUpgrade() != null && improvement.getItem3() != null) {
             addItemImprovementInsideView(parent, 1, getString(R.string.improvement_upgrade), improvement.getItem3());
         }
         if (improvement.getUpgrade() != null) {

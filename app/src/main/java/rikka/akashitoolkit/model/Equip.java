@@ -142,7 +142,7 @@ public class Equip extends BaseDataModel {
         }
 
         public int[] getItem3() {
-            return item2;
+            return item3;
         }
 
         public List<List<Integer>> getShips() {

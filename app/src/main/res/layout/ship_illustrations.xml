@@ -8,8 +8,6 @@
            android:background="?attr/selectableItemBackground"
            android:contentDescription="@null"
            android:orientation="vertical"
-           android:paddingLeft="8dp"
-           android:paddingRight="8dp"
            android:scaleType="centerInside">
 
 </ImageView>

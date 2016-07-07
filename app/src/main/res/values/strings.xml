@@ -234,9 +234,9 @@ Activity &amp; Extra:
 
     <string name="improvement_branch" formatted="false">Branch → %s</string>
     <string name="improvement_any">Any</string>
-    <string name="improvement_resource">Resource</string>
-    <string name="improvement_upgrade">Upgrade</string>
-    <string name="improvement_upgrade_to">Upgrade to</string>
+    <string name="improvement_resource">RES</string>
+    <string name="improvement_upgrade">UPG</string>
+    <string name="improvement_upgrade_to">UPG to</string>
 
     <string name="open_in_new_document">Separate tasks</string>
     <string name="open_in_new_document_summary">Represent detail views as separate tasks in overview screen</string>
