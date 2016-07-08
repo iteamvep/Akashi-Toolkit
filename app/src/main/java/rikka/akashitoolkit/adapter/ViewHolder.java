@@ -249,6 +249,7 @@ public class ViewHolder {
         protected TextView mTitle;
         protected TextView mContent;
         protected ImageView mIcon;
+        protected View mIconContainer;
 
         public Ship(View itemView) {
             super(itemView);
@@ -256,6 +257,7 @@ public class ViewHolder {
             mTitle = (TextView) itemView.findViewById(android.R.id.title);
             mContent = (TextView) itemView.findViewById(android.R.id.content);
             mIcon = (ImageView) itemView.findViewById(android.R.id.icon);
+            mIconContainer = itemView.findViewById(R.id.content_container);
         }
     }
 

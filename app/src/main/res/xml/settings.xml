@@ -19,10 +19,16 @@
             android:summary="@string/data_language_title_summary"
             android:defaultValue="true"/>
 
-        <!--<rikka.materialpreference.SwitchPreference
+        <!--<SwitchPreference
             android:key="download_wifi_only"
             android:title="@string/download_wifi_only"
             android:defaultValue="false"/>-->
+
+        <SwitchPreference
+            android:key="show_ship_banner"
+            android:title="@string/show_ship_banner"
+            android:summary="@string/show_ship_banner_summary"
+            android:defaultValue="true"/>
 
         <SwitchPreference
             android:key="open_in_new_document"

@@ -240,4 +240,8 @@ Activity &amp; Extra:
 
     <string name="open_in_new_document">Separate tasks</string>
     <string name="open_in_new_document_summary">Represent detail views as separate tasks in overview screen</string>
+
+    <string name="show_ship_banner">Show ship banner</string>
+    <string name="show_ship_banner_summary">Show banner in ship list and enemy list</string>
+
 </resources>

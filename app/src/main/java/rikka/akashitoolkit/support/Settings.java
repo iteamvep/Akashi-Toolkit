@@ -50,6 +50,7 @@ public class Settings {
     public static final String DEVELOPER = "developer";
 
     public static final String OPEN_IN_NEW_DOCUMENT = "open_in_new_document";
+    public static final String SHOW_SHIP_BANNER = "show_ship_banner";
 
     private static BaseSetting sInstance;
 

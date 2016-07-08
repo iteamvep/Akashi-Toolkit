@@ -221,4 +221,8 @@
 
     <string name="open_in_new_document">分离任务</string>
     <string name="open_in_new_document_summary">在概览屏幕以单独任务的形式展示每个详情视图</string>
+
+    <string name="show_ship_banner">显示舰娘横幅</string>
+    <string name="show_ship_banner_summary">在舰娘列表和深海栖舰列表显示头像横幅</string>
+
 </resources>

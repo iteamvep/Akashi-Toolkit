@@ -14,10 +14,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <FrameLayout
+        android:id="@+id/content_container"
         android:layout_width="90dp"
         android:layout_height="32dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginEnd="0dp">
+        android:layout_marginRight="24dp"
+        android:layout_marginEnd="24dp">
 
         <rikka.akashitoolkit.ui.widget.BezelImageView
             android:id="@android:id/icon"

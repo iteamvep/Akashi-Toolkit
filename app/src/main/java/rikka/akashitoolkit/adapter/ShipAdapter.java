@@ -276,10 +276,16 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
     }
 
     private void bindViewHolder(final ViewHolder.Ship holder, int position) {
+        Context context = holder.itemView.getContext();
         Ship item = (Ship) mData.get(position).data;
 
         holder.mTitle.setText(String.format(item.isBookmarked() ? "%s ★" : "%s",
                 item.getName().get(holder.mTitle.getContext())));
+
+        @SuppressLint("DefaultLocale")
+        String banner = mEnemy ?
+                Utils.getKCWikiFileUrl(String.format("ShinkaiSeikan%dBanner.png", item.getId())) : Utils.getKCWikiFileUrl(String.format("KanMusu%sBanner.jpg", item.getWikiId()));
+        boolean showBanner = Settings.instance(context).getBoolean(Settings.SHOW_SHIP_BANNER, true);
 
         if (!mEnemy) {
             ShipClass shipClass = ShipClassList.findItemById(mActivity, item.getClassType());
@@ -291,22 +297,28 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
                 } else {
                     c = String.format("%s号舰", Utils.getChineseNumberString(item.getClassNum()));
                 }
-                holder.mContent.setText(c);
+
+                if (!showBanner || mSort == 1) {
+                    holder.mContent.setText(c);
+                } else {
+                    holder.mContent.setText("");
+                }
             } else {
                 Log.d("ShipAdapter", "No ship class: " + item.getName().get(mActivity));
                 holder.mContent.setText("");
             }
+        }
 
-            Glide.with(holder.itemView.getContext())
-                    .load(Utils.getKCWikiFileUrl(String.format("KanMusu%sBanner.jpg", item.getWikiId())))
-                    .crossFade()
-                    .into(holder.mIcon);
-        } else {
-            Glide.with(holder.itemView.getContext())
-                    .load(Utils.getKCWikiFileUrl(String.format("ShinkaiSeikan%dBanner.png", item.getId())))
+        if (showBanner) {
+            holder.mIconContainer.setVisibility(View.VISIBLE);
+
+            Glide.with(context)
+                    .load(banner)
                     .crossFade()
                     .centerCrop()
                     .into(holder.mIcon);
+        } else {
+            holder.mIconContainer.setVisibility(View.GONE);
         }
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {

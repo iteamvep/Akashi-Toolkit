@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.squareup.otto.Subscribe;
 
@@ -11,7 +14,9 @@ import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.ShipAdapter;
 import rikka.akashitoolkit.otto.BookmarkAction;
 import rikka.akashitoolkit.otto.BusProvider;
+import rikka.akashitoolkit.otto.PreferenceChangedAction;
 import rikka.akashitoolkit.otto.ShipAction;
+import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.ui.widget.ItemAnimator;
 import rikka.akashitoolkit.ui.widget.LinearLayoutManager;
 
@@ -22,6 +27,7 @@ public class ShipFragment extends BaseDisplayFragment<ShipAdapter> {
     public static final String TAG = "ShipFragment";
 
     private boolean mShowEnemy;
+    protected Object mBusEventListener;
 
     @Override
     public void onStart() {
@@ -37,7 +43,21 @@ public class ShipFragment extends BaseDisplayFragment<ShipAdapter> {
         if (!mShowEnemy) {
             BusProvider.instance().unregister(this);
         }
+
         super.onStop();
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        BusProvider.instance().register(mBusEventListener);
+        return super.onCreateView(inflater, container, savedInstanceState);
+    }
+
+    @Override
+    public void onDestroyView() {
+        BusProvider.instance().unregister(mBusEventListener);
+        super.onDestroyView();
     }
 
     @Override
@@ -69,6 +89,13 @@ public class ShipFragment extends BaseDisplayFragment<ShipAdapter> {
             mShowEnemy = args.getBoolean("ENEMY");
         }
 
+        mBusEventListener = new Object() {
+            @Subscribe
+            public void dataChanged(PreferenceChangedAction event) {
+                ShipFragment.this.preferenceChanged(event);
+            }
+        };
+
         setAdapter(new ShipAdapter(getActivity(), finalVersion, flag, speed, sort, bookmarked, mShowEnemy));
     }
 
@@ -84,6 +111,15 @@ public class ShipFragment extends BaseDisplayFragment<ShipAdapter> {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new ItemAnimator());
         recyclerView.setBackgroundColor(ContextCompat.getColor(recyclerView.getContext(), R.color.cardBackground));
+    }
+
+    @Subscribe
+    public void preferenceChanged(PreferenceChangedAction action) {
+        switch (action.getKey()) {
+            case Settings.SHOW_SHIP_BANNER:
+                getAdapter().notifyDataSetChanged();
+                break;
+        }
     }
 
     @Subscribe
