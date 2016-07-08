@@ -224,5 +224,6 @@
     <string name="open_in_new_document_summary">最近使ったアプリ履歴画面に単なるタスクの形で別々の詳情ページを表示</string>
 
     <string name="show_ship_banner">Show ship banner</string>
+    <string name="show_ship_banner_summary">Show banner in ship list and enemy list</string>
 
 </resources>
