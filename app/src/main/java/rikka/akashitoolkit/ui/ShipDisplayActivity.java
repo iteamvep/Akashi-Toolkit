@@ -647,7 +647,9 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
         if (mItem.getWikiId().equals("030a")
                 || mItem.getWikiId().equals("026a")
                 || mItem.getWikiId().equals("027a")
-                || mItem.getWikiId().equals("065a")) {
+                || mItem.getWikiId().equals("065a")
+                || mItem.getWikiId().equals("094a")
+                || mItem.getWikiId().equals("183a")) {
             urlList.add(Utils.getKCWikiFileUrl(String.format("KanMusu%sIllust.png", mItem.getWikiId())));
             urlList.add(Utils.getKCWikiFileUrl(String.format("KanMusu%sDmgIllust.png", mItem.getWikiId())));
 

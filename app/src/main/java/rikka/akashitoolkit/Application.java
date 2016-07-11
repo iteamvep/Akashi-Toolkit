@@ -1,11 +1,7 @@
 package rikka.akashitoolkit;
 
-import com.google.android.gms.analytics.GoogleAnalytics;
-import com.google.android.gms.analytics.Tracker;
-
 import moe.xing.daynightmode.DayNightMode;
 import rikka.akashitoolkit.cache.DiskCacheProvider;
-import rikka.akashitoolkit.model.Equip;
 import rikka.akashitoolkit.staticdata.EquipList;
 import rikka.akashitoolkit.staticdata.ShipList;
 import rikka.akashitoolkit.support.Settings;

@@ -30,6 +30,7 @@ import rikka.akashitoolkit.model.ShipClass;
 import rikka.akashitoolkit.staticdata.ShipClassList;
 import rikka.akashitoolkit.staticdata.ShipList;
 import rikka.akashitoolkit.support.Settings;
+import rikka.akashitoolkit.support.StaticData;
 import rikka.akashitoolkit.ui.BaseItemDisplayActivity;
 import rikka.akashitoolkit.ui.ShipDisplayActivity;
 import rikka.akashitoolkit.ui.widget.LinearLayoutManager;
@@ -123,10 +124,10 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
 
     @Override
     public void setBookmarked(boolean bookmarked) {
-        for (Map.Entry<Long, Boolean> entry :
+        /*for (Map.Entry<Long, Boolean> entry :
                 mExpanded.entrySet()) {
             entry.setValue(bookmarked);
-        }
+        }*/
         super.setBookmarked(bookmarked);
     }
 
@@ -171,14 +172,14 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
 
                                 if (curType != null && !curType.equals(type)) {
                                     type = curType;
-                                    if (mExpanded.get(id) == null) {
-                                        mExpanded.put(id, requireBookmarked());
+                                    if (mExpanded.get(id) == null && !requireBookmarked()) {
+                                        mExpanded.put(id, false);
                                     }
 
                                     mData.add(new Data(type, 1, id));
                                 }
 
-                                if (mIsSearching || mExpanded.get(id))
+                                if (mIsSearching || requireBookmarked() || mExpanded.get(id))
                                     mData.add(new Data(item, 0, item.getId() * 10000));
                             }
                         }
@@ -298,7 +299,7 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
                     c = String.format("%s号舰", Utils.getChineseNumberString(item.getClassNum()));
                 }
 
-                if (!showBanner || mSort == 1) {
+                if (!showBanner || mSort == 1 || StaticData.instance(context).isTablet) {
                     holder.mContent.setText(c);
                 } else {
                     holder.mContent.setText("");
@@ -377,7 +378,7 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
     private void bindViewHolder(final ViewHolder.Subtitle holder, int position) {
         Context context = holder.itemView.getContext();
 
-        boolean expanded = mIsSearching || mExpanded.get(getItemId(position));
+        boolean expanded = mIsSearching || requireBookmarked() || mExpanded.get(getItemId(position));
         boolean showDivider = position != 0 && expanded || position != 0 && (getItemViewType(position - 1) != getItemViewType(position));
 
         holder.mDivider.setVisibility(showDivider ? View.VISIBLE : View.GONE);
@@ -446,7 +447,7 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
     }
 
     public boolean collapseLastType() {
-        if (requireBookmarked() || mLastHolder == null) {
+        if (requireBookmarked() || mIsSearching || mLastHolder == null) {
             return false;
         }
 

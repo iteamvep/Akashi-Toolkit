@@ -2,15 +2,19 @@ package rikka.akashitoolkit.ui;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.PorterDuff;
+import android.os.Build;
 import android.support.annotation.StringRes;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.content.ContextCompat;
 import android.os.Bundle;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.AppCompatDrawableManager;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.text.Spanned;
+import android.text.format.DateUtils;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -28,7 +32,11 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import java.text.DateFormatSymbols;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -369,10 +377,27 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
         }
     }
 
-    private void addItemImprovementView(ViewGroup parent, Equip.ImprovementEntity improvement) {
-        DateFormatSymbols symbols = new DateFormatSymbols(Locale.getDefault());
-        String[] dayNames = symbols.getShortWeekdays();
+    private static Character[] sShortWeekdays = null;
 
+    static {
+        String DATE_FORMAT_SHORT = Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2
+                ? "ccccc" : "ccc";
+
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat shortFormat = new SimpleDateFormat(DATE_FORMAT_SHORT);
+
+        if (sShortWeekdays == null) {
+            sShortWeekdays = new Character[7];
+        }
+
+        final long aSunday = new GregorianCalendar(2014, Calendar.JULY, 20).getTimeInMillis();
+
+        for (int i = 0; i < 7; i++) {
+            final long dayMillis = aSunday + i * DateUtils.DAY_IN_MILLIS;
+            sShortWeekdays[i] = shortFormat.format(new Date(dayMillis)).charAt(0);
+        }
+    }
+
+    private void addItemImprovementView(ViewGroup parent, Equip.ImprovementEntity improvement) {
         Map<Integer, List<Integer>> ships = new HashMap<>();
         Map<Integer, Integer> ids = new LinkedHashMap<>();
 
@@ -417,9 +442,13 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
 
             for (int i = 0; i < 7; i++) {
                 TextView view = (TextView) LayoutInflater.from(this).inflate(R.layout.day_cricle, parent, false);
-                view.setText(Character.toString(dayNames[i + 1].charAt(0)));
+                view.setText(sShortWeekdays[i].toString());
                 view.setEnabled((flag & 1 << i) > 0);
                 linearLayout.addView(view);
+
+                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+                    ViewCompat.setBackgroundTintList(view, ContextCompat.getColorStateList(this, R.color.day_bg_color));
+                }
             }
 
             StringBuilder sb = new StringBuilder();
