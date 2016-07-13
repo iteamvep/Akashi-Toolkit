@@ -11,6 +11,7 @@ public class ShipType {
      * zh_cn : 驱逐舰
      * ja : 駆逐艦
      */
+    private int id;
 
     private MultiLanguageEntry name;
     /**
@@ -20,6 +21,14 @@ public class ShipType {
 
     @SerializedName("short")
     private String shortX;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public MultiLanguageEntry getName() {
         return name;

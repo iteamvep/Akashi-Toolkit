@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-                  xmlns:app="http://schemas.android.com/apk/res-auto">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
     <PreferenceCategory
         android:key="general"
         android:title="@string/category_general">
+
+        <DropDownPreference
+            android:key="ui_language"
+            android:title="@string/ui_language"
+            android:summary="%s"/>
 
         <DropDownPreference
             android:key="data_language"

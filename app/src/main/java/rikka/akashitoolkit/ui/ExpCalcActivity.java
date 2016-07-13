@@ -95,6 +95,7 @@ public class ExpCalcActivity extends BaseActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle(R.string.exp_calc);
 
         ArrayAdapter<String> adapter;
 

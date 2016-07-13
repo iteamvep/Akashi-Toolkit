@@ -93,6 +93,7 @@
     <string name="exp_calc_result_format" formatted="false">Total exp\n%d\n\nPer attack / Remainder\nBasic %d / %d\nFlagship %d / %d\nMVP %d / %d\nMVP and flagship %d / %d</string>
     <string name="exp_calc_error">Data error</string>
 
+    <string name="ui_language">App language</string>
     <string name="data_language">Data language</string>
     <string name="language_zh">Simplified Chinese</string>
     <string name="language_ja">Japanese</string>
@@ -219,6 +220,7 @@ Activity &amp; Extra:
     <string name="attr_los">LOS</string>
     <string name="attr_speed">Speed</string>
     <string name="attr_range">Range</string>
+    <string name="attr_range_aircraft">Range</string>
     <string name="attr_luck">Luck</string>
     <string name="attr_accuracy">Accuracy</string>
     <string name="attr_boom">Bombing</string>
@@ -244,4 +246,8 @@ Activity &amp; Extra:
     <string name="show_ship_banner">Show ship banner</string>
     <string name="show_ship_banner_summary">Show banner in ship list and enemy list</string>
 
+    <string name="not_remodel">Not remodeled</string>
+    <string name="final_remodel">Final remodeled</string>
+
+    <string name="equip_improve_list_ship_format">Ship: %s</string>
 </resources>

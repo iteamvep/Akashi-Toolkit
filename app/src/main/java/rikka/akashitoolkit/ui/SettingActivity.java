@@ -15,6 +15,8 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
+import java.util.Locale;
+
 import moe.xing.daynightmode.BaseDayNightModeActivity;
 import moe.xing.daynightmode.DayNightMode;
 import rikka.akashitoolkit.BuildConfig;
@@ -25,6 +27,7 @@ import rikka.akashitoolkit.otto.PreferenceChangedAction;
 import rikka.akashitoolkit.otto.ReadStatusResetAction;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.StaticData;
+import rikka.akashitoolkit.utils.Utils;
 import rikka.materialpreference.DropDownPreference;
 import rikka.materialpreference.Preference;
 import rikka.materialpreference.PreferenceCategory;
@@ -45,6 +48,7 @@ public class SettingActivity extends BaseActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle(R.string.setting);
 
         if (savedInstanceState == null) {
             SettingFragment fragment = new SettingFragment();
@@ -127,6 +131,32 @@ public class SettingActivity extends BaseActivity {
                             super.onPostExecute(aVoid);
                         }
                     }.execute();
+                    return false;
+                }
+            });
+
+            final DropDownPreference dropDownPreference = (DropDownPreference) findPreference("ui_language");
+            dropDownPreference.addItem(Locale.SIMPLIFIED_CHINESE.getDisplayName(), "sc");
+            dropDownPreference.addItem(Locale.TRADITIONAL_CHINESE.getDisplayName(), "tc");
+            dropDownPreference.addItem(Locale.ENGLISH.getDisplayName(), "en");
+            dropDownPreference.addItem(Locale.JAPANESE.getDisplayName(), "ja");
+            dropDownPreference.setSelectedValue(Settings.instance(getActivity()).getString(Settings.APP_LANGUAGE, Utils.getDefaultSettingFromLocale()));
+            dropDownPreference.setCallback(new DropDownPreference.Callback() {
+                @Override
+                public boolean onItemSelected(int i, Object o) {
+                    dropDownPreference.setEnabled(false);
+
+                    ((BaseActivity) getActivity()).setLocale();
+
+                    // so bad
+                    Settings.instance(getActivity()).putString(Settings.APP_LANGUAGE, (String) o);
+                    getActivity().findViewById(R.id.toolbar).postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            ((BaseActivity) getActivity()).fakeRecreate();
+                        }
+                    }, 100);
+                    //((BaseActivity) getActivity()).fakeRecreate();
                     return false;
                 }
             });

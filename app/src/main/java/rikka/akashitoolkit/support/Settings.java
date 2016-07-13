@@ -32,6 +32,8 @@ public class Settings {
     public static final String EQUIP_IMPROVEMENT_BOOKMARKED = "equip_i_show_bookmarked";
     public static final String QUEST_BOOKMARKED = "quest_show_bookmarked";
 
+    public static final String APP_LANGUAGE = "app_language";
+
     public static final String DATA_LANGUAGE = "data_language";
     public static final String DATA_TITLE_LANGUAGE = "data_title_language";
 

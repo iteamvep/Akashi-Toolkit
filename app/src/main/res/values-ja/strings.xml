@@ -94,6 +94,7 @@
     <string name="exp_calc_result_format" formatted="false">必要経験値\n%d\n\n1回あたり / 戦闘回数\n基礎 %d / %d\n旗艦 %d / %d\nMVP %d / %d\nMVP + 旗艦 %d / %d</string>
     <string name="exp_calc_error">データエラー</string>
 
+    <string name="ui_language">App language</string>
     <string name="data_language">データ言語</string>
     <string name="language_zh">簡体中国語</string>
     <string name="language_ja">日本語</string>
@@ -201,6 +202,7 @@
     <string name="attr_los">索敵</string>
     <string name="attr_speed">速力</string>
     <string name="attr_range">射程</string>
+    <string name="attr_range_aircraft">Range</string>
     <string name="attr_luck">運</string>
     <string name="attr_accuracy">命中</string>
     <string name="attr_boom">爆装</string>
@@ -225,5 +227,10 @@
 
     <string name="show_ship_banner">Show ship banner</string>
     <string name="show_ship_banner_summary">Show banner in ship list and enemy list</string>
+
+    <string name="not_remodel">Not remodeled</string>
+    <string name="final_remodel">Final remodeled</string>
+
+    <string name="equip_improve_list_ship_format">Ship: %s</string>
 
 </resources>

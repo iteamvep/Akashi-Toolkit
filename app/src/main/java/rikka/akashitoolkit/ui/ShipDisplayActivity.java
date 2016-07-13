@@ -470,6 +470,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
                     ((ViewHolderItem) holder).mScene.setText(item.voice.getScene());
                     ((ViewHolderItem) holder).mContent.setText(item.voice.getJp());
                     ((ViewHolderItem) holder).mContent2.setText(item.voice.getZh());
+                    ((ViewHolderItem) holder).mContent2.setVisibility((!Utils.isJapanese(ShipDisplayActivity.this)) ? View.VISIBLE : View.GONE);
 
                     if (item.voice.getVoiceId() == 22) {
                         setTextViewMode((ViewHolderItem) holder, true);

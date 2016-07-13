@@ -1,6 +1,7 @@
 package rikka.akashitoolkit.ui.widget;
 
 import android.content.Context;
+import android.support.annotation.StringRes;
 import android.support.v4.util.ArrayMap;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,6 +47,10 @@ public class CheckBoxGroup extends LinearLayout {
 
         ((TextView) view.findViewById(R.id.textView)).setText(title);
         addView(view);
+    }
+
+    public void addItem(@StringRes int resId) {
+        addItem(getContext().getString(resId));
     }
 
     public void addItem(String title) {

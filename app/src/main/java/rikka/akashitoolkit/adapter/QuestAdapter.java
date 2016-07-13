@@ -27,6 +27,7 @@ import rikka.akashitoolkit.staticdata.EquipList;
 import rikka.akashitoolkit.staticdata.ItemList;
 import rikka.akashitoolkit.staticdata.QuestList;
 import rikka.akashitoolkit.staticdata.ShipList;
+import rikka.akashitoolkit.staticdata.ShipTypeList;
 import rikka.akashitoolkit.support.Settings;
 
 /**
@@ -160,7 +161,7 @@ public class QuestAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Quest> 
                 quest.getReward().getShip()) {
             Ship ship = ShipList.findItemById(mContext, shipId);
             if (ship != null) {
-                sb.append(ShipList.shipType[ship.getType()]).append(" ").append(ship.getName().get(mContext)).append("<br>");
+                sb.append(ShipTypeList.findItemById(mContext, ship.getType()).getName().get(mContext)).append(" ").append(ship.getName().get(mContext)).append("<br>");
             }
         }
 
@@ -212,15 +213,6 @@ public class QuestAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Quest> 
     public ViewHolder.Quest onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView;
         switch (viewType) {
-            /*case 0:
-                itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_quest_detail, parent, false);
-                break;
-            case 1:
-                itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_quest_detail_one_type, parent, false);
-                break;
-            case 2:
-                itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_quest_detail_expanded, parent, false);
-                break;*/
             default:
                 itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_quest_detail_expanded, parent, false);
         }

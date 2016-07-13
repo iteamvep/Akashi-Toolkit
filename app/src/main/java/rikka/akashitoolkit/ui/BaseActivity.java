@@ -2,6 +2,7 @@ package rikka.akashitoolkit.ui;
 
 import android.annotation.TargetApi;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
@@ -9,10 +10,13 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.TypedValue;
 
+import java.util.Locale;
+
 import moe.xing.daynightmode.BaseDayNightModeActivity;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.Statistics;
+import rikka.akashitoolkit.utils.Utils;
 
 /**
  * Created by Rikka on 2016/3/6.
@@ -22,9 +26,38 @@ public abstract class BaseActivity extends BaseDayNightModeActivity {
     public static final String EXTRA_EXTRA = "EXTRA_EXTRA";
     public static final String EXTRA_EXTRA2 = "EXTRA_EXTRA2";
 
+    private String mLocale;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setLocale();
+
         super.onCreate(savedInstanceState);
+    }
+
+    protected void setLocale() {
+        switch (Settings.instance(this).getString(Settings.APP_LANGUAGE, Utils.getDefaultSettingFromLocale())) {
+            case "sc":
+                Locale.setDefault(Locale.SIMPLIFIED_CHINESE);
+                break;
+            case "tc":
+                Locale.setDefault(Locale.TRADITIONAL_CHINESE);
+                break;
+            case "ja":
+                Locale.setDefault(Locale.JAPANESE);
+                break;
+            default:
+                Locale.setDefault(Locale.ENGLISH);
+                break;
+        }
+
+        mLocale = Locale.getDefault().getLanguage();
+
+        Resources resources = getResources();
+        Configuration configuration = resources.getConfiguration();
+        configuration.locale = Locale.getDefault();
+
+        resources.updateConfiguration(configuration, resources.getDisplayMetrics());
     }
 
     protected void onPause() {
@@ -34,6 +67,11 @@ public abstract class BaseActivity extends BaseDayNightModeActivity {
 
     protected void onResume() {
         super.onResume();
+        if (!Locale.getDefault().getLanguage().equals(mLocale)) {
+            fakeRecreate();
+            return;
+        }
+
         Statistics.onResume(this);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -60,5 +98,11 @@ public abstract class BaseActivity extends BaseDayNightModeActivity {
         if (ContextCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{permission}, requestCode);
         }
+    }
+
+    protected void fakeRecreate() {
+        startActivity(this.getNightModeChangedRestartActivityIntent());
+        finish();
+        overridePendingTransition(0, 0);
     }
 }

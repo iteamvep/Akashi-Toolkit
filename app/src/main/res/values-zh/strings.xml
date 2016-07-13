@@ -94,6 +94,7 @@
     <string name="exp_calc_result_format" formatted="false">合计经验\n%d\n\n每场经验 / 剩余场数\n基础 %d / %d\n旗舰 %d / %d\nMVP %d / %d\nMVP和旗舰 %d / %d</string>
     <string name="exp_calc_error">数据有误</string>
 
+    <string name="ui_language">App language</string>
     <string name="data_language">数据语言</string>
     <string name="language_zh">简体中文</string>
     <string name="language_ja">日语</string>
@@ -201,6 +202,7 @@
     <string name="attr_los">索敌</string>
     <string name="attr_speed">航速</string>
     <string name="attr_range">射程</string>
+    <string name="attr_range_aircraft">航程</string>
     <string name="attr_luck">运</string>
     <string name="attr_accuracy">命中</string>
     <string name="attr_boom">爆装</string>
@@ -225,5 +227,10 @@
 
     <string name="show_ship_banner">显示舰娘横幅</string>
     <string name="show_ship_banner_summary">在舰娘列表和深海栖舰列表显示头像横幅</string>
+
+    <string name="not_remodel">未改造</string>
+    <string name="final_remodel">最终改造</string>
+
+    <string name="equip_improve_list_ship_format">秘书舰: %s</string>
 
 </resources>

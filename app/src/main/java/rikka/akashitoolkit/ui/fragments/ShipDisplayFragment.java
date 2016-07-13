@@ -21,10 +21,12 @@ import com.squareup.otto.Subscribe;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.ViewPagerAdapter;
+import rikka.akashitoolkit.model.ShipType;
 import rikka.akashitoolkit.otto.BookmarkAction;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.ShipAction;
 import rikka.akashitoolkit.staticdata.ShipList;
+import rikka.akashitoolkit.staticdata.ShipTypeList;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.Statistics;
 import rikka.akashitoolkit.ui.MainActivity;
@@ -120,9 +122,9 @@ public class ShipDisplayFragment extends BaseSearchFragment {
         body.addDivider();*/
 
         mRadioButtonGroups[0] = new RadioButtonGroup(getContext());
-        mRadioButtonGroups[0].addItem("全部");
-        mRadioButtonGroups[0].addItem("未改造");
-        mRadioButtonGroups[0].addItem("最终改造");
+        mRadioButtonGroups[0].addItem(R.string.all);
+        mRadioButtonGroups[0].addItem(R.string.not_remodel);
+        mRadioButtonGroups[0].addItem(R.string.final_remodel);
         mRadioButtonGroups[0].setOnCheckedChangeListener(new RadioButtonGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(View view, int checked) {
@@ -139,8 +141,8 @@ public class ShipDisplayFragment extends BaseSearchFragment {
         body.addDivider();
 
         mCheckBoxGroups[1] = new CheckBoxGroup(getContext());
-        mCheckBoxGroups[1].addItem("低速");
-        mCheckBoxGroups[1].addItem("高速");
+        mCheckBoxGroups[1].addItem(R.string.speed_slow);
+        mCheckBoxGroups[1].addItem(R.string.speed_fast);
         mCheckBoxGroups[1].setOnCheckedChangeListener(new CheckBoxGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(View view, int checked) {
@@ -158,13 +160,16 @@ public class ShipDisplayFragment extends BaseSearchFragment {
         body.addDivider();
 
         mCheckBoxGroups[2] = new CheckBoxGroup(getContext());
-        for (int i = 2; i < ShipList.shipType2.length; i++) {
-            if (i == 12 || i == 15) {
+
+        for (ShipType shipType :
+                ShipTypeList.get(getActivity())) {
+            if (shipType.getId() == 1 || shipType.getId() == 12 || shipType.getId() == 15) {
                 continue;
             }
 
-            mCheckBoxGroups[2].addItem(ShipList.shipType2[i], i);
+            mCheckBoxGroups[2].addItem(String.format("%s (%s)", shipType.getName().get(getActivity()), shipType.getShortX()), shipType.getId());
         }
+
         mCheckBoxGroups[2].setOnCheckedChangeListener(new CheckBoxGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(View view, int checked) {

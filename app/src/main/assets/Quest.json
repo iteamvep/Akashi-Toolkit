@@ -3,8 +3,9 @@
     "id": 0,
     "code": "A70",
     "newMission": true,
-    "unlock": [
-      "B53"
+    "unlock": [],
+    "after": [
+      "B73"
     ],
     "period": 0,
     "type": 1,
@@ -40,6 +41,9 @@
     "unlock": [
       "B72"
     ],
+    "after": [
+      "B74"
+    ],
     "period": 0,
     "type": 1,
     "title": {
@@ -71,6 +75,120 @@
   },
   {
     "id": 2,
+    "code": "B72",
+    "newMission": true,
+    "unlock": [
+      "B66",
+      "Bw5"
+    ],
+    "after": [
+      "A71"
+    ],
+    "period": 0,
+    "type": 2,
+    "title": {
+      "zh_cn": "「第三十一战队」对敌潜艇压制！",
+      "ja": "「第三十一戦隊」敵潜を制圧せよ！"
+    },
+    "content": {
+      "zh_cn": "第三十一战队(第一次)\u003cb\u003e镇守府近海航路(1-6)\u003c/b\u003e反复出击，压制敌潜艇！",
+      "ja": "第三十一戦隊(第一次)を鎮守府近海航路に再投入！反復出撃し、敵潜を制圧せよ！"
+    },
+    "reward": {
+      "resource": [
+        310,
+        310,
+        0,
+        310
+      ],
+      "ship": [],
+      "equip": [
+        47,
+        1
+      ],
+      "item": [
+        2,
+        2
+      ],
+      "str": ""
+    },
+    "note": "五十铃改二（旗舰），皋月改二，卯月改，和任意任意3只舰娘通关1-6两次"
+  },
+  {
+    "id": 3,
+    "code": "B73",
+    "newMission": true,
+    "unlock": [
+      "A70"
+    ],
+    "period": 0,
+    "type": 2,
+    "title": {
+      "zh_cn": "新编「第八驱逐队」出击！",
+      "ja": "新編「第八駆逐隊」出撃せよ！"
+    },
+    "content": {
+      "zh_cn": "包含新编「第八驱逐队」的舰队出击\u003cb\u003e镇守府近海航路(1-6)\u003c/b\u003e，确保航路安全！",
+      "ja": "新編「第八駆逐隊」を含む艦隊を鎮守府近海航路に出撃させ、同航路の安全確保に努めよ！"
+    },
+    "reward": {
+      "resource": [
+        0,
+        900,
+        900,
+        900
+      ],
+      "ship": [],
+      "equip": [
+        74,
+        1,
+        68,
+        1
+      ],
+      "item": [],
+      "str": ""
+    },
+    "note": "朝潮改二旗舰，大潮，满朝，荒潮加上任意两只舰娘通关1-6一次"
+  },
+  {
+    "id": 4,
+    "code": "B74",
+    "newMission": true,
+    "unlock": [
+      "A71"
+    ],
+    "period": 0,
+    "type": 2,
+    "title": {
+      "zh_cn": "精鋭「八驱第一小队」対潜哨戒！",
+      "ja": "精鋭「八駆第一小隊」対潜哨戒！"
+    },
+    "content": {
+      "zh_cn": "包含「第八驱逐队第一小队」的舰队反复出击\u003cb\u003e镇守府近海对潜警戒(1-5)\u003c/b\u003e，完全压制敌潜艇！",
+      "ja": "「第八駆逐隊第一小隊」を含む艦隊で鎮守府正面対潜哨戒を反復実施！敵潜を圧倒せよ！"
+    },
+    "reward": {
+      "resource": [
+        0,
+        800,
+        0,
+        200
+      ],
+      "ship": [],
+      "equip": [
+        149,
+        1
+      ],
+      "item": [
+        2,
+        4
+      ],
+      "str": ""
+    },
+    "note": "用包含朝潮改二丁，大潮改二的舰队击破1-5BOSS两次"
+  },
+  {
+    "id": 5,
     "code": "Bq1",
     "newMission": true,
     "unlock": [
@@ -107,7 +225,7 @@
     "note": "{{待验证"
   },
   {
-    "id": 3,
+    "id": 6,
     "code": "F34",
     "newMission": true,
     "unlock": [
@@ -143,7 +261,7 @@
     "note": "在工厂废弃6个机枪系装备\u003cbr /\u003e{{待验证"
   },
   {
-    "id": 4,
+    "id": 7,
     "code": "SF",
     "newMission": true,
     "unlock": [],
@@ -175,7 +293,7 @@
     "note": "任意废弃5个装备，期间限定任务"
   },
   {
-    "id": 5,
+    "id": 8,
     "code": "A1",
     "newMission": false,
     "unlock": [],
@@ -206,7 +324,7 @@
     "note": ""
   },
   {
-    "id": 6,
+    "id": 9,
     "code": "A2",
     "newMission": false,
     "unlock": [],
@@ -238,7 +356,7 @@
     "note": ""
   },
   {
-    "id": 7,
+    "id": 10,
     "code": "A3",
     "newMission": false,
     "unlock": [],
@@ -273,7 +391,7 @@
     "note": ""
   },
   {
-    "id": 8,
+    "id": 11,
     "code": "A4",
     "newMission": false,
     "unlock": [
@@ -308,7 +426,7 @@
     "note": ""
   },
   {
-    "id": 9,
+    "id": 12,
     "code": "A5",
     "newMission": false,
     "unlock": [],
@@ -346,7 +464,7 @@
     "note": ""
   },
   {
-    "id": 10,
+    "id": 13,
     "code": "A6",
     "newMission": false,
     "unlock": [
@@ -383,7 +501,7 @@
     "note": ""
   },
   {
-    "id": 11,
+    "id": 14,
     "code": "A7",
     "newMission": false,
     "unlock": [
@@ -421,7 +539,7 @@
     "note": ""
   },
   {
-    "id": 12,
+    "id": 15,
     "code": "A8",
     "newMission": false,
     "unlock": [
@@ -458,7 +576,7 @@
     "note": ""
   },
   {
-    "id": 13,
+    "id": 16,
     "code": "A9",
     "newMission": false,
     "unlock": [
@@ -497,14 +615,15 @@
     "note": ""
   },
   {
-    "id": 14,
+    "id": 17,
     "code": "A10",
     "newMission": false,
     "unlock": [
       "A9"
     ],
     "after": [
-      "A28"
+      "A28",
+      "B42"
     ],
     "period": 0,
     "type": 1,
@@ -534,7 +653,7 @@
     "note": "只配置任务要求的舰娘"
   },
   {
-    "id": 15,
+    "id": 18,
     "code": "A11",
     "newMission": false,
     "unlock": [
@@ -571,7 +690,7 @@
     "note": "配置\u003cb\u003e正规空母\u003c/b\u003e或\u003cb\u003e轻空母\u003c/b\u003e\u003cbr /\u003e\u003cb\u003e水上机母舰\u003c/b\u003e不可\u003cbr /\u003e外加配置\u003cb\u003e驱逐舰\u003c/b\u003e*3"
   },
   {
-    "id": 16,
+    "id": 19,
     "code": "A12",
     "newMission": false,
     "unlock": [
@@ -608,7 +727,7 @@
     "note": "配置\u003cb\u003e正规空母\u003c/b\u003e或\u003cb\u003e轻空母\u003c/b\u003e\u003cbr /\u003e\u003cb\u003e水上机母舰\u003c/b\u003e不可\u003cbr /\u003e外加配置\u003cb\u003e驱逐舰\u003c/b\u003e*3\u003cbr /\u003e前置任务存在争议"
   },
   {
-    "id": 17,
+    "id": 20,
     "code": "A13",
     "newMission": false,
     "unlock": [
@@ -647,7 +766,7 @@
     "note": "\u003cb\u003e航空战舰\u003c/b\u003e不可"
   },
   {
-    "id": 18,
+    "id": 21,
     "code": "A14",
     "newMission": false,
     "unlock": [
@@ -682,7 +801,7 @@
     "note": ""
   },
   {
-    "id": 19,
+    "id": 22,
     "code": "A15",
     "newMission": false,
     "unlock": [
@@ -721,7 +840,7 @@
     "note": ""
   },
   {
-    "id": 20,
+    "id": 23,
     "code": "A16",
     "newMission": false,
     "unlock": [
@@ -755,7 +874,7 @@
     "note": ""
   },
   {
-    "id": 21,
+    "id": 24,
     "code": "A17",
     "newMission": false,
     "unlock": [
@@ -794,7 +913,7 @@
     "note": "航空战舰也可以完成任务"
   },
   {
-    "id": 22,
+    "id": 25,
     "code": "A18",
     "newMission": false,
     "unlock": [
@@ -830,11 +949,14 @@
     "note": "航空战舰也可以完成任务"
   },
   {
-    "id": 23,
+    "id": 26,
     "code": "A19",
     "newMission": false,
     "unlock": [
       "A13"
+    ],
+    "after": [
+      "F22"
     ],
     "period": 0,
     "type": 1,
@@ -866,7 +988,7 @@
     "note": "只配置任务要求的舰娘"
   },
   {
-    "id": 24,
+    "id": 27,
     "code": "A20",
     "newMission": false,
     "unlock": [
@@ -904,7 +1026,7 @@
     "note": "配置任务要求的舰娘\u003cbr /\u003e再配置任意高速舰"
   },
   {
-    "id": 25,
+    "id": 28,
     "code": "A21",
     "newMission": false,
     "unlock": [
@@ -948,7 +1070,7 @@
     "note": ""
   },
   {
-    "id": 26,
+    "id": 29,
     "code": "A22",
     "newMission": false,
     "unlock": [
@@ -987,7 +1109,7 @@
     "note": ""
   },
   {
-    "id": 27,
+    "id": 30,
     "code": "A23",
     "newMission": false,
     "unlock": [
@@ -1027,7 +1149,7 @@
     "note": ""
   },
   {
-    "id": 28,
+    "id": 31,
     "code": "A24",
     "newMission": false,
     "unlock": [
@@ -1064,7 +1186,7 @@
     "note": ""
   },
   {
-    "id": 29,
+    "id": 32,
     "code": "A25",
     "newMission": false,
     "unlock": [
@@ -1102,7 +1224,7 @@
     "note": "\u003cb\u003e潜水艇\u003c/b\u003e，\u003cb\u003e潜水空母\u003c/b\u003e均可"
   },
   {
-    "id": 30,
+    "id": 33,
     "code": "A26",
     "newMission": false,
     "unlock": [
@@ -1139,7 +1261,7 @@
     "note": ""
   },
   {
-    "id": 31,
+    "id": 34,
     "code": "A27",
     "newMission": false,
     "unlock": [
@@ -1177,7 +1299,7 @@
     "note": "\u003cb\u003e潜水艇\u003c/b\u003e，\u003cb\u003e潜水空母\u003c/b\u003e均可"
   },
   {
-    "id": 32,
+    "id": 35,
     "code": "A28",
     "newMission": false,
     "unlock": [
@@ -1215,7 +1337,7 @@
     "note": ""
   },
   {
-    "id": 33,
+    "id": 36,
     "code": "A29",
     "newMission": false,
     "unlock": [
@@ -1252,7 +1374,7 @@
     "note": ""
   },
   {
-    "id": 34,
+    "id": 37,
     "code": "A30",
     "newMission": false,
     "unlock": [
@@ -1289,7 +1411,7 @@
     "note": ""
   },
   {
-    "id": 35,
+    "id": 38,
     "code": "A31",
     "newMission": false,
     "unlock": [
@@ -1327,7 +1449,7 @@
     "note": "只配置任务要求的舰娘"
   },
   {
-    "id": 36,
+    "id": 39,
     "code": "A32",
     "newMission": false,
     "unlock": [
@@ -1368,7 +1490,7 @@
     "note": "只配置任务要求的舰娘"
   },
   {
-    "id": 37,
+    "id": 40,
     "code": "A33",
     "newMission": false,
     "unlock": [
@@ -1408,7 +1530,7 @@
     "note": "只配置任务要求的舰娘"
   },
   {
-    "id": 38,
+    "id": 41,
     "code": "A34",
     "newMission": false,
     "unlock": [
@@ -1446,13 +1568,14 @@
     "note": "只配置任务要求的舰娘"
   },
   {
-    "id": 39,
+    "id": 42,
     "code": "A35",
     "newMission": false,
     "unlock": [
       "B24"
     ],
     "after": [
+      "A38",
       "A44",
       "D17",
       "Bm1"
@@ -1485,7 +1608,7 @@
     "note": ""
   },
   {
-    "id": 40,
+    "id": 43,
     "code": "A36",
     "newMission": false,
     "unlock": [
@@ -1524,11 +1647,14 @@
     "note": "\u003cb\u003e飞龙改二\u003c/b\u003e必须为旗舰"
   },
   {
-    "id": 41,
+    "id": 44,
     "code": "A37",
     "newMission": false,
     "unlock": [
       "A27"
+    ],
+    "after": [
+      "D13"
     ],
     "period": 0,
     "type": 1,
@@ -1558,7 +1684,41 @@
     "note": "\u003cb\u003e大鲸\u003c/b\u003e必须为旗舰"
   },
   {
-    "id": 42,
+    "id": 45,
+    "code": "A38",
+    "newMission": false,
+    "unlock": [
+      "A35"
+    ],
+    "period": 0,
+    "type": 1,
+    "title": {
+      "zh_cn": "配备新型雷达",
+      "ja": "新型電探を配備せよ"
+    },
+    "content": {
+      "zh_cn": "为了新型电探的运用试验，在第一舰队旗舰配置「\u003cb\u003e妙高改二\u003c/b\u003e」！",
+      "ja": "新型電探運用試験のため、第一艦隊の旗艦に「妙高改二」を配備せよ！"
+    },
+    "reward": {
+      "resource": [
+        300,
+        0,
+        0,
+        300
+      ],
+      "ship": [],
+      "equip": [
+        88,
+        1
+      ],
+      "item": [],
+      "str": ""
+    },
+    "note": ""
+  },
+  {
+    "id": 46,
     "code": "A39",
     "newMission": false,
     "unlock": [
@@ -1597,11 +1757,48 @@
     "note": "\u003cb\u003e苍龙改二\u003c/b\u003e必须为旗舰"
   },
   {
-    "id": 43,
+    "id": 47,
+    "code": "A40",
+    "newMission": false,
+    "unlock": [
+      "WB02"
+    ],
+    "period": 0,
+    "type": 1,
+    "title": {
+      "zh_cn": "精锐「第三战队」全舰集结！",
+      "ja": "精鋭「第三戦隊」全艦集結せよ！"
+    },
+    "content": {
+      "zh_cn": "集结4艘第二次改装完成的金刚型高速战舰！",
+      "ja": "第二次改装を完了した改装金剛型高速戦艦4隻を集結させよ！"
+    },
+    "reward": {
+      "resource": [
+        0,
+        100,
+        0,
+        0
+      ],
+      "ship": [],
+      "equip": [
+        103,
+        1
+      ],
+      "item": [],
+      "str": ""
+    },
+    "note": "要求：\u003cb\u003e金刚改二\u003c/b\u003e，\u003cb\u003e比睿改二\u003c/b\u003e\u003cbr /\u003e\u003cb\u003e榛名改二\u003c/b\u003e，\u003cb\u003e雾岛改二\u003c/b\u003e"
+  },
+  {
+    "id": 48,
     "code": "A41",
     "newMission": false,
     "unlock": [
       "A23"
+    ],
+    "after": [
+      "B28"
     ],
     "period": 0,
     "type": 1,
@@ -1631,11 +1828,14 @@
     "note": ""
   },
   {
-    "id": 44,
+    "id": 49,
     "code": "A42",
     "newMission": false,
     "unlock": [
       "A32"
+    ],
+    "after": [
+      "B31"
     ],
     "period": 0,
     "type": 1,
@@ -1665,7 +1865,7 @@
     "note": ""
   },
   {
-    "id": 45,
+    "id": 50,
     "code": "A43",
     "newMission": false,
     "unlock": [
@@ -1702,7 +1902,7 @@
     "note": "大和型，长门型，伊势型，扶桑型中只能选择3艘"
   },
   {
-    "id": 46,
+    "id": 51,
     "code": "A44",
     "newMission": false,
     "unlock": [
@@ -1742,7 +1942,7 @@
     "note": ""
   },
   {
-    "id": 47,
+    "id": 52,
     "code": "A45",
     "newMission": false,
     "unlock": [
@@ -1780,7 +1980,7 @@
     "note": ""
   },
   {
-    "id": 48,
+    "id": 53,
     "code": "A46",
     "newMission": false,
     "unlock": [
@@ -1819,14 +2019,15 @@
     "note": "前置任务存在争议"
   },
   {
-    "id": 49,
+    "id": 54,
     "code": "A47",
     "newMission": false,
     "unlock": [
       "A32"
     ],
     "after": [
-      "B35"
+      "B35",
+      "B36"
     ],
     "period": 0,
     "type": 1,
@@ -1856,7 +2057,7 @@
     "note": "只配置任务要求的舰娘"
   },
   {
-    "id": 50,
+    "id": 55,
     "code": "A48",
     "newMission": false,
     "unlock": [
@@ -1893,7 +2094,7 @@
     "note": "只配置任务要求的舰娘"
   },
   {
-    "id": 51,
+    "id": 56,
     "code": "A49",
     "newMission": false,
     "unlock": [
@@ -1932,7 +2133,7 @@
     "note": ""
   },
   {
-    "id": 52,
+    "id": 57,
     "code": "A50",
     "newMission": false,
     "unlock": [
@@ -1971,7 +2172,7 @@
     "note": "\u003cb\u003e鸟海改二\u003c/b\u003e作为旗舰，\u003cb\u003e古鹰\u003c/b\u003e/\u003cb\u003e加古\u003c/b\u003e/\u003cb\u003e青叶\u003c/b\u003e/\u003cb\u003e衣笠\u003c/b\u003e/\u003cb\u003e夕張\u003c/b\u003e/\u003cb\u003e天龙\u003c/b\u003e之中任意选择选5艘"
   },
   {
-    "id": 53,
+    "id": 58,
     "code": "A51",
     "newMission": false,
     "unlock": [
@@ -2008,7 +2209,7 @@
     "note": "可能需要完成A18"
   },
   {
-    "id": 54,
+    "id": 59,
     "code": "A52",
     "newMission": false,
     "unlock": [
@@ -2047,7 +2248,44 @@
     "note": ""
   },
   {
-    "id": 55,
+    "id": 60,
+    "code": "A53",
+    "newMission": false,
+    "unlock": [
+      "B14"
+    ],
+    "after": [
+      "B45"
+    ],
+    "period": 0,
+    "type": 1,
+    "title": {
+      "zh_cn": "新编成「第六驱逐队」！",
+      "ja": "新編「第六駆逐隊」を編成せよ！"
+    },
+    "content": {
+      "zh_cn": "以「\u003cb\u003e晓改二\u003c/b\u003e」为旗舰，「\u003cb\u003e响\u003c/b\u003e」「\u003cb\u003e雷\u003c/b\u003e」「\u003cb\u003e电\u003c/b\u003e」共4艘编成第六驱逐队！",
+      "ja": "「暁改二」を旗艦とした「響」「雷」「電」4隻による第六駆逐隊を編成せよ！"
+    },
+    "reward": {
+      "resource": [
+        150,
+        150,
+        0,
+        0
+      ],
+      "ship": [],
+      "equip": [
+        74,
+        1
+      ],
+      "item": [],
+      "str": ""
+    },
+    "note": "只配置任务要求的舰娘\u003cbr /\u003e\u003cb\u003eВерный\u003c/b\u003e可"
+  },
+  {
+    "id": 61,
     "code": "A54",
     "newMission": false,
     "unlock": [
@@ -2087,7 +2325,7 @@
     "note": "\u003cb\u003eВерный\u003c/b\u003e可"
   },
   {
-    "id": 56,
+    "id": 62,
     "code": "A55",
     "newMission": false,
     "unlock": [
@@ -2126,7 +2364,7 @@
     "note": "必须\u003cb\u003e阿武隈改二\u003c/b\u003e\u003cbr /\u003e\u003cb\u003eВерный\u003c/b\u003e可\u003cbr /\u003e前置任务存在争议"
   },
   {
-    "id": 57,
+    "id": 63,
     "code": "A56",
     "newMission": false,
     "unlock": [
@@ -2164,7 +2402,7 @@
     "note": "编成任务剩余位置舰娘任意即可"
   },
   {
-    "id": 58,
+    "id": 64,
     "code": "A57",
     "newMission": false,
     "unlock": [
@@ -2204,7 +2442,7 @@
     "note": "必须「\u003cb\u003e那智改二\u003c/b\u003e」、「\u003cb\u003e足柄改二\u003c/b\u003e」\u003cbr /\u003e多摩改，木曾改，木曾改二可"
   },
   {
-    "id": 59,
+    "id": 65,
     "code": "A58",
     "newMission": false,
     "unlock": [
@@ -2243,7 +2481,7 @@
     "note": "编成任务剩余位置舰娘任意即可\u003cbr /\u003e「\u003cb\u003e足柄\u003c/b\u003e」作为旗舰，足柄改及足柄改二可\u003cbr /\u003e球磨改，长良改可\u003cbr /\u003e可能需要完成A14，验证中"
   },
   {
-    "id": 60,
+    "id": 66,
     "code": "A59",
     "newMission": false,
     "unlock": [
@@ -2284,12 +2522,56 @@
     "note": "\u003cb\u003e千岁\u003c/b\u003e、\u003cb\u003e千代田\u003c/b\u003e在改造成轻型航母之前不能达成任务"
   },
   {
-    "id": 61,
+    "id": 67,
+    "code": "A60",
+    "newMission": false,
+    "unlock": [
+      "B53"
+    ],
+    "after": [
+      "A61",
+      "A68"
+    ],
+    "period": 0,
+    "type": 1,
+    "title": {
+      "zh_cn": "“第四航空战队”编成！",
+      "ja": "「第四航空戦隊」を編成せよ！"
+    },
+    "content": {
+      "zh_cn": "以航空战舰\u003cb\u003e伊势改\u003c/b\u003e及\u003cb\u003e日向改\u003c/b\u003e为基干战力编成\"第四航空战队\"!",
+      "ja": "航空戦艦「伊勢改」及び「日向改」を基幹戦力とした第四航空戦隊を編成せよ！"
+    },
+    "reward": {
+      "resource": [
+        0,
+        200,
+        0,
+        200
+      ],
+      "ship": [],
+      "equip": [
+        79,
+        1
+      ],
+      "item": [
+        2,
+        2
+      ],
+      "str": ""
+    },
+    "note": ""
+  },
+  {
+    "id": 68,
     "code": "A61",
     "newMission": false,
     "unlock": [
       "Bm7",
       "A60"
+    ],
+    "after": [
+      "B54"
     ],
     "period": 0,
     "type": 1,
@@ -2321,11 +2603,14 @@
     "note": "\u003cb\u003e千岁\u003c/b\u003e、\u003cb\u003e千代田\u003c/b\u003e在改造成轻型航母之前不能达成任务"
   },
   {
-    "id": 62,
+    "id": 69,
     "code": "A62",
     "newMission": false,
     "unlock": [
       "F29"
+    ],
+    "after": [
+      "F30"
     ],
     "period": 0,
     "type": 1,
@@ -2357,7 +2642,7 @@
     "note": "\u003cb\u003e翔鹤改二\u003c/b\u003e、\u003cb\u003e翔鹤改二甲\u003c/b\u003e都可\u003cb\u003e瑞鹤\u003c/b\u003e同理\u003cbr /\u003e驱逐舰两艘以上\u003cbr /\u003e可能需要F23等其他任务，验证中"
   },
   {
-    "id": 63,
+    "id": 70,
     "code": "A63",
     "newMission": false,
     "unlock": [
@@ -2396,7 +2681,7 @@
     "note": ""
   },
   {
-    "id": 64,
+    "id": 71,
     "code": "A64",
     "newMission": false,
     "unlock": [
@@ -2436,7 +2721,7 @@
     "note": ""
   },
   {
-    "id": 65,
+    "id": 72,
     "code": "A65",
     "newMission": false,
     "unlock": [
@@ -2473,7 +2758,7 @@
     "note": "可能存在其他前置任务"
   },
   {
-    "id": 66,
+    "id": 73,
     "code": "A66",
     "newMission": false,
     "unlock": [
@@ -2513,7 +2798,7 @@
     "note": "前置待确认"
   },
   {
-    "id": 67,
+    "id": 74,
     "code": "A67",
     "newMission": false,
     "unlock": [
@@ -2552,7 +2837,7 @@
     "note": "前置待确认"
   },
   {
-    "id": 68,
+    "id": 75,
     "code": "A68",
     "newMission": false,
     "unlock": [
@@ -2590,7 +2875,7 @@
     "note": "编成水雷战队只能含有轻巡和驱逐舰\u003cbr /\u003e其他前置待确认"
   },
   {
-    "id": 69,
+    "id": 76,
     "code": "A69",
     "newMission": false,
     "unlock": [
@@ -2628,7 +2913,7 @@
     "note": "轻巡作为旗舰四艘驱逐作为伴随舰"
   },
   {
-    "id": 70,
+    "id": 77,
     "code": "B1",
     "newMission": false,
     "unlock": [],
@@ -2663,7 +2948,7 @@
     "note": "出击一次"
   },
   {
-    "id": 71,
+    "id": 78,
     "code": "B2",
     "newMission": false,
     "unlock": [
@@ -2702,7 +2987,7 @@
     "note": "击破BOSS,B胜及以上"
   },
   {
-    "id": 72,
+    "id": 79,
     "code": "B3",
     "newMission": false,
     "unlock": [
@@ -2739,7 +3024,7 @@
     "note": "出击一次"
   },
   {
-    "id": 73,
+    "id": 80,
     "code": "B4",
     "newMission": false,
     "unlock": [
@@ -2776,7 +3061,7 @@
     "note": "出击一次"
   },
   {
-    "id": 74,
+    "id": 81,
     "code": "B5",
     "newMission": false,
     "unlock": [
@@ -2815,7 +3100,7 @@
     "note": "击破BOSS"
   },
   {
-    "id": 75,
+    "id": 82,
     "code": "B6",
     "newMission": false,
     "unlock": [
@@ -2823,7 +3108,8 @@
     ],
     "after": [
       "B7",
-      "B30"
+      "B30",
+      "B40"
     ],
     "period": 0,
     "type": 2,
@@ -2852,14 +3138,15 @@
     "note": "出击一次"
   },
   {
-    "id": 76,
+    "id": 83,
     "code": "B7",
     "newMission": false,
     "unlock": [
       "B6"
     ],
     "after": [
-      "B8"
+      "B8",
+      "D15"
     ],
     "period": 0,
     "type": 2,
@@ -2889,7 +3176,7 @@
     "note": "出击一次"
   },
   {
-    "id": 77,
+    "id": 84,
     "code": "B8",
     "newMission": false,
     "unlock": [
@@ -2926,7 +3213,7 @@
     "note": "出击一次，航空战舰不可"
   },
   {
-    "id": 78,
+    "id": 85,
     "code": "B9",
     "newMission": false,
     "unlock": [
@@ -2962,7 +3249,7 @@
     "note": "旗舰配置\u003cb\u003e正规空母\u003c/b\u003e或\u003cb\u003e轻空母\u003c/b\u003e\u003cbr/\u003e\u003cb\u003e水上机母舰\u003c/b\u003e不可\u003cbr/\u003e其余配置\u003cb\u003e轻巡\u003c/b\u003e/\u003cb\u003e驱逐\u003c/b\u003e，编成六艘舰队，出击一次"
   },
   {
-    "id": 79,
+    "id": 86,
     "code": "B10",
     "newMission": false,
     "unlock": [
@@ -2995,7 +3282,7 @@
     "note": "击沉敌方任意正规空母或者轻空母\u003cbr /\u003e\u003cp style\"font-weight:bold;color:#F00\"\u003e舰队中有正航或者轻母击沉敌方航母时追加奖励赤城一艘，请务必携带正航或者轻母完成此任务！\u003c/p\u003e"
   },
   {
-    "id": 80,
+    "id": 87,
     "code": "B11",
     "newMission": false,
     "unlock": [
@@ -3029,7 +3316,7 @@
     "note": "使用\u003cb\u003e鸟海\u003c/b\u003e/\u003cb\u003e青叶\u003c/b\u003e/\u003cb\u003e加古\u003c/b\u003e/\u003cb\u003e古鹰\u003c/b\u003e/\u003cb\u003e天龙\u003c/b\u003e以及任一高速舰\u003cbr /\u003e出击一次"
   },
   {
-    "id": 81,
+    "id": 88,
     "code": "B12",
     "newMission": false,
     "unlock": [
@@ -3063,7 +3350,7 @@
     "note": "出击一次\u003cbr /\u003e不可携带其他舰娘\u003cbr /\u003e\u003cb\u003eВерный\u003c/b\u003e可\u003cbr /\u003e有只完成A10也能开启此任务的情况"
   },
   {
-    "id": 82,
+    "id": 89,
     "code": "B13",
     "newMission": false,
     "unlock": [
@@ -3097,14 +3384,15 @@
     "note": "击破BOSS\u003cbr /\u003e可以携带其他舰娘"
   },
   {
-    "id": 83,
+    "id": 90,
     "code": "B14",
     "newMission": false,
     "unlock": [
       "A22"
     ],
     "after": [
-      "A44"
+      "A44",
+      "A53"
     ],
     "period": 0,
     "type": 2,
@@ -3136,7 +3424,7 @@
     "note": "击破BOSS，B胜及以上\u003cbr /\u003e可以携带其他舰娘"
   },
   {
-    "id": 84,
+    "id": 91,
     "code": "B15",
     "newMission": false,
     "unlock": [
@@ -3172,7 +3460,7 @@
     "note": "击破BOSS，B胜及以上\u003cbr /\u003e可以携带其他舰娘"
   },
   {
-    "id": 85,
+    "id": 92,
     "code": "B16",
     "newMission": false,
     "unlock": [
@@ -3210,7 +3498,7 @@
     "note": "使用\u003cb\u003e鸟海\u003c/b\u003e/\u003cb\u003e青叶\u003c/b\u003e/\u003cb\u003e加古\u003c/b\u003e/\u003cb\u003e古鹰\u003c/b\u003e/\u003cb\u003e天龙\u003c/b\u003e/\u003cb\u003e衣笠\u003c/b\u003e出击，击破BOSS，B胜及以上\u003cbr /\u003e"
   },
   {
-    "id": 86,
+    "id": 93,
     "code": "B17",
     "newMission": false,
     "unlock": [
@@ -3244,7 +3532,7 @@
     "note": "击破BOSS，B胜及以上\u003cbr /\u003e潜艇任意两艘{{待验证"
   },
   {
-    "id": 87,
+    "id": 94,
     "code": "B18",
     "newMission": false,
     "unlock": [
@@ -3278,7 +3566,7 @@
     "note": "击破BOSS，B胜及以上\u003cbr /\u003e可以携带其他舰娘"
   },
   {
-    "id": 88,
+    "id": 95,
     "code": "B19",
     "newMission": false,
     "unlock": [
@@ -3318,7 +3606,7 @@
     "note": "使用\u003cb\u003e古鹰\u003c/b\u003e/\u003cb\u003e加古\u003c/b\u003e/\u003cb\u003e青叶\u003c/b\u003e/\u003cb\u003e衣笠\u003c/b\u003e出击，击破BOSS,必须S胜\u003cbr /\u003e可以携带其他舰娘"
   },
   {
-    "id": 89,
+    "id": 96,
     "code": "B20",
     "newMission": false,
     "unlock": [
@@ -3327,6 +3615,7 @@
     "after": [
       "A32",
       "B65",
+      "D10",
       "Bm6"
     ],
     "period": 0,
@@ -3359,7 +3648,7 @@
     "note": "使用\u003cb\u003e朝潮\u003c/b\u003e/\u003cb\u003e满潮\u003c/b\u003e/\u003cb\u003e荒潮\u003c/b\u003e/\u003cb\u003e大潮\u003c/b\u003e出击，击破BOSS，B胜及以上\u003cbr /\u003e可以携带其他舰娘"
   },
   {
-    "id": 90,
+    "id": 97,
     "code": "B21",
     "newMission": false,
     "unlock": [
@@ -3399,7 +3688,7 @@
     "note": "使用\u003cb\u003e霰\u003c/b\u003e/\u003cb\u003e霞\u003c/b\u003e/\u003cb\u003e阳炎\u003c/b\u003e/\u003cb\u003e不知火\u003c/b\u003e出击，击破BOSS，B胜及以上\u003cbr /\u003e可以携带其他舰娘"
   },
   {
-    "id": 91,
+    "id": 98,
     "code": "B22",
     "newMission": false,
     "unlock": [
@@ -3433,7 +3722,7 @@
     "note": "使用\u003cb\u003e睦月\u003c/b\u003e/\u003cb\u003e如月\u003c/b\u003e/\u003cb\u003e弥生\u003c/b\u003e/\u003cb\u003e望月\u003c/b\u003e出击，击破BOSS，B胜及以上\u003cbr /\u003e可以携带其他舰娘\u003cbr /\u003eC败北可，D败北不可"
   },
   {
-    "id": 92,
+    "id": 99,
     "code": "B23",
     "newMission": false,
     "unlock": [
@@ -3469,14 +3758,15 @@
     "note": "击破BOSS，B胜及以上\u003cbr /\u003e可以携带其他舰娘"
   },
   {
-    "id": 93,
+    "id": 100,
     "code": "B24",
     "newMission": false,
     "unlock": [
       "A34"
     ],
     "after": [
-      "A35"
+      "A35",
+      "B27"
     ],
     "period": 0,
     "type": 2,
@@ -3506,14 +3796,16 @@
     "note": "使用\u003cb\u003e睦月\u003c/b\u003e/\u003cb\u003e卯月\u003c/b\u003e/\u003cb\u003e弥生\u003c/b\u003e/\u003cb\u003e望月\u003c/b\u003e出击，击破BOSS\u003cbr /\u003e可以携带其他舰娘\u003cbr /\u003eC败北可，D败北不可"
   },
   {
-    "id": 94,
+    "id": 101,
     "code": "B25",
     "newMission": false,
     "unlock": [
       "A36"
     ],
     "after": [
-      "A39"
+      "A39",
+      "F13",
+      "F14"
     ],
     "period": 0,
     "type": 2,
@@ -3543,7 +3835,7 @@
     "note": "使用\u003cb\u003e飞龙改二\u003c/b\u003e(旗舰)/\u003cb\u003e苍龙\u003c/b\u003e，外加\u003cb\u003e驱逐舰\u003c/b\u003e2艘出击，击破BOSS（S胜利）\u003cbr /\u003e可以携带其他舰娘\u003cbr /\u003e苍龙/苍龙改/苍龙改二均可"
   },
   {
-    "id": 95,
+    "id": 102,
     "code": "B26",
     "newMission": false,
     "unlock": [
@@ -3577,7 +3869,81 @@
     "note": "使用\u003cb\u003e苍龙改二\u003c/b\u003e(旗舰)/\u003cb\u003e飞龙改二\u003c/b\u003e，外加\u003cb\u003e驱逐舰\u003c/b\u003e2艘出击，击破BOSS（S胜利）\u003cbr /\u003e可以携带其他舰娘\u003cbr /\u003e飞龙必须改二"
   },
   {
-    "id": 96,
+    "id": 103,
+    "code": "B27",
+    "newMission": false,
+    "unlock": [
+      "B24"
+    ],
+    "period": 0,
+    "type": 2,
+    "title": {
+      "zh_cn": "战舰「榛名」出击！",
+      "ja": "戦艦「榛名」出撃せよ！"
+    },
+    "content": {
+      "zh_cn": "派出以第二次改装完成的「\u003cb\u003e榛名改二\u003c/b\u003e」为基干的舰队，向\u003cb\u003e南方海域前方(5-1)\u003c/b\u003e推进，消灭敌方舰队主力！",
+      "ja": "第二次改装実施した「榛名改二」を基幹とした艦隊で「南方海域」へ進出、敵艦隊主力を撃滅せよ！"
+    },
+    "reward": {
+      "resource": [
+        100,
+        0,
+        0,
+        0
+      ],
+      "ship": [],
+      "equip": [
+        103,
+        1
+      ],
+      "item": [],
+      "str": ""
+    },
+    "note": "使用\u003cb\u003e榛名改二\u003c/b\u003e(旗舰)出击，击破BOSS（S胜利）\u003cbr /\u003e可以携带其他舰娘"
+  },
+  {
+    "id": 104,
+    "code": "B28",
+    "newMission": false,
+    "unlock": [
+      "A41"
+    ],
+    "after": [
+      "F15"
+    ],
+    "period": 0,
+    "type": 2,
+    "title": {
+      "zh_cn": "「第六〇一航空队」出击！",
+      "ja": "「第六〇一航空隊」出撃せよ！"
+    },
+    "content": {
+      "zh_cn": "派出包含云龙型航空母舰「\u003cb\u003e云龙改\u003c/b\u003e」的机动部队，向\u003cb\u003e珊瑚群岛近海(5-2)\u003c/b\u003e出击，消灭敌方机动部队！",
+      "ja": "雲龍型航空母艦「雲龍改」含む機動部隊で珊瑚島沖に出撃、敵機動部隊を撃滅せよ！"
+    },
+    "reward": {
+      "resource": [
+        0,
+        300,
+        0,
+        300
+      ],
+      "ship": [],
+      "equip": [
+        108,
+        1
+      ],
+      "item": [
+        9,
+        1
+      ],
+      "str": ""
+    },
+    "note": "使用\u003cb\u003e云龙改\u003c/b\u003e出击，击破BOSS（S胜利）\u003cbr /\u003e可以携带其他舰娘"
+  },
+  {
+    "id": 105,
     "code": "B29",
     "newMission": false,
     "unlock": [
@@ -3613,7 +3979,7 @@
     "note": "击破BOSS（S胜利）\u003cbr /\u003e可以携带其他舰娘\u003cbr /\u003e轻空母/轻巡/驱逐舰以外的舰种投入任务将不能完成"
   },
   {
-    "id": 97,
+    "id": 106,
     "code": "B30",
     "newMission": false,
     "unlock": [
@@ -3652,7 +4018,84 @@
     "note": "击破BOSS（S胜利）\u003cbr /\u003e可以携带其他舰娘\u003cbr /\u003e轻巡/驱逐舰以外的舰种投入任务将不能完成"
   },
   {
-    "id": 98,
+    "id": 107,
+    "code": "B31",
+    "newMission": false,
+    "unlock": [
+      "A42"
+    ],
+    "after": [
+      "A43"
+    ],
+    "period": 0,
+    "type": 2,
+    "title": {
+      "zh_cn": "「第二战队」起锚！",
+      "ja": "「第二戦隊」抜錨！"
+    },
+    "content": {
+      "zh_cn": "派出以「第二战队」为基干的舰队向\u003cb\u003e咖哩洋压制战(4-2)\u003c/b\u003e推进，反复出击击破敌方海上兵力！",
+      "ja": "「第二戦隊」を基幹とした艦隊でカレー洋に進出、反復出撃により敵海上兵力を撃破せよ！"
+    },
+    "reward": {
+      "resource": [
+        0,
+        400,
+        0,
+        0
+      ],
+      "ship": [],
+      "equip": [
+        116,
+        1
+      ],
+      "item": [],
+      "str": ""
+    },
+    "note": "使用\u003cb\u003e长门\u003c/b\u003e/\u003cb\u003e陆奥\u003c/b\u003e/\u003cb\u003e扶桑\u003c/b\u003e/\u003cb\u003e山城\u003c/b\u003e出击，击破BOSS交战（S胜利）两次\u003cbr /\u003e可以携带其他舰娘"
+  },
+  {
+    "id": 108,
+    "code": "B32",
+    "newMission": false,
+    "unlock": [
+      "Bm4"
+    ],
+    "after": [
+      "B49"
+    ],
+    "period": 0,
+    "type": 2,
+    "title": {
+      "zh_cn": "「战舰部队」突入北方海域！",
+      "ja": "「戦艦部隊」北方海域に突入せよ！"
+    },
+    "content": {
+      "zh_cn": "派出以\u003cb\u003e战舰\u003c/b\u003e2艘和支援\u003cb\u003e轻空母\u003c/b\u003e1艘（无\u003cb\u003e正规空母\u003c/b\u003e）为基干的舰队向\u003cb\u003e北方阿留申海域(3-5)\u003c/b\u003e突入，消灭敌人！",
+      "ja": "戦艦2隻と直援軽空母1隻(正規空母無し)基幹の艦隊で北方AL海域に突入、敵を撃滅せよ！"
+    },
+    "reward": {
+      "resource": [
+        0,
+        500,
+        0,
+        250
+      ],
+      "ship": [],
+      "equip": [
+        116,
+        1
+      ],
+      "item": [
+        0,
+        2
+      ],
+      "str": ""
+    },
+    "note": "击破BOSS交战（S胜利）\u003cbr /\u003e可以携带其他舰娘\u003cbr /\u003e正规空母1只以上/战舰3只以上/轻空母2只以上，投入任务将不能完成。航空战舰也会导致任务不能完成。战舰/空母大于4只会导致航向偏离。"
+  },
+  {
+    "id": 109,
     "code": "B33",
     "newMission": false,
     "unlock": [
@@ -3688,7 +4131,7 @@
     "note": "使用\u003cb\u003e扶桑\u003c/b\u003e/\u003cb\u003e山城\u003c/b\u003e/\u003cb\u003e最上\u003c/b\u003e/\u003cb\u003e時雨\u003c/b\u003e/\u003cb\u003e满潮\u003c/b\u003e出击，击破BOSS（S胜利）\u003cbr /\u003e可以携带其他舰娘，但不能是旗舰"
   },
   {
-    "id": 99,
+    "id": 110,
     "code": "B34",
     "newMission": false,
     "unlock": [
@@ -3727,7 +4170,7 @@
     "note": "击破BOSS（S胜利）\u003cbr /\u003e可以携带其他舰娘"
   },
   {
-    "id": 100,
+    "id": 111,
     "code": "B35",
     "newMission": false,
     "unlock": [
@@ -3764,7 +4207,44 @@
     "note": "使用\u003cb\u003e吹雪\u003c/b\u003e/\u003cb\u003e白雪\u003c/b\u003e/\u003cb\u003e初雪\u003c/b\u003e/\u003cb\u003e丛云\u003c/b\u003e出击，击破BOSS（B胜利）\u003cbr /\u003e可以携带其他舰娘"
   },
   {
-    "id": 101,
+    "id": 112,
+    "code": "B36",
+    "newMission": false,
+    "unlock": [
+      "A47"
+    ],
+    "period": 0,
+    "type": 2,
+    "title": {
+      "zh_cn": "「第十一驱逐队」反潜巡逻！",
+      "ja": "「第十一駆逐隊」対潜哨戒！"
+    },
+    "content": {
+      "zh_cn": "派出包含「第十一驱逐队」的舰队向\u003cb\u003e镇守府近海(1-5)\u003c/b\u003e展开，实施反潜巡逻！",
+      "ja": "「第十一駆逐隊」を含む艦隊で鎮守府正面へ展開、対潜哨戒を実施せよ！"
+    },
+    "reward": {
+      "resource": [
+        400,
+        0,
+        0,
+        200
+      ],
+      "ship": [],
+      "equip": [
+        47,
+        1
+      ],
+      "item": [
+        0,
+        2
+      ],
+      "str": ""
+    },
+    "note": "使用\u003cb\u003e吹雪\u003c/b\u003e/\u003cb\u003e白雪\u003c/b\u003e/\u003cb\u003e初雪\u003c/b\u003e/\u003cb\u003e丛云\u003c/b\u003e出击，击破BOSS\u003cbr /\u003e可以携带其他舰娘\u003cbr /\u003eC败北可，D败北不可\u003cbr /\u003e四艘出击限定"
+  },
+  {
+    "id": 113,
     "code": "B37",
     "newMission": false,
     "unlock": [
@@ -3801,7 +4281,7 @@
     "note": "使用\u003cb\u003e初春\u003c/b\u003e/\u003cb\u003e子日\u003c/b\u003e/\u003cb\u003e若叶\u003c/b\u003e/\u003cb\u003e初霜\u003c/b\u003e出击，击破BOSS（S胜利）\u003cbr /\u003e可以携带其他舰娘"
   },
   {
-    "id": 102,
+    "id": 114,
     "code": "B38",
     "newMission": false,
     "unlock": [
@@ -3841,7 +4321,7 @@
     "note": "击破BOSS（S胜利）\u003cbr /\u003e可以携带其他舰娘"
   },
   {
-    "id": 103,
+    "id": 115,
     "code": "B39",
     "newMission": false,
     "unlock": [
@@ -3877,7 +4357,46 @@
     "note": "使用\u003cb\u003e皐月\u003c/b\u003e/\u003cb\u003e文月\u003c/b\u003e/\u003cb\u003e长月\u003c/b\u003e出击，击破BOSS（S胜利）\u003cbr /\u003e可携带其他舰娘，但必须有一艘是驱逐"
   },
   {
-    "id": 104,
+    "id": 116,
+    "code": "B40",
+    "newMission": false,
+    "unlock": [
+      "B6"
+    ],
+    "after": [
+      "D16"
+    ],
+    "period": 0,
+    "type": 2,
+    "title": {
+      "zh_cn": "「改装防空重巡」出击！",
+      "ja": "「改装防空重巡」出撃せよ！"
+    },
+    "content": {
+      "zh_cn": "派出包含\u003cb\u003e摩耶改\u003c/b\u003e或\u003cb\u003e摩耶改二\u003c/b\u003e和\u003cb\u003e轻巡\u003c/b\u003e1艘\u003cb\u003e驱逐\u003c/b\u003e2艘组成的舰队消灭\u003cb\u003e东部奥廖尔海(2-3)\u003c/b\u003e的敌人！",
+      "ja": "摩耶改または摩耶改二及び軽巡1駆逐2隻を含む艦隊でオリョール海の敵艦隊を撃滅せよ！"
+    },
+    "reward": {
+      "resource": [
+        300,
+        0,
+        300,
+        0
+      ],
+      "ship": [],
+      "equip": [
+        40,
+        1,
+        35,
+        1
+      ],
+      "item": [],
+      "str": ""
+    },
+    "note": "击破BOSS（S胜利）\u003cbr /\u003e可携带其他舰娘\u003cbr /\u003e摩耶改二可"
+  },
+  {
+    "id": 117,
     "code": "B41",
     "newMission": false,
     "unlock": [
@@ -3913,7 +4432,48 @@
     "note": "使用\u003cb\u003e鸟海改二\u003c/b\u003e作为旗舰，选择\u003cb\u003e古鹰\u003c/b\u003e/\u003cb\u003e加古\u003c/b\u003e/\u003cb\u003e青叶\u003c/b\u003e/\u003cb\u003e衣笠\u003c/b\u003e/\u003cb\u003e夕张\u003c/b\u003e/\u003cb\u003e天龙\u003c/b\u003e之中的任何5艘编成舰队出击，击破BOSS（S胜利）"
   },
   {
-    "id": 105,
+    "id": 118,
+    "code": "B42",
+    "newMission": false,
+    "unlock": [
+      "A10"
+    ],
+    "after": [
+      "A51",
+      "B45"
+    ],
+    "period": 0,
+    "type": 2,
+    "title": {
+      "zh_cn": "「第六驱逐队」反潜巡逻NaNoDeSu！",
+      "ja": "「第六駆逐隊」対潜哨戒なのです！"
+    },
+    "content": {
+      "zh_cn": "派出包含「第六驱逐队」的舰队向着\u003cb\u003e镇守府近海(1-5)\u003c/b\u003e展开，实施反潜巡逻！",
+      "ja": "「第六駆逐隊」を含む艦隊で鎮守府正面へ展開、対潜哨戒を実施せよ！"
+    },
+    "reward": {
+      "resource": [
+        200,
+        200,
+        200,
+        0
+      ],
+      "ship": [],
+      "equip": [
+        46,
+        1
+      ],
+      "item": [
+        0,
+        3
+      ],
+      "str": ""
+    },
+    "note": "使用\u003cb\u003e晓\u003c/b\u003e/\u003cb\u003e响\u003c/b\u003e/\u003cb\u003e雷\u003c/b\u003e/\u003cb\u003e电\u003c/b\u003e出击，击破BOSS\u003cbr /\u003e可以携带其他舰娘\u003cbr /\u003eC败北可，D败北不可\u003cbr /\u003e四艘出击限定\u003cbr /\u003e\u003cb\u003eВерный\u003c/b\u003e可"
+  },
+  {
+    "id": 119,
     "code": "B43",
     "newMission": false,
     "unlock": [
@@ -3949,7 +4509,7 @@
     "note": "击破BOSS（S胜利）\u003cbr /\u003e可携带其他舰娘"
   },
   {
-    "id": 106,
+    "id": 120,
     "code": "B44",
     "newMission": false,
     "unlock": [
@@ -3986,14 +4546,53 @@
     "note": "击破BOSS（S胜利）\u003cbr /\u003e可携带其他舰娘"
   },
   {
-    "id": 107,
+    "id": 121,
+    "code": "B45",
+    "newMission": false,
+    "unlock": [
+      "A53",
+      "B42"
+    ],
+    "period": 0,
+    "type": 2,
+    "title": {
+      "zh_cn": "「第六驱逐队」进行彻底的对潜警戒NaNoDeSu！",
+      "ja": "「第六駆逐隊」対潜哨戒を徹底なのです！"
+    },
+    "content": {
+      "zh_cn": "包含「第六驱逐队」的舰队在\u003cb\u003e镇守府近海(1-5)\u003c/b\u003e实施对潜警戒，痛打敌潜水舰部队！",
+      "ja": "「第六駆逐隊」を含む艦隊で鎮守府正面で対潜哨戒を実施、敵潜水艦部隊を痛打せよ！"
+    },
+    "reward": {
+      "resource": [
+        300,
+        300,
+        0,
+        0
+      ],
+      "ship": [],
+      "equip": [
+        46,
+        1
+      ],
+      "item": [
+        2,
+        2
+      ],
+      "str": ""
+    },
+    "note": "使用\u003cb\u003e晓\u003c/b\u003e/\u003cb\u003e响\u003c/b\u003e/\u003cb\u003e雷\u003c/b\u003e/\u003cb\u003e电\u003c/b\u003e出击，击破BOSS\u003cbr /\u003e可以携带其他舰娘\u003cbr /\u003eC败北可，D败北不可\u003cbr /\u003e四艘出击限定\u003cbr /\u003e\u003cb\u003eВерный\u003c/b\u003e可"
+  },
+  {
+    "id": 122,
     "code": "B46",
     "newMission": false,
     "unlock": [
       "A54"
     ],
     "after": [
-      "C7"
+      "C7",
+      "F33"
     ],
     "period": 0,
     "type": 2,
@@ -4025,7 +4624,7 @@
     "note": "\u003cb\u003e阿武隈\u003c/b\u003e旗舰\u003cb\u003e响\u003c/b\u003e/\u003cb\u003e初霜\u003c/b\u003e/\u003cb\u003e若叶\u003c/b\u003e/\u003cb\u003e五月雨\u003c/b\u003e/\u003cb\u003e岛风\u003c/b\u003e出击\u003cbr /\u003e击破BOSS，胜利即可\u003cbr /\u003e\u003cb\u003eВерный\u003c/b\u003e可"
   },
   {
-    "id": 108,
+    "id": 123,
     "code": "B47",
     "newMission": false,
     "unlock": [
@@ -4061,7 +4660,7 @@
     "note": "必须\u003cb\u003e阿武隈改二\u003c/b\u003e旗舰\u003cb\u003e响\u003c/b\u003e/\u003cb\u003e夕云\u003c/b\u003e/\u003cb\u003e长波\u003c/b\u003e/\u003cb\u003e秋云\u003c/b\u003e/\u003cb\u003e岛风\u003c/b\u003e出击\u003cbr /\u003e击破BOSS，必须S胜\u003cbr /\u003e\u003cb\u003eВерный\u003c/b\u003e可\u003cbr /\u003e{{待验证"
   },
   {
-    "id": 109,
+    "id": 124,
     "code": "B48",
     "newMission": false,
     "unlock": [
@@ -4095,7 +4694,7 @@
     "note": "Bd1完成之后，有可能需要完成其他任务才能开启本任务（Bd2是否是条件现在在情报收集中）"
   },
   {
-    "id": 110,
+    "id": 125,
     "code": "B49",
     "newMission": false,
     "unlock": [
@@ -4133,7 +4732,7 @@
     "note": "任务B32和Bd8（似乎还需要完成其他任务，需验证）完成之后开放。"
   },
   {
-    "id": 111,
+    "id": 126,
     "code": "B50",
     "newMission": false,
     "unlock": [
@@ -4141,7 +4740,9 @@
     ],
     "after": [
       "A64",
-      "D19"
+      "D19",
+      "F19",
+      "F20"
     ],
     "period": 0,
     "type": 2,
@@ -4173,7 +4774,7 @@
     "note": ""
   },
   {
-    "id": 112,
+    "id": 127,
     "code": "B51",
     "newMission": false,
     "unlock": [
@@ -4209,7 +4810,7 @@
     "note": ""
   },
   {
-    "id": 113,
+    "id": 128,
     "code": "B52",
     "newMission": false,
     "unlock": [
@@ -4248,14 +4849,14 @@
     "note": "旗舰 足柄 必须，改造及改二亦可"
   },
   {
-    "id": 114,
+    "id": 129,
     "code": "B53",
     "newMission": false,
     "unlock": [
       "A59"
     ],
     "after": [
-      "A70"
+      "A60"
     ],
     "period": 0,
     "type": 2,
@@ -4287,7 +4888,48 @@
     "note": "\u003cb\u003e千岁\u003c/b\u003e、\u003cb\u003e千代田\u003c/b\u003e在改造成轻型航母之前不能达成任务\u003cbr /\u003e击破BOSS（S胜利）"
   },
   {
-    "id": 115,
+    "id": 130,
+    "code": "B54",
+    "newMission": false,
+    "unlock": [
+      "A61"
+    ],
+    "after": [
+      "F23",
+      "F27"
+    ],
+    "period": 0,
+    "type": 2,
+    "title": {
+      "zh_cn": "“小沢舰队”出击！",
+      "ja": "「小沢艦隊」出撃せよ！"
+    },
+    "content": {
+      "zh_cn": "“小沢舰队”出击\u003cb\u003e冲之岛海域\u003c/b\u003e，捕捉敌方机动部队予以歼灭!",
+      "ja": "「小沢艦隊」を沖ノ島海域前面に展開し、侵攻する敵機動部隊を捕捉、これを撃滅せよ！"
+    },
+    "reward": {
+      "resource": [
+        300,
+        0,
+        300,
+        300
+      ],
+      "ship": [],
+      "equip": [
+        109,
+        1
+      ],
+      "item": [
+        6,
+        3
+      ],
+      "str": ""
+    },
+    "note": "\u003cb\u003e瑞鹤改二\u003c/b\u003e、\u003cb\u003e瑞鹤改二甲\u003c/b\u003e都可\u003cbr /\u003e\u003cb\u003e千岁\u003c/b\u003e、\u003cb\u003e千代田\u003c/b\u003e在改造成轻型航母之前不能达成任务\u003cbr /\u003e击破BOSS（S胜利）"
+  },
+  {
+    "id": 131,
     "code": "B55",
     "newMission": false,
     "unlock": [
@@ -4327,7 +4969,7 @@
     "note": "2-3BOSS击破（S胜利）\u003cbr /\u003e\u003cb\u003e名取\u003c/b\u003e为旗舰,\u003cb\u003e五十铃\u003c/b\u003e、\u003cb\u003e鬼怒\u003c/b\u003e必要，其它自由搭配"
   },
   {
-    "id": 116,
+    "id": 132,
     "code": "B56",
     "newMission": false,
     "unlock": [
@@ -4366,7 +5008,7 @@
     "note": "3-3BOSS击破（S胜利）"
   },
   {
-    "id": 117,
+    "id": 133,
     "code": "B57",
     "newMission": false,
     "unlock": [
@@ -4403,7 +5045,81 @@
     "note": "2-5BOSS击破（S胜利）\u003cbr /\u003e舰队配置同前置任务"
   },
   {
-    "id": 118,
+    "id": 134,
+    "code": "B58",
+    "newMission": false,
+    "unlock": [
+      "A32，C2"
+    ],
+    "period": 0,
+    "type": 2,
+    "title": {
+      "zh_cn": "旗舰“霞”北方海域警戒！",
+      "ja": "旗艦「霞」北方海域を哨戒せよ！"
+    },
+    "content": {
+      "zh_cn": "以\u003cb\u003e霞改二\u003c/b\u003e为旗舰，包含驱逐舰四艘的舰队投入北方海域执行警戒任务！",
+      "ja": "旗艦「霞改二」で駆逐艦4隻を含む艦隊を北方海域に投入し、モーレイ海哨戒を実施せよ！"
+    },
+    "reward": {
+      "resource": [
+        300,
+        0,
+        300,
+        0
+      ],
+      "ship": [],
+      "equip": [
+        106,
+        1
+      ],
+      "item": [
+        4,
+        1
+      ],
+      "str": ""
+    },
+    "note": "\u003cb\u003e霞改二\u003c/b\u003e、\u003cb\u003e霞改二乙\u003c/b\u003e均可完成任务\u003cbr /\u003e\u003cb\u003e霞改二\u003c/b\u003e为旗舰,三艘驱逐舰必要，其它自由搭配，出击北方海域\u003cb\u003e莫雷海(3-1)\u003c/b\u003eBOSS战B胜以上即可完成任务\u003cbr /\u003e其他前置待确认"
+  },
+  {
+    "id": 135,
+    "code": "B59",
+    "newMission": false,
+    "unlock": [
+      "B58，D2"
+    ],
+    "after": [
+      "B66"
+    ],
+    "period": 0,
+    "type": 2,
+    "title": {
+      "zh_cn": "旗舰“霞”出击！敌方舰队歼灭！",
+      "ja": "旗艦「霞」出撃！敵艦隊を撃滅せよ！"
+    },
+    "content": {
+      "zh_cn": "以\u003cb\u003e霞改二\u003c/b\u003e为旗舰，包含驱逐舰共三艘的舰队出击\u003cb\u003e冲之岛近海\u003c/b\u003e,歼灭敌方主力舰队！",
+      "ja": "旗艦「霞改二」で駆逐艦3隻を含む艦隊で南西諸島沖ノ島沖に突入！敵主力を撃滅せよ！"
+    },
+    "reward": {
+      "resource": [
+        500,
+        500,
+        0,
+        0
+      ],
+      "ship": [],
+      "equip": [
+        131,
+        1
+      ],
+      "item": [],
+      "str": ""
+    },
+    "note": "2-5BOSS击破（S胜利）\u003cbr /\u003e\u003cb\u003e霞改二\u003c/b\u003e为旗舰，其他驱逐两艘，其他自由搭配\u003cbr /\u003e可能存在其他前置任务"
+  },
+  {
+    "id": 136,
     "code": "B60",
     "newMission": false,
     "unlock": [
@@ -4439,7 +5155,7 @@
     "note": "1-6顺利完成一次即可\u003cbr /\u003e\u003cb\u003e五十铃改二\u003c/b\u003e为旗舰、\u003cb\u003e皋月改二\u003c/b\u003e、\u003cb\u003e卯月改\u003c/b\u003e和任意三艘其他舰\u003cbr /\u003e{{待验证"
   },
   {
-    "id": 119,
+    "id": 137,
     "code": "B61",
     "newMission": false,
     "unlock": [
@@ -4470,7 +5186,44 @@
     "note": "2-3Boss战S胜即可\u003cbr /\u003e\u003cb\u003e白露改\u003c/b\u003e为旗舰、\u003cb\u003e时雨\u003c/b\u003e、\u003cb\u003e春雨\u003c/b\u003e、\u003cb\u003e五月雨\u003c/b\u003e和任意两艘其他舰"
   },
   {
-    "id": 120,
+    "id": 138,
+    "code": "B62",
+    "newMission": false,
+    "unlock": [
+      "Bw9"
+    ],
+    "period": 0,
+    "type": 2,
+    "title": {
+      "zh_cn": "强袭陆上作战战力增强！",
+      "ja": "強襲上陸作戦用戦力を増強せよ！"
+    },
+    "content": {
+      "zh_cn": "中部海域航空侦查“K作战”实施的同时，增强强袭陆上作战战力！",
+      "ja": "中部海域における航空偵察「K作戦」を実施しつつ、強襲上陸作戦用戦力の強化を図れ！"
+    },
+    "reward": {
+      "resource": [
+        0,
+        600,
+        0,
+        0
+      ],
+      "ship": [],
+      "equip": [
+        68,
+        1
+      ],
+      "item": [
+        2,
+        3
+      ],
+      "str": ""
+    },
+    "note": "6-3Boss战B胜即可\u003cbr /\u003e{{待验证"
+  },
+  {
+    "id": 139,
     "code": "B63",
     "newMission": false,
     "unlock": [
@@ -4509,7 +5262,7 @@
     "note": "1-3BossS胜3次即可(只含1轻巡且其他舰船均为驱逐舰即可完成)"
   },
   {
-    "id": 121,
+    "id": 140,
     "code": "B64",
     "newMission": false,
     "unlock": [
@@ -4549,7 +5302,7 @@
     "note": "1-4BossS胜5次即可\u003cbr /\u003e{{待验证"
   },
   {
-    "id": 122,
+    "id": 141,
     "code": "B65",
     "newMission": false,
     "unlock": [
@@ -4589,12 +5342,15 @@
     "note": "2-3BossS胜6次即可\u003cbr /\u003e\u003cb\u003e大潮\u003c/b\u003e为旗舰其他五艘任意"
   },
   {
-    "id": 123,
+    "id": 142,
     "code": "B66",
     "newMission": false,
     "unlock": [
       "B65",
       "B59"
+    ],
+    "after": [
+      "B72"
     ],
     "period": 0,
     "type": 2,
@@ -4626,7 +5382,7 @@
     "note": "3-5BossS胜即可\u003cbr /\u003e\u003cb\u003e大潮改二\u003c/b\u003e为旗舰其他可任意搭配"
   },
   {
-    "id": 124,
+    "id": 143,
     "code": "B67",
     "newMission": false,
     "unlock": [],
@@ -4655,7 +5411,7 @@
     "note": "出击2-2和2-3分别击破bossS胜即可\u003cbr /\u003e{{待验证"
   },
   {
-    "id": 125,
+    "id": 144,
     "code": "B68",
     "newMission": false,
     "unlock": [
@@ -4694,7 +5450,7 @@
     "note": "4-1boss战A胜达成即可"
   },
   {
-    "id": 126,
+    "id": 145,
     "code": "B69",
     "newMission": false,
     "unlock": [
@@ -4731,7 +5487,7 @@
     "note": "4-5boss战S胜达成"
   },
   {
-    "id": 127,
+    "id": 146,
     "code": "B70",
     "newMission": false,
     "unlock": [
@@ -4770,7 +5526,7 @@
     "note": "水雷战队出击1-4"
   },
   {
-    "id": 128,
+    "id": 147,
     "code": "B71",
     "newMission": false,
     "unlock": [
@@ -4806,7 +5562,7 @@
     "note": "水雷战队出击1-6"
   },
   {
-    "id": 129,
+    "id": 148,
     "code": "C1",
     "newMission": false,
     "unlock": [],
@@ -4841,7 +5597,7 @@
     "note": "无论胜负"
   },
   {
-    "id": 130,
+    "id": 149,
     "code": "C2",
     "newMission": false,
     "unlock": [
@@ -4879,7 +5635,7 @@
     "note": "无论胜负"
   },
   {
-    "id": 131,
+    "id": 150,
     "code": "C3",
     "newMission": false,
     "unlock": [
@@ -4913,7 +5669,7 @@
     "note": "截止20160621，C2和C5,C6,C9这三个其中一个同时接的话，会出现没接C3(C2没有完成）胜利数也会记入的情况"
   },
   {
-    "id": 132,
+    "id": 151,
     "code": "C4",
     "newMission": false,
     "unlock": [
@@ -4949,7 +5705,7 @@
     "note": ""
   },
   {
-    "id": 133,
+    "id": 152,
     "code": "C5",
     "newMission": false,
     "unlock": [
@@ -4986,7 +5742,7 @@
     "note": ""
   },
   {
-    "id": 134,
+    "id": 153,
     "code": "C6",
     "newMission": false,
     "unlock": [
@@ -5025,7 +5781,7 @@
     "note": ""
   },
   {
-    "id": 135,
+    "id": 154,
     "code": "C7",
     "newMission": false,
     "unlock": [
@@ -5064,7 +5820,7 @@
     "note": ""
   },
   {
-    "id": 136,
+    "id": 155,
     "code": "C8",
     "newMission": false,
     "unlock": [
@@ -5100,12 +5856,15 @@
     "note": "（现阶段需要0点过后日常5点刷新之前的关于该任务的报告）演习B胜利七次即可。\u003cbr /\u003e根据提督日常任务完成的情况，该任务的出现会推迟。\u003cbr /\u003eBd2完成之后，有可能需要完成其他任务才能开启本任务（Bd3是否是条件现在在情报收集中）"
   },
   {
-    "id": 137,
+    "id": 156,
     "code": "C9",
     "newMission": false,
     "unlock": [
       "F32",
       "Bd2"
+    ],
+    "after": [
+      "F33"
     ],
     "period": 0,
     "type": 3,
@@ -5137,7 +5896,7 @@
     "note": ""
   },
   {
-    "id": 138,
+    "id": 157,
     "code": "D1",
     "newMission": false,
     "unlock": [
@@ -5175,7 +5934,7 @@
     "note": "任意远征1次"
   },
   {
-    "id": 139,
+    "id": 158,
     "code": "D2",
     "newMission": false,
     "unlock": [
@@ -5212,7 +5971,7 @@
     "note": "任意远征3次"
   },
   {
-    "id": 140,
+    "id": 159,
     "code": "D3",
     "newMission": false,
     "unlock": [
@@ -5248,7 +6007,7 @@
     "note": "任意远征10次"
   },
   {
-    "id": 141,
+    "id": 160,
     "code": "D4",
     "newMission": false,
     "unlock": [
@@ -5284,11 +6043,14 @@
     "note": "一周内任意远征30次"
   },
   {
-    "id": 142,
+    "id": 161,
     "code": "D5",
     "newMission": false,
     "unlock": [
       "A27"
+    ],
+    "after": [
+      "D6"
     ],
     "period": 0,
     "type": 4,
@@ -5318,7 +6080,84 @@
     "note": "远征「潜水舰派遣作战」\u003cbr /\u003e完成1次"
   },
   {
-    "id": 143,
+    "id": 162,
+    "code": "D6",
+    "newMission": false,
+    "unlock": [
+      "D5"
+    ],
+    "after": [
+      "D7"
+    ],
+    "period": 0,
+    "type": 4,
+    "title": {
+      "zh_cn": "第二次潜水舰派遣作战",
+      "ja": "第二次潜水艦派遣作戦"
+    },
+    "content": {
+      "zh_cn": "成功实行第2次的潜水舰派遣作战！",
+      "ja": "第2次潜水艦派遣作戦を成功させよう！"
+    },
+    "reward": {
+      "resource": [
+        0,
+        0,
+        10,
+        10
+      ],
+      "ship": [],
+      "equip": [
+        64,
+        1
+      ],
+      "item": [],
+      "str": ""
+    },
+    "note": "远征「潜水舰派遣作战」\u003cbr /\u003e完成1次"
+  },
+  {
+    "id": 163,
+    "code": "D7",
+    "newMission": false,
+    "unlock": [
+      "D6"
+    ],
+    "after": [
+      "D8"
+    ],
+    "period": 0,
+    "type": 4,
+    "title": {
+      "zh_cn": "继续在潜水舰派遣作战获得技术！",
+      "ja": "潜水艦派遣作戦による技術入手の継続！"
+    },
+    "content": {
+      "zh_cn": "成功实行第3次和第4次的潜水舰派遣作战，为了导入他国制造技术努力！",
+      "ja": "第3次及び第4次潜水艦派遣作戦を成功させ、他国製技術の導入に努めよ！"
+    },
+    "reward": {
+      "resource": [
+        0,
+        0,
+        0,
+        800
+      ],
+      "ship": [],
+      "equip": [
+        64,
+        1
+      ],
+      "item": [
+        12,
+        1
+      ],
+      "str": ""
+    },
+    "note": "远征「潜水舰派遣作战」\u003cbr /\u003e完成2次\u003cbr /\u003e任务出现时完成度已为50%\u003cbr /\u003e属于显示BUG"
+  },
+  {
+    "id": 164,
     "code": "D8",
     "newMission": false,
     "unlock": [
@@ -5351,7 +6190,7 @@
     "note": "远征「海外舰との接触」\u003cbr /\u003e完成1次\u003cbr /\u003e\u003cb\u003eZ1\u003c/b\u003e作为秘书舰\u003cbr /\u003e才可以建造\u003cb\u003eZ3\u003c/b\u003e和\u003cb\u003e俾斯麦\u003c/b\u003e"
   },
   {
-    "id": 144,
+    "id": 165,
     "code": "D9",
     "newMission": false,
     "unlock": [
@@ -5389,7 +6228,45 @@
     "note": "完成远征「东京急行」或「东京急行（二）」一次"
   },
   {
-    "id": 145,
+    "id": 166,
+    "code": "D10",
+    "newMission": false,
+    "unlock": [
+      "B20"
+    ],
+    "after": [
+      "B23",
+      "D12"
+    ],
+    "period": 0,
+    "type": 4,
+    "title": {
+      "zh_cn": "强化航空火力舰的运用！",
+      "ja": "航空火力艦の運用を強化せよ！"
+    },
+    "content": {
+      "zh_cn": "实施「航空战舰运用演习」，努力强化航空火力舰的运用！",
+      "ja": "「航空戦艦運用演習」を実施し、航空火力艦の運用の強化に努めよ！"
+    },
+    "reward": {
+      "resource": [
+        0,
+        0,
+        0,
+        100
+      ],
+      "ship": [],
+      "equip": [
+        79,
+        1
+      ],
+      "item": [],
+      "str": ""
+    },
+    "note": "远征「航空战舰运用演习」\u003cbr /\u003e完成1次"
+  },
+  {
+    "id": 167,
     "code": "D11",
     "newMission": false,
     "unlock": [
@@ -5425,7 +6302,186 @@
     "note": "完成远征「东京急行」或「东京急行（二）」，共计6次\u003cbr /\u003e（和D9共计7次）"
   },
   {
-    "id": 146,
+    "id": 168,
+    "code": "D12",
+    "newMission": false,
+    "unlock": [
+      "D10"
+    ],
+    "period": 0,
+    "type": 4,
+    "title": {
+      "zh_cn": "(续)强化航空火力舰的运用！",
+      "ja": "(続)航空火力艦の運用を強化せよ！"
+    },
+    "content": {
+      "zh_cn": "继续实施「航空战舰运用演习」，继续努力强化航空火力舰的运用！",
+      "ja": "「航空戦艦運用演習」を継続実施し、航空火力艦の運用の強化に引き続き努めよ！"
+    },
+    "reward": {
+      "resource": [
+        0,
+        0,
+        0,
+        200
+      ],
+      "ship": [],
+      "equip": [
+        79,
+        1
+      ],
+      "item": [],
+      "str": ""
+    },
+    "note": "远征「航空战舰运用演习」\u003cbr /\u003e完成3次"
+  },
+  {
+    "id": 169,
+    "code": "D13",
+    "newMission": false,
+    "unlock": [
+      "A37"
+    ],
+    "after": [
+      "D14"
+    ],
+    "period": 0,
+    "type": 4,
+    "title": {
+      "zh_cn": "实施远洋潜水舰作战！",
+      "ja": "遠洋潜水艦作戦を実施せよ！"
+    },
+    "content": {
+      "zh_cn": "实施「远洋潜水舰作战」，努力提升潜水舰队实力与削弱敌舰队！",
+      "ja": "「遠洋潜水艦作戦」を実施し、潜水艦隊の練度向上と敵艦隊漸滅に努めよ！"
+    },
+    "reward": {
+      "resource": [
+        0,
+        200,
+        0,
+        0
+      ],
+      "ship": [],
+      "equip": [
+        95,
+        1
+      ],
+      "item": [],
+      "str": ""
+    },
+    "note": "远征「远洋潜水舰作战」\u003cbr /\u003e完成1次"
+  },
+  {
+    "id": 170,
+    "code": "D14",
+    "newMission": false,
+    "unlock": [
+      "D13"
+    ],
+    "period": 0,
+    "type": 4,
+    "title": {
+      "zh_cn": "扩大远洋潜水舰作战成果！",
+      "ja": "遠洋潜水艦作戦の成果を拡大せよ！"
+    },
+    "content": {
+      "zh_cn": "继续实施「远洋潜水舰作战」，努力提升潜水舰队实力与削弱敌舰队！",
+      "ja": "「遠洋潜水艦作戦」を継続実施し、潜水艦隊の練度向上と敵艦隊漸減に努めよ！"
+    },
+    "reward": {
+      "resource": [
+        0,
+        400,
+        0,
+        0
+      ],
+      "ship": [],
+      "equip": [
+        95,
+        1
+      ],
+      "item": [],
+      "str": ""
+    },
+    "note": "远征「远洋潜水舰作战」\u003cbr /\u003e完成2次"
+  },
+  {
+    "id": 171,
+    "code": "D15",
+    "newMission": false,
+    "unlock": [
+      "B7"
+    ],
+    "period": 0,
+    "type": 4,
+    "title": {
+      "zh_cn": "实施防空射击演习！",
+      "ja": "防空射撃演習を実施せよ！"
+    },
+    "content": {
+      "zh_cn": "实施多次「防空射击演习」，提高舰队防空能力！",
+      "ja": "「防空射撃演習」を複数回実施し、艦隊の防空能力を高めよ！"
+    },
+    "reward": {
+      "resource": [
+        0,
+        200,
+        0,
+        200
+      ],
+      "ship": [],
+      "equip": [
+        40,
+        1
+      ],
+      "item": [
+        0,
+        2
+      ],
+      "str": ""
+    },
+    "note": "远征「防空射击演习」\u003cbr /\u003e完成3次"
+  },
+  {
+    "id": 172,
+    "code": "D16",
+    "newMission": false,
+    "unlock": [
+      "B40"
+    ],
+    "period": 0,
+    "type": 4,
+    "title": {
+      "zh_cn": "实施「囮机动部队支援作战」！",
+      "ja": "「囮機動部隊支援作戦を実施せよ！"
+    },
+    "content": {
+      "zh_cn": "成功实施「囮机动部队支援作战」！",
+      "ja": "「囮機動部隊支援作戦」を実施し、これを成功させよ!"
+    },
+    "reward": {
+      "resource": [
+        400,
+        0,
+        0,
+        400
+      ],
+      "ship": [],
+      "equip": [
+        120,
+        1
+      ],
+      "item": [
+        0,
+        2
+      ],
+      "str": ""
+    },
+    "note": "远征「囮机动部队支援作战」\u003cbr /\u003e完成1次"
+  },
+  {
+    "id": 173,
     "code": "D17",
     "newMission": false,
     "unlock": [
@@ -5462,7 +6518,7 @@
     "note": "远征「观舰式予行」\u003cbr /\u003e完成2次"
   },
   {
-    "id": 147,
+    "id": 174,
     "code": "D18",
     "newMission": false,
     "unlock": [
@@ -5498,7 +6554,7 @@
     "note": "远征「观舰式」\u003cbr /\u003e完成1次"
   },
   {
-    "id": 148,
+    "id": 175,
     "code": "D19",
     "newMission": false,
     "unlock": [
@@ -5538,7 +6594,7 @@
     "note": "远征「ＭＯ作戦」及「敵母港空襲作戦」\u003cbr /\u003e各完成1次"
   },
   {
-    "id": 149,
+    "id": 176,
     "code": "E1",
     "newMission": false,
     "unlock": [
@@ -5572,7 +6628,7 @@
     "note": "为舰船补给1次"
   },
   {
-    "id": 150,
+    "id": 177,
     "code": "E2",
     "newMission": false,
     "unlock": [
@@ -5609,7 +6665,7 @@
     "note": "为受损的舰船入渠维修1次"
   },
   {
-    "id": 151,
+    "id": 178,
     "code": "E3",
     "newMission": false,
     "unlock": [],
@@ -5644,7 +6700,7 @@
     "note": "入渠修复舰船5次"
   },
   {
-    "id": 152,
+    "id": 179,
     "code": "E4",
     "newMission": false,
     "unlock": [
@@ -5680,7 +6736,7 @@
     "note": "为舰船补给15次\u003cbr /\u003e注意：为舰队全体补给也只算1次"
   },
   {
-    "id": 153,
+    "id": 180,
     "code": "F1",
     "newMission": false,
     "unlock": [],
@@ -5715,7 +6771,7 @@
     "note": "\u003cb\u003e建造\u003c/b\u003e舰船1次"
   },
   {
-    "id": 154,
+    "id": 181,
     "code": "F2",
     "newMission": false,
     "unlock": [
@@ -5753,7 +6809,7 @@
     "note": "\u003cb\u003e开发\u003c/b\u003e装备1次\u003cbr /\u003e（不论成败）"
   },
   {
-    "id": 155,
+    "id": 182,
     "code": "F3",
     "newMission": false,
     "unlock": [
@@ -5792,7 +6848,7 @@
     "note": "解体舰船1次"
   },
   {
-    "id": 156,
+    "id": 183,
     "code": "F4",
     "newMission": false,
     "unlock": [
@@ -5828,7 +6884,7 @@
     "note": "废弃装备1次"
   },
   {
-    "id": 157,
+    "id": 184,
     "code": "F5",
     "newMission": false,
     "unlock": [
@@ -5867,7 +6923,7 @@
     "note": "\u003cb\u003e开发\u003c/b\u003e装备1次"
   },
   {
-    "id": 158,
+    "id": 185,
     "code": "F6",
     "newMission": false,
     "unlock": [
@@ -5906,7 +6962,7 @@
     "note": "\u003cb\u003e建造\u003c/b\u003e舰船1次"
   },
   {
-    "id": 159,
+    "id": 186,
     "code": "F7",
     "newMission": false,
     "unlock": [
@@ -5943,7 +6999,7 @@
     "note": "\u003cb\u003e开发\u003c/b\u003e装备3次\u003cbr /\u003e（不论成败）"
   },
   {
-    "id": 160,
+    "id": 187,
     "code": "F8",
     "newMission": false,
     "unlock": [
@@ -5984,7 +7040,7 @@
     "note": "\u003cb\u003e建造\u003c/b\u003e舰船3次"
   },
   {
-    "id": 161,
+    "id": 188,
     "code": "F9",
     "newMission": false,
     "unlock": [
@@ -6018,7 +7074,7 @@
     "note": "解体舰船2次"
   },
   {
-    "id": 162,
+    "id": 189,
     "code": "F10",
     "newMission": false,
     "unlock": [
@@ -6049,7 +7105,177 @@
     "note": "废弃装备4次"
   },
   {
-    "id": 163,
+    "id": 190,
+    "code": "F11",
+    "newMission": false,
+    "unlock": [
+      "a5"
+    ],
+    "period": 0,
+    "type": 6,
+    "title": {
+      "zh_cn": "输送桶的准备",
+      "ja": "輸送用ドラム缶の準備"
+    },
+    "content": {
+      "zh_cn": "在「工厂」「废弃」3次装备，准备输送用桶！",
+      "ja": "「工廠」で装備アイテムを3回「廃棄」して、輸送用ドラム缶を準備します。"
+    },
+    "reward": {
+      "resource": [
+        0,
+        0,
+        30,
+        0
+      ],
+      "ship": [],
+      "equip": [
+        75,
+        3
+      ],
+      "item": [],
+      "str": ""
+    },
+    "note": "废弃装备3次\u003cbr /\u003e{{待验证"
+  },
+  {
+    "id": 191,
+    "code": "F12",
+    "newMission": false,
+    "unlock": [
+      "Bw5"
+    ],
+    "period": 0,
+    "type": 6,
+    "title": {
+      "zh_cn": "资源的再利用",
+      "ja": "資源の再利用"
+    },
+    "content": {
+      "zh_cn": "在「工厂」尽可能多地「废弃」多余装备，努力使钢材再利用！",
+      "ja": "「工廠」で余剰の装備アイテムをなるべく多く「廃棄」して、鋼材の再利用に努めよう！"
+    },
+    "reward": {
+      "resource": [
+        0,
+        0,
+        100,
+        0
+      ],
+      "ship": [],
+      "equip": [
+        75,
+        1
+      ],
+      "item": [],
+      "str": ""
+    },
+    "note": "废弃装备24次"
+  },
+  {
+    "id": 192,
+    "code": "F13",
+    "newMission": false,
+    "unlock": [
+      "B25"
+    ],
+    "period": 0,
+    "type": 6,
+    "title": {
+      "zh_cn": "机种转换",
+      "ja": "機種転換"
+    },
+    "content": {
+      "zh_cn": "以\u0027\u0027\u0027搭载\u0027\u0027\u0027了「\u003cb\u003e九七式舰攻(友永队)\u003c/b\u003e」的空母作为\u0027\u0027\u0027秘书舰\u0027\u0027\u0027的状态\u0027\u0027\u0027废弃两\u0027\u0027\u0027架「\u003cb\u003e天山\u003c/b\u003e」！",
+      "ja": "「九七式艦攻(友永隊)」搭載空母を秘書艦にした状態で新たに「天山」を2つ廃棄！"
+    },
+    "reward": {
+      "resource": [
+        0,
+        0,
+        0,
+        50
+      ],
+      "ship": [],
+      "equip": [
+        94,
+        1
+      ],
+      "item": [],
+      "str": ""
+    },
+    "note": "\u003cp style\"font-weight:bold;color:#F00\"\u003e任务细节请参考：\u003cbr /\u003e\u003cb\u003e#机种转换\u0026\u0026\u0026机种转换\u003c/b\u003e\u003c/p\u003e"
+  },
+  {
+    "id": 193,
+    "code": "F14",
+    "newMission": false,
+    "unlock": [
+      "B25"
+    ],
+    "period": 0,
+    "type": 6,
+    "title": {
+      "zh_cn": "机种转换",
+      "ja": "機種転換"
+    },
+    "content": {
+      "zh_cn": "以\u0027\u0027\u0027搭载\u0027\u0027\u0027了「\u003cb\u003e九九式舰爆(江草队)\u003c/b\u003e」的空母作为\u0027\u0027\u0027秘书舰\u0027\u0027\u0027的状态\u0027\u0027\u0027废弃\u0027\u0027\u0027两架「\u003cb\u003e彗星\u003c/b\u003e」！",
+      "ja": "「九九式艦爆(江草隊)」搭載空母を秘書艦にした状態で新たに「彗星」を2つ廃棄！"
+    },
+    "reward": {
+      "resource": [
+        0,
+        0,
+        0,
+        50
+      ],
+      "ship": [],
+      "equip": [
+        100,
+        1
+      ],
+      "item": [],
+      "str": ""
+    },
+    "note": "\u003cp style\"font-weight:bold;color:#F00\"\u003e任务细节请参考：\u003cbr /\u003e\u003cb\u003e#机种转换\u0026\u0026\u0026机种转换\u003c/b\u003e\u003c/p\u003e"
+  },
+  {
+    "id": 194,
+    "code": "F15",
+    "newMission": false,
+    "unlock": [
+      "B28"
+    ],
+    "period": 0,
+    "type": 6,
+    "title": {
+      "zh_cn": "机种转换",
+      "ja": "機種転換"
+    },
+    "content": {
+      "zh_cn": "以\u0027\u0027\u0027搭载\u0027\u0027\u0027了「\u003cb\u003e零战52型丙(六〇一空)\u003c/b\u003e」的空母作为\u0027\u0027\u0027秘书舰\u0027\u0027\u0027的状态\u0027\u0027\u0027废弃\u0027\u0027\u0027两架「\u003cb\u003e烈风\u003c/b\u003e」！",
+      "ja": "「零戦52型丙(六〇一空)」搭載空母を秘書艦にした状態で新たに「烈風」を2つ廃棄！"
+    },
+    "reward": {
+      "resource": [
+        0,
+        0,
+        0,
+        50
+      ],
+      "ship": [],
+      "equip": [
+        110,
+        1
+      ],
+      "item": [],
+      "str": ""
+    },
+    "note": "\u003cp style\"font-weight:bold;color:#F00\"\u003e任务细节请参考：\u003cbr /\u003e\u003cb\u003e#机种转换\u0026\u0026\u0026机种转换\u003c/b\u003e\u003c/p\u003e"
+  },
+  {
+    "id": 195,
     "code": "F16",
     "newMission": false,
     "unlock": [
@@ -6083,7 +7309,7 @@
     "note": "废弃装备10次"
   },
   {
-    "id": 164,
+    "id": 196,
     "code": "F17",
     "newMission": false,
     "unlock": [
@@ -6120,7 +7346,7 @@
     "note": "\u003cb\u003e改修\u003c/b\u003e装备1次\u003cbr /\u003e失败也可达成"
   },
   {
-    "id": 165,
+    "id": 197,
     "code": "F18",
     "newMission": false,
     "unlock": [
@@ -6158,7 +7384,75 @@
     "note": "\u003cb\u003e改修\u003c/b\u003e装备1次\u003cbr /\u003e失败也可达成"
   },
   {
-    "id": 166,
+    "id": 198,
+    "code": "F19",
+    "newMission": false,
+    "unlock": [
+      "B50"
+    ],
+    "period": 0,
+    "type": 6,
+    "title": {
+      "zh_cn": "编成精锐「九七式舰攻」部队",
+      "ja": "精鋭「九七式艦攻」部隊の編成"
+    },
+    "content": {
+      "zh_cn": "在「翔鹤」或「赤城」为秘书舰的状态下废弃装备「九七式舰攻」3个！",
+      "ja": "「翔鶴」または「赤城」を秘書艦にした状態で新たに「九七式艦攻」を3つ破棄！"
+    },
+    "reward": {
+      "resource": [
+        0,
+        0,
+        0,
+        50
+      ],
+      "ship": [],
+      "equip": [
+        143,
+        1
+      ],
+      "item": [],
+      "str": ""
+    },
+    "note": "\u003cp style\"font-weight:bold;color:#F00\"\u003e任务细节请参考：\u003cbr /\u003e\u003cb\u003e#机种转换\u0026\u0026\u0026机种转换\u003c/b\u003e\u003c/p\u003e"
+  },
+  {
+    "id": 199,
+    "code": "F20",
+    "newMission": false,
+    "unlock": [
+      "B50"
+    ],
+    "period": 0,
+    "type": 6,
+    "title": {
+      "zh_cn": "机种转换",
+      "ja": "機種転換"
+    },
+    "content": {
+      "zh_cn": "以「翔鹤」为秘书舰并搭载装备「九七式舰攻(村田队)」的状态下废弃装备「天山」两个！",
+      "ja": "「九七式艦攻(村田隊)」搭載「翔鶴」を秘書艦にして、新たに「天山」を2つ廃棄！"
+    },
+    "reward": {
+      "resource": [
+        0,
+        0,
+        0,
+        50
+      ],
+      "ship": [],
+      "equip": [
+        144,
+        1
+      ],
+      "item": [],
+      "str": ""
+    },
+    "note": "\u003cp style\"font-weight:bold;color:#F00\"\u003e任务细节请参考：\u003cbr /\u003e\u003cb\u003e#机种转换\u0026\u0026\u0026机种转换\u003c/b\u003e\u003c/p\u003e"
+  },
+  {
+    "id": 200,
     "code": "F21",
     "newMission": false,
     "unlock": [
@@ -6195,7 +7489,46 @@
     "note": "废弃7个装备完成任务\u003cbr /\u003e"
   },
   {
-    "id": 167,
+    "id": 201,
+    "code": "F22",
+    "newMission": false,
+    "unlock": [
+      "Bm6",
+      "A19"
+    ],
+    "after": [
+      "F24",
+      "F28"
+    ],
+    "period": 0,
+    "type": 6,
+    "title": {
+      "zh_cn": "精锐“舰战”队新编成",
+      "ja": "精鋭「艦戦」隊の新編成"
+    },
+    "content": {
+      "zh_cn": "要熟练搭乘员：以\u003cb\u003e凤翔\u003c/b\u003e为秘书舰，搭载熟练度max的“零战21型”时废弃“零战21型”x2“九六舰战”x1!",
+      "ja": "「要熟練搭乗員：練度max「零戦21型」搭載「鳳翔」秘書艦で「零戦21型」×2「九六艦戦」×1廃棄！"
+    },
+    "reward": {
+      "resource": [
+        0,
+        0,
+        0,
+        50
+      ],
+      "ship": [],
+      "equip": [
+        96,
+        1
+      ],
+      "item": [],
+      "str": ""
+    },
+    "note": "需具备熟练搭乘要员才可完成任务\u003cbr /\u003e任务达成时消耗一个熟练搭乘要员"
+  },
+  {
+    "id": 202,
     "code": "F23",
     "newMission": false,
     "unlock": [
@@ -6230,7 +7563,260 @@
     "note": "可能需要完成其他任务才能开启"
   },
   {
-    "id": 168,
+    "id": 203,
+    "code": "F24",
+    "newMission": false,
+    "unlock": [
+      "F22"
+    ],
+    "after": [
+      "F25",
+      "F26"
+    ],
+    "period": 0,
+    "type": 6,
+    "title": {
+      "zh_cn": "机种转换",
+      "ja": "機種転換"
+    },
+    "content": {
+      "zh_cn": "以搭载“零战21型（熟练）“的航母为秘书舰时废弃“零战52型”x2”!",
+      "ja": "「零戦21型(熟練)」搭載空母を秘書艦にして、新たに「零戦52型」を2つ廃棄！"
+    },
+    "reward": {
+      "resource": [
+        0,
+        0,
+        0,
+        50
+      ],
+      "ship": [],
+      "equip": [
+        152,
+        1
+      ],
+      "item": [],
+      "str": ""
+    },
+    "note": "注意与F25任务的差别\u003cbr /\u003e如果没有开启此任务，可以完成A59后再次尝试"
+  },
+  {
+    "id": 204,
+    "code": "F25",
+    "newMission": false,
+    "unlock": [
+      "F24",
+      "Bm5"
+    ],
+    "period": 0,
+    "type": 6,
+    "title": {
+      "zh_cn": "机种转换",
+      "ja": "機種転換"
+    },
+    "content": {
+      "zh_cn": "以搭载“零战21型（熟练）”熟练度max的航母为秘书舰时废弃“零战52型”x2”!",
+      "ja": "練度max「零戦21型(熟練)」搭載空母を秘書艦にして、新たに「零戦52型」を2つ廃棄！"
+    },
+    "reward": {
+      "resource": [
+        0,
+        0,
+        0,
+        50
+      ],
+      "ship": [],
+      "equip": [
+        152,
+        1
+      ],
+      "item": [],
+      "str": ""
+    },
+    "note": "注意与F24任务的差别"
+  },
+  {
+    "id": 205,
+    "code": "F26",
+    "newMission": false,
+    "unlock": [
+      "F24"
+    ],
+    "after": [
+      "F27"
+    ],
+    "period": 0,
+    "type": 6,
+    "title": {
+      "zh_cn": "“舰战”队再编成",
+      "ja": "「艦戦」隊の再編成"
+    },
+    "content": {
+      "zh_cn": "以搭载“零战52型（熟练）”熟练度max的\u003cb\u003e瑞鹤\u003c/b\u003e为秘书舰时废弃“零战52型丙(六〇一空)””!",
+      "ja": "練度max「零戦52型(熟練)」搭載「瑞鶴」が秘書艦で「零戦52型丙(六〇一空)」を廃棄！"
+    },
+    "reward": {
+      "resource": [
+        0,
+        0,
+        0,
+        50
+      ],
+      "ship": [],
+      "equip": [
+        153,
+        1
+      ],
+      "item": [],
+      "str": ""
+    },
+    "note": "可能还需其他条件才能开启任务"
+  },
+  {
+    "id": 206,
+    "code": "F27",
+    "newMission": false,
+    "unlock": [
+      "F26",
+      "B54"
+    ],
+    "period": 0,
+    "type": 6,
+    "title": {
+      "zh_cn": "机种转换＆部队再编",
+      "ja": "機種転換＆部隊再編"
+    },
+    "content": {
+      "zh_cn": "以搭载“零戦52型丙(付岩井小隊)”熟练度max的\u003cb\u003e瑞鹤\u003c/b\u003e为秘书舰时废弃“零战62型(爆战)””!",
+      "ja": "練度max「零戦52型丙(付岩井小隊)」搭載瑞鶴秘書艦で「零戦62型(爆戦)」を2つ廃棄！"
+    },
+    "reward": {
+      "resource": [
+        0,
+        0,
+        0,
+        50
+      ],
+      "ship": [],
+      "equip": [
+        154,
+        1
+      ],
+      "item": [],
+      "str": ""
+    },
+    "note": ""
+  },
+  {
+    "id": 207,
+    "code": "F28",
+    "newMission": false,
+    "unlock": [
+      "F22"
+    ],
+    "after": [
+      "F29"
+    ],
+    "period": 0,
+    "type": 6,
+    "title": {
+      "zh_cn": "”舰战“队再编成",
+      "ja": "「艦戦」隊の再編成"
+    },
+    "content": {
+      "zh_cn": "以搭载“零戦21型(熟練)”熟练度max的\u003cb\u003e瑞鹤\u003c/b\u003e为秘书舰时废弃“零战21型””!",
+      "ja": "練度max「零戦21型(熟練)」搭載「瑞鶴」が秘書の状態で「零戦21型」を2つ廃棄！"
+    },
+    "reward": {
+      "resource": [
+        0,
+        0,
+        0,
+        50
+      ],
+      "ship": [],
+      "equip": [
+        155,
+        1
+      ],
+      "item": [],
+      "str": ""
+    },
+    "note": "可能还需其他条件才能开启任务"
+  },
+  {
+    "id": 208,
+    "code": "F29",
+    "newMission": false,
+    "unlock": [
+      "F28"
+    ],
+    "after": [
+      "A62"
+    ],
+    "period": 0,
+    "type": 6,
+    "title": {
+      "zh_cn": "机种转换",
+      "ja": "機種転換"
+    },
+    "content": {
+      "zh_cn": "以搭载“零战21型(付岩本小队)”的\u003cb\u003e瑞鹤\u003c/b\u003e为秘书舰时废弃“零战52型””!",
+      "ja": "練度max「零戦21型(付岩本小隊)」搭載「瑞鶴」秘書艦で「零戦52型」を2つ廃棄！"
+    },
+    "reward": {
+      "resource": [
+        0,
+        0,
+        0,
+        50
+      ],
+      "ship": [],
+      "equip": [
+        156,
+        1
+      ],
+      "item": [],
+      "str": ""
+    },
+    "note": ""
+  },
+  {
+    "id": 209,
+    "code": "F30",
+    "newMission": false,
+    "unlock": [
+      "A62"
+    ],
+    "period": 0,
+    "type": 6,
+    "title": {
+      "zh_cn": "机种转换＆部队再编",
+      "ja": "機種転換＆部隊再編"
+    },
+    "content": {
+      "zh_cn": "以搭载“零战52型甲(付岩本小队)”熟练度max的\u003cb\u003e瑞鹤\u003c/b\u003e为秘书舰时废弃“彩云”x2”!",
+      "ja": "部隊を再編する！練度max「零戦52型甲(付岩本小隊)」搭載「瑞鶴」秘書艦で、「彩雲」を2つ廃棄！"
+    },
+    "reward": {
+      "resource": [
+        0,
+        0,
+        0,
+        50
+      ],
+      "ship": [],
+      "equip": [
+        157,
+        1
+      ],
+      "item": [],
+      "str": ""
+    },
+    "note": ""
+  },
+  {
+    "id": 210,
     "code": "F31",
     "newMission": false,
     "unlock": [
@@ -6267,7 +7853,7 @@
     "note": ""
   },
   {
-    "id": 169,
+    "id": 211,
     "code": "F32",
     "newMission": false,
     "unlock": [
@@ -6304,7 +7890,45 @@
     "note": "废弃装备五次"
   },
   {
-    "id": 170,
+    "id": 212,
+    "code": "F33",
+    "newMission": false,
+    "unlock": [
+      "C9",
+      "B46"
+    ],
+    "after": [
+      "B69"
+    ],
+    "period": 0,
+    "type": 6,
+    "title": {
+      "zh_cn": "登陆战用装备的调集",
+      "ja": "上陸戦用新装備の調達"
+    },
+    "content": {
+      "zh_cn": "工厂\u003cb\u003e7.7mm机铳\u003c/b\u003e、\u003cb\u003e12.7mm单装机铳\u003c/b\u003e各废弃两个！",
+      "ja": "「工廠」で「7.7mm機銃」及び「12.7mm単装機銃」を二つずつ廃棄！"
+    },
+    "reward": {
+      "resource": [
+        50,
+        0,
+        0,
+        0
+      ],
+      "ship": [],
+      "equip": [
+        167,
+        1
+      ],
+      "item": [],
+      "str": ""
+    },
+    "note": "\u003cb\u003e7.7mm机铳\u003c/b\u003e、\u003cb\u003e12.7mm单装机铳\u003c/b\u003e各废弃两个"
+  },
+  {
+    "id": 213,
     "code": "G1",
     "newMission": false,
     "unlock": [],
@@ -6336,7 +7960,7 @@
     "note": "\u003cb\u003e近代化改修\u003c/b\u003e成功1次"
   },
   {
-    "id": 171,
+    "id": 214,
     "code": "G2",
     "newMission": false,
     "unlock": [],
@@ -6371,7 +7995,7 @@
     "note": "\u003cb\u003e近代化改修\u003c/b\u003e成功2次"
   },
   {
-    "id": 172,
+    "id": 215,
     "code": "G3",
     "newMission": false,
     "unlock": [
@@ -6407,7 +8031,7 @@
     "note": "\u003cb\u003e近代化改修\u003c/b\u003e成功15次"
   },
   {
-    "id": 173,
+    "id": 216,
     "code": "G4",
     "newMission": false,
     "unlock": [
@@ -6444,7 +8068,7 @@
     "note": "\u003cb\u003e近代化改修\u003c/b\u003e成功4次"
   },
   {
-    "id": 174,
+    "id": 217,
     "code": "WF01",
     "newMission": false,
     "unlock": [
@@ -6481,7 +8105,7 @@
     "note": "废弃装备2次"
   },
   {
-    "id": 175,
+    "id": 218,
     "code": "WC01",
     "newMission": false,
     "unlock": [
@@ -6518,7 +8142,7 @@
     "note": "演习胜利2次"
   },
   {
-    "id": 176,
+    "id": 219,
     "code": "WA01",
     "newMission": false,
     "unlock": [
@@ -6555,7 +8179,7 @@
     "note": "第一舰队旗舰\u003cbr /\u003e配置90级以上的舰娘\u003cbr /\u003e大于100级则不可"
   },
   {
-    "id": 177,
+    "id": 220,
     "code": "WB01",
     "newMission": false,
     "unlock": [
@@ -6592,7 +8216,7 @@
     "note": "旗舰为90级以上的舰娘出击，击破BOSS（S胜）\u003cbr /\u003e可以携带其他舰娘\u003cbr /\u003e旗舰大于100级则不可"
   },
   {
-    "id": 178,
+    "id": 221,
     "code": "WA02",
     "newMission": false,
     "unlock": [
@@ -6629,11 +8253,14 @@
     "note": "第一舰队旗舰\u003cbr /\u003e配置100级以上的舰娘"
   },
   {
-    "id": 179,
+    "id": 222,
     "code": "WB02",
     "newMission": false,
     "unlock": [
       "WA02"
+    ],
+    "after": [
+      "A40"
     ],
     "period": 0,
     "type": 2,
@@ -6660,7 +8287,7 @@
     "note": "旗舰为100级以上的舰娘出击，击破BOSS战（S胜）\u003cbr /\u003e可以携带其他舰娘"
   },
   {
-    "id": 180,
+    "id": 223,
     "code": "A59",
     "newMission": false,
     "unlock": [
@@ -6697,7 +8324,7 @@
     "note": "\u003cb\u003e千岁\u003c/b\u003e、\u003cb\u003e千代田\u003c/b\u003e在改造成轻型航母之前不能达成任务"
   },
   {
-    "id": 181,
+    "id": 224,
     "code": "B53",
     "newMission": false,
     "unlock": [
@@ -6733,7 +8360,44 @@
     "note": "\u003cb\u003e千岁\u003c/b\u003e、\u003cb\u003e千代田\u003c/b\u003e在改造成轻型航母之前不能达成任务\u003cbr /\u003e击破BOSS（S胜利）"
   },
   {
-    "id": 182,
+    "id": 225,
+    "code": "A60",
+    "newMission": false,
+    "unlock": [
+      "B53"
+    ],
+    "period": 0,
+    "type": 1,
+    "title": {
+      "zh_cn": "“第四航空战队”编成！",
+      "ja": "「第四航空戦隊」を編成せよ！"
+    },
+    "content": {
+      "zh_cn": "以航空战舰\u003cb\u003e伊势改\u003c/b\u003e及\u003cb\u003e日向改\u003c/b\u003e为基干战力编成\"第四航空战队\"!",
+      "ja": "航空戦艦「伊勢改」及び「日向改」を基幹戦力とした第四航空戦隊を編成せよ！"
+    },
+    "reward": {
+      "resource": [
+        0,
+        200,
+        0,
+        200
+      ],
+      "ship": [],
+      "equip": [
+        79,
+        1
+      ],
+      "item": [
+        2,
+        2
+      ],
+      "str": ""
+    },
+    "note": ""
+  },
+  {
+    "id": 226,
     "code": "A61",
     "newMission": false,
     "unlock": [
@@ -6770,7 +8434,7 @@
     "note": "\u003cb\u003e千岁\u003c/b\u003e、\u003cb\u003e千代田\u003c/b\u003e在改造成轻型航母之前不能达成任务"
   },
   {
-    "id": 183,
+    "id": 227,
     "code": "A62",
     "newMission": false,
     "unlock": [
@@ -6806,7 +8470,78 @@
     "note": "\u003cb\u003e翔鹤改二\u003c/b\u003e、\u003cb\u003e翔鹤改二甲\u003c/b\u003e都可\u003cb\u003e瑞鹤\u003c/b\u003e同理\u003cbr /\u003e驱逐舰两艘以上"
   },
   {
-    "id": 184,
+    "id": 228,
+    "code": "B54",
+    "newMission": false,
+    "unlock": [
+      "A61"
+    ],
+    "period": 0,
+    "type": 2,
+    "title": {
+      "zh_cn": "“小沢舰队”出击！",
+      "ja": "「小沢艦隊」出撃せよ！"
+    },
+    "content": {
+      "zh_cn": "“小沢舰队”出击\u003cb\u003e冲之岛海域\u003c/b\u003e，捕捉敌方机动部队予以歼灭!",
+      "ja": "「小沢艦隊」を沖ノ島海域前面に展開し、侵攻する敵機動部隊を捕捉、これを撃滅せよ！"
+    },
+    "reward": {
+      "resource": [
+        300,
+        0,
+        300,
+        300
+      ],
+      "ship": [],
+      "equip": [
+        109,
+        1
+      ],
+      "item": [
+        6,
+        3
+      ],
+      "str": ""
+    },
+    "note": "\u0027\u0027\u0027瑞鹤旗舰\u0027\u0027\u0027\u003cbr /\u003e\u003cb\u003e瑞鹤改二\u003c/b\u003e、\u003cb\u003e瑞鹤改二甲\u003c/b\u003e都可\u003cbr /\u003e\u003cb\u003e千岁\u003c/b\u003e、\u003cb\u003e千代田\u003c/b\u003e在改造成轻型航母之前不能达成任务\u003cbr /\u003e击破BOSS（S胜利）"
+  },
+  {
+    "id": 229,
+    "code": "F22",
+    "newMission": false,
+    "unlock": [
+      "Bm6"
+    ],
+    "period": 0,
+    "type": 6,
+    "title": {
+      "zh_cn": "精锐“舰战”队新编成",
+      "ja": "精鋭「艦戦」隊の新編成"
+    },
+    "content": {
+      "zh_cn": "要熟练搭乘员：以\u003cb\u003e凤翔\u003c/b\u003e为秘书舰，搭载熟练度max的“零战21型”时废弃“零战21型”x2“九六舰战”x1!",
+      "ja": "「要熟練搭乗員：練度max「零戦21型」搭載「鳳翔」秘書艦で「零戦21型」×2「九六艦戦」×1廃棄！"
+    },
+    "reward": {
+      "resource": [
+        0,
+        0,
+        0,
+        50
+      ],
+      "ship": [],
+      "equip": [
+        96,
+        1
+      ],
+      "item": [],
+      "str": ""
+    },
+    "note": "需具备熟练搭乘要员才可完成任务\u003cbr /\u003e任务达成时消耗一个熟练搭乘要员"
+  },
+  {
+    "id": 230,
     "code": "F23",
     "newMission": false,
     "unlock": [
@@ -6840,7 +8575,245 @@
     "note": ""
   },
   {
-    "id": 185,
+    "id": 231,
+    "code": "F24",
+    "newMission": false,
+    "unlock": [
+      "F22"
+    ],
+    "period": 0,
+    "type": 6,
+    "title": {
+      "zh_cn": "机种转换",
+      "ja": "機種転換"
+    },
+    "content": {
+      "zh_cn": "以搭载“零战21型（熟练）“的航母为秘书舰时废弃“零战52型”x2”!",
+      "ja": "「零戦21型(熟練)」搭載空母を秘書艦にして、新たに「零戦52型」を2つ廃棄！"
+    },
+    "reward": {
+      "resource": [
+        0,
+        0,
+        0,
+        50
+      ],
+      "ship": [],
+      "equip": [
+        152,
+        1
+      ],
+      "item": [],
+      "str": ""
+    },
+    "note": "注意与F25任务的差别"
+  },
+  {
+    "id": 232,
+    "code": "F25",
+    "newMission": false,
+    "unlock": [
+      "Bm5"
+    ],
+    "period": 0,
+    "type": 6,
+    "title": {
+      "zh_cn": "机种转换",
+      "ja": "機種転換"
+    },
+    "content": {
+      "zh_cn": "以搭载“零战21型（熟练）”熟练度max的航母为秘书舰时废弃“零战52型”x2”!",
+      "ja": "練度max「零戦21型(熟練)」搭載空母を秘書艦にして、新たに「零戦52型」を2つ廃棄！"
+    },
+    "reward": {
+      "resource": [
+        0,
+        0,
+        0,
+        50
+      ],
+      "ship": [],
+      "equip": [
+        152,
+        1
+      ],
+      "item": [],
+      "str": ""
+    },
+    "note": "注意与F24任务的差别"
+  },
+  {
+    "id": 233,
+    "code": "F26",
+    "newMission": false,
+    "unlock": [
+      "F24"
+    ],
+    "period": 0,
+    "type": 6,
+    "title": {
+      "zh_cn": "“舰战”队再编成",
+      "ja": "「艦戦」隊の再編成"
+    },
+    "content": {
+      "zh_cn": "以搭载“零战52型（熟练）”熟练度max的\u003cb\u003e瑞鹤\u003c/b\u003e为秘书舰时废弃“零战52型丙(六〇一空)””!",
+      "ja": "練度max「零戦52型(熟練)」搭載「瑞鶴」が秘書艦で「零戦52型丙(六〇一空)」を廃棄！"
+    },
+    "reward": {
+      "resource": [
+        0,
+        0,
+        0,
+        50
+      ],
+      "ship": [],
+      "equip": [
+        153,
+        1
+      ],
+      "item": [],
+      "str": ""
+    },
+    "note": "可能还需其他条件才能开启任务"
+  },
+  {
+    "id": 234,
+    "code": "F27",
+    "newMission": false,
+    "unlock": [
+      "F26"
+    ],
+    "period": 0,
+    "type": 6,
+    "title": {
+      "zh_cn": "机种转换＆部队再编",
+      "ja": "機種転換＆部隊再編"
+    },
+    "content": {
+      "zh_cn": "以搭载“零戦52型丙(付岩井小隊)”熟练度max的\u003cb\u003e瑞鹤\u003c/b\u003e为秘书舰时废弃“零战62型(爆战)””!",
+      "ja": "練度max「零戦52型丙(付岩井小隊)」搭載瑞鶴秘書艦で「零戦62型(爆戦)」を2つ廃棄！"
+    },
+    "reward": {
+      "resource": [
+        0,
+        0,
+        0,
+        50
+      ],
+      "ship": [],
+      "equip": [
+        154,
+        1
+      ],
+      "item": [],
+      "str": ""
+    },
+    "note": ""
+  },
+  {
+    "id": 235,
+    "code": "F28",
+    "newMission": false,
+    "unlock": [
+      "F22"
+    ],
+    "period": 0,
+    "type": 6,
+    "title": {
+      "zh_cn": "”舰战“队再编成",
+      "ja": "「艦戦」隊の再編成"
+    },
+    "content": {
+      "zh_cn": "以搭载“零戦21型(熟練)”熟练度max的\u003cb\u003e瑞鹤\u003c/b\u003e为秘书舰时废弃“零战21型””!",
+      "ja": "練度max「零戦21型(熟練)」搭載「瑞鶴」が秘書の状態で「零戦21型」を2つ廃棄！"
+    },
+    "reward": {
+      "resource": [
+        0,
+        0,
+        0,
+        50
+      ],
+      "ship": [],
+      "equip": [
+        155,
+        1
+      ],
+      "item": [],
+      "str": ""
+    },
+    "note": "可能还需其他条件才能开启任务"
+  },
+  {
+    "id": 236,
+    "code": "F29",
+    "newMission": false,
+    "unlock": [
+      "F28"
+    ],
+    "period": 0,
+    "type": 6,
+    "title": {
+      "zh_cn": "机种转换",
+      "ja": "機種転換"
+    },
+    "content": {
+      "zh_cn": "以搭载“零战21型(付岩本小队)”的\u003cb\u003e瑞鹤\u003c/b\u003e为秘书舰时废弃“零战52型””!",
+      "ja": "練度max「零戦21型(付岩本小隊)」搭載「瑞鶴」秘書艦で「零戦52型」を2つ廃棄！"
+    },
+    "reward": {
+      "resource": [
+        0,
+        0,
+        0,
+        50
+      ],
+      "ship": [],
+      "equip": [
+        156,
+        1
+      ],
+      "item": [],
+      "str": ""
+    },
+    "note": ""
+  },
+  {
+    "id": 237,
+    "code": "F30",
+    "newMission": false,
+    "unlock": [
+      "A62"
+    ],
+    "period": 0,
+    "type": 6,
+    "title": {
+      "zh_cn": "机种转换＆部队再编",
+      "ja": "機種転換＆部隊再編"
+    },
+    "content": {
+      "zh_cn": "以搭载“零战52型甲(付岩本小队)”熟练度max的\u003cb\u003e瑞鹤\u003c/b\u003e为秘书舰时废弃“彩云”x2”!",
+      "ja": "部隊を再編する！練度max「零戦52型甲(付岩本小隊)」搭載「瑞鶴」秘書艦で、「彩雲」を2つ廃棄！"
+    },
+    "reward": {
+      "resource": [
+        0,
+        0,
+        0,
+        50
+      ],
+      "ship": [],
+      "equip": [
+        157,
+        1
+      ],
+      "item": [],
+      "str": ""
+    },
+    "note": "可能还需其他条件才能开启任务"
+  },
+  {
+    "id": 238,
     "code": "Bd1",
     "newMission": false,
     "unlock": [],
@@ -6880,7 +8853,7 @@
     "note": "出击胜利一次"
   },
   {
-    "id": 186,
+    "id": 239,
     "code": "Bd2",
     "newMission": false,
     "unlock": [
@@ -6929,7 +8902,7 @@
     "note": "出击胜利一次"
   },
   {
-    "id": 187,
+    "id": 240,
     "code": "Bd3",
     "newMission": false,
     "unlock": [
@@ -6963,7 +8936,7 @@
     "note": "出击胜利十次"
   },
   {
-    "id": 188,
+    "id": 241,
     "code": "Bd4",
     "newMission": false,
     "unlock": [
@@ -6997,7 +8970,7 @@
     "note": "击沉敌方3艘正规空母或轻空母\u003cbr /\u003e日期尾数为3/7/0时出现"
   },
   {
-    "id": 189,
+    "id": 242,
     "code": "Bd5",
     "newMission": false,
     "unlock": [
@@ -7037,7 +9010,7 @@
     "note": "击沉敌方3艘补给舰"
   },
   {
-    "id": 190,
+    "id": 243,
     "code": "Bd6",
     "newMission": false,
     "unlock": [
@@ -7071,7 +9044,7 @@
     "note": "击沉敌方补给船5艘\u003cbr /\u003e日期尾数为2或8时出现"
   },
   {
-    "id": 191,
+    "id": 244,
     "code": "Bd7",
     "newMission": false,
     "unlock": [
@@ -7110,7 +9083,7 @@
     "note": "击破\u003cb\u003e南西群岛海域\u003c/b\u003e任意BOSS点五次"
   },
   {
-    "id": 192,
+    "id": 245,
     "code": "Bd8",
     "newMission": false,
     "unlock": [
@@ -7147,7 +9120,7 @@
     "note": "击沉敌方6艘潜艇"
   },
   {
-    "id": 193,
+    "id": 246,
     "code": "C2",
     "newMission": false,
     "unlock": [
@@ -7181,7 +9154,7 @@
     "note": "无论胜负"
   },
   {
-    "id": 194,
+    "id": 247,
     "code": "C3",
     "newMission": false,
     "unlock": [
@@ -7215,7 +9188,7 @@
     "note": ""
   },
   {
-    "id": 195,
+    "id": 248,
     "code": "D2",
     "newMission": false,
     "unlock": [
@@ -7249,7 +9222,7 @@
     "note": "远征3次成功"
   },
   {
-    "id": 196,
+    "id": 249,
     "code": "D3",
     "newMission": false,
     "unlock": [
@@ -7285,7 +9258,7 @@
     "note": "远征10次成功"
   },
   {
-    "id": 197,
+    "id": 250,
     "code": "E3",
     "newMission": false,
     "unlock": [
@@ -7319,7 +9292,7 @@
     "note": "入渠修复舰船5次"
   },
   {
-    "id": 198,
+    "id": 251,
     "code": "E4",
     "newMission": false,
     "unlock": [
@@ -7355,7 +9328,7 @@
     "note": "为舰船补给15次\u003cbr /\u003e注意：为舰队全体补给也只算1次"
   },
   {
-    "id": 199,
+    "id": 252,
     "code": "F5",
     "newMission": false,
     "unlock": [
@@ -7391,7 +9364,7 @@
     "note": "\u003cb\u003e开发\u003c/b\u003e装备1次"
   },
   {
-    "id": 200,
+    "id": 253,
     "code": "F6",
     "newMission": false,
     "unlock": [
@@ -7427,7 +9400,7 @@
     "note": "\u003cb\u003e建造\u003c/b\u003e舰船1次"
   },
   {
-    "id": 201,
+    "id": 254,
     "code": "F7",
     "newMission": false,
     "unlock": [
@@ -7461,7 +9434,7 @@
     "note": "\u003cb\u003e开发\u003c/b\u003e装备3次\u003cbr /\u003e（不论成败）"
   },
   {
-    "id": 202,
+    "id": 255,
     "code": "F8",
     "newMission": false,
     "unlock": [
@@ -7497,7 +9470,7 @@
     "note": "\u003cb\u003e建造\u003c/b\u003e舰船3次"
   },
   {
-    "id": 203,
+    "id": 256,
     "code": "F9",
     "newMission": false,
     "unlock": [
@@ -7531,7 +9504,7 @@
     "note": "解体舰船2次"
   },
   {
-    "id": 204,
+    "id": 257,
     "code": "F18",
     "newMission": false,
     "unlock": [
@@ -7566,7 +9539,7 @@
     "note": "\u003cb\u003e改修\u003c/b\u003e装备1次\u003cbr /\u003e失败也可达成"
   },
   {
-    "id": 205,
+    "id": 258,
     "code": "G2",
     "newMission": false,
     "unlock": [],
@@ -7598,7 +9571,7 @@
     "note": "\u003cb\u003e近代化改修\u003c/b\u003e成功2次"
   },
   {
-    "id": 206,
+    "id": 259,
     "code": "Bw1",
     "newMission": false,
     "unlock": [
@@ -7637,7 +9610,7 @@
     "note": "出击36次\u003cbr /\u003e进入BOSS点24次\u003cbr /\u003eBOSS战胜利12次\u003cbr /\u003eS胜6次"
   },
   {
-    "id": 207,
+    "id": 260,
     "code": "Bw2",
     "newMission": false,
     "unlock": [
@@ -7675,7 +9648,7 @@
     "note": "击沉敌方20艘艘正规空母或轻空母"
   },
   {
-    "id": 208,
+    "id": 261,
     "code": "Bw3",
     "newMission": false,
     "unlock": [
@@ -7709,7 +9682,7 @@
     "note": "击沉敌方20艘补给舰"
   },
   {
-    "id": 209,
+    "id": 262,
     "code": "Bw4",
     "newMission": false,
     "unlock": [
@@ -7749,13 +9722,15 @@
     "note": "击沉敌方50艘补给舰"
   },
   {
-    "id": 210,
+    "id": 263,
     "code": "Bw5",
     "newMission": false,
     "unlock": [
       "Bw2"
     ],
     "after": [
+      "B72",
+      "F12",
       "Bw6",
       "Bw7"
     ],
@@ -7789,7 +9764,7 @@
     "note": "击沉敌方15艘潜水艇"
   },
   {
-    "id": 211,
+    "id": 264,
     "code": "Bw6",
     "newMission": false,
     "unlock": [
@@ -7826,7 +9801,7 @@
     "note": "击破【\u003cb\u003e西方海域\u003c/b\u003e】任意海域BOSS 累积12次"
   },
   {
-    "id": 212,
+    "id": 265,
     "code": "Bw7",
     "newMission": false,
     "unlock": [
@@ -7862,7 +9837,7 @@
     "note": "击破\u003cb\u003e阿尔锋西诺方向(3-3)\u003c/b\u003e\u003cbr /\u003e或\u003cb\u003e北方海域全域(3-4)\u003c/b\u003e\u003cbr /\u003e或\u003cb\u003e北方阿留申海域(3-5)\u003c/b\u003e\u003cbr /\u003eBOSS 累积5次"
   },
   {
-    "id": 213,
+    "id": 266,
     "code": "Bw8",
     "newMission": false,
     "unlock": [
@@ -7901,14 +9876,15 @@
     "note": "击破BOSS"
   },
   {
-    "id": 214,
+    "id": 267,
     "code": "Bw9",
     "newMission": false,
     "unlock": [
       "Bw8"
     ],
     "after": [
-      "B44"
+      "B44",
+      "B62"
     ],
     "period": 2,
     "type": 2,
@@ -7940,7 +9916,7 @@
     "note": "击破BOSS战（S胜）两次"
   },
   {
-    "id": 215,
+    "id": 268,
     "code": "Bw10",
     "newMission": false,
     "unlock": [
@@ -7975,7 +9951,7 @@
     "note": "击破BOSS（A胜利以上）\u003cbr /\u003e累积3次"
   },
   {
-    "id": 216,
+    "id": 269,
     "code": "C4",
     "newMission": false,
     "unlock": [
@@ -8011,7 +9987,7 @@
     "note": ""
   },
   {
-    "id": 217,
+    "id": 270,
     "code": "D4",
     "newMission": false,
     "unlock": [
@@ -8047,7 +10023,7 @@
     "note": "远征30次成功"
   },
   {
-    "id": 218,
+    "id": 271,
     "code": "D9",
     "newMission": false,
     "unlock": [
@@ -8081,7 +10057,7 @@
     "note": "远征「东京急行」\u003cbr /\u003e或「东京急行(二）」\u003cbr /\u003e成功1次"
   },
   {
-    "id": 219,
+    "id": 272,
     "code": "D11",
     "newMission": false,
     "unlock": [
@@ -8117,7 +10093,41 @@
     "note": "远征「东京急行」\u003cbr /\u003e或「东京急行(二)」\u003cbr /\u003e成功7次"
   },
   {
-    "id": 220,
+    "id": 273,
+    "code": "F12",
+    "newMission": false,
+    "unlock": [
+      "Bw5"
+    ],
+    "period": 2,
+    "type": 6,
+    "title": {
+      "zh_cn": "资源的再利用",
+      "ja": "資源の再利用"
+    },
+    "content": {
+      "zh_cn": "在「工厂」尽可能多地「废弃」多余装备，努力使钢材再利用！",
+      "ja": "「工廠」で余剰の装備アイテムをなるべく多く「廃棄」して、鋼材の再利用に努めよう！"
+    },
+    "reward": {
+      "resource": [
+        0,
+        0,
+        100,
+        0
+      ],
+      "ship": [],
+      "equip": [
+        75,
+        1
+      ],
+      "item": [],
+      "str": ""
+    },
+    "note": "废弃装备24次"
+  },
+  {
+    "id": 274,
     "code": "G3",
     "newMission": false,
     "unlock": [
@@ -8153,7 +10163,7 @@
     "note": "\u003cb\u003e近代化改修\u003c/b\u003e成功15次"
   },
   {
-    "id": 221,
+    "id": 275,
     "code": "Bm1",
     "newMission": false,
     "unlock": [
@@ -8193,7 +10203,7 @@
     "note": "使用\u003cb\u003e妙高\u003c/b\u003e/\u003cb\u003e那智\u003c/b\u003e/\u003cb\u003e羽黑\u003c/b\u003e出击，击破BOSS（S胜利）\u003cbr /\u003e可以携带其他舰娘"
   },
   {
-    "id": 222,
+    "id": 276,
     "code": "Bm2",
     "newMission": false,
     "unlock": [
@@ -8229,7 +10239,7 @@
     "note": "队伍中配备\u003cb\u003e潜水艇\u003c/b\u003e出击，击破BOSS（S胜利）3次\u003cbr /\u003e和同名任务\u003cb\u003e#B17\u0026\u0026\u0026B17\u003c/b\u003e注意区分"
   },
   {
-    "id": 223,
+    "id": 277,
     "code": "Bm3",
     "newMission": false,
     "unlock": [
@@ -8265,11 +10275,14 @@
     "note": "击破BOSS（S胜利）\u003cbr /\u003e可以携带其他舰娘\u003cbr /\u003e轻巡/驱逐舰以外的舰种投入将达成不可"
   },
   {
-    "id": 224,
+    "id": 278,
     "code": "Bm4",
     "newMission": false,
     "unlock": [
       "A43"
+    ],
+    "after": [
+      "B32"
     ],
     "period": 3,
     "type": 2,
@@ -8301,7 +10314,7 @@
     "note": "击破BOSS（S胜利）\u003cbr /\u003e可以携带其他舰娘\u003cbr /\u003e航空战舰可以使用，高速战舰投入任务将不能完成。"
   },
   {
-    "id": 225,
+    "id": 279,
     "code": "Bm5",
     "newMission": false,
     "unlock": [
@@ -8309,7 +10322,8 @@
       "B21"
     ],
     "after": [
-      "B57"
+      "B57",
+      "F25"
     ],
     "period": 3,
     "type": 2,
@@ -8341,7 +10355,7 @@
     "note": "击破BOSS（A胜利以上）\u003cbr /\u003e累积10次"
   },
   {
-    "id": 226,
+    "id": 280,
     "code": "Bm6",
     "newMission": false,
     "unlock": [
@@ -8352,6 +10366,7 @@
       "Bq1",
       "A56",
       "A59",
+      "F22",
       "Bm7"
     ],
     "period": 3,
@@ -8384,7 +10399,7 @@
     "note": "击破BOSS（S胜利）\u003cbr /\u003e可以携带其他舰娘"
   },
   {
-    "id": 227,
+    "id": 281,
     "code": "Bm7",
     "newMission": false,
     "unlock": [
@@ -8424,7 +10439,7 @@
     "note": "击破BOSS（S胜利）\u003cbr /\u003e可以携带其他舰娘"
   },
   {
-    "id": 228,
+    "id": 282,
     "code": "C8",
     "newMission": false,
     "unlock": [
@@ -8458,5 +10473,74 @@
       "str": ""
     },
     "note": "（现阶段需要0点过后日常5点刷新之前的关于该任务的报告）演习B胜利七次即可。\u003cbr /\u003e根据提督日常任务完成的情况，该任务的出现会推迟。\u003cbr /\u003eBd2完成之后，有可能需要完成其他任务才能开启本任务（Bd3是否是条件现在在情报收集中）"
+  },
+  {
+    "id": 283,
+    "code": "F22",
+    "newMission": false,
+    "unlock": [
+      "Bm6"
+    ],
+    "period": 3,
+    "type": 6,
+    "title": {
+      "zh_cn": "精锐“舰战”队新编成",
+      "ja": "精鋭「艦戦」隊の新編成"
+    },
+    "content": {
+      "zh_cn": "要熟练搭乘员：以\u003cb\u003e凤翔\u003c/b\u003e为秘书舰，搭载熟练度max的“零战21型”时废弃“零战21型”x2“九六舰战”x1!",
+      "ja": "「要熟練搭乗員：練度max「零戦21型」搭載「鳳翔」秘書艦で「零戦21型」×2「九六艦戦」×1廃棄！"
+    },
+    "reward": {
+      "resource": [
+        0,
+        0,
+        0,
+        50
+      ],
+      "ship": [],
+      "equip": [
+        96,
+        1
+      ],
+      "item": [],
+      "str": ""
+    },
+    "note": "需具备熟练搭乘要员才可完成任务\u003cbr /\u003e任务达成时消耗一个熟练搭乘要员"
+  },
+  {
+    "id": 284,
+    "code": "F25",
+    "newMission": false,
+    "unlock": [
+      "F24",
+      "Bm5"
+    ],
+    "period": 3,
+    "type": 6,
+    "title": {
+      "zh_cn": "机种转换",
+      "ja": "機種転換"
+    },
+    "content": {
+      "zh_cn": "以搭载“零战21型（熟练）”熟练度max的航母为秘书舰时废弃“零战52型”x2”!",
+      "ja": "練度max「零戦21型(熟練)」搭載空母を秘書艦にして、新たに「零戦52型」を2つ廃棄！"
+    },
+    "reward": {
+      "resource": [
+        0,
+        0,
+        0,
+        50
+      ],
+      "ship": [],
+      "equip": [
+        152,
+        1
+      ],
+      "item": [],
+      "str": ""
+    },
+    "note": "注意与F24任务的差别"
   }
 ]

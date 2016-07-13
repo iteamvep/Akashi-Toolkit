@@ -79,6 +79,7 @@ public class MainActivity extends BaseActivity
 
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
+        getSupportActionBar().setTitle(R.string.app_name);
 
         mAppBarLayout = (AppBarLayout) findViewById(R.id.appBarLayout);
 

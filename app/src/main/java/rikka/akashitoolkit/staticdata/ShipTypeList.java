@@ -27,4 +27,17 @@ public class ShipTypeList {
     public static synchronized void clear() {
         sList = null;
     }
+
+    public static ShipType findItemById(Context context, int id) {
+        return findItemById(id, get(context));
+    }
+
+    public static ShipType findItemById(int id, List<ShipType> ships) {
+        for (ShipType item : ships) {
+            if (item.getId() == id) {
+                return item;
+            }
+        }
+        return null;
+    }
 }

@@ -147,7 +147,7 @@
         0,
         0
       ],
-      "award": "高速修复材x1"
+      "award": "\u003cb\u003e高速修复材x1\u003c/b\u003e"
     },
     "require": {
       "totalLevel": 0,
@@ -471,10 +471,10 @@
       "playerXP": "60",
       "shipXP": "50",
       "resourceString": [
-        "50/6",
+        "50\u003cbr\u003e6/h",
         "250\u003cbr\u003e31/h",
         "200\u003cbr\u003e25/h",
-        "50/6"
+        "50\u003cbr\u003e6/h"
       ],
       "resource": [
         50,
@@ -765,8 +765,8 @@
       "resourceString": [
         "\u003cb\u003e400\u003c/b\u003e\u003cbr\u003e67/h",
         "",
-        "50/9",
-        "30/5"
+        "50\u003cbr\u003e9/h",
+        "30\u003cbr\u003e5/h"
       ],
       "resource": [
         0,
@@ -890,7 +890,7 @@
       "shipXP": "\u003cb\u003e400\u003c/b\u003e",
       "resourceString": [
         "",
-        "10/3",
+        "10\u003cbr\u003e3/h",
         "",
         ""
       ],
@@ -931,7 +931,7 @@
       "shipXP": "\u003cb\u003e420\u003c/b\u003e",
       "resourceString": [
         "",
-        "20/5",
+        "20\u003cbr\u003e5/h",
         "",
         "100\u003cbr\u003e25/h"
       ],
@@ -1183,7 +1183,7 @@
         "",
         "",
         "",
-        "100/4"
+        "100\u003cbr\u003e4/h"
       ],
       "resource": [
         0,
@@ -1225,7 +1225,7 @@
         "",
         "",
         "",
-        "100/2"
+        "100\u003cbr\u003e2/h"
       ],
       "resource": [
         0,

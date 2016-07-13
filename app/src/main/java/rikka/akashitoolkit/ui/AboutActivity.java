@@ -38,6 +38,7 @@ public class AboutActivity extends BaseActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle(R.string.about);
 
         if (savedInstanceState == null) {
             AboutFragment fragment = new AboutFragment();

@@ -27,8 +27,10 @@ import java.util.Map;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.model.Ship;
 import rikka.akashitoolkit.model.ShipClass;
+import rikka.akashitoolkit.model.ShipType;
 import rikka.akashitoolkit.staticdata.ShipClassList;
 import rikka.akashitoolkit.staticdata.ShipList;
+import rikka.akashitoolkit.staticdata.ShipTypeList;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.StaticData;
 import rikka.akashitoolkit.ui.BaseItemDisplayActivity;
@@ -161,7 +163,8 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
                                 long id;
                                 if (mSort == 0) {
                                     id = item.getType() * 10;
-                                    curType = ShipList.shipType[item.getType()];
+                                    ShipType shipType = ShipTypeList.findItemById(mActivity, item.getType());
+                                    curType = shipType.getName().get(mActivity);
                                 } else {
                                     ShipClass shipClass = ShipClassList.findItemById(mActivity, item.getClassType());
                                     if (shipClass != null) {

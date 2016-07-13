@@ -5,8 +5,6 @@
     <!-- Get permission for reliable local dispatching on non-Google Play devices. -->
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
 
-    <permission android:name="rikka.akashitoolkit.permission.PushService"/>
-
     <application>
         <!-- Register AnalyticsReceiver and AnalyticsService to support background
          dispatching on non-Google Play devices. -->
@@ -24,8 +22,7 @@
             android:exported="false"/>
 
         <service android:name="com.avos.avoscloud.PushService"
-                 android:exported="true"
-                 android:permission="rikka.akashitoolkit.permission.PushService"/>
+                 android:exported="false"/>
 
         <receiver android:name="com.avos.avoscloud.AVBroadcastReceiver">
             <intent-filter>

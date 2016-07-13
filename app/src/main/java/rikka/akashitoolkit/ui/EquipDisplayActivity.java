@@ -2,13 +2,12 @@ package rikka.akashitoolkit.ui;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.PorterDuff;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.annotation.StringRes;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.content.ContextCompat;
-import android.os.Bundle;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.AppCompatDrawableManager;
 import android.support.v7.widget.Toolbar;
@@ -31,7 +30,6 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
-import java.text.DateFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -40,7 +38,6 @@ import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 
 import rikka.akashitoolkit.R;
@@ -48,8 +45,8 @@ import rikka.akashitoolkit.model.Equip;
 import rikka.akashitoolkit.model.EquipImprovement;
 import rikka.akashitoolkit.model.Ship;
 import rikka.akashitoolkit.model.ShipType;
-import rikka.akashitoolkit.staticdata.EquipList;
 import rikka.akashitoolkit.staticdata.EquipImprovementList;
+import rikka.akashitoolkit.staticdata.EquipList;
 import rikka.akashitoolkit.staticdata.EquipTypeList;
 import rikka.akashitoolkit.staticdata.ShipList;
 import rikka.akashitoolkit.staticdata.ShipTypeList;
@@ -185,7 +182,11 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
         addAttrView(parent, R.string.attr_evasion, mItem.getAttr().getEvasion(), R.drawable.item_attr_dodge);
         addAttrView(parent, R.string.attr_los, mItem.getAttr().getLOS(), R.drawable.item_attr_search);
         addAttrView(parent, R.string.attr_armor, mItem.getAttr().getArmor(), R.drawable.item_attr_armor);
-        addAttrView(parent, R.string.attr_range, mItem.getAttr().getRange(), R.drawable.item_attr_range);
+        if (mItem.getParentType() == 3) {
+            addAttrView(parent, R.string.attr_range_aircraft, mItem.getAttr().getRange(), R.drawable.item_attr_range);
+        } else {
+            addAttrView(parent, R.string.attr_range, mItem.getAttr().getRange(), R.drawable.item_attr_range);
+        }
     }
 
     private void addShipType() {
@@ -587,6 +588,7 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
     private LinearLayout mCurAttrLinearLayout;
     private int attr = 0;
 
+    @SuppressLint("DefaultLocale")
     private void addAttrView(ViewGroup parent, @StringRes int title, int value, int icon) {
         if (value == 0) {
             return;
@@ -611,8 +613,10 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
 
         ((TextView) cell.findViewById(R.id.textView)).setText(title);
 
-        if (icon == R.drawable.item_attr_range) {
+        if (title == R.string.attr_range) {
             ((TextView) cell.findViewById(R.id.textView2)).setText(KCStringFormatter.getRange(cell.getContext(), value));
+        } else if (title == R.string.attr_range_aircraft) {
+            ((TextView) cell.findViewById(R.id.textView2)).setText(String.format("%d", value));
         } else {
             ((TextView) cell.findViewById(R.id.textView2)).setText(String.format("%s%d", value > 0 ? "+" : "", value));
             if (value < 0)

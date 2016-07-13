@@ -24,6 +24,12 @@ import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Locale;
+
+import rikka.akashitoolkit.support.Settings;
+
+import static rikka.akashitoolkit.support.ApiConstParam.Language.JA;
+import static rikka.akashitoolkit.support.ApiConstParam.Language.ZH_CN;
 
 /**
  * Created by Rikka on 2016/3/8.
@@ -189,5 +195,27 @@ public class Utils {
     public static String getMimeType(String fileUrl) {
         String extension = MimeTypeMap.getFileExtensionFromUrl(fileUrl);
         return MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension);
+    }
+
+    public static String getDefaultSettingFromLocale() {
+        switch (Locale.getDefault().getLanguage()) {
+            case "zh":
+                switch (Locale.getDefault().getCountry()) {
+                    case "CN":
+                        return "sc";
+                    default:
+                        return "tc";
+                }
+            case "ja":
+                return "ja";
+        }
+
+        return "en";
+    }
+
+    public static boolean isJapanese(Context context) {
+        return Settings
+                .instance(context)
+                .getIntFromString(Settings.DATA_LANGUAGE, ZH_CN) == JA;
     }
 }
