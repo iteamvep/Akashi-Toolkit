@@ -1,13 +1,18 @@
 package com.example;
 
 import com.example.model.Expedition;
+import com.example.network.RetrofitAPI;
 import com.example.utils.Utils;
 
 import java.io.IOException;
+import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import okhttp3.ResponseBody;
+import retrofit2.Retrofit;
 
 import static com.example.utils.Utils.getUrlStream;
 import static com.example.utils.Utils.objectToJsonFile;
@@ -19,9 +24,23 @@ public class ExpeditionGenerator {
     private static List<Expedition> list = new ArrayList<>();
 
     public static void main(String[] args) throws IOException {
-        System.out.println("getInputStream..");
+        /*System.out.println("getInputStream..");
         String originStr = Utils.streamToString(getUrlStream("http://zh.kcwiki.moe/index.php?title=远征列表&action=raw"));
-        System.out.println("finished..");
+        System.out.println("finished..");*/
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://zh.kcwiki.moe/")
+                .build();
+
+        RetrofitAPI.KcwikiService service = retrofit.create(RetrofitAPI.KcwikiService.class);
+        ResponseBody body = service.getPage("远征列表", "raw").execute().body();
+        Reader reader = body.charStream();
+
+        StringBuilder sb = new StringBuilder();
+        for (int c = reader.read(); c != -1; c = reader.read()) {
+            sb.append((char) c);
+        }
+        String originStr = sb.toString();
 
         originStr = originStr.replaceAll("<span style=\"color:#f00\">([^<]*)</span>", "<b>$1</b>").replaceAll("\\s*=\\s*", "=");
         originStr = originStr.replace("<b>请参见</b><br />[[经验值和头衔#远征32:远洋练习航海经验|'''远征32相关''']]", "(基础经验值＋僚舰加成) ×等级补正");
@@ -35,7 +54,7 @@ public class ExpeditionGenerator {
         objectToJsonFile(list, "app/src/main/assets/Expedition.json");
     }
 
-    private static void getReward(String originStr) throws IOException {
+  private static void getReward(String originStr) throws IOException {
         Pattern r = Pattern.compile("\\{\\{远征报酬表\\|编号 =(\\d+)\\|日文名字 =(.+)\\|中文名字 =(.+)\\|耗时 =(.*\\d+:\\d+.*)\\|提督经验值 =(\\d*)\\|舰娘经验值 =(.*)\\|燃料 =(.*)\\|弹药 =(.*)\\|钢铁 =(.*)\\|铝 =([^\\|\\}]*)(\\|奖励 = ([^\\|]*))?(\\|大成功奖励 = (.*))?\\}\\}".replace(" ", ""));
         Matcher m = r.matcher(originStr);
 
@@ -57,8 +76,8 @@ public class ExpeditionGenerator {
             item.setId(m.group(1));
             item.setType(getType(item.getId()));
 
-            item.getName().setJa(m.group(2));
-            item.getName().setZh_cn(m.group(3));
+            item.getName().setJa(m.group(2).replace("<b>","").replace("</b>",""));
+            item.getName().setZh_cn(m.group(3).replace("<b>","").replace("</b>",""));
             item.setTime(getTime(m.group(4)));
             item.setTimeString(m.group(4));
             item.getReward().setPlayerXP(m.group(5));
@@ -160,7 +179,7 @@ public class ExpeditionGenerator {
             return null;
         }
 
-        return s.replaceAll("(\\D*)(\\d+)(\\D*)/(\\D*)(\\d+.?\\d+)(\\D*)", "$1$2$3<br>$4$5/h$6");
+        return s.replaceAll("(\\D*)(\\d+)(\\D*)/(\\D*)(\\d*.?\\d+)(\\D*)", "$1$2$3<br>$4$5/h$6");
     }
 
     private static String remove(String s) {

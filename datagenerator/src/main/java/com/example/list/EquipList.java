@@ -1,6 +1,7 @@
 package com.example.list;
 
 import com.example.model.Equip;
+import com.example.model.NewEquip;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
@@ -13,12 +14,12 @@ import java.util.List;
  * Created by Rikka on 2016/4/16.
  */
 public class EquipList {
-    private static List<Equip> sList;
+    private static List<NewEquip> sList;
 
-    public static List<Equip> get() {
+    public static List<NewEquip> get() {
         if (sList == null) {
             try {
-                sList = new Gson().fromJson(new JsonReader(new FileReader("app/src/main/assets/Equip.json")), new TypeToken<List<Equip>>() {
+                sList = new Gson().fromJson(new JsonReader(new FileReader("app/src/main/assets/Equip.json")), new TypeToken<List<NewEquip>>() {
                 }.getType());
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
@@ -27,8 +28,8 @@ public class EquipList {
         return sList;
     }
 
-    public static Equip findById(int id) throws FileNotFoundException {
-        for (Equip item :
+    public static NewEquip findById(int id) throws FileNotFoundException {
+        for (NewEquip item :
                 get()) {
             if (item.getId() == id) {
                 return item;
@@ -37,12 +38,12 @@ public class EquipList {
         return null;
     }
 
-    public static Equip findByName(String name) {
+    public static NewEquip findByName(String name) {
         return findByName(name, get());
     }
 
-    public static Equip findByName(String name, List<Equip> list) {
-        for (Equip item :
+    public static NewEquip findByName(String name, List<NewEquip> list) {
+        for (NewEquip item :
                 list) {
             if (item.getName().getJa().equals(name)
                     || item.getName().getZh_cn().equals(name)) {

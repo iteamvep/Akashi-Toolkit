@@ -237,7 +237,7 @@ public class QuestGenerator {
             value = value.replace(m.group(), "");
 
             String name = m.group(1).replace('（', '(').replace('）', ')').trim();
-            Equip equip = EquipList.findByName(name);
+            NewEquip equip = EquipList.findByName(name);
             if (equip != null) {
                 list.add(equip.getId());
                 list.add(stringToInt(m.group(2)));

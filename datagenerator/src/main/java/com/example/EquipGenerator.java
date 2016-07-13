@@ -112,8 +112,8 @@ public class EquipGenerator {
         for (NewEquip item : list) {
             item.setRarity(item.get稀有度().length());
             item.setName(new MultiLanguageEntry());
-            item.getName().setZh_cn(item.getNameCN());
-            item.getName().setJa(item.getNameJP());
+            item.getName().setZh_cn(item.getNameCN().trim());
+            item.getName().setJa(item.getNameJP().trim());
 
             if (item.get装备改修() != null && item.get装备改修2() != null) {
                 item.get装备改修().setShips();
@@ -186,11 +186,11 @@ public class EquipGenerator {
 
             m2 = Pattern.compile("中文装备名字=([^\\|]+)").matcher(str);
             if (m2.find())
-                equip.getName().setZh_cn(m2.group(1));
+                equip.getName().setZh_cn(m2.group(1).trim());
 
             m2 = Pattern.compile("日文装备名字=([^\\|]+)").matcher(str);
             if (m2.find())
-                equip.getName().setJa(m2.group(1));
+                equip.getName().setJa(m2.group(1).trim());
 
             m2 = Pattern.compile("图标=(\\d+)").matcher(str);
             if (m2.find()) {
