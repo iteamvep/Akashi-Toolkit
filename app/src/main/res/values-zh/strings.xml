@@ -94,10 +94,8 @@
     <string name="exp_calc_result_format" formatted="false">合计经验\n%d\n\n每场经验 / 剩余场数\n基础 %d / %d\n旗舰 %d / %d\nMVP %d / %d\nMVP和旗舰 %d / %d</string>
     <string name="exp_calc_error">数据有误</string>
 
-    <string name="ui_language">App language</string>
+    <string name="ui_language">应用语言</string>
     <string name="data_language">数据语言</string>
-    <string name="language_zh">简体中文</string>
-    <string name="language_ja">日语</string>
     <string name="data_language_title">使用日语标题</string>
     <string name="data_language_title_summary">对任务标题等显示日语</string>
     <string name="action_picture">图片</string>

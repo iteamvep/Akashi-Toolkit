@@ -4,12 +4,9 @@ import android.animation.ArgbEvaluator;
 import android.animation.TimeInterpolator;
 import android.animation.ValueAnimator;
 import android.content.Context;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.util.Log;
 import android.webkit.MimeTypeMap;
 
 import com.bumptech.glide.load.model.GlideUrl;
@@ -27,6 +24,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Locale;
 
 import rikka.akashitoolkit.support.Settings;
+import rikka.akashitoolkit.support.StaticData;
 
 import static rikka.akashitoolkit.support.ApiConstParam.Language.JA;
 import static rikka.akashitoolkit.support.ApiConstParam.Language.ZH_CN;
@@ -213,9 +211,18 @@ public class Utils {
         return "en";
     }
 
+    public static int getDefaultDataLanguage() {
+        switch (Locale.getDefault().getLanguage()) {
+            case "zh":
+                return ZH_CN;
+            case "ja":
+                return JA;
+        }
+
+        return ZH_CN;
+    }
+
     public static boolean isJapanese(Context context) {
-        return Settings
-                .instance(context)
-                .getIntFromString(Settings.DATA_LANGUAGE, ZH_CN) == JA;
+        return StaticData.instance(context).dataLanguage == JA;
     }
 }

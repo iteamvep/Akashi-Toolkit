@@ -96,8 +96,6 @@
 
     <string name="ui_language">App language</string>
     <string name="data_language">データ言語</string>
-    <string name="language_zh">簡体中国語</string>
-    <string name="language_ja">日本語</string>
     <string name="data_language_title">日本語タイトル</string>
     <string name="data_language_title_summary">任務名などに日本語で表示する</string>
     <string name="action_picture">画像</string>

@@ -135,7 +135,24 @@ public class SettingActivity extends BaseActivity {
                 }
             });
 
-            final DropDownPreference dropDownPreference = (DropDownPreference) findPreference("ui_language");
+            final DropDownPreference dropDownPreference = (DropDownPreference) findPreference("data_language");
+            dropDownPreference.addItem(Locale.SIMPLIFIED_CHINESE.getDisplayName(), 0);
+            dropDownPreference.addItem(Locale.JAPANESE.getDisplayName(), 1);
+            dropDownPreference.setSelectedValue(Settings.instance(getActivity()).getInt(Settings.DATA_LANGUAGE, Utils.getDefaultDataLanguage()));
+            dropDownPreference.setCallback(new DropDownPreference.Callback() {
+                @Override
+                public boolean onItemSelected(int i, Object o) {
+                    Settings.instance(getActivity()).putInt(Settings.DATA_LANGUAGE, (Integer) o);
+                    StaticData.instance(getActivity()).dataLanguage = (Integer) o;
+
+                    BusProvider
+                            .instance()
+                            .post(new DataChangedAction("any"));
+                    return true;
+                }
+            });
+
+            /*final DropDownPreference dropDownPreference = (DropDownPreference) findPreference("ui_language");
             dropDownPreference.addItem(Locale.SIMPLIFIED_CHINESE.getDisplayName(), "sc");
             dropDownPreference.addItem(Locale.TRADITIONAL_CHINESE.getDisplayName(), "tc");
             dropDownPreference.addItem(Locale.ENGLISH.getDisplayName(), "en");
@@ -159,7 +176,7 @@ public class SettingActivity extends BaseActivity {
                     //((BaseActivity) getActivity()).fakeRecreate();
                     return false;
                 }
-            });
+            });*/
         }
 
         @Override
@@ -231,7 +248,4 @@ public class SettingActivity extends BaseActivity {
                     .post(new PreferenceChangedAction(key));
         }
     }
-
-
-
 }

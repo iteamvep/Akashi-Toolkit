@@ -34,7 +34,7 @@ public class Settings {
 
     public static final String APP_LANGUAGE = "app_language";
 
-    public static final String DATA_LANGUAGE = "data_language";
+    public static final String DATA_LANGUAGE = "data_language_real";
     public static final String DATA_TITLE_LANGUAGE = "data_title_language";
 
     public static final String DOWNLOAD_WIFI_ONLY = "download_wifi_only";

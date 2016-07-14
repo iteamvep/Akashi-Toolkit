@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 
 import rikka.akashitoolkit.R;
+import rikka.akashitoolkit.utils.Utils;
 
 /**
  * Created by Rikka on 2016/4/16.
@@ -13,7 +14,7 @@ import rikka.akashitoolkit.R;
 public class StaticData {
     private static StaticData sInstance;
 
-    //public int language;
+    public int dataLanguage;
     public int versionCode;
     public String versionName;
     public boolean isTablet;
@@ -21,9 +22,9 @@ public class StaticData {
     private static boolean init = false;
 
     private StaticData(Context context) {
-        /*language = Settings
+        dataLanguage = Settings
                 .instance(context)
-                .getIntFromString(Settings.DATA_LANGUAGE, ZH_CN);*/
+                .getInt(Settings.DATA_LANGUAGE, Utils.getDefaultDataLanguage());
 
         if (!init) {
             try {

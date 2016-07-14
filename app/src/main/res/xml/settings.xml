@@ -5,18 +5,15 @@
         android:key="general"
         android:title="@string/category_general">
 
-        <DropDownPreference
+        <!--<DropDownPreference
             android:key="ui_language"
             android:title="@string/ui_language"
-            android:summary="%s"/>
+            android:summary="%s"/>-->
 
         <DropDownPreference
             android:key="data_language"
             android:title="@string/data_language"
-            android:summary="%s"
-            android:entries="@array/data_language"
-            android:entryValues="@array/data_language_value"
-            android:defaultValue="0"/>
+            android:summary="%s"/>
 
         <SwitchPreference
             android:key="data_title_language"
