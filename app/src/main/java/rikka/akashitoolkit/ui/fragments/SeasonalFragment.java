@@ -1,10 +1,11 @@
 package rikka.akashitoolkit.ui.fragments;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -17,8 +18,6 @@ import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,8 +25,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.google.gson.Gson;
 
 import java.io.ByteArrayInputStream;
@@ -43,10 +40,10 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import rikka.akashitoolkit.R;
+import rikka.akashitoolkit.adapter.GalleryAdapter;
 import rikka.akashitoolkit.model.Seasonal;
 import rikka.akashitoolkit.model.ShipVoice;
 import rikka.akashitoolkit.network.RetrofitAPI;
-import rikka.akashitoolkit.support.Statistics;
 import rikka.akashitoolkit.ui.ImageDisplayActivity;
 import rikka.akashitoolkit.ui.MainActivity;
 import rikka.akashitoolkit.support.MusicPlayer;
@@ -183,33 +180,33 @@ public class SeasonalFragment extends Fragment {
     }
 
     private class Adapter extends RecyclerView.Adapter {
-        class ViewHolderTitle extends RecyclerView.ViewHolder {
+        class TitleHolder extends RecyclerView.ViewHolder {
             protected TextView mTitle;
 
-            public ViewHolderTitle(View itemView) {
+            public TitleHolder(View itemView) {
                 super(itemView);
 
                 mTitle = (TextView) itemView.findViewById(android.R.id.title);
             }
         }
 
-        class ViewHolderImage extends RecyclerView.ViewHolder {
-            protected LinearLayout mContainer;
+        class ImageHolder extends RecyclerView.ViewHolder {
+            protected RecyclerView mContainer;
 
-            public ViewHolderImage(View itemView) {
+            public ImageHolder(View itemView) {
                 super(itemView);
                 setIsRecyclable(false);
 
-                mContainer = (LinearLayout) itemView.findViewById(R.id.content_container);
+                mContainer = (RecyclerView) itemView;
             }
         }
 
-        class ViewHolderVoice extends RecyclerView.ViewHolder {
+        class VoiceHolder extends RecyclerView.ViewHolder {
             protected TextView mScene;
             protected TextView mContent;
             protected TextView mContent2;
 
-            public ViewHolderVoice(View itemView) {
+            public VoiceHolder(View itemView) {
                 super(itemView);
 
                 mScene = (TextView) itemView.findViewById(android.R.id.title);
@@ -218,10 +215,10 @@ public class SeasonalFragment extends Fragment {
             }
         }
 
-        class ViewHolderText extends RecyclerView.ViewHolder {
+        class TextHolder extends RecyclerView.ViewHolder {
             protected TextView mText;
 
-            public ViewHolderText(View itemView) {
+            public TextHolder(View itemView) {
                 super(itemView);
 
                 mText = (TextView) itemView.findViewById(android.R.id.title);
@@ -274,16 +271,16 @@ public class SeasonalFragment extends Fragment {
             switch (viewType) {
                 case TYPE_SUBTITLE:
                 case TYPE_TITLE:
-                    return new ViewHolderTitle(
+                    return new TitleHolder(
                             LayoutInflater.from(parent.getContext()).inflate(R.layout.content_item_display_cell, parent, false));
                 case TYPE_ITEM_IMAGE:
-                    return new ViewHolderImage(
-                            LayoutInflater.from(parent.getContext()).inflate(R.layout.ship_illustrations_container, parent, false));
+                    return new ImageHolder(
+                            LayoutInflater.from(parent.getContext()).inflate(R.layout.illustrations_container, parent, false));
                 case TYPE_ITEM_VOICE:
-                    return new ViewHolderVoice(
+                    return new VoiceHolder(
                             LayoutInflater.from(parent.getContext()).inflate(R.layout.item_ship_voice_seasonal, parent, false));
                 case TYPE_ITEM_TEXT:
-                    return new ViewHolderText(
+                    return new TextHolder(
                             LayoutInflater.from(parent.getContext()).inflate(R.layout.item_text_seasonal, parent, false));
             }
 
@@ -294,37 +291,37 @@ public class SeasonalFragment extends Fragment {
         public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
             switch (getItemViewType(position)) {
                 case TYPE_TITLE:
-                    ((ViewHolderTitle) holder).mTitle.setText((String) mData.get(position));
-                    ((ViewHolderTitle) holder).mTitle.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
-                    ((ViewHolderTitle) holder).mTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+                    ((TitleHolder) holder).mTitle.setText((String) mData.get(position));
+                    ((TitleHolder) holder).mTitle.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+                    ((TitleHolder) holder).mTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
                     if (position != 0)
-                        ((ViewHolderTitle) holder).mTitle.getLayoutParams().height = Utils.dpToPx(48);
+                        ((TitleHolder) holder).mTitle.getLayoutParams().height = Utils.dpToPx(48);
                     else
-                        ((ViewHolderTitle) holder).mTitle.getLayoutParams().height = Utils.dpToPx(32);
+                        ((TitleHolder) holder).mTitle.getLayoutParams().height = Utils.dpToPx(32);
                     break;
                 case TYPE_SUBTITLE:
-                    ((ViewHolderTitle) holder).mTitle.setText((String) mData.get(position));
-                    ((ViewHolderTitle) holder).mTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
-                    //((ViewHolderTitle) holder).mTitle.getLayoutParams().height = Utils.dpToPx(32);
+                    ((TitleHolder) holder).mTitle.setText((String) mData.get(position));
+                    ((TitleHolder) holder).mTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
+                    //((TitleHolder) holder).mTitle.getLayoutParams().height = Utils.dpToPx(32);
                     break;
                 case TYPE_ITEM_TEXT:
                     Spanned htmlDescription = Html.fromHtml((String) mData.get(position));
                     String descriptionWithOutExtraSpace = htmlDescription.toString().trim();
-                    ((ViewHolderText) holder).mText.setText(htmlDescription.subSequence(0, descriptionWithOutExtraSpace.length()));
+                    ((TextHolder) holder).mText.setText(htmlDescription.subSequence(0, descriptionWithOutExtraSpace.length()));
                     break;
                 case TYPE_ITEM_IMAGE:
                     setIllustrationContainer(
-                            ((ViewHolderImage) holder).mContainer,
+                            ((ImageHolder) holder).mContainer,
                             (Seasonal.DataEntity.ContentEntity) mData.get(position));
                     break;
                 case TYPE_ITEM_VOICE:
                     final ShipVoice voice = (ShipVoice) mData.get(position);
-                    ((ViewHolderVoice) holder).mContent.setText(voice.getJp());
-                    ((ViewHolderVoice) holder).mContent2.setText(voice.getZh());
+                    ((VoiceHolder) holder).mContent.setText(voice.getJp());
+                    ((VoiceHolder) holder).mContent2.setText(voice.getZh());
 
-                    ((ViewHolderVoice) holder).mScene.setText(voice.getScene());
+                    ((VoiceHolder) holder).mScene.setText(voice.getScene());
 
-                    ((ViewHolderVoice) holder).itemView.setOnClickListener(new View.OnClickListener() {
+                    ((VoiceHolder) holder).itemView.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             try {
@@ -388,7 +385,7 @@ public class SeasonalFragment extends Fragment {
         mAdapter.notifyChanged();
     }
 
-    private void setIllustrationContainer(LinearLayout container, Seasonal.DataEntity.ContentEntity content) {
+    private void setIllustrationContainer(RecyclerView container, final Seasonal.DataEntity.ContentEntity content) {
         if (container.getChildCount() > 0) {
             return;
         }
@@ -400,40 +397,41 @@ public class SeasonalFragment extends Fragment {
             urlList.add(Utils.getKCWikiFileUrl(name));
         }
 
-        for (int i = 0; i < urlList.size(); i++) {
-            String url = urlList.get(i);
+        container.addItemDecoration(new RecyclerView.ItemDecoration() {
+            @Override
+            public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+                super.getItemOffsets(outRect, view, parent, state);
 
-            Log.d(getClass().getSimpleName(), url);
-
-            ImageView imageView = (ImageView) LayoutInflater.from(getContext())
-                    .inflate(R.layout.ship_illustrations, container, false)
-                    .findViewById(R.id.imageView);
-
-            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(Utils.dpToPx(content.getWidth()), Utils.dpToPx(content.getHeight()));
-            lp.rightMargin = Utils.dpToPx(8);
-            imageView.setPadding(Utils.dpToPx(8), Utils.dpToPx(8), Utils.dpToPx(8), Utils.dpToPx(8));
-            imageView.setLayoutParams(lp);
-            imageView.setScaleType(ImageView.ScaleType.valueOf(content.getScale_type()));
-
-            container.addView(imageView);
-
-            final int finalI = i;
-            imageView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(getContext(), ImageDisplayActivity.class);
-                    intent.putStringArrayListExtra(ImageDisplayActivity.EXTRA_URL, (ArrayList<String>) urlList);
-                    intent.putExtra(ImageDisplayActivity.EXTRA_POSITION, finalI);
-                    intent.putExtra(ImageDisplayActivity.EXTRA_TITLE, getString(R.string.app_name));
-                    startActivity(intent);
+                if (parent.getChildAdapterPosition(view) < parent.getAdapter().getItemCount() - 1) {
+                    outRect.right = Utils.dpToPx(8);
                 }
-            });
+            }
+        });
 
-            Glide.with(this)
-                    .load(Utils.getGlideUrl(url))
-                    .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                    .crossFade()
-                    .into(imageView);
-        }
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
+        container.setLayoutManager(layoutManager);
+        GalleryAdapter adapter = new GalleryAdapter() {
+            @Override
+            public void onItemClicked(View v, List<String> data, int position) {
+                Context context = v.getContext();
+
+                Intent intent = new Intent(context, ImageDisplayActivity.class);
+                intent.putStringArrayListExtra(ImageDisplayActivity.EXTRA_URL, (ArrayList<String>) data);
+                intent.putExtra(ImageDisplayActivity.EXTRA_POSITION, position);
+                intent.putExtra(ImageDisplayActivity.EXTRA_TITLE, context.getString(R.string.app_name));
+                context.startActivity(intent);
+            }
+
+            @Override
+            public void onBindViewHolder(ViewHolder holder, int position) {
+                super.onBindViewHolder(holder, position);
+
+                ImageView imageView = (ImageView) holder.itemView;
+                imageView.setLayoutParams(new LinearLayout.LayoutParams(Utils.dpToPx(content.getWidth()), Utils.dpToPx(content.getHeight())));
+                imageView.setScaleType(ImageView.ScaleType.valueOf(content.getScaleType()));
+            }
+        };
+        adapter.setData(urlList);
+        container.setAdapter(adapter);
     }
 }

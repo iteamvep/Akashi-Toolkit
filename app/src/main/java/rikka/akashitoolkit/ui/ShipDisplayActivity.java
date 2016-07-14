@@ -5,6 +5,7 @@ import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Intent;
+import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
@@ -46,8 +47,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -64,6 +63,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import rikka.akashitoolkit.R;
+import rikka.akashitoolkit.adapter.GalleryAdapter;
 import rikka.akashitoolkit.adapter.ViewPagerStateAdapter;
 import rikka.akashitoolkit.model.Equip;
 import rikka.akashitoolkit.model.ExtraIllustration;
@@ -333,8 +333,6 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
         call.enqueue(new Callback<List<ShipVoice>>() {
             @Override
             public void onResponse(Call<List<ShipVoice>> call, Response<List<ShipVoice>> response) {
-                //Gson gson = new Gson();
-                //mAdapter.setData((List<ShipVoice>) gson.fromJson(new JsonReader(new InputStreamReader(response.body().byteStream())), new TypeToken<ArrayList<ShipVoice>>() {}.getType()));
                 mAdapter.setData(response.body());
 
                 Gson gson = new Gson();
@@ -344,7 +342,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
 
             @Override
             public void onFailure(Call<List<ShipVoice>> call, Throwable t) {
-
+                Log.d("ShipDisplayActivity", "voice json download failed");
             }
         });
     }
@@ -640,8 +638,19 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
 
         parent = addCell(parent, R.string.illustration);
 
-        ViewGroup view = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.ship_illustrations_container, parent);
-        LinearLayout container = (LinearLayout) view.findViewById(R.id.content_container);
+        ViewGroup view = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.illustrations_container, parent);
+        RecyclerView container = (RecyclerView) view.findViewById(R.id.content_container);
+
+        container.addItemDecoration(new RecyclerView.ItemDecoration() {
+            @Override
+            public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+                super.getItemOffsets(outRect, view, parent, state);
+
+                if (parent.getChildLayoutPosition(view) < parent.getAdapter().getItemCount() - 1) {
+                    outRect.right = Utils.dpToPx(8);
+                }
+            }
+        });
 
         final List<String> urlList = new ArrayList<>();
 
@@ -671,45 +680,31 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
             }
         }
 
-        for (int i = 0; i < urlList.size(); i++) {
-            String url = urlList.get(i);
-
-            Log.d(getClass().getSimpleName(), url);
-
-            ImageView imageView = (ImageView) LayoutInflater.from(this)
-                    .inflate(R.layout.ship_illustrations, container, false)
-                    .findViewById(R.id.imageView);
-            container.addView(imageView);
-
-            if (mIsEnemy) {
-                imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
-                imageView.setLayoutParams(new LinearLayout.LayoutParams(Utils.dpToPx(150), Utils.dpToPx(150)));
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        container.setLayoutManager(layoutManager);
+        GalleryAdapter adapter = new GalleryAdapter() {
+            @Override
+            public void onItemClicked(View v, List<String> data, int position) {
+                ImageDisplayActivity.start(v.getContext(), data, position, getTaskDescriptionLabel());
             }
 
-            final int finalI = i;
-            imageView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    ImageDisplayActivity.start(v.getContext(), urlList, finalI, getTaskDescriptionLabel());
+            @Override
+            public void onBindViewHolder(ViewHolder holder, int position) {
+                super.onBindViewHolder(holder, position);
+
+                ImageView imageView = (ImageView) holder.itemView;
+
+                if (mIsEnemy) {
+                    imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
+                    imageView.setLayoutParams(new LinearLayout.LayoutParams(Utils.dpToPx(150), Utils.dpToPx(150)));
+                } else {
+                    imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+                    imageView.setLayoutParams(new LinearLayout.LayoutParams(Utils.dpToPx(150), Utils.dpToPx(300)));
                 }
-            });
-
-            /*if (Settings.instance(this).getBoolean(Settings.DOWNLOAD_WIFI_ONLY, false)) {
-                Glide.with(this)
-                        .using(GlideHelper.cacheOnlyStreamLoader)
-                        .load(url)
-                        .placeholder(android.R.drawable.progress_indeterminate_horizontal)
-                        .crossFade()
-                        .into(imageView);
-            } else */{
-                Glide.with(this)
-                        .load(Utils.getGlideUrl(url))
-                        .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                        .crossFade()
-                        .into(imageView);
             }
-
-        }
+        };
+        adapter.setData(urlList);
+        container.setAdapter(adapter);
     }
 
     @SuppressLint("DefaultLocale")

@@ -636,7 +636,7 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
 
         parent = addCell(parent, R.string.illustration);
 
-        ViewGroup view = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.ship_illustrations_container, parent);
+        ViewGroup view = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.illustrations_container, parent);
         LinearLayout container = (LinearLayout) view.findViewById(R.id.content_container);
 
         final List<String> urlList = new ArrayList<>();

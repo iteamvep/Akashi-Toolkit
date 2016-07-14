@@ -1,5 +1,7 @@
 package rikka.akashitoolkit.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 /**
@@ -101,11 +103,11 @@ public class Seasonal {
                 this.height = height;
             }
 
-            public String getScale_type() {
+            public String getScaleType() {
                 return scale_type;
             }
 
-            public void setScale_type(String scale_type) {
+            public void setScaleType(String scale_type) {
                 this.scale_type = scale_type;
             }
 
