@@ -631,6 +631,38 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
         addIllustration(linearLayout);
     }
 
+    private List<String> getIllustrationUrls() {
+        List<String> list = new ArrayList<>();
+
+        if (mItem.getWikiId().equals("030a")
+                || mItem.getWikiId().equals("026a")
+                || mItem.getWikiId().equals("027a")
+                || mItem.getWikiId().equals("065a")
+                || mItem.getWikiId().equals("094a")
+                || mItem.getWikiId().equals("183a")) {
+            list.add(Utils.getKCWikiFileUrl(String.format("KanMusu%sIllust.png", mItem.getWikiId())));
+            list.add(Utils.getKCWikiFileUrl(String.format("KanMusu%sDmgIllust.png", mItem.getWikiId())));
+
+        } else {
+            if (!mIsEnemy) {
+                list.add(Utils.getKCWikiFileUrl(String.format("KanMusu%sIllust.png", mItem.getWikiId().replace("a", ""))));
+                list.add(Utils.getKCWikiFileUrl(String.format("KanMusu%sDmgIllust.png", mItem.getWikiId().replace("a", ""))));
+            } else {
+                list.add(Utils.getKCWikiFileUrl(String.format("ShinkaiSeikan%s.png", mItem.getWikiId())));
+            }
+        }
+
+        ExtraIllustration extraIllustration = ExtraIllustrationList.findItemById(this, mItem.getWikiId());
+        if (extraIllustration != null) {
+            for (String name :
+                    extraIllustration.getImage()) {
+                list.add(Utils.getKCWikiFileUrl(name));
+            }
+        }
+
+        return list;
+    }
+
     private void addIllustration(ViewGroup parent) {
         if (mItem.getWikiId() == null) {
             return;
@@ -639,9 +671,9 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
         parent = addCell(parent, R.string.illustration);
 
         ViewGroup view = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.illustrations_container, parent);
-        RecyclerView container = (RecyclerView) view.findViewById(R.id.content_container);
+        final RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.content_container);
 
-        container.addItemDecoration(new RecyclerView.ItemDecoration() {
+        recyclerView.addItemDecoration(new RecyclerView.ItemDecoration() {
             @Override
             public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
                 super.getItemOffsets(outRect, view, parent, state);
@@ -652,37 +684,9 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
             }
         });
 
-        final List<String> urlList = new ArrayList<>();
-
-        if (mItem.getWikiId().equals("030a")
-                || mItem.getWikiId().equals("026a")
-                || mItem.getWikiId().equals("027a")
-                || mItem.getWikiId().equals("065a")
-                || mItem.getWikiId().equals("094a")
-                || mItem.getWikiId().equals("183a")) {
-            urlList.add(Utils.getKCWikiFileUrl(String.format("KanMusu%sIllust.png", mItem.getWikiId())));
-            urlList.add(Utils.getKCWikiFileUrl(String.format("KanMusu%sDmgIllust.png", mItem.getWikiId())));
-
-        } else {
-            if (!mIsEnemy) {
-                urlList.add(Utils.getKCWikiFileUrl(String.format("KanMusu%sIllust.png", mItem.getWikiId().replace("a", ""))));
-                urlList.add(Utils.getKCWikiFileUrl(String.format("KanMusu%sDmgIllust.png", mItem.getWikiId().replace("a", ""))));
-            } else {
-                urlList.add(Utils.getKCWikiFileUrl(String.format("ShinkaiSeikan%s.png", mItem.getWikiId())));
-            }
-        }
-
-        ExtraIllustration extraIllustration = ExtraIllustrationList.findItemById(this, mItem.getWikiId());
-        if (extraIllustration != null) {
-            for (String name :
-                    extraIllustration.getImage()) {
-                urlList.add(Utils.getKCWikiFileUrl(name));
-            }
-        }
-
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-        container.setLayoutManager(layoutManager);
-        GalleryAdapter adapter = new GalleryAdapter() {
+        recyclerView.setLayoutManager(layoutManager);
+        final GalleryAdapter adapter = new GalleryAdapter() {
             @Override
             public void onItemClicked(View v, List<String> data, int position) {
                 ImageDisplayActivity.start(v.getContext(), data, position, getTaskDescriptionLabel());
@@ -703,8 +707,15 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
                 }
             }
         };
-        adapter.setData(urlList);
-        container.setAdapter(adapter);
+        adapter.setData(getIllustrationUrls());
+
+        // or outer RecyclerView will scroll down
+        recyclerView.post(new Runnable() {
+            @Override
+            public void run() {
+                recyclerView.setAdapter(adapter);
+            }
+        });
     }
 
     @SuppressLint("DefaultLocale")
