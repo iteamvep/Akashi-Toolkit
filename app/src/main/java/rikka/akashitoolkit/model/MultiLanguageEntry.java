@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 
 import rikka.akashitoolkit.support.Settings;
+import rikka.akashitoolkit.support.StaticData;
 
 import static rikka.akashitoolkit.support.ApiConstParam.Language.JA;
 import static rikka.akashitoolkit.support.ApiConstParam.Language.ZH_CN;
@@ -32,9 +33,7 @@ public class MultiLanguageEntry {
 
     public String get(Context context) {
         String s = null;
-        switch (Settings
-                .instance(context)
-                .getIntFromString(Settings.DATA_LANGUAGE, ZH_CN)) {
+        switch (StaticData.instance(context).dataLanguage) {
             case ZH_CN:
                 s = zh_cn;
                 break;
