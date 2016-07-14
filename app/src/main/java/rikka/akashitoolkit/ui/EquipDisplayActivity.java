@@ -2,6 +2,7 @@ package rikka.akashitoolkit.ui;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Rect;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.StringRes;
@@ -10,6 +11,8 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.AppCompatDrawableManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.text.Spanned;
@@ -27,9 +30,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -41,6 +41,7 @@ import java.util.List;
 import java.util.Map;
 
 import rikka.akashitoolkit.R;
+import rikka.akashitoolkit.adapter.GalleryAdapter;
 import rikka.akashitoolkit.model.Equip;
 import rikka.akashitoolkit.model.EquipImprovement;
 import rikka.akashitoolkit.model.Ship;
@@ -637,22 +638,54 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
         parent = addCell(parent, R.string.illustration);
 
         ViewGroup view = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.illustrations_container, parent);
-        LinearLayout container = (LinearLayout) view.findViewById(R.id.content_container);
+        final RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.content_container);
 
         final List<String> urlList = new ArrayList<>();
         urlList.add(Utils.getKCWikiFileUrl(String.format("Soubi%03dFull.png", mItem.getId())));
         urlList.add(Utils.getKCWikiFileUrl(String.format("Soubi%03dArnament.png", mItem.getId())));
         urlList.add(Utils.getKCWikiFileUrl(String.format("Soubi%03dFairy.png", mItem.getId())));
 
-        for (int i = 0; i < urlList.size(); i++) {
+        recyclerView.addItemDecoration(new RecyclerView.ItemDecoration() {
+            @Override
+            public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+                super.getItemOffsets(outRect, view, parent, state);
+
+                if (parent.getChildLayoutPosition(view) < parent.getAdapter().getItemCount() - 1) {
+                    outRect.right = Utils.dpToPx(8);
+                }
+            }
+        });
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        recyclerView.setLayoutManager(layoutManager);
+        final GalleryAdapter adapter = new GalleryAdapter() {
+            @Override
+            public void onItemClicked(View v, List<String> data, int position) {
+                ImageDisplayActivity.start(v.getContext(), data, position, getTaskDescriptionLabel());
+            }
+
+            @Override
+            public void onBindViewHolder(ViewHolder holder, int position) {
+                super.onBindViewHolder(holder, position);
+
+                ImageView imageView = (ImageView) holder.itemView;
+                imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                imageView.setLayoutParams(new LinearLayout.LayoutParams(Utils.dpToPx(150), Utils.dpToPx(150)));
+            }
+        };
+        adapter.setData(urlList);
+        recyclerView.setAdapter(adapter);
+
+
+        /*for (int i = 0; i < urlList.size(); i++) {
             String url = urlList.get(i);
 
             Log.d(getClass().getSimpleName(), url);
 
             ImageView imageView = (ImageView) LayoutInflater.from(this)
-                    .inflate(R.layout.equip_illustrations, container, false)
+                    .inflate(R.layout.equip_illustrations, recyclerView, false)
                     .findViewById(R.id.imageView);
-            container.addView(imageView);
+            recyclerView.addView(imageView);
 
             final int finalI = i;
             imageView.setOnClickListener(new View.OnClickListener() {
@@ -671,7 +704,7 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
                     .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                     .crossFade()
                     .into(imageView);
-        }
+        }*/
     }
 
     @Override
