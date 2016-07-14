@@ -29,6 +29,7 @@ import rikka.akashitoolkit.staticdata.QuestList;
 import rikka.akashitoolkit.staticdata.ShipList;
 import rikka.akashitoolkit.staticdata.ShipTypeList;
 import rikka.akashitoolkit.support.Settings;
+import rikka.akashitoolkit.utils.Utils;
 
 /**
  * Created by Rikka on 2016/3/9.
@@ -252,10 +253,10 @@ public class QuestAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Quest> 
 
         if (quest.isNewMission()) {
             holder.mType[viewType].setVisibility(View.VISIBLE);
-            holder.mType[viewType].setText("新");
+            holder.mType[viewType].setText(mContext.getString(R.string.quest_new));
         }
 
-        if (quest.getNote() != null && quest.getNote().length() > 0) {
+        if (!Utils.isJapanese(mContext) && quest.getNote() != null && quest.getNote().length() > 0) {
             holder.mNote.setVisibility(View.VISIBLE);
 
             Spanned htmlDescription = Html.fromHtml(quest.getNote());
@@ -315,14 +316,14 @@ public class QuestAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Quest> 
 
         if (mData.get(position).getUnlock() != null && mData.get(position).getUnlock().size() > 0) {
             View view = LayoutInflater.from(mContext).inflate(R.layout.card_quest_next_header, holder.mQuestContainer, false);
-            ((TextView) view).setText("前置任务");
+            ((TextView) view).setText(mContext.getString(R.string.quest_before));
             holder.mQuestContainer.addView(view);
             addUnlockQuestViews(holder, mData.get(position).getUnlock(), "%s %s");
         }
 
         if (mData.get(position).getAfter() != null && mData.get(position).getAfter().size() > 0) {
             View view = LayoutInflater.from(mContext).inflate(R.layout.card_quest_next_header, holder.mQuestContainer, false);
-            ((TextView) view).setText("后续任务");
+            ((TextView) view).setText(mContext.getString(R.string.quest_after));
             holder.mQuestContainer.addView(view);
             addUnlockQuestViews(holder, mData.get(position).getAfter(), "%s %s");
         }
@@ -385,13 +386,13 @@ public class QuestAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Quest> 
 
             @Override
             protected void onPostExecute(Void aVoid) {
-                Log.d("QAQ",
+                /*Log.d("QuestAdapter",
                         Integer.toString(mData.size()) + " " +
                                 Integer.toString(mType) + " " +
                                 (mKeyword == null ? "null" : mKeyword) + " " +
                                 (mIsSearching ? "true" : "false") + " " +
                                 (mLatestOnly ? "true" : "false") + " "
-                );
+                );*/
 
                 notifyDataSetChanged();
             }

@@ -104,7 +104,7 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewH
                         lastType = equip.getType();
                         EquipType equipType = EquipTypeList.findItemById(mActivity, equip.getType());
                         if (equipType != null)
-                            newList.add(new Data(equipType.getName(), 1, equipType.getId() * 10000));
+                            newList.add(new Data(equipType.getName(mActivity), 1, equipType.getId() * 10000));
                     }
 
                     newList.add(new Data(equip, 0, equip.getId()));

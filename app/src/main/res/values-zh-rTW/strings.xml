@@ -230,4 +230,19 @@
 
     <string name="equip_improve_list_ship_format">秘书舰: %s</string>
 
+    <string name="quest_before">前置任务</string>
+    <string name="quest_after">后续任务</string>
+    <string name="quest_new">新</string>
+    <string name="quest_latest">最新</string>
+
+    <string name="quest_normal">常规任务</string>
+    <string name="quest_daily">日常任务</string>
+    <string name="quest_weekly">周常任务</string>
+    <string name="quest_monthly">月常任务</string>
+
+    <string name="search_hint_quest">搜索名称、介绍…</string>
+    <string name="search_hint_ship">搜索名称、罗马音、中文名拼音…</string>
+
+    <string name="search_result">搜索结果</string>
+
 </resources>

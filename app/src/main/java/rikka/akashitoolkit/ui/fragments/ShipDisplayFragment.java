@@ -425,15 +425,15 @@ public class ShipDisplayFragment extends BaseSearchFragment {
                 return bundle;
             }
         };
-        adapter.addFragment(ShipFragment.class, "全部");
-        adapter.addFragment(BookmarkNoItemFragment.class, "全部");
+        adapter.addFragment(ShipFragment.class, getString(R.string.all));
+        adapter.addFragment(BookmarkNoItemFragment.class, getString(R.string.all));
 
         return adapter;
     }
 
     @Override
     public String getSearchHint() {
-        return "搜索名称、罗马音、中文名拼音…";
+        return getString(R.string.search_hint_ship);
     }
 
     @Subscribe

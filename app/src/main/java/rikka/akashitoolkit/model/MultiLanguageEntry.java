@@ -65,4 +65,13 @@ public class MultiLanguageEntry {
     public void setJa(String ja) {
         this.ja = ja;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof MultiLanguageEntry) {
+            return (zh_cn == null || zh_cn.equals(((MultiLanguageEntry) obj).getZh_cn()))
+                    && (ja == null || ja.equals(((MultiLanguageEntry) obj).getJa()));
+        }
+        return false;
+    }
 }

@@ -14,6 +14,7 @@ import java.util.Map;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.ViewPagerStateAdapter;
+import rikka.akashitoolkit.model.MultiLanguageEntry;
 import rikka.akashitoolkit.otto.BookmarkAction;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.staticdata.EquipTypeList;
@@ -97,9 +98,8 @@ public class EquipViewPagerFragment extends Fragment {
             }
         };
 
-        for (Map.Entry<String, Integer> entry :
-                EquipTypeList.getsParentList(getContext()).entrySet()) {
-            mViewPagerAdapter.addFragment(EquipFragment.class, entry.getKey());
+        for (MultiLanguageEntry entry : EquipTypeList.getsParentList(getContext())) {
+            mViewPagerAdapter.addFragment(EquipFragment.class, entry.get(getActivity()));
         }
 
         return mViewPagerAdapter;

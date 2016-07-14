@@ -7,12 +7,14 @@ import android.widget.ImageView;
 import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.model.EquipType;
+import rikka.akashitoolkit.model.MultiLanguageEntry;
 import rikka.akashitoolkit.utils.Utils;
 
 /**
@@ -22,7 +24,7 @@ public class EquipTypeList {
     private static final String FILE_NAME = "EquipType.json";
 
     private static List<EquipType> sList;
-    private static Map<String, Integer> sParentList;
+    private static List<MultiLanguageEntry> sParentList;
 
     public static synchronized List<EquipType> get(Context context) {
         if (sList == null) {
@@ -40,7 +42,7 @@ public class EquipTypeList {
         sList = null;
     }
 
-    public static synchronized Map<String, Integer> getsParentList(Context context) {
+    public static synchronized List<MultiLanguageEntry> getsParentList(Context context) {
         if (sParentList == null) {
             get(context);
         }
@@ -62,16 +64,18 @@ public class EquipTypeList {
             return;
         }
 
-        sParentList = new LinkedHashMap<>();
+        sParentList = new ArrayList<>();
+        Map<String, Integer> map = new HashMap<>();
 
         for (EquipType item:
                 list) {
 
-            if (sParentList.get(item.getParentName()) == null) {
-                sParentList.put(item.getParentName(), sParentList.size() + 1);
+            if (map.get(item.getParentName().getZh_cn()) == null) {
+                sParentList.add(item.getParentName());
+                map.put(item.getParentName().getZh_cn(), sParentList.size());
             }
 
-            item.setPatentId(sParentList.get(item.getParentName()));
+            item.setPatentId(map.get(item.getParentName().getZh_cn()));
         }
     }
 

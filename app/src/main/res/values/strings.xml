@@ -248,4 +248,20 @@ Activity &amp; Extra:
     <string name="final_remodel">Final remodeled</string>
 
     <string name="equip_improve_list_ship_format">Ship: %s</string>
+
+    <string name="quest_before">Quest before</string>
+    <string name="quest_after">Quest after</string>
+    <string name="quest_new">New</string>
+    <string name="quest_latest">Latest</string>
+
+    <string name="quest_normal">Normal quest</string>
+    <string name="quest_daily">Daily quest</string>
+    <string name="quest_weekly">Weekly quest</string>
+    <string name="quest_monthly">Monthly quest</string>
+
+    <string name="search_hint_quest">Search name, introduction…</string>
+    <string name="search_hint_ship">Search name, Rōmaji, Pinyin…</string>
+
+    <string name="search_result">Search result</string>
+
 </resources>

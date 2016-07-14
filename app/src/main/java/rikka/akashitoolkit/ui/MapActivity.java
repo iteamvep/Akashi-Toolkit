@@ -19,10 +19,8 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 
 import rikka.akashitoolkit.R;
-import rikka.akashitoolkit.model.EnemyShip;
 import rikka.akashitoolkit.model.MapDetail;
 import rikka.akashitoolkit.model.Ship;
-import rikka.akashitoolkit.staticdata.EnemyShipList;
 import rikka.akashitoolkit.staticdata.MapDetailList;
 import rikka.akashitoolkit.staticdata.ShipList;
 import rikka.akashitoolkit.support.StaticData;
@@ -208,6 +206,10 @@ public class MapActivity extends BaseItemDisplayActivity {
     }
     
     private void addEnemy(ViewGroup parent, MapDetail.PointsEntity point) {
+        if (point.getFleets() == null) {
+            return;
+        }
+
         String lastPoint = "";
 
         for (MapDetail.PointsEntity.FleetsEntity fleets: point.getFleets()) {
@@ -223,7 +225,7 @@ public class MapActivity extends BaseItemDisplayActivity {
             StringBuilder sb = new StringBuilder();
             for (Integer shipId:
                     fleets.getShips()) {
-                EnemyShip ship = EnemyShipList.findItemById(this, shipId);
+                Ship ship = ShipList.findItemById(this, shipId);
                 if (ship != null) {
                     sb.append(ship.getName().get(this)).append("\t");
                 }

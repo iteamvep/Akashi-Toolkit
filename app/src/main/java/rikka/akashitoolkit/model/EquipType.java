@@ -1,5 +1,7 @@
 package rikka.akashitoolkit.model;
 
+import android.content.Context;
+
 import com.google.gson.annotations.SerializedName;
 
 /**
@@ -16,8 +18,8 @@ public class EquipType {
     private int id;
     private int patent_id;
     @SerializedName("parent")
-    private String parent_name;
-    private String name;
+    private MultiLanguageEntry parent_name;
+    private MultiLanguageEntry name;
 
     public int getId() {
         return id;
@@ -35,19 +37,23 @@ public class EquipType {
         this.patent_id = patent_id;
     }
 
-    public String getParentName() {
+    public String getParentName(Context context) {
+        return parent_name.get(context);
+    }
+
+    public MultiLanguageEntry getParentName() {
         return parent_name;
     }
 
-    public void setParentName(String parent) {
+    public void setParentName(MultiLanguageEntry parent) {
         this.parent_name = parent;
     }
 
-    public String getName() {
-        return name;
+    public String getName(Context context) {
+        return name.get(context);
     }
 
-    public void setName(String name) {
+    public void setName(MultiLanguageEntry name) {
         this.name = name;
     }
 }

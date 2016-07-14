@@ -36,7 +36,7 @@ public class ApiConstParam {
     public static Map<String, Long> DATA_JSON_VERSION = new HashMap<String, Long>() {
         @Override
         public Long get(Object key) {
-            return containsKey(key) ? super.get(key) : 1;
+            return containsKey(key) ? super.get(key) : BuildConfig.TIMESTAMP;
         }
     };
 
@@ -55,8 +55,6 @@ public class ApiConstParam {
         DATA_JSON_VERSION.put("MapType.json", BuildConfig.TIMESTAMP);
 
         DATA_JSON_VERSION.put("Quest.json", BuildConfig.TIMESTAMP);
-
-        DATA_JSON_VERSION.put("EnemyShip.json", BuildConfig.TIMESTAMP);
     }
 
     public static Map<String, String> DATA_JSON_NAME = new HashMap<>();
@@ -76,7 +74,5 @@ public class ApiConstParam {
         DATA_JSON_NAME.put("MapDetail.json", "海图数据");
 
         DATA_JSON_NAME.put("Quest.json", "任务数据");
-
-        DATA_JSON_NAME.put("EnemyShip.json", "敌舰数据");
     }
 }

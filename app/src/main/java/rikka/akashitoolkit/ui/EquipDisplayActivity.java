@@ -156,7 +156,7 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
         getSupportActionBar().setSubtitle(String.format(
                 "No. %d %s",
                 mItem.getId(),
-                EquipTypeList.findItemById(this, mItem.getType()).getName()
+                EquipTypeList.findItemById(this, mItem.getType()).getName(this)
                 /*KCStringFormatter.getStars(mItem.getRarity())*/));
 
         addAttrViews(mLinearLayout);

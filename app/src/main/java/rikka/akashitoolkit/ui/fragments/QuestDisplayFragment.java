@@ -78,10 +78,10 @@ public class QuestDisplayFragment extends BaseSearchFragment implements CheckBox
         mActivity.getRightDrawerContent().addTitle(getString(R.string.action_filter));
         mActivity.getRightDrawerContent().addDividerHead();
         CheckBoxGroup cbg = new CheckBoxGroup(getContext());
-        cbg.addItem("常规任务");
-        cbg.addItem("日常任务");
-        cbg.addItem("周常任务");
-        cbg.addItem("月常任务");
+        cbg.addItem(getString(R.string.quest_normal));
+        cbg.addItem(getString(R.string.quest_daily));
+        cbg.addItem(getString(R.string.quest_weekly));
+        cbg.addItem(getString(R.string.quest_monthly));
         cbg.setOnCheckedChangeListener(this);
         cbg.setChecked(mFlag);
         cbg.setPadding(0, Utils.dpToPx(4), 0, Utils.dpToPx(4));
@@ -203,7 +203,7 @@ public class QuestDisplayFragment extends BaseSearchFragment implements CheckBox
                     return bundle;
                 }
             };
-            adapter.addFragment(QuestFragment.class, "最新");
+            adapter.addFragment(QuestFragment.class, getString(R.string.quest_latest));
 
             adapter.addFragment(QuestFragment.class, "編成");
             adapter.addFragment(QuestFragment.class, "出擊");
@@ -226,8 +226,8 @@ public class QuestDisplayFragment extends BaseSearchFragment implements CheckBox
                     return bundle;
                 }
             };
-            adapter.addFragment(QuestFragment.class, "全部");
-            adapter.addFragment(QuestFragment.class, "搜索结果");
+            adapter.addFragment(QuestFragment.class, getString(R.string.all));
+            adapter.addFragment(QuestFragment.class, getString(R.string.search_result));
         }
 
         return adapter;
@@ -263,6 +263,6 @@ public class QuestDisplayFragment extends BaseSearchFragment implements CheckBox
 
     @Override
     public String getSearchHint() {
-        return "搜索名称、介绍…";
+        return getString(R.string.search_hint_quest);
     }
 }
