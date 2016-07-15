@@ -190,7 +190,7 @@ public class MessageFragment extends Fragment {
                     CheckUpdate.class);
 
             // clear old messages
-            if (data.getMessages() != null)
+            if (data != null && data.getMessages() != null)
                 data.getMessages().clear();
 
             updateData(data);
