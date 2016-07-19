@@ -65,7 +65,7 @@
     <string name="reset_read_summary">既読メッセージとアップデート通知をリセット</string>
     <string name="read_status_reset">リセットしました</string>
     <string name="stable">安定バージョン</string>
-    <string name="latest">最新バージョン (もっと多くのバッグが出てしまうかも知れない)</string>
+    <string name="latest">最新バージョン (より多くのバッグが出てしまうかも知れない)</string>
     <string name="please_refresh">手動で更新してください</string>
     <string name="open_link">リンクを開く</string>
     <string name="todo_card_format" formatted="false">現在のバージョン: %s\n%s</string>
@@ -94,7 +94,7 @@
     <string name="exp_calc_result_format" formatted="false">必要経験値\n%d\n\n1回あたり / 戦闘回数\n基礎 %d / %d\n旗艦 %d / %d\nMVP %d / %d\nMVP + 旗艦 %d / %d</string>
     <string name="exp_calc_error">データエラー</string>
 
-    <string name="ui_language">App language</string>
+    <string name="ui_language">アプリ言語</string>
     <string name="data_language">データ言語</string>
     <string name="data_language_title">日本語タイトル</string>
     <string name="data_language_title_summary">任務名などに日本語で表示する</string>
@@ -102,7 +102,7 @@
     <string name="illustration">図鑑</string>
     <string name="remodel">改造</string>
     <string name="equip_and_load">初期装備 &amp; 艦載</string>
-    <string name="equip_not_found">装備が見つからなかった (id: %d)</string>
+    <string name="equip_not_found">装備が見つかりませんでした (id: %d)</string>
     <string name="not_equipped">未装備</string>
     <string name="initial">初期ステータス</string>
     <string name="saved">保存 %s</string>
@@ -138,7 +138,7 @@
     <string name="restart_app">再起動</string>
     <string name="continue_use">使い続け</string>
 
-    <string name="night_mode_system_auto">システム夜間モード設定は自動となります、アプリ内で自動と設定しても無効の可能性があります。</string>
+    <string name="night_mode_system_auto">端末の夜間モード設定は自動となります、アプリ内で自動と設定しても夜間モードに入らない可能性があります。</string>
 
     <string name="nav_bar_color">ナビバーの色を有効</string>
     <string name="nav_bar_color_summary">テーマカラーを使う</string>
@@ -216,34 +216,34 @@
 
     <string name="improvement_branch" formatted="false">分岐 → %s</string>
     <string name="improvement_any">無</string>
-    <string name="improvement_resource">改修必要資材</string>
-    <string name="improvement_upgrade">更新必要資材</string>
+    <string name="improvement_resource">改修資材</string>
+    <string name="improvement_upgrade">更新資材</string>
     <string name="improvement_upgrade_to">更新先</string>
 
     <string name="open_in_new_document">分離タスク</string>
     <string name="open_in_new_document_summary">最近使ったアプリ履歴画面に単なるタスクの形で別々の詳情ページを表示</string>
 
-    <string name="show_ship_banner">Show ship banner</string>
-    <string name="show_ship_banner_summary">Show banner in ship list and enemy list</string>
+    <string name="show_ship_banner">艦娘バナーを表示</string>
+    <string name="show_ship_banner_summary">艦娘リストと深海棲艦リストでバナーを表示する</string>
 
-    <string name="not_remodel">Not remodeled</string>
-    <string name="final_remodel">Final remodeled</string>
+    <string name="not_remodel">未改造</string>
+    <string name="final_remodel">最終改造</string>
 
-    <string name="equip_improve_list_ship_format">Ship: %s</string>
+    <string name="equip_improve_list_ship_format">秘書艦: %s</string>
 
-    <string name="quest_before">Quest before</string>
-    <string name="quest_after">Quest after</string>
+    <string name="quest_before">開放条件</string>
+    <string name="quest_after">新任務開放</string>
     <string name="quest_new">New</string>
-    <string name="quest_latest">Latest</string>
+    <string name="quest_latest">最新</string>
 
-    <string name="quest_normal">Normal quest</string>
-    <string name="quest_daily">Daily quest</string>
-    <string name="quest_weekly">Weekly quest</string>
-    <string name="quest_monthly">Monthly quest</string>
+    <string name="quest_normal">単発任務</string>
+    <string name="quest_daily">日次任務</string>
+    <string name="quest_weekly">週次任務</string>
+    <string name="quest_monthly">月次任務</string>
 
-    <string name="search_hint_quest">Search name, introduction…</string>
-    <string name="search_hint_ship">Search name, Rōmaji, Pinyin…</string>
+    <string name="search_hint_quest">検索 タイトル、紹介…</string>
+    <string name="search_hint_ship">検索 漢字、ローマ字、ピンイン…</string>
 
-    <string name="search_result">Search result</string>
+    <string name="search_result">検索結果</string>
 
 </resources>
