@@ -707,13 +707,14 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
                 }
             }
         };
-        adapter.setData(getIllustrationUrls());
 
+        recyclerView.setAdapter(adapter);
         // or outer RecyclerView will scroll down
         recyclerView.post(new Runnable() {
             @Override
             public void run() {
-                recyclerView.setAdapter(adapter);
+                adapter.setData(getIllustrationUrls());
+                adapter.notifyDataSetChanged();
             }
         });
     }

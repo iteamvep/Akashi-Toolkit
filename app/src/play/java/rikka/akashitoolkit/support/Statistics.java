@@ -51,4 +51,13 @@ public class Statistics {
 
     public static void onFragmentEnd(String name) {
     }
+
+    public static void sendEvent(String category, String action, String label, long value) {
+        sTracker.send(new HitBuilders.EventBuilder()
+                .setCategory(category)
+                .setAction(action)
+                .setLabel(label)
+                .setValue(value)
+                .build());
+    }
 }

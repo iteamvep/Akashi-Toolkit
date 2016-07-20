@@ -580,6 +580,14 @@ public class ViewHolder {
         }
     }
 
+    // TODO
+    public static class MessageVote extends RecyclerView.ViewHolder {
+
+        public MessageVote(View itemView) {
+            super(itemView);
+        }
+    }
+
     public static class Subtitle extends RecyclerView.ViewHolder {
         protected TextView mTitle;
         protected View mDivider;

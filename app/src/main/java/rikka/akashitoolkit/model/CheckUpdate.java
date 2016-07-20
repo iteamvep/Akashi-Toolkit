@@ -123,6 +123,7 @@ public class CheckUpdate {
         private String action_name;
         private int time;
         private List<String> images;
+        private boolean show_first;
 
         public long getId() {
             return (title + message).hashCode();
@@ -144,7 +145,7 @@ public class CheckUpdate {
             this.link = link;
         }
 
-        public void setAction_name(String action_name) {
+        public void setActionName(String action_name) {
             this.action_name = action_name;
         }
 
@@ -164,7 +165,7 @@ public class CheckUpdate {
             return link;
         }
 
-        public String getAction_name() {
+        public String getActionName() {
             return action_name;
         }
 
@@ -182,6 +183,14 @@ public class CheckUpdate {
 
         public void setImages(List<String> images) {
             this.images = images;
+        }
+
+        public boolean isShowFirst() {
+            return show_first;
+        }
+
+        public void setShowFirst(boolean show_first) {
+            this.show_first = show_first;
         }
     }
 }

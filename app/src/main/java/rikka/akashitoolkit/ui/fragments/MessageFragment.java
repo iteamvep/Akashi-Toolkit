@@ -1,11 +1,8 @@
 package rikka.akashitoolkit.ui.fragments;
 
-import android.content.Intent;
 import android.graphics.Rect;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -15,8 +12,6 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -206,16 +201,17 @@ public class MessageFragment extends Fragment {
         mAdapter.clear();
 
         addLocalCard();
-        addMessageCard(data.getMessages());
         addUpdateCard(data.getUpdate());
+        addMessageCard(data.getMessages());
+
         /*checkDataUpdate(data.getData());*/
 
         mAdapter.notifyDataSetChanged();
     }
 
     private void addLocalCard() {
-        mAdapter.add(2, null, 0);
-        mAdapter.add(3, null, 0);
+        mAdapter.add(MessageAdapter.TYPE_DAILY_EQUIP, null, 0);
+        mAdapter.add(MessageAdapter.TYPE_EXPEDITION_NOTIFY, null, 0);
     }
 
     private void addUpdateCard(final CheckUpdate.UpdateEntity entity) {
@@ -234,7 +230,7 @@ public class MessageFragment extends Fragment {
         }
 
         if (entity.getVersionCode() > versionCode || BuildConfig.DEBUG) {
-            mAdapter.add(1, entity, 0);
+            mAdapter.add(MessageAdapter.TYPE_MESSAGE_UPDATE, entity, 0);
         }
     }
 
@@ -257,7 +253,11 @@ public class MessageFragment extends Fragment {
                 continue;
             }
 
-            mAdapter.add(0, entity);
+            if (entity.isShowFirst()) {
+                mAdapter.add(MessageAdapter.TYPE_MESSAGE, entity, 0);
+            } else {
+                mAdapter.add(MessageAdapter.TYPE_MESSAGE, entity);
+            }
         }
     }
 

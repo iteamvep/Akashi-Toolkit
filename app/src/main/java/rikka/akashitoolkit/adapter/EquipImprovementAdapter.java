@@ -74,9 +74,11 @@ public class EquipImprovementAdapter extends BaseBookmarkRecyclerAdapter<ViewHol
             holder.mName.setText(equip.getName().get(mActivity) + " ★");
         }
 
-        holder.mShip.setText(String.format(
+        /*holder.mShip.setText(String.format(
                 context.getString(R.string.equip_improve_list_ship_format),
-                mDataShip.get(position)));
+                mDataShip.get(position)));*/
+
+        holder.mShip.setText(mDataShip.get(position));
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
