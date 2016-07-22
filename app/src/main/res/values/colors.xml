@@ -9,11 +9,10 @@
     <color name="colorPrimaryItemActivity">@color/colorPrimary</color>
 
     <color name="white">#FFFFFFFF</color>
-    <color name="grey_50">#FFFAFAFA</color>
-    <color name="grey_200">#FFEEEEEE</color>
 
-    <color name="background">@color/grey_50</color>
-    <color name="cardBackground">@color/white</color>
+    <color name="windowBackground">@color/material_grey_200</color>
+    <color name="background">@color/material_grey_50</color>
+    <color name="cardBackground">@color/material_grey_50</color>
     
     <color name="preference_fallback_accent_color">@color/colorAccent</color>
 
@@ -105,7 +104,8 @@
     <color name="material_indigo_700">#303F9F</color>
     <color name="material_indigo_800">#283593</color>
 
-    <color name="material_grey_200">#EEEEEE</color>
+    <color name="material_grey_50" tools:ignore="PrivateResource">#FAFAFA</color>
+    <color name="material_grey_200" tools:ignore="PrivateResource">#EEEEEE</color>
     <color name="material_grey_400">#BDBDBD</color>
     <color name="material_grey_800" tools:override="true">#424242</color>
 

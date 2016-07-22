@@ -93,6 +93,8 @@ public class SeasonalFragment extends Fragment {
 
         mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefreshLayout);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
+        mRecyclerView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.windowBackground));
+
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), OrientationHelper.VERTICAL, false));
         mAdapter = new Adapter();
         mRecyclerView.setAdapter(mAdapter);

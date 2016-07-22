@@ -13,6 +13,7 @@ import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.Statistics;
 import rikka.akashitoolkit.ui.ExpCalcActivity;
+import rikka.akashitoolkit.ui.FleetActivity;
 import rikka.akashitoolkit.ui.MainActivity;
 import rikka.akashitoolkit.ui.RankingActivity;
 
@@ -51,7 +52,7 @@ public class ToolsFragment extends BaseDrawerItemFragment {
         view.findViewById(android.R.id.button3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(v.getContext(), ExpCalcActivity.class);
+                startActivity(v.getContext(), FleetActivity.class);
             }
         });
 

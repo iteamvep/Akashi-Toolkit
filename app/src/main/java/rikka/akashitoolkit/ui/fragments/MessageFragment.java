@@ -118,6 +118,7 @@ public class MessageFragment extends Fragment {
         View view = inflater.inflate(R.layout.content_twitter_container, container, false);
 
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
+        mRecyclerView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.windowBackground));
         mAdapter = new MessageAdapter();
         mRecyclerView.setAdapter(mAdapter);
         setUpRecyclerView();

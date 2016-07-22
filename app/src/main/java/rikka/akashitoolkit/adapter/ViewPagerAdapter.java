@@ -33,7 +33,6 @@ public abstract class ViewPagerAdapter extends FragmentPagerAdapter {
             if (args != null) {
                 fragment.setArguments(args);
             }
-            Log.d("QAQ", Integer.toString(position));
             return fragment;
         } catch (Exception e) {
             e.printStackTrace();

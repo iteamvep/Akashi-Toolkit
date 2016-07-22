@@ -2,20 +2,12 @@
 <android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="@dimen/card_twitter_margin_vertical"
-    android:layout_marginLeft="@dimen/card_twitter_margin_horizontal"
-    android:layout_marginRight="@dimen/card_twitter_margin_horizontal"
-    android:layout_marginTop="@dimen/card_twitter_margin_vertical"
     android:clickable="true"
     android:foreground="?attr/selectableItemBackground"
-    card_view:cardBackgroundColor="@color/cardBackground"
-    card_view:cardCornerRadius="2dp"
-    card_view:cardElevation="2dp"
-    card_view:cardMaxElevation="4dp">
+    style="@style/HomeCard">
 
     <LinearLayout
         android:layout_width="match_parent"

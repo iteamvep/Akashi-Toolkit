@@ -103,4 +103,17 @@
         <item name="android:dropDownHorizontalOffset">-4dip</item>
     </style>
 
+    <style name="HomeCard">
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:layout_marginBottom">@dimen/card_twitter_margin_vertical</item>
+        <item name="android:layout_marginLeft">@dimen/card_twitter_margin_horizontal</item>
+        <item name="android:layout_marginRight">@dimen/card_twitter_margin_horizontal</item>
+        <item name="android:layout_marginTop">@dimen/card_twitter_margin_vertical</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+        <item name="cardBackgroundColor">@color/cardBackground</item>
+        <item name="cardCornerRadius">2dp</item>
+        <item name="cardElevation">2dp</item>
+        <item name="cardMaxElevation">4dp</item>
+    </style>
+
 </resources>

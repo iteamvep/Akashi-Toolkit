@@ -130,6 +130,7 @@ public class TwitterFragment extends Fragment implements TwitterAdapter.OnMoreBu
         View view = inflater.inflate(R.layout.content_twitter_container, container, false);
 
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
+        mRecyclerView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.windowBackground));
 
         mTwitterAdapter = new TwitterAdapter();
         mTwitterAdapter.setOnMoreButtonClickedListener(this);

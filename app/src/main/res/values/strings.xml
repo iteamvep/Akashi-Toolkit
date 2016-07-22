@@ -263,5 +263,7 @@ Activity &amp; Extra:
     <string name="search_hint_ship">Search name, Rōmaji, Pinyin…</string>
 
     <string name="search_result">Search result</string>
+    <string name="title_activity_fleet">FleetActivity</string>
+    <string name="title_activity_fleet_edit">FleetEditActivity</string>
 
 </resources>

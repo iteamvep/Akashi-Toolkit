@@ -109,7 +109,7 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
 
         mItem = EquipList.findItemById(this, id);
         if (mItem == null) {
-            Log.d("QAQ", "No item find? id=" + Integer.toString(id));
+            Log.d("EquipDisplayActivity", "No item find? id=" + Integer.toString(id));
             finish();
             return;
         }
