@@ -5,8 +5,8 @@ import com.example.utils.Utils;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.util.Map;
 
 /**
  * Created by Rikka on 2016/4/16.
@@ -160,6 +160,16 @@ public class NewEquip {
         this.improvements = improvements;
     }
 
+    private List<java.util.Map<Integer, List<Integer>>> improvements2;
+
+    public List<Map<Integer, List<Integer>>> getImprovements2() {
+        return improvements2;
+    }
+
+    public void setImprovements2(List<Map<Integer, List<Integer>>> improvements) {
+        this.improvements2 = improvements;
+    }
+
     public static class ImprovementEntity {
         @Expose
         @SerializedName("改修备注")
@@ -210,6 +220,10 @@ public class NewEquip {
 
         public String[][] getDate() {
             return date;
+        }
+
+        public int[] getUpgrade() {
+            return upgrade;
         }
 
         public void setShips() {

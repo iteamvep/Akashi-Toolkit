@@ -219,6 +219,7 @@ public class QuestGenerator {
         value = value.replace("<br/>", "\n");
         value = value.replace("[[试制甲板用弹射器]]", "{{试制甲板用弹射器}}");
         value = value.replace("{{菱饼}}", "{{菱饼}}*1");
+        value = value.replace("[[试制61cm六连装(酸素)鱼雷]]", "[[试制61cm六连装(酸素)鱼雷]]*1");
         value = value.replace("[[试制35.6cm三连装炮]]", "[[试制35.6cm三连装炮]]*1");
         value = value.replace("[[试制35.6cm三连装炮]]*1*1", "[[试制35.6cm三连装炮]]*1");
         value = value.replace("[[大发动艇]]", "[[大发动艇]]*1");

@@ -1,5 +1,6 @@
 package com.example;
 
+import com.example.model.EquipImprovement;
 import com.example.model.MultiLanguageEntry;
 import com.example.model.NewEquip;
 import com.example.network.RetrofitAPI;
@@ -10,11 +11,14 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -31,10 +35,10 @@ public class EquipGenerator {
                 .build();
 
         RetrofitAPI.KcwikiService service = retrofit.create(RetrofitAPI.KcwikiService.class);
-        /*ResponseBody body = service.getPage("模块:舰娘装备数据改", "raw").execute().body();
-        Reader is = body.charStream();*/
+        ResponseBody body = service.getPage("模块:舰娘装备数据改", "raw").execute().body();
+        Reader reader = body.charStream();
 
-        Reader reader = new FileReader(new File("datagenerator/equip.lua"));
+        //Reader reader = new FileReader(new File("datagenerator/equip.lua"));
 
         int count = 0;
         StringBuilder sb = new StringBuilder();
@@ -70,6 +74,8 @@ public class EquipGenerator {
 
         str = sb.toString()
                 .replace("\t", "")
+                .replace("\"?\"", "\"0\"")
+                .replace("?", "")
                 .replace("{}", "null")
                 .replace("},\n}", "}\n}")
 
@@ -80,8 +86,8 @@ public class EquipGenerator {
                 .replaceAll("\\[\"([^]]+)\"\\]=", "\"$1\":")
                 .replaceAll("\"([^\"]+)\":\\{([^:=\\}]+)\\}", "\"$1\":[$2]")
 
-                .replaceAll("\\{\"开发\":\\[(\\d+),(\\d+)],\"改修\":\\[(\\d+),(\\d+)],\"装备数\":(\\d+),\"装备\":\"(\\d+)\"}", "[$1,$2,$3,$4,$5,\"$6\"]")
-                .replaceAll("\\{\"开发\":\\[(\\d+),(\\d+)],\"改修\":\\[(\\d+),(\\d+)],\"装备数\":(\\d+)}", "[$1,$2,$3,$4,$5]")
+                .replaceAll("\\{\"开发\":\\[(.+),(.+)],\"改修\":\\[(.+),(.+)],\"装备数\":(.+),\"装备\":\"(.+)\"}", "[$1,$2,$3,$4,$5,\"$6\"]")
+                .replaceAll("\\{\"开发\":\\[(.+),(.+)],\"改修\":\\[(.+),(.+)],\"装备数\":(.+)}", "[$1,$2,$3,$4,$5]")
                 .replaceAll("\\{\"装备\":\"(\\d+)\",\"等级\":(\\d+)}", "[\"$1\",$2]")
 
                 .replace("\"日期\":{", "\"日期\":[")
@@ -124,10 +130,13 @@ public class EquipGenerator {
                 item.setImprovements(new NewEquip.ImprovementEntity[]{item.get装备改修()});
             }
 
+            // 增加一个生成装备改修json的东西
+            addEquipImprovement(item, item.getImprovements());
+
             File file = new File("datagenerator/data/equips/" + item.getNameCN().replace("/", "_") + ".txt");
             if (!file.exists()) {
                 try {
-                    ResponseBody body = service.getPage(item.getNameCN(), "raw").execute().body();
+                    body = service.getPage(item.getNameCN(), "raw").execute().body();
                     Utils.writeStreamToFile(body.byteStream(), file.getPath());
                     //System.out.println();
                 } catch (Exception ignored) {
@@ -274,6 +283,68 @@ public class EquipGenerator {
                 .replace("\"类别\"", "\"type\"");
 
         Utils.objectToJsonFile(str, "app/src/main/assets/Equip.json");
+
+
+        Utils.objectToJsonFile(equipImprovementList, "app/src/main/assets/EquipImprovement.json");
+    }
+
+    private static List<EquipImprovement> equipImprovementList = new ArrayList<>();
+
+    private static void addEquipImprovement(NewEquip item, NewEquip.ImprovementEntity[] improvements) {
+        if (improvements == null) {
+            return;
+        }
+
+        for (NewEquip.ImprovementEntity improvement :
+                improvements) {
+            Map<Integer, List<Integer>> ships = new HashMap<>();
+            Map<Integer, Integer> ids = new LinkedHashMap<>();
+
+            for (List<Integer> entry : improvement.getShips()) {
+                for (Integer id : entry) {
+                    if (id >= 0) {
+                        ids.put(id, 0);
+                    }
+                }
+            }
+
+            for (Map.Entry<Integer, Integer> entry : ids.entrySet()) {
+                int id = entry.getKey();
+
+                int data = 0;
+                for (int i = 0; i < 7; i++) {
+                    List<Integer> e = improvement.getShips().get(i);
+                    for (Integer id2 : e) {
+                        if (id2 == id) {
+                            data |= (1 << i);
+                        }
+                    }
+                }
+
+                List<Integer> list = ships.get(data);
+                if (list == null) {
+                    list = new ArrayList<>();
+                }
+                list.add(id);
+                ships.put(data, list);
+            }
+
+            EquipImprovement equipImprovement;
+            if (improvement.getUpgrade() != null) {
+                List<Integer> list = new ArrayList<>();
+                list.add(improvement.getUpgrade()[0]);
+                list.add(improvement.getUpgrade()[1]);
+                equipImprovement = new EquipImprovement(item.getId(), list, ships);
+            } else {
+                equipImprovement = new EquipImprovement(item.getId(), ships);
+            }
+
+            if (item.getImprovements2() == null) {
+                item.setImprovements2(new ArrayList<>());
+            }
+            item.getImprovements2().add(ships);
+            equipImprovementList.add(equipImprovement);
+        }
     }
 
     private static String a(String s) {
