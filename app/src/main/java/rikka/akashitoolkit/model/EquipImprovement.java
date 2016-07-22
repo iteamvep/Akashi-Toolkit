@@ -1,55 +1,29 @@
 package rikka.akashitoolkit.model;
 
-import java.util.List;
+import java.util.*;
+import java.util.Map;
 
 /**
  * Created by Rikka on 2016/3/17.
  */
 public class EquipImprovement extends BaseDataModel {
 
-    /**
-     * name : 12.7cm連装砲
-     * id : 2
-     * type : 小口径主砲
-     * icon : 1
-     * secretary : [{"name":"無","day":[true,true,true,true,true,true,true]}]
-     */
+    private List<Integer> upgrade_to;
+    private java.util.Map<Integer, List<Integer>> data;
 
-    /**
-     * name : 無
-     * day : [true,true,true,true,true,true,true]
-     */
-
-    private List<SecretaryEntity> secretary;
-
-
-    public void setSecretary(List<SecretaryEntity> secretary) {
-        this.secretary = secretary;
+    public Map<Integer, List<Integer>> getData() {
+        return data;
     }
 
-
-    public List<SecretaryEntity> getSecretary() {
-        return secretary;
+    public void setData(Map<Integer, List<Integer>> data) {
+        this.data = data;
     }
 
-    public static class SecretaryEntity {
-        private String name;
-        private List<Boolean> day;
+    public List<Integer> getUpgradeTo() {
+        return upgrade_to;
+    }
 
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public void setDay(List<Boolean> day) {
-            this.day = day;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public List<Boolean> getDay() {
-            return day;
-        }
+    public void setUpgradeTo(List<Integer> upgrade_to) {
+        this.upgrade_to = upgrade_to;
     }
 }

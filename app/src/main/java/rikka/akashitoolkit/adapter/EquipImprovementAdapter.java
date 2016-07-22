@@ -11,15 +11,18 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.model.Equip;
 import rikka.akashitoolkit.model.EquipImprovement;
+import rikka.akashitoolkit.model.Ship;
 import rikka.akashitoolkit.otto.BookmarkItemChanged;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.staticdata.EquipImprovementList;
 import rikka.akashitoolkit.staticdata.EquipList;
 import rikka.akashitoolkit.staticdata.EquipTypeList;
+import rikka.akashitoolkit.staticdata.ShipList;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.ui.BaseItemDisplayActivity;
 import rikka.akashitoolkit.ui.EquipDisplayActivity;
@@ -53,11 +56,10 @@ public class EquipImprovementAdapter extends BaseBookmarkRecyclerAdapter<ViewHol
 
     @Override
     public ViewHolder.ItemImprovement onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_item_improvement, parent, false);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_equip_improvement, parent, false);
         return new ViewHolder.ItemImprovement(itemView);
     }
 
-    @SuppressLint({"DefaultLocale", "SetTextI18n"})
     @Override
     public void onBindViewHolder(final ViewHolder.ItemImprovement holder, int position) {
         Context context = holder.itemView.getContext();
@@ -71,12 +73,8 @@ public class EquipImprovementAdapter extends BaseBookmarkRecyclerAdapter<ViewHol
         if (!item.isBookmarked()) {
             holder.mName.setText(equip.getName().get(mActivity));
         } else {
-            holder.mName.setText(equip.getName().get(mActivity) + " ★");
+            holder.mName.setText(String.format("%s ★", equip.getName().get(mActivity)));
         }
-
-        /*holder.mShip.setText(String.format(
-                context.getString(R.string.equip_improve_list_ship_format),
-                mDataShip.get(position)));*/
 
         holder.mShip.setText(mDataShip.get(position));
 
@@ -136,11 +134,56 @@ public class EquipImprovementAdapter extends BaseBookmarkRecyclerAdapter<ViewHol
 
                     boolean add = false;
                     StringBuilder sb = new StringBuilder();
-                    for (EquipImprovement.SecretaryEntity entity : item.getSecretary()) {
-                        if (entity.getDay().get(mType)) {
+                    List<Integer> ids = new ArrayList<>();
+                    for (Map.Entry<Integer, List<Integer>> entry : item.getData().entrySet()) {
+                        int flag = entry.getKey();
+                        List<Integer> ship = entry.getValue();
+
+                        if ((flag & 1 << mType) > 0) {
+
+                            if (!add) {
+                                String upgrade = null;
+                                if (item.getUpgradeTo() != null) {
+                                    int level = item.getUpgradeTo().get(1);
+                                    int id = item.getUpgradeTo().get(0);
+
+                                    Equip equip = EquipList.findItemById(mActivity, id);
+                                    if (equip != null) {
+                                        if (level > 0) {
+                                            upgrade = String.format("%s ★+%d", equip.getName().get(mActivity), level);
+                                        } else {
+                                            upgrade = equip.getName().get(mActivity);
+                                        }
+                                    }
+
+                                    if (upgrade != null) {
+                                        sb.append(mActivity.getString(R.string.improvement_upgrade_to))
+                                                .append(" ")
+                                                .append(upgrade)
+                                                .append("\n");
+                                    }
+                                }
+                            }
+
                             add = true;
-                            sb.append(sb.length() > 0 ? " / " : "" );
-                            sb.append(entity.getName());
+
+                            for (int id : ship) {
+                                if (ids.size() > 0) {
+                                    sb.append(" / ");
+                                }
+
+                                if (ids.indexOf(id) == -1) {
+                                    ids.add(id);
+
+                                    if (id == 0) {
+                                        sb.append(mActivity.getString(R.string.improvement_any));
+                                    } else {
+                                        Ship s = ShipList.findItemById(mActivity, id);
+                                        if (s != null)
+                                            sb.append(s.getName().get(mActivity));
+                                    }
+                                }
+                            }
                         }
                     }
 

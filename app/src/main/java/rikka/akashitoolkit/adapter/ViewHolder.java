@@ -24,6 +24,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.TimeZone;
@@ -38,6 +39,7 @@ import rikka.akashitoolkit.staticdata.EquipImprovementList;
 import rikka.akashitoolkit.staticdata.EquipList;
 import rikka.akashitoolkit.staticdata.EquipTypeList;
 import rikka.akashitoolkit.staticdata.ExpeditionList;
+import rikka.akashitoolkit.staticdata.ShipList;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.ui.EquipDisplayActivity;
 import rikka.akashitoolkit.ui.ImageDisplayActivity;
@@ -214,18 +216,15 @@ public class ViewHolder {
 
     public static class ItemImprovement extends RecyclerView.ViewHolder {
         protected TextView mName;
-        protected TextView mType;
         protected TextView mShip;
         protected ImageView mImageView;
 
         public ItemImprovement(View itemView) {
             super(itemView);
 
-            //mCardView = (CardView) itemView.findViewById(R.id.cardView);
-            mName = (TextView) itemView.findViewById(R.id.text_card_title);
-            mType = (TextView) itemView.findViewById(R.id.text_card_item_improve_type);
-            mShip = (TextView) itemView.findViewById(R.id.text_card_item_improve_ship);
-            mImageView = (ImageView) itemView.findViewById(R.id.imageView);
+            mName = (TextView) itemView.findViewById(android.R.id.title);
+            mShip = (TextView) itemView.findViewById(android.R.id.summary);
+            mImageView = (ImageView) itemView.findViewById(android.R.id.icon);
         }
     }
 
@@ -399,17 +398,34 @@ public class ViewHolder {
             int count = 0;
             for (EquipImprovement item :
                     EquipImprovementList.get(context)) {
-                if (count > 4) {
-                    break;
-                }
 
                 boolean add = false;
                 StringBuilder sb = new StringBuilder();
-                for (EquipImprovement.SecretaryEntity entity : item.getSecretary()) {
-                    if (entity.getDay().get(type)) {
+                List<Integer> ids = new ArrayList<>();
+                for (java.util.Map.Entry<Integer, List<Integer>> entry : item.getData().entrySet()) {
+                    int flag = entry.getKey();
+                    List<Integer> ship = entry.getValue();
+
+                    if ((flag & 1 << type) > 0) {
                         add = true;
-                        sb.append(sb.length() > 0 ? " / " : "");
-                        sb.append(entity.getName());
+
+                        for (int id : ship) {
+                            if (ids.size() > 0) {
+                                sb.append(" / ");
+                            }
+
+                            if (ids.indexOf(id) == -1) {
+                                ids.add(id);
+
+                                if (id == 0) {
+                                    sb.append(context.getString(R.string.improvement_any));
+                                } else {
+                                    rikka.akashitoolkit.model.Ship s = ShipList.findItemById(context, id);
+                                    if (s != null)
+                                        sb.append(s.getName().get(context));
+                                }
+                            }
+                        }
                     }
                 }
 

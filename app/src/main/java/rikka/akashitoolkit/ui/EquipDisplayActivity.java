@@ -540,21 +540,25 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
 
             if (res.length == 6) {
                 final Equip item = EquipList.findItemById(this, res[5]);
-                ((TextView) linearLayout.findViewById(R.id.text_number_2)).setText(
-                        String.format("%s ×%d",
-                                item.getName().get(this),
-                                res[4]));
+                if (item != null) {
+                    ((TextView) linearLayout.findViewById(R.id.text_number_2)).setText(
+                            String.format("%s ×%d",
+                                    item.getName().get(this),
+                                    res[4]));
 
-                ((View) linearLayout.findViewById(R.id.text_number_2).getParent()).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(EquipDisplayActivity.this, EquipDisplayActivity.class);
-                        intent.putExtra(ShipDisplayActivity.EXTRA_ITEM_ID, item.getId());
-                        startActivity(intent);
-                    }
-                });
+                    ((View) linearLayout.findViewById(R.id.text_number_2).getParent()).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(EquipDisplayActivity.this, EquipDisplayActivity.class);
+                            intent.putExtra(ShipDisplayActivity.EXTRA_ITEM_ID, item.getId());
+                            startActivity(intent);
+                        }
+                    });
 
-                EquipTypeList.setIntoImageView((ImageView) linearLayout.findViewById(R.id.imageView), item.getIcon());
+                    EquipTypeList.setIntoImageView((ImageView) linearLayout.findViewById(R.id.imageView), item.getIcon());
+                } else {
+                    Log.d("EquipDisplayActivity", "Equip not found: " + res[5]);
+                }
             } else {
                 linearLayout.findViewById(R.id.linearLayout).setVisibility(View.GONE);
             }

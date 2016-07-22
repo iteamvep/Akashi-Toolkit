@@ -7,13 +7,13 @@
     android:background="@color/cardBackground"
     android:foreground="?attr/selectableItemBackground"
     android:orientation="horizontal"
-    android:paddingBottom="8dp"
+    android:paddingBottom="12dp"
     android:paddingLeft="@dimen/item_padding"
     android:paddingRight="@dimen/item_padding"
-    android:paddingTop="8dp">
+    android:paddingTop="12dp">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@android:id/icon"
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:layout_gravity="center_vertical"
@@ -34,7 +34,7 @@
         android:layout_marginStart="12dp"-->
 
         <TextView
-            android:id="@+id/text_card_title"
+            android:id="@android:id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat"
@@ -42,21 +42,13 @@
             tools:text="12.7cm連装砲"/>
 
         <TextView
-            android:id="@+id/text_card_item_improve_type"
+            android:id="@android:id/summary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:textSize="@dimen/card_font_medium"
-            android:visibility="gone"
-            tools:text="小口径主砲"/>
-
-        <TextView
-            android:id="@+id/text_card_item_improve_ship"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:textSize="@dimen/card_font_medium"
-            tools:text="二号舰娘: 无"/>
+            android:lineSpacingExtra="6dp"
+            tools:text="12.7cm連装砲 ★+10\n无"/>
 
 
     </LinearLayout>
