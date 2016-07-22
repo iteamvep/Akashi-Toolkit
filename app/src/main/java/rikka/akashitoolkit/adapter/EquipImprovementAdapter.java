@@ -123,9 +123,15 @@ public class EquipImprovementAdapter extends BaseBookmarkRecyclerAdapter<ViewHol
     @Override
     public void rebuildDataList() {
         new AsyncTask<Void, Void, Void>() {
-            @SuppressLint("DefaultLocale")
             @Override
             protected Void doInBackground(Void... params) {
+                EquipImprovementList.get(mActivity);
+                return null;
+            }
+
+            @SuppressLint("DefaultLocale")
+            @Override
+            protected void onPostExecute(Void aVoid) {
                 mData.clear();
                 mDataShip.clear();
 
@@ -197,11 +203,6 @@ public class EquipImprovementAdapter extends BaseBookmarkRecyclerAdapter<ViewHol
                         }
                     }
                 }
-                return null;
-            }
-
-            @Override
-            protected void onPostExecute(Void aVoid) {
                 notifyDataSetChanged();
             }
         }.execute();
