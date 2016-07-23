@@ -8,7 +8,9 @@ import retrofit2.http.GET;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 import retrofit2.http.Streaming;
+import rikka.akashitoolkit.model.Avatars;
 import rikka.akashitoolkit.model.CheckUpdate;
+import rikka.akashitoolkit.model.LatestAvatar;
 import rikka.akashitoolkit.model.ShipVoice;
 import rikka.akashitoolkit.model.Twitter;
 import rikka.akashitoolkit.model.Seasonal;
@@ -23,8 +25,15 @@ public class RetrofitAPI {
                 @Query("json") int json,
                 @Query("count") int count);
 
+        @Deprecated
         @GET("/image_url.txt")
         Call<ResponseBody> getAvatarUrl();
+
+        @GET("/avatar/latest")
+        Call<LatestAvatar> getLatestAvatarUrl();
+
+        @GET("/avatars")
+        Call<Avatars> getAvatars();
     }
 
     public interface CheckUpdateService {
