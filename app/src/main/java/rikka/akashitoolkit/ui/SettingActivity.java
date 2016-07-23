@@ -152,16 +152,16 @@ public class SettingActivity extends BaseActivity {
                 }
             });
 
-            /*final DropDownPreference dropDownPreference = (DropDownPreference) findPreference("ui_language");
-            dropDownPreference.addItem(Locale.SIMPLIFIED_CHINESE.getDisplayName(), "sc");
-            dropDownPreference.addItem(Locale.TRADITIONAL_CHINESE.getDisplayName(), "tc");
-            dropDownPreference.addItem(Locale.ENGLISH.getDisplayName(), "en");
-            dropDownPreference.addItem(Locale.JAPANESE.getDisplayName(), "ja");
-            dropDownPreference.setSelectedValue(Settings.instance(getActivity()).getString(Settings.APP_LANGUAGE, Utils.getDefaultSettingFromLocale()));
-            dropDownPreference.setCallback(new DropDownPreference.Callback() {
+            final DropDownPreference dropDownPreference2 = (DropDownPreference) findPreference("ui_language");
+            dropDownPreference2.addItem(Locale.SIMPLIFIED_CHINESE.getDisplayName(), "sc");
+            dropDownPreference2.addItem(Locale.TRADITIONAL_CHINESE.getDisplayName(), "tc");
+            dropDownPreference2.addItem(Locale.ENGLISH.getDisplayName(), "en");
+            dropDownPreference2.addItem(Locale.JAPANESE.getDisplayName(), "ja");
+            dropDownPreference2.setSelectedValue(Settings.instance(getActivity()).getString(Settings.APP_LANGUAGE, Utils.getDefaultSettingFromLocale()));
+            dropDownPreference2.setCallback(new DropDownPreference.Callback() {
                 @Override
                 public boolean onItemSelected(int i, Object o) {
-                    dropDownPreference.setEnabled(false);
+                    dropDownPreference2.setEnabled(false);
 
                     ((BaseActivity) getActivity()).setLocale();
 
@@ -172,11 +172,11 @@ public class SettingActivity extends BaseActivity {
                         public void run() {
                             ((BaseActivity) getActivity()).fakeRecreate();
                         }
-                    }, 100);
+                    }, 300);
                     //((BaseActivity) getActivity()).fakeRecreate();
                     return false;
                 }
-            });*/
+            });
         }
 
         @Override

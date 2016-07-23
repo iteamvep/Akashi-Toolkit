@@ -30,7 +30,7 @@ public abstract class BaseActivity extends BaseDayNightModeActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //setLocale();
+        setLocale();
 
         super.onCreate(savedInstanceState);
     }
@@ -67,10 +67,10 @@ public abstract class BaseActivity extends BaseDayNightModeActivity {
 
     protected void onResume() {
         super.onResume();
-        /*if (!Locale.getDefault().getLanguage().equals(mLocale)) {
+        if (!Locale.getDefault().getLanguage().equals(mLocale)) {
             fakeRecreate();
             return;
-        }*/
+        }
 
         Statistics.onResume(this);
 
