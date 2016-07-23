@@ -94,7 +94,7 @@
             android:theme="@style/AppTheme.ItemActivity">
         </activity>
         <activity
-            android:name=".ui.ImageDisplayActivity"
+            android:name=".ui.ImagesActivity"
             android:theme="@style/AppTheme.ImagesActivity">
         </activity>
         <activity
@@ -117,7 +117,7 @@
         </activity>
         <activity
             android:name=".ui.FleetActivity"
-            android:label="@string/title_activity_fleet"
+            android:label="@string/fleets"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
@@ -125,7 +125,11 @@
 
         <activity
             android:name=".ui.FleetEditActivity"
-            android:label="@string/title_activity_fleet_edit"
+            android:label="@string/fleet_edit"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".ui.GalleryActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
     </application>

@@ -1,5 +1,9 @@
 package rikka.akashitoolkit.adapter;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
+import android.support.annotation.LayoutRes;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,10 +22,28 @@ import rikka.akashitoolkit.R;
  * Created by Rikka on 2016/7/15.
  */
 abstract public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHolder> {
+
+    @LayoutRes
+    private int mResId;
     private List<String> mData;
+    private Drawable mPlaceholder;
 
     public GalleryAdapter() {
+        this(R.layout.item_illustrations);
+
         mData = new ArrayList<>();
+    }
+
+    public GalleryAdapter(@LayoutRes int resId) {
+        mResId = resId;
+        mPlaceholder = new ColorDrawable(Color.parseColor("#0d000000"));
+
+        setHasStableIds(true);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
     }
 
     public void setData(List<String> data) {
@@ -30,11 +52,18 @@ abstract public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter
 
     @Override
     public GalleryAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_illustrations, parent, false);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(mResId, parent, false);
+        onCreateImageView((ImageView) itemView);
         return new ViewHolder(itemView);
     }
 
-    abstract public void onItemClicked(View v, List<String> data, int position);
+    public void onItemClicked(View v, List<String> data, int position) {
+
+    }
+
+    public void onCreateImageView(ImageView imageView) {
+
+    }
 
     @Override
     public void onBindViewHolder(final GalleryAdapter.ViewHolder holder, int position) {
@@ -42,6 +71,7 @@ abstract public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter
                 .load(mData.get(position))
                 .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                 .crossFade()
+                .placeholder(mPlaceholder)
                 .into(holder.mImageView);
 
         holder.mImageView.setOnClickListener(new View.OnClickListener() {
@@ -61,7 +91,7 @@ abstract public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter
 
     @Override
     public int getItemCount() {
-        return mData.size();
+        return mData == null ? 0 : mData.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

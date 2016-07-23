@@ -34,7 +34,7 @@
     <string name="no_new_tweet">沒有新推文</string>
     <string name="twitter_grid_layout">网格布局</string>
     <string name="twitter_grid_layout_summary">同时展示两列内容</string>
-
+    <string name="twitter_history_avatars">历史头像</string>
 
     <string name="ship">艦娘</string>
 
@@ -48,8 +48,6 @@
 
     <string name="version_format" formatted="false">%s (%d)</string>
     <string name="version">版本</string>
-    <string name="check_update">檢查更新</string>
-    <string name="check_update_summary">獲取大致是每周一次的更新</string>
 
     <string name="category_update">更新和消息</string>
     <string name="update_check_channel">更新通道</string>
@@ -245,4 +243,6 @@
 
     <string name="search_result">搜索结果</string>
 
+    <string name="fleets">舰队</string>
+    <string name="fleet_edit">编辑舰队</string>
 </resources>

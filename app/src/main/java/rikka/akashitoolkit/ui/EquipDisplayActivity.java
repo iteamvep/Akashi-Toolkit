@@ -665,7 +665,7 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
         final GalleryAdapter adapter = new GalleryAdapter() {
             @Override
             public void onItemClicked(View v, List<String> data, int position) {
-                ImageDisplayActivity.start(v.getContext(), data, position, getTaskDescriptionLabel());
+                ImagesActivity.start(v.getContext(), data, position, getTaskDescriptionLabel());
             }
 
             @Override
@@ -695,10 +695,10 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
             imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(EquipDisplayActivity.this, ImageDisplayActivity.class);
-                    intent.putStringArrayListExtra(ImageDisplayActivity.EXTRA_URL, (ArrayList<String>) urlList);
-                    intent.putExtra(ImageDisplayActivity.EXTRA_POSITION, finalI);
-                    intent.putExtra(ImageDisplayActivity.EXTRA_TITLE, getTaskDescriptionLabel());
+                    Intent intent = new Intent(EquipDisplayActivity.this, ImagesActivity.class);
+                    intent.putStringArrayListExtra(ImagesActivity.EXTRA_URL, (ArrayList<String>) urlList);
+                    intent.putExtra(ImagesActivity.EXTRA_POSITION, finalI);
+                    intent.putExtra(ImagesActivity.EXTRA_TITLE, getTaskDescriptionLabel());
                     startActivity(intent);
                 }
             });

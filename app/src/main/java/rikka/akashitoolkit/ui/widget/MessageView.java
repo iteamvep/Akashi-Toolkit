@@ -18,13 +18,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
-import java.util.Collection;
 import java.util.List;
 
 import rikka.akashitoolkit.R;
-import rikka.akashitoolkit.ui.ImageDisplayActivity;
+import rikka.akashitoolkit.ui.ImagesActivity;
 import rikka.akashitoolkit.utils.MySpannableFactory;
 import rikka.akashitoolkit.utils.Utils;
 
@@ -153,7 +151,7 @@ public class MessageView extends FrameLayout {
             addImage(url, new OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    ImageDisplayActivity.start(getContext(), urls, finalI, null, false);
+                    ImagesActivity.start(getContext(), urls, finalI, null, false);
                 }
             });
             i++;

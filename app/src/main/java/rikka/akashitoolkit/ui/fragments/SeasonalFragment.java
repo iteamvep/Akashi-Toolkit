@@ -44,7 +44,7 @@ import rikka.akashitoolkit.adapter.GalleryAdapter;
 import rikka.akashitoolkit.model.Seasonal;
 import rikka.akashitoolkit.model.ShipVoice;
 import rikka.akashitoolkit.network.RetrofitAPI;
-import rikka.akashitoolkit.ui.ImageDisplayActivity;
+import rikka.akashitoolkit.ui.ImagesActivity;
 import rikka.akashitoolkit.ui.MainActivity;
 import rikka.akashitoolkit.support.MusicPlayer;
 import rikka.akashitoolkit.utils.MySpannableFactory;
@@ -54,6 +54,8 @@ import rikka.akashitoolkit.utils.Utils;
  * Created by Rikka on 2016/4/30.
  */
 public class SeasonalFragment extends Fragment {
+    private static final int API_VERSION = 3;
+
     private static final int TYPE_GALLERY = 0;
     private static final int TYPE_TEXT = 1;
     private static final int TYPE_VOICE = 2;
@@ -152,7 +154,7 @@ public class SeasonalFragment extends Fragment {
                 .build();
 
         RetrofitAPI.SeasonalAPI service = retrofit.create(RetrofitAPI.SeasonalAPI.class);
-        Call<Seasonal> call = service.get(2);
+        Call<Seasonal> call = service.get(API_VERSION);
 
         call.enqueue(new Callback<Seasonal>() {
             @Override
@@ -417,10 +419,10 @@ public class SeasonalFragment extends Fragment {
             public void onItemClicked(View v, List<String> data, int position) {
                 Context context = v.getContext();
 
-                Intent intent = new Intent(context, ImageDisplayActivity.class);
-                intent.putStringArrayListExtra(ImageDisplayActivity.EXTRA_URL, (ArrayList<String>) data);
-                intent.putExtra(ImageDisplayActivity.EXTRA_POSITION, position);
-                intent.putExtra(ImageDisplayActivity.EXTRA_TITLE, context.getString(R.string.app_name));
+                Intent intent = new Intent(context, ImagesActivity.class);
+                intent.putStringArrayListExtra(ImagesActivity.EXTRA_URL, (ArrayList<String>) data);
+                intent.putExtra(ImagesActivity.EXTRA_POSITION, position);
+                intent.putExtra(ImagesActivity.EXTRA_TITLE, context.getString(R.string.app_name));
                 context.startActivity(intent);
             }
 

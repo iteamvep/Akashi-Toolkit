@@ -42,7 +42,7 @@ import rikka.akashitoolkit.staticdata.ExpeditionList;
 import rikka.akashitoolkit.staticdata.ShipList;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.ui.EquipDisplayActivity;
-import rikka.akashitoolkit.ui.ImageDisplayActivity;
+import rikka.akashitoolkit.ui.ImagesActivity;
 import rikka.akashitoolkit.ui.widget.CountdownTextView;
 import rikka.akashitoolkit.ui.widget.ExpandableLayout;
 import rikka.akashitoolkit.utils.MySpannableFactory;
@@ -322,7 +322,7 @@ public class ViewHolder {
                 addImage(url, new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        ImageDisplayActivity.start(itemView.getContext(), urls, finalI, null, false);
+                        ImagesActivity.start(itemView.getContext(), urls, finalI, null, false);
                     }
                 });
                 i++;

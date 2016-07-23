@@ -689,7 +689,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
         final GalleryAdapter adapter = new GalleryAdapter() {
             @Override
             public void onItemClicked(View v, List<String> data, int position) {
-                ImageDisplayActivity.start(v.getContext(), data, position, getTaskDescriptionLabel());
+                ImagesActivity.start(v.getContext(), data, position, getTaskDescriptionLabel());
             }
 
             @Override

@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import rikka.akashitoolkit.R;
-import rikka.akashitoolkit.ui.ImageDisplayActivity;
+import rikka.akashitoolkit.ui.ImagesActivity;
 
 import static rikka.akashitoolkit.support.ApiConstParam.TwitterContentLanguage.JP_AND_ZH;
 import static rikka.akashitoolkit.support.ApiConstParam.TwitterContentLanguage.ONLY_JP;
@@ -113,14 +113,16 @@ public class TwitterAdapter extends RecyclerView.Adapter<TwitterAdapter.ViewHold
     private int mLanguage;
     private String mAvatarUrl;
 
-    public interface OnMoreButtonClickedListener {
-        void onClicked(ShareDataModel data);
+    public interface Listener {
+        void onMoreButtonClick(ShareDataModel data);
+
+        void onAvatarLongClick();
     }
 
-    private OnMoreButtonClickedListener mOnMoreButtonClickedListener;
+    private Listener mListener;
 
-    public void setOnMoreButtonClickedListener(OnMoreButtonClickedListener onMoreButtonClickedListener) {
-        mOnMoreButtonClickedListener = onMoreButtonClickedListener;
+    public void setListener(Listener listener) {
+        mListener = listener;
     }
 
     public void setAvatarUrl(String avatarUrl) {
@@ -173,6 +175,7 @@ public class TwitterAdapter extends RecyclerView.Adapter<TwitterAdapter.ViewHold
                     .into(holder.mAvatar);
 
             holder.mAvatar.setOnClickListener(mAvatarOnClickListener);
+            holder.mAvatar.setOnLongClickListener(mAvatarOnLongClickListener);
         }
 
         holder.mName.setText("「艦これ」開発/運営");
@@ -244,8 +247,8 @@ public class TwitterAdapter extends RecyclerView.Adapter<TwitterAdapter.ViewHold
                 shareData.date = holder.mTime.getText().toString();
                 shareData.title = "「艦これ」開発/運営";
 
-                if (mOnMoreButtonClickedListener != null) {
-                    mOnMoreButtonClickedListener.onClicked(shareData);
+                if (mListener != null) {
+                    mListener.onMoreButtonClick(shareData);
                 }
             }
         });
@@ -306,7 +309,7 @@ public class TwitterAdapter extends RecyclerView.Adapter<TwitterAdapter.ViewHold
             if (v == mImageView) {
                 //ImageDialogFragment.showDialog(mFragmentManager, mSource);
                 if (mSource != null) {
-                    ImageDisplayActivity.start(v.getContext(), mSource.replaceAll("-\\d+x\\d+", ""));
+                    ImagesActivity.start(v.getContext(), mSource.replaceAll("-\\d+x\\d+", ""));
                 }
             }
         }
@@ -324,7 +327,29 @@ public class TwitterAdapter extends RecyclerView.Adapter<TwitterAdapter.ViewHold
     public class AvatarOnClickListener implements View.OnClickListener {
         @Override
         public void onClick(View v) {
-            ImageDisplayActivity.start(v.getContext(), mAvatarUrl);
+            ImagesActivity.start(v.getContext(), mAvatarUrl);
         }
+    }
+
+    private AvatarOnLongClickListener mAvatarOnLongClickListener = new AvatarOnLongClickListener();
+
+    public class AvatarOnLongClickListener implements View.OnLongClickListener {
+        @Override
+        public boolean onLongClick(View view) {
+            if (mListener != null) {
+                mListener.onAvatarLongClick();
+            }
+            return true;
+        }
+    }
+
+    @Override
+    public void onDetachedFromRecyclerView(RecyclerView recyclerView) {
+        super.onDetachedFromRecyclerView(recyclerView);
+    }
+
+    @Override
+    public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+        super.onAttachedToRecyclerView(recyclerView);
     }
 }

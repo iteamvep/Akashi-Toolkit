@@ -60,7 +60,7 @@ import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.ViewPagerStateAdapter;
 import rikka.akashitoolkit.utils.Utils;
 
-public class ImageDisplayActivity extends BaseActivity implements View.OnClickListener {
+public class ImagesActivity extends BaseActivity implements View.OnClickListener {
     public static final String EXTRA_URL = "EXTRA_URL";
     public static final String EXTRA_POSITION = "EXTRA_POSITION";
     public static final String EXTRA_TITLE = "EXTRA_TITLE";
@@ -92,11 +92,11 @@ public class ImageDisplayActivity extends BaseActivity implements View.OnClickLi
     }
 
     public static void start(Context context, List<String> url, int position, String title, boolean downloadable) {
-        Intent intent = new Intent(context, ImageDisplayActivity.class);
-        intent.putStringArrayListExtra(ImageDisplayActivity.EXTRA_URL, (ArrayList<String>) url);
-        intent.putExtra(ImageDisplayActivity.EXTRA_POSITION, position);
-        intent.putExtra(ImageDisplayActivity.EXTRA_TITLE, title);
-        intent.putExtra(ImageDisplayActivity.EXTRA_DOWNLOADABLE, downloadable);
+        Intent intent = new Intent(context, ImagesActivity.class);
+        intent.putStringArrayListExtra(ImagesActivity.EXTRA_URL, (ArrayList<String>) url);
+        intent.putExtra(ImagesActivity.EXTRA_POSITION, position);
+        intent.putExtra(ImagesActivity.EXTRA_TITLE, title);
+        intent.putExtra(ImagesActivity.EXTRA_DOWNLOADABLE, downloadable);
         context.startActivity(intent);
     }
 
@@ -105,13 +105,6 @@ public class ImageDisplayActivity extends BaseActivity implements View.OnClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image_display);
-
-        /*Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("");
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);*/
 
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) {
             setTaskDescription(new ActivityManager.TaskDescription(getIntent().getStringExtra(EXTRA_TITLE), null, ContextCompat.getColor(this, R.color.background)));
@@ -280,7 +273,7 @@ public class ImageDisplayActivity extends BaseActivity implements View.OnClickLi
 
                         return new TaskReturn(Environment.DIRECTORY_PICTURES + fileName, null);
                     } else {
-                        DocumentFile pickedDir = DocumentFile.fromTreeUri(ImageDisplayActivity.this, data);
+                        DocumentFile pickedDir = DocumentFile.fromTreeUri(ImagesActivity.this, data);
                         DocumentFile dir = pickedDir.findFile("AkashiToolkit");
 
                         if (dir == null)
@@ -339,7 +332,7 @@ public class ImageDisplayActivity extends BaseActivity implements View.OnClickLi
                                     }
                                 }).show();
                     } else {
-                        Context context = ImageDisplayActivity.this;
+                        Context context = ImagesActivity.this;
 
                         File picturePath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
                         File imagePath = new File(picturePath, "AkashiToolkit");
@@ -401,13 +394,13 @@ public class ImageDisplayActivity extends BaseActivity implements View.OnClickLi
                                 Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
                             }
 
-                            ((ImageDisplayActivity) getActivity()).setIsDownloaded(mPosition, false);
+                            ((ImagesActivity) getActivity()).setIsDownloaded(mPosition, false);
                             return false;
                         }
 
                         @Override
                         public boolean onResourceReady(GlideDrawable resource, GlideUrl model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
-                            ((ImageDisplayActivity) getActivity()).setIsDownloaded(mPosition, true);
+                            ((ImagesActivity) getActivity()).setIsDownloaded(mPosition, true);
                             return false;
                         }
                     })

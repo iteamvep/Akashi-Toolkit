@@ -34,7 +34,7 @@
     <string name="no_new_tweet">新着ツイート無し</string>
     <string name="twitter_grid_layout">グリッドレイアウト</string>
     <string name="twitter_grid_layout_summary">二列表示</string>
-
+    <string name="twitter_history_avatars">History avatars</string>
 
     <string name="ship">艦娘</string>
 
@@ -48,8 +48,6 @@
 
     <string name="version_format" formatted="false">%s (%d)</string>
     <string name="version">バージョン</string>
-    <string name="check_update">更新チェック</string>
-    <string name="check_update_summary">約週一回の更新</string>
 
     <string name="category_update">更新とメッセージ</string>
     <string name="update_check_channel">更新チャンネル</string>
@@ -246,4 +244,6 @@
 
     <string name="search_result">検索結果</string>
 
+    <string name="fleets">Fleets</string>
+    <string name="fleet_edit">Edit fleet</string>
 </resources>

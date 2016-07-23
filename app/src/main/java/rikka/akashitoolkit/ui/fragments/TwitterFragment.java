@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.squareup.otto.Subscribe;
@@ -22,7 +23,6 @@ import com.squareup.otto.Subscribe;
 import java.io.ByteArrayInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -31,7 +31,6 @@ import java.util.TimeZone;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -39,41 +38,36 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.TwitterAdapter;
+import rikka.akashitoolkit.model.Avatars;
+import rikka.akashitoolkit.model.LatestAvatar;
 import rikka.akashitoolkit.model.Twitter;
 import rikka.akashitoolkit.network.RetrofitAPI;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.PreferenceChangedAction;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.StaticData;
+import rikka.akashitoolkit.ui.GalleryActivity;
 import rikka.akashitoolkit.utils.Utils;
 
 /**
  * Created by Rikka on 2016/3/6.
  */
-public class TwitterFragment extends Fragment implements TwitterAdapter.OnMoreButtonClickedListener {
+public class TwitterFragment extends Fragment implements TwitterAdapter.Listener {
     private static final String TAG = "TwitterFragment";
 
     private static final String JSON_NAME = "/json/twitter.json";
+    private static final String JSON_NAME_AVATARS = "/json/twitter_avatars.json";
     private String CACHE_FILE;
+    private String CACHE_FILE_AVATARS;
 
     private RecyclerView mRecyclerView;
     private TwitterAdapter mTwitterAdapter;
     private SwipeRefreshLayout mSwipeRefreshLayout;
 
     private Call<Twitter> mCall;
-    private Call<ResponseBody> mCall2;
+    private Call<LatestAvatar> mCall2;
 
-    /*@Override
-    public void onShow() {
-        super.onShow();
-
-        MainActivity activity = ((MainActivity) getActivity());
-        activity.getSupportActionBar().setTitle(getString(R.string.official_twitter));
-
-        mSwipeRefreshLayout.setRefreshing(false);
-
-        Statistics.onFragmentStart("TwitterFragment");
-    }*/
+    private Avatars mAvatars;
 
     @Override
     public void onStop() {
@@ -88,13 +82,6 @@ public class TwitterFragment extends Fragment implements TwitterAdapter.OnMoreBu
         super.onStop();
     }
 
-    /*@Override
-    public void onHide() {
-        super.onHide();
-
-        Statistics.onFragmentEnd("TwitterFragment");
-    }*/
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -104,6 +91,7 @@ public class TwitterFragment extends Fragment implements TwitterAdapter.OnMoreBu
         BusProvider.instance().register(this);
 
         CACHE_FILE = getContext().getCacheDir().getAbsolutePath() + JSON_NAME;
+        CACHE_FILE_AVATARS = getContext().getCacheDir().getAbsolutePath() + JSON_NAME_AVATARS;
     }
 
     @Override
@@ -133,7 +121,7 @@ public class TwitterFragment extends Fragment implements TwitterAdapter.OnMoreBu
         mRecyclerView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.windowBackground));
 
         mTwitterAdapter = new TwitterAdapter();
-        mTwitterAdapter.setOnMoreButtonClickedListener(this);
+        mTwitterAdapter.setListener(this);
         mRecyclerView.setAdapter(mTwitterAdapter);
         mTwitterAdapter.setMaxItem(Settings
                 .instance(getContext())
@@ -147,7 +135,7 @@ public class TwitterFragment extends Fragment implements TwitterAdapter.OnMoreBu
                 .instance(getContext())
                 .getString(Settings.TWITTER_AVATAR_URL, ""));
 
-        setUpRecyclerView(false);
+        setUpRecyclerView();
 
         mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefreshLayout);
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -178,12 +166,7 @@ public class TwitterFragment extends Fragment implements TwitterAdapter.OnMoreBu
 
     private RecyclerView.ItemDecoration mItemDecoration;
 
-    private void setUpRecyclerView(boolean refresh) {
-        /*if (mTwitterAdapter != null) {
-            mTwitterAdapter.setData(new ArrayList<TwitterAdapter.DataModel>());
-            mTwitterAdapter.notifyDataSetChanged();
-        }*/
-
+    private void setUpRecyclerView() {
         RecyclerView.LayoutManager layoutManager;
         if (StaticData.instance(getActivity()).isTablet) {
             if (Settings.instance(getActivity()).getBoolean(Settings.TWITTER_GRID_LAYOUT, false)) {
@@ -220,15 +203,6 @@ public class TwitterFragment extends Fragment implements TwitterAdapter.OnMoreBu
             layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         }
         mRecyclerView.setLayoutManager(layoutManager);
-
-        /*if (refresh) {
-            mRecyclerView.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    loadFromCache();
-                }
-            }, 3000);
-        }*/
     }
 
     private void loadFromCache() {
@@ -239,13 +213,13 @@ public class TwitterFragment extends Fragment implements TwitterAdapter.OnMoreBu
                     new FileReader(CACHE_FILE),
                     Twitter.class);
 
+            mAvatars = gson.fromJson(
+                    new FileReader(CACHE_FILE_AVATARS),
+                    Avatars.class);
+
             updateData(twitter, false);
         } catch (FileNotFoundException ignored) {
         }
-
-        /*if (twitter != null) {
-            updateData(twitter, false);
-        }*/
     }
 
     private void updateData(Twitter source, boolean animate) {
@@ -333,40 +307,54 @@ public class TwitterFragment extends Fragment implements TwitterAdapter.OnMoreBu
 
     private void refresh(final int json, final int count) {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://static.kcwiki.moe")
-                .build();
-
-        RetrofitAPI.TwitterService service = retrofit.create(RetrofitAPI.TwitterService.class);
-        mCall2 = service.getAvatarUrl();
-        mCall2.enqueue(new Callback<ResponseBody>() {
-            @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                _refresh(json, count);
-
-                try {
-                    String url = response.body().string();
-                    mTwitterAdapter.setAvatarUrl(url);
-                    Settings.instance(getContext()).putString(Settings.TWITTER_AVATAR_URL, url);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
-                _refresh(json, count);
-            }
-        });
-    }
-
-    private void _refresh(int json, int count) {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://t.kcwiki.moe")
+                .baseUrl("http://api.kcwiki.moe/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         RetrofitAPI.TwitterService service = retrofit.create(RetrofitAPI.TwitterService.class);
-        mCall = service.get(json, count);
+        mCall2 = service.getLatestAvatarUrl();
+        mCall2.enqueue(new Callback<LatestAvatar>() {
+            @Override
+            public void onResponse(Call<LatestAvatar> call, Response<LatestAvatar> response) {
+                String url = response.body().getLatest();
+
+                if (url != null) {
+                    mTwitterAdapter.setAvatarUrl(url);
+                    Settings.instance(getContext()).putString(Settings.TWITTER_AVATAR_URL, url);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<LatestAvatar> call, Throwable t) {
+            }
+        });
+
+        retrofit.create(RetrofitAPI.TwitterService.class)
+                .getAvatars()
+                .enqueue(new Callback<Avatars>() {
+                    @Override
+                    public void onResponse(Call<Avatars> call, Response<Avatars> response) {
+                        mAvatars = response.body();
+
+                        Gson gson = new Gson();
+                        Utils.saveStreamToFile(new ByteArrayInputStream(gson.toJson(response.body()).getBytes()),
+                                CACHE_FILE_AVATARS);
+                    }
+
+                    @Override
+                    public void onFailure(Call<Avatars> call, Throwable t) {
+
+                    }
+                });
+
+
+        Retrofit retrofit2 = new Retrofit.Builder()
+                .baseUrl("http://t.kcwiki.moe/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        RetrofitAPI.TwitterService service2 = retrofit2.create(RetrofitAPI.TwitterService.class);
+        mCall = service2.get(json, count);
 
         mCall.enqueue(new Callback<Twitter>() {
             @Override
@@ -431,14 +419,14 @@ public class TwitterFragment extends Fragment implements TwitterAdapter.OnMoreBu
                 });
                 break;
             case Settings.TWITTER_GRID_LAYOUT:
-                setUpRecyclerView(true);
+                setUpRecyclerView();
                 break;
         }
 
     }
 
     @Override
-    public void onClicked(TwitterAdapter.ShareDataModel data) {
+    public void onMoreButtonClick(TwitterAdapter.ShareDataModel data) {
         TwitterMoreDialogFragment f = new TwitterMoreDialogFragment();
         Bundle bundle = new Bundle();
         bundle.putString("TEXT", data.text);
@@ -447,5 +435,19 @@ public class TwitterFragment extends Fragment implements TwitterAdapter.OnMoreBu
 
         f.setTargetFragment(this, 0);
         f.show(getChildFragmentManager(), TAG);
+    }
+
+    @Override
+    public void onAvatarLongClick() {
+        if (mAvatars == null || mAvatars.getArchives() == null) {
+            Toast.makeText(getContext(), "Download not finished or failed.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        List<String> list = new ArrayList<>();
+        for (int i = mAvatars.getArchives().size() - 1; i >= 0; i--) {
+            list.add(String.format("%s%s", mAvatars.getBase(), mAvatars.getArchives().get(i)));
+        }
+        GalleryActivity.start(getContext(), list, getString(R.string.twitter_history_avatars));
     }
 }
