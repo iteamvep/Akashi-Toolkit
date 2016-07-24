@@ -102,6 +102,7 @@ public class SeasonalAdapter extends BaseRecyclerAdapter {
 
     private void bindViewHolder(final GalleryViewHolder holder, int position) {
         Context context = holder.itemView.getContext();
+
         Seasonal data = (Seasonal) getItem(position);
         final String title = data.getTitle();
         final String summary = data.getSummary();
@@ -129,27 +130,27 @@ public class SeasonalAdapter extends BaseRecyclerAdapter {
             holder.mButton.setText(String.format(context.getString(R.string.view_all_format),
                     urls.size() - GalleryViewHolder.MAX_IMAGE));
         }
+        ((GalleryAdapter) holder.mRecyclerView.getAdapter()).setUrls(urls);
+
+        Log.d(TAG, title + " gallery size " + urls.size() + " item width " + holder.mItemSize);
 
         holder.mRecyclerView.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
             @Override
             public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
                 holder.mItemSize = (v.getWidth() - (Utils.dpToPx(2) * (GalleryViewHolder.SPAN_COUNT - 1))) / GalleryViewHolder.SPAN_COUNT;
-
-                ((GalleryAdapter) holder.mRecyclerView.getAdapter()).setUrls(urls);
-
-                // some magic (((
-                holder.mRecyclerView.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        holder.mRecyclerView.getAdapter().notifyDataSetChanged();
-                    }
-                }, 300);
-
-                Log.d(TAG, title + " gallery size " + urls.size() + " item width " + holder.mItemSize);
+                holder.mRecyclerView.getAdapter().notifyDataSetChanged();
 
                 v.removeOnLayoutChangeListener(this);
             }
         });
+
+        // some magic (((
+        holder.mRecyclerView.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                holder.mRecyclerView.getAdapter().notifyDataSetChanged();
+            }
+        }, 300);
     }
 
     private void bindViewHolder(ContentViewHolder holder, int position) {

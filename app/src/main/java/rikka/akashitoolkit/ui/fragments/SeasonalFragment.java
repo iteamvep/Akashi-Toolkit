@@ -118,8 +118,7 @@ public class SeasonalFragment extends Fragment {
             }, 500);
         }
 
-        // !!!!
-        //loadFromCache();
+        loadFromCache();
 
         return view;
     }
