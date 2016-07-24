@@ -713,7 +713,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
         recyclerView.post(new Runnable() {
             @Override
             public void run() {
-                adapter.setData(getIllustrationUrls());
+                adapter.setUrls(getIllustrationUrls());
                 adapter.notifyDataSetChanged();
             }
         });

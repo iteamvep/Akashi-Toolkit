@@ -343,7 +343,7 @@ public class ImagesActivity extends BaseActivity implements View.OnClickListener
                         Uri uri = FileProvider.getUriForFile(
                                 context, "rikka.akashitoolkit.fileprovider", image);
 
-                        intent.setData(uri);
+                        intent.setUrls(uri);
                         intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
 
                         List<ResolveInfo> resInfoList = context.getPackageManager().queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);

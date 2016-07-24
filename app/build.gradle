@@ -8,8 +8,8 @@ android {
         applicationId "rikka.akashitoolkit"
         minSdkVersion 15
         targetSdkVersion 24
-        versionCode 101
-        versionName "0.0.41"
+        versionCode 103
+        versionName "0.0.42"
 
         vectorDrawables.useSupportLibrary = true
 

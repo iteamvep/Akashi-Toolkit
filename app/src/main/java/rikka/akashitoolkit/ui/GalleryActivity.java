@@ -2,6 +2,7 @@ package rikka.akashitoolkit.ui;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Rect;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
@@ -12,7 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,10 +21,12 @@ import java.util.List;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.GalleryAdapter;
 import rikka.akashitoolkit.support.StaticData;
+import rikka.akashitoolkit.utils.Utils;
 
 public class GalleryActivity extends AppCompatActivity {
 
     public static final String EXTRA_URL = "EXTRA_URL";
+    public static final String EXTRA_NAME = "EXTRA_NAME";
     public static final String EXTRA_TITLE = "EXTRA_TITLE";
 
     public static void start(Context context, List<String> url, String title) {
@@ -33,9 +36,18 @@ public class GalleryActivity extends AppCompatActivity {
         context.startActivity(intent);
     }
 
+    public static void start(Context context, List<String> url, List<String> name, String title) {
+        Intent intent = new Intent(context, GalleryActivity.class);
+        intent.putStringArrayListExtra(EXTRA_URL, (ArrayList<String>) url);
+        intent.putStringArrayListExtra(EXTRA_NAME, (ArrayList<String>) name);
+        intent.putExtra(EXTRA_TITLE, title);
+        context.startActivity(intent);
+    }
+
     private int mItemSize;
     private int mSpanCount;
-    private List<String> mData;
+    private List<String> mUrls;
+    private List<String> mNames;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,31 +69,56 @@ public class GalleryActivity extends AppCompatActivity {
         boolean horizontal = getResources().getBoolean(R.bool.is_horizontal);
         boolean tablet = StaticData.instance(this).isTablet;
 
-        mSpanCount = horizontal ? (tablet ? 5 : 4) : 3;
+        mSpanCount = horizontal ? (tablet ? 5 : 3) : 2;
 
-        mData = getIntent().getStringArrayListExtra(EXTRA_URL);
+        mUrls = getIntent().getStringArrayListExtra(EXTRA_URL);
+        mNames = getIntent().getStringArrayListExtra(EXTRA_NAME);
 
-        final GalleryAdapter adapter = new GalleryAdapter(R.layout.item_image) {
+        final GalleryAdapter adapter = new GalleryAdapter(R.layout.item_gallery_image) {
             @Override
             public void onItemClicked(View v, List<String> data, int position) {
                 ImagesActivity.start(v.getContext(), data, position, null);
             }
 
             @Override
-            public void onCreateImageView(ImageView imageView) {
-                imageView.setLayoutParams(new FrameLayout.LayoutParams(mItemSize, mItemSize));
+            public void onBindViewHolder(ViewHolder holder, int position) {
+                super.onBindViewHolder(holder, position);
+                holder.mImageView.setLayoutParams(new FrameLayout.LayoutParams(mItemSize, mItemSize));
             }
         };
+
+        adapter.setItemBackgroundColor(ContextCompat.getColor(this, R.color.windowBackground));
+
         GridLayoutManager layoutManager = new GridLayoutManager(this, mSpanCount);
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.content_container);
+        recyclerView.setBackgroundColor(ContextCompat.getColor(this, R.color.cardBackground));
+
         recyclerView.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
             @Override
             public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
-                mItemSize = v.getWidth() / mSpanCount;
-                adapter.setData(mData);
+                mItemSize = (v.getWidth() - Utils.dpToPx(1) * (mSpanCount - 1)) / mSpanCount;
+                adapter.setNames(mNames);
+                adapter.setUrls(mUrls);
 
                 v.removeOnLayoutChangeListener(this);
+            }
+        });
+
+        recyclerView.addItemDecoration(new RecyclerView.ItemDecoration() {
+            @Override
+            public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+                int position = parent.getChildAdapterPosition(view) + 1;
+
+                outRect.set(0, Utils.dpToPx(1), Utils.dpToPx(1), 0);
+
+                if (position % mSpanCount == 0) {
+                    outRect.right = 0;
+                }
+
+                if (position <= mSpanCount) {
+                    outRect.top = 0;
+                }
             }
         });
 

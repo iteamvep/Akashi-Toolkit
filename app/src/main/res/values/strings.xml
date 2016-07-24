@@ -265,5 +265,7 @@ Activity &amp; Extra:
 
     <string name="fleets">Fleets</string>
     <string name="fleet_edit">Edit fleet</string>
+    <string name="view_all">View all</string>
+    <string name="view_all_format">View all (%d more)</string>
 
 </resources>

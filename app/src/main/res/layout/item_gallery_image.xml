@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rikka.akashitoolkit.ui.widget.ForegroundFrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:foreground="?attr/selectableItemBackground"
+    tools:background="@color/windowBackground"
+    android:clickable="true"
+    android:focusable="true"
+    android:orientation="vertical">
+
+    <!--android:stateListAnimator="@animator/raise"-->
+
+    <ImageView
+        android:id="@android:id/icon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:contentDescription="@null"
+        android:scaleType="fitCenter"
+        tools:src="@mipmap/ic_launcher"/>
+
+    <TextView
+        android:id="@android:id/title"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center_vertical"
+        android:background="#40363636"
+        android:layout_gravity="bottom"
+        android:maxLines="1"
+        android:textSize="16sp"
+        android:textColor="#FFF"
+        android:padding="8dp"
+        android:fontFamily="sans-serif-medium"
+        tools:text="name"
+        tools:ignore="PrivateResource"/>
+
+</rikka.akashitoolkit.ui.widget.ForegroundFrameLayout>

@@ -1,7 +1,5 @@
 package rikka.akashitoolkit.model;
 
-import com.google.gson.annotations.SerializedName;
-
 import java.util.List;
 
 /**
@@ -9,155 +7,51 @@ import java.util.List;
  */
 public class Seasonal {
 
-    /**
-     * title : 2016年三周年纪念
-     * data : [{"title":"三周年限定立绘","content":[{"type":0,"title":"春の花束mode","file":["KanMusu133IllustThirdAnniversary.png","KanMusu133DmgIllustThirdAnniversary.png","KanMusu135IllustThirdAnniversary.png","KanMusu135DmgIllustThirdAnniversary.png","KanMusu205IllustThirdAnniversary.png","KanMusu205DmgIllustThirdAnniversary.png","KanMusu251IllustThirdAnniversary.png"]},{"type":0,"title":"花语","file":["KanMusu133ThirdAnni-kcwiki.png","KanMusu135ThirdAnni-kcwiki.png","KanMusu205ThirdAnni-kcwiki.png","KanMusu251ThirdAnni-kcwiki.jpg"]}]}]
-     */
-
+    private int type;
     private String title;
-    /**
-     * title : 三周年限定立绘
-     * content : [{"type":0,"title":"春の花束mode","file":["KanMusu133IllustThirdAnniversary.png","KanMusu133DmgIllustThirdAnniversary.png","KanMusu135IllustThirdAnniversary.png","KanMusu135DmgIllustThirdAnniversary.png","KanMusu205IllustThirdAnniversary.png","KanMusu205DmgIllustThirdAnniversary.png","KanMusu251IllustThirdAnniversary.png"]},{"type":0,"title":"花语","file":["KanMusu133ThirdAnni-kcwiki.png","KanMusu135ThirdAnni-kcwiki.png","KanMusu205ThirdAnni-kcwiki.png","KanMusu251ThirdAnni-kcwiki.jpg"]}]
-     */
+    private String summary;
+    private String content;
 
-    private List<DataEntity> data;
+    private Gallery gallery;
+
+    public int getType() {
+        return type;
+    }
 
     public String getTitle() {
         return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public String getSummary() {
+        return summary;
     }
 
-    public List<DataEntity> getData() {
-        return data;
+    public String getContent() {
+        return content;
     }
 
-    public void setData(List<DataEntity> data) {
-        this.data = data;
+    public Gallery getGallery() {
+        return gallery;
     }
 
-    public static class DataEntity {
-        private String title;
-        /**
-         * type : 0
-         * title : 春の花束mode
-         * file : ["KanMusu133IllustThirdAnniversary.png","KanMusu133DmgIllustThirdAnniversary.png","KanMusu135IllustThirdAnniversary.png","KanMusu135DmgIllustThirdAnniversary.png","KanMusu205IllustThirdAnniversary.png","KanMusu205DmgIllustThirdAnniversary.png","KanMusu251IllustThirdAnniversary.png"]
-         */
+    public static class Gallery {
+        List<String> urls;
+        List<String> names;
 
-        private List<ContentEntity> content;
-
-        public String getTitle() {
-            return title;
+        public List<String> getUrls() {
+            return urls;
         }
 
-        public void setTitle(String title) {
-            this.title = title;
+        public void setUrls(List<String> urls) {
+            this.urls = urls;
         }
 
-        public List<ContentEntity> getContent() {
-            return content;
+        public List<String> getNames() {
+            return names;
         }
 
-        public void setContent(List<ContentEntity> content) {
-            this.content = content;
-        }
-
-        public static class ContentEntity {
-            private int type;
-
-            private int width;
-            private int height;
-            private String scale_type;
-            private List<String> file;
-
-            private String title;
-            private String text;
-
-            private String zh;
-            private String jp;
-            private String url;
-
-            public int getType() {
-                return type;
-            }
-
-            public void setType(int type) {
-                this.type = type;
-            }
-
-            public int getWidth() {
-                return width;
-            }
-
-            public void setWidth(int width) {
-                this.width = width;
-            }
-
-            public int getHeight() {
-                return height;
-            }
-
-            public void setHeight(int height) {
-                this.height = height;
-            }
-
-            public String getScaleType() {
-                return scale_type;
-            }
-
-            public void setScaleType(String scale_type) {
-                this.scale_type = scale_type;
-            }
-
-            public String getTitle() {
-                return title;
-            }
-
-            public void setTitle(String title) {
-                this.title = title;
-            }
-
-            public String getText() {
-                return text;
-            }
-
-            public void setText(String text) {
-                this.text = text;
-            }
-
-            public List<String> getFile() {
-                return file;
-            }
-
-            public void setFile(List<String> file) {
-                this.file = file;
-            }
-
-            public String getZh() {
-                return zh;
-            }
-
-            public void setZh(String zh) {
-                this.zh = zh;
-            }
-
-            public String getJp() {
-                return jp;
-            }
-
-            public void setJp(String jp) {
-                this.jp = jp;
-            }
-
-            public String getUrl() {
-                return url;
-            }
-
-            public void setUrl(String url) {
-                this.url = url;
-            }
+        public void setNames(List<String> names) {
+            this.names = names;
         }
     }
 }

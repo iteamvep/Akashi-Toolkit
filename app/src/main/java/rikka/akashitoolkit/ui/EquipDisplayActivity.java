@@ -677,7 +677,7 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
                 imageView.setLayoutParams(new LinearLayout.LayoutParams(Utils.dpToPx(150), Utils.dpToPx(150)));
             }
         };
-        adapter.setData(urlList);
+        adapter.setUrls(urlList);
         recyclerView.setAdapter(adapter);
 
 

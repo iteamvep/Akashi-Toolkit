@@ -245,4 +245,6 @@
 
     <string name="fleets">舰队</string>
     <string name="fleet_edit">编辑舰队</string>
+    <string name="view_all">View all</string>
+    <string name="view_all_format">View all (%d more)</string>
 </resources>

@@ -49,7 +49,7 @@ public class RetrofitAPI {
 
     public interface SeasonalAPI {
         @GET("/Akashi/seasonal.php")
-        Call<Seasonal> get(
+        Call<List<Seasonal>> get(
                 @Query("api_version") int api_version);
     }
 
