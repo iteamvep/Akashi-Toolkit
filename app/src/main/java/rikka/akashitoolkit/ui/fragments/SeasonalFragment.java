@@ -1,9 +1,5 @@
 package rikka.akashitoolkit.ui.fragments;
 
-import android.content.Context;
-import android.content.Intent;
-import android.graphics.Rect;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
@@ -13,18 +9,11 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
-import android.text.Html;
-import android.text.Spanned;
-import android.text.method.LinkMovementMethod;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -32,7 +21,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.ByteArrayInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,15 +30,9 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import rikka.akashitoolkit.R;
-import rikka.akashitoolkit.adapter.GalleryAdapter;
 import rikka.akashitoolkit.adapter.SeasonalAdapter;
 import rikka.akashitoolkit.model.Seasonal;
-import rikka.akashitoolkit.model.ShipVoice;
 import rikka.akashitoolkit.network.RetrofitAPI;
-import rikka.akashitoolkit.ui.ImagesActivity;
-import rikka.akashitoolkit.ui.MainActivity;
-import rikka.akashitoolkit.support.MusicPlayer;
-import rikka.akashitoolkit.utils.MySpannableFactory;
 import rikka.akashitoolkit.utils.Utils;
 
 /**

@@ -47,7 +47,7 @@ public abstract class BaseRecyclerAdapter<VH extends RecyclerView.ViewHolder> ex
 
     @Override
     public int getItemViewType(int position) {
-        return mData.get(position).type;
+        return mData.size() == 0 ? 0 : mData.get(position).type;
     }
 
     @Override
