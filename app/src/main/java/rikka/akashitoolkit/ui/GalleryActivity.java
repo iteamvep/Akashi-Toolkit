@@ -10,8 +10,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
@@ -84,6 +86,7 @@ public class GalleryActivity extends AppCompatActivity {
             public void onBindViewHolder(ViewHolder holder, int position) {
                 super.onBindViewHolder(holder, position);
                 holder.mImageView.setLayoutParams(new FrameLayout.LayoutParams(mItemSize, mItemSize));
+                holder.mTitle.setLayoutParams(new FrameLayout.LayoutParams(mItemSize, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.BOTTOM));
             }
         };
 

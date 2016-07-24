@@ -224,7 +224,7 @@ public class SeasonalAdapter extends BaseRecyclerAdapter {
                 @Override
                 public void onBindViewHolder(ViewHolder holder, int position) {
                     super.onBindViewHolder(holder, position);
-                    holder.itemView.setLayoutParams(new FrameLayout.LayoutParams(mItemSize, mItemSize));
+                    holder.mImageView.setLayoutParams(new FrameLayout.LayoutParams(mItemSize, mItemSize));
                 }
 
                 @Override

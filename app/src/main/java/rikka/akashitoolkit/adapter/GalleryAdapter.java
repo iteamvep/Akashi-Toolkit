@@ -109,14 +109,6 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHold
         });
 
         if (mNames != null) {
-            holder.mTitle.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
-                @Override
-                public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
-                    holder.mTitle.getLayoutParams().width = holder.itemView.getWidth();
-
-                    v.removeOnLayoutChangeListener(this);
-                }
-            });
             holder.mTitle.setVisibility(View.VISIBLE);
             holder.mTitle.setText(mNames.get(position));
         } else {
