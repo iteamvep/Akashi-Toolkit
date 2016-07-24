@@ -35,7 +35,7 @@ import rikka.akashitoolkit.utils.Utils;
  * Created by Rikka on 2016/3/9.
  */
 public class QuestAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Quest> {
-    private List<Quest> mData;
+
     private int mType;
     private int mFilterFlag;
     private String mKeyword;
@@ -43,16 +43,10 @@ public class QuestAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Quest> 
     private boolean mIsSearching;
     private boolean mLatestOnly;
 
-    @Override
-    public long getItemId(int position) {
-        return mData.get(position).getId();
-    }
-
     public QuestAdapter(Context context, int type, int flag, boolean isSearching, boolean latestOnly, boolean bookmarked) {
         super(bookmarked);
 
         mType = type;
-        mData = new ArrayList<>();
         mFilterFlag = flag;
         mContext = context;
         mIsSearching = isSearching;
@@ -62,26 +56,12 @@ public class QuestAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Quest> 
     }
 
     public int getPositionByIndex(int index) {
-        for (int i = 0; i < mData.size(); i++) {
-            if (mData.get(i).getId() == index) {
+        for (int i = 0; i < getItemList().size(); i++) {
+            if (getItemList().get(i).id == index) {
                 return i;
             }
         }
         return 0;
-    }
-
-    @Override
-    public int getItemViewType(int position) {
-        Quest quest = mData.get(position);
-        int type = 0;
-        if (quest.getPeriod() > 0) {
-            type ++;
-        }
-        if (quest.isNewMission()) {
-            type ++;
-        }
-
-        return type;
     }
 
     private boolean check(Quest item) {
@@ -146,7 +126,7 @@ public class QuestAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Quest> 
     }
 
     private void setRewardText(ViewHolder.Quest holder, int position, int id) {
-        int res = mData.get(position).getReward().getResource().get(id);
+        int res = ((Quest) getItemData(position)).getReward().getResource().get(id);
         if (res > 0) {
             ((LinearLayout)holder.mRewardText[id].getParent()).setVisibility(View.VISIBLE);
             holder.mRewardText[id].setText(Integer.toString(res));
@@ -224,7 +204,7 @@ public class QuestAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Quest> 
 
     @Override
     public void onBindViewHolder(final ViewHolder.Quest holder, int position) {
-        Quest quest = mData.get(position);
+        Quest quest = (Quest) getItemData(position);
 
         if (!quest.isHighlight()) {
             //holder.mExpandableLayout.setExpanded(false, false);
@@ -284,7 +264,7 @@ public class QuestAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Quest> 
             @SuppressLint("DefaultLocale")
             @Override
             public boolean onLongClick(View v) {
-                Quest item = mData.get(holder.getAdapterPosition());
+                Quest item = (Quest) getItemData(holder.getAdapterPosition());
 
                 item.setBookmarked(!item.isBookmarked());
 
@@ -301,7 +281,7 @@ public class QuestAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Quest> 
     }
 
     private void setViewDetail(ViewHolder.Quest holder, int position) {
-        Quest quest = mData.get(position);
+        Quest quest = (Quest) getItemData(position);
 
         holder.mDetail.setText(Html.fromHtml(quest.getContent().get(holder.itemView.getContext())));
 
@@ -314,18 +294,18 @@ public class QuestAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Quest> 
 
         holder.mQuestContainer.removeAllViews();
 
-        if (mData.get(position).getUnlock() != null && mData.get(position).getUnlock().size() > 0) {
+        if (quest.getUnlock() != null && quest.getUnlock().size() > 0) {
             View view = LayoutInflater.from(mContext).inflate(R.layout.card_quest_next_header, holder.mQuestContainer, false);
             ((TextView) view).setText(mContext.getString(R.string.quest_before));
             holder.mQuestContainer.addView(view);
-            addUnlockQuestViews(holder, mData.get(position).getUnlock(), "%s %s");
+            addUnlockQuestViews(holder, quest.getUnlock(), "%s %s");
         }
 
-        if (mData.get(position).getAfter() != null && mData.get(position).getAfter().size() > 0) {
+        if (quest.getAfter() != null && quest.getAfter().size() > 0) {
             View view = LayoutInflater.from(mContext).inflate(R.layout.card_quest_next_header, holder.mQuestContainer, false);
             ((TextView) view).setText(mContext.getString(R.string.quest_after));
             holder.mQuestContainer.addView(view);
-            addUnlockQuestViews(holder, mData.get(position).getAfter(), "%s %s");
+            addUnlockQuestViews(holder, quest.getAfter(), "%s %s");
         }
     }
 
@@ -362,22 +342,15 @@ public class QuestAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Quest> 
     }
 
     @Override
-    public int getItemCount() {
-        return mData.size();
-    }
-
-    @Override
     public void rebuildDataList() {
         new AsyncTask<Void, Void, Void>() {
             @Override
             protected Void doInBackground(Void... params) {
-                List<Quest> data = QuestList.get(mContext);
-                mData.clear();
+                clearItemList();
 
-                for (Quest item :
-                        data) {
+                for (Quest item : QuestList.get(mContext)) {
                     if (check(item)) {
-                        mData.add(item);
+                        addItem(item.getId(), 0, item);
                     }
                 }
 

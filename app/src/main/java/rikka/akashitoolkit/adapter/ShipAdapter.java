@@ -47,7 +47,6 @@ import rx.schedulers.Schedulers;
  * Created by Rikka on 2016/3/30.
  */
 public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHolder> {
-    private List<Data> mData;
     private Map<Long, Boolean> mExpanded;
 
     private Activity mActivity;
@@ -61,20 +60,9 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
 
     private Toast mToast;
 
-    @Override
-    public long getItemId(int position) {
-        return mData.get(position).id;
-    }
-
-    @Override
-    public int getItemViewType(int position) {
-        return mData.get(position).type;
-    }
-
     public ShipAdapter(Activity activity, int showVersion, int typeFlag, int showSpeed, int sort, boolean bookmarked, boolean enemy) {
         super(bookmarked);
 
-        mData = new ArrayList<>();
         mExpanded = new LinkedHashMap<>();
         mActivity = activity;
 
@@ -147,7 +135,7 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
                 .subscribe(new Observer<List<Ship>>() {
                     @Override
                     public void onNext(List<Ship> o) {
-                        mData.clear();
+                        clearItemList();
 
                         if (mSort == 1) {
                             ShipList.sortByClass();
@@ -179,15 +167,15 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
                                         mExpanded.put(id, false);
                                     }
 
-                                    mData.add(new Data(type, 1, id));
+                                    addItem(id, 1, type);
                                 }
 
                                 if (mIsSearching || requireBookmarked() || mExpanded.get(id))
-                                    mData.add(new Data(item, 0, item.getId() * 10000));
+                                    addItem(item.getId() * 10000, 0, item);
                             }
                         }
 
-                        onDataListRebuilt(mData);
+                        onDataListRebuilt(getItemList());
                         notifyDataSetChanged();
                     }
 
@@ -281,7 +269,7 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
 
     private void bindViewHolder(final ViewHolder.Ship holder, int position) {
         Context context = holder.itemView.getContext();
-        Ship item = (Ship) mData.get(position).data;
+        Ship item = (Ship) getItemData(position);
 
         holder.mTitle.setText(String.format(item.isBookmarked() ? "%s ★" : "%s",
                 item.getName().get(holder.mTitle.getContext())));
@@ -332,7 +320,7 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
                     return;
                 }
 
-                Ship item = (Ship) mData.get(holder.getAdapterPosition()).data;
+                Ship item = (Ship) getItemData(holder.getAdapterPosition());
 
                 Intent intent = new Intent(v.getContext(), ShipDisplayActivity.class);
                 intent.putExtra(ShipDisplayActivity.EXTRA_ITEM_ID, item.getId());
@@ -351,7 +339,7 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
                 @SuppressLint("DefaultLocale")
                 @Override
                 public boolean onLongClick(View v) {
-                    Ship item = (Ship) mData.get(holder.getAdapterPosition()).data;
+                    Ship item = (Ship) getItemData(holder.getAdapterPosition());
 
                     item.setBookmarked(!item.isBookmarked());
 
@@ -385,7 +373,7 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
         boolean showDivider = position != 0 && expanded || position != 0 && (getItemViewType(position - 1) != getItemViewType(position));
 
         holder.mDivider.setVisibility(showDivider ? View.VISIBLE : View.GONE);
-        holder.mTitle.setText((String) mData.get(position).data);
+        holder.mTitle.setText((String) getItemData(position));
 
         if (holder.itemView.isSelected() != expanded
                 && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -462,11 +450,6 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
         mLastHolder = null;
 
         return true;
-    }
-
-    @Override
-    public int getItemCount() {
-        return mData.size();
     }
 
     @Override

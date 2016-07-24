@@ -1,20 +1,13 @@
 package rikka.akashitoolkit.adapter;
 
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-
-import com.squareup.otto.Subscribe;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import rikka.akashitoolkit.otto.BusProvider;
-import rikka.akashitoolkit.otto.DataChangedAction;
 
 /**
  * Created by Rikka on 2016/4/13.
- *
- * // TODO 让旧的 Adapter 们用这里新加的东西
  */
 public abstract class BaseRecyclerAdapter<VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<VH> {
     private List<Data> mData;
@@ -33,16 +26,37 @@ public abstract class BaseRecyclerAdapter<VH extends RecyclerView.ViewHolder> ex
         return mData;
     }
 
-    final public Object getItem(int position) {
+    final public Object getItemData(int position) {
         return mData.get(position).data;
+    }
+
+    final public void addItem(Data data) {
+        mData.add(data);
+    }
+
+    final public void addItem(Data data, int position) {
+        mData.add(position, data);
     }
 
     final public void addItem(long id, int type, Object data) {
         mData.add(new Data(data, type, id));
     }
 
+    final public void addItem(long id, int type, Object data, int position) {
+        mData.add(position, new Data(data, type, id));
+    }
+
+    final public void removeItem(int position) {
+        mData.remove(position);
+    }
+
     final public void clearItemList() {
         mData.clear();
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return mData.size() == 0 ? 0 : mData.get(position).id;
     }
 
     @Override

@@ -28,32 +28,9 @@ import rikka.akashitoolkit.ui.EquipDisplayActivity;
  * Created by Rikka on 2016/3/23.
  */
 public class EquipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHolder> {
-    private static class Data {
-        public Object data;
-        public int type;
-        public int id;
-
-        public Data(Object data, int type, int id) {
-            this.data = data;
-            this.type = type;
-            this.id = id;
-        }
-    }
-
-    private List<Data> mData;
     private Activity mActivity;
     private int mType;
     private boolean mEnemy;
-
-    @Override
-    public long getItemId(int position) {
-        return mData.get(position).id;
-    }
-
-    @Override
-    public int getItemViewType(int position) {
-        return mData.get(position).type;
-    }
 
     public EquipAdapter(Activity activity, int type, boolean bookmarked, boolean enemy) {
         super(bookmarked);
@@ -63,7 +40,6 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewH
         mActivity = activity;
         mType = type;
         mEnemy = enemy;
-        mData = new ArrayList<>();
 
         rebuildDataList();
     }
@@ -118,8 +94,8 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewH
 
             @Override
             protected void onPostExecute(Void aVoid) {
-                mData.clear();
-                mData.addAll(newList);
+                clearItemList();
+                getItemList().addAll(newList);
                 notifyDataSetChanged();
                 BusProvider.instance().post(new DataListRebuiltFinished());
             }
@@ -151,7 +127,7 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewH
     }
 
     private void bindViewHolder(final ViewHolder.Item holder, int position) {
-        Equip item = (Equip) mData.get(position).data;
+        Equip item = (Equip) getItemData(position);
 
         holder.mName.setText(String.format(item.isBookmarked() ? "%s ★" : "%s",
                 item.getName().get(holder.mName.getContext())));
@@ -165,7 +141,7 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewH
 
                 Intent intent = new Intent(context, EquipDisplayActivity.class);
                 intent.putExtra(EquipDisplayActivity.EXTRA_ITEM_ID,
-                        ((Equip) mData.get(holder.getAdapterPosition()).data).getId());
+                        ((Equip) getItemData(holder.getAdapterPosition())).getId());
 
                 int[] location = new int[2];
                 holder.mLinearLayout.getLocationOnScreen(location);
@@ -181,7 +157,7 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewH
                 @SuppressLint("DefaultLocale")
                 @Override
                 public boolean onLongClick(View v) {
-                    Equip item = (Equip) mData.get(holder.getAdapterPosition()).data;
+                    Equip item = (Equip) getItemData(holder.getAdapterPosition());
 
                     item.setBookmarked(!item.isBookmarked());
 
@@ -202,12 +178,8 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewH
         boolean showDivider = position != 0 && (getItemViewType(position - 1) != getItemViewType(position));
 
         holder.mDivider.setVisibility(showDivider ? View.VISIBLE : View.GONE);
-        holder.mTitle.setText((String) mData.get(position).data);
+        holder.mTitle.setText((String) getItemData(position));
         holder.itemView.setSelected(true);
-    }
-    @Override
-    public int getItemCount() {
-        return mData.size();
     }
 
     @Override

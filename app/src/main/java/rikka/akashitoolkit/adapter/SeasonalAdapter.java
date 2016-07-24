@@ -1,6 +1,5 @@
 package rikka.akashitoolkit.adapter;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Rect;
 import android.support.v7.widget.GridLayoutManager;
@@ -95,7 +94,7 @@ public class SeasonalAdapter extends BaseRecyclerAdapter {
     }
 
     private void bindViewHolder(TitleViewHolder holder, int position) {
-        Seasonal data = (Seasonal) getItem(position);
+        Seasonal data = (Seasonal) getItemData(position);
         holder.mTitle.setText(data.getTitle());
         holder.mSummary.setText(data.getSummary());
     }
@@ -103,7 +102,7 @@ public class SeasonalAdapter extends BaseRecyclerAdapter {
     private void bindViewHolder(final GalleryViewHolder holder, int position) {
         Context context = holder.itemView.getContext();
 
-        Seasonal data = (Seasonal) getItem(position);
+        Seasonal data = (Seasonal) getItemData(position);
         final String title = data.getTitle();
         final String summary = data.getSummary();
         final String content = data.getContent();
@@ -154,7 +153,7 @@ public class SeasonalAdapter extends BaseRecyclerAdapter {
     }
 
     private void bindViewHolder(ContentViewHolder holder, int position) {
-        Seasonal data = (Seasonal) getItem(position);
+        Seasonal data = (Seasonal) getItemData(position);
         holder.mTitle.setText(data.getTitle());
         holder.mContent.setText(data.getContent());
     }

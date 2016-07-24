@@ -28,27 +28,15 @@ import rikka.akashitoolkit.support.Settings;
 public class ExpeditionAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHolder> {
     private Context mContext;
 
-    private List<Data> mData;
     private List<Integer> mFilter;
 
     public ExpeditionAdapter(Context context, boolean bookmarked) {
         super(bookmarked);
 
-        mData = new ArrayList<>();
         mContext = context;
 
         rebuildDataList();
         setHasStableIds(true);
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return mData.get(position).id;
-    }
-
-    @Override
-    public int getItemViewType(int position) {
-        return mData.get(position).type;
     }
 
     public void setFilter(List<Integer> filter) {
@@ -63,7 +51,6 @@ public class ExpeditionAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.
             @Override
             protected Void doInBackground(Void... params) {
                 List<Expedition> data = ExpeditionList.get(mContext);
-                mData = new ArrayList<>();
 
                 int type = -1;
 
@@ -76,10 +63,10 @@ public class ExpeditionAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.
                     if (mFilter == null || mFilter.size() == 0 || mFilter.indexOf(item.getId()) != -1) {
                         if (type != item.getType()) {
                             type = item.getType();
-                            mData.add(new Data(MapTypeList.get(mContext).get(type).getName(mContext), 1, RecyclerView.NO_ID));
+                            addItem(RecyclerView.NO_ID, 1, MapTypeList.get(mContext).get(type).getName(mContext));
                         }
 
-                        mData.add(new Data(item, 0, item.getId()));
+                        addItem(item.getId(), 0, item);
                     }
                 }
                 return null;
@@ -118,7 +105,7 @@ public class ExpeditionAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.
 
     private void bindViewHolder(final ViewHolder.Expedition holder, int position) {
         Context context = holder.itemView.getContext();
-        Expedition item = (Expedition) mData.get(position).data;
+        Expedition item = (Expedition) getItemData(position);
 
         holder.mTitle.setText(String.format(item.isBookmarked() ? "%d %s ★" : "%d %s", item.getId(), item.getName().get(context)));
         holder.mTime.setText(Html.fromHtml(item.getTimeString()));
@@ -141,7 +128,7 @@ public class ExpeditionAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.
             @SuppressLint("DefaultLocale")
             @Override
             public boolean onLongClick(View view) {
-                Expedition item = (Expedition) mData.get(holder.getAdapterPosition()).data;
+                Expedition item = (Expedition) getItemData(holder.getAdapterPosition());
 
                 item.setBookmarked(!item.isBookmarked());
 
@@ -160,11 +147,11 @@ public class ExpeditionAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.
 
     private void bindViewHolder(ViewHolder.Subtitle holder, int position) {
         holder.mDivider.setVisibility(position == 0 ? View.GONE : View.VISIBLE);
-        holder.mTitle.setText((String) mData.get(position).data);
+        holder.mTitle.setText((String) getItemData(position));
     }
 
     private void setViewDetail(final ViewHolder.Expedition holder, int position) {
-        Expedition item = (Expedition) mData.get(position).data;
+        Expedition item = (Expedition) getItemData(position);
 
         for (int i = 0; i < 4; i++) {
             holder.setRewardResource(item.getReward().getResourceString().get(i), i);
@@ -178,11 +165,6 @@ public class ExpeditionAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.
 
         holder.setFleetRequire(require.getTotalLevel(), require.getFlagshipLevel(), require.getMinShips());
         holder.setShipRequire(require.getEssentialShip(), require.getBucket());
-    }
-
-    @Override
-    public int getItemCount() {
-        return mData.size();
     }
 
     @Override

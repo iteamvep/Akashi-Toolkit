@@ -23,16 +23,19 @@ import rikka.akashitoolkit.ui.MapActivity;
  * Created by Rikka on 2016/4/9.
  */
 public class MapAdapter extends BaseRecyclerAdapter<ViewHolder.Map> {
-    private List<Map> mData;
+
     private Context mContext;
     private int mType;
 
     public MapAdapter(final Context context, final int type) {
-        mData = new ArrayList<>();
         mContext = context;
         mType = type;
 
         rebuildDataList();
+    }
+
+    public Map getItem(int position) {
+        return (Map) getItemData(position);
     }
 
     @Override
@@ -42,8 +45,8 @@ public class MapAdapter extends BaseRecyclerAdapter<ViewHolder.Map> {
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder.Map holder, int position) {
-        final Map item = mData.get(position);
+    public void onBindViewHolder(final ViewHolder.Map holder, int position) {
+        Map item = getItem(position);
         holder.mTitle.setText(item.getMap());
 
         Spanned htmlDescription = Html.fromHtml(format(item));
@@ -53,6 +56,7 @@ public class MapAdapter extends BaseRecyclerAdapter<ViewHolder.Map> {
         holder.mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Map item = getItem(holder.getAdapterPosition());
                 Intent intent = new Intent(mContext, MapActivity.class);
                 intent.putExtra(MapActivity.EXTRA_ITEM_ID, item.getSea() * 10 + item.getArea());
                 intent.putExtra(MapActivity.EXTRA_ITEM_NAME, item.getMap());
@@ -97,22 +101,16 @@ public class MapAdapter extends BaseRecyclerAdapter<ViewHolder.Map> {
     }
 
     @Override
-    public int getItemCount() {
-        return mData.size();
-    }
-
-    @Override
     public void rebuildDataList() {
         new AsyncTask<Void, Void, Void>() {
             @Override
             protected Void doInBackground(Void... params) {
                 List<Map> data = MapList.get(mContext);
-                mData = new ArrayList<>();
 
                 for (Map item :
                         data) {
                     if (item.getSea() == mType) {
-                        mData.add(item);
+                        addItem(item.getSea() * 10 + item.getArea(), 0, item);
                     }
                 }
                 return null;

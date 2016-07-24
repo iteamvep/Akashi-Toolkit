@@ -31,32 +31,22 @@ import static rikka.akashitoolkit.support.ApiConstParam.Message.NOT_DISMISSIBLE;
 /**
  * Created by Rikka on 2016/6/11.
  */
-public class MessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class MessageAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHolder> {
     public static final int TYPE_MESSAGE = 0;
     public static final int TYPE_MESSAGE_UPDATE = 1;
     public static final int TYPE_DAILY_EQUIP = 2;
     public static final int TYPE_EXPEDITION_NOTIFY = 3;
     public static final int TYPE_VOTE = 4;
 
-    private List<Data> mData;
     private Listener mListener;
-
-    private static class Data {
-        protected Object data;
-        protected int type;
-        private long id;
-
-        public Data(Object data, int type, long id) {
-            this.data = data;
-            this.type = type;
-            this.id = id;
-        }
-    }
 
     public MessageAdapter() {
         setHasStableIds(true);
+    }
 
-        mData = new ArrayList<>();
+    @Override
+    public void rebuildDataList() {
+
     }
 
     public void setListener(Listener listener) {
@@ -64,7 +54,7 @@ public class MessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     }
 
     public void clear() {
-        mData.clear();
+        clearItemList();
 
         notifyDataSetChanged();
     }
@@ -76,9 +66,9 @@ public class MessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     public void add(int type, Object object, int position) {
         Data data = new Data(object, type, generateItemId(type, object));
         if (position == -1) {
-            mData.add(data);
+            addItem(data);
         } else {
-            mData.add(position, data);
+            addItem(data, position);
         }
 
         notifyDataSetChanged();
@@ -96,22 +86,12 @@ public class MessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     public void remove(int position) {
         if (mListener != null) {
-            mListener.OnRemove(position, mData.get(position).data);
+            mListener.OnRemove(position, getItemData(position));
         }
 
-        mData.remove(position);
+        removeItem(position);
 
         notifyItemRemoved(position);
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return mData.get(position).id;
-    }
-
-    @Override
-    public int getItemViewType(int position) {
-        return mData.get(position).type;
     }
 
     @Override
@@ -130,7 +110,7 @@ public class MessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     }
 
     private void bindViewHolder(final ViewHolder.Message holder, int position) {
-        CheckUpdate.MessagesEntity data = (CheckUpdate.MessagesEntity) mData.get(position).data;
+        CheckUpdate.MessagesEntity data = (CheckUpdate.MessagesEntity) getItemData(position);
 
         // title
         holder.mTitle.setText(data.getTitle());
@@ -164,7 +144,7 @@ public class MessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             holder.mPositiveButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    CheckUpdate.MessagesEntity data = (CheckUpdate.MessagesEntity) mData.get(holder.getAdapterPosition()).data;
+                    CheckUpdate.MessagesEntity data = (CheckUpdate.MessagesEntity) getItemData(holder.getAdapterPosition());
                     v.getContext()
                             .startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(data.getLink())));
                 }
@@ -220,7 +200,7 @@ public class MessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     }
 
     private void bindViewHolder(final ViewHolder.Message holder, int position, Context context) {
-        final CheckUpdate.UpdateEntity data = (CheckUpdate.UpdateEntity) mData.get(position).data;
+        final CheckUpdate.UpdateEntity data = (CheckUpdate.UpdateEntity) getItemData(position);
 
         holder.mTitle.setText(R.string.new_version_available);
         holder.mSummary.setText(String.format(context.getString(R.string.new_version_summary), data.getVersionName(), data.getVersionCode()));
@@ -297,11 +277,6 @@ public class MessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 bindViewHolder((ViewHolder.MessageExpedition) holder, position);
                 break;
         }
-    }
-
-    @Override
-    public int getItemCount() {
-        return mData == null ? 0 : mData.size();
     }
 
     @Override

@@ -31,7 +31,7 @@ import rikka.akashitoolkit.ui.EquipDisplayActivity;
  * Created by Rikka on 2016/3/17.
  */
 public class EquipImprovementAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.ItemImprovement> {
-    private List<EquipImprovement> mData;
+
     private List<String> mDataShip;
     private Activity mActivity;
     private int mType;
@@ -40,7 +40,6 @@ public class EquipImprovementAdapter extends BaseBookmarkRecyclerAdapter<ViewHol
         super(bookmarked);
 
         mActivity = activity;
-        mData = new ArrayList<>();
         mDataShip = new ArrayList<>();
         mType = type;
 
@@ -49,9 +48,12 @@ public class EquipImprovementAdapter extends BaseBookmarkRecyclerAdapter<ViewHol
         rebuildDataList();
     }
 
-    @Override
-    public long getItemId(int position) {
-        return mData.get(position).getId() + mType * 10000;
+    public EquipImprovement getItem(int position) {
+        return (EquipImprovement) getItemData(position);
+    }
+
+    private long generateItemId(EquipImprovement item) {
+        return item.getId() + mType * 10000;
     }
 
     @Override
@@ -63,11 +65,11 @@ public class EquipImprovementAdapter extends BaseBookmarkRecyclerAdapter<ViewHol
     @Override
     public void onBindViewHolder(final ViewHolder.ItemImprovement holder, int position) {
         Context context = holder.itemView.getContext();
-        EquipImprovement item = mData.get(position);
+        EquipImprovement item = getItem(position);
         Equip equip = EquipList.findItemById(mActivity, item.getId());
 
         if (equip == null) {
-            holder.mName.setText(String.format(context.getString(R.string.equip_not_found), mData.get(position).getId()));
+            holder.mName.setText(String.format(context.getString(R.string.equip_not_found), getItem(position).getId()));
             return;
         }
         if (!item.isBookmarked()) {
@@ -81,10 +83,10 @@ public class EquipImprovementAdapter extends BaseBookmarkRecyclerAdapter<ViewHol
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EquipImprovement item = mData.get(holder.getAdapterPosition());
+                EquipImprovement item = getItem(holder.getAdapterPosition());
 
                 Intent intent = new Intent(v.getContext(), EquipDisplayActivity.class);
-                intent.putExtra(EquipDisplayActivity.EXTRA_ITEM_ID, mData.get(holder.getAdapterPosition()).getId());
+                intent.putExtra(EquipDisplayActivity.EXTRA_ITEM_ID, getItem(holder.getAdapterPosition()).getId());
 
                 int[] location = new int[2];
                 holder.itemView.getLocationOnScreen(location);
@@ -100,7 +102,7 @@ public class EquipImprovementAdapter extends BaseBookmarkRecyclerAdapter<ViewHol
             @SuppressLint("DefaultLocale")
             @Override
             public boolean onLongClick(View v) {
-                EquipImprovement item = mData.get(holder.getAdapterPosition());
+                EquipImprovement item = getItem(holder.getAdapterPosition());
 
                 item.setBookmarked(!item.isBookmarked());
 
@@ -132,7 +134,7 @@ public class EquipImprovementAdapter extends BaseBookmarkRecyclerAdapter<ViewHol
             @SuppressLint("DefaultLocale")
             @Override
             protected void onPostExecute(Void aVoid) {
-                mData.clear();
+                clearItemList();
                 mDataShip.clear();
 
                 for (EquipImprovement item :
@@ -198,7 +200,7 @@ public class EquipImprovementAdapter extends BaseBookmarkRecyclerAdapter<ViewHol
                                 .getBoolean(String.format("equip_improve_%d", item.getId()), false));
 
                         if (!requireBookmarked() || item.isBookmarked()) {
-                            mData.add(item);
+                            addItem(generateItemId(item), 0, item);
                             mDataShip.add(sb.toString());
                         }
                     }
@@ -206,10 +208,5 @@ public class EquipImprovementAdapter extends BaseBookmarkRecyclerAdapter<ViewHol
                 notifyDataSetChanged();
             }
         }.execute();
-    }
-
-    @Override
-    public int getItemCount() {
-        return mData.size();
     }
 }
