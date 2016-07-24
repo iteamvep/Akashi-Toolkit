@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.LayoutRes;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -108,11 +109,13 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHold
             }
         });
 
-        if (mNames != null) {
-            holder.mTitle.setVisibility(View.VISIBLE);
-            holder.mTitle.setText(mNames.get(position));
-        } else {
-            holder.mTitle.setVisibility(View.GONE);
+        if (holder.mTitle != null) {
+            if (mNames != null) {
+                holder.mTitle.setVisibility(View.VISIBLE);
+                holder.mTitle.setText(mNames.get(position));
+            } else {
+                holder.mTitle.setVisibility(View.GONE);
+            }
         }
     }
 
@@ -130,6 +133,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHold
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView mImageView;
+        @Nullable
         public TextView mTitle;
 
         public ViewHolder(View itemView) {
