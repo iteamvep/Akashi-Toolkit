@@ -16,10 +16,22 @@ public abstract class BaseRecyclerAdapter<VH extends RecyclerView.ViewHolder> ex
         mData = new ArrayList<>();
     }
 
-    public abstract void rebuildDataList();
+    public void rebuildDataList() {
+
+    }
 
     public void onDataListRebuilt(List data) {
 
+    }
+
+    final public void setItemList(List<Object> list) {
+        clearItemList();
+
+        for (int i = 0; i < list.size(); i++) {
+            addItem(i, 0, list.get(i));
+        }
+
+        notifyDataSetChanged();
     }
 
     final public List<Data> getItemList() {

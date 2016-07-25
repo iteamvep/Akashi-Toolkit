@@ -40,7 +40,7 @@ public class BaseRecyclerViewItemDecoration extends RecyclerView.ItemDecoration 
     public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
         super.getItemOffsets(outRect, view, parent, state);
 
-        int position = parent.getChildLayoutPosition(view);
+        int position = parent.getChildAdapterPosition(view);
         if (position < 1/* || !canDraw(parent, view, parent.getChildCount(), position)*/) {
             return;
         }

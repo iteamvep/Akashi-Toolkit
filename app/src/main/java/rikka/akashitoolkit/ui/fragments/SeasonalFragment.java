@@ -39,7 +39,7 @@ import rikka.akashitoolkit.utils.Utils;
  * Created by Rikka on 2016/4/30.
  */
 public class SeasonalFragment extends Fragment {
-    private static final int API_VERSION = 4;
+    private static final int API_VERSION = 5;
 
     private static final String JSON_NAME = "/json/seasonal_v4.json";
     private String CACHE_FILE;

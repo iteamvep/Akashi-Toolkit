@@ -13,6 +13,7 @@ public class Seasonal {
     private String content;
 
     private Gallery gallery;
+    private List<Voice> voice;
 
     public int getType() {
         return type;
@@ -52,6 +53,23 @@ public class Seasonal {
 
         public void setNames(List<String> names) {
             this.names = names;
+        }
+    }
+
+    public List<Voice> getVoice() {
+        return voice;
+    }
+
+    public static class Voice {
+        private String type;
+        private List<ShipVoice> voice;
+
+        public String getType() {
+            return type;
+        }
+
+        public List<ShipVoice> getVoice() {
+            return voice;
         }
     }
 }

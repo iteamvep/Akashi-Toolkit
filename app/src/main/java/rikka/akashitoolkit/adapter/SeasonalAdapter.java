@@ -1,8 +1,10 @@
 package rikka.akashitoolkit.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Rect;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Log;
@@ -20,6 +22,8 @@ import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.model.Seasonal;
 import rikka.akashitoolkit.ui.GalleryActivity;
 import rikka.akashitoolkit.ui.ImagesActivity;
+import rikka.akashitoolkit.ui.VoiceActivity;
+import rikka.akashitoolkit.ui.widget.BaseRecyclerViewItemDecoration;
 import rikka.akashitoolkit.utils.Utils;
 
 /**
@@ -32,6 +36,7 @@ public class SeasonalAdapter extends BaseRecyclerAdapter {
     private static final int TYPE_TITLE = 0;
     private static final int TYPE_GALLERY = 1;
     private static final int TYPE_CONTENT = 2;
+    private static final int TYPE_VOICE = 3;
 
     public SeasonalAdapter() {
     }
@@ -74,6 +79,8 @@ public class SeasonalAdapter extends BaseRecyclerAdapter {
                 return new GalleryViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.card_seansonal_gallery, parent, false));
             case TYPE_CONTENT:
                 return new ContentViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.card_seansonal_text, parent, false));
+            case TYPE_VOICE:
+                return new VoiceViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.card_seansonal_voice, parent, false));
         }
         return null;
     }
@@ -90,6 +97,9 @@ public class SeasonalAdapter extends BaseRecyclerAdapter {
             case TYPE_CONTENT:
                 bindViewHolder((ContentViewHolder) holder, position);
                 break;
+            case TYPE_VOICE:
+                bindViewHolder((VoiceViewHolder) holder, position);
+                break;
         }
     }
 
@@ -97,6 +107,7 @@ public class SeasonalAdapter extends BaseRecyclerAdapter {
         Seasonal data = (Seasonal) getItemData(position);
         holder.mTitle.setText(data.getTitle());
         holder.mSummary.setText(data.getSummary());
+        holder.mSummary.setVisibility(TextUtils.isEmpty(data.getSummary()) ? View.GONE : View.VISIBLE);
     }
 
     private void bindViewHolder(final GalleryViewHolder holder, int position) {
@@ -156,6 +167,36 @@ public class SeasonalAdapter extends BaseRecyclerAdapter {
         Seasonal data = (Seasonal) getItemData(position);
         holder.mTitle.setText(data.getTitle());
         holder.mContent.setText(data.getContent());
+    }
+
+    @SuppressLint("DefaultLocale")
+    private void bindViewHolder(final VoiceViewHolder holder, int position) {
+        Seasonal data = (Seasonal) getItemData(position);
+        //Seasonal.Voice voice = data.getVoice();
+        final String title = data.getTitle();
+        holder.mTitle.setText(data.getTitle());
+        holder.mSummary.setText(data.getSummary());
+
+        List<String> list = new ArrayList<>();
+
+        int count = 0;
+        for (Seasonal.Voice voice : data.getVoice()) {
+            list.add(String.format("%s (%d)", voice.getType(), voice.getVoice().size()));
+            count += voice.getVoice().size();
+        }
+
+        holder.mSummary.setText(String.format("%d voices", count));
+
+        SimpleRecyclerViewAdapter adapter = (SimpleRecyclerViewAdapter) holder.mRecyclerView.getAdapter();
+        adapter.setListener(new SimpleRecyclerViewAdapter.Listener() {
+            @Override
+            public void OnClick(int position) {
+                Seasonal data = (Seasonal) getItemData(holder.getAdapterPosition());
+
+                VoiceActivity.start(holder.itemView.getContext(), data.getVoice().get(position).getVoice(), title);
+            }
+        });
+        adapter.setDataList(list);
     }
 
     private static class TitleViewHolder extends RecyclerView.ViewHolder {
@@ -244,6 +285,34 @@ public class SeasonalAdapter extends BaseRecyclerAdapter {
 
             mTitle = (TextView) itemView.findViewById(android.R.id.title);
             mContent = (TextView) itemView.findViewById(android.R.id.content);
+        }
+    }
+
+    private static class VoiceViewHolder extends RecyclerView.ViewHolder {
+
+        public TextView mTitle;
+        public TextView mSummary;
+        public RecyclerView mRecyclerView;
+
+        public VoiceViewHolder(View itemView) {
+            super(itemView);
+
+            mTitle = (TextView) itemView.findViewById(android.R.id.title);
+            mSummary = (TextView) itemView.findViewById(android.R.id.summary);
+            mRecyclerView = (RecyclerView) itemView.findViewById(R.id.content_container);
+
+            mRecyclerView.setLayoutManager(new LinearLayoutManager(itemView.getContext(), LinearLayoutManager.VERTICAL, false));
+            mRecyclerView.addItemDecoration(new BaseRecyclerViewItemDecoration(itemView.getContext()) {
+                @Override
+                public boolean canDraw(RecyclerView parent, View child, int childCount, int position) {
+                    if (position == parent.getAdapter().getItemCount() - 1) {
+                        return false;
+                    }
+                    return super.canDraw(parent, child, childCount, position);
+                }
+            });
+            mRecyclerView.setAdapter(new SimpleRecyclerViewAdapter(R.layout.list_item));
+            mRecyclerView.setNestedScrollingEnabled(false);
         }
     }
 }

@@ -383,8 +383,8 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
 
                 mTitle = (TextView) itemView.findViewById(R.id.textView);
                 mScene = (TextView) itemView.findViewById(android.R.id.title);
-                mContent = (TextView) itemView.findViewById(R.id.text_content);
-                mContent2 = (TextView) itemView.findViewById(R.id.text_content2);
+                mContent = (TextView) itemView.findViewById(android.R.id.content);
+                mContent2 = (TextView) itemView.findViewById(android.R.id.summary);
                 mLinearLayout = (LinearLayout) itemView.findViewById(R.id.content_container);
             }
         }

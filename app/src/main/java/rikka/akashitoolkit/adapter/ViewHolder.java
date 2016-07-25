@@ -615,4 +615,18 @@ public class ViewHolder {
             mDivider = itemView.findViewById(R.id.divider);
         }
     }
+
+    public static class Voice extends RecyclerView.ViewHolder {
+        protected TextView mScene;
+        protected TextView mTextJa;
+        protected TextView mTextZh;
+
+        public Voice(View itemView) {
+            super(itemView);
+
+            mScene = (TextView) itemView.findViewById(android.R.id.title);
+            mTextJa = (TextView) itemView.findViewById(android.R.id.content);
+            mTextZh = (TextView) itemView.findViewById(android.R.id.summary);
+        }
+    }
 }
