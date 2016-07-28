@@ -5,6 +5,7 @@ import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Intent;
+import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
@@ -22,7 +23,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.support.v7.widget.AppCompatDrawableManager;
 import android.support.v7.widget.GridLayout;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.LinearSmoothScroller;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
@@ -65,6 +66,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.GalleryAdapter;
 import rikka.akashitoolkit.adapter.ViewPagerStateAdapter;
+import rikka.akashitoolkit.model.AttrEntity;
 import rikka.akashitoolkit.model.Equip;
 import rikka.akashitoolkit.model.ExtraIllustration;
 import rikka.akashitoolkit.model.Ship;
@@ -78,6 +80,7 @@ import rikka.akashitoolkit.staticdata.ShipList;
 import rikka.akashitoolkit.support.MusicPlayer;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.StaticData;
+import rikka.akashitoolkit.ui.widget.LinearLayoutManager;
 import rikka.akashitoolkit.utils.KCStringFormatter;
 import rikka.akashitoolkit.utils.MyPasswordTransformationMethod;
 import rikka.akashitoolkit.utils.MySpannableFactory;
@@ -134,6 +137,17 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
         mAppBarLayout = (AppBarLayout) findViewById(R.id.appBarLayout);
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this, OrientationHelper.VERTICAL, false));
+        mRecyclerView.post(new Runnable() {
+            @Override
+            public void run() {
+                LinearLayoutManager layoutManager = (LinearLayoutManager) mRecyclerView.getLayoutManager();
+                layoutManager.smoothScrollToPositionWithOffset(
+                        mRecyclerView,
+                        0,
+                        LinearSmoothScroller.SNAP_TO_START,
+                        0);
+            }
+        });
 
         mScrollY = 0;
         mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -637,6 +651,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
         if (mItem.getWikiId().equals("030a")
                 || mItem.getWikiId().equals("026a")
                 || mItem.getWikiId().equals("027a")
+                || mItem.getWikiId().equals("042a")
                 || mItem.getWikiId().equals("065a")
                 || mItem.getWikiId().equals("094a")
                 || mItem.getWikiId().equals("183a")) {
@@ -683,6 +698,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
                 }
             }
         });
+        recyclerView.setNestedScrollingEnabled(false);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);
@@ -735,7 +751,25 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
             while (true) {
                 StringBuilder sb = new StringBuilder();
                 sb.append(cur.getName().get(this));
-                ViewGroup view = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.ship_remodel_item, gridLayout, false);
+                final ViewGroup view = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.ship_remodel_item, gridLayout, false);
+                view.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        TextView tv = (TextView) view.findViewById(android.R.id.title);
+                        Rect bounds = new Rect();
+                        Paint textPaint = tv.getPaint();
+                        textPaint.getTextBounds(tv.getText().toString(), 0, tv.getText().length(), bounds);
+                        if (bounds.width() > tv.getWidth()) {
+                            view.setLayoutParams(
+                                    new GridLayout.LayoutParams(
+                                            GridLayout.spec(GridLayout.UNDEFINED, 1f),
+                                            GridLayout.spec(GridLayout.UNDEFINED, 2, 1f)
+                                    )
+                            );
+                        }
+                        gridLayout.requestLayout();
+                    }
+                });
                 view.setLayoutParams(
                         new GridLayout.LayoutParams(
                                 GridLayout.spec(GridLayout.UNDEFINED, 1f),
@@ -770,7 +804,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
                     if (!prev.getRemodel().isRequireBlueprint()) {
                         sb.append(String.format(" (%d)", prev.getRemodel().getLevel()));
                     } else {
-                        sb.append(String.format(" (%d + 改装设计图)", prev.getRemodel().getLevel()));
+                        sb.append(String.format(" (%d + %s)", prev.getRemodel().getLevel(), getString(R.string.blueprint)));
                     }
                 }
 
@@ -788,16 +822,10 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
                 }
 
                 cur = ShipList.findItemById(this, cur.getRemodel().getToId());
-                if (cur.getRemodel().getFromId() != cur.getRemodel().getToId()) {
-                    //sb.append(" → ");
-                } else {
-                    //sb.append(" ↔ ");
+                if (cur.getRemodel().getFromId() == cur.getRemodel().getToId()) {
                     ((ImageView) view.findViewById(R.id.imageView)).setImageResource(R.drawable.ic_compare_arrows_24dp);
                 }
-
-
             }
-            //addTextView(parent, Html.fromHtml(sb.toString()));
             parent.addView(gridLayout);
         }
     }
@@ -961,29 +989,41 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
                 return mLinearLayout;
             }
 
-            if (!enemy) {
-                addAttrView(mLinearLayout, R.string.attr_hp, mItem.getAttr().getHP(), i == 2 ? 1 : 0);
-                addAttrView(mLinearLayout, R.string.attr_firepower, mItem.getAttr().getFirepower(), i);
-                addAttrView(mLinearLayout, R.string.attr_aa, mItem.getAttr().getAA(), i);
-                addAttrView(mLinearLayout, R.string.attr_torpedo, mItem.getAttr().getTorpedo(), i);
-                addAttrView(mLinearLayout, R.string.attr_armor, mItem.getAttr().getArmor(), i);
-                addAttrView(mLinearLayout, R.string.attr_asw, mItem.getAttr().getASW(), i);
-                addAttrView(mLinearLayout, R.string.attr_evasion, mItem.getAttr().getEvasion(), i);
-                addAttrView(mLinearLayout, R.string.attr_los, mItem.getAttr().getLOS(), i);
-                addAttrView(mLinearLayout, R.string.attr_speed, mItem.getAttr().getSpeed());
-                addAttrView(mLinearLayout, R.string.attr_range, mItem.getAttr().getRange());
-                addAttrView(mLinearLayout, R.string.attr_luck, mItem.getAttr().getLuck(), i);
-            } else {
-                if (mItem.getAttr().getHP().length == 0) {
-                    return mLinearLayout;
-                }
+            AttrEntity attr = mItem.getAttr();
 
-                addAttrView(mLinearLayout, R.string.attr_hp, mItem.getAttr().getHP(), 0);
-                addAttrView(mLinearLayout, R.string.attr_firepower, mItem.getAttr().getFirepower(), 0);
-                addAttrView(mLinearLayout, R.string.attr_aa, mItem.getAttr().getAA(), 0);
-                addAttrView(mLinearLayout, R.string.attr_torpedo, mItem.getAttr().getTorpedo(), 0);
-                addAttrView(mLinearLayout, R.string.attr_armor, mItem.getAttr().getArmor(), 0);
-                addAttrView(mLinearLayout, R.string.attr_speed, mItem.getAttr().getSpeed());
+            if (!enemy) {
+                AttrEntity attr_max = attr.plus(mItem.getAttrMax());
+
+                if (i >= 1) {
+                    attr = attr.plus(mItem.getAttr99());
+                }
+                if (i == 2) {
+                    attr = attr.plus(mItem.getAttr155());
+                }
+                addAttrView(mLinearLayout, R.string.attr_hp, attr.getHP());
+
+                addAttrView(mLinearLayout, R.string.attr_firepower, attr.getFirepower(), attr_max.getFirepower());
+                addAttrView(mLinearLayout, R.string.attr_aa, attr.getAA(), attr_max.getAA());
+                addAttrView(mLinearLayout, R.string.attr_torpedo, attr.getTorpedo(), attr_max.getTorpedo());
+                addAttrView(mLinearLayout, R.string.attr_armor, attr.getArmor(), attr_max.getArmor());
+
+                addAttrView(mLinearLayout, R.string.attr_asw, attr.getASW());
+                addAttrView(mLinearLayout, R.string.attr_evasion, attr.getEvasion());
+                addAttrView(mLinearLayout, R.string.attr_los, attr.getLOS());
+
+                addAttrView(mLinearLayout, R.string.attr_speed, KCStringFormatter.getSpeed(getContext(), attr.getSpeed()));
+                addAttrView(mLinearLayout, R.string.attr_range, KCStringFormatter.getRange(getContext(), attr.getRange()));
+
+                addAttrView(mLinearLayout, R.string.attr_luck, attr.getLuck(), attr_max.getLuck());
+            } else {
+                addAttrView(mLinearLayout, R.string.attr_hp, attr.getHP());
+                addAttrView(mLinearLayout, R.string.attr_firepower, attr.getFirepower());
+                addAttrView(mLinearLayout, R.string.attr_aa, attr.getAA());
+                addAttrView(mLinearLayout, R.string.attr_torpedo, attr.getTorpedo());
+                addAttrView(mLinearLayout, R.string.attr_armor, attr.getArmor());
+                addAttrView(mLinearLayout, R.string.attr_speed, KCStringFormatter.getSpeed(getContext(), attr.getSpeed()));
+                addAttrView(mLinearLayout, R.string.attr_range, KCStringFormatter.getRange(getContext(), attr.getRange()));
+
             }
 
             /*mCount = 0;
@@ -994,26 +1034,12 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
             return mLinearLayout;
         }
 
-        private void addAttrView(ViewGroup parent, @StringRes int title, String[] value, int i) {
-            if (value.length <= i) {
-                i = value.length - 1;
-            }
-
-            if (value.length == 2 && title != R.string.attr_hp) {
-                addAttrView(parent, title, String.format("%s / %s", value[0], value[1]));
-            } else {
-                addAttrView(parent, title, value[i]);
-            }
+        private void addAttrView(ViewGroup parent, @StringRes int title, int value) {
+            addAttrView(parent, title, Integer.toString(value));
         }
 
-        private void addAttrView(ViewGroup parent, @StringRes int title, int value) {
-            if (title == R.string.attr_range) {
-                addAttrView(parent, title, KCStringFormatter.getRange(parent.getContext(), value));
-            } else if (title == R.string.attr_speed) {
-                addAttrView(parent, title, KCStringFormatter.getSpeed(parent.getContext(), value));
-            } else {
-                addAttrView(parent, title, Integer.toString(value));
-            }
+        private void addAttrView(ViewGroup parent, @StringRes int title, int v1, int v2) {
+            addAttrView(parent, title, String.format("%s / %s", v1, v2));
         }
 
         private void addAttrView(ViewGroup parent, @StringRes int title, String value) {

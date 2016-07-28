@@ -643,6 +643,7 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
 
         ViewGroup view = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.illustrations_container, parent);
         final RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.content_container);
+        recyclerView.setNestedScrollingEnabled(false);
 
         final List<String> urlList = new ArrayList<>();
         urlList.add(Utils.getKCWikiFileUrl(String.format("Soubi%03dFull.png", mItem.getId())));
@@ -677,38 +678,15 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
                 imageView.setLayoutParams(new LinearLayout.LayoutParams(Utils.dpToPx(150), Utils.dpToPx(150)));
             }
         };
-        adapter.setUrls(urlList);
+        //adapter.setUrls(urlList);
+        recyclerView.post(new Runnable() {
+            @Override
+            public void run() {
+                adapter.setUrls(urlList);
+                adapter.notifyDataSetChanged();
+            }
+        });
         recyclerView.setAdapter(adapter);
-
-
-        /*for (int i = 0; i < urlList.size(); i++) {
-            String url = urlList.get(i);
-
-            Log.d(getClass().getSimpleName(), url);
-
-            ImageView imageView = (ImageView) LayoutInflater.from(this)
-                    .inflate(R.layout.equip_illustrations, recyclerView, false)
-                    .findViewById(R.id.imageView);
-            recyclerView.addView(imageView);
-
-            final int finalI = i;
-            imageView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(EquipDisplayActivity.this, ImagesActivity.class);
-                    intent.putStringArrayListExtra(ImagesActivity.EXTRA_URL, (ArrayList<String>) urlList);
-                    intent.putExtra(ImagesActivity.EXTRA_POSITION, finalI);
-                    intent.putExtra(ImagesActivity.EXTRA_TITLE, getTaskDescriptionLabel());
-                    startActivity(intent);
-                }
-            });
-
-            Glide.with(this)
-                    .load(Utils.getGlideUrl(url))
-                    .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                    .crossFade()
-                    .into(imageView);
-        }*/
     }
 
     @Override

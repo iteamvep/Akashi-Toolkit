@@ -10,91 +10,117 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static com.example.utils.Utils.getUrlStream;
 
-/**
- * 从 zh.kcwiki.moe/wiki/季节性/2016年梅雨季节 得到给app对应部分的语音部分的内容
- */
 public class SeasonalVoice {
-    private static Map<String, String> MAP = new HashMap<>();
-
-    static {
-        MAP.put("舰娘名字", "scene");
-        MAP.put("日文台词", "jp");
-        MAP.put("中文译文", "zh");
-        MAP.put("档名", "url");
-    }
 
     public static void main(String[] args) throws IOException {
-        List<ShipVoice> list = new ArrayList<>();
-        for (String lineStr : getLines()) {
-            try {
-                String[] kv = lineStr.split("\\|");
+        List<Object> list = new ArrayList<>();
 
-                if (kv.length < 1) {
-                    System.out.println("Skipped line: " + lineStr);
-                    continue;
+        boolean needNextLine = false;
+        Scanner scanner = new Scanner(System.in);
+        StringBuilder sb = null;
+        while (scanner.hasNext()) {
+            String line = scanner.nextLine();
+
+            if (line.equals("{{台词翻译表|type=seasonal") && !needNextLine) {
+                needNextLine = true;
+                sb = new StringBuilder();
+            }
+
+            if (needNextLine) {
+                sb.append(line);
+            }
+
+            if (needNextLine && line.equals("}}")) {
+                parse(list, sb.toString());
+                needNextLine = false;
+            }
+
+            if (line.equals("end")) {
+                break;
+            }
+
+            if (!needNextLine) {
+                parse(list, line);
+            }
+        }
+
+        print(list);
+    }
+
+    private static void print(List<Object> list) {
+        System.out.println("$data = null;");
+        System.out.println("$data['type'] = $TYPE_VOICE;");
+        System.out.println("$data['title'] = \"title\";");
+        System.out.println("$data['summary'] = \"summary\";");
+        System.out.println("$data['voice'] = array();");
+        System.out.println();
+
+        boolean print = false;
+        for (Object obj : list) {
+            if (obj instanceof String) {
+                if (print) {
+                    System.out.println("array_push($data['voice'], $data_voice);");
                 }
 
+                print = true;
+
+                System.out.println("$data_voice = null;");
+                System.out.println("$data_voice['type'] = \"" + obj + "\";");
+                System.out.println("$data_voice['voice'] = array();");
+                System.out.println();
+            }
+
+            if (obj instanceof ShipVoice) {
+                ShipVoice item = (ShipVoice) obj;
+                System.out.println("$data_voice_obj = null;");
+                System.out.println("$data_voice_obj['zh'] = \"" + item.getZh() + "\";");
+                System.out.println("$data_voice_obj['jp'] = \"" + item.getJp() + "\";");
+                System.out.println("$data_voice_obj['scene'] = \"" + item.getScene() + "\";");
+                System.out.println("$data_voice_obj['url'] = \"" + item.getUrl() + "\";");
+                System.out.println("array_push($data_voice['voice'], $data_voice_obj);");
+                System.out.println();
+            }
+        }
+
+        System.out.println("array_push($data['voice'], $data_voice);");
+        System.out.println("array_push($json, $data);");
+    }
+
+    private static Pattern TYPE_PATTERN = Pattern.compile("===([^=]+)===");
+    private static Pattern VOICE_PATTERN = Pattern.compile("\\{\\{台词翻译表\\|type=seasonal\\|档名=(.+)\\|.+舰娘名字=(.+)\\|日文台词=(.+)\\|中文译文=(.+)}}".replace(" ", "").replace("\n", ""));
+
+    //\\{\\{ruby-[^\\|]+\\|(.+)\\|(.+)}}
+    //<ref>([^<]+)<\/ref>
+    //\{\{lang\|.+\|(.+)}}
+    private static void parse(List<Object> list, String line) {
+
+        Matcher m = TYPE_PATTERN.matcher(line);
+        if (m.find()) {
+            list.add(m.group(1));
+        } else {
+            m = VOICE_PATTERN.matcher(line.replace(" ", ""));
+
+            if (m.find()) {
                 ShipVoice item = new ShipVoice();
-
-                for (String text : kv) {
-                    String temp[] = text.split("=");
-                    if (temp.length < 2) {
-                        continue;
-                    }
-                    parse(item, temp[0], temp[1]);
-                }
-
+                item.setUrl(m.group(1) + ".mp3");
+                item.setScene(m.group(2));
+                item.setJp(parseString(m.group(3)));
+                item.setZh(parseString(m.group(4)));
                 list.add(item);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-
-        // php 里面的内容..
-        for (ShipVoice item : list) {
-            System.out.println("$data_voice['type'] = $TYPE_VOICE;");
-            System.out.println("$data_voice['zh'] = \"" + item.getZh() + "\";");
-            System.out.println("$data_voice['jp'] = \"" + item.getJp() + "\";");
-            System.out.println("$data_voice['url'] = \"" + Utils.getKCWikiFileUrl("upload.kcwiki.moe", item.getUrl() + ".mp3") + "\";");
-            System.out.println("$data_voice['text'] = \"" + item.getScene() + "\";");
-            System.out.println("array_push($data['content'], $data_voice);");
-            System.out.println();
-        }
-    }
-
-    private static void parse(ShipVoice item, String key, String value) throws NoSuchFieldException, IllegalAccessException {
-        Class cls = item.getClass();
-        key = MAP.get(key);
-        if (key != null) {
-            Field field = cls.getDeclaredField(key);
-            if (field != null) {
-                field.setAccessible(true);
-                field.set(item, value);
             }
         }
     }
 
-    private static List<String> getLines() throws IOException {
-        System.out.println("getInputStream..");
-        InputStream is = getUrlStream("http://zh.kcwiki.moe/index.php?title=%E5%AD%A3%E8%8A%82%E6%80%A7/2016%E5%B9%B4%E6%A2%85%E9%9B%A8%E5%AD%A3%E8%8A%82&action=raw");
-        String originStr = Utils.streamToString(is).replace(" ", "");
-        System.out.println("finished..");
-        originStr = originStr.replaceAll("\n", "").replaceAll("\r", "");
-
-        Pattern r = Pattern.compile("\\{\\{台词翻译表\\|.+?\\|舰娘名字=(.+?)\\|日文台词=(.+?)\\|中文译文=(.+?)\\}\\}");
-        Matcher m = r.matcher(originStr);
-
-        List<String> lineStrList = new ArrayList<>();
-
-        while (m.find()) {
-            lineStrList.add(m.group().replace("{{", "").replace("}}", ""));
-        }
-
-        return lineStrList;
+    private static String parseString(String str) {
+        return str.replaceAll("\\{\\{lang\\|.+\\|(.+)}}", "$1")
+                .replaceAll("\\{\\{ruby-[^\\|]+\\|(.+)\\|(.+)}}", "$1 ($2)"
+                        .replaceAll("\\{\\{lang\\|.+\\|(.+)}}", "$1"))
+                .replaceAll("<ref>([^<]+)</ref>", "");
     }
 }

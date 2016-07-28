@@ -269,4 +269,5 @@ Activity &amp; Extra:
     <string name="view_all">View all</string>
     <string name="view_all_format">View all (%d more)</string>
 
+    <string name="blueprint">Blueprint</string>
 </resources>

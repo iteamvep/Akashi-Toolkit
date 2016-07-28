@@ -249,4 +249,7 @@
 
     <string name="view_all">查看全部</string>
     <string name="view_all_format">查看全部 (和其他 %d 个)</string>
+
+    <string name="blueprint">改装设计图</string>
+
 </resources>

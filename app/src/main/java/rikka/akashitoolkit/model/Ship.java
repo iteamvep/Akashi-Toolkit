@@ -188,70 +188,23 @@ public class Ship extends BaseDataModel {
 
     @Expose
     private AttrEntity attr;
+    private AttrEntity attr_max;
+    private AttrEntity attr_99;
+    private AttrEntity attr_155;
 
     public AttrEntity getAttr() {
         return attr;
     }
 
-    public void setAttr(AttrEntity attr) {
-        this.attr = attr;
+    public AttrEntity getAttrMax() {
+        return attr_max;
     }
 
-    public static class AttrEntity {
-        private int range;
-        private int speed;
-        private String[] aa;
-        private String[] armor;
-        private String[] asw;
-        private String[] evasion;
-        private String[] fire;
-        private String[] hp;
-        private String[] luck;
-        private String[] los;
-        private String[] torpedo;
+    public AttrEntity getAttr99() {
+        return attr_99;
+    }
 
-        public int getRange() {
-            return range;
-        }
-
-        public int getSpeed() {
-            return speed;
-        }
-
-        public String[] getAA() {
-            return aa;
-        }
-
-        public String[] getArmor() {
-            return armor;
-        }
-
-        public String[] getASW() {
-            return asw;
-        }
-
-        public String[] getEvasion() {
-            return evasion;
-        }
-
-        public String[] getFirepower() {
-            return fire;
-        }
-
-        public String[] getHP() {
-            return hp;
-        }
-
-        public String[] getLuck() {
-            return luck;
-        }
-
-        public String[] getLOS() {
-            return los;
-        }
-
-        public String[] getTorpedo() {
-            return torpedo;
-        }
+    public AttrEntity getAttr155() {
+        return attr_155;
     }
 }

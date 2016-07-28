@@ -1,5 +1,7 @@
 package com.example.list;
 
+import com.example.utils.Utils;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -88,6 +90,20 @@ public class ShipForm {
             if (row[0].equals(Integer.toString(id))) {
                 return row;
             }
+        }
+        return null;
+    }
+
+    public static int[] getIntRowById(int id) throws FileNotFoundException {
+        instance();
+
+        String[] row = getRowById(id);
+        if (row != null) {
+            int[] _row = new int[row.length];
+            for (int i = 0; i < row.length; i++) {
+                _row[i] = Utils.stringToInt(row[i]);
+            }
+            return _row;
         }
         return null;
     }

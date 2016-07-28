@@ -302,24 +302,16 @@ public class NewShip {
             return space;
         }
 
-        public void setSlots(String slots) {
-            this.slots = Integer.parseInt(slots);
+        public void setSlots(int slots) {
+            this.slots = slots;
         }
 
-        public void setIds(String id1, String id2, String id3, String id4, String id5) {
-            this.id = new int[]{Utils.stringToInt(id1),
-                    Utils.stringToInt(id2),
-                    Utils.stringToInt(id3),
-                    Utils.stringToInt(id4),
-                    Utils.stringToInt(id5)};
+        public void setIds(int id1, int id2, int id3, int id4, int id5) {
+            this.id = new int[]{id1, id2, id3, id4, id5};
         }
 
-        public void setSpaces(String id1, String id2, String id3, String id4, String id5) {
-            this.space = new int[]{Utils.stringToInt(id1),
-                    Utils.stringToInt(id2),
-                    Utils.stringToInt(id3),
-                    Utils.stringToInt(id4),
-                    Utils.stringToInt(id5)};
+        public void setSpaces(int id1, int id2, int id3, int id4, int id5) {
+            this.space = new int[]{id1, id2, id3, id4, id5};
         }
     }
 
@@ -348,8 +340,8 @@ public class NewShip {
             this.requireBlueprint = requireBlueprint;
         }
 
-        public void setRequireBlueprint(String requireBlueprint) {
-            this.requireBlueprint = requireBlueprint.equals("1");
+        public void setRequireBlueprint(int requireBlueprint) {
+            this.requireBlueprint = requireBlueprint == 1;
         }
 
         public int getFromId() {
@@ -396,43 +388,125 @@ public class NewShip {
             this.cost = cost;
         }
 
-        public void setCost(String ammo, String fuel) {
-            this.cost = new int[]{Integer.parseInt(ammo), Integer.parseInt(fuel)};
+        public void setCost(int ammo, int fuel) {
+            this.cost = new int[]{ammo, fuel};
         }
     }
 
     @Expose private AttrEntity attr;
+    @Expose
+    private AttrEntityMax attr_max;
+    @Expose
+    private AttrEntity99 attr_99;
+    @Expose
+    private AttrEntity99 attr_155;
 
-    public AttrEntity getAttr() {
-        /*if (attr == null) {
-            attr = new AttrEntity();
-        }*/
-        return attr;
+    public AttrEntity99 getAttr99() {
+        if (attr_99 == null) {
+            attr_99 = new AttrEntity99();
+        }
+        return attr_99;
     }
 
-    public void setAttr(AttrEntity attr) {
-        this.attr = attr;
+    public AttrEntity99 getAttr155() {
+        if (attr_155 == null) {
+            attr_155 = new AttrEntity99();
+        }
+        return attr_155;
+    }
+
+    public AttrEntityMax getAttrMax() {
+        if (attr_max == null) {
+            attr_max = new AttrEntityMax();
+        }
+        return attr_max;
+    }
+
+    public AttrEntity getAttr() {
+        if (attr == null) {
+            attr = new AttrEntity();
+        }
+        return attr;
     }
 
     public static class AttrEntity {
         @Expose private int range;
         @Expose private int speed;
-        @Expose private String[] aa;
-        @Expose private String[] armor;
-        @Expose private String[] asw;
-        @Expose private String[] evasion;
-        @Expose private String[] fire;
-        @Expose private String[] hp;
-        @Expose private String[] luck;
-        @Expose private String[] los;
-        @Expose private String[] torpedo;
+        @Expose
+        private int aa;
+        @Expose
+        private int armor;
+        @Expose
+        private int asw;
+        @Expose
+        private int evasion;
+        @Expose
+        private int fire;
+        @Expose
+        private int hp;
+        @Expose
+        private int luck;
+        @Expose
+        private int los;
+        @Expose
+        private int torpedo;
+        private int bomb;
+        private int accuracy;
+
+        public void setSpeed(int speed) {
+            this.speed = speed;
+        }
+
+        public void setAA(int aa) {
+            this.aa = aa;
+        }
+
+        public void setArmor(int armor) {
+            this.armor = armor;
+        }
+
+        public void setASW(int asw) {
+            this.asw = asw;
+        }
+
+        public void setEvasion(int evasion) {
+            this.evasion = evasion;
+        }
+
+        public void setFirepower(int fire) {
+            this.fire = fire;
+        }
+
+        public void setHP(int hp) {
+            this.hp = hp;
+        }
+
+        public void setLuck(int luck) {
+            this.luck = luck;
+        }
+
+        public void setLOS(int los) {
+            this.los = los;
+        }
+
+        public void setTorpedo(int torpedo) {
+            this.torpedo = torpedo;
+        }
+
+        public void setBombing(int bomb) {
+            this.bomb = bomb;
+        }
+
+        public void setAccuracy(int accuracy) {
+            this.accuracy = accuracy;
+        }
 
         public int getRange() {
             return range;
         }
 
-        public void setRange(String range) {
-            this.range = Integer.parseInt(range);
+        public void setRange(int range) {
+            this.range = range;
         }
 
         public int getSpeed() {
@@ -443,104 +517,140 @@ public class NewShip {
             this.speed = Integer.parseInt(speed);
         }
 
-        public void setSpeed(int speed) {
-            this.speed = speed;
-        }
-
-        public void setRange(int range) {
-            this.range = range;
-        }
-
-        public String[] getAA() {
+        public int getAA() {
             return aa;
         }
 
-        public void setAA(String aa, String aa_max) {
-            this.aa = new String[]{aa, aa_max};
-        }
-
-        public void setAA(String aa) {
-            this.aa = new String[]{aa};
-        }
-
-        public String[] getArmor() {
+        public int getArmor() {
             return armor;
         }
 
-        public void setArmor(String armor, String armor_max) {
-            this.armor = new String[]{armor, armor_max};
-        }
-
-        public void setArmor(String armor) {
-            this.armor = new String[]{armor};
-        }
-
-        public String[] getASW() {
+        public int getASW() {
             return asw;
         }
 
-        public void setASW(String asw, String asw_max, String asw_max2) {
-            this.asw = new String[]{asw, asw_max, asw_max2};
-        }
-
-        public String[] getEvasion() {
+        public int getEvasion() {
             return evasion;
         }
 
-        public void setEvasion(String evasion, String evasion_max, String evasion_max2) {
-            this.evasion = new String[]{evasion, evasion_max, evasion_max2};
-        }
-
-        public String[] getFirePower() {
+        public int getFirepower() {
             return fire;
         }
 
-        public void setFirePower(String fire, String fire_max) {
-            this.fire = new String[]{fire, fire_max};
-        }
-
-        public void setFirePower(String fire) {
-            this.fire = new String[]{fire};
-        }
-
-        public String[] getHP() {
+        public int getHP() {
             return hp;
         }
 
-        public void setHP(String hp, String hp_max) {
-            this.hp = new String[]{hp, hp_max};
-        }
-
-        public void setHP(String hp) {
-            this.hp = new String[]{hp};
-        }
-
-        public String[] getLuck() {
+        public int getLuck() {
             return luck;
         }
 
-        public void setLuck(String luck, String luck_max) {
-            this.luck = new String[]{luck, luck_max};
-        }
-
-        public String[] getLOS() {
+        public int getLOS() {
             return los;
         }
 
-        public void setLOS(String los, String los_max, String los_max2) {
-            this.los = new String[]{los, los_max, los_max2};
-        }
-
-        public String[] getTorpedo() {
+        public int getTorpedo() {
             return torpedo;
         }
 
-        public void setTorpedo(String torpedo, String torpedo_max) {
-            this.torpedo = new String[]{torpedo, torpedo_max};
+        public int getBombing() {
+            return bomb;
         }
 
-        public void setTorpedo(String torpedo) {
-            this.torpedo = new String[]{torpedo};
+        public int getAccuracy() {
+            return accuracy;
+        }
+    }
+
+    public static class AttrEntityMax {
+        @Expose
+        private int aa;
+        @Expose
+        private int armor;
+        @Expose
+        private int fire;
+        @Expose
+        private int luck;
+        @Expose
+        private int torpedo;
+
+        public void setAA(int aa) {
+            this.aa = aa;
+        }
+
+        public void setArmor(int armor) {
+            this.armor = armor;
+        }
+
+        public void setFirepower(int fire) {
+            this.fire = fire;
+        }
+
+        public void setLuck(int luck) {
+            this.luck = luck;
+        }
+
+        public void setTorpedo(int torpedo) {
+            this.torpedo = torpedo;
+        }
+
+        public int getArmor() {
+            return armor;
+        }
+
+        public int getFirepower() {
+            return fire;
+        }
+
+        public int getLuck() {
+            return luck;
+        }
+
+        public int getTorpedo() {
+            return torpedo;
+        }
+    }
+
+    public static class AttrEntity99 {
+        @Expose
+        private int asw;
+        @Expose
+        private int evasion;
+        @Expose
+        private int hp;
+        @Expose
+        private int los;
+
+        public void setASW(int asw) {
+            this.asw = asw;
+        }
+
+        public void setEvasion(int evasion) {
+            this.evasion = evasion;
+        }
+
+        public void setHP(int hp) {
+            this.hp = hp;
+        }
+
+        public void setLOS(int los) {
+            this.los = los;
+        }
+
+        public int getASW() {
+            return asw;
+        }
+
+        public int getEvasion() {
+            return evasion;
+        }
+
+        public int getHP() {
+            return hp;
+        }
+
+        public int getLOS() {
+            return los;
         }
     }
 

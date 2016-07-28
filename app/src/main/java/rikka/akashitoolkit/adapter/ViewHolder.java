@@ -529,7 +529,7 @@ public class ViewHolder {
                     public void onClick(View view) {
                         Context context = view.getContext();
                         if (!textView.isCounting()) {
-                            long time = System.currentTimeMillis() + expedition.getTime() * 1000 * 60;
+                            long time = System.currentTimeMillis() + (expedition.getTime() - 1) * 1000 * 60;
                             textView.setEndTime(time);
                             Settings.instance(context).putLong(String.format("expedition_time_%d", expedition.getId()), time);
                             setAlarm(context, time, expedition.getId());
