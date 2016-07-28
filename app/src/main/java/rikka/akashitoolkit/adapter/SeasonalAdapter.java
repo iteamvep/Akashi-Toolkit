@@ -239,7 +239,7 @@ public class SeasonalAdapter extends BaseRecyclerAdapter {
                 public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
                     int position = parent.getChildAdapterPosition(view) + 1;
 
-                    outRect.set(0, Utils.dpToPx(2), Utils.dpToPx(2), 0);
+                    outRect.set(0, Utils.dpToPx(4), Utils.dpToPx(4), 0);
 
                     if (position % SPAN_COUNT == 0) {
                         outRect.right = 0;

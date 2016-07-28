@@ -71,7 +71,7 @@ public class SeasonalFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.content_swipe_refresh, container, false);
+        View view = inflater.inflate(R.layout.content_twitter_container, container, false);
 
         mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefreshLayout);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
@@ -80,7 +80,6 @@ public class SeasonalFragment extends Fragment {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), OrientationHelper.VERTICAL, false));
         mAdapter = new SeasonalAdapter();
         mRecyclerView.setAdapter(mAdapter);
-        mRecyclerView.setPadding(0, Utils.dpToPx(4), 0, Utils.dpToPx(4));
         mRecyclerView.setClipToPadding(false);
 
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
