@@ -50,6 +50,14 @@ public class ExpeditionAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.
         new AsyncTask<Void, Void, Void>() {
             @Override
             protected Void doInBackground(Void... params) {
+                ExpeditionList.get(mContext);
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                clearItemList();
+
                 List<Expedition> data = ExpeditionList.get(mContext);
 
                 int type = -1;
@@ -69,11 +77,7 @@ public class ExpeditionAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.
                         addItem(item.getId(), 0, item);
                     }
                 }
-                return null;
-            }
 
-            @Override
-            protected void onPostExecute(Void aVoid) {
                 notifyDataSetChanged();
             }
         }.execute();
