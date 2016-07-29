@@ -15,9 +15,6 @@ import android.view.ViewGroup;
 
 import com.squareup.otto.Subscribe;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.model.CheckUpdate;
 import rikka.akashitoolkit.otto.BookmarkItemChanged;
@@ -31,7 +28,7 @@ import static rikka.akashitoolkit.support.ApiConstParam.Message.NOT_DISMISSIBLE;
 /**
  * Created by Rikka on 2016/6/11.
  */
-public class MessageAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHolder> {
+public class MessageAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHolder, Object> {
     public static final int TYPE_MESSAGE = 0;
     public static final int TYPE_MESSAGE_UPDATE = 1;
     public static final int TYPE_DAILY_EQUIP = 2;
@@ -64,7 +61,7 @@ public class MessageAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHolder>
     }
 
     public void add(int type, Object object, int position) {
-        Data data = new Data(object, type, generateItemId(type, object));
+        Data<Object> data = new Data<>(object, type, generateItemId(type, object));
         if (position == -1) {
             addItem(data);
         } else {
@@ -86,7 +83,7 @@ public class MessageAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHolder>
 
     public void remove(int position) {
         if (mListener != null) {
-            mListener.OnRemove(position, getItemData(position));
+            mListener.OnRemove(position, getItem(position));
         }
 
         removeItem(position);
@@ -110,7 +107,7 @@ public class MessageAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHolder>
     }
 
     private void bindViewHolder(final ViewHolder.Message holder, int position) {
-        CheckUpdate.MessagesEntity data = (CheckUpdate.MessagesEntity) getItemData(position);
+        CheckUpdate.MessagesEntity data = (CheckUpdate.MessagesEntity) getItem(position);
 
         // title
         holder.mTitle.setText(data.getTitle());
@@ -144,7 +141,7 @@ public class MessageAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHolder>
             holder.mPositiveButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    CheckUpdate.MessagesEntity data = (CheckUpdate.MessagesEntity) getItemData(holder.getAdapterPosition());
+                    CheckUpdate.MessagesEntity data = (CheckUpdate.MessagesEntity) getItem(holder.getAdapterPosition());
                     v.getContext()
                             .startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(data.getLink())));
                 }
@@ -200,7 +197,7 @@ public class MessageAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHolder>
     }
 
     private void bindViewHolder(final ViewHolder.Message holder, int position, Context context) {
-        final CheckUpdate.UpdateEntity data = (CheckUpdate.UpdateEntity) getItemData(position);
+        final CheckUpdate.UpdateEntity data = (CheckUpdate.UpdateEntity) getItem(position);
 
         holder.mTitle.setText(R.string.new_version_available);
         holder.mSummary.setText(String.format(context.getString(R.string.new_version_summary), data.getVersionName(), data.getVersionCode()));

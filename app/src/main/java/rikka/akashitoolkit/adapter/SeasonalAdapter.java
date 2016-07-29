@@ -104,7 +104,7 @@ public class SeasonalAdapter extends BaseRecyclerAdapter {
     }
 
     private void bindViewHolder(TitleViewHolder holder, int position) {
-        Seasonal data = (Seasonal) getItemData(position);
+        Seasonal data = (Seasonal) getItem(position);
         holder.mTitle.setText(data.getTitle());
         holder.mSummary.setText(data.getSummary());
         holder.mSummary.setVisibility(TextUtils.isEmpty(data.getSummary()) ? View.GONE : View.VISIBLE);
@@ -113,7 +113,7 @@ public class SeasonalAdapter extends BaseRecyclerAdapter {
     private void bindViewHolder(final GalleryViewHolder holder, int position) {
         Context context = holder.itemView.getContext();
 
-        Seasonal data = (Seasonal) getItemData(position);
+        Seasonal data = (Seasonal) getItem(position);
         final String title = data.getTitle();
         final String summary = data.getSummary();
         final String content = data.getContent();
@@ -147,7 +147,7 @@ public class SeasonalAdapter extends BaseRecyclerAdapter {
         holder.mRecyclerView.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
             @Override
             public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
-                holder.mItemSize = (v.getWidth() - (Utils.dpToPx(2) * (GalleryViewHolder.SPAN_COUNT - 1))) / GalleryViewHolder.SPAN_COUNT;
+                holder.mItemSize = (v.getWidth() - (Utils.dpToPx(4) * (GalleryViewHolder.SPAN_COUNT - 1))) / GalleryViewHolder.SPAN_COUNT;
                 holder.mRecyclerView.getAdapter().notifyDataSetChanged();
 
                 v.removeOnLayoutChangeListener(this);
@@ -164,14 +164,14 @@ public class SeasonalAdapter extends BaseRecyclerAdapter {
     }
 
     private void bindViewHolder(ContentViewHolder holder, int position) {
-        Seasonal data = (Seasonal) getItemData(position);
+        Seasonal data = (Seasonal) getItem(position);
         holder.mTitle.setText(data.getTitle());
         holder.mContent.setText(data.getContent());
     }
 
     @SuppressLint("DefaultLocale")
     private void bindViewHolder(final VoiceViewHolder holder, int position) {
-        Seasonal data = (Seasonal) getItemData(position);
+        Seasonal data = (Seasonal) getItem(position);
         //Seasonal.Voice voice = data.getVoice();
         final String title = data.getTitle();
         holder.mTitle.setText(data.getTitle());
@@ -187,11 +187,11 @@ public class SeasonalAdapter extends BaseRecyclerAdapter {
 
         holder.mSummary.setText(String.format("%d voices", count));
 
-        SimpleRecyclerViewAdapter adapter = (SimpleRecyclerViewAdapter) holder.mRecyclerView.getAdapter();
+        SimpleRecyclerViewAdapter<String> adapter = holder.mAdapter;
         adapter.setListener(new SimpleRecyclerViewAdapter.Listener() {
             @Override
             public void OnClick(int position) {
-                Seasonal data = (Seasonal) getItemData(holder.getAdapterPosition());
+                Seasonal data = (Seasonal) getItem(holder.getAdapterPosition());
 
                 VoiceActivity.start(holder.itemView.getContext(), data.getVoice().get(position).getVoice(), title);
             }
@@ -293,6 +293,7 @@ public class SeasonalAdapter extends BaseRecyclerAdapter {
         public TextView mTitle;
         public TextView mSummary;
         public RecyclerView mRecyclerView;
+        public SimpleRecyclerViewAdapter<String> mAdapter;
 
         public VoiceViewHolder(View itemView) {
             super(itemView);
@@ -311,7 +312,8 @@ public class SeasonalAdapter extends BaseRecyclerAdapter {
                     return super.canDraw(parent, child, childCount, position);
                 }
             });
-            mRecyclerView.setAdapter(new SimpleRecyclerViewAdapter(R.layout.list_item));
+            mAdapter = new SimpleRecyclerViewAdapter<>(R.layout.list_item);
+            mRecyclerView.setAdapter(mAdapter);
             mRecyclerView.setNestedScrollingEnabled(false);
         }
     }

@@ -13,7 +13,7 @@ import rikka.akashitoolkit.otto.BusProvider;
 /**
  * Created by Rikka on 2016/5/15.
  */
-public abstract class BaseBookmarkRecyclerAdapter<VH extends RecyclerView.ViewHolder> extends BaseRecyclerAdapter<VH> {
+public abstract class BaseBookmarkRecyclerAdapter<VH extends RecyclerView.ViewHolder, T> extends BaseRecyclerAdapter<VH, T> {
     private boolean mBookmarked;
 
     private Toast mToast;

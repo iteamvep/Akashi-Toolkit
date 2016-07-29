@@ -10,12 +10,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.model.Expedition;
-import rikka.akashitoolkit.model.MapType;
 import rikka.akashitoolkit.otto.BookmarkItemChanged;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.staticdata.ExpeditionList;
@@ -25,7 +23,7 @@ import rikka.akashitoolkit.support.Settings;
 /**
  * Created by Rikka on 2016/3/14.
  */
-public class ExpeditionAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHolder> {
+public class ExpeditionAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHolder, Object> {
     private Context mContext;
 
     private List<Integer> mFilter;
@@ -109,7 +107,7 @@ public class ExpeditionAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.
 
     private void bindViewHolder(final ViewHolder.Expedition holder, int position) {
         Context context = holder.itemView.getContext();
-        Expedition item = (Expedition) getItemData(position);
+        Expedition item = (Expedition) getItem(position);
 
         holder.mTitle.setText(String.format(item.isBookmarked() ? "%d %s ★" : "%d %s", item.getId(), item.getName().get(context)));
         holder.mTime.setText(Html.fromHtml(item.getTimeString()));
@@ -132,7 +130,7 @@ public class ExpeditionAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.
             @SuppressLint("DefaultLocale")
             @Override
             public boolean onLongClick(View view) {
-                Expedition item = (Expedition) getItemData(holder.getAdapterPosition());
+                Expedition item = (Expedition) getItem(holder.getAdapterPosition());
 
                 item.setBookmarked(!item.isBookmarked());
 
@@ -151,11 +149,11 @@ public class ExpeditionAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.
 
     private void bindViewHolder(ViewHolder.Subtitle holder, int position) {
         holder.mDivider.setVisibility(position == 0 ? View.GONE : View.VISIBLE);
-        holder.mTitle.setText((String) getItemData(position));
+        holder.mTitle.setText((String) getItem(position));
     }
 
     private void setViewDetail(final ViewHolder.Expedition holder, int position) {
-        Expedition item = (Expedition) getItemData(position);
+        Expedition item = (Expedition) getItem(position);
 
         for (int i = 0; i < 4; i++) {
             holder.setRewardResource(item.getReward().getResourceString().get(i), i);

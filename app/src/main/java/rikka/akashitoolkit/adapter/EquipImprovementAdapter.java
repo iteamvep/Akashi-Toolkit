@@ -30,7 +30,7 @@ import rikka.akashitoolkit.ui.EquipDisplayActivity;
 /**
  * Created by Rikka on 2016/3/17.
  */
-public class EquipImprovementAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.ItemImprovement> {
+public class EquipImprovementAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.ItemImprovement, EquipImprovement> {
 
     private List<String> mDataShip;
     private Activity mActivity;
@@ -46,10 +46,6 @@ public class EquipImprovementAdapter extends BaseBookmarkRecyclerAdapter<ViewHol
         setHasStableIds(true);
 
         rebuildDataList();
-    }
-
-    public EquipImprovement getItem(int position) {
-        return (EquipImprovement) getItemData(position);
     }
 
     private long generateItemId(EquipImprovement item) {

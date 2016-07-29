@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import rikka.akashitoolkit.R;
@@ -22,7 +21,7 @@ import rikka.akashitoolkit.ui.MapActivity;
 /**
  * Created by Rikka on 2016/4/9.
  */
-public class MapAdapter extends BaseRecyclerAdapter<ViewHolder.Map> {
+public class MapAdapter extends BaseRecyclerAdapter<ViewHolder.Map, Map> {
 
     private Context mContext;
     private int mType;
@@ -32,10 +31,6 @@ public class MapAdapter extends BaseRecyclerAdapter<ViewHolder.Map> {
         mType = type;
 
         rebuildDataList();
-    }
-
-    public Map getItem(int position) {
-        return (Map) getItemData(position);
     }
 
     @Override

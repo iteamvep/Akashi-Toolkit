@@ -13,7 +13,6 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import rikka.akashitoolkit.R;
@@ -34,7 +33,7 @@ import rikka.akashitoolkit.utils.Utils;
 /**
  * Created by Rikka on 2016/3/9.
  */
-public class QuestAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Quest> {
+public class QuestAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Quest, Quest> {
 
     private int mType;
     private int mFilterFlag;
@@ -126,7 +125,7 @@ public class QuestAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Quest> 
     }
 
     private void setRewardText(ViewHolder.Quest holder, int position, int id) {
-        int res = ((Quest) getItemData(position)).getReward().getResource().get(id);
+        int res = getItem(position).getReward().getResource().get(id);
         if (res > 0) {
             ((LinearLayout)holder.mRewardText[id].getParent()).setVisibility(View.VISIBLE);
             holder.mRewardText[id].setText(Integer.toString(res));
@@ -204,7 +203,7 @@ public class QuestAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Quest> 
 
     @Override
     public void onBindViewHolder(final ViewHolder.Quest holder, int position) {
-        Quest quest = (Quest) getItemData(position);
+        Quest quest = getItem(position);
 
         if (!quest.isHighlight()) {
             //holder.mExpandableLayout.setExpanded(false, false);
@@ -264,7 +263,7 @@ public class QuestAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Quest> 
             @SuppressLint("DefaultLocale")
             @Override
             public boolean onLongClick(View v) {
-                Quest item = (Quest) getItemData(holder.getAdapterPosition());
+                Quest item = (Quest) getItem(holder.getAdapterPosition());
 
                 item.setBookmarked(!item.isBookmarked());
 
@@ -281,7 +280,7 @@ public class QuestAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Quest> 
     }
 
     private void setViewDetail(ViewHolder.Quest holder, int position) {
-        Quest quest = (Quest) getItemData(position);
+        Quest quest = getItem(position);
 
         holder.mDetail.setText(Html.fromHtml(quest.getContent().get(holder.itemView.getContext())));
 

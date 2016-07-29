@@ -15,14 +15,10 @@ import rikka.akashitoolkit.utils.Utils;
 /**
  * Created by Rikka on 2016/7/25.
  */
-public class VoiceAdapter extends BaseRecyclerAdapter<ViewHolder.Voice> {
+public class VoiceAdapter extends BaseRecyclerAdapter<ViewHolder.Voice, ShipVoice> {
 
-    public VoiceAdapter(List<Object> list) {
+    public VoiceAdapter(List<ShipVoice> list) {
         setItemList(list);
-    }
-
-    private ShipVoice getItem(int position) {
-        return (ShipVoice) getItemData(position);
     }
 
     @Override

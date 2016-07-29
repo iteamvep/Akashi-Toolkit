@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Created by Rikka on 2016/7/25.
  */
-public class SimpleRecyclerViewAdapter extends BaseRecyclerAdapter<SimpleRecyclerViewAdapter.ViewHolder> {
+public class SimpleRecyclerViewAdapter<T> extends BaseRecyclerAdapter<SimpleRecyclerViewAdapter.ViewHolder, T> {
 
     public interface Listener {
         void OnClick(int position);
@@ -29,7 +29,7 @@ public class SimpleRecyclerViewAdapter extends BaseRecyclerAdapter<SimpleRecycle
 
     @Override
     public void onBindViewHolder(final SimpleRecyclerViewAdapter.ViewHolder holder, int position) {
-        holder.mTitle.setText((String) getItemData(position));
+        holder.mTitle.setText((String) getItem(position));
 
         if (mListener != null) {
             holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -50,7 +50,7 @@ public class SimpleRecyclerViewAdapter extends BaseRecyclerAdapter<SimpleRecycle
         mListener = listener;
     }
 
-    public void setDataList(List<String> list) {
+    public void setDataList(List<T> list) {
         clearItemList();
 
         for (int i = 0; i < list.size(); i++) {

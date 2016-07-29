@@ -54,7 +54,7 @@ public class VoiceActivity extends BaseActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(getIntent().getStringExtra(EXTRA_TITLE));
 
-        List<Object> list = new ArrayList<>();
+        List<ShipVoice> list = new ArrayList<>();
         if (getIntent().hasExtra(EXTRA_DATA)) {
             for (String str : getIntent().getStringArrayListExtra(EXTRA_DATA)) {
                 String[] s = str.split("\\|\\|\\|");

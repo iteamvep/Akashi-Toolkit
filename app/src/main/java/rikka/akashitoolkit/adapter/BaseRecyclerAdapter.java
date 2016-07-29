@@ -9,8 +9,8 @@ import java.util.List;
 /**
  * Created by Rikka on 2016/4/13.
  */
-public abstract class BaseRecyclerAdapter<VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<VH> {
-    private List<Data> mData;
+public abstract class BaseRecyclerAdapter<VH extends RecyclerView.ViewHolder, T> extends RecyclerView.Adapter<VH> {
+    private List<Data<T>> mData;
 
     public BaseRecyclerAdapter() {
         mData = new ArrayList<>();
@@ -24,7 +24,7 @@ public abstract class BaseRecyclerAdapter<VH extends RecyclerView.ViewHolder> ex
 
     }
 
-    final public void setItemList(List<Object> list) {
+    final public void setItemList(List<T> list) {
         clearItemList();
 
         for (int i = 0; i < list.size(); i++) {
@@ -34,28 +34,28 @@ public abstract class BaseRecyclerAdapter<VH extends RecyclerView.ViewHolder> ex
         notifyDataSetChanged();
     }
 
-    final public List<Data> getItemList() {
+    final public List<Data<T>> getItemList() {
         return mData;
     }
 
-    final public Object getItemData(int position) {
+    final public T getItem(int position) {
         return mData.get(position).data;
     }
 
-    final public void addItem(Data data) {
+    final public void addItem(Data<T> data) {
         mData.add(data);
     }
 
-    final public void addItem(Data data, int position) {
+    final public void addItem(Data<T> data, int position) {
         mData.add(position, data);
     }
 
-    final public void addItem(long id, int type, Object data) {
-        mData.add(new Data(data, type, id));
+    final public void addItem(long id, int type, T data) {
+        mData.add(new Data<>(data, type, id));
     }
 
-    final public void addItem(long id, int type, Object data, int position) {
-        mData.add(position, new Data(data, type, id));
+    final public void addItem(long id, int type, T data, int position) {
+        mData.add(position, new Data<>(data, type, id));
     }
 
     final public void removeItem(int position) {
@@ -77,16 +77,16 @@ public abstract class BaseRecyclerAdapter<VH extends RecyclerView.ViewHolder> ex
     }
 
     @Override
-    public int getItemCount() {
+    final public int getItemCount() {
         return mData == null ? 0 : mData.size();
     }
 
-    public static class Data {
-        protected Object data;
+    public static class Data<T> {
+        protected T data;
         protected int type;
         protected long id;
 
-        public Data(Object data, int type, long id) {
+        public Data(T data, int type, long id) {
             this.data = data;
             this.type = type;
             this.id = id;

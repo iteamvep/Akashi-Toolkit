@@ -10,9 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.model.Equip;
 import rikka.akashitoolkit.model.EquipType;
@@ -27,7 +24,7 @@ import rikka.akashitoolkit.ui.EquipDisplayActivity;
 /**
  * Created by Rikka on 2016/3/23.
  */
-public class EquipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHolder> {
+public class EquipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHolder, Object> {
     private Activity mActivity;
     private int mType;
     private boolean mEnemy;
@@ -50,12 +47,16 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewH
 
     public void rebuildDataList() {
         new AsyncTask<Void, Void, Void>() {
-            List<Data> newList = new ArrayList<>();
-
             @Override
             protected Void doInBackground(Void... params) {
-                newList.clear();
+                EquipList.get(mActivity);
 
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                clearItemList();
                 int lastType = -1;
 
                 for (Equip equip :
@@ -76,26 +77,19 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewH
                         continue;
                     }
 
-                    if (newList.size() == 0 || lastType != equip.getType()) {
+                    if (getItemCount() == 0 || lastType != equip.getType()) {
                         lastType = equip.getType();
                         EquipType equipType = EquipTypeList.findItemById(mActivity, equip.getType());
                         if (equipType != null)
-                            newList.add(new Data(equipType.getName(mActivity), 1, equipType.getId() * 10000));
+                            addItem(equipType.getId() * 10000, 1, equipType.getName(mActivity));
                     }
-
-                    newList.add(new Data(equip, 0, equip.getId()));
+                    addItem(equip.getId(), 0, equip);
                 }
 
                 if (mType == 0) {
-                    onDataListRebuilt(newList);
+                    onDataListRebuilt(getItemList());
                 }
-                return null;
-            }
 
-            @Override
-            protected void onPostExecute(Void aVoid) {
-                clearItemList();
-                getItemList().addAll(newList);
                 notifyDataSetChanged();
                 BusProvider.instance().post(new DataListRebuiltFinished());
             }
@@ -127,7 +121,7 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewH
     }
 
     private void bindViewHolder(final ViewHolder.Item holder, int position) {
-        Equip item = (Equip) getItemData(position);
+        Equip item = (Equip) getItem(position);
 
         holder.mName.setText(String.format(item.isBookmarked() ? "%s ★" : "%s",
                 item.getName().get(holder.mName.getContext())));
@@ -141,7 +135,7 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewH
 
                 Intent intent = new Intent(context, EquipDisplayActivity.class);
                 intent.putExtra(EquipDisplayActivity.EXTRA_ITEM_ID,
-                        ((Equip) getItemData(holder.getAdapterPosition())).getId());
+                        ((Equip) getItem(holder.getAdapterPosition())).getId());
 
                 int[] location = new int[2];
                 holder.mLinearLayout.getLocationOnScreen(location);
@@ -157,7 +151,7 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewH
                 @SuppressLint("DefaultLocale")
                 @Override
                 public boolean onLongClick(View v) {
-                    Equip item = (Equip) getItemData(holder.getAdapterPosition());
+                    Equip item = (Equip) getItem(holder.getAdapterPosition());
 
                     item.setBookmarked(!item.isBookmarked());
 
@@ -178,7 +172,7 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewH
         boolean showDivider = position != 0 && (getItemViewType(position - 1) != getItemViewType(position));
 
         holder.mDivider.setVisibility(showDivider ? View.VISIBLE : View.GONE);
-        holder.mTitle.setText((String) getItemData(position));
+        holder.mTitle.setText((String) getItem(position));
         holder.itemView.setSelected(true);
     }
 

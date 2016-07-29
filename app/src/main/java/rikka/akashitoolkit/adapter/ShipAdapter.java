@@ -19,7 +19,6 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
-import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -46,7 +45,7 @@ import rx.schedulers.Schedulers;
 /**
  * Created by Rikka on 2016/3/30.
  */
-public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHolder> {
+public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHolder, Object> {
     private Map<Long, Boolean> mExpanded;
 
     private Activity mActivity;
@@ -269,7 +268,7 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
 
     private void bindViewHolder(final ViewHolder.Ship holder, int position) {
         Context context = holder.itemView.getContext();
-        Ship item = (Ship) getItemData(position);
+        Ship item = (Ship) getItem(position);
 
         holder.mTitle.setText(String.format(item.isBookmarked() ? "%s ★" : "%s",
                 item.getName().get(holder.mTitle.getContext())));
@@ -320,7 +319,7 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
                     return;
                 }
 
-                Ship item = (Ship) getItemData(holder.getAdapterPosition());
+                Ship item = (Ship) getItem(holder.getAdapterPosition());
 
                 Intent intent = new Intent(v.getContext(), ShipDisplayActivity.class);
                 intent.putExtra(ShipDisplayActivity.EXTRA_ITEM_ID, item.getId());
@@ -339,7 +338,7 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
                 @SuppressLint("DefaultLocale")
                 @Override
                 public boolean onLongClick(View v) {
-                    Ship item = (Ship) getItemData(holder.getAdapterPosition());
+                    Ship item = (Ship) getItem(holder.getAdapterPosition());
 
                     item.setBookmarked(!item.isBookmarked());
 
@@ -373,7 +372,7 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
         boolean showDivider = position != 0 && expanded || position != 0 && (getItemViewType(position - 1) != getItemViewType(position));
 
         holder.mDivider.setVisibility(showDivider ? View.VISIBLE : View.GONE);
-        holder.mTitle.setText((String) getItemData(position));
+        holder.mTitle.setText((String) getItem(position));
 
         if (holder.itemView.isSelected() != expanded
                 && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
