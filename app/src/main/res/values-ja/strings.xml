@@ -2,11 +2,11 @@
 <resources>
     <string name="app_name">明石工具一式</string>
 
-    <string name="navigation_drawer_open">ドロワーメニューを開く</string>
-    <string name="navigation_drawer_close">ドロワーメニューを閉める</string>
+    <string name="navigation_drawer_open">ドロワーを開く</string>
+    <string name="navigation_drawer_close">ドロワーを閉じる</string>
 
     <string name="action_settings">設定</string>
-    <string name="home">ホームページ</string>
+    <string name="home">ホーム</string>
     <string name="official_twitter">公式ツイッター</string>
     <string name="about">明石工具一式について</string>
     <string name="maps">海域</string>
@@ -25,16 +25,16 @@
     <string name="action_refresh">更新</string>
 
     <string name="category_general">一般</string>
-    <string name="category_twitter">公式ツイッター</string>
+    <string name="category_twitter">公式Twitter</string>
     <string name="twitter_count">ツイート数</string>
     <string name="twitter_display_language">表示言語</string>
     <string name="twitter_display_language_both">原文及び翻訳</string>
     <string name="twitter_display_language_ja">原文 (日本語)</string>
     <string name="twitter_display_language_zh">翻訳 (簡体中国語)</string>
     <string name="no_new_tweet">新着ツイート無し</string>
-    <string name="twitter_grid_layout">グリッドレイアウト</string>
+    <string name="twitter_grid_layout">マルチカラムビュー</string>
     <string name="twitter_grid_layout_summary">二列表示</string>
-    <string name="twitter_history_avatars">History avatars</string>
+    <string name="twitter_history_avatars">アバター履歴</string>
 
     <string name="ship">艦娘</string>
 
@@ -47,7 +47,7 @@
     <string name="expedition_flagship_total">合計レベル: %s</string>
 
     <string name="version_format" formatted="false">%s (%d)</string>
-    <string name="version">バージョン</string>
+    <string name="version">アプリのバージョン</string>
 
     <string name="category_update">更新とメッセージ</string>
     <string name="update_check_channel">更新チャンネル</string>
@@ -68,7 +68,7 @@
     <string name="open_link">リンクを開く</string>
     <string name="todo_card_format" formatted="false">現在のバージョン: %s\n%s</string>
     <string name="today">(本日)</string>
-    <string name="action_filter">フィルタ</string>
+    <string name="action_filter">フィルター</string>
     <string name="action_search">検索</string>
     <string name="item">装備</string>
     <string name="attributes">装備ステータス</string>
@@ -81,7 +81,7 @@
     <string name="introduction">図鑑内容</string>
     <string name="ship_can_equip">装備可能艦種</string>
     <string name="ship_initial_equip">艦船初期装備</string>
-    <string name="image_load_error">画像ロードエラー</string>
+    <string name="image_load_error">画像を読み込みできません</string>
     <string name="tools">工具</string>
     <string name="exp_calc">経験値計算機</string>
     <string name="exp_calc_map">海域</string>
@@ -93,7 +93,7 @@
     <string name="exp_calc_error">データエラー</string>
 
     <string name="ui_language">アプリ言語</string>
-    <string name="data_language">データ言語</string>
+    <string name="data_language">データの言語</string>
     <string name="data_language_title">日本語タイトル</string>
     <string name="data_language_title_summary">任務名などに日本語で表示する</string>
     <string name="action_picture">画像</string>
@@ -105,15 +105,15 @@
     <string name="initial">初期ステータス</string>
     <string name="saved">保存 %s</string>
     <string name="save_failed">保存失敗</string>
-    <string name="require_write_external_storage_permission">保存するにはストレージへの書き込み権限が必要</string>
+    <string name="require_write_external_storage_permission">コンテンツを保存するには、SDカードへの書き込みの許可が必要です</string>
     <string name="open">開く</string>
-    <string name="download_wifi_only">Wi-Fi接続時のみ画像を読み込む</string>
+    <string name="download_wifi_only">Wi-Fi接続時のみ画像を読み込み</string>
     <string name="voice">ボイス</string>
     <string name="new_content">季節性</string>
 
     <string name="category_notification">通知</string>
-    <string name="notification_sound">通知とサウンド</string>
-    <string name="notification_priority">優先順位</string>
+    <string name="notification_sound">通知音</string>
+    <string name="notification_priority">通知の優先度</string>
     <string name="data_feedback">フィードバックを送る</string>
 
     <string-array name="notification_priority">
@@ -138,18 +138,18 @@
 
     <string name="night_mode_system_auto">端末の夜間モード設定は自動となります、アプリ内で自動と設定しても夜間モードに入らない可能性があります。</string>
 
-    <string name="nav_bar_color">ナビバーの色を有効</string>
-    <string name="nav_bar_color_summary">テーマカラーを使う</string>
+    <string name="nav_bar_color">ナビゲーションバーの色</string>
+    <string name="nav_bar_color_summary">テーマカラーを使用</string>
 
-    <string name="category_cache">キャッシュ</string>
-    <string name="cache_max_size">キャッシュ最大容量</string>
-    <string name="no_limit">無限制</string>
-    <string name="clear_cache">キャッシュの削除</string>
-    <string name="clear_cache_summary">画像とボイスの削除</string>
-    <string name="cleared">削除しました</string>
+    <string name="category_cache">キャッシュデータ</string>
+    <string name="cache_max_size">キャッシュデータサイズの制限</string>
+    <string name="no_limit">制限なし</string>
+    <string name="clear_cache">キャッシュデータを削除</string>
+    <string name="clear_cache_summary">キャッシュされた画像とボイス</string>
+    <string name="cleared">キャッシュデータを削除しました</string>
     <string name="ranking">戦果検索</string>
 
-    <string name="feedback_summary">開発者へメールを送る</string>
+    <string name="feedback_summary">フィードバックを送信</string>
     <string name="donate">寄付</string>
     <string name="telegram_group">Telegram グループ</string>
     <string name="telegram_group_join">クリックして参加 (もしこのアプリの開発に興味があれば)</string>
@@ -159,14 +159,14 @@
     <string name="send_via">送信経由</string>
     <string name="no_mail_app">メールアプリがないの様子</string>
 
-    <string name="copied_to_clipboard_format">%s コピーしています</string>
-    <string name="copied_to_clipboard">コピーしました</string>
+    <string name="copied_to_clipboard_format">%s をクリップボードにコピーしました</string>
+    <string name="copied_to_clipboard">クリップボードにコピーしました</string>
 
     <string name="nothing_bookmarked">お気に入り項目がありません</string>
     <string name="nothing_bookmarked_summary">長押しまたは詳情ページ右上のブックマークアイコンをタップしてお気に入りに追加。</string>
 
-    <string name="share">シェア</string>
-    <string name="share_text">文字のみ</string>
+    <string name="share">共有</string>
+    <string name="share_text">テキストを共有のみ</string>
     <string name="copy_original_text">原文をコピー</string>
     <string name="copy_translated_text">翻訳をコピー</string>
 
@@ -183,7 +183,7 @@
     <string name="enemy">深海棲艦</string>
     <string name="all">すべて</string>
     <string name="expedition_finished">艦隊が母港に帰還しました</string>
-    <string name="expedition_notify">遠征アラーム</string>
+    <string name="expedition_notify">遠征お知らせ</string>
     <string name="finished">帰還しました</string>
     <string name="not_started">出発準備中</string>
     <string name="detail">詳情</string>
@@ -244,11 +244,11 @@
 
     <string name="search_result">検索結果</string>
 
-    <string name="fleets">Fleets</string>
-    <string name="fleet_edit">Edit fleet</string>
+    <string name="fleets">艦隊</string>
+    <string name="fleet_edit">艦隊編成</string>
 
-    <string name="view_all">View all</string>
-    <string name="view_all_format">View all (%d more)</string>
+    <string name="view_all">全部を見る</string>
+    <string name="view_all_format">全部を見る (その他 %d)</string>
 
     <string name="blueprint">改装設計図</string>
 
