@@ -417,11 +417,11 @@ public class ShipDisplayFragment extends BaseSearchFragment {
             @Override
             public Bundle getArgs(int position) {
                 Bundle bundle = new Bundle();
-                bundle.putInt("FLAG", mFlag);
-                bundle.putInt("FINAL_VERSION", mFinalVersion);
-                bundle.putInt("SPEED", mSpeed);
-                bundle.putInt("SORT", mSort);
-                bundle.putBoolean("BOOKMARKED", mBookmarked);
+                bundle.putInt(ShipFragment.ARG_TYPE_FLAG, mFlag);
+                bundle.putInt(ShipFragment.ARG_FINAL_VERSION, mFinalVersion);
+                bundle.putInt(ShipFragment.ARG_SPEED, mSpeed);
+                bundle.putInt(ShipFragment.ARG_SORT, mSort);
+                bundle.putBoolean(ShipFragment.ARG_BOOKMARKED, mBookmarked);
                 return bundle;
             }
         };

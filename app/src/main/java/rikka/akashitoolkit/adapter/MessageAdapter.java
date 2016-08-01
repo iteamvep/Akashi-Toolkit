@@ -61,11 +61,10 @@ public class MessageAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHolder,
     }
 
     public void add(int type, Object object, int position) {
-        Data<Object> data = new Data<>(object, type, generateItemId(type, object));
         if (position == -1) {
-            addItem(data);
+            addItem(generateItemId(type, object), type, object);
         } else {
-            addItem(data, position);
+            addItem(generateItemId(type, object), type, object, position);
         }
 
         notifyDataSetChanged();

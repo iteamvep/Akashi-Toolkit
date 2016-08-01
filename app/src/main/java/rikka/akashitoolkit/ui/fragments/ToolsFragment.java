@@ -8,14 +8,16 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import java.util.Locale;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.Statistics;
 import rikka.akashitoolkit.ui.ExpCalcActivity;
-import rikka.akashitoolkit.ui.FleetActivity;
+import rikka.akashitoolkit.ui.FleetListActivity;
 import rikka.akashitoolkit.ui.MainActivity;
-import rikka.akashitoolkit.ui.RankingActivity;
 
 /**
  * Created by Rikka on 2016/4/9.
@@ -52,7 +54,8 @@ public class ToolsFragment extends BaseDrawerItemFragment {
         view.findViewById(android.R.id.button3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(v.getContext(), FleetActivity.class);
+                Toast.makeText(mActivity, Locale.getDefault().equals(Locale.SIMPLIFIED_CHINESE) ? "该功能尚在开发中" : "This feature is still in development.", Toast.LENGTH_SHORT).show();
+                startActivity(v.getContext(), FleetListActivity.class);
             }
         });
 

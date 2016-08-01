@@ -27,6 +27,8 @@ import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.model.Ship;
 import rikka.akashitoolkit.model.ShipClass;
 import rikka.akashitoolkit.model.ShipType;
+import rikka.akashitoolkit.otto.BusProvider;
+import rikka.akashitoolkit.otto.ItemSelectAction;
 import rikka.akashitoolkit.staticdata.ShipClassList;
 import rikka.akashitoolkit.staticdata.ShipList;
 import rikka.akashitoolkit.staticdata.ShipTypeList;
@@ -56,10 +58,11 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
     private int mSort;
     private String mKeyword;
     private boolean mIsSearching;
+    private boolean mSelectMode;
 
     private Toast mToast;
 
-    public ShipAdapter(Activity activity, int showVersion, int typeFlag, int showSpeed, int sort, boolean bookmarked, boolean enemy) {
+    public ShipAdapter(Activity activity, int showVersion, int typeFlag, int showSpeed, int sort, boolean bookmarked, boolean enemy, boolean select_mode) {
         super(bookmarked);
 
         mExpanded = new LinkedHashMap<>();
@@ -72,6 +75,7 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
         mShowSpeed = showSpeed;
         mSort = sort;
         mEnemy = enemy;
+        mSelectMode = select_mode;
 
         mActivity = activity;
 
@@ -312,49 +316,61 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
             holder.mIconContainer.setVisibility(View.GONE);
         }
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (holder.getAdapterPosition() < 0) {
-                    return;
-                }
-
-                Ship item = (Ship) getItem(holder.getAdapterPosition());
-
-                Intent intent = new Intent(v.getContext(), ShipDisplayActivity.class);
-                intent.putExtra(ShipDisplayActivity.EXTRA_ITEM_ID, item.getId());
-
-                int[] location = new int[2];
-                holder.itemView.getLocationOnScreen(location);
-                intent.putExtra(ShipDisplayActivity.EXTRA_START_Y, location[1]);
-                intent.putExtra(ShipDisplayActivity.EXTRA_START_HEIGHT, holder.itemView.getHeight());
-
-                BaseItemDisplayActivity.start(mActivity, intent);
-            }
-        });
-
-        if (!mEnemy) {
-            holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
-                @SuppressLint("DefaultLocale")
+        if (!mSelectMode) {
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public boolean onLongClick(View v) {
-                    Ship item = (Ship) getItem(holder.getAdapterPosition());
-
-                    item.setBookmarked(!item.isBookmarked());
-
-                    Settings.instance(mActivity)
-                            .putBoolean(String.format("ship_%d_%d", item.getClassType(), item.getClassNum()), item.isBookmarked());
-
-                    if (mToast != null) {
-                        mToast.cancel();
+                public void onClick(View v) {
+                    if (holder.getAdapterPosition() < 0) {
+                        return;
                     }
 
-                    mToast = Toast.makeText(mActivity, item.isBookmarked() ? mActivity.getString(R.string.bookmark_add) : mActivity.getString(R.string.bookmark_remove), Toast.LENGTH_SHORT);
-                    mToast.show();
+                    Ship item = (Ship) getItem(holder.getAdapterPosition());
 
-                    notifyItemChanged(holder.getAdapterPosition());
+                    Intent intent = new Intent(v.getContext(), ShipDisplayActivity.class);
+                    intent.putExtra(ShipDisplayActivity.EXTRA_ITEM_ID, item.getId());
 
-                    return true;
+                    int[] location = new int[2];
+                    holder.itemView.getLocationOnScreen(location);
+                    intent.putExtra(ShipDisplayActivity.EXTRA_START_Y, location[1]);
+                    intent.putExtra(ShipDisplayActivity.EXTRA_START_HEIGHT, holder.itemView.getHeight());
+
+                    BaseItemDisplayActivity.start(mActivity, intent);
+                }
+            });
+
+            if (!mEnemy) {
+                holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                    @SuppressLint("DefaultLocale")
+                    @Override
+                    public boolean onLongClick(View v) {
+                        Ship item = (Ship) getItem(holder.getAdapterPosition());
+
+                        item.setBookmarked(!item.isBookmarked());
+
+                        Settings.instance(mActivity)
+                                .putBoolean(String.format("ship_%d_%d", item.getClassType(), item.getClassNum()), item.isBookmarked());
+
+                        if (mToast != null) {
+                            mToast.cancel();
+                        }
+
+                        mToast = Toast.makeText(mActivity, item.isBookmarked() ? mActivity.getString(R.string.bookmark_add) : mActivity.getString(R.string.bookmark_remove), Toast.LENGTH_SHORT);
+                        mToast.show();
+
+                        notifyItemChanged(holder.getAdapterPosition());
+
+                        return true;
+                    }
+                });
+            }
+        } else {
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Ship item = (Ship) getItem(holder.getAdapterPosition());
+                    if (item != null) {
+                        BusProvider.instance().post(new ItemSelectAction.Finish(item.getId()));
+                    }
                 }
             });
         }

@@ -230,6 +230,13 @@ public class EquipTypeList {
             }
     };
 
+    /**
+     * Set ImageView image as equip type icon
+     *
+     * @param imageView target ImageView
+     * @param id        equip type (icon)
+     */
+
     public static void setIntoImageView(ImageView imageView, int id) {
         if (imageView.getTag() != null
                 && (int) imageView.getTag() == id) {

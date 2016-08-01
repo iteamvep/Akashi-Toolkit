@@ -227,6 +227,10 @@ public class TwitterFragment extends Fragment implements TwitterAdapter.Listener
             return;
         }
 
+        if (getContext() == null) {
+            return;
+        }
+
         List<TwitterAdapter.DataModel> data;
 
         int id = -1;

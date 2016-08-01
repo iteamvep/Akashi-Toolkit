@@ -116,7 +116,7 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
-            android:name=".ui.FleetActivity"
+            android:name=".ui.FleetListActivity"
             android:label="@string/fleets"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
@@ -136,6 +136,16 @@
 
         <activity
             android:name=".ui.VoiceActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
+        <activity
+            android:name=".ui.ShipSelectActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
+        <activity
+            android:name=".ui.EquipSelectActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
     </application>

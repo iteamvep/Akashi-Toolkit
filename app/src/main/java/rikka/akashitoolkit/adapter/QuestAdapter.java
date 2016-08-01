@@ -56,7 +56,7 @@ public class QuestAdapter extends BaseBookmarkRecyclerAdapter<ViewHolder.Quest, 
 
     public int getPositionByIndex(int index) {
         for (int i = 0; i < getItemList().size(); i++) {
-            if (getItemList().get(i).id == index) {
+            if (getItemList().get(i).getId() == index) {
                 return i;
             }
         }

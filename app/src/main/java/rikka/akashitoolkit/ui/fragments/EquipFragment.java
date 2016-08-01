@@ -22,24 +22,32 @@ import rikka.akashitoolkit.utils.Utils;
  * Created by Rikka on 2016/3/23.
  */
 public class EquipFragment extends BaseDisplayFragment<EquipAdapter> {
+
     public static final String TAG = "EquipFragment";
+
+    public static final String ARG_TYPE = "TYPE";
+    public static final String ARG_BOOKMARKED = "BOOKMARKED";
+    public static final String ARG_SELECT_MODE = "SELECT_MODE";
+    public static final String ARG_SHOW_ENEMY = "ENEMY";
+    public static final String ARG_POSITION = "POSITION";
 
     private int mType;
     private int mPosition;
     private boolean mShowEnemy;
+    private boolean mSelectMode;
 
     @Override
     public void onStart() {
         super.onStart();
 
-        if (!mShowEnemy) {
+        if (!mShowEnemy && !mSelectMode) {
             BusProvider.instance().register(this);
         }
     }
 
     @Override
     public void onStop() {
-        if (!mShowEnemy) {
+        if (!mShowEnemy && !mSelectMode) {
             BusProvider.instance().unregister(this);
         }
 
@@ -70,13 +78,14 @@ public class EquipFragment extends BaseDisplayFragment<EquipAdapter> {
         mShowEnemy = false;
 
         if (args != null) {
-            mType = args.getInt("TYPE");
-            bookmark = args.getBoolean("BOOKMARKED");
-            mPosition = args.getInt("POSITION");
-            mShowEnemy = args.getBoolean("ENEMY");
+            mType = args.getInt(ARG_TYPE);
+            bookmark = args.getBoolean(ARG_BOOKMARKED);
+            mPosition = args.getInt(ARG_POSITION);
+            mShowEnemy = args.getBoolean(ARG_SHOW_ENEMY);
+            mSelectMode = args.getBoolean(ARG_SELECT_MODE);
         }
 
-        setAdapter(new EquipAdapter(getActivity(), mType, bookmark, mShowEnemy));
+        setAdapter(new EquipAdapter(getActivity(), mType, bookmark, mShowEnemy, mSelectMode));
     }
 
 

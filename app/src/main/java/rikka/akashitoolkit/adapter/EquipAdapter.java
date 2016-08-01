@@ -15,6 +15,7 @@ import rikka.akashitoolkit.model.Equip;
 import rikka.akashitoolkit.model.EquipType;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.DataListRebuiltFinished;
+import rikka.akashitoolkit.otto.ItemSelectAction;
 import rikka.akashitoolkit.staticdata.EquipList;
 import rikka.akashitoolkit.staticdata.EquipTypeList;
 import rikka.akashitoolkit.support.Settings;
@@ -25,11 +26,13 @@ import rikka.akashitoolkit.ui.EquipDisplayActivity;
  * Created by Rikka on 2016/3/23.
  */
 public class EquipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHolder, Object> {
+
     private Activity mActivity;
     private int mType;
     private boolean mEnemy;
+    private boolean mSelectMode;
 
-    public EquipAdapter(Activity activity, int type, boolean bookmarked, boolean enemy) {
+    public EquipAdapter(Activity activity, int type, boolean bookmarked, boolean enemy, boolean select_mode) {
         super(bookmarked);
 
         setHasStableIds(true);
@@ -37,6 +40,7 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewH
         mActivity = activity;
         mType = type;
         mEnemy = enemy;
+        mSelectMode = select_mode;
 
         rebuildDataList();
     }
@@ -128,25 +132,37 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewH
 
         EquipTypeList.setIntoImageView(holder.mImageView, item.getIcon());
 
-        holder.mLinearLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Context context = v.getContext();
+        if (!mSelectMode) {
+            holder.mLinearLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Context context = v.getContext();
 
-                Intent intent = new Intent(context, EquipDisplayActivity.class);
-                intent.putExtra(EquipDisplayActivity.EXTRA_ITEM_ID,
-                        ((Equip) getItem(holder.getAdapterPosition())).getId());
+                    Intent intent = new Intent(context, EquipDisplayActivity.class);
+                    intent.putExtra(EquipDisplayActivity.EXTRA_ITEM_ID,
+                            ((Equip) getItem(holder.getAdapterPosition())).getId());
 
-                int[] location = new int[2];
-                holder.mLinearLayout.getLocationOnScreen(location);
-                intent.putExtra(EquipDisplayActivity.EXTRA_START_Y, location[1]);
-                intent.putExtra(EquipDisplayActivity.EXTRA_START_HEIGHT, holder.mLinearLayout.getHeight());
+                    int[] location = new int[2];
+                    holder.mLinearLayout.getLocationOnScreen(location);
+                    intent.putExtra(EquipDisplayActivity.EXTRA_START_Y, location[1]);
+                    intent.putExtra(EquipDisplayActivity.EXTRA_START_HEIGHT, holder.mLinearLayout.getHeight());
 
-                BaseItemDisplayActivity.start(mActivity, intent);
-            }
-        });
+                    BaseItemDisplayActivity.start(mActivity, intent);
+                }
+            });
+        } else {
+            holder.mLinearLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Equip item = (Equip) getItem(holder.getAdapterPosition());
+                    if (item != null) {
+                        BusProvider.instance().post(new ItemSelectAction.Finish(item.getId()));
+                    }
+                }
+            });
+        }
 
-        if (!mEnemy) {
+        if (!mEnemy && !mSelectMode) {
             holder.mLinearLayout.setOnLongClickListener(new View.OnLongClickListener() {
                 @SuppressLint("DefaultLocale")
                 @Override

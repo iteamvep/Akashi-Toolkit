@@ -10,10 +10,14 @@ import java.util.List;
  * Created by Rikka on 2016/4/13.
  */
 public abstract class BaseRecyclerAdapter<VH extends RecyclerView.ViewHolder, T> extends RecyclerView.Adapter<VH> {
-    private List<Data<T>> mData;
+    private List<T> mData;
+    private List<Long> mId;
+    private List<Integer> mType;
 
     public BaseRecyclerAdapter() {
         mData = new ArrayList<>();
+        mId = new ArrayList<>();
+        mType = new ArrayList<>();
     }
 
     public void rebuildDataList() {
@@ -25,71 +29,67 @@ public abstract class BaseRecyclerAdapter<VH extends RecyclerView.ViewHolder, T>
     }
 
     final public void setItemList(List<T> list) {
-        clearItemList();
+        mData = list;
+
+        mId.clear();
+        mType.clear();
 
         for (int i = 0; i < list.size(); i++) {
-            addItem(i, 0, list.get(i));
+            mId.add((long) i);
+            mType.add(0);
         }
 
         notifyDataSetChanged();
     }
 
-    final public List<Data<T>> getItemList() {
+    final public List<T> getItemList() {
         return mData;
     }
 
     final public T getItem(int position) {
-        return mData.get(position).data;
-    }
+        if (position < 0 || position >= mData.size()) {
+            return null;
+        }
 
-    final public void addItem(Data<T> data) {
-        mData.add(data);
-    }
-
-    final public void addItem(Data<T> data, int position) {
-        mData.add(position, data);
+        return mData.get(position);
     }
 
     final public void addItem(long id, int type, T data) {
-        mData.add(new Data<>(data, type, id));
+        mData.add(data);
+        mId.add(id);
+        mType.add(type);
     }
 
     final public void addItem(long id, int type, T data, int position) {
-        mData.add(position, new Data<>(data, type, id));
+        mData.add(position, data);
+        mId.add(position, id);
+        mType.add(position, type);
     }
 
     final public void removeItem(int position) {
         mData.remove(position);
+        mId.remove(position);
+        mType.remove(position);
     }
 
     final public void clearItemList() {
         mData.clear();
+        mId.clear();
+        mType.clear();
     }
 
     @Override
     public long getItemId(int position) {
-        return mData.size() == 0 ? 0 : mData.get(position).id;
+        return mId.size() == 0 ? 0 : mId.get(position);
     }
 
     @Override
     public int getItemViewType(int position) {
-        return mData.size() == 0 ? 0 : mData.get(position).type;
+        return mType.size() == 0 ? 0 : mType.get(position);
     }
 
     @Override
-    final public int getItemCount() {
+    public int getItemCount() {
         return mData == null ? 0 : mData.size();
-    }
-
-    public static class Data<T> {
-        protected T data;
-        protected int type;
-        protected long id;
-
-        public Data(T data, int type, long id) {
-            this.data = data;
-            this.type = type;
-            this.id = id;
-        }
     }
 }

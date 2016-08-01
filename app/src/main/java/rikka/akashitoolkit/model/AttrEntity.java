@@ -89,8 +89,8 @@ public class AttrEntity {
         n.torpedo = torpedo + o.torpedo;
         n.bomb = bomb + o.bomb;
         n.accuracy = accuracy + o.accuracy;
-        n.speed = speed;
-        n.range = range > o.range ? range : o.range;
+        //n.speed = speed;
+        //n.range = range > o.range ? range : o.range;
 
         return n;
     }

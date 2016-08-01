@@ -24,23 +24,33 @@ import rikka.akashitoolkit.ui.widget.LinearLayoutManager;
  * Created by Rikka on 2016/3/30.
  */
 public class ShipFragment extends BaseDisplayFragment<ShipAdapter> {
+
     public static final String TAG = "ShipFragment";
 
+    public static final String ARG_TYPE_FLAG = "FLAG";
+    public static final String ARG_FINAL_VERSION = "FINAL_VERSION";
+    public static final String ARG_SPEED = "SPEED";
+    public static final String ARG_SORT = "SORT";
+    public static final String ARG_BOOKMARKED = "BOOKMARKED";
+    public static final String ARG_SHOW_ENEMY = "ENEMY";
+    public static final String ARG_SELECT_MODE = "SELECT_MODE";
+
     private boolean mShowEnemy;
+    private boolean mSelectMode;
     protected Object mBusEventListener;
 
     @Override
     public void onStart() {
         super.onStart();
 
-        if (!mShowEnemy) {
+        if (!mShowEnemy && !mSelectMode) {
             BusProvider.instance().register(this);
         }
     }
 
     @Override
     public void onStop() {
-        if (!mShowEnemy) {
+        if (!mShowEnemy && !mSelectMode) {
             BusProvider.instance().unregister(this);
         }
 
@@ -77,16 +87,16 @@ public class ShipFragment extends BaseDisplayFragment<ShipAdapter> {
         int speed = 0;
         int sort = 0;
         int finalVersion = 0;
-        mShowEnemy = false;
         boolean bookmarked = false;
         Bundle args = getArguments();
         if (args != null) {
-            flag = args.getInt("FLAG");
-            finalVersion = args.getInt("FINAL_VERSION");
-            speed = args.getInt("SPEED");
-            sort = args.getInt("SORT");
-            bookmarked = args.getBoolean("BOOKMARKED");
-            mShowEnemy = args.getBoolean("ENEMY");
+            flag = args.getInt(ARG_TYPE_FLAG);
+            finalVersion = args.getInt(ARG_FINAL_VERSION);
+            speed = args.getInt(ARG_SPEED);
+            sort = args.getInt(ARG_SORT);
+            bookmarked = args.getBoolean(ARG_BOOKMARKED);
+            mShowEnemy = args.getBoolean(ARG_SHOW_ENEMY);
+            mSelectMode = args.getBoolean(ARG_SELECT_MODE);
         }
 
         mBusEventListener = new Object() {
@@ -96,7 +106,7 @@ public class ShipFragment extends BaseDisplayFragment<ShipAdapter> {
             }
         };
 
-        setAdapter(new ShipAdapter(getActivity(), finalVersion, flag, speed, sort, bookmarked, mShowEnemy));
+        setAdapter(new ShipAdapter(getActivity(), finalVersion, flag, speed, sort, bookmarked, mShowEnemy, mSelectMode));
     }
 
     @Override

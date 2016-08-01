@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:background="?attr/selectableItemBackground"
+              android:clickable="true"
+              android:layout_height="48dp"
+              android:paddingLeft="@dimen/item_padding"
+              android:paddingRight="@dimen/item_padding"
+              android:gravity="center_vertical">
+
+    <ImageView
+        android:id="@android:id/icon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        tools:src="@drawable/system_icon_01_24dp"
+        android:contentDescription="@null"/>
+
+    <TextView
+        android:id="@android:id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:maxLines="1"
+        android:textSize="16sp"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:layout_marginLeft="12dp"
+        android:layout_marginStart="12dp"
+        tools:text="21号电探改二"/>
+
+    <TextView
+        android:id="@android:id/summary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:textSize="16sp"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        tools:text="48"
+        android:maxLines="1"/>
+
+</LinearLayout>

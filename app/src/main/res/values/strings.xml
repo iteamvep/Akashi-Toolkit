@@ -270,4 +270,6 @@ Activity &amp; Extra:
     <string name="view_all_format">View all (%d more)</string>
 
     <string name="blueprint">Blueprint</string>
+
+    <string name="fleet_fp">FP</string>
 </resources>
