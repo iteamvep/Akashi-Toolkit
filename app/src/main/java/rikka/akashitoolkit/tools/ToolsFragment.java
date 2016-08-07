@@ -16,7 +16,7 @@ import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.Statistics;
 import rikka.akashitoolkit.fleet_editor.FleetListActivity;
-import rikka.akashitoolkit.main.MainActivity;
+import rikka.akashitoolkit.MainActivity;
 import rikka.akashitoolkit.ui.fragments.BaseDrawerItemFragment;
 
 /**

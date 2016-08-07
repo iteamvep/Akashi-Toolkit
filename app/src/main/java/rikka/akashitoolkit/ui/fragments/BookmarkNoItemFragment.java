@@ -1,4 +1,4 @@
-package rikka.akashitoolkit.main;
+package rikka.akashitoolkit.ui.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

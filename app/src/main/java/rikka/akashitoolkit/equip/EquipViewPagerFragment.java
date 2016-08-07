@@ -17,14 +17,14 @@ import rikka.akashitoolkit.otto.BookmarkAction;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.staticdata.EquipTypeList;
 import rikka.akashitoolkit.support.Settings;
-import rikka.akashitoolkit.main.MainActivity;
-import rikka.akashitoolkit.ui.widget.MyViewPager;
+import rikka.akashitoolkit.MainActivity;
+import rikka.akashitoolkit.ui.widget.SwipeDisableableViewPager;
 
 /**
  * Created by Rikka on 2016/3/23.
  */
 public class EquipViewPagerFragment extends Fragment {
-    private MyViewPager mViewPager;
+    private SwipeDisableableViewPager mViewPager;
 
     @Override
     public void onStart() {
@@ -70,7 +70,7 @@ public class EquipViewPagerFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.content_viewpager, container, false);
-        mViewPager = (MyViewPager) view.findViewById(R.id.view_pager);
+        mViewPager = (SwipeDisableableViewPager) view.findViewById(R.id.view_pager);
         mViewPager.setAdapter(getAdapter());
         mViewPager.setCurrentItem(0, false);
 

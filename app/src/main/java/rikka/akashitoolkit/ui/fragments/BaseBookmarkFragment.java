@@ -13,12 +13,11 @@ import android.widget.CompoundButton;
 import com.squareup.otto.Subscribe;
 
 import rikka.akashitoolkit.R;
-import rikka.akashitoolkit.main.BookmarkNoItemFragment;
 import rikka.akashitoolkit.otto.BookmarkAction;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.DataListRebuiltFinished;
 import rikka.akashitoolkit.support.Settings;
-import rikka.akashitoolkit.main.MainActivity;
+import rikka.akashitoolkit.MainActivity;
 import rikka.akashitoolkit.ui.widget.UnScrollableViewPager;
 
 /**

@@ -13,7 +13,7 @@ import android.support.v4.content.ContextCompat;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.ui.BaseActivity;
 import rikka.akashitoolkit.equip.EquipDisplayActivity;
-import rikka.akashitoolkit.main.MainActivity;
+import rikka.akashitoolkit.MainActivity;
 import rikka.akashitoolkit.map.MapActivity;
 import rikka.akashitoolkit.ship.ShipDisplayActivity;
 

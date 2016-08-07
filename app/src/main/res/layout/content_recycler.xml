@@ -4,12 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">-->
 
-    <rikka.akashitoolkit.ui.widget.MyRecyclerView
+<rikka.akashitoolkit.ui.widget.ConsumeScrollRecyclerView
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="vertical">
-    </rikka.akashitoolkit.ui.widget.MyRecyclerView>
+</rikka.akashitoolkit.ui.widget.ConsumeScrollRecyclerView>
 
     <!--</rikka.akashitoolkit.ui.widget.MatchParentFrameLayout>-->

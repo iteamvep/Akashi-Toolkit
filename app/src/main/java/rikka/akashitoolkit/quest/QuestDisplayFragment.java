@@ -21,7 +21,7 @@ import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.QuestAction;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.Statistics;
-import rikka.akashitoolkit.main.MainActivity;
+import rikka.akashitoolkit.MainActivity;
 import rikka.akashitoolkit.ui.fragments.BaseSearchFragment;
 import rikka.akashitoolkit.utils.Utils;
 import rikka.akashitoolkit.ui.widget.CheckBoxGroup;

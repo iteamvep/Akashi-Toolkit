@@ -1,4 +1,4 @@
-package rikka.akashitoolkit.main;
+package rikka.akashitoolkit.settings;
 
 import android.app.UiModeManager;
 import android.content.Context;

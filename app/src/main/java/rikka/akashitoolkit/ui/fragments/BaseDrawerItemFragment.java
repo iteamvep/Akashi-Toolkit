@@ -7,7 +7,7 @@ import android.support.annotation.StringRes;
 import android.support.design.widget.Snackbar;
 import android.view.View;
 
-import rikka.akashitoolkit.main.MainActivity;
+import rikka.akashitoolkit.MainActivity;
 
 /**
  * Created by Rikka on 2016/3/10.

@@ -9,14 +9,15 @@ import android.view.View;
 /**
  * Created by Rikka on 2016/5/15.
  */
-public class MyViewPager extends ViewPager {
+public class SwipeDisableableViewPager extends ViewPager {
+
     private boolean mSwipeEnabled;
 
-    public MyViewPager(Context context) {
+    public SwipeDisableableViewPager(Context context) {
         this(context, null);
     }
 
-    public MyViewPager(Context context, AttributeSet attrs) {
+    public SwipeDisableableViewPager(Context context, AttributeSet attrs) {
         super(context, attrs);
 
         mSwipeEnabled = true;

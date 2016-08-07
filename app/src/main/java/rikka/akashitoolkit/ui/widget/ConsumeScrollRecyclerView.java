@@ -9,16 +9,16 @@ import android.util.Log;
 /**
  * Created by Rikka on 2016/7/2.
  */
-public class MyRecyclerView extends RecyclerView {
-    public MyRecyclerView(Context context) {
+public class ConsumeScrollRecyclerView extends RecyclerView {
+    public ConsumeScrollRecyclerView(Context context) {
         super(context);
     }
 
-    public MyRecyclerView(Context context, @Nullable AttributeSet attrs) {
+    public ConsumeScrollRecyclerView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public MyRecyclerView(Context context, @Nullable AttributeSet attrs, int defStyle) {
+    public ConsumeScrollRecyclerView(Context context, @Nullable AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 
