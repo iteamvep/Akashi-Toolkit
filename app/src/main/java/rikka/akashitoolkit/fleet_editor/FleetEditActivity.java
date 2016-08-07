@@ -1,4 +1,4 @@
-package rikka.akashitoolkit.ui;
+package rikka.akashitoolkit.fleet_editor;
 
 import android.content.Context;
 import android.content.Intent;
@@ -22,7 +22,6 @@ import com.squareup.otto.Subscribe;
 import java.io.ByteArrayInputStream;
 
 import rikka.akashitoolkit.R;
-import rikka.akashitoolkit.adapter.FleetAdapter;
 import rikka.akashitoolkit.model.Fleet;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.ItemSelectAction;

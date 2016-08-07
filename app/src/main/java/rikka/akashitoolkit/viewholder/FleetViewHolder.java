@@ -6,11 +6,7 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.View;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import rikka.akashitoolkit.adapter.FleetEquipAdapter;
-import rikka.akashitoolkit.model.Fleet;
+import rikka.akashitoolkit.fleet_editor.FleetEquipAdapter;
 import rikka.akashitoolkit.ui.widget.ItemTouchHelperCallback;
 
 /**

@@ -16,7 +16,7 @@ import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.Statistics;
 import rikka.akashitoolkit.ui.ExpCalcActivity;
-import rikka.akashitoolkit.ui.FleetListActivity;
+import rikka.akashitoolkit.fleet_editor.FleetListActivity;
 import rikka.akashitoolkit.ui.MainActivity;
 
 /**

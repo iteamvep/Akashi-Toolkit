@@ -1,4 +1,4 @@
-package rikka.akashitoolkit.ui;
+package rikka.akashitoolkit.fleet_editor;
 
 import android.graphics.Rect;
 import android.os.Build;
@@ -19,9 +19,9 @@ import java.io.ByteArrayInputStream;
 import java.util.List;
 
 import rikka.akashitoolkit.R;
-import rikka.akashitoolkit.adapter.FleetsListAdapter;
 import rikka.akashitoolkit.model.Fleet;
 import rikka.akashitoolkit.staticdata.FleetList;
+import rikka.akashitoolkit.ui.BaseActivity;
 import rikka.akashitoolkit.ui.widget.ItemTouchHelperCallback;
 import rikka.akashitoolkit.utils.Utils;
 

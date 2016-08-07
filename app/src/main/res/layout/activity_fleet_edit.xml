@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="false"
-    tools:context="rikka.akashitoolkit.ui.FleetEditActivity">
+    tools:context=".fleet_editor.FleetEditActivity">
 
     <include layout="@layout/content_app_bar"/>
 

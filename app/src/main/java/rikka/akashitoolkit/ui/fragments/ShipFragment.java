@@ -117,7 +117,6 @@ public class ShipFragment extends BaseDisplayFragment<ShipAdapter> {
     @Override
     public void onPostCreateView(RecyclerView recyclerView) {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-        layoutManager.setAutoMeasureEnabled(false);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new ItemAnimator());
         recyclerView.setBackgroundColor(ContextCompat.getColor(recyclerView.getContext(), R.color.cardBackground));

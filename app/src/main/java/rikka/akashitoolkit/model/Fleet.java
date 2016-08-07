@@ -304,7 +304,11 @@ public class Fleet {
 
                 int level = e.getRank();
                 // (面版对空) × √(搭载数) + 熟练度加成
-                aa += Math.sqrt(getSlots()[i]) * e.getEquip().getAttr().getAA();
+                if (e.getEquip().isCarrierBasedAircraft()) {
+                    aa += Math.sqrt(getSlots()[i]) * (e.getEquip().getAttr().getAA() + e.getStar() * 0.2);
+                } else {
+                    aa += Math.sqrt(getSlots()[i]) * e.getEquip().getAttr().getAA();
+                }
                 aa += aircraftLevelBonus.get(e.getEquip().getTypes()[2])[level];
                 min_aa = Math.floor(aa + Math.sqrt(aircraftExpTable[level] / 10));
                 max_aa = Math.floor(aa + Math.sqrt(aircraftExpTable[level + 1] / 10));

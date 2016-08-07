@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rikka.akashitoolkit.ui.widget.MatchParentFrameLayout
+<!--<rikka.akashitoolkit.ui.widget.MatchParentFrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent">-->
 
     <rikka.akashitoolkit.ui.widget.MyRecyclerView
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="vertical">
     </rikka.akashitoolkit.ui.widget.MyRecyclerView>
 
-</rikka.akashitoolkit.ui.widget.MatchParentFrameLayout>
+    <!--</rikka.akashitoolkit.ui.widget.MatchParentFrameLayout>-->

@@ -1,4 +1,4 @@
-package rikka.akashitoolkit.ui;
+package rikka.akashitoolkit.fleet_editor;
 
 import android.content.Intent;
 import android.os.Build;
@@ -10,14 +10,16 @@ import android.view.MenuItem;
 import com.squareup.otto.Subscribe;
 
 import rikka.akashitoolkit.R;
+import rikka.akashitoolkit.fleet_editor.FleetEditActivity;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.ItemSelectAction;
-import rikka.akashitoolkit.ui.fragments.EquipFragment;
+import rikka.akashitoolkit.ui.BaseActivity;
+import rikka.akashitoolkit.ui.fragments.ShipFragment;
 
 /**
- * Created by Rikka on 2016/7/31.
+ * Created by Rikka on 2016/7/29.
  */
-public class EquipSelectActivity extends BaseActivity {
+public class ShipSelectActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,12 +34,12 @@ public class EquipSelectActivity extends BaseActivity {
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Equip select");
+        getSupportActionBar().setTitle("Ship select");
 
         if (savedInstanceState == null) {
-            EquipFragment fragment = new EquipFragment();
+            ShipFragment fragment = new ShipFragment();
             Bundle bundle = new Bundle();
-            bundle.putBoolean(EquipFragment.ARG_SELECT_MODE, true);
+            bundle.putBoolean(ShipFragment.ARG_SELECT_MODE, true);
             fragment.setArguments(bundle);
 
             getSupportFragmentManager().beginTransaction()

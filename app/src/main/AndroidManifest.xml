@@ -116,7 +116,7 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
-            android:name=".ui.FleetListActivity"
+            android:name=".fleet_editor.FleetListActivity"
             android:label="@string/fleets"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
@@ -124,7 +124,7 @@
         <receiver android:name=".receiver.ExpeditionAlarmReceiver"/>
 
         <activity
-            android:name=".ui.FleetEditActivity"
+            android:name=".fleet_editor.FleetEditActivity"
             android:label="@string/fleet_edit"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
@@ -140,12 +140,12 @@
         </activity>
 
         <activity
-            android:name=".ui.ShipSelectActivity"
+            android:name=".fleet_editor.ShipSelectActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
         <activity
-            android:name=".ui.EquipSelectActivity"
+            android:name=".fleet_editor.EquipSelectActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
     </application>

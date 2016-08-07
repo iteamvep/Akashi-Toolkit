@@ -183,7 +183,7 @@ public class MessageFragment extends Fragment {
             return;
         }
 
-        mAdapter.clear();
+        mAdapter.clearItemList();
 
         addLocalCard();
         addUpdateCard(data.getUpdate());
@@ -195,8 +195,8 @@ public class MessageFragment extends Fragment {
     }
 
     private void addLocalCard() {
-        mAdapter.add(MessageAdapter.TYPE_DAILY_EQUIP, null, 0);
-        mAdapter.add(MessageAdapter.TYPE_EXPEDITION_NOTIFY, null, 0);
+        mAdapter.addItem(MessageAdapter.TYPE_DAILY_EQUIP, null, 0);
+        mAdapter.addItem(MessageAdapter.TYPE_EXPEDITION_NOTIFY, null, 0);
     }
 
     private void addUpdateCard(final CheckUpdate.UpdateEntity entity) {
@@ -215,7 +215,7 @@ public class MessageFragment extends Fragment {
         }
 
         if (entity.getVersionCode() > versionCode || BuildConfig.DEBUG) {
-            mAdapter.add(MessageAdapter.TYPE_MESSAGE_UPDATE, entity, 0);
+            mAdapter.addItem(MessageAdapter.TYPE_MESSAGE_UPDATE, entity, 0);
         }
     }
 
@@ -239,9 +239,9 @@ public class MessageFragment extends Fragment {
             }
 
             if (entity.isShowFirst()) {
-                mAdapter.add(MessageAdapter.TYPE_MESSAGE, entity, 0);
+                mAdapter.addItem(MessageAdapter.TYPE_MESSAGE, entity, 0);
             } else {
-                mAdapter.add(MessageAdapter.TYPE_MESSAGE, entity);
+                mAdapter.addItem(MessageAdapter.TYPE_MESSAGE, entity);
             }
         }
     }

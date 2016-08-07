@@ -1,4 +1,4 @@
-package rikka.akashitoolkit.adapter;
+package rikka.akashitoolkit.fleet_editor;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -10,10 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import rikka.akashitoolkit.R;
+import rikka.akashitoolkit.adapter.BaseItemTouchHelperAdapter;
+import rikka.akashitoolkit.adapter.GalleryAdapter;
 import rikka.akashitoolkit.model.Fleet;
 import rikka.akashitoolkit.model.Ship;
 import rikka.akashitoolkit.staticdata.ShipList;
-import rikka.akashitoolkit.ui.FleetEditActivity;
 import rikka.akashitoolkit.utils.Utils;
 import rikka.akashitoolkit.viewholder.FleetListViewHolder;
 

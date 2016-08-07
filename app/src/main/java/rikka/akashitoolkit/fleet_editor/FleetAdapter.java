@@ -1,4 +1,4 @@
-package rikka.akashitoolkit.adapter;
+package rikka.akashitoolkit.fleet_editor;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import rikka.akashitoolkit.R;
+import rikka.akashitoolkit.adapter.BaseItemTouchHelperAdapter;
 import rikka.akashitoolkit.model.AttrEntity;
 import rikka.akashitoolkit.model.Fleet;
 import rikka.akashitoolkit.model.Ship;

@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.text.format.DateUtils;
 import android.text.method.LinkMovementMethod;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +30,9 @@ import static rikka.akashitoolkit.support.ApiConstParam.Message.NOT_DISMISSIBLE;
  * Created by Rikka on 2016/6/11.
  */
 public class MessageAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHolder, Object> {
+
+    private static final String TAG = "MessageAdapter";
+
     public static final int TYPE_MESSAGE = 0;
     public static final int TYPE_MESSAGE_UPDATE = 1;
     public static final int TYPE_DAILY_EQUIP = 2;
@@ -50,24 +54,18 @@ public class MessageAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHolder,
         mListener = listener;
     }
 
-    public void clear() {
-        clearItemList();
-
-        notifyDataSetChanged();
+    public void addItem(int type, Object object) {
+        addItem(type, object, -1);
     }
 
-    public void add(int type, Object object) {
-        add(type, object, -1);
-    }
-
-    public void add(int type, Object object, int position) {
+    public void addItem(int type, Object object, int position) {
         if (position == -1) {
             addItem(generateItemId(type, object), type, object);
         } else {
             addItem(generateItemId(type, object), type, object, position);
         }
 
-        notifyDataSetChanged();
+        //notifyDataSetChanged();
     }
 
     private long generateItemId(int type, Object object) {
@@ -260,16 +258,16 @@ public class MessageAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHolder,
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position) {
         switch (getItemViewType(position)) {
-            case 0:
+            case TYPE_MESSAGE:
                 bindViewHolder((ViewHolder.Message) holder, position);
                 break;
-            case 1:
+            case TYPE_MESSAGE_UPDATE:
                 bindViewHolder((ViewHolder.Message) holder, position, holder.itemView.getContext());
                 break;
-            case 2:
+            case TYPE_DAILY_EQUIP:
                 bindViewHolder((ViewHolder.MessageEquip) holder, position);
                 break;
-            case 3:
+            case TYPE_EXPEDITION_NOTIFY:
                 bindViewHolder((ViewHolder.MessageExpedition) holder, position);
                 break;
         }

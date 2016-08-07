@@ -25,11 +25,12 @@ import rikka.akashitoolkit.ui.ImagesActivity;
 import rikka.akashitoolkit.ui.VoiceActivity;
 import rikka.akashitoolkit.ui.widget.BaseRecyclerViewItemDecoration;
 import rikka.akashitoolkit.utils.Utils;
+import rikka.akashitoolkit.viewholder.SimpleTitleViewHolder;
 
 /**
  * Created by Rikka on 2016/7/23.
  */
-public class SeasonalAdapter extends BaseRecyclerAdapter {
+public class SeasonalAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHolder, Object> {
 
     private static final String TAG = "SeasonalAdapter";
 
@@ -187,8 +188,8 @@ public class SeasonalAdapter extends BaseRecyclerAdapter {
 
         holder.mSummary.setText(String.format("%d voices", count));
 
-        SimpleRecyclerViewAdapter<String> adapter = holder.mAdapter;
-        adapter.setListener(new SimpleRecyclerViewAdapter.Listener() {
+        SimpleAdapter<String> adapter = holder.mAdapter;
+        adapter.setListener(new SimpleAdapter.Listener() {
             @Override
             public void OnClick(int position) {
                 Seasonal data = (Seasonal) getItem(holder.getAdapterPosition());
@@ -196,7 +197,7 @@ public class SeasonalAdapter extends BaseRecyclerAdapter {
                 VoiceActivity.start(holder.itemView.getContext(), data.getVoice().get(position).getVoice(), title);
             }
         });
-        adapter.setDataList(list);
+        adapter.setItemList(list);
     }
 
     private static class TitleViewHolder extends RecyclerView.ViewHolder {
@@ -293,7 +294,7 @@ public class SeasonalAdapter extends BaseRecyclerAdapter {
         public TextView mTitle;
         public TextView mSummary;
         public RecyclerView mRecyclerView;
-        public SimpleRecyclerViewAdapter<String> mAdapter;
+        public SimpleAdapter<String> mAdapter;
 
         public VoiceViewHolder(View itemView) {
             super(itemView);
@@ -312,7 +313,7 @@ public class SeasonalAdapter extends BaseRecyclerAdapter {
                     return super.canDraw(parent, child, childCount, position);
                 }
             });
-            mAdapter = new SimpleRecyclerViewAdapter<>(R.layout.list_item);
+            mAdapter = new SimpleAdapter<>(R.layout.list_item);
             mRecyclerView.setAdapter(mAdapter);
             mRecyclerView.setNestedScrollingEnabled(false);
         }
