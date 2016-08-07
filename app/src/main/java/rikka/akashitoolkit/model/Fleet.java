@@ -375,6 +375,8 @@ public class Fleet {
     private static int[] aircraftExpTable;
     private static java.util.Map<Integer, int[]> aircraftLevelBonus;
 
+    public final static String[] equipRank;
+
     static {
         aircraftExpTable = new int[]{0, 10, 25, 40, 55, 70, 85, 100, 121};
 
@@ -384,5 +386,8 @@ public class Fleet {
         aircraftLevelBonus.put(8, new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0});        // 艦上攻撃機
         aircraftLevelBonus.put(11, new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0});       // 水上爆撃機
         aircraftLevelBonus.put(45, new int[]{0, 0, 2, 5, 9, 14, 14, 22, 22});   // 水上戦闘機
+
+        equipRank = new String[]{"", "|", "||", "|||", "\\", "\\\\", "\\\\\\", ">>"};
     }
+
 }

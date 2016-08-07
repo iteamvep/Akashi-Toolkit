@@ -47,7 +47,7 @@ public class FleetAdapter extends BaseItemTouchHelperAdapter<FleetViewHolder, Fl
         holder.mSummary.setVisibility(View.GONE);
         holder.mButton.setVisibility(View.GONE);
         holder.mRecyclerView.setVisibility(View.GONE);
-        holder.mTitle.setText("选择舰娘...");
+        holder.mTitle.setText(holder.itemView.getContext().getString(R.string.fleet_select_ship));
 
         holder.swipe = false;
         holder.drag = false;

@@ -46,20 +46,19 @@ public class FleetsListAdapter extends BaseItemTouchHelperAdapter<FleetListViewH
         }
 
         if (urls.size() == 0) {
-            holder.mSummary.setText("没有舰娘");
+            holder.mSummary.setText(context.getString(R.string.fleet_no_ship));
             holder.mRecyclerView.setVisibility(View.GONE);
         } else {
             StringBuilder sb = new StringBuilder();
-            sb.append("总等级 ").append(item.getLevel()).append('\n');
-            sb.append(item.isLowSpeed() ? "低速舰队" : "高速舰队").append('\n');
-            //sb.append("制空战力 ").append(item.getAA()).append(" (").append(item.getAA() * 1.5).append(") ").append(" · 索敌能力 0").append('\n');
+            sb.append(String.format(context.getString(R.string.fleet_total_level), item.getLevel())).append('\n');
+            sb.append(context.getString(item.isLowSpeed() ? R.string.fleet_low_speed : R.string.fleet_high_speed)).append('\n');
             if (item.getAA()[0] > 0) {
                 sb.append(String.format("%s %.2f ~ %.2f\n", context.getString(R.string.fleet_fp), item.getAA()[0], item.getAA()[1]));
             } else {
                 sb.append(String.format("%s 0\n", context.getString(R.string.fleet_fp)));
 
             }
-            sb.append("消耗 ").append(item.getFuel()).append(" / ").append(item.getAmmo());
+            sb.append(String.format(context.getString(R.string.fleet_consume), item.getFuel(), item.getAmmo()));
 
             holder.mSummary.setText(sb.toString());
             holder.mRecyclerView.setVisibility(View.VISIBLE);

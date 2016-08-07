@@ -22,7 +22,6 @@ import rikka.akashitoolkit.model.Fleet;
 import rikka.akashitoolkit.model.Ship;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.ItemSelectAction;
-import rikka.akashitoolkit.staticdata.EquipList;
 import rikka.akashitoolkit.staticdata.EquipTypeList;
 import rikka.akashitoolkit.ui.widget.BottomSheetDialog;
 import rikka.akashitoolkit.ui.widget.ListBottomSheetDialog;
@@ -74,8 +73,7 @@ public class FleetEquipAdapter extends BaseItemTouchHelperAdapter<FleetEquipView
             return;
         }
 
-        holder.mSummary.setText(Integer.toString(mEquipEntity.getSpace()[position]));
-
+        resetViewHolderSlot(holder, position);
         resetEquipRelatedText(holder, position);
 
         if (getItemViewType(position) == 1) {
@@ -94,28 +92,32 @@ public class FleetEquipAdapter extends BaseItemTouchHelperAdapter<FleetEquipView
                 }
             });
         }
-
     }
 
     private void showEditEquipDialog(final Context context, final FleetEquipViewHolder holder) {
         ListBottomSheetDialog dialog = new ListBottomSheetDialog(context);
-        dialog.setItems(new CharSequence[]{"更改属性", "更换装备", "删除装备"}, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                switch (i) {
-                    case 0:
-                        showEditAttrDialog(context, holder);
-                        break;
-                    case 1:
-                        BusProvider.instance().post(new ItemSelectAction.StartEquip(mPosition, holder.getAdapterPosition()));
-                        break;
-                    case 2:
-                        removeEquip(holder.getAdapterPosition());
-                        break;
-                }
-                dialogInterface.dismiss();
-            }
-        });
+        dialog.setItems(
+                new CharSequence[]{
+                        context.getString(R.string.fleet_change_equip_attr),
+                        context.getString(R.string.fleet_change_equip),
+                        context.getString(R.string.fleet_delete_equip)},
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        switch (i) {
+                            case 0:
+                                showEditAttrDialog(context, holder);
+                                break;
+                            case 1:
+                                BusProvider.instance().post(new ItemSelectAction.StartEquip(mPosition, holder.getAdapterPosition()));
+                                break;
+                            case 2:
+                                removeEquip(holder.getAdapterPosition());
+                                break;
+                        }
+                        dialogInterface.dismiss();
+                    }
+                });
         dialog.show();
     }
 
@@ -148,11 +150,9 @@ public class FleetEquipAdapter extends BaseItemTouchHelperAdapter<FleetEquipView
         });
 
         list = new ArrayList<>();
-        list.add("0");
-        for (int i = 1; i <= 7; i++) {
-            list.add(String.format("%d", i));
+        for (String s : Fleet.equipRank) {
+            list.add(s);
         }
-
         recyclerView = (RecyclerView) view.findViewById(R.id.equip_rank_container);
         SimpleSelectableAdapter<String> rankAdapter = new SimpleSelectableAdapter<>(R.layout.item_dialog_equip_improvement, true);
         rankAdapter.setSelection(getItem(holder.getAdapterPosition()).getRank());
@@ -201,7 +201,7 @@ public class FleetEquipAdapter extends BaseItemTouchHelperAdapter<FleetEquipView
     }
 
     @SuppressLint("SetTextI18n")
-    private void setViewHolderSlot(FleetEquipViewHolder holder, int position) {
+    private void resetViewHolderSlot(FleetEquipViewHolder holder, int position) {
         if (mEquipEntity == null) {
             return;
         }
@@ -221,8 +221,8 @@ public class FleetEquipAdapter extends BaseItemTouchHelperAdapter<FleetEquipView
     public void onItemMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target, int fromPosition, int toPosition) {
         super.onItemMove(recyclerView, viewHolder, target, fromPosition, toPosition);
 
-        setViewHolderSlot((FleetEquipViewHolder) viewHolder, toPosition);
-        setViewHolderSlot((FleetEquipViewHolder) target, fromPosition);
+        resetViewHolderSlot((FleetEquipViewHolder) viewHolder, toPosition);
+        resetViewHolderSlot((FleetEquipViewHolder) target, fromPosition);
 
         resetParent();
     }
@@ -243,7 +243,15 @@ public class FleetEquipAdapter extends BaseItemTouchHelperAdapter<FleetEquipView
                 rikka.akashitoolkit.model.Equip equip = e.getEquip();
 
                 if (equip != null) {
-                    holder.mTitle.setText(equip.getName().get(context) + " 改修 " + e.getStar() + " 熟练度 " + e.getRank());
+                    StringBuilder sb = new StringBuilder();
+                    sb.append(equip.getName().get(context));
+                    if (e.getStar() > 0) {
+                        sb.append(" ★+").append(e.getStar());
+                    }
+                    if (e.getRank() > 0) {
+                        sb.append(" ").append(Fleet.equipRank[e.getRank()]);
+                    }
+                    holder.mTitle.setText(sb.toString());
                     EquipTypeList.setIntoImageView(holder.mIcon, equip.getIcon());
 
                     holder.mSummary.setEnabled(equip.isAircraft());
