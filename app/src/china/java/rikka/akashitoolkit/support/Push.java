@@ -5,7 +5,7 @@ import android.content.Context;
 import com.avos.avoscloud.AVInstallation;
 import com.avos.avoscloud.PushService;
 
-import rikka.akashitoolkit.ui.MainActivity;
+import rikka.akashitoolkit.main.MainActivity;
 
 /**
  * Created by Rikka on 2016/5/3.

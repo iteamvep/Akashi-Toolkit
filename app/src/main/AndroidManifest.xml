@@ -31,7 +31,7 @@
             android:value="GlideModule"/>
 
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".main.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -41,12 +41,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.SettingActivity"
+            android:name=".main.SettingActivity"
             android:label="@string/setting"
             android:theme="@style/AppTheme.Settings">
         </activity>
         <activity
-            android:name=".ui.AboutActivity"
+            android:name=".main.AboutActivity"
             android:label="@string/about"
             android:theme="@style/AppTheme.Settings">
         </activity>
@@ -64,7 +64,7 @@
         -->
 
         <activity
-            android:name=".ui.EquipDisplayActivity"
+            android:name=".equip.EquipDisplayActivity"
             android:theme="@style/AppTheme.ItemActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
@@ -77,7 +77,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.ShipDisplayActivity"
+            android:name=".ship.ShipDisplayActivity"
             android:theme="@style/AppTheme.ItemActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
@@ -90,15 +90,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.MapActivity"
+            android:name=".map.MapActivity"
             android:theme="@style/AppTheme.ItemActivity">
         </activity>
         <activity
-            android:name=".ui.ImagesActivity"
+            android:name=".gallery.ImagesActivity"
             android:theme="@style/AppTheme.ImagesActivity">
         </activity>
         <activity
-            android:name=".ui.PushSendActivity"
+            android:name=".tools.PushSendActivity"
             android:label="Push send">
         </activity>
 
@@ -111,7 +111,7 @@
         -->
 
         <activity
-            android:name=".ui.ExpCalcActivity"
+            android:name=".tools.ExpCalcActivity"
             android:label="@string/exp_calc"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
@@ -130,12 +130,12 @@
         </activity>
 
         <activity
-            android:name=".ui.GalleryActivity"
+            android:name=".gallery.GalleryActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
         <activity
-            android:name=".ui.VoiceActivity"
+            android:name=".voice.VoiceActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 

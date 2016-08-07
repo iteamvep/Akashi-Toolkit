@@ -12,10 +12,10 @@ import android.support.v4.content.ContextCompat;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.ui.BaseActivity;
-import rikka.akashitoolkit.ui.EquipDisplayActivity;
-import rikka.akashitoolkit.ui.MainActivity;
-import rikka.akashitoolkit.ui.MapActivity;
-import rikka.akashitoolkit.ui.ShipDisplayActivity;
+import rikka.akashitoolkit.equip.EquipDisplayActivity;
+import rikka.akashitoolkit.main.MainActivity;
+import rikka.akashitoolkit.map.MapActivity;
+import rikka.akashitoolkit.ship.ShipDisplayActivity;
 
 /**
  * Created by Rikka on 2016/5/3.
@@ -26,7 +26,7 @@ public class PushHandler {
     }
 
     public static void sendNotification(Context context, int id, String title, String message, String activity, String extra) {
-        sendNotification(context, id, title, message, activity, null, null);
+        sendNotification(context, id, title, message, activity, extra, null);
     }
 
     public static void sendNotification(Context context, int id, String title, String message, String activity, String extra, String extra2) {

@@ -10,11 +10,10 @@ import android.view.MenuItem;
 import com.squareup.otto.Subscribe;
 
 import rikka.akashitoolkit.R;
-import rikka.akashitoolkit.fleet_editor.FleetEditActivity;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.ItemSelectAction;
 import rikka.akashitoolkit.ui.BaseActivity;
-import rikka.akashitoolkit.ui.fragments.EquipFragment;
+import rikka.akashitoolkit.equip.EquipFragment;
 
 /**
  * Created by Rikka on 2016/7/31.

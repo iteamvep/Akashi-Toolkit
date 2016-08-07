@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="rikka.akashitoolkit.ui.ExpCalcActivity">
+    tools:context=".tools.ExpCalcActivity">
 
     <include layout="@layout/content_app_bar"/>
 

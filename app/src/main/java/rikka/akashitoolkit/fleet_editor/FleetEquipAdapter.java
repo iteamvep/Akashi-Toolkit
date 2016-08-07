@@ -3,32 +3,19 @@ package rikka.akashitoolkit.fleet_editor;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.graphics.Rect;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.BaseItemTouchHelperAdapter;
-import rikka.akashitoolkit.adapter.SimpleAdapter;
-import rikka.akashitoolkit.adapter.SimpleSelectableAdapter;
 import rikka.akashitoolkit.model.Fleet;
 import rikka.akashitoolkit.model.Ship;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.ItemSelectAction;
 import rikka.akashitoolkit.staticdata.EquipTypeList;
-import rikka.akashitoolkit.ui.EquipDisplayActivity;
-import rikka.akashitoolkit.ui.widget.BottomSheetDialog;
+import rikka.akashitoolkit.equip.EquipDisplayActivity;
 import rikka.akashitoolkit.ui.widget.ListBottomSheetDialog;
-import rikka.akashitoolkit.utils.Utils;
-import rikka.akashitoolkit.viewholder.FleetEquipViewHolder;
-import rikka.akashitoolkit.viewholder.FleetViewHolder;
 
 /**
  * Created by Rikka on 2016/7/29.

@@ -35,7 +35,7 @@ public abstract class BaseActivity extends BaseDayNightModeActivity {
         super.onCreate(savedInstanceState);
     }
 
-    protected void setLocale() {
+    public void setLocale() {
         switch (Settings.instance(this).getString(Settings.APP_LANGUAGE, Utils.getDefaultSettingFromLocale())) {
             case "sc":
                 Locale.setDefault(Locale.SIMPLIFIED_CHINESE);
@@ -90,17 +90,17 @@ public abstract class BaseActivity extends BaseDayNightModeActivity {
         getWindow().setNavigationBarColor(typedValue.data);
     }
 
-    protected boolean checkPermission(String permission) {
+    public boolean checkPermission(String permission) {
         return (ContextCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_GRANTED);
     }
 
-    protected void getPermission(String permission, int requestCode) {
+    public void getPermission(String permission, int requestCode) {
         if (ContextCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{permission}, requestCode);
         }
     }
 
-    protected void fakeRecreate() {
+    public void fakeRecreate() {
         startActivity(this.getNightModeChangedRestartActivityIntent());
         finish();
         overridePendingTransition(0, 0);

@@ -14,9 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
-import android.widget.Toast;
-
-import java.util.regex.Pattern;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.BaseItemTouchHelperAdapter;
@@ -26,9 +23,8 @@ import rikka.akashitoolkit.model.Ship;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.ItemSelectAction;
 import rikka.akashitoolkit.staticdata.ShipList;
-import rikka.akashitoolkit.ui.ShipDisplayActivity;
+import rikka.akashitoolkit.ship.ShipDisplayActivity;
 import rikka.akashitoolkit.ui.widget.ListBottomSheetDialog;
-import rikka.akashitoolkit.viewholder.FleetViewHolder;
 
 /**
  * Created by Rikka on 2016/7/29.

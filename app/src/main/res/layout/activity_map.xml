@@ -9,7 +9,7 @@
     android:background="@color/background"
     android:elevation="12dp"
     android:fitsSystemWindows="false"
-    tools:context=".ui.MainActivity">
+    tools:context=".main.MainActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appBarLayout"

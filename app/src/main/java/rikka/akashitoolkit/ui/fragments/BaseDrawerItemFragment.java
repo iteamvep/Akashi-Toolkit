@@ -1,16 +1,13 @@
 package rikka.akashitoolkit.ui.fragments;
 
 import android.animation.LayoutTransition;
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.StringRes;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.view.View;
 
-import rikka.akashitoolkit.ui.MainActivity;
+import rikka.akashitoolkit.main.MainActivity;
 
 /**
  * Created by Rikka on 2016/3/10.

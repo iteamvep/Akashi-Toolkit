@@ -5,12 +5,11 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.os.Build;
 
-import java.io.File;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
 import rikka.akashitoolkit.BuildConfig;
-import rikka.akashitoolkit.ui.SendReportActivity;
+import rikka.akashitoolkit.tools.SendReportActivity;
 
 /**
  * Created by Rikka on 2016/3/13.

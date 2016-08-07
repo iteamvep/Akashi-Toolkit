@@ -12,13 +12,12 @@ import java.util.List;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.BaseItemTouchHelperAdapter;
-import rikka.akashitoolkit.adapter.GalleryAdapter;
+import rikka.akashitoolkit.gallery.GalleryAdapter;
 import rikka.akashitoolkit.model.Fleet;
 import rikka.akashitoolkit.model.Ship;
 import rikka.akashitoolkit.staticdata.ShipList;
 import rikka.akashitoolkit.ui.widget.ListBottomSheetDialog;
 import rikka.akashitoolkit.utils.Utils;
-import rikka.akashitoolkit.viewholder.FleetListViewHolder;
 
 /**
  * Created by Rikka on 2016/7/20.
