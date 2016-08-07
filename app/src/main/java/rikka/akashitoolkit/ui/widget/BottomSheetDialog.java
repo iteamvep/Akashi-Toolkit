@@ -15,6 +15,8 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.FrameLayout;
 
+import rikka.akashitoolkit.R;
+
 /**
  * Created by Rikka on 2016/8/6.
  */
@@ -110,8 +112,8 @@ public class BottomSheetDialog extends AppCompatDialog {
                     android.support.design.R.attr.bottomSheetDialogTheme, outValue, true)) {
                 themeId = outValue.resourceId;
             } else {
-                // bottomSheetDialogTheme is not provided; we default to our light theme
-                themeId = android.support.design.R.style.Theme_Design_Light_BottomSheetDialog;
+                // bottomSheetDialogTheme is not provided; we default to our daynight theme
+                themeId = R.style.AppTheme_BottomSheetDialog;
             }
         }
         return themeId;
