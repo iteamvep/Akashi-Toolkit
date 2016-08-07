@@ -20,6 +20,7 @@ public class FleetListViewHolder extends RecyclerView.ViewHolder {
     public TextView mTitle;
     public TextView mSummary;
     public RecyclerView mRecyclerView;
+    public View mButton;
 
     public int mItemSize;
 
@@ -53,6 +54,7 @@ public class FleetListViewHolder extends RecyclerView.ViewHolder {
         mTitle = (TextView) itemView.findViewById(android.R.id.title);
         mSummary = (TextView) itemView.findViewById(android.R.id.summary);
         mRecyclerView = (RecyclerView) itemView.findViewById(android.R.id.content);
+        mButton = itemView.findViewById(android.R.id.button1);
 
         mRecyclerView.setLayoutManager(new GridLayoutManager(itemView.getContext(), SPAN_COUNT));
         mRecyclerView.getLayoutManager().setAutoMeasureEnabled(true);

@@ -2,12 +2,21 @@ package rikka.akashitoolkit.fleet_editor;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.annotation.StringRes;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
+import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import java.util.regex.Pattern;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.BaseItemTouchHelperAdapter;
@@ -17,6 +26,8 @@ import rikka.akashitoolkit.model.Ship;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.ItemSelectAction;
 import rikka.akashitoolkit.staticdata.ShipList;
+import rikka.akashitoolkit.ui.ShipDisplayActivity;
+import rikka.akashitoolkit.ui.widget.ListBottomSheetDialog;
 import rikka.akashitoolkit.viewholder.FleetViewHolder;
 
 /**
@@ -61,7 +72,7 @@ public class FleetAdapter extends BaseItemTouchHelperAdapter<FleetViewHolder, Fl
     }
 
     @SuppressLint("DefaultLocale")
-    private void bindViewHolder(FleetViewHolder holder, int position, Fleet.Ship item) {
+    private void bindViewHolder(final FleetViewHolder holder, int position, Fleet.Ship item) {
         Context context = holder.itemView.getContext();
 
         holder.mSummary.setVisibility(View.VISIBLE);
@@ -84,6 +95,93 @@ public class FleetAdapter extends BaseItemTouchHelperAdapter<FleetViewHolder, Fl
         holder.mAdapter.setFleetAdapter(this);
 
         Log.d(TAG, item.getEquips().toString());
+
+        holder.mButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showDialog(holder, holder.getAdapterPosition());
+            }
+        });
+    }
+
+    private void showDialog(final FleetViewHolder holder, final int position) {
+        Context context = holder.itemView.getContext();
+        ListBottomSheetDialog dialog = new ListBottomSheetDialog(context);
+        dialog.setItems(new CharSequence[]{
+                context.getString(R.string.fleet_view_ship),
+                context.getString(R.string.fleet_change_level),
+                context.getString(R.string.fleet_change_ship)
+        }, new DialogInterface.OnClickListener() {
+            private EditText mEditText;
+
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                final Context context = holder.itemView.getContext();
+                switch (i) {
+                    case 0:
+                        Intent intent = new Intent(context, ShipDisplayActivity.class);
+                        intent.putExtra(ShipDisplayActivity.EXTRA_ITEM_ID, getItem(position).getId());
+                        ShipDisplayActivity.start(context, intent);
+                        break;
+                    case 1:
+                        AlertDialog dialog = new AlertDialog.Builder(context, R.style.AppTheme_Dialog_Alert)
+                                .setTitle(R.string.fleet_change_level)
+                                .setView(R.layout.dialog_edittext)
+                                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        int value = 0;
+                                        try {
+                                            value = Integer.parseInt(mEditText.getText().toString());
+                                        } catch (Exception ignored) {
+                                        }
+                                        value = value < 1 ? 1 : value;
+                                        value = value > 155 ? 155 : value;
+
+                                        getItem(position).setLevel(value);
+
+                                        resetLevelRelatedText(holder, position);
+                                    }
+                                })
+                                .setNegativeButton(android.R.string.cancel, null)
+                                .show();
+
+                        mEditText = (EditText) dialog.getWindow().findViewById(android.R.id.edit);
+                        mEditText.setText(Integer.toString(getItem(position).getLevel()));
+                        mEditText.setInputType(InputType.TYPE_CLASS_NUMBER);
+
+                        if (mEditText.requestFocus()) {
+                            InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+                            imm.showSoftInput(mEditText, InputMethodManager.SHOW_IMPLICIT);
+                        }
+
+                        break;
+                    case 2:
+                        BusProvider.instance().post(new ItemSelectAction.StartShip(holder.getAdapterPosition()));
+                        break;
+                }
+                dialogInterface.dismiss();
+            }
+        });
+        dialog.show();
+    }
+
+    @SuppressLint("DefaultLocale")
+    public void resetLevelRelatedText(FleetViewHolder holder, int position) {
+        Fleet.Ship item = getItem(position);
+        if (item == null) {
+            return;
+        }
+
+        item.calc();
+
+        Context context = holder.itemView.getContext();
+
+        Ship ship = ShipList.findItemById(context, item.getId());
+
+        holder.mTitle.setText(String.format("%s Lv.%d", ship.getName().get(context), item.getLevel()));
+
     }
 
     @SuppressLint("DefaultLocale")

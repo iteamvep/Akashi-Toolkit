@@ -152,7 +152,7 @@ public class FleetEditActivity extends AppCompatActivity {
                 return;
             }
 
-            if (mFleet.getShips().size() < mAdapter.getItemCount()) { // add
+            if (mFleet.getShips().size() == mCurrentEditingPosition) { // add
                 Fleet.Ship item = new Fleet.Ship();
                 item.setId(data.getIntExtra(EXTRA_ID, 1));
 
@@ -165,6 +165,13 @@ public class FleetEditActivity extends AppCompatActivity {
 
                 mAdapter.notifyItemInserted(mCurrentEditingPosition);
             } else { // TODO edit
+                mAdapter.getItem(mCurrentEditingPosition).setId(data.getIntExtra(EXTRA_ID, 1));
+
+                Log.d(TAG, "edit ship position: " + mCurrentEditingPosition
+                        /*+ " ship: " + mFleet.getShips().toString()*/);
+
+                mAdapter.getItem(mCurrentEditingPosition).init(this);
+                mAdapter.notifyItemChanged(mCurrentEditingPosition);
             }
 
             mFleet.calc();

@@ -1,8 +1,10 @@
 package rikka.akashitoolkit.adapter;
 
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -26,6 +28,12 @@ public abstract class BaseRecyclerAdapter<VH extends RecyclerView.ViewHolder, T>
 
     public void onDataListRebuilt(List data) {
 
+    }
+
+    final public void setItemList(T[] array) {
+        List<T> list = new ArrayList<>();
+        Collections.addAll(list, array);
+        setItemList(list);
     }
 
     final public void setItemList(List<T> list) {

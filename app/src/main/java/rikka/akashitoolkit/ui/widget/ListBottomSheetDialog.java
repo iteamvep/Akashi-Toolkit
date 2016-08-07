@@ -3,6 +3,7 @@ package rikka.akashitoolkit.ui.widget;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.StringRes;
 import android.support.annotation.StyleRes;
 import android.support.v7.widget.*;
 import android.support.v7.widget.LinearLayoutManager;
@@ -31,6 +32,14 @@ public class ListBottomSheetDialog extends BottomSheetDialog {
 
     public ListBottomSheetDialog(@NonNull Context context, @StyleRes int theme) {
         super(context, theme);
+    }
+
+    public void setItems(@StringRes int[] resId, @Nullable final OnClickListener listener) {
+        CharSequence[] items = new CharSequence[resId.length];
+        for (int i = 0; i < resId.length; i++) {
+            items[i] = getContext().getString(resId[i]);
+        }
+        setItems(items, listener);
     }
 
     public void setItems(CharSequence[] items, @Nullable final OnClickListener listener) {

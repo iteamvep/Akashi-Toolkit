@@ -1,6 +1,7 @@
 package rikka.akashitoolkit.ui;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Build;
@@ -70,6 +71,12 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
     private boolean mIsEnemy;
 
     private Toast mToast;
+
+    public static Intent intent(Context context, int id) {
+        Intent intent = new Intent(context, EquipDisplayActivity.class);
+        intent.putExtra(EquipDisplayActivity.EXTRA_ITEM_ID, id);
+        return intent;
+    }
 
     @SuppressLint("DefaultLocale")
     @Override

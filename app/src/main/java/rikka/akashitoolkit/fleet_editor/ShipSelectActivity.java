@@ -34,7 +34,7 @@ public class ShipSelectActivity extends BaseActivity {
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Ship select");
+        getSupportActionBar().setTitle(getString(R.string.ship_select));
 
         if (savedInstanceState == null) {
             ShipFragment fragment = new ShipFragment();

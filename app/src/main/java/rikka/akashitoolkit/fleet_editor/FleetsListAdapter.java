@@ -2,6 +2,7 @@ package rikka.akashitoolkit.fleet_editor;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import rikka.akashitoolkit.adapter.GalleryAdapter;
 import rikka.akashitoolkit.model.Fleet;
 import rikka.akashitoolkit.model.Ship;
 import rikka.akashitoolkit.staticdata.ShipList;
+import rikka.akashitoolkit.ui.widget.ListBottomSheetDialog;
 import rikka.akashitoolkit.utils.Utils;
 import rikka.akashitoolkit.viewholder.FleetListViewHolder;
 
@@ -72,6 +74,28 @@ public class FleetsListAdapter extends BaseItemTouchHelperAdapter<FleetListViewH
                 /*Context context = view.getContext();
                 context.startActivity(new Intent(context, FleetEditActivity.class));*/
                 FleetEditActivity.start(view.getContext(), holder.getAdapterPosition());
+            }
+        });
+
+        holder.mButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Context context = view.getContext();
+                ListBottomSheetDialog dialog = new ListBottomSheetDialog(context);
+                dialog.setItems(new int[]{
+                        R.string.fleet_rename,
+                        R.string.fleet_export
+                }, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        switch (i) {
+                            case 0:
+                                break;
+                        }
+                        dialogInterface.dismiss();
+                    }
+                });
+                dialog.show();
             }
         });
     }

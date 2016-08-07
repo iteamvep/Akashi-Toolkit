@@ -15,7 +15,7 @@
         android:gravity="center_vertical"
         android:textAppearance="@style/TextAppearance.AppCompat"
         android:textSize="16sp"
-        android:text="改修"/>
+        android:text="@string/fleet_equip_improvement"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/equip_improvement_container"
@@ -30,7 +30,7 @@
         android:gravity="center_vertical"
         android:textAppearance="@style/TextAppearance.AppCompat"
         android:textSize="16sp"
-        android:text="熟练度"/>
+        android:text="@string/fleet_equip_rank"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/equip_rank_container"

@@ -54,7 +54,8 @@ public class ToolsFragment extends BaseDrawerItemFragment {
         view.findViewById(android.R.id.button3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(mActivity, Locale.getDefault().equals(Locale.SIMPLIFIED_CHINESE) ? "该功能尚在开发中" : "This feature is still in development.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(mActivity, Locale.getDefault().equals(Locale.SIMPLIFIED_CHINESE)
+                        ? "该功能尚在开发中" : "This feature is still in development.", Toast.LENGTH_SHORT).show();
                 startActivity(v.getContext(), FleetListActivity.class);
             }
         });

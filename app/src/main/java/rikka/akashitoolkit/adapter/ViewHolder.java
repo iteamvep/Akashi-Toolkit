@@ -53,13 +53,13 @@ import rikka.akashitoolkit.utils.Utils;
  */
 public class ViewHolder {
     public static class Quest extends RecyclerView.ViewHolder {
-        protected ExpandableLayout mExpandableLayout;
-        protected TextView mName;
-        protected TextView mDetail;
-        protected TextView mNote;
-        protected TextView mRewardText[] = new TextView[5];
-        protected TextView mType[] = new TextView[2];
-        protected LinearLayout mQuestContainer;
+        public ExpandableLayout mExpandableLayout;
+        public TextView mName;
+        public TextView mDetail;
+        public TextView mNote;
+        public TextView mRewardText[] = new TextView[5];
+        public TextView mType[] = new TextView[2];
+        public LinearLayout mQuestContainer;
 
 
         public Quest(View itemView) {
@@ -94,14 +94,14 @@ public class ViewHolder {
     }
 
     public static class Expedition extends RecyclerView.ViewHolder {
-        protected ExpandableLayout mExpandableLayout;
-        protected TextView[] mRewardNumber;
-        protected TextView[] mRequireNumber;
-        protected TextView mTitle;
-        protected TextView mTime;
-        protected TextView mReward;
-        protected TextView mFleetRequire;
-        protected TextView mShipRequire;
+        public ExpandableLayout mExpandableLayout;
+        public TextView[] mRewardNumber;
+        public TextView[] mRequireNumber;
+        public TextView mTitle;
+        public TextView mTime;
+        public TextView mReward;
+        public TextView mFleetRequire;
+        public TextView mShipRequire;
 
         public Expedition(View itemView) {
             super(itemView);
@@ -215,9 +215,9 @@ public class ViewHolder {
     }
 
     public static class ItemImprovement extends RecyclerView.ViewHolder {
-        protected TextView mName;
-        protected TextView mShip;
-        protected ImageView mImageView;
+        public TextView mName;
+        public TextView mShip;
+        public ImageView mImageView;
 
         public ItemImprovement(View itemView) {
             super(itemView);
@@ -229,10 +229,10 @@ public class ViewHolder {
     }
 
     public static class Item extends RecyclerView.ViewHolder {
-        protected View mLinearLayout;
-        protected TextView mName;
-        protected TextView mTitle;
-        protected ImageView mImageView;
+        public View mLinearLayout;
+        public TextView mName;
+        public TextView mTitle;
+        public ImageView mImageView;
 
         public Item(View itemView) {
             super(itemView);
@@ -245,10 +245,10 @@ public class ViewHolder {
     }
 
     public static class Ship extends RecyclerView.ViewHolder {
-        protected TextView mTitle;
-        protected TextView mContent;
-        protected ImageView mIcon;
-        protected View mIconContainer;
+        public TextView mTitle;
+        public TextView mContent;
+        public ImageView mIcon;
+        public View mIconContainer;
 
         public Ship(View itemView) {
             super(itemView);
@@ -261,10 +261,10 @@ public class ViewHolder {
     }
 
     public static class Map extends RecyclerView.ViewHolder {
-        protected ExpandableLayout mDetailContainer;
-        protected TextView mTitle;
-        protected TextView mTextView;
-        protected Button mButton;
+        public ExpandableLayout mDetailContainer;
+        public TextView mTitle;
+        public TextView mTextView;
+        public Button mButton;
 
         public Map(View itemView) {
             super(itemView);
@@ -290,14 +290,14 @@ public class ViewHolder {
     }
 
     public static class Message extends RecyclerView.ViewHolder {
-        protected TextView mTitle;
-        protected TextView mSummary;
-        protected TextView mContent;
-        protected LinearLayout mGalleryContainer;
-        protected Button mPositiveButton;
-        protected Button mNegativeButton;
+        public TextView mTitle;
+        public TextView mSummary;
+        public TextView mContent;
+        public LinearLayout mGalleryContainer;
+        public Button mPositiveButton;
+        public Button mNegativeButton;
 
-        protected CountDownTimer mCountDownTimer;
+        public CountDownTimer mCountDownTimer;
 
         public Message(View itemView) {
             super(itemView);
@@ -350,7 +350,7 @@ public class ViewHolder {
         }
 
         @SuppressLint("DefaultLocale")
-        protected String formatTimeLeft(long time) {
+        public String formatTimeLeft(long time) {
             StringBuilder sb = new StringBuilder();
             sb.append(String.format("%d 天", time / DateUtils.DAY_IN_MILLIS));
             time = time % DateUtils.DAY_IN_MILLIS;
@@ -370,12 +370,12 @@ public class ViewHolder {
     }
 
     public static class MessageEquip extends RecyclerView.ViewHolder {
-        protected LinearLayout mContainer;
-        protected TextView mSummary;
+        public LinearLayout mContainer;
+        public TextView mSummary;
 
-        protected BusEventListener mBusEventListener;
+        public BusEventListener mBusEventListener;
 
-        protected static class BusEventListener {
+        public static class BusEventListener {
             public boolean isRegistered;
         }
 
@@ -479,12 +479,12 @@ public class ViewHolder {
     }
 
     public static class MessageExpedition extends RecyclerView.ViewHolder {
-        protected LinearLayout mContainer;
-        protected TextView mSummary;
+        public LinearLayout mContainer;
+        public TextView mSummary;
 
-        protected BusEventListener mBusEventListener;
+        public BusEventListener mBusEventListener;
 
-        protected static class BusEventListener {
+        public static class BusEventListener {
             public boolean isRegistered;
         }
 
@@ -605,8 +605,8 @@ public class ViewHolder {
     }
 
     public static class Subtitle extends RecyclerView.ViewHolder {
-        protected TextView mTitle;
-        protected View mDivider;
+        public TextView mTitle;
+        public View mDivider;
 
         public Subtitle(View itemView) {
             super(itemView);
@@ -617,9 +617,9 @@ public class ViewHolder {
     }
 
     public static class Voice extends RecyclerView.ViewHolder {
-        protected TextView mScene;
-        protected TextView mTextJa;
-        protected TextView mTextZh;
+        public TextView mScene;
+        public TextView mTextJa;
+        public TextView mTextZh;
 
         public Voice(View itemView) {
             super(itemView);

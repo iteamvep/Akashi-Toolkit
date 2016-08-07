@@ -141,11 +141,13 @@
 
         <activity
             android:name=".fleet_editor.ShipSelectActivity"
+            android:label="@string/ship_select"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
         <activity
             android:name=".fleet_editor.EquipSelectActivity"
+            android:label="@string/equip_select"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
     </application>

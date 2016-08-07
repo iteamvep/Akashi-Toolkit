@@ -23,6 +23,7 @@ import rikka.akashitoolkit.model.Ship;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.ItemSelectAction;
 import rikka.akashitoolkit.staticdata.EquipTypeList;
+import rikka.akashitoolkit.ui.EquipDisplayActivity;
 import rikka.akashitoolkit.ui.widget.BottomSheetDialog;
 import rikka.akashitoolkit.ui.widget.ListBottomSheetDialog;
 import rikka.akashitoolkit.utils.Utils;
@@ -88,31 +89,36 @@ public class FleetEquipAdapter extends BaseItemTouchHelperAdapter<FleetEquipView
                 @Override
                 public void onClick(View view) {
                     Context context = view.getContext();
-                    showEditEquipDialog(context, holder);
+                    showEditEquipDialog(context, holder, holder.getAdapterPosition());
                 }
             });
         }
     }
 
-    private void showEditEquipDialog(final Context context, final FleetEquipViewHolder holder) {
+    private void showEditEquipDialog(final Context context, final FleetEquipViewHolder holder, int position) {
         ListBottomSheetDialog dialog = new ListBottomSheetDialog(context);
         dialog.setItems(
                 new CharSequence[]{
+                        context.getString(R.string.fleet_view_equip),
                         context.getString(R.string.fleet_change_equip_attr),
                         context.getString(R.string.fleet_change_equip),
                         context.getString(R.string.fleet_delete_equip)},
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
+                        int position = holder.getAdapterPosition();
                         switch (i) {
                             case 0:
-                                showEditAttrDialog(context, holder);
+                                context.startActivity(EquipDisplayActivity.intent(context, getItem(position).getId()));
                                 break;
                             case 1:
-                                BusProvider.instance().post(new ItemSelectAction.StartEquip(mPosition, holder.getAdapterPosition()));
+                                showEditAttrDialog(context, holder, holder.getAdapterPosition());
                                 break;
                             case 2:
-                                removeEquip(holder.getAdapterPosition());
+                                BusProvider.instance().post(new ItemSelectAction.StartEquip(mPosition, position));
+                                break;
+                            case 3:
+                                removeEquip(position);
                                 break;
                         }
                         dialogInterface.dismiss();
@@ -122,73 +128,26 @@ public class FleetEquipAdapter extends BaseItemTouchHelperAdapter<FleetEquipView
     }
 
     @SuppressLint("DefaultLocale")
-    private void showEditAttrDialog(Context context, final FleetEquipViewHolder holder) {
-        BottomSheetDialog dialog = new BottomSheetDialog(context);
-        View view = LayoutInflater.from(context).inflate(R.layout.content_fleet_equip_attr, null);
-
-        List<String> list;
-        list = new ArrayList<>();
-        list.add("+0");
-        for (int i = 1; i <= 10; i++) {
-            list.add(String.format("+%d", i));
-        }
-        RecyclerView recyclerView;
-        recyclerView = (RecyclerView) view.findViewById(R.id.equip_improvement_container);
-        SimpleSelectableAdapter<String> improvementAdapter = new SimpleSelectableAdapter<>(R.layout.item_dialog_equip_improvement, true);
-        improvementAdapter.setSelection(getItem(holder.getAdapterPosition()).getStar());
-        improvementAdapter.setItemList(list);
-        recyclerView.setAdapter(improvementAdapter);
-        recyclerView.setLayoutManager(new GridLayoutManager(context, 6, LinearLayoutManager.VERTICAL, false));
-        recyclerView.addItemDecoration(new RecyclerView.ItemDecoration() {
+    private void showEditAttrDialog(Context context, final FleetEquipViewHolder holder, int position) {
+        EquipAttributeDialog dialog = new EquipAttributeDialog(context, getItem(position).getStar(), getItem(position).getRank());
+        dialog.setListener(new EquipAttributeDialog.Listener() {
             @Override
-            public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-                super.getItemOffsets(outRect, view, parent, state);
-                if (parent.getChildAdapterPosition(view) >= 6) {
-                    outRect.top = Utils.dpToPx(4);
-                }
+            public void onImprovementChanged(int i) {
+                int position = holder.getAdapterPosition();
+                getItem(position).setStar(i);
+                resetParent();
+                resetEquipRelatedText(holder, position);
+            }
+
+            @Override
+            public void onRankChanged(int i) {
+                int position = holder.getAdapterPosition();
+                getItem(position).setRank(i);
+                resetParent();
+                resetEquipRelatedText(holder, position);
             }
         });
-
-        list = new ArrayList<>();
-        for (String s : Fleet.equipRank) {
-            list.add(s);
-        }
-        recyclerView = (RecyclerView) view.findViewById(R.id.equip_rank_container);
-        SimpleSelectableAdapter<String> rankAdapter = new SimpleSelectableAdapter<>(R.layout.item_dialog_equip_improvement, true);
-        rankAdapter.setSelection(getItem(holder.getAdapterPosition()).getRank());
-        rankAdapter.setItemList(list);
-        recyclerView.setAdapter(rankAdapter);
-        recyclerView.setLayoutManager(new GridLayoutManager(context, 6, LinearLayoutManager.VERTICAL, false));
-        recyclerView.addItemDecoration(new RecyclerView.ItemDecoration() {
-            @Override
-            public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-                super.getItemOffsets(outRect, view, parent, state);
-                if (parent.getChildAdapterPosition(view) >= 6) {
-                    outRect.top = Utils.dpToPx(4);
-                }
-            }
-        });
-
-        dialog.setContentView(view);
         dialog.show();
-
-        improvementAdapter.setListener(new SimpleAdapter.Listener() {
-            @Override
-            public void OnClick(int position) {
-                getItem(holder.getAdapterPosition()).setStar(position);
-                resetParent();
-                resetEquipRelatedText(holder, holder.getAdapterPosition());
-            }
-        });
-
-        rankAdapter.setListener(new SimpleAdapter.Listener() {
-            @Override
-            public void OnClick(int position) {
-                getItem(holder.getAdapterPosition()).setRank(position);
-                resetParent();
-                resetEquipRelatedText(holder, holder.getAdapterPosition());
-            }
-        });
     }
 
     private void removeEquip(int position) {

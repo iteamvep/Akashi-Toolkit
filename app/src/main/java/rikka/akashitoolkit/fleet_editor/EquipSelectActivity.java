@@ -34,7 +34,7 @@ public class EquipSelectActivity extends BaseActivity {
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Equip select");
+        getSupportActionBar().setTitle(getString(R.string.equip_select));
 
         if (savedInstanceState == null) {
             EquipFragment fragment = new EquipFragment();
