@@ -84,39 +84,72 @@ public class FleetEquipAdapter extends BaseItemTouchHelperAdapter<FleetEquipView
 
     private void showEditEquipDialog(final Context context, final FleetEquipViewHolder holder, int position) {
         ListBottomSheetDialog dialog = new ListBottomSheetDialog(context);
-        dialog.setItems(
-                new CharSequence[]{
-                        context.getString(R.string.fleet_view_equip),
-                        context.getString(R.string.fleet_change_equip_attr),
-                        context.getString(R.string.fleet_change_equip),
-                        context.getString(R.string.fleet_delete_equip)},
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        int position = holder.getAdapterPosition();
-                        switch (i) {
-                            case 0:
-                                context.startActivity(EquipDisplayActivity.intent(context, getItem(position).getId()));
-                                break;
-                            case 1:
-                                showEditAttrDialog(context, holder, holder.getAdapterPosition());
-                                break;
-                            case 2:
-                                BusProvider.instance().post(new ItemSelectAction.StartEquip(mPosition, position));
-                                break;
-                            case 3:
-                                removeEquip(position);
-                                break;
+        if (getItem(position).getEquip().isImprovable() || getItem(position).getEquip().isRankupable()) {
+            dialog.setItems(
+                    new CharSequence[]{
+                            context.getString(R.string.fleet_view_equip),
+                            context.getString(R.string.fleet_change_equip_attr),
+                            context.getString(R.string.fleet_change_equip),
+                            context.getString(R.string.fleet_delete_equip)},
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            int position = holder.getAdapterPosition();
+                            switch (i) {
+                                case 0:
+                                    context.startActivity(EquipDisplayActivity.intent(context, getItem(position).getId()));
+                                    break;
+                                case 1:
+                                    showEditAttrDialog(context, holder, holder.getAdapterPosition());
+                                    break;
+                                case 2:
+                                    BusProvider.instance().post(new ItemSelectAction.StartEquip(mPosition, position));
+                                    break;
+                                case 3:
+                                    removeEquip(position);
+                                    break;
+                            }
+                            dialogInterface.dismiss();
                         }
-                        dialogInterface.dismiss();
-                    }
-                });
-        dialog.show();
+                    });
+            dialog.show();
+        } else {
+            dialog.setItems(
+                    new CharSequence[]{
+                            context.getString(R.string.fleet_view_equip),
+                            context.getString(R.string.fleet_change_equip),
+                            context.getString(R.string.fleet_delete_equip)},
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            int position = holder.getAdapterPosition();
+                            switch (i) {
+                                case 0:
+                                    context.startActivity(EquipDisplayActivity.intent(context, getItem(position).getId()));
+                                    break;
+                                case 1:
+                                    BusProvider.instance().post(new ItemSelectAction.StartEquip(mPosition, position));
+                                    break;
+                                case 2:
+                                    removeEquip(position);
+                                    break;
+                            }
+                            dialogInterface.dismiss();
+                        }
+                    });
+            dialog.show();
+        }
     }
 
     @SuppressLint("DefaultLocale")
     private void showEditAttrDialog(Context context, final FleetEquipViewHolder holder, int position) {
-        EquipAttributeDialog dialog = new EquipAttributeDialog(context, getItem(position).getStar(), getItem(position).getRank());
+        EquipAttributeDialog dialog = new EquipAttributeDialog(
+                context,
+                getItem(position).getStar(),
+                getItem(position).getRank(),
+                getItem(position).getEquip().isImprovable(),
+                getItem(position).getEquip().isRankupable()
+        );
         dialog.setListener(new EquipAttributeDialog.Listener() {
             @Override
             public void onImprovementChanged(int i) {

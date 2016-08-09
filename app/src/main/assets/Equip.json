@@ -34,7 +34,13 @@
       1,
       1,
       0
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 2,
@@ -132,7 +138,13 @@
           0
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 1,
+      "upgrade": 1,
+      "rank": 0
+    }
   },
   {
     "id": 3,
@@ -169,7 +181,13 @@
       1,
       3,
       0
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 4,
@@ -267,7 +285,13 @@
           0
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 1,
+      "upgrade": 1,
+      "rank": 0
+    }
   },
   {
     "id": 5,
@@ -347,7 +371,13 @@
           ]
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 1,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 6,
@@ -449,7 +479,13 @@
           0
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 1,
+      "upgrade": 1,
+      "rank": 0
+    }
   },
   {
     "id": 7,
@@ -539,7 +575,13 @@
           0
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 1,
+      "upgrade": 1,
+      "rank": 0
+    }
   },
   {
     "id": 8,
@@ -624,7 +666,13 @@
           ]
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 1,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 9,
@@ -705,7 +753,13 @@
           ]
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 1,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 10,
@@ -742,7 +796,13 @@
       2,
       2,
       0
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 11,
@@ -840,7 +900,13 @@
           0
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 1,
+      "upgrade": 1,
+      "rank": 0
+    }
   },
   {
     "id": 12,
@@ -877,7 +943,13 @@
       2,
       5,
       0
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 13,
@@ -973,7 +1045,13 @@
           0
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 1,
+      "upgrade": 1,
+      "rank": 0
+    }
   },
   {
     "id": 14,
@@ -1067,7 +1145,13 @@
           3
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 1,
+      "upgrade": 1,
+      "rank": 0
+    }
   },
   {
     "id": 15,
@@ -1172,7 +1256,13 @@
           0
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 1,
+      "upgrade": 1,
+      "rank": 0
+    }
   },
   {
     "id": 16,
@@ -1209,7 +1299,13 @@
       1,
       0,
       2
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 17,
@@ -1246,7 +1342,13 @@
       4,
       0,
       4
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 18,
@@ -1283,7 +1385,13 @@
       5,
       0,
       10
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 19,
@@ -1382,7 +1490,13 @@
           3
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 1,
+      "upgrade": 1,
+      "rank": 1
+    }
   },
   {
     "id": 20,
@@ -1479,7 +1593,13 @@
           3
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 1,
+      "upgrade": 1,
+      "rank": 1
+    }
   },
   {
     "id": 21,
@@ -1564,7 +1684,13 @@
           ]
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 1,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 22,
@@ -1601,7 +1727,13 @@
       2,
       0,
       9
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 23,
@@ -1638,7 +1770,13 @@
       1,
       0,
       2
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 24,
@@ -1675,7 +1813,13 @@
       3,
       0,
       3
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 25,
@@ -1780,7 +1924,13 @@
           0
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 1,
+      "upgrade": 1,
+      "rank": 1
+    }
   },
   {
     "id": 26,
@@ -1817,7 +1967,13 @@
       3,
       0,
       5
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 27,
@@ -1922,7 +2078,13 @@
           0
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 1,
+      "upgrade": 1,
+      "rank": 0
+    }
   },
   {
     "id": 28,
@@ -2026,7 +2188,13 @@
           0
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 1,
+      "upgrade": 1,
+      "rank": 0
+    }
   },
   {
     "id": 29,
@@ -2063,7 +2231,13 @@
       0,
       20,
       15
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 30,
@@ -2161,7 +2335,13 @@
           0
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 1,
+      "upgrade": 1,
+      "rank": 0
+    }
   },
   {
     "id": 31,
@@ -2260,7 +2440,13 @@
           0
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 1,
+      "upgrade": 1,
+      "rank": 0
+    }
   },
   {
     "id": 32,
@@ -2297,7 +2483,13 @@
       0,
       25,
       25
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 33,
@@ -2334,7 +2526,13 @@
       0,
       10,
       0
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 34,
@@ -2371,7 +2569,13 @@
       0,
       20,
       0
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 35,
@@ -2408,7 +2612,13 @@
       9,
       6,
       3
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 36,
@@ -2502,7 +2712,13 @@
           0
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 1,
+      "upgrade": 1,
+      "rank": 0
+    }
   },
   {
     "id": 37,
@@ -2539,7 +2755,13 @@
       1,
       1,
       0
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 38,
@@ -2576,7 +2798,13 @@
       1,
       1,
       0
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 39,
@@ -2664,7 +2892,13 @@
           3
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 1,
+      "upgrade": 1,
+      "rank": 0
+    }
   },
   {
     "id": 40,
@@ -2765,7 +2999,13 @@
           0
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 1,
+      "upgrade": 1,
+      "rank": 0
+    }
   },
   {
     "id": 41,
@@ -2802,7 +3042,13 @@
       7,
       7,
       0
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 42,
@@ -2839,7 +3085,13 @@
       0,
       1,
       0
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 43,
@@ -2876,7 +3128,13 @@
       0,
       1,
       0
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 44,
@@ -2964,7 +3222,13 @@
           3
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 1,
+      "upgrade": 1,
+      "rank": 0
+    }
   },
   {
     "id": 45,
@@ -3040,7 +3304,13 @@
           []
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 1,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 46,
@@ -3190,7 +3460,13 @@
           0
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 1,
+      "upgrade": 1,
+      "rank": 0
+    }
   },
   {
     "id": 47,
@@ -3270,7 +3546,13 @@
           []
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 1,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 48,
@@ -3307,7 +3589,13 @@
       1,
       1,
       0
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 49,
@@ -3403,7 +3691,13 @@
           5
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 1,
+      "upgrade": 1,
+      "rank": 0
+    }
   },
   {
     "id": 50,
@@ -3479,7 +3773,13 @@
           []
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 1,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 51,
@@ -3516,7 +3816,13 @@
       4,
       2,
       2
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 52,
@@ -3553,7 +3859,13 @@
       6,
       0,
       10
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 53,
@@ -3590,7 +3902,13 @@
       2,
       0,
       10
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 54,
@@ -3627,7 +3945,13 @@
       0,
       0,
       11
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 55,
@@ -3664,7 +3988,13 @@
       2,
       0,
       7
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 56,
@@ -3701,7 +4031,13 @@
       3,
       0,
       28
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 57,
@@ -3738,7 +4074,13 @@
       3,
       0,
       4
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 58,
@@ -3814,7 +4156,13 @@
           []
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 1,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 59,
@@ -3902,7 +4250,13 @@
           ]
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 1,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 60,
@@ -3980,7 +4334,13 @@
           ]
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 1,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 61,
@@ -4017,7 +4377,13 @@
       1,
       0,
       13
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 62,
@@ -4054,7 +4420,13 @@
       5,
       0,
       20
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 63,
@@ -4135,7 +4507,13 @@
           []
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 1,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 64,
@@ -4172,7 +4550,13 @@
       4,
       0,
       5
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 65,
@@ -4274,7 +4658,13 @@
           0
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 1,
+      "upgrade": 1,
+      "rank": 0
+    }
   },
   {
     "id": 66,
@@ -4311,7 +4701,13 @@
       1,
       2,
       0
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 67,
@@ -4348,7 +4744,13 @@
       2,
       2,
       0
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 68,
@@ -4455,7 +4857,13 @@
           0
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 1,
+      "upgrade": 1,
+      "rank": 0
+    }
   },
   {
     "id": 69,
@@ -4492,7 +4900,13 @@
       1,
       0,
       4
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 70,
@@ -4529,7 +4943,13 @@
       1,
       0,
       2
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 71,
@@ -4562,7 +4982,13 @@
       1,
       3,
       0
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 72,
@@ -4599,7 +5025,13 @@
       0,
       12,
       0
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 73,
@@ -4636,7 +5068,13 @@
       0,
       30,
       0
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 74,
@@ -4739,7 +5177,13 @@
           0
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 1,
+      "upgrade": 1,
+      "rank": 0
+    }
   },
   {
     "id": 75,
@@ -4776,7 +5220,13 @@
       0,
       1,
       0
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 76,
@@ -4867,7 +5317,13 @@
           3
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 1,
+      "upgrade": 1,
+      "rank": 0
+    }
   },
   {
     "id": 77,
@@ -4904,7 +5360,13 @@
       2,
       4,
       0
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 78,
@@ -4941,7 +5403,13 @@
       1,
       1,
       0
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 79,
@@ -4978,7 +5446,13 @@
       3,
       0,
       5
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 80,
@@ -5015,7 +5489,13 @@
       3,
       0,
       6
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 81,
@@ -5052,7 +5532,13 @@
       3,
       0,
       6
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 82,
@@ -5089,7 +5575,13 @@
       3,
       0,
       4
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 83,
@@ -5126,7 +5618,13 @@
       4,
       0,
       5
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 84,
@@ -5163,7 +5661,13 @@
       3,
       1,
       1
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 85,
@@ -5200,7 +5704,13 @@
       3,
       1,
       1
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 86,
@@ -5237,7 +5747,13 @@
       5,
       20,
       10
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 87,
@@ -5274,7 +5790,13 @@
       0,
       25,
       0
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 88,
@@ -5366,7 +5888,13 @@
           ]
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 1,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 89,
@@ -5453,7 +5981,13 @@
           ]
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 1,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 90,
@@ -5543,7 +6077,13 @@
           0
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 1,
+      "upgrade": 1,
+      "rank": 0
+    }
   },
   {
     "id": 91,
@@ -5576,7 +6116,13 @@
       2,
       2,
       0
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 92,
@@ -5613,7 +6159,13 @@
       2,
       1,
       0
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 93,
@@ -5650,7 +6202,13 @@
       1,
       0,
       2
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 94,
@@ -5687,7 +6245,13 @@
       4,
       0,
       4
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 95,
@@ -5724,7 +6288,13 @@
       4,
       2,
       0
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 96,
@@ -5817,7 +6387,13 @@
           3
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 1,
+      "upgrade": 1,
+      "rank": 1
+    }
   },
   {
     "id": 97,
@@ -5854,7 +6430,13 @@
       1,
       0,
       2
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 98,
@@ -5891,7 +6473,13 @@
       1,
       0,
       2
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 99,
@@ -5928,7 +6516,13 @@
       1,
       0,
       2
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 100,
@@ -5965,7 +6559,13 @@
       3,
       0,
       3
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 101,
@@ -6002,7 +6602,13 @@
       2,
       1,
       1
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 102,
@@ -6085,7 +6691,13 @@
           ]
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 1,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 103,
@@ -6175,7 +6787,13 @@
           ]
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 1,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 104,
@@ -6258,7 +6876,13 @@
           ]
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 1,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 105,
@@ -6346,7 +6970,13 @@
           ]
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 1,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 106,
@@ -6436,7 +7066,13 @@
           ]
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 1,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 107,
@@ -6473,7 +7109,13 @@
       1,
       1,
       1
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 108,
@@ -6510,7 +7152,13 @@
       10,
       1,
       10
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 109,
@@ -6597,7 +7245,13 @@
           ]
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 1,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 110,
@@ -6634,7 +7288,13 @@
       2,
       0,
       9
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 111,
@@ -6671,7 +7331,13 @@
       3,
       0,
       3
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 112,
@@ -6708,7 +7374,13 @@
       4,
       0,
       4
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 113,
@@ -6745,7 +7417,13 @@
       5,
       0,
       10
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 114,
@@ -6824,7 +7502,13 @@
           []
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 1,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 115,
@@ -6861,7 +7545,13 @@
       2,
       0,
       2
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 116,
@@ -6942,7 +7632,13 @@
           ]
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 1,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 117,
@@ -7035,7 +7731,13 @@
           5
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 1,
+      "upgrade": 1,
+      "rank": 0
+    }
   },
   {
     "id": 118,
@@ -7072,7 +7774,13 @@
       1,
       0,
       15
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 119,
@@ -7148,7 +7856,13 @@
           []
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 1,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 120,
@@ -7249,7 +7963,13 @@
           0
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 1,
+      "upgrade": 1,
+      "rank": 0
+    }
   },
   {
     "id": 121,
@@ -7411,7 +8131,13 @@
           0
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 1,
+      "upgrade": 1,
+      "rank": 0
+    }
   },
   {
     "id": 122,
@@ -7498,7 +8224,13 @@
           ]
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 1,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 123,
@@ -7535,7 +8267,13 @@
       4,
       5,
       0
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 124,
@@ -7572,7 +8310,13 @@
       0,
       27,
       29
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 125,
@@ -7662,7 +8406,13 @@
           5
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 1,
+      "upgrade": 1,
+      "rank": 0
+    }
   },
   {
     "id": 126,
@@ -7699,7 +8449,13 @@
       4,
       2,
       1
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 127,
@@ -7736,7 +8492,13 @@
       2,
       1,
       1
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 128,
@@ -7816,7 +8578,13 @@
           []
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 1,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 129,
@@ -7853,7 +8621,13 @@
       0,
       0,
       0
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 130,
@@ -7890,7 +8664,13 @@
       2,
       3,
       2
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 131,
@@ -7927,7 +8707,13 @@
       5,
       2,
       1
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 132,
@@ -7964,7 +8750,13 @@
       0,
       3,
       3
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 133,
@@ -8063,7 +8855,13 @@
           3
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 1,
+      "upgrade": 1,
+      "rank": 0
+    }
   },
   {
     "id": 134,
@@ -8150,7 +8948,13 @@
           ]
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 1,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 135,
@@ -8238,7 +9042,13 @@
           ]
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 1,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 136,
@@ -8275,7 +9085,13 @@
       0,
       24,
       4
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 137,
@@ -8362,7 +9178,13 @@
           ]
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 1,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 138,
@@ -8399,7 +9221,13 @@
       2,
       0,
       26
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 139,
@@ -8487,7 +9315,13 @@
           ]
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 1,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 140,
@@ -8575,7 +9409,13 @@
           ]
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 1,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 141,
@@ -8662,7 +9502,13 @@
           ]
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 1,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 142,
@@ -8699,7 +9545,13 @@
       0,
       26,
       28
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 143,
@@ -8736,7 +9588,13 @@
       1,
       0,
       2
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 144,
@@ -8773,7 +9631,13 @@
       4,
       0,
       4
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 145,
@@ -8810,7 +9674,13 @@
       0,
       0,
       0
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 146,
@@ -8847,7 +9717,13 @@
       30,
       0,
       0
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 147,
@@ -8884,7 +9760,13 @@
       1,
       2,
       0
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 148,
@@ -8921,7 +9803,13 @@
       5,
       0,
       15
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 149,
@@ -9008,7 +9896,13 @@
           ]
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 1,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 150,
@@ -9045,7 +9939,13 @@
       0,
       0,
       1
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 151,
@@ -9082,7 +9982,13 @@
       0,
       0,
       14
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 152,
@@ -9167,7 +10073,13 @@
           ]
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 1,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 153,
@@ -9223,11 +10135,11 @@
           21
         ],
         "item2": [
-          0,
-          0,
-          0,
-          0,
-          0,
+          5,
+          9,
+          4,
+          6,
+          3,
           21
         ],
         "ship": [
@@ -9244,7 +10156,13 @@
           []
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 1,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 154,
@@ -9281,7 +10199,53 @@
       3,
       0,
       4
-    ]
+    ],
+    "improvements": [
+      {
+        "remark": "",
+        "cost": [
+          120,
+          120,
+          0,
+          280
+        ],
+        "item": [
+          4,
+          6,
+          3,
+          5,
+          2,
+          21
+        ],
+        "item2": [
+          5,
+          9,
+          4,
+          6,
+          2,
+          24
+        ],
+        "ship": [
+          [],
+          [],
+          [
+            111
+          ],
+          [],
+          [
+            111
+          ],
+          [],
+          []
+        ]
+      }
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 1,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 155,
@@ -9318,7 +10282,13 @@
       2,
       0,
       2
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 156,
@@ -9374,11 +10344,11 @@
           21
         ],
         "item2": [
-          0,
-          0,
-          0,
-          0,
-          0,
+          5,
+          9,
+          4,
+          6,
+          3,
           21
         ],
         "ship": [
@@ -9395,7 +10365,13 @@
           ]
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 1,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 157,
@@ -9472,7 +10448,13 @@
           ]
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 1,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 158,
@@ -9509,7 +10491,13 @@
       2,
       0,
       6
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 159,
@@ -9546,7 +10534,13 @@
       3,
       0,
       8
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 160,
@@ -9583,7 +10577,13 @@
       2,
       4,
       0
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 161,
@@ -9682,7 +10682,13 @@
           0
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 1,
+      "upgrade": 1,
+      "rank": 0
+    }
   },
   {
     "id": 162,
@@ -9719,7 +10725,13 @@
       4,
       4,
       0
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 163,
@@ -9820,7 +10832,13 @@
           0
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 1,
+      "upgrade": 1,
+      "rank": 1
+    }
   },
   {
     "id": 164,
@@ -9857,7 +10875,13 @@
       1,
       0,
       2
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 165,
@@ -9894,7 +10918,13 @@
       1,
       0,
       4
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 166,
@@ -9996,7 +11026,13 @@
           0
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 1,
+      "upgrade": 1,
+      "rank": 0
+    }
   },
   {
     "id": 167,
@@ -10088,7 +11124,13 @@
           ]
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 1,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 168,
@@ -10125,7 +11167,13 @@
       4,
       0,
       12
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 169,
@@ -10162,7 +11210,13 @@
       5,
       0,
       13
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 170,
@@ -10199,7 +11253,13 @@
       5,
       0,
       14
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 171,
@@ -10236,7 +11296,13 @@
       1,
       0,
       2
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 172,
@@ -10273,7 +11339,13 @@
       3,
       4,
       2
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 173,
@@ -10310,7 +11382,13 @@
       6,
       1,
       3
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 174,
@@ -10347,7 +11425,13 @@
       2,
       2,
       0
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 175,
@@ -10384,7 +11468,13 @@
       2,
       0,
       7
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 176,
@@ -10421,7 +11511,13 @@
       2,
       0,
       6
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 177,
@@ -10458,7 +11554,13 @@
       2,
       0,
       6
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 178,
@@ -10495,7 +11597,13 @@
       2,
       0,
       18
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 179,
@@ -10564,7 +11672,9 @@
           ],
           [],
           [],
-          [],
+          [
+            423
+          ],
           [
             423
           ],
@@ -10577,7 +11687,13 @@
           ]
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 1,
+      "upgrade": 0,
+      "rank": 0
+    }
   },
   {
     "id": 180,
@@ -10614,7 +11730,13 @@
       5,
       0,
       14
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 181,
@@ -10628,7 +11750,7 @@
     },
     "remark": "",
     "attr": {
-      "range": 0,
+      "range": 5,
       "aa": 5,
       "armor": 0,
       "asw": 0,
@@ -10677,6 +11799,14 @@
           2,
           20
         ],
+        "item3": [
+          5,
+          8,
+          4,
+          6,
+          1,
+          181
+        ],
         "ship": [
           [
             83
@@ -10693,9 +11823,19 @@
           ],
           [],
           []
+        ],
+        "upgrade": [
+          21,
+          3
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 1,
+      "improvement": 1,
+      "upgrade": 1,
+      "rank": 1
+    }
   },
   {
     "id": 182,
@@ -10709,7 +11849,7 @@
     },
     "remark": "",
     "attr": {
-      "range": 0,
+      "range": 5,
       "aa": 8,
       "armor": 0,
       "asw": 0,
@@ -10751,12 +11891,20 @@
           20
         ],
         "item2": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
+          4,
+          6,
+          3,
+          5,
+          3,
+          20
+        ],
+        "item3": [
+          5,
+          8,
+          4,
+          6,
+          2,
+          181
         ],
         "ship": [
           [
@@ -10774,9 +11922,19 @@
           ],
           [],
           []
+        ],
+        "upgrade": [
+          152,
+          3
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 1,
+      "upgrade": 1,
+      "rank": 1
+    }
   },
   {
     "id": 183,
@@ -10857,7 +12015,56 @@
           ]
         ]
       }
-    ]
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 1,
+      "upgrade": 0,
+      "rank": 0
+    }
+  },
+  {
+    "id": 184,
+    "name": {
+      "zh_cn": "Re.2001OR改",
+      "ja": "Re.2001OR改"
+    },
+    "introduction": {
+      "zh_cn": "由意面之国所开发/配备的，装备了水冷引擎的战斗机的舰载版本。\n曾经计划将其配备在本国建造的航空母舰上。",
+      "ja": "パスタの国で開発/配備された液冷エンジン装備の戦闘機の艦載型です。\n同国の建造していた航空母艦への搭載が計画されていました。"
+    },
+    "remark": "",
+    "attr": {
+      "range": 4,
+      "aa": 6,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 2,
+      "fire": 3,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "type": [
+      3,
+      5,
+      6,
+      6
+    ],
+    "rarity": 3,
+    "broken": [
+      1,
+      2,
+      0,
+      6
+    ],
+    "status": {
+      "research": 0,
+      "improvement": 0,
+      "upgrade": 0,
+      "rank": 1
+    }
   },
   {
     "id": 501,

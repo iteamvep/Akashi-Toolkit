@@ -401,4 +401,39 @@ public class NewEquip {
             this.torpedo = Utils.stringToInt(acc);
         }
     }
+
+    @SerializedName("状态")
+    @Expose
+    private StatusEntity status;
+
+    public static class StatusEntity {
+        @SerializedName("开发")
+        @Expose
+        private int research;
+        @SerializedName("改修")
+        @Expose
+        private int improvement;
+        @SerializedName("更新")
+        @Expose
+        private int upgrade;
+        @SerializedName("熟练")
+        @Expose
+        private int rank;
+
+        public int getResearch() {
+            return research;
+        }
+
+        public int getImprovement() {
+            return improvement;
+        }
+
+        public int getUpgrade() {
+            return upgrade;
+        }
+
+        public int getRank() {
+            return rank;
+        }
+    }
 }

@@ -44,7 +44,7 @@ public class EquipAttributeDialog extends BottomSheetDialog {
     private SimpleSelectableAdapter<String> mRankAdapter;
 
     @SuppressLint("DefaultLocale")
-    public EquipAttributeDialog(@NonNull Context context, int star, int rank) {
+    public EquipAttributeDialog(@NonNull Context context, int star, int rank, boolean improvable, boolean rankupable) {
         super(context);
 
         View view = LayoutInflater.from(context).inflate(R.layout.content_fleet_equip_attr, null);
@@ -105,6 +105,16 @@ public class EquipAttributeDialog extends BottomSheetDialog {
                 }
             }
         });
+
+        if (!improvable) {
+            view.findViewById(R.id.equip_improvement_container).setVisibility(View.GONE);
+            view.findViewById(android.R.id.text1).setVisibility(View.GONE);
+        }
+
+        if (!rankupable) {
+            view.findViewById(R.id.equip_rank_container).setVisibility(View.GONE);
+            view.findViewById(android.R.id.text2).setVisibility(View.GONE);
+        }
 
         setContentView(view);
     }

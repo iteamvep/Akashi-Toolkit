@@ -210,7 +210,20 @@ public class Fleet {
                 setEquip(equip);
 
                 // TODO check if ship can use this equip
-                // TODO check rank star
+                if (!equip.isRankupable()) {
+                    rank = 0;
+                }
+
+                if (!equip.isImprovable()) {
+                    star = 0;
+                }
+
+                rank = rank < 0 ? 0 : rank;
+                rank = rank > 10 ? 10 : rank;
+
+                star = star < 0 ? 0 : star;
+                star = star > 10 ? 10 : star;
+
                 return true;
             }
 

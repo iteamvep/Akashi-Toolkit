@@ -1,5 +1,8 @@
 package rikka.akashitoolkit.model;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 /**
@@ -172,5 +175,58 @@ public class Equip extends BaseDataModel {
     public boolean isSeaplane() {
         //
         return type[3] == 6 || type[2] == 11 || type[3] == 45;
+    }
+
+    private StatusEntity status;
+
+    public static class StatusEntity {
+        private int research;
+        private int improvement;
+        private int upgrade;
+        private int rank;
+
+        public int getResearch() {
+            return research;
+        }
+
+        public int getImprovement() {
+            return improvement;
+        }
+
+        public int getUpgrade() {
+            return upgrade;
+        }
+
+        public int getRank() {
+            return rank;
+        }
+    }
+
+    /**
+     * @return 是否可以开发
+     */
+    public boolean isResarchable() {
+        return status.research == 1;
+    }
+
+    /**
+     * @return 是否可以改修
+     */
+    public boolean isImprovable() {
+        return status.improvement == 1;
+    }
+
+    /**
+     * @return 是否可以更新
+     */
+    public boolean isUpgradeable() {
+        return status.upgrade == 1;
+    }
+
+    /**
+     * @return 是否有熟练度
+     */
+    public boolean isRankupable() {
+        return status.rank == 1;
     }
 }

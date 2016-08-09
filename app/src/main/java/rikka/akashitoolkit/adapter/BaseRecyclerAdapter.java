@@ -100,4 +100,9 @@ public abstract class BaseRecyclerAdapter<VH extends RecyclerView.ViewHolder, T>
     public int getItemCount() {
         return mData == null ? 0 : mData.size();
     }
+
+    @Override
+    public void onBindViewHolder(VH holder, int position, List<Object> payloads) {
+        super.onBindViewHolder(holder, position, payloads);
+    }
 }

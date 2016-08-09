@@ -11,6 +11,7 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
@@ -36,9 +37,9 @@ public class EquipGenerator {
 
         RetrofitAPI.KcwikiService service = retrofit.create(RetrofitAPI.KcwikiService.class);
         ResponseBody body = service.getPage("模块:舰娘装备数据改", "raw").execute().body();
-        Reader reader = body.charStream();
+        //Reader reader = body.charStream();
 
-        //Reader reader = new FileReader(new File("datagenerator/equip.lua"));
+        Reader reader = new FileReader(new File("datagenerator/equip.lua"));
 
         int count = 0;
         StringBuilder sb = new StringBuilder();
@@ -73,6 +74,9 @@ public class EquipGenerator {
         }
 
         str = sb.toString()
+                .replace("\r\n", "\n")
+                .replace("\r", "")
+
                 .replace("\t", "")
                 .replace("\"?\"", "\"0\"")
                 .replace("?", "")
@@ -98,6 +102,7 @@ public class EquipGenerator {
                 .replace("\"四\":", "")
                 .replace("\"五\":", "")
                 .replaceAll("\"六\":(\\[.+])\n},", "$1\n],")
+                .replaceAll("\"六\":(\\[.+]),\n},", "$1\n],")
 
                 .replace("{\n{\n", "[\n{\n")
                 .replace("}\n}\n}", "}\n}\n]")
@@ -111,6 +116,8 @@ public class EquipGenerator {
 
         Gson gson = new GsonBuilder()
                 .create();
+
+        str = "[" + str.substring(1, str.length() - 1) + "]";
 
         List<NewEquip> list = gson.fromJson(new StringReader(str), new TypeToken<List<NewEquip>>() {
         }.getType());
@@ -280,7 +287,13 @@ public class EquipGenerator {
                 .replace("\"中段消费\"", "\"item2\"")
                 .replace("\"更新消费\"", "\"item3\"")
                 .replace("\"更新装备\"", "\"upgrade\"")
-                .replace("\"类别\"", "\"type\"");
+                .replace("\"类别\"", "\"type\"")
+                .replace("\"状态\"", "\"status\"")
+                .replace("\"开发\"", "\"research\"")
+                .replace("\"改修\"", "\"improvement\"")
+                .replace("\"更新\"", "\"upgrade\"")
+                .replace("\"熟练\"", "\"rank\"");
+
 
         Utils.objectToJsonFile(str, "app/src/main/assets/Equip.json");
 
