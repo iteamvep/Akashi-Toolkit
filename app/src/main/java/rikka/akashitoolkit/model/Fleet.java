@@ -219,7 +219,7 @@ public class Fleet {
                 }
 
                 rank = rank < 0 ? 0 : rank;
-                rank = rank > 10 ? 10 : rank;
+                rank = rank > 7 ? 7 : rank;
 
                 star = star < 0 ? 0 : star;
                 star = star > 10 ? 10 : star;

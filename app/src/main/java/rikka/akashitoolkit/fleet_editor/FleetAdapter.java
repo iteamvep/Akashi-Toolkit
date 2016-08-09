@@ -5,15 +5,12 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.StringRes;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.BaseItemTouchHelperAdapter;
@@ -22,8 +19,9 @@ import rikka.akashitoolkit.model.Fleet;
 import rikka.akashitoolkit.model.Ship;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.ItemSelectAction;
-import rikka.akashitoolkit.staticdata.ShipList;
 import rikka.akashitoolkit.ship.ShipDisplayActivity;
+import rikka.akashitoolkit.staticdata.ShipList;
+import rikka.akashitoolkit.ui.widget.EditTextAlertDialog;
 import rikka.akashitoolkit.ui.widget.ListBottomSheetDialog;
 
 /**
@@ -108,8 +106,6 @@ public class FleetAdapter extends BaseItemTouchHelperAdapter<FleetViewHolder, Fl
                 context.getString(R.string.fleet_change_level),
                 context.getString(R.string.fleet_change_ship)
         }, new DialogInterface.OnClickListener() {
-            private EditText mEditText;
-
             @SuppressLint("SetTextI18n")
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
@@ -121,37 +117,31 @@ public class FleetAdapter extends BaseItemTouchHelperAdapter<FleetViewHolder, Fl
                         ShipDisplayActivity.start(context, intent);
                         break;
                     case 1:
-                        AlertDialog dialog = new AlertDialog.Builder(context, R.style.AppTheme_Dialog_Alert)
+                        new EditTextAlertDialog.Builder(context, R.style.AppTheme_Dialog_Alert)
                                 .setTitle(R.string.fleet_change_level)
-                                .setView(R.layout.dialog_edittext)
-                                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialogInterface, int i) {
-                                        int value = 0;
-                                        try {
-                                            value = Integer.parseInt(mEditText.getText().toString());
-                                        } catch (Exception ignored) {
-                                        }
-                                        value = value < 1 ? 1 : value;
-                                        value = value > 155 ? 155 : value;
-
-                                        getItem(position).setLevel(value);
-
-                                        resetLevelRelatedText(holder, position);
-                                    }
-                                })
+                                .setPositiveButton(android.R.string.ok, null)
                                 .setNegativeButton(android.R.string.cancel, null)
+                                .setEditText(
+                                        R.layout.dialog_edittext,
+                                        Integer.toString(getItem(position).getLevel()),
+                                        InputType.TYPE_CLASS_NUMBER,
+                                        new EditTextAlertDialog.OnPositiveButtonClickListener() {
+                                            @Override
+                                            public void onPositiveButtonClickListener(DialogInterface dialog, String text) {
+                                                int value = 0;
+                                                try {
+                                                    value = Integer.parseInt(text);
+                                                } catch (Exception ignored) {
+                                                }
+                                                value = value < 1 ? 1 : value;
+                                                value = value > 155 ? 155 : value;
+
+                                                getItem(position).setLevel(value);
+
+                                                resetLevelRelatedText(holder, position);
+                                            }
+                                        })
                                 .show();
-
-                        mEditText = (EditText) dialog.getWindow().findViewById(android.R.id.edit);
-                        mEditText.setText(Integer.toString(getItem(position).getLevel()));
-                        mEditText.setInputType(InputType.TYPE_CLASS_NUMBER);
-
-                        if (mEditText.requestFocus()) {
-                            InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
-                            imm.showSoftInput(mEditText, InputMethodManager.SHOW_IMPLICIT);
-                        }
-
                         break;
                     case 2:
                         BusProvider.instance().post(new ItemSelectAction.StartShip(holder.getAdapterPosition()));
