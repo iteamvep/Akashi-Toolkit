@@ -27,6 +27,7 @@ public class ShipList {
             sList = new BaseGSONList<Ship>() {
                 @Override
                 public void afterRead(List<Ship> list) {
+                    setShipType(context, list);
                     setBookmarked(context, list);
 
                     if (Settings
@@ -41,6 +42,12 @@ public class ShipList {
             }.get(context, FILE_NAME, new TypeToken<ArrayList<Ship>>() {}.getType());
         }
         return sList;
+    }
+
+    private static void setShipType(Context context, List<Ship> list) {
+        for (Ship ship : list) {
+            ship.setShipType(ShipTypeList.findItemById(context, ship.getType()));
+        }
     }
 
     public static synchronized void clear() {

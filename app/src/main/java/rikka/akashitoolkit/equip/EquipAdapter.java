@@ -14,6 +14,7 @@ import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.BaseBookmarkRecyclerAdapter;
 import rikka.akashitoolkit.model.Equip;
 import rikka.akashitoolkit.model.EquipType;
+import rikka.akashitoolkit.model.ShipType;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.DataListRebuiltFinished;
 import rikka.akashitoolkit.otto.ItemSelectAction;
@@ -32,8 +33,9 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewH
     private int mType;
     private boolean mEnemy;
     private boolean mSelectMode;
+    private ShipType mShipType;
 
-    public EquipAdapter(Activity activity, int type, boolean bookmarked, boolean enemy, boolean select_mode) {
+    public EquipAdapter(Activity activity, int type, boolean bookmarked, boolean enemy, boolean select_mode, ShipType ship_type) {
         super(bookmarked);
 
         setHasStableIds(true);
@@ -42,6 +44,7 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewH
         mType = type;
         mEnemy = enemy;
         mSelectMode = select_mode;
+        mShipType = ship_type;
 
         rebuildDataList();
     }
@@ -64,23 +67,9 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewH
                 clearItemList();
                 int lastType = -1;
 
-                for (Equip equip :
-                        EquipList.get(mActivity)) {
-                    if (mEnemy && equip.getId() < 500) {
+                for (Equip equip : EquipList.get(mActivity)) {
+                    if (!check(equip))
                         continue;
-                    }
-
-                    if (!mEnemy && equip.getId() > 500) {
-                        continue;
-                    }
-
-                    if (requireBookmarked() && !equip.isBookmarked()) {
-                        continue;
-                    }
-
-                    if (equip.getParentType() != mType && mType != 0) {
-                        continue;
-                    }
 
                     if (getItemCount() == 0 || lastType != equip.getType()) {
                         lastType = equip.getType();
@@ -99,6 +88,30 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewH
                 BusProvider.instance().post(new DataListRebuiltFinished());
             }
         }.execute();
+    }
+
+    private boolean check(Equip equip) {
+        if (mEnemy && equip.getId() < 500) {
+            return false;
+        }
+
+        if (!mEnemy && equip.getId() > 500) {
+            return false;
+        }
+
+        if (requireBookmarked() && !equip.isBookmarked()) {
+            return false;
+        }
+
+        if (equip.getParentType() != mType && mType != 0) {
+            return false;
+        }
+
+        if (mShipType != null && !mShipType.canEquip(equip)) {
+            return false;
+        }
+
+        return true;
     }
 
     @Override

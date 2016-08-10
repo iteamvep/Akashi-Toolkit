@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.staticdata.EquipList;
 import rikka.akashitoolkit.staticdata.ShipList;
 
@@ -275,7 +276,7 @@ public class Fleet {
                     break;
                 }
 
-                if (e.init(context)) {
+                if (e.init(context) && e.getEquip() != null && getShip().getShipType().canEquip(e.getEquip())) {
                     equipList.add(e);
                 } else {
                     equipList.add(new Fleet.Ship.Equip());
@@ -333,7 +334,7 @@ public class Fleet {
 
     public void init(Context context) {
         if (TextUtils.isEmpty(getName())) {
-            setName("Untitled");
+            setName(context.getString(R.string.fleet_default_title));
         }
 
         if (getShips() == null) {

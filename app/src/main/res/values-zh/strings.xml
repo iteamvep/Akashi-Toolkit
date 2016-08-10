@@ -275,8 +275,14 @@
     <string name="fleet_view_ship">查看舰娘</string>
     <string name="fleet_change_level">更改等级</string>
     <string name="fleet_change_ship">更改舰娘</string>
+    <string name="fleet_delete_ship">删除舰娘</string>
 
     <string name="fleet_rename">重命名</string>
     <string name="fleet_export">复制数据</string>
+    <string name="fleet_delete">删除</string>
+
+    <string name="fleet_select_equip">选择装备</string>
+
+    <string name="fleet_default_title">新的舰队</string>
 
 </resources>

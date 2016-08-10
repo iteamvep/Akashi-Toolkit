@@ -3,6 +3,7 @@ package rikka.akashitoolkit.fleet_editor;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import rikka.akashitoolkit.gallery.GalleryAdapter;
 import rikka.akashitoolkit.model.Fleet;
 import rikka.akashitoolkit.model.Ship;
 import rikka.akashitoolkit.staticdata.ShipList;
+import rikka.akashitoolkit.ui.widget.EditTextAlertDialog;
 import rikka.akashitoolkit.ui.widget.ListBottomSheetDialog;
 import rikka.akashitoolkit.utils.Utils;
 
@@ -79,16 +81,38 @@ public class FleetsListAdapter extends BaseItemTouchHelperAdapter<FleetListViewH
         holder.mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Context context = view.getContext();
+                final Context context = view.getContext();
                 ListBottomSheetDialog dialog = new ListBottomSheetDialog(context);
                 dialog.setItems(new int[]{
                         R.string.fleet_rename,
-                        R.string.fleet_export
+                        R.string.fleet_export,
+                        R.string.fleet_delete
                 }, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
+                        final int position = holder.getAdapterPosition();
                         switch (i) {
                             case 0:
+                                new EditTextAlertDialog.Builder(context, R.style.AppTheme_Dialog_Alert)
+                                        .setTitle(R.string.fleet_rename)
+                                        .setPositiveButton(android.R.string.ok, null)
+                                        .setNegativeButton(android.R.string.cancel, null)
+                                        .setEditText(R.layout.dialog_edittext, getItem(position).getName(), new EditTextAlertDialog.OnPositiveButtonClickListener() {
+                                            @Override
+                                            public void onPositiveButtonClickListener(DialogInterface dialog, String text) {
+                                                if (!TextUtils.isEmpty(text)) {
+                                                    getItem(position).setName(text);
+                                                    holder.mTitle.setText(text);
+                                                }
+                                            }
+                                        })
+                                        .show();
+                                break;
+                            case 1:
+                                break;
+                            case 2:
+                                getItemList().remove(position);
+                                notifyItemRemoved(position);
                                 break;
                         }
                         dialogInterface.dismiss();

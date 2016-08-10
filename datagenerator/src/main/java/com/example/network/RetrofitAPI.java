@@ -1,5 +1,6 @@
 package com.example.network;
 
+import com.example.model.APIShipType;
 import com.example.model.NewShip;
 
 import java.util.List;
@@ -21,6 +22,15 @@ public class RetrofitAPI {
 
         @GET("/ship/detail/{id}")
         Call<NewShip> getDetail(@Path("id") int id);
+
+        /**
+         * 舰娘类型数据接口
+         * https://github.com/kcwikizh/kcwiki-api/wiki/Ship#type
+         *
+         * @return 列表
+         */
+        @GET("/ships/type")
+        Call<List<APIShipType>> getTypes();
     }
 
 

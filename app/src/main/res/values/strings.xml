@@ -294,7 +294,14 @@ Activity &amp; Extra:
     <string name="fleet_view_ship">View ship</string>
     <string name="fleet_change_level">Edit level</string>
     <string name="fleet_change_ship">Edit ship</string>
+    <string name="fleet_delete_ship">Delete ship</string>
 
     <string name="fleet_rename">Rename</string>
     <string name="fleet_export">Copy data</string>
+    <string name="fleet_delete">Delete</string>
+
+    <string name="fleet_select_equip">Select equip</string>
+
+    <string name="fleet_default_title">New fleet</string>
+
 </resources>

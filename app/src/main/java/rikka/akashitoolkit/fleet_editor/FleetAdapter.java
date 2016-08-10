@@ -101,10 +101,11 @@ public class FleetAdapter extends BaseItemTouchHelperAdapter<FleetViewHolder, Fl
     private void showDialog(final FleetViewHolder holder, final int position) {
         Context context = holder.itemView.getContext();
         ListBottomSheetDialog dialog = new ListBottomSheetDialog(context);
-        dialog.setItems(new CharSequence[]{
-                context.getString(R.string.fleet_view_ship),
-                context.getString(R.string.fleet_change_level),
-                context.getString(R.string.fleet_change_ship)
+        dialog.setItems(new int[]{
+                R.string.fleet_view_ship,
+                R.string.fleet_change_level,
+                R.string.fleet_change_ship,
+                R.string.fleet_delete_ship
         }, new DialogInterface.OnClickListener() {
             @SuppressLint("SetTextI18n")
             @Override
@@ -145,6 +146,10 @@ public class FleetAdapter extends BaseItemTouchHelperAdapter<FleetViewHolder, Fl
                         break;
                     case 2:
                         BusProvider.instance().post(new ItemSelectAction.StartShip(holder.getAdapterPosition()));
+                        break;
+                    case 3:
+                        getItemList().remove(position);
+                        notifyItemRemoved(position);
                         break;
                 }
                 dialogInterface.dismiss();

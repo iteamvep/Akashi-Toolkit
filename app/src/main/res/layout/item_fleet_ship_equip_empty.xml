@@ -19,7 +19,7 @@
         android:textSize="16sp"
         android:layout_marginLeft="36dp"
         android:layout_marginStart="36dp"
-        android:text="选择装备"/>
+        android:text="@string/fleet_select_equip"/>
 
     <TextView
         android:id="@android:id/summary"

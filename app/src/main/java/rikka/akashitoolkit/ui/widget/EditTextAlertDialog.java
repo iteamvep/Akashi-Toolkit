@@ -304,7 +304,7 @@ public class EditTextAlertDialog extends AlertDialog {
         }
 
         public Builder setEditText(@LayoutRes int resId, String text, String hint, OnPositiveButtonClickListener listener) {
-            return setEditText(resId, text, hint, InputType.TYPE_NULL, listener);
+            return setEditText(resId, text, hint, InputType.TYPE_CLASS_TEXT, listener);
         }
 
         public Builder setEditText(@LayoutRes int resId, String text, String hint, int inputType, OnPositiveButtonClickListener listener) {

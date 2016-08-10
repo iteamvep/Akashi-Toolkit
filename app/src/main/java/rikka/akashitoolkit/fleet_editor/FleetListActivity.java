@@ -44,6 +44,7 @@ public class FleetListActivity extends BaseActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(R.string.fleets);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

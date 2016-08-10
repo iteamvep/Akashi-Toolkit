@@ -50,7 +50,11 @@ public class FleetEditActivity extends AppCompatActivity {
     private Fleet mFleet;
     private FleetAdapter mAdapter;
 
+    /**
+     * 第几个舰娘
+     */
     private int mCurrentEditingPosition;
+    /** 第几个装备槽 */
     private int mCurrentEditingSlot;
 
     @Override
@@ -64,7 +68,7 @@ public class FleetEditActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        getSupportActionBar().setTitle(R.string.fleet_edit);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.content_container);
@@ -139,6 +143,7 @@ public class FleetEditActivity extends AppCompatActivity {
     @Subscribe
     public void onSelectEquipClicked(ItemSelectAction.StartEquip action) {
         Intent intent = new Intent(this, EquipSelectActivity.class);
+        intent.putExtra(EquipSelectActivity.EXTRA_SHIP_TYPE, mFleet.getShips().get(mCurrentEditingPosition).getShip().getShipType().getId());
         startActivityForResult(intent, REQUEST_CODE_SELECT_EQUIP);
 
         mCurrentEditingPosition = action.getPosition();

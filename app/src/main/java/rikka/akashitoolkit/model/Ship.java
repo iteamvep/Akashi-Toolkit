@@ -15,6 +15,16 @@ public class Ship extends BaseDataModel {
     private int rarity;
     private String name_for_search;
 
+    private ShipType ship_type;
+
+    public ShipType getShipType() {
+        return ship_type;
+    }
+
+    public void setShipType(ShipType ship_type) {
+        this.ship_type = ship_type;
+    }
+
     private int build_time;
     private int[] broken;
     private int[] power_up;

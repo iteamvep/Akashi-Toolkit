@@ -20,6 +20,8 @@ import rikka.akashitoolkit.equip.EquipFragment;
  */
 public class EquipSelectActivity extends BaseActivity {
 
+    public static final String EXTRA_SHIP_TYPE = "EXTRA_SHIP_TYPE";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +41,7 @@ public class EquipSelectActivity extends BaseActivity {
             EquipFragment fragment = new EquipFragment();
             Bundle bundle = new Bundle();
             bundle.putBoolean(EquipFragment.ARG_SELECT_MODE, true);
+            bundle.putInt(EquipFragment.ARG_SHIP_TYPE, getIntent().getIntExtra(EXTRA_SHIP_TYPE, -1));
             fragment.setArguments(bundle);
 
             getSupportFragmentManager().beginTransaction()
