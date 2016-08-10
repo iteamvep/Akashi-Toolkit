@@ -197,10 +197,18 @@ public class FleetAdapter extends BaseItemTouchHelperAdapter<FleetViewHolder, Fl
 
         StringBuilder sb = new StringBuilder();
         appendAttrString(context, sb, R.string.attr_firepower, attr.getFirepower());
-        appendAttrString(context, sb, R.string.attr_boom, attr.getBombing());
+        if (ship.getType() != 5             /* 重巡洋舰 */
+                && ship.getType() != 8      /* 高速战舰 */
+                && ship.getType() != 9)     /* 战舰 */ {
+            appendAttrString(context, sb, R.string.attr_boom, attr.getBombing());
+        }
         appendAttrString(context, sb, R.string.attr_torpedo, attr.getTorpedo());
         appendAttrString(context, sb, R.string.attr_aa, attr.getAA());
-        if (ship.getType() != 11) {
+        if (ship.getType() != 5             /* 重巡洋舰 */
+                && ship.getType() != 8      /* 高速战舰 */
+                && ship.getType() != 9      /* 战舰 */
+                && ship.getType() != 11     /* 正规空母 */
+                && ship.getType() != 18)    /* 装甲空母 */ {
             appendAttrString(context, sb, R.string.attr_asw, attr.getASW());
         }
 

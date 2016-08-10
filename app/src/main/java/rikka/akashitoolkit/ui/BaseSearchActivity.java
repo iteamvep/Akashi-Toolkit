@@ -15,6 +15,8 @@ public abstract class BaseSearchActivity extends BaseActivity {
 
     private String mKeyword;
     private boolean mIsSearching;
+    private MenuItem mSearchMenuItem;
+    private SearchView mSearchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +30,8 @@ public abstract class BaseSearchActivity extends BaseActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuItem item = menu.findItem(R.id.action_search);
-        MenuItemCompat.setOnActionExpandListener(item,
+        mSearchMenuItem = menu.findItem(R.id.action_search);
+        MenuItemCompat.setOnActionExpandListener(mSearchMenuItem,
                 new MenuItemCompat.OnActionExpandListener() {
                     @Override
                     public boolean onMenuItemActionExpand(MenuItem item) {
@@ -42,12 +44,14 @@ public abstract class BaseSearchActivity extends BaseActivity {
                     @Override
                     public boolean onMenuItemActionCollapse(MenuItem item) {
                         onSearchCollapse();
+
+                        mIsSearching = false;
                         return true;
                     }
                 });
 
-        SearchView searchView = (SearchView) item.getActionView();
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        mSearchView = (SearchView) mSearchMenuItem.getActionView();
+        mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 return false;
@@ -65,8 +69,8 @@ public abstract class BaseSearchActivity extends BaseActivity {
 
         if (mIsSearching) {
             String keyword = mKeyword;
-            item.expandActionView();
-            searchView.setQuery(keyword, false);
+            mSearchMenuItem.expandActionView();
+            mSearchView.setQuery(keyword, false);
         }
 
         return super.onCreateOptionsMenu(menu);
@@ -78,6 +82,16 @@ public abstract class BaseSearchActivity extends BaseActivity {
 
         outState.putString("KEYWORD", mKeyword);
         outState.putBoolean("SEARCHING", mIsSearching);
+    }
+
+    public void expandSearchView() {
+        mSearchMenuItem.expandActionView();
+        mSearchView.setQuery(mKeyword, false);
+    }
+
+    public void collapseSearchView() {
+        mSearchMenuItem.collapseActionView();
+
     }
 
     public abstract void onSearchExpand();
