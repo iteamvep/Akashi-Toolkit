@@ -142,12 +142,15 @@ public class FleetEditActivity extends AppCompatActivity {
 
     @Subscribe
     public void onSelectEquipClicked(ItemSelectAction.StartEquip action) {
+        mCurrentEditingPosition = action.getPosition();
+        mCurrentEditingSlot = action.getSlot();
+
+        Log.d(TAG, "open equip select: position " + mCurrentEditingPosition
+                + " slot " + mCurrentEditingSlot);
+
         Intent intent = new Intent(this, EquipSelectActivity.class);
         intent.putExtra(EquipSelectActivity.EXTRA_SHIP_TYPE, mFleet.getShips().get(mCurrentEditingPosition).getShip().getShipType().getId());
         startActivityForResult(intent, REQUEST_CODE_SELECT_EQUIP);
-
-        mCurrentEditingPosition = action.getPosition();
-        mCurrentEditingSlot = action.getSlot();
     }
 
     @Override
