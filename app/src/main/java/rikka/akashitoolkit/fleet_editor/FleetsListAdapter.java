@@ -85,7 +85,7 @@ public class FleetsListAdapter extends BaseItemTouchHelperAdapter<FleetListViewH
                 ListBottomSheetDialog dialog = new ListBottomSheetDialog(context);
                 dialog.setItems(new int[]{
                         R.string.fleet_rename,
-                        R.string.fleet_export,
+                        //R.string.fleet_export,
                         R.string.fleet_delete
                 }, new DialogInterface.OnClickListener() {
                     @Override
@@ -108,9 +108,9 @@ public class FleetsListAdapter extends BaseItemTouchHelperAdapter<FleetListViewH
                                         })
                                         .show();
                                 break;
+                            /*case 1:
+                                break;*/
                             case 1:
-                                break;
-                            case 2:
                                 getItemList().remove(position);
                                 notifyItemRemoved(position);
                                 break;

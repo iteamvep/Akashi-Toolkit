@@ -23,6 +23,7 @@ import rikka.akashitoolkit.ship.ShipDisplayActivity;
 import rikka.akashitoolkit.staticdata.ShipList;
 import rikka.akashitoolkit.ui.widget.EditTextAlertDialog;
 import rikka.akashitoolkit.ui.widget.ListBottomSheetDialog;
+import rikka.akashitoolkit.utils.KCStringFormatter;
 
 /**
  * Created by Rikka on 2016/7/29.
@@ -49,7 +50,7 @@ public class FleetAdapter extends BaseItemTouchHelperAdapter<FleetViewHolder, Fl
     }
 
     private void bindViewHolderEmpty(final FleetViewHolder holder, int position) {
-        holder.mSummary.setVisibility(View.GONE);
+        holder.mContent.setVisibility(View.GONE);
         holder.mButton.setVisibility(View.GONE);
         holder.mRecyclerView.setVisibility(View.GONE);
         holder.mTitle.setText(holder.itemView.getContext().getString(R.string.fleet_select_ship));
@@ -69,16 +70,20 @@ public class FleetAdapter extends BaseItemTouchHelperAdapter<FleetViewHolder, Fl
     private void bindViewHolder(final FleetViewHolder holder, int position, Fleet.Ship item) {
         Context context = holder.itemView.getContext();
 
-        holder.mSummary.setVisibility(View.VISIBLE);
+        holder.mContent.setVisibility(View.VISIBLE);
         holder.mButton.setVisibility(View.VISIBLE);
         holder.mRecyclerView.setVisibility(View.VISIBLE);
 
-        holder.swipe = true;
+        holder.swipe = false;
         holder.drag = true;
 
         Ship ship = ShipList.findItemById(context, item.getId());
 
         holder.mTitle.setText(String.format("%s Lv.%d", ship.getName().get(context), item.getLevel()));
+
+        holder.mSummary.setText(String.format("%s %s",
+                KCStringFormatter.getSpeed(context, ship.getAttr().getSpeed()),
+                ship.getShipType().getName().get(context)));
 
         resetEquipRelatedText(holder, position);
 
@@ -186,13 +191,6 @@ public class FleetAdapter extends BaseItemTouchHelperAdapter<FleetViewHolder, Fl
 
         Context context = holder.itemView.getContext();
 
-        holder.mSummary.setVisibility(View.VISIBLE);
-        holder.mButton.setVisibility(View.VISIBLE);
-        holder.mRecyclerView.setVisibility(View.VISIBLE);
-
-        holder.swipe = true;
-        holder.drag = true;
-
         Ship ship = ShipList.findItemById(context, item.getId());
 
         AttrEntity attr = item.getAttr();
@@ -213,7 +211,7 @@ public class FleetAdapter extends BaseItemTouchHelperAdapter<FleetViewHolder, Fl
             sb.append(String.format("%s %.2f ~ %.2f", context.getString(R.string.fleet_fp), item.getAA()[0], item.getAA()[1]));
         }
 
-        holder.mSummary.setText(sb.toString());
+        holder.mContent.setText(sb.toString());
     }
 
     @Override

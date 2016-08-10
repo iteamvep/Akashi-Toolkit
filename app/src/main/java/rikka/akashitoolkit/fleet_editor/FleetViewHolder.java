@@ -6,7 +6,7 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.View;
 import android.widget.TextView;
 
-import rikka.akashitoolkit.fleet_editor.FleetEquipAdapter;
+import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.ui.widget.ItemTouchHelperCallback;
 import rikka.akashitoolkit.viewholder.ItemTouchHelperViewHolder;
 
@@ -17,6 +17,7 @@ public class FleetViewHolder extends RecyclerView.ViewHolder implements ItemTouc
 
     public TextView mTitle;
     public TextView mSummary;
+    public TextView mContent;
     public RecyclerView mRecyclerView;
     public FleetEquipAdapter mAdapter;
     public View mButton;
@@ -29,7 +30,8 @@ public class FleetViewHolder extends RecyclerView.ViewHolder implements ItemTouc
 
         mTitle = (TextView) itemView.findViewById(android.R.id.title);
         mSummary = (TextView) itemView.findViewById(android.R.id.summary);
-        mRecyclerView = (RecyclerView) itemView.findViewById(android.R.id.content);
+        mContent = (TextView) itemView.findViewById(android.R.id.content);
+        mRecyclerView = (RecyclerView) itemView.findViewById(R.id.content_container);
         mButton = itemView.findViewById(android.R.id.icon);
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(itemView.getContext(), LinearLayoutManager.VERTICAL, false));
@@ -42,6 +44,9 @@ public class FleetViewHolder extends RecyclerView.ViewHolder implements ItemTouc
         ItemTouchHelper.Callback callback = new ItemTouchHelperCallback(mAdapter);
         ItemTouchHelper touchHelper = new ItemTouchHelper(callback);
         touchHelper.attachToRecyclerView(mRecyclerView);
+
+        drag = true;
+        swipe = false;
     }
 
 

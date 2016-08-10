@@ -19,18 +19,32 @@
         android:paddingBottom="16dp"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@android:id/title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="@dimen/item_padding"
-            android:paddingRight="@dimen/item_padding"
-            tools:text="睦月 Lv.1"
-            android:textAppearance="@style/TextAppearance.AppCompat"
-            android:textSize="18sp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@android:id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/item_padding"
+                android:paddingRight="@dimen/item_padding"
+                tools:text="睦月 Lv.1"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@android:id/summary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="高速 驱逐舰"
+                android:textSize="14sp"/>
+
+        </LinearLayout>
+
 
         <TextView
-            android:id="@android:id/summary"
+            android:id="@android:id/content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="8dp"
@@ -41,7 +55,7 @@
             android:textSize="16sp"/>
 
         <android.support.v7.widget.RecyclerView
-            android:id="@android:id/content"
+            android:id="@id/content_container"
             android:paddingTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">

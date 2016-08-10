@@ -10,11 +10,13 @@ import android.widget.TextView;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.gallery.GalleryAdapter;
 import rikka.akashitoolkit.utils.Utils;
+import rikka.akashitoolkit.viewholder.ItemTouchHelperViewHolder;
 
 /**
  * Created by Rikka on 2016/7/29.
  */
-public class FleetListViewHolder extends RecyclerView.ViewHolder {
+public class FleetListViewHolder extends RecyclerView.ViewHolder implements ItemTouchHelperViewHolder {
+
     private static final int SPAN_COUNT = 3;
 
     public TextView mTitle;
@@ -26,6 +28,9 @@ public class FleetListViewHolder extends RecyclerView.ViewHolder {
 
     public int mItemHeight;
     public int mItemWidth;
+
+    public boolean drag;
+    public boolean swipe;
 
     public void setImageSize() {
         mRecyclerView.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
@@ -46,6 +51,9 @@ public class FleetListViewHolder extends RecyclerView.ViewHolder {
                 mRecyclerView.getAdapter().notifyDataSetChanged();
             }
         }, 300);
+
+        drag = true;
+        swipe = false;
     }
 
     public FleetListViewHolder(View itemView) {
@@ -83,5 +91,15 @@ public class FleetListViewHolder extends RecyclerView.ViewHolder {
                 }
             }
         });
+    }
+
+    @Override
+    public int getDragFlags() {
+        return drag ? dragFlags : 0;
+    }
+
+    @Override
+    public int getSwipeFlags() {
+        return swipe ? swipeFlags : 0;
     }
 }
