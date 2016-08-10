@@ -5,6 +5,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 
 import com.squareup.otto.Subscribe;
@@ -12,13 +13,17 @@ import com.squareup.otto.Subscribe;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.ItemSelectAction;
+import rikka.akashitoolkit.otto.ShipAction;
 import rikka.akashitoolkit.ui.BaseActivity;
 import rikka.akashitoolkit.ship.ShipFragment;
+import rikka.akashitoolkit.ui.BaseSearchActivity;
 
 /**
  * Created by Rikka on 2016/7/29.
  */
-public class ShipSelectActivity extends BaseActivity {
+public class ShipSelectActivity extends BaseSearchActivity {
+
+    private ShipFragment mShipFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,15 +41,23 @@ public class ShipSelectActivity extends BaseActivity {
         getSupportActionBar().setTitle(getString(R.string.ship_select));
 
         if (savedInstanceState == null) {
-            ShipFragment fragment = new ShipFragment();
+            mShipFragment = new ShipFragment();
             Bundle bundle = new Bundle();
             bundle.putBoolean(ShipFragment.ARG_SELECT_MODE, true);
-            fragment.setArguments(bundle);
+            mShipFragment.setArguments(bundle);
 
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment, fragment)
+                    .replace(R.id.fragment, mShipFragment, "SHIP_FRAGMENT")
                     .commit();
+        } else {
+            mShipFragment = (ShipFragment) getSupportFragmentManager().findFragmentByTag("SHIP_FRAGMENT");
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.search, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
@@ -76,5 +89,28 @@ public class ShipSelectActivity extends BaseActivity {
         intent.putExtra(FleetEditActivity.EXTRA_ID, action.getId());
         setResult(RESULT_OK, intent);
         finish();
+    }
+
+    @Override
+    public void onSearchExpand() {
+        if (mShipFragment != null) {
+            mShipFragment.isSearchingChanged(new ShipAction.IsSearchingChanged(true));
+            mShipFragment.getAdapter().rebuildDataList();
+        }
+    }
+
+    @Override
+    public void onSearchCollapse() {
+        if (mShipFragment != null) {
+            mShipFragment.isSearchingChanged(new ShipAction.IsSearchingChanged(false));
+            mShipFragment.getAdapter().rebuildDataList();
+        }
+    }
+
+    @Override
+    public void onSearchTextChange(String newText) {
+        if (mShipFragment != null) {
+            mShipFragment.keywordChanged(new ShipAction.KeywordChanged(newText.replace(" ", "")));
+        }
     }
 }

@@ -1,35 +1,23 @@
-package rikka.akashitoolkit.ui.fragments;
+package rikka.akashitoolkit.ui;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.SearchView;
-import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
 
 import rikka.akashitoolkit.R;
 
 /**
- * Created by Rikka on 2016/4/4.
+ * Created by Rikka on 2016/8/11.
  */
-public abstract class BaseSearchFragment extends BaseDrawerItemFragment {
+public abstract class BaseSearchActivity extends BaseActivity {
 
     private String mKeyword;
     private boolean mIsSearching;
 
     @Override
-    public void onHide() {
-        super.onHide();
-
-        mIsSearching = false;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         if (savedInstanceState != null) {
@@ -38,24 +26,8 @@ public abstract class BaseSearchFragment extends BaseDrawerItemFragment {
         }
     }
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return super.onCreateView(inflater, container, savedInstanceState);
-    }
-
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-
-        outState.putString("KEYWORD", mKeyword);
-        outState.putBoolean("SEARCHING", mIsSearching);
-    }
-
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
-
+    public boolean onCreateOptionsMenu(Menu menu) {
         MenuItem item = menu.findItem(R.id.action_search);
         MenuItemCompat.setOnActionExpandListener(item,
                 new MenuItemCompat.OnActionExpandListener() {
@@ -89,21 +61,23 @@ public abstract class BaseSearchFragment extends BaseDrawerItemFragment {
                 return false;
             }
         });
-        searchView.setQueryHint(getSearchHint());
+        //searchView.setQueryHint(getSearchHint());
 
         if (mIsSearching) {
             String keyword = mKeyword;
             item.expandActionView();
             searchView.setQuery(keyword, false);
         }
+
+        return super.onCreateOptionsMenu(menu);
     }
 
-    public String getSearchHint() {
-        return getResources().getString(R.string.abc_search_hint);
-    }
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
 
-    public boolean isSearching() {
-        return mIsSearching;
+        outState.putString("KEYWORD", mKeyword);
+        outState.putBoolean("SEARCHING", mIsSearching);
     }
 
     public abstract void onSearchExpand();

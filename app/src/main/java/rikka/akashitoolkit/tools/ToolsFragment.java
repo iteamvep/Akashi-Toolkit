@@ -55,7 +55,7 @@ public class ToolsFragment extends BaseDrawerItemFragment {
             @Override
             public void onClick(View v) {
                 Toast.makeText(mActivity, Locale.getDefault().equals(Locale.SIMPLIFIED_CHINESE)
-                        ? "该功能尚在开发中\n部分功能将会无效" : "This feature is still in development.\nSome feature will not work.", Toast.LENGTH_SHORT).show();
+                        ? "该功能尚在开发中" : "This feature is still in development.", Toast.LENGTH_SHORT).show();
                 startActivity(v.getContext(), FleetListActivity.class);
             }
         });
