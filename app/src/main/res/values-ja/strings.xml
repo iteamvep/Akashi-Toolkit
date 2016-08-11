@@ -25,7 +25,7 @@
     <string name="action_refresh">更新</string>
 
     <string name="category_general">一般</string>
-    <string name="category_twitter">公式Twitter</string>
+    <string name="category_twitter">公式ツイッター</string>
     <string name="twitter_count">ツイート数</string>
     <string name="twitter_display_language">表示言語</string>
     <string name="twitter_display_language_both">原文及び翻訳</string>
@@ -47,11 +47,11 @@
     <string name="expedition_flagship_total">合計レベル: %s</string>
 
     <string name="version_format" formatted="false">%s (%d)</string>
-    <string name="version">アプリのバージョン</string>
+    <string name="version">バージョン</string>
 
     <string name="category_update">更新とメッセージ</string>
     <string name="update_check_channel">更新チャンネル</string>
-    <string name="every_time_open_app">アプリを開く時ホームページへ</string>
+    <string name="every_time_open_app">アプリを開く時ホームページに移動する</string>
     <string name="manually">手動</string>
     <string name="no_translated">(翻訳してないだぜ☆)</string>
     <string name="item_improvement">改修</string>
@@ -68,7 +68,7 @@
     <string name="open_link">リンクを開く</string>
     <string name="todo_card_format" formatted="false">現在のバージョン: %s\n%s</string>
     <string name="today">(本日)</string>
-    <string name="action_filter">フィルター</string>
+    <string name="action_filter">フィルタ</string>
     <string name="action_search">検索</string>
     <string name="item">装備</string>
     <string name="attributes">装備ステータス</string>
@@ -81,7 +81,7 @@
     <string name="introduction">図鑑内容</string>
     <string name="ship_can_equip">装備可能艦種</string>
     <string name="ship_initial_equip">艦船初期装備</string>
-    <string name="image_load_error">画像を読み込みできません</string>
+    <string name="image_load_error">画像ロードエラー</string>
     <string name="tools">工具</string>
     <string name="exp_calc">経験値計算機</string>
     <string name="exp_calc_map">海域</string>
@@ -93,7 +93,7 @@
     <string name="exp_calc_error">データエラー</string>
 
     <string name="ui_language">アプリ言語</string>
-    <string name="data_language">データの言語</string>
+    <string name="data_language">データ言語</string>
     <string name="data_language_title">日本語タイトル</string>
     <string name="data_language_title_summary">任務名などに日本語で表示する</string>
     <string name="action_picture">画像</string>
@@ -105,14 +105,14 @@
     <string name="initial">初期ステータス</string>
     <string name="saved">保存 %s</string>
     <string name="save_failed">保存失敗</string>
-    <string name="require_write_external_storage_permission">コンテンツを保存するには、SDカードへの書き込みの許可が必要です</string>
+    <string name="require_write_external_storage_permission">保存するには、この端末上の写真へのアクセスを許可する必要があります。</string>
     <string name="open">開く</string>
-    <string name="download_wifi_only">Wi-Fi接続時のみ画像を読み込み</string>
+    <string name="download_wifi_only">Wi-Fi接続時のみ画像を読み込む</string>
     <string name="voice">ボイス</string>
     <string name="new_content">季節性</string>
 
     <string name="category_notification">通知</string>
-    <string name="notification_sound">通知音</string>
+    <string name="notification_sound">通知とサウンド</string>
     <string name="notification_priority">通知の優先度</string>
     <string name="data_feedback">フィードバックを送る</string>
 
@@ -130,23 +130,23 @@
 
     <string name="action_bookmark">お気に入り</string>
     <string name="bookmark_add">お気に入りに追加しました</string>
-    <string name="bookmark_remove">お気に入りを解除しました</string>
+    <string name="bookmark_remove">お気に入りから外しました</string>
 
     <string name="night_mode_require_restart">変更を反応するには再起動する必要があります。</string>
     <string name="restart_app">再起動</string>
     <string name="continue_use">使い続け</string>
 
-    <string name="night_mode_system_auto">端末の夜間モード設定は自動となります、アプリ内で自動と設定しても夜間モードに入らない可能性があります。</string>
+    <string name="night_mode_system_auto">端末の夜間モード設定は自動となります、アプリ内で自動と設定しても夜間モードに入れない可能性があります。</string>
 
-    <string name="nav_bar_color">ナビゲーションバーの色</string>
-    <string name="nav_bar_color_summary">テーマカラーを使用</string>
+    <string name="nav_bar_color">ナビゲーションバーの色を有効</string>
+    <string name="nav_bar_color_summary">テーマカラーを使用する</string>
 
-    <string name="category_cache">キャッシュデータ</string>
-    <string name="cache_max_size">キャッシュデータサイズの制限</string>
-    <string name="no_limit">制限なし</string>
-    <string name="clear_cache">キャッシュデータを削除</string>
-    <string name="clear_cache_summary">キャッシュされた画像とボイス</string>
-    <string name="cleared">キャッシュデータを削除しました</string>
+    <string name="category_cache">キャッシュ</string>
+    <string name="cache_max_size">キャッシュ最大容量</string>
+    <string name="no_limit">無限制</string>
+    <string name="clear_cache">キャッシュの削除</string>
+    <string name="clear_cache_summary">キャッシュされた画像とボイスを削除する</string>
+    <string name="cleared">削除しました</string>
     <string name="ranking">戦果検索</string>
 
     <string name="feedback_summary">フィードバックを送信</string>
@@ -159,14 +159,14 @@
     <string name="send_via">送信経由</string>
     <string name="no_mail_app">メールアプリがないの様子</string>
 
-    <string name="copied_to_clipboard_format">%s をクリップボードにコピーしました</string>
+    <string name="copied_to_clipboard_format">%s クリップボードにコピーしています</string>
     <string name="copied_to_clipboard">クリップボードにコピーしました</string>
 
     <string name="nothing_bookmarked">お気に入り項目がありません</string>
     <string name="nothing_bookmarked_summary">長押しまたは詳情ページ右上のブックマークアイコンをタップしてお気に入りに追加。</string>
 
     <string name="share">共有</string>
-    <string name="share_text">テキストを共有のみ</string>
+    <string name="share_text">文字のみ共有する</string>
     <string name="copy_original_text">原文をコピー</string>
     <string name="copy_translated_text">翻訳をコピー</string>
 
@@ -183,8 +183,8 @@
     <string name="enemy">深海棲艦</string>
     <string name="all">すべて</string>
     <string name="expedition_finished">艦隊が母港に帰還しました</string>
-    <string name="expedition_notify">遠征お知らせ</string>
-    <string name="finished">帰還しました</string>
+    <string name="expedition_notify">遠征アラーム</string>
+    <string name="finished">艦隊が帰還しました</string>
     <string name="not_started">出発準備中</string>
     <string name="detail">詳情</string>
 
@@ -198,7 +198,7 @@
     <string name="attr_los">索敵</string>
     <string name="attr_speed">速力</string>
     <string name="attr_range">射程</string>
-    <string name="attr_range_aircraft">Range</string>
+    <string name="attr_range_aircraft">航程</string>
     <string name="attr_luck">運</string>
     <string name="attr_accuracy">命中</string>
     <string name="attr_boom">爆装</string>
@@ -219,9 +219,9 @@
     <string name="improvement_upgrade_to">更新先</string>
 
     <string name="open_in_new_document">分離タスク</string>
-    <string name="open_in_new_document_summary">最近使ったアプリ履歴画面に単なるタスクの形で別々の詳情ページを表示</string>
+    <string name="open_in_new_document_summary">最近使ったアプリ履歴画面に単なるタスクの形で別々の詳情ページを表示する</string>
 
-    <string name="show_ship_banner">艦娘バナーを表示</string>
+    <string name="show_ship_banner">艦娘バナーの表示</string>
     <string name="show_ship_banner_summary">艦娘リストと深海棲艦リストでバナーを表示する</string>
 
     <string name="not_remodel">未改造</string>
@@ -254,35 +254,35 @@
 
     <string name="fleet_fp">制空</string>
 
-    <string name="ship_select">Ship select</string>
-    <string name="equip_select">Equip select</string>
+    <string name="ship_select">艦娘リスト</string>
+    <string name="equip_select">装備リスト</string>
 
-    <string name="fleet_select_ship">Select ship…</string>
-    <string name="fleet_change_equip_attr">Edit attribute</string>
-    <string name="fleet_change_equip">Edit Equip</string>
-    <string name="fleet_view_equip">View Equip</string>
-    <string name="fleet_delete_equip">Delete Equip</string>
+    <string name="fleet_select_ship">艦娘を選択する…</string>
+    <string name="fleet_change_equip_attr">装備ステータスの変更</string>
+    <string name="fleet_change_equip">装備の変更</string>
+    <string name="fleet_view_equip">装備図鑑を開く</string>
+    <string name="fleet_delete_equip">装備を外す</string>
 
-    <string name="fleet_no_ship">No ship</string>
-    <string name="fleet_total_level">Total level %d</string>
-    <string name="fleet_high_speed">High speed fleet</string>
-    <string name="fleet_low_speed">Low speed fleet</string>
-    <string name="fleet_consume" formatted="false">Consume %d / %d </string>
+    <string name="fleet_no_ship">おらんわ！</string>
+    <string name="fleet_total_level">合計レベル %d</string>
+    <string name="fleet_high_speed">高速艦隊</string>
+    <string name="fleet_low_speed">低速艦隊</string>
+    <string name="fleet_consume" formatted="false">消費 %d / %d </string>
 
-    <string name="fleet_equip_improvement">Improvement</string>
-    <string name="fleet_equip_rank">Rank</string>
+    <string name="fleet_equip_improvement">改修</string>
+    <string name="fleet_equip_rank">艦載機熟練度</string>
 
-    <string name="fleet_view_ship">View ship</string>
-    <string name="fleet_change_level">Edit level</string>
-    <string name="fleet_change_ship">Edit ship</string>
-    <string name="fleet_delete_ship">Delete ship</string>
+    <string name="fleet_view_ship">艦娘図鑑を開く</string>
+    <string name="fleet_change_level">レベルの変更</string>
+    <string name="fleet_change_ship">艦娘の変更</string>
+    <string name="fleet_delete_ship">艦娘を外す</string>
 
-    <string name="fleet_rename">Rename</string>
-    <string name="fleet_export">Copy data</string>
-    <string name="fleet_delete">Delete</string>
+    <string name="fleet_rename">タイトルの変更</string>
+    <string name="fleet_export">データをコピーする</string>
+    <string name="fleet_delete">削除</string>
 
-    <string name="fleet_select_equip">Select equip</string>
+    <string name="fleet_select_equip">装備の選択</string>
 
-    <string name="fleet_default_title">New fleet</string>
+    <string name="fleet_default_title">新しい艦隊</string>
 
 </resources>
