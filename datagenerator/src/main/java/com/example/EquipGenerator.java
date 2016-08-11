@@ -263,6 +263,8 @@ public class EquipGenerator {
                 equip.setRemark(m2.group(1));
         }
 
+        specialType(list);
+
         gson = new GsonBuilder()
                 .excludeFieldsWithoutExposeAnnotation()
                 .create();
@@ -297,8 +299,12 @@ public class EquipGenerator {
 
         Utils.objectToJsonFile(str, "app/src/main/assets/Equip.json");
 
-
         Utils.objectToJsonFile(equipImprovementList, "app/src/main/assets/EquipImprovement.json");
+    }
+
+    private static void specialType(List<NewEquip> list) {
+        findByName("试制51cm连装炮", list).getTypes()[2] = 38; // 大口径主砲(II)
+        findByName("试制景云(舰侦型)", list).getTypes()[2] = 94; // 艦上偵察機(II)
     }
 
     private static List<EquipImprovement> equipImprovementList = new ArrayList<>();
@@ -372,5 +378,23 @@ public class EquipGenerator {
                     .replace("<br />", "\n")
                     .trim();
         }
+    }
+
+    public static NewEquip findById(int id, List<NewEquip> ship) {
+        for (NewEquip item : ship) {
+            if (item.getId() == id) {
+                return item;
+            }
+        }
+        throw new IllegalArgumentException(id + " not found");
+    }
+
+    public static NewEquip findByName(String name, List<NewEquip> ship) {
+        for (NewEquip item : ship) {
+            if (name.equals(item.getNameCN()) || name.equals(item.getNameJP())) {
+                return item;
+            }
+        }
+        throw new IllegalArgumentException(name + " not found");
     }
 }

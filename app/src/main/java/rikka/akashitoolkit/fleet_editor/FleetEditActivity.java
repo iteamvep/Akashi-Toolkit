@@ -149,7 +149,7 @@ public class FleetEditActivity extends AppCompatActivity {
                 + " slot " + mCurrentEditingSlot);
 
         Intent intent = new Intent(this, EquipSelectActivity.class);
-        intent.putExtra(EquipSelectActivity.EXTRA_SHIP_TYPE, mFleet.getShips().get(mCurrentEditingPosition).getShip().getShipType().getId());
+        intent.putExtra(EquipSelectActivity.EXTRA_SHIP_ID, mFleet.getShips().get(mCurrentEditingPosition).getShip().getId());
         startActivityForResult(intent, REQUEST_CODE_SELECT_EQUIP);
     }
 

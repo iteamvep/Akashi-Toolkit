@@ -177,10 +177,55 @@ public class ShipGenerator {
 
         makeShipClassList(list2);
 
+        addExtraEquipType(list2);
+
         String str = gson.toJson(list2).replace("\"name2\"", "\"name\"");
 
         objectToJsonFile(str, "app/src/main/assets/Ship.json");
         objectToJsonFile(shipClassList, "app/src/main/assets/ShipClass.json");
+    }
+
+    private static void addExtraEquipType(List<NewShip> list) {
+
+        findByName("大和", list).getExtraEquipType().add(38); // 大口径主砲(II)
+        findByName("大和改", list).getExtraEquipType().add(38);
+        findByName("武藏", list).getExtraEquipType().add(38);
+        findByName("武藏改", list).getExtraEquipType().add(38);
+        findByName("长门改", list).getExtraEquipType().add(38);
+        findByName("陆奥改", list).getExtraEquipType().add(38);
+
+        findByName("波拉改", list).getExtraEquipType().add(11); // 水上爆撃機
+        findByName("扎拉改", list).getExtraEquipType().add(11);
+
+        findByName("波拉改", list).getExtraEquipType().add(45); // 水上戦闘機
+        findByName("扎拉改", list).getExtraEquipType().add(45);
+
+        findByName("霞改二乙", list).getExtraEquipType().add(13); // 大型電探
+
+        findByName("霞改二", list).getExtraEquipType().add(34); // 司令部施設
+
+        findByName("阿武隈", list).getExtraEquipType().add(22); // 特殊潜航艇
+
+        findByName("阿武隈", list).getExtraEquipType().add(24); // 上陸用舟艇
+        findByName("江风改二", list).getExtraEquipType().add(24);
+        findByName("大潮改二", list).getExtraEquipType().add(24);
+        findByName("霞改二", list).getExtraEquipType().add(24);
+        findByName("Верный", list).getExtraEquipType().add(24);
+        findByName("朝潮改二丁", list).getExtraEquipType().add(24);
+        findByName("霞改二乙", list).getExtraEquipType().add(24);
+        findByName("睦月改二", list).getExtraEquipType().add(24);
+        findByName("如月改二", list).getExtraEquipType().add(24);
+        findByName("皋月改二", list).getExtraEquipType().add(24);
+
+        findByName("朝潮改二丁", list).getExtraEquipType().add(46); // 特型内火艇
+        findByName("阿武隈", list).getExtraEquipType().add(46);
+        findByName("霞改二乙", list).getExtraEquipType().add(46);
+        findByName("霞改二", list).getExtraEquipType().add(46);
+        findByName("大潮改二", list).getExtraEquipType().add(46);
+        findByName("Верный", list).getExtraEquipType().add(46);
+        findByName("皋月改二", list).getExtraEquipType().add(46);
+
+        findByName("Верный", list).getExtraEquipType().add(46); // 追加装甲(中型)
     }
 
     private static List<NewShip> getShipList() throws IOException {
@@ -204,6 +249,8 @@ public class ShipGenerator {
 
         if (!TextUtils.isEmpty(item.getYomi())) {
             sb.append(item.getNameJP())
+                    .append(',')
+                    .append(item.getYomi())
                     .append(',')
                     .append(wkj.toRomaji(item.getYomi()));
         }
@@ -354,5 +401,14 @@ public class ShipGenerator {
             }
         }
         return null;
+    }
+
+    public static NewShip findByName(String name, List<NewShip> ship) {
+        for (NewShip item : ship) {
+            if (name.equals(item.getNameCN()) || name.equals(item.getNameJP())) {
+                return item;
+            }
+        }
+        throw new IllegalArgumentException(name + " not found");
     }
 }

@@ -1,9 +1,9 @@
 package com.example.model;
 
-import com.example.utils.Utils;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,6 +27,20 @@ public class NewShip {
     @Expose private int[] broken;
     @Expose private int[] power_up;
     @Expose private int[] consume;
+
+    @Expose
+    private List<Integer> extra_equip_type;
+
+    public List<Integer> getExtraEquipType() {
+        if (extra_equip_type == null) {
+            extra_equip_type = new ArrayList<>();
+        }
+        return extra_equip_type;
+    }
+
+    public void setExtraEquipType(List<Integer> extra_equip_type) {
+        this.extra_equip_type = extra_equip_type;
+    }
 
     public int[] getResourceConsume() {
         return consume;

@@ -14,6 +14,7 @@ import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.BaseBookmarkRecyclerAdapter;
 import rikka.akashitoolkit.model.Equip;
 import rikka.akashitoolkit.model.EquipType;
+import rikka.akashitoolkit.model.Ship;
 import rikka.akashitoolkit.model.ShipType;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.DataListRebuiltFinished;
@@ -33,9 +34,9 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewH
     private int mType;
     private boolean mEnemy;
     private boolean mSelectMode;
-    private ShipType mShipType;
+    private Ship mShip;
 
-    public EquipAdapter(Activity activity, int type, boolean bookmarked, boolean enemy, boolean select_mode, ShipType ship_type) {
+    public EquipAdapter(Activity activity, int type, boolean bookmarked, boolean enemy, boolean select_mode, Ship ship) {
         super(bookmarked);
 
         setHasStableIds(true);
@@ -44,7 +45,7 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewH
         mType = type;
         mEnemy = enemy;
         mSelectMode = select_mode;
-        mShipType = ship_type;
+        mShip = ship;
 
         rebuildDataList();
     }
@@ -107,7 +108,9 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewH
             return false;
         }
 
-        if (mShipType != null && !mShipType.canEquip(equip)) {
+        if (mShip != null
+                && (mShip.getShipType() != null && !mShip.getShipType().canEquip(equip))
+                && (mShip.getExtraEquipType() == null || !mShip.getExtraEquipType().contains(equip.getTypes()[2]))) {
             return false;
         }
 

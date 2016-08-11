@@ -9,9 +9,11 @@ import android.support.v7.widget.SimpleItemAnimator;
 import com.squareup.otto.Subscribe;
 
 import rikka.akashitoolkit.R;
+import rikka.akashitoolkit.model.Ship;
 import rikka.akashitoolkit.model.ShipType;
 import rikka.akashitoolkit.otto.BookmarkAction;
 import rikka.akashitoolkit.otto.BusProvider;
+import rikka.akashitoolkit.staticdata.ShipList;
 import rikka.akashitoolkit.staticdata.ShipTypeList;
 import rikka.akashitoolkit.ui.fragments.BaseDisplayFragment;
 
@@ -27,7 +29,7 @@ public class EquipFragment extends BaseDisplayFragment<EquipAdapter> {
     public static final String ARG_SELECT_MODE = "SELECT_MODE";
     public static final String ARG_SHOW_ENEMY = "ENEMY";
     public static final String ARG_POSITION = "POSITION";
-    public static final String ARG_SHIP_TYPE = "SHIP_TYPE";
+    public static final String ARG_SHIP_ID = "SHIP_ID";
 
     private int mType;
     private int mPosition;
@@ -74,7 +76,7 @@ public class EquipFragment extends BaseDisplayFragment<EquipAdapter> {
         Bundle args = getArguments();
         boolean bookmark = false;
         mShowEnemy = false;
-        ShipType shipType = null;
+        Ship ship = null;
 
         if (args != null) {
             mType = args.getInt(ARG_TYPE);
@@ -82,13 +84,13 @@ public class EquipFragment extends BaseDisplayFragment<EquipAdapter> {
             mPosition = args.getInt(ARG_POSITION);
             mShowEnemy = args.getBoolean(ARG_SHOW_ENEMY);
             mSelectMode = args.getBoolean(ARG_SELECT_MODE);
-            int type = args.getInt(ARG_SHIP_TYPE, -1);
+            int type = args.getInt(ARG_SHIP_ID, -1);
             if (type != -1) {
-                shipType = ShipTypeList.findItemById(getActivity(), type);
+                ship = ShipList.findItemById(getActivity(), type);
             }
         }
 
-        setAdapter(new EquipAdapter(getActivity(), mType, bookmark, mShowEnemy, mSelectMode, shipType));
+        setAdapter(new EquipAdapter(getActivity(), mType, bookmark, mShowEnemy, mSelectMode, ship));
     }
 
 

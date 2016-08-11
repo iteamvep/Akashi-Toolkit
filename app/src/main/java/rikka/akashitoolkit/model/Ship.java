@@ -3,6 +3,9 @@ package rikka.akashitoolkit.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Rikka on 2016/6/28.
  */
@@ -23,6 +26,12 @@ public class Ship extends BaseDataModel {
 
     public void setShipType(ShipType ship_type) {
         this.ship_type = ship_type;
+    }
+
+    private List<Integer> extra_equip_type;
+
+    public List<Integer> getExtraEquipType() {
+        return extra_equip_type;
     }
 
     private int build_time;

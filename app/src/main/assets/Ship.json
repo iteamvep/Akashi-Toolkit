@@ -10,7 +10,7 @@
     "ctype": 28,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "睦月,mutsuki,睦月,muyue",
+    "name_for_search": "睦月,むつき,mutsuki,睦月,muyue",
     "build_time": 18,
     "broken": [
       1,
@@ -99,7 +99,7 @@
     "ctype": 28,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "如月,kisaragi,如月,ruyue",
+    "name_for_search": "如月,きさらぎ,kisaragi,如月,ruyue",
     "build_time": 18,
     "broken": [
       1,
@@ -188,7 +188,7 @@
     "ctype": 28,
     "cnum": 8,
     "rarity": 0,
-    "name_for_search": "長月,nagatsuki,长月,zhangyue",
+    "name_for_search": "長月,ながつき,nagatsuki,长月,zhangyue",
     "build_time": 18,
     "broken": [
       1,
@@ -277,7 +277,7 @@
     "ctype": 28,
     "cnum": 10,
     "rarity": 0,
-    "name_for_search": "三日月,mikaduki,三日月,sanriyue",
+    "name_for_search": "三日月,みかづき,mikaduki,三日月,sanriyue",
     "build_time": 18,
     "broken": [
       1,
@@ -366,7 +366,7 @@
     "ctype": 12,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "吹雪,fubuki,吹雪,chuixue",
+    "name_for_search": "吹雪,ふぶき,fubuki,吹雪,chuixue",
     "build_time": 20,
     "broken": [
       1,
@@ -455,7 +455,7 @@
     "ctype": 12,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "白雪,shirayuki,白雪,baixue",
+    "name_for_search": "白雪,しらゆき,shirayuki,白雪,baixue",
     "build_time": 20,
     "broken": [
       1,
@@ -544,7 +544,7 @@
     "ctype": 12,
     "cnum": 4,
     "rarity": 0,
-    "name_for_search": "深雪,miyuki,深雪,shenxue",
+    "name_for_search": "深雪,みゆき,miyuki,深雪,shenxue",
     "build_time": 20,
     "broken": [
       1,
@@ -633,7 +633,7 @@
     "ctype": 12,
     "cnum": 9,
     "rarity": 0,
-    "name_for_search": "磯波,isonami,矶波,jibo",
+    "name_for_search": "磯波,いそなみ,isonami,矶波,jibo",
     "build_time": 20,
     "broken": [
       1,
@@ -722,7 +722,7 @@
     "ctype": 1,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "綾波,ayanami,绫波,lingbo",
+    "name_for_search": "綾波,あやなみ,ayanami,绫波,lingbo",
     "build_time": 20,
     "broken": [
       1,
@@ -811,7 +811,7 @@
     "ctype": 1,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "敷波,shikinami,敷波,fubo",
+    "name_for_search": "敷波,しきなみ,shikinami,敷波,fubo",
     "build_time": 20,
     "broken": [
       1,
@@ -900,7 +900,7 @@
     "ctype": 1,
     "cnum": 8,
     "rarity": 0,
-    "name_for_search": "曙,akebono,曙,shu",
+    "name_for_search": "曙,あけぼの,akebono,曙,shu",
     "build_time": 20,
     "broken": [
       1,
@@ -989,7 +989,7 @@
     "ctype": 1,
     "cnum": 10,
     "rarity": 0,
-    "name_for_search": "潮,ushio,潮,chao",
+    "name_for_search": "潮,うしお,ushio,潮,chao",
     "build_time": 20,
     "broken": [
       1,
@@ -1078,7 +1078,7 @@
     "ctype": 30,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "陽炎,kagerou,阳炎,yangyan",
+    "name_for_search": "陽炎,かげろう,kagerou,阳炎,yangyan",
     "build_time": 24,
     "broken": [
       1,
@@ -1167,7 +1167,7 @@
     "ctype": 30,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "不知火,shiranui,不知火,buzhihuo",
+    "name_for_search": "不知火,しらぬい,shiranui,不知火,buzhihuo",
     "build_time": 24,
     "broken": [
       1,
@@ -1256,7 +1256,7 @@
     "ctype": 30,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "黒潮,kuroshio,黑潮,heichao",
+    "name_for_search": "黒潮,くろしお,kuroshio,黑潮,heichao",
     "build_time": 24,
     "broken": [
       1,
@@ -1345,7 +1345,7 @@
     "ctype": 30,
     "cnum": 8,
     "rarity": 0,
-    "name_for_search": "雪風,yukikaze,雪风,xuefeng",
+    "name_for_search": "雪風,ゆきかぜ,yukikaze,雪风,xuefeng",
     "build_time": 24,
     "broken": [
       1,
@@ -1434,7 +1434,7 @@
     "ctype": 20,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "長良,nagara,长良,zhangliang",
+    "name_for_search": "長良,ながら,nagara,长良,zhangliang",
     "build_time": 60,
     "broken": [
       2,
@@ -1523,7 +1523,7 @@
     "ctype": 20,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "五十鈴,isuzu,五十铃,wushiling",
+    "name_for_search": "五十鈴,いすず,isuzu,五十铃,wushiling",
     "build_time": 60,
     "broken": [
       2,
@@ -1612,7 +1612,7 @@
     "ctype": 20,
     "cnum": 4,
     "rarity": 0,
-    "name_for_search": "由良,yura,由良,youliang",
+    "name_for_search": "由良,ゆら,yura,由良,youliang",
     "build_time": 60,
     "broken": [
       2,
@@ -1701,7 +1701,7 @@
     "ctype": 4,
     "cnum": 4,
     "rarity": 0,
-    "name_for_search": "大井,ooi,大井,dajing",
+    "name_for_search": "大井,おおい,ooi,大井,dajing",
     "build_time": 60,
     "broken": [
       2,
@@ -1790,7 +1790,7 @@
     "ctype": 4,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "北上,kitakami,北上,beishang",
+    "name_for_search": "北上,きたかみ,kitakami,北上,beishang",
     "build_time": 60,
     "broken": [
       2,
@@ -1879,7 +1879,7 @@
     "ctype": 26,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "扶桑,fusou,扶桑,fusang",
+    "name_for_search": "扶桑,ふそう,fusou,扶桑,fusang",
     "build_time": 260,
     "broken": [
       9,
@@ -1968,7 +1968,7 @@
     "ctype": 26,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "山城,yamashiro,山城,shancheng",
+    "name_for_search": "山城,やましろ,yamashiro,山城,shancheng",
     "build_time": 260,
     "broken": [
       9,
@@ -2057,7 +2057,7 @@
     "ctype": 28,
     "cnum": 5,
     "rarity": 0,
-    "name_for_search": "皐月,satsuki,皋月,gaoyue",
+    "name_for_search": "皐月,さつき,satsuki,皋月,gaoyue",
     "build_time": 18,
     "broken": [
       1,
@@ -2146,7 +2146,7 @@
     "ctype": 28,
     "cnum": 7,
     "rarity": 0,
-    "name_for_search": "文月,fumiduki,文月,wenyue",
+    "name_for_search": "文月,ふみづき,fumiduki,文月,wenyue",
     "build_time": 18,
     "broken": [
       1,
@@ -2235,7 +2235,7 @@
     "ctype": 28,
     "cnum": 9,
     "rarity": 0,
-    "name_for_search": "菊月,kikuduki,菊月,juyue",
+    "name_for_search": "菊月,きくづき,kikuduki,菊月,juyue",
     "build_time": 18,
     "broken": [
       1,
@@ -2324,7 +2324,7 @@
     "ctype": 28,
     "cnum": 11,
     "rarity": 0,
-    "name_for_search": "望月,mochiduki,望月,wangyue",
+    "name_for_search": "望月,もちづき,mochiduki,望月,wangyue",
     "build_time": 18,
     "broken": [
       1,
@@ -2413,7 +2413,7 @@
     "ctype": 12,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "初雪,hatsuyuki,初雪,chuxue",
+    "name_for_search": "初雪,はつゆき,hatsuyuki,初雪,chuxue",
     "build_time": 20,
     "broken": [
       1,
@@ -2502,7 +2502,7 @@
     "ctype": 12,
     "cnum": 5,
     "rarity": 0,
-    "name_for_search": "叢雲,murakumo,丛云,congyun",
+    "name_for_search": "叢雲,むらくも,murakumo,丛云,congyun",
     "build_time": 20,
     "broken": [
       1,
@@ -2591,7 +2591,7 @@
     "ctype": 5,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "暁,akatsuki,晓,xiao",
+    "name_for_search": "暁,あかつき,akatsuki,晓,xiao",
     "build_time": 20,
     "broken": [
       1,
@@ -2680,7 +2680,7 @@
     "ctype": 5,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "響,hibiki,响,xiang",
+    "name_for_search": "響,ひびき,hibiki,响,xiang",
     "build_time": 20,
     "broken": [
       1,
@@ -2769,7 +2769,7 @@
     "ctype": 5,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "雷,ikaduchi,雷,lei",
+    "name_for_search": "雷,いかづち,ikaduchi,雷,lei",
     "build_time": 20,
     "broken": [
       1,
@@ -2858,7 +2858,7 @@
     "ctype": 5,
     "cnum": 4,
     "rarity": 0,
-    "name_for_search": "電,inaduma,电,dian",
+    "name_for_search": "電,いなづま,inaduma,电,dian",
     "build_time": 20,
     "broken": [
       1,
@@ -2947,7 +2947,7 @@
     "ctype": 10,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "初春,hatsuharu,初春,chuchun",
+    "name_for_search": "初春,はつはる,hatsuharu,初春,chuchun",
     "build_time": 20,
     "broken": [
       1,
@@ -3036,7 +3036,7 @@
     "ctype": 10,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "子日,nenohi,子日,ziri",
+    "name_for_search": "子日,ねのひ,nenohi,子日,ziri",
     "build_time": 20,
     "broken": [
       1,
@@ -3125,7 +3125,7 @@
     "ctype": 10,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "若葉,wakaba,若叶,ruoye",
+    "name_for_search": "若葉,わかば,wakaba,若叶,ruoye",
     "build_time": 20,
     "broken": [
       1,
@@ -3214,7 +3214,7 @@
     "ctype": 10,
     "cnum": 4,
     "rarity": 0,
-    "name_for_search": "初霜,hatsushimo,初霜,chushuang",
+    "name_for_search": "初霜,はつしも,hatsushimo,初霜,chushuang",
     "build_time": 20,
     "broken": [
       1,
@@ -3303,7 +3303,7 @@
     "ctype": 23,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "白露,shiratsuyu,白露,bailu",
+    "name_for_search": "白露,しらつゆ,shiratsuyu,白露,bailu",
     "build_time": 22,
     "broken": [
       1,
@@ -3392,7 +3392,7 @@
     "ctype": 23,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "時雨,shigure,时雨,shiyu",
+    "name_for_search": "時雨,しぐれ,shigure,时雨,shiyu",
     "build_time": 22,
     "broken": [
       1,
@@ -3481,7 +3481,7 @@
     "ctype": 23,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "村雨,murasame,村雨,cunyu",
+    "name_for_search": "村雨,むらさめ,murasame,村雨,cunyu",
     "build_time": 22,
     "broken": [
       1,
@@ -3570,7 +3570,7 @@
     "ctype": 23,
     "cnum": 4,
     "rarity": 0,
-    "name_for_search": "夕立,yuudachi,夕立,xili",
+    "name_for_search": "夕立,ゆうだち,yuudachi,夕立,xili",
     "build_time": 22,
     "broken": [
       1,
@@ -3659,7 +3659,7 @@
     "ctype": 23,
     "cnum": 6,
     "rarity": 0,
-    "name_for_search": "五月雨,samidare,五月雨,wuyueyu",
+    "name_for_search": "五月雨,さみだれ,samidare,五月雨,wuyueyu",
     "build_time": 22,
     "broken": [
       1,
@@ -3748,7 +3748,7 @@
     "ctype": 23,
     "cnum": 10,
     "rarity": 0,
-    "name_for_search": "涼風,suzukaze,凉风,liangfeng",
+    "name_for_search": "涼風,すずかぜ,suzukaze,凉风,liangfeng",
     "build_time": 22,
     "broken": [
       1,
@@ -3837,7 +3837,7 @@
     "ctype": 18,
     "cnum": 9,
     "rarity": 0,
-    "name_for_search": "霰,arare,霰,xian",
+    "name_for_search": "霰,あられ,arare,霰,xian",
     "build_time": 22,
     "broken": [
       1,
@@ -3926,7 +3926,7 @@
     "ctype": 18,
     "cnum": 10,
     "rarity": 0,
-    "name_for_search": "霞,kasumi,霞,xia",
+    "name_for_search": "霞,かすみ,kasumi,霞,xia",
     "build_time": 22,
     "broken": [
       1,
@@ -4015,7 +4015,7 @@
     "ctype": 22,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "島風,shimakaze,岛风,daofeng",
+    "name_for_search": "島風,しまかぜ,shimakaze,岛风,daofeng",
     "build_time": 30,
     "broken": [
       1,
@@ -4104,7 +4104,7 @@
     "ctype": 21,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "天龍,tenryuu,天龙,tianlong",
+    "name_for_search": "天龍,てんりゅう,tenryuu,天龙,tianlong",
     "build_time": 60,
     "broken": [
       1,
@@ -4193,7 +4193,7 @@
     "ctype": 21,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "龍田,tatsuta,龙田,longtian",
+    "name_for_search": "龍田,たつた,tatsuta,龙田,longtian",
     "build_time": 60,
     "broken": [
       1,
@@ -4282,7 +4282,7 @@
     "ctype": 20,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "名取,natori,名取,mingqu",
+    "name_for_search": "名取,なとり,natori,名取,mingqu",
     "build_time": 60,
     "broken": [
       2,
@@ -4371,7 +4371,7 @@
     "ctype": 16,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "川内,sendai,川内,chuannei",
+    "name_for_search": "川内,せんだい,sendai,川内,chuannei",
     "build_time": 60,
     "broken": [
       2,
@@ -4460,7 +4460,7 @@
     "ctype": 16,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "神通,jintsuu,神通,shentong",
+    "name_for_search": "神通,じんつう,jintsuu,神通,shentong",
     "build_time": 60,
     "broken": [
       2,
@@ -4549,7 +4549,7 @@
     "ctype": 16,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "那珂,naka,那珂,neike",
+    "name_for_search": "那珂,なか,naka,那珂,neike",
     "build_time": 60,
     "broken": [
       2,
@@ -4638,7 +4638,7 @@
     "ctype": 4,
     "cnum": 4,
     "rarity": 0,
-    "name_for_search": "大井改,ooi,大井改,dajinggai",
+    "name_for_search": "大井改,おおい,ooi,大井改,dajinggai",
     "build_time": 75,
     "broken": [
       2,
@@ -4727,7 +4727,7 @@
     "ctype": 4,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "北上改,kitakami,北上改,beishanggai",
+    "name_for_search": "北上改,きたかみ,kitakami,北上改,beishanggai",
     "build_time": 75,
     "broken": [
       2,
@@ -4816,7 +4816,7 @@
     "ctype": 7,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "古鷹,furutaka,古鹰,guying",
+    "name_for_search": "古鷹,ふるたか,furutaka,古鹰,guying",
     "build_time": 60,
     "broken": [
       2,
@@ -4905,7 +4905,7 @@
     "ctype": 7,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "加古,kako,加古,jiagu",
+    "name_for_search": "加古,かこ,kako,加古,jiagu",
     "build_time": 60,
     "broken": [
       2,
@@ -4994,7 +4994,7 @@
     "ctype": 13,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "青葉,aoba,青叶,qingye",
+    "name_for_search": "青葉,あおば,aoba,青叶,qingye",
     "build_time": 60,
     "broken": [
       2,
@@ -5083,7 +5083,7 @@
     "ctype": 29,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "妙高,myoukou,妙高,miaogao",
+    "name_for_search": "妙高,みょうこう,myoukou,妙高,miaogao",
     "build_time": 80,
     "broken": [
       2,
@@ -5172,7 +5172,7 @@
     "ctype": 29,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "那智,nachi,那智,neizhi",
+    "name_for_search": "那智,なち,nachi,那智,neizhi",
     "build_time": 80,
     "broken": [
       2,
@@ -5261,7 +5261,7 @@
     "ctype": 29,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "足柄,ashigara,足柄,zubing",
+    "name_for_search": "足柄,あしがら,ashigara,足柄,zubing",
     "build_time": 80,
     "broken": [
       2,
@@ -5350,7 +5350,7 @@
     "ctype": 29,
     "cnum": 4,
     "rarity": 0,
-    "name_for_search": "羽黒,haguro,羽黑,yuhei",
+    "name_for_search": "羽黒,はぐろ,haguro,羽黑,yuhei",
     "build_time": 80,
     "broken": [
       2,
@@ -5439,7 +5439,7 @@
     "ctype": 8,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "高雄,takao,高雄,gaoxiong",
+    "name_for_search": "高雄,たかお,takao,高雄,gaoxiong",
     "build_time": 85,
     "broken": [
       2,
@@ -5528,7 +5528,7 @@
     "ctype": 8,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "愛宕,atago,爱宕,aidang",
+    "name_for_search": "愛宕,あたご,atago,爱宕,aidang",
     "build_time": 85,
     "broken": [
       2,
@@ -5617,7 +5617,7 @@
     "ctype": 8,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "摩耶,maya,摩耶,moye",
+    "name_for_search": "摩耶,まや,maya,摩耶,moye",
     "build_time": 85,
     "broken": [
       2,
@@ -5706,7 +5706,7 @@
     "ctype": 8,
     "cnum": 4,
     "rarity": 0,
-    "name_for_search": "鳥海,choukai,鸟海,niaohai",
+    "name_for_search": "鳥海,ちょうかい,choukai,鸟海,niaohai",
     "build_time": 85,
     "broken": [
       2,
@@ -5795,7 +5795,7 @@
     "ctype": 9,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "最上,mogami,最上,zuishang",
+    "name_for_search": "最上,もがみ,mogami,最上,zuishang",
     "build_time": 90,
     "broken": [
       2,
@@ -5884,7 +5884,7 @@
     "ctype": 31,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "利根,tone,利根,ligen",
+    "name_for_search": "利根,とね,tone,利根,ligen",
     "build_time": 90,
     "broken": [
       2,
@@ -5973,7 +5973,7 @@
     "ctype": 31,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "筑摩,chikuma,筑摩,zhumo",
+    "name_for_search": "筑摩,ちくま,chikuma,筑摩,zhumo",
     "build_time": 90,
     "broken": [
       2,
@@ -6062,7 +6062,7 @@
     "ctype": 9,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "最上改,mogami,最上改,zuishanggai",
+    "name_for_search": "最上改,もがみ,mogami,最上改,zuishanggai",
     "build_time": 100,
     "broken": [
       2,
@@ -6151,7 +6151,7 @@
     "ctype": 11,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "祥鳳,shouhou,祥凤,xiangfeng",
+    "name_for_search": "祥鳳,しょうほう,shouhou,祥凤,xiangfeng",
     "build_time": 160,
     "broken": [
       2,
@@ -6240,7 +6240,7 @@
     "ctype": 24,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "飛鷹,hiyou,飞鹰,feiying",
+    "name_for_search": "飛鷹,ひよう,hiyou,飞鹰,feiying",
     "build_time": 180,
     "broken": [
       6,
@@ -6329,7 +6329,7 @@
     "ctype": 32,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "龍驤,ryuujou,龙骧,longxiang",
+    "name_for_search": "龍驤,りゅうじょう,ryuujou,龙骧,longxiang",
     "build_time": 170,
     "broken": [
       2,
@@ -6418,7 +6418,7 @@
     "ctype": 2,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "伊勢,ise,伊势,yishi",
+    "name_for_search": "伊勢,いせ,ise,伊势,yishi",
     "build_time": 270,
     "broken": [
       9,
@@ -6507,7 +6507,7 @@
     "ctype": 6,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "金剛,kongou,金刚,jingang",
+    "name_for_search": "金剛,こんごう,kongou,金刚,jingang",
     "build_time": 240,
     "broken": [
       10,
@@ -6596,7 +6596,7 @@
     "ctype": 6,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "榛名,haruna,榛名,zhenming",
+    "name_for_search": "榛名,はるな,haruna,榛名,zhenming",
     "build_time": 240,
     "broken": [
       10,
@@ -6685,7 +6685,7 @@
     "ctype": 19,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "長門,nagato,长门,zhangmen",
+    "name_for_search": "長門,ながと,nagato,长门,zhangmen",
     "build_time": 300,
     "broken": [
       10,
@@ -6774,7 +6774,7 @@
     "ctype": 19,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "陸奥,mutsu,陆奥,luao",
+    "name_for_search": "陸奥,むつ,mutsu,陆奥,luao",
     "build_time": 300,
     "broken": [
       10,
@@ -6863,7 +6863,7 @@
     "ctype": 2,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "伊勢改,ise,伊势改,yishigai",
+    "name_for_search": "伊勢改,いせ,ise,伊势改,yishigai",
     "build_time": 270,
     "broken": [
       10,
@@ -6952,7 +6952,7 @@
     "ctype": 14,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "赤城,akagi,赤城,chicheng",
+    "name_for_search": "赤城,あかぎ,akagi,赤城,chicheng",
     "build_time": 270,
     "broken": [
       8,
@@ -7041,7 +7041,7 @@
     "ctype": 3,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "加賀,kaga,加贺,jiahe",
+    "name_for_search": "加賀,かが,kaga,加贺,jiahe",
     "build_time": 260,
     "broken": [
       8,
@@ -7130,7 +7130,7 @@
     "ctype": 6,
     "cnum": 4,
     "rarity": 0,
-    "name_for_search": "霧島,kirishima,雾岛,wudao",
+    "name_for_search": "霧島,きりしま,kirishima,雾岛,wudao",
     "build_time": 240,
     "broken": [
       10,
@@ -7219,7 +7219,7 @@
     "ctype": 6,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "比叡,hiei,比睿,birui",
+    "name_for_search": "比叡,ひえい,hiei,比睿,birui",
     "build_time": 240,
     "broken": [
       10,
@@ -7308,7 +7308,7 @@
     "ctype": 2,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "日向,hyuuga,日向,rixiang",
+    "name_for_search": "日向,ひゅうが,hyuuga,日向,rixiang",
     "build_time": 270,
     "broken": [
       9,
@@ -7397,7 +7397,7 @@
     "ctype": 2,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "日向改,hyuuga,日向改,rixianggai",
+    "name_for_search": "日向改,ひゅうが,hyuuga,日向改,rixianggai",
     "build_time": 270,
     "broken": [
       10,
@@ -7486,7 +7486,7 @@
     "ctype": 27,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "鳳翔,houshou,凤翔,fengxiang",
+    "name_for_search": "鳳翔,ほうしょう,houshou,凤翔,fengxiang",
     "build_time": 120,
     "broken": [
       2,
@@ -7575,7 +7575,7 @@
     "ctype": 17,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "蒼龍,souryuu,苍龙,canglong",
+    "name_for_search": "蒼龍,そうりゅう,souryuu,苍龙,canglong",
     "build_time": 250,
     "broken": [
       7,
@@ -7664,7 +7664,7 @@
     "ctype": 25,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "飛龍,hiryuu,飞龙,feilong",
+    "name_for_search": "飛龍,ひりゅう,hiryuu,飞龙,feilong",
     "build_time": 250,
     "broken": [
       7,
@@ -7753,7 +7753,7 @@
     "ctype": 24,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "隼鷹,jun\u0027you,隼鹰,sunying",
+    "name_for_search": "隼鷹,じゅんよう,jun\u0027you,隼鹰,sunying",
     "build_time": 180,
     "broken": [
       6,
@@ -7842,7 +7842,7 @@
     "ctype": 1,
     "cnum": 7,
     "rarity": 0,
-    "name_for_search": "朧,oboro,胧,long",
+    "name_for_search": "朧,おぼろ,oboro,胧,long",
     "build_time": 20,
     "broken": [
       1,
@@ -7931,7 +7931,7 @@
     "ctype": 1,
     "cnum": 9,
     "rarity": 0,
-    "name_for_search": "漣,sazanami,涟,lian",
+    "name_for_search": "漣,さざなみ,sazanami,涟,lian",
     "build_time": 20,
     "broken": [
       1,
@@ -8020,7 +8020,7 @@
     "ctype": 18,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "朝潮,asashio,朝潮,chaochao",
+    "name_for_search": "朝潮,あさしお,asashio,朝潮,chaochao",
     "build_time": 22,
     "broken": [
       1,
@@ -8109,7 +8109,7 @@
     "ctype": 18,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "大潮,ooshio,大潮,dachao",
+    "name_for_search": "大潮,おおしお,ooshio,大潮,dachao",
     "build_time": 22,
     "broken": [
       1,
@@ -8198,7 +8198,7 @@
     "ctype": 18,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "満潮,michishio,满潮,manchao",
+    "name_for_search": "満潮,みちしお,michishio,满潮,manchao",
     "build_time": 22,
     "broken": [
       1,
@@ -8287,7 +8287,7 @@
     "ctype": 18,
     "cnum": 4,
     "rarity": 0,
-    "name_for_search": "荒潮,arashio,荒潮,huangchao",
+    "name_for_search": "荒潮,あらしお,arashio,荒潮,huangchao",
     "build_time": 22,
     "broken": [
       1,
@@ -8376,7 +8376,7 @@
     "ctype": 4,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "球磨,kuma,球磨,qiumo",
+    "name_for_search": "球磨,くま,kuma,球磨,qiumo",
     "build_time": 60,
     "broken": [
       2,
@@ -8465,7 +8465,7 @@
     "ctype": 4,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "多摩,tama,多摩,duomo",
+    "name_for_search": "多摩,たま,tama,多摩,duomo",
     "build_time": 60,
     "broken": [
       2,
@@ -8554,7 +8554,7 @@
     "ctype": 4,
     "cnum": 5,
     "rarity": 0,
-    "name_for_search": "木曾,kiso,木曾,muceng",
+    "name_for_search": "木曾,きそ,kiso,木曾,muceng",
     "build_time": 60,
     "broken": [
       2,
@@ -8643,7 +8643,7 @@
     "ctype": 15,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "千歳,chitose,千岁,qiansui",
+    "name_for_search": "千歳,ちとせ,chitose,千岁,qiansui",
     "build_time": 140,
     "broken": [
       3,
@@ -8732,7 +8732,7 @@
     "ctype": 15,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "千代田,chiyoda,千代田,qiandaitian",
+    "name_for_search": "千代田,ちよだ,chiyoda,千代田,qiandaitian",
     "build_time": 140,
     "broken": [
       3,
@@ -8821,7 +8821,7 @@
     "ctype": 15,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "千歳改,chitose,千岁改,qiansuigai",
+    "name_for_search": "千歳改,ちとせ,chitose,千岁改,qiansuigai",
     "build_time": 150,
     "broken": [
       3,
@@ -8910,7 +8910,7 @@
     "ctype": 15,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "千代田改,chiyoda,千代田改,qiandaitiangai",
+    "name_for_search": "千代田改,ちよだ,chiyoda,千代田改,qiandaitiangai",
     "build_time": 150,
     "broken": [
       3,
@@ -8999,7 +8999,7 @@
     "ctype": 15,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "千歳甲,chitose,千岁甲,qiansuijia",
+    "name_for_search": "千歳甲,ちとせ,chitose,千岁甲,qiansuijia",
     "build_time": 160,
     "broken": [
       3,
@@ -9088,7 +9088,7 @@
     "ctype": 15,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "千代田甲,chiyoda,千代田甲,qiandaitianjia",
+    "name_for_search": "千代田甲,ちよだ,chiyoda,千代田甲,qiandaitianjia",
     "build_time": 160,
     "broken": [
       3,
@@ -9177,7 +9177,7 @@
     "ctype": 15,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "千歳航,chitose,千岁航,qiansuihang",
+    "name_for_search": "千歳航,ちとせ,chitose,千岁航,qiansuihang",
     "build_time": 190,
     "broken": [
       5,
@@ -9266,7 +9266,7 @@
     "ctype": 15,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "千代田航,chiyoda,千代田航,qiandaitianhang",
+    "name_for_search": "千代田航,ちよだ,chiyoda,千代田航,qiandaitianhang",
     "build_time": 190,
     "broken": [
       5,
@@ -9355,7 +9355,7 @@
     "ctype": 33,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "翔鶴,shoukaku,翔鹤,xianghe",
+    "name_for_search": "翔鶴,しょうかく,shoukaku,翔鹤,xianghe",
     "build_time": 360,
     "broken": [
       7,
@@ -9444,7 +9444,7 @@
     "ctype": 33,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "瑞鶴,zuikaku,瑞鹤,ruihe",
+    "name_for_search": "瑞鶴,ずいかく,zuikaku,瑞鹤,ruihe",
     "build_time": 360,
     "broken": [
       7,
@@ -9533,7 +9533,7 @@
     "ctype": 33,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "瑞鶴改,zuikaku,瑞鹤改,ruihegai",
+    "name_for_search": "瑞鶴改,ずいかく,zuikaku,瑞鹤改,ruihegai",
     "build_time": 360,
     "broken": [
       7,
@@ -9622,7 +9622,7 @@
     "ctype": 20,
     "cnum": 5,
     "rarity": 0,
-    "name_for_search": "鬼怒,kinu,鬼怒,guinu",
+    "name_for_search": "鬼怒,きぬ,kinu,鬼怒,guinu",
     "build_time": 75,
     "broken": [
       2,
@@ -9711,7 +9711,7 @@
     "ctype": 20,
     "cnum": 6,
     "rarity": 0,
-    "name_for_search": "阿武隈,abukuma,阿武隈,awuwei",
+    "name_for_search": "阿武隈,あぶくま,abukuma,阿武隈,awuwei",
     "build_time": 75,
     "broken": [
       2,
@@ -9728,6 +9728,11 @@
     "consume": [
       25,
       25
+    ],
+    "extra_equip_type": [
+      22,
+      24,
+      46
     ],
     "equip": {
       "slots": 2,
@@ -9800,7 +9805,7 @@
     "ctype": 34,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "夕張,yuubari,夕张,xizhang",
+    "name_for_search": "夕張,ゆうばり,yuubari,夕张,xizhang",
     "build_time": 82,
     "broken": [
       2,
@@ -9889,7 +9894,7 @@
     "ctype": 11,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "瑞鳳,zuihou,瑞凤,ruifeng",
+    "name_for_search": "瑞鳳,ずいほう,zuihou,瑞凤,ruifeng",
     "build_time": 160,
     "broken": [
       2,
@@ -9978,7 +9983,7 @@
     "ctype": 11,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "瑞鳳改,zuihou,瑞凤改,ruifenggai",
+    "name_for_search": "瑞鳳改,ずいほう,zuihou,瑞凤改,ruifenggai",
     "build_time": 160,
     "broken": [
       4,
@@ -10067,7 +10072,7 @@
     "ctype": 4,
     "cnum": 4,
     "rarity": 0,
-    "name_for_search": "大井改二,ooi,大井改二,dajinggaier",
+    "name_for_search": "大井改二,おおい,ooi,大井改二,dajinggaier",
     "build_time": 75,
     "broken": [
       2,
@@ -10156,7 +10161,7 @@
     "ctype": 4,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "北上改二,kitakami,北上改二,beishanggaier",
+    "name_for_search": "北上改二,きたかみ,kitakami,北上改二,beishanggaier",
     "build_time": 75,
     "broken": [
       2,
@@ -10245,7 +10250,7 @@
     "ctype": 9,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "三隈,mikuma,三隈,sanwei",
+    "name_for_search": "三隈,みくま,mikuma,三隈,sanwei",
     "build_time": 90,
     "broken": [
       2,
@@ -10334,7 +10339,7 @@
     "ctype": 9,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "三隈改,mikuma,三隈改,sanweigai",
+    "name_for_search": "三隈改,みくま,mikuma,三隈改,sanweigai",
     "build_time": 100,
     "broken": [
       2,
@@ -10423,7 +10428,7 @@
     "ctype": 30,
     "cnum": 18,
     "rarity": 0,
-    "name_for_search": "舞風,maikaze,舞风,wufeng",
+    "name_for_search": "舞風,まいかぜ,maikaze,舞风,wufeng",
     "build_time": 24,
     "broken": [
       1,
@@ -10512,7 +10517,7 @@
     "ctype": 13,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "衣笠,kinugasa,衣笠,yili",
+    "name_for_search": "衣笠,きぬがさ,kinugasa,衣笠,yili",
     "build_time": 60,
     "broken": [
       2,
@@ -10601,7 +10606,7 @@
     "ctype": 9,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "鈴谷,suzuya,铃谷,linggu",
+    "name_for_search": "鈴谷,すずや,suzuya,铃谷,linggu",
     "build_time": 90,
     "broken": [
       2,
@@ -10690,7 +10695,7 @@
     "ctype": 9,
     "cnum": 4,
     "rarity": 0,
-    "name_for_search": "熊野,kumano,熊野,xiongye",
+    "name_for_search": "熊野,くまの,kumano,熊野,xiongye",
     "build_time": 90,
     "broken": [
       2,
@@ -10779,7 +10784,7 @@
     "ctype": 35,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "伊168,i168,伊168,yi",
+    "name_for_search": "伊168,い168,i168,伊168,yi",
     "build_time": 22,
     "broken": [
       1,
@@ -10868,7 +10873,7 @@
     "ctype": 36,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "伊58,i58,伊58,yi",
+    "name_for_search": "伊58,い58,i58,伊58,yi",
     "build_time": 22,
     "broken": [
       1,
@@ -10957,7 +10962,7 @@
     "ctype": 40,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "伊8,i8,伊8,yi",
+    "name_for_search": "伊8,い8,i8,伊8,yi",
     "build_time": 22,
     "broken": [
       1,
@@ -11046,7 +11051,7 @@
     "ctype": 9,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "鈴谷改,suzuya,铃谷改,linggugai",
+    "name_for_search": "鈴谷改,すずや,suzuya,铃谷改,linggugai",
     "build_time": 100,
     "broken": [
       2,
@@ -11135,7 +11140,7 @@
     "ctype": 9,
     "cnum": 4,
     "rarity": 0,
-    "name_for_search": "熊野改,kumano,熊野改,xiongyegai",
+    "name_for_search": "熊野改,くまの,kumano,熊野改,xiongyegai",
     "build_time": 100,
     "broken": [
       2,
@@ -11224,7 +11229,7 @@
     "ctype": 37,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "大和,yamato,大和,dahe",
+    "name_for_search": "大和,やまと,yamato,大和,dahe",
     "build_time": 480,
     "broken": [
       35,
@@ -11241,6 +11246,9 @@
     "consume": [
       250,
       300
+    ],
+    "extra_equip_type": [
+      38
     ],
     "equip": {
       "slots": 4,
@@ -11313,7 +11321,7 @@
     "ctype": 30,
     "cnum": 19,
     "rarity": 0,
-    "name_for_search": "秋雲,akigumo,秋云,qiuyun",
+    "name_for_search": "秋雲,あきぐも,akigumo,秋云,qiuyun",
     "build_time": 24,
     "broken": [
       1,
@@ -11402,7 +11410,7 @@
     "ctype": 38,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "夕雲,yuugumo,夕云,xiyun",
+    "name_for_search": "夕雲,ゆうぐも,yuugumo,夕云,xiyun",
     "build_time": 24,
     "broken": [
       1,
@@ -11491,7 +11499,7 @@
     "ctype": 38,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "巻雲,makigumo,卷云,juanyun",
+    "name_for_search": "巻雲,まきぐも,makigumo,卷云,juanyun",
     "build_time": 24,
     "broken": [
       1,
@@ -11580,7 +11588,7 @@
     "ctype": 38,
     "cnum": 4,
     "rarity": 0,
-    "name_for_search": "長波,naganami,长波,zhangbo",
+    "name_for_search": "長波,ながなみ,naganami,长波,zhangbo",
     "build_time": 24,
     "broken": [
       1,
@@ -11669,7 +11677,7 @@
     "ctype": 37,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "大和改,yamato,大和改,dahegai",
+    "name_for_search": "大和改,やまと,yamato,大和改,dahegai",
     "build_time": 480,
     "broken": [
       35,
@@ -11686,6 +11694,9 @@
     "consume": [
       250,
       325
+    ],
+    "extra_equip_type": [
+      38
     ],
     "equip": {
       "slots": 4,
@@ -11758,7 +11769,7 @@
     "ctype": 41,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "阿賀野,agano,阿贺野,aheye",
+    "name_for_search": "阿賀野,あがの,agano,阿贺野,aheye",
     "build_time": 60,
     "broken": [
       3,
@@ -11847,7 +11858,7 @@
     "ctype": 41,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "能代,noshiro,能代,nengdai",
+    "name_for_search": "能代,のしろ,noshiro,能代,nengdai",
     "build_time": 60,
     "broken": [
       3,
@@ -11936,7 +11947,7 @@
     "ctype": 41,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "矢矧,yahagi,矢矧,shishen",
+    "name_for_search": "矢矧,やはぎ,yahagi,矢矧,shishen",
     "build_time": 60,
     "broken": [
       3,
@@ -12025,7 +12036,7 @@
     "ctype": 41,
     "cnum": 4,
     "rarity": 0,
-    "name_for_search": "酒匂,sakawa,酒匂,jiu",
+    "name_for_search": "酒匂,さかわ,sakawa,酒匂,jiu",
     "build_time": 60,
     "broken": [
       3,
@@ -12114,7 +12125,7 @@
     "ctype": 20,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "五十鈴改二,isuzu,五十铃改二,wushilinggaier",
+    "name_for_search": "五十鈴改二,いすず,isuzu,五十铃改二,wushilinggaier",
     "build_time": 60,
     "broken": [
       2,
@@ -12203,7 +12214,7 @@
     "ctype": 13,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "衣笠改二,kinugasa,衣笠改二,yiligaier",
+    "name_for_search": "衣笠改二,きぬがさ,kinugasa,衣笠改二,yiligaier",
     "build_time": 60,
     "broken": [
       3,
@@ -12292,7 +12303,7 @@
     "ctype": 37,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "武蔵,musashi,武藏,wuzang",
+    "name_for_search": "武蔵,むさし,musashi,武藏,wuzang",
     "build_time": 480,
     "broken": [
       35,
@@ -12309,6 +12320,9 @@
     "consume": [
       250,
       300
+    ],
+    "extra_equip_type": [
+      38
     ],
     "equip": {
       "slots": 4,
@@ -12381,7 +12395,7 @@
     "ctype": 23,
     "cnum": 4,
     "rarity": 0,
-    "name_for_search": "夕立改二,yuudachi,夕立改二,xiligaier",
+    "name_for_search": "夕立改二,ゆうだち,yuudachi,夕立改二,xiligaier",
     "build_time": 22,
     "broken": [
       1,
@@ -12470,7 +12484,7 @@
     "ctype": 23,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "時雨改二,shigure,时雨改二,shiyugaier",
+    "name_for_search": "時雨改二,しぐれ,shigure,时雨改二,shiyugaier",
     "build_time": 22,
     "broken": [
       1,
@@ -12559,7 +12573,7 @@
     "ctype": 4,
     "cnum": 5,
     "rarity": 0,
-    "name_for_search": "木曾改二,kiso,木曾改二,mucenggaier",
+    "name_for_search": "木曾改二,きそ,kiso,木曾改二,mucenggaier",
     "build_time": 75,
     "broken": [
       2,
@@ -12648,7 +12662,7 @@
     "ctype": 5,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "Верный,hibiki,Верный,",
+    "name_for_search": "Верный,ひびき,hibiki,Верный,",
     "build_time": 20,
     "broken": [
       1,
@@ -12665,6 +12679,11 @@
     "consume": [
       15,
       25
+    ],
+    "extra_equip_type": [
+      24,
+      46,
+      46
     ],
     "equip": {
       "slots": 3,
@@ -12737,7 +12756,7 @@
     "ctype": 37,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "武蔵改,musashi,武藏改,wuzanggai",
+    "name_for_search": "武蔵改,むさし,musashi,武藏改,wuzanggai",
     "build_time": 480,
     "broken": [
       35,
@@ -12754,6 +12773,9 @@
     "consume": [
       250,
       325
+    ],
+    "extra_equip_type": [
+      38
     ],
     "equip": {
       "slots": 4,
@@ -12826,7 +12848,7 @@
     "ctype": 6,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "金剛改二,kongou,金刚改二,jinganggaier",
+    "name_for_search": "金剛改二,こんごう,kongou,金刚改二,jinganggaier",
     "build_time": 240,
     "broken": [
       10,
@@ -12915,7 +12937,7 @@
     "ctype": 6,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "比叡改二,hiei,比睿改二,biruigaier",
+    "name_for_search": "比叡改二,ひえい,hiei,比睿改二,biruigaier",
     "build_time": 240,
     "broken": [
       10,
@@ -13004,7 +13026,7 @@
     "ctype": 6,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "榛名改二,haruna,榛名改二,zhenminggaier",
+    "name_for_search": "榛名改二,はるな,haruna,榛名改二,zhenminggaier",
     "build_time": 240,
     "broken": [
       10,
@@ -13093,7 +13115,7 @@
     "ctype": 6,
     "cnum": 4,
     "rarity": 0,
-    "name_for_search": "霧島改二,kirishima,雾岛改二,wudaogaier",
+    "name_for_search": "霧島改二,きりしま,kirishima,雾岛改二,wudaogaier",
     "build_time": 240,
     "broken": [
       10,
@@ -13182,7 +13204,7 @@
     "ctype": 43,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "大鳳,taihou,大凤,dafeng",
+    "name_for_search": "大鳳,たいほう,taihou,大凤,dafeng",
     "build_time": 400,
     "broken": [
       8,
@@ -13271,7 +13293,7 @@
     "ctype": 56,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "香取,katori,香取,xiangqu",
+    "name_for_search": "香取,かとり,katori,香取,xiangqu",
     "build_time": 70,
     "broken": [
       3,
@@ -13360,7 +13382,7 @@
     "ctype": 44,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "伊401,i401,伊401,yi",
+    "name_for_search": "伊401,い401,i401,伊401,yi",
     "build_time": 200,
     "broken": [
       1,
@@ -13449,7 +13471,7 @@
     "ctype": 43,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "大鳳改,taihou,大凤改,dafenggai",
+    "name_for_search": "大鳳改,たいほう,taihou,大凤改,dafenggai",
     "build_time": 400,
     "broken": [
       9,
@@ -13538,7 +13560,7 @@
     "ctype": 32,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "龍驤改二,ryuujou,龙骧改二,longxianggaier",
+    "name_for_search": "龍驤改二,りゅうじょう,ryuujou,龙骧改二,longxianggaier",
     "build_time": 170,
     "broken": [
       4,
@@ -13627,7 +13649,7 @@
     "ctype": 16,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "川内改二,sendai,川内改二,chuanneigaier",
+    "name_for_search": "川内改二,せんだい,sendai,川内改二,chuanneigaier",
     "build_time": 60,
     "broken": [
       2,
@@ -13716,7 +13738,7 @@
     "ctype": 16,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "神通改二,jintsuu,神通改二,shentonggaier",
+    "name_for_search": "神通改二,じんつう,jintsuu,神通改二,shentonggaier",
     "build_time": 60,
     "broken": [
       2,
@@ -13805,7 +13827,7 @@
     "ctype": 16,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "那珂改二,naka,那珂改二,neikegaier",
+    "name_for_search": "那珂改二,なか,naka,那珂改二,neikegaier",
     "build_time": 60,
     "broken": [
       2,
@@ -13894,7 +13916,7 @@
     "ctype": 45,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "あきつ丸,akitsumaru,秋津丸,qiujinwan",
+    "name_for_search": "あきつ丸,あきつまる,akitsumaru,秋津丸,qiujinwan",
     "build_time": 150,
     "broken": [
       2,
@@ -13983,7 +14005,7 @@
     "ctype": 46,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "まるゆ,maruyu,丸输,wanshu",
+    "name_for_search": "まるゆ,まるゆ,maruyu,丸输,wanshu",
     "build_time": 17,
     "broken": [
       1,
@@ -14072,7 +14094,7 @@
     "ctype": 28,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "弥生,yayoi,弥生,misheng",
+    "name_for_search": "弥生,やよい,yayoi,弥生,misheng",
     "build_time": 18,
     "broken": [
       1,
@@ -14161,7 +14183,7 @@
     "ctype": 28,
     "cnum": 4,
     "rarity": 0,
-    "name_for_search": "卯月,uduki,卯月,maoyue",
+    "name_for_search": "卯月,うづき,uduki,卯月,maoyue",
     "build_time": 18,
     "broken": [
       1,
@@ -14250,7 +14272,7 @@
     "ctype": 45,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "あきつ丸改,akitsumaru,秋津丸改,qiujinwangai",
+    "name_for_search": "あきつ丸改,あきつまる,akitsumaru,秋津丸改,qiujinwangai",
     "build_time": 150,
     "broken": [
       2,
@@ -14339,7 +14361,7 @@
     "ctype": 30,
     "cnum": 12,
     "rarity": 0,
-    "name_for_search": "磯風,isokaze,矶风,jifeng",
+    "name_for_search": "磯風,いそかぜ,isokaze,矶风,jifeng",
     "build_time": 24,
     "broken": [
       1,
@@ -14428,7 +14450,7 @@
     "ctype": 30,
     "cnum": 11,
     "rarity": 0,
-    "name_for_search": "浦風,urakaze,浦风,pufeng",
+    "name_for_search": "浦風,うらかぜ,urakaze,浦风,pufeng",
     "build_time": 24,
     "broken": [
       1,
@@ -14517,7 +14539,7 @@
     "ctype": 30,
     "cnum": 14,
     "rarity": 0,
-    "name_for_search": "谷風,tanikaze,谷风,gufeng",
+    "name_for_search": "谷風,たにかぜ,tanikaze,谷风,gufeng",
     "build_time": 24,
     "broken": [
       1,
@@ -14606,7 +14628,7 @@
     "ctype": 30,
     "cnum": 13,
     "rarity": 0,
-    "name_for_search": "浜風,hamakaze,浜风,bangfeng",
+    "name_for_search": "浜風,はまかぜ,hamakaze,浜风,bangfeng",
     "build_time": 24,
     "broken": [
       1,
@@ -14695,7 +14717,7 @@
     "ctype": 47,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "Bismarck,bisumaruku,俾斯麦,bisimai",
+    "name_for_search": "Bismarck,ビスマルク,bisumaruku,俾斯麦,bisimai",
     "build_time": 300,
     "broken": [
       10,
@@ -14784,7 +14806,7 @@
     "ctype": 47,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "Bismarck改,bisumaruku,俾斯麦改,bisimaigai",
+    "name_for_search": "Bismarck改,ビスマルク,bisumaruku,俾斯麦改,bisimaigai",
     "build_time": 300,
     "broken": [
       12,
@@ -14873,7 +14895,7 @@
     "ctype": 47,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "Bismarck zwei,bisumaruku,俾斯麦 zwei,bisimai",
+    "name_for_search": "Bismarck zwei,ビスマルク,bisumaruku,俾斯麦 zwei,bisimai",
     "build_time": 300,
     "broken": [
       12,
@@ -14962,7 +14984,7 @@
     "ctype": 48,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "Z1,reーberehito・maーsu,Z1,",
+    "name_for_search": "Z1,レーベレヒト・マース,reーberehito・maーsu,Z1,",
     "build_time": 24,
     "broken": [
       1,
@@ -15051,7 +15073,7 @@
     "ctype": 48,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "Z3,makkusu・shurutsu,Z3,",
+    "name_for_search": "Z3,マックス・シュルツ,makkusu・shurutsu,Z3,",
     "build_time": 24,
     "broken": [
       1,
@@ -15140,7 +15162,7 @@
     "ctype": 55,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "Prinz Eugen,purintsu・oigen,欧根亲王,ougenqinwang",
+    "name_for_search": "Prinz Eugen,プリンツ・オイゲン,purintsu・oigen,欧根亲王,ougenqinwang",
     "build_time": 200,
     "broken": [
       2,
@@ -15229,7 +15251,7 @@
     "ctype": 55,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "Prinz Eugen改,purintsu・oigen,欧根亲王改,ougenqinwanggai",
+    "name_for_search": "Prinz Eugen改,プリンツ・オイゲン,purintsu・oigen,欧根亲王改,ougenqinwanggai",
     "build_time": 200,
     "broken": [
       4,
@@ -15318,7 +15340,7 @@
     "ctype": 47,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "Bismarck drei,bisumaruku,俾斯麦 drei,bisimai",
+    "name_for_search": "Bismarck drei,ビスマルク,bisumaruku,俾斯麦 drei,bisimai",
     "build_time": 300,
     "broken": [
       12,
@@ -15407,7 +15429,7 @@
     "ctype": 48,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "Z1 zwei,reーberehito・maーsu,Z1 zwei,",
+    "name_for_search": "Z1 zwei,レーベレヒト・マース,reーberehito・maーsu,Z1 zwei,",
     "build_time": 24,
     "broken": [
       1,
@@ -15496,7 +15518,7 @@
     "ctype": 48,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "Z3 zwei,makkusu・shurutsu,Z3 zwei,",
+    "name_for_search": "Z3 zwei,マックス・シュルツ,makkusu・shurutsu,Z3 zwei,",
     "build_time": 24,
     "broken": [
       1,
@@ -15585,7 +15607,7 @@
     "ctype": 30,
     "cnum": 9,
     "rarity": 0,
-    "name_for_search": "天津風,amatsukaze,天津风,tianjinfeng",
+    "name_for_search": "天津風,あまつかぜ,amatsukaze,天津风,tianjinfeng",
     "build_time": 30,
     "broken": [
       1,
@@ -15674,7 +15696,7 @@
     "ctype": 49,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "明石,akashi,明石,mingshi",
+    "name_for_search": "明石,あかし,akashi,明石,mingshi",
     "build_time": 220,
     "broken": [
       3,
@@ -15763,7 +15785,7 @@
     "ctype": 52,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "大淀,ooyodo,大淀,dadian",
+    "name_for_search": "大淀,おおよど,ooyodo,大淀,dadian",
     "build_time": 80,
     "broken": [
       4,
@@ -15852,7 +15874,7 @@
     "ctype": 50,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "大鯨,taigei・ryuuhou,大鲸,dajing",
+    "name_for_search": "大鯨,たいげい・りゅうほう,taigei・ryuuhou,大鲸,dajing",
     "build_time": 150,
     "broken": [
       2,
@@ -15941,7 +15963,7 @@
     "ctype": 51,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "龍鳳,taigei・ryuuhou,龙凤,longfeng",
+    "name_for_search": "龍鳳,たいげい・りゅうほう,taigei・ryuuhou,龙凤,longfeng",
     "build_time": 160,
     "broken": [
       2,
@@ -16030,7 +16052,7 @@
     "ctype": 30,
     "cnum": 10,
     "rarity": 0,
-    "name_for_search": "時津風,tokitsukaze,时津风,shijinfeng",
+    "name_for_search": "時津風,ときつかぜ,tokitsukaze,时津风,shijinfeng",
     "build_time": 24,
     "broken": [
       1,
@@ -16119,7 +16141,7 @@
     "ctype": 49,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "明石改,akashi,明石改,mingshigai",
+    "name_for_search": "明石改,あかし,akashi,明石改,mingshigai",
     "build_time": 150,
     "broken": [
       3,
@@ -16208,7 +16230,7 @@
     "ctype": 31,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "利根改二,tone,利根改二,ligengaier",
+    "name_for_search": "利根改二,とね,tone,利根改二,ligengaier",
     "build_time": 90,
     "broken": [
       5,
@@ -16297,7 +16319,7 @@
     "ctype": 31,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "筑摩改二,chikuma,筑摩改二,zhumogaier",
+    "name_for_search": "筑摩改二,ちくま,chikuma,筑摩改二,zhumogaier",
     "build_time": 90,
     "broken": [
       5,
@@ -16386,7 +16408,7 @@
     "ctype": 30,
     "cnum": 7,
     "rarity": 0,
-    "name_for_search": "初風,hatsukaze,初风,chufeng",
+    "name_for_search": "初風,はつかぜ,hatsukaze,初风,chufeng",
     "build_time": 24,
     "broken": [
       1,
@@ -16475,7 +16497,7 @@
     "ctype": 39,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "伊19,i19,伊19,yi",
+    "name_for_search": "伊19,い19,i19,伊19,yi",
     "build_time": 22,
     "broken": [
       1,
@@ -16564,7 +16586,7 @@
     "ctype": 29,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "那智改二,nachi,那智改二,neizhigaier",
+    "name_for_search": "那智改二,なち,nachi,那智改二,neizhigaier",
     "build_time": 80,
     "broken": [
       4,
@@ -16653,7 +16675,7 @@
     "ctype": 29,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "足柄改二,ashigara,足柄改二,zubinggaier",
+    "name_for_search": "足柄改二,あしがら,ashigara,足柄改二,zubinggaier",
     "build_time": 80,
     "broken": [
       4,
@@ -16742,7 +16764,7 @@
     "ctype": 29,
     "cnum": 4,
     "rarity": 0,
-    "name_for_search": "羽黒改二,haguro,羽黑改二,yuheigaier",
+    "name_for_search": "羽黒改二,はぐろ,haguro,羽黑改二,yuheigaier",
     "build_time": 80,
     "broken": [
       4,
@@ -16831,7 +16853,7 @@
     "ctype": 1,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "綾波改二,ayanami,绫波改二,lingbogaier",
+    "name_for_search": "綾波改二,あやなみ,ayanami,绫波改二,lingbogaier",
     "build_time": 20,
     "broken": [
       1,
@@ -16920,7 +16942,7 @@
     "ctype": 25,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "飛龍改二,hiryuu,飞龙改二,feilonggaier",
+    "name_for_search": "飛龍改二,ひりゅう,hiryuu,飞龙改二,feilonggaier",
     "build_time": 250,
     "broken": [
       10,
@@ -17009,7 +17031,7 @@
     "ctype": 17,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "蒼龍改二,souryuu,苍龙改二,canglonggaier",
+    "name_for_search": "蒼龍改二,そうりゅう,souryuu,苍龙改二,canglonggaier",
     "build_time": 250,
     "broken": [
       10,
@@ -17098,7 +17120,7 @@
     "ctype": 18,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "大潮改二,ooshio,大潮改二,dachaogaier",
+    "name_for_search": "大潮改二,おおしお,ooshio,大潮改二,dachaogaier",
     "build_time": 22,
     "broken": [
       1,
@@ -17115,6 +17137,10 @@
     "consume": [
       15,
       20
+    ],
+    "extra_equip_type": [
+      24,
+      46
     ],
     "equip": {
       "slots": 3,
@@ -17187,7 +17213,7 @@
     "ctype": 20,
     "cnum": 6,
     "rarity": 0,
-    "name_for_search": "阿武隈改二,abukuma,阿武隈改二,awuweigaier",
+    "name_for_search": "阿武隈改二,あぶくま,abukuma,阿武隈改二,awuweigaier",
     "build_time": 75,
     "broken": [
       2,
@@ -17276,7 +17302,7 @@
     "ctype": 12,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "吹雪改,fubuki,吹雪改,chuixuegai",
+    "name_for_search": "吹雪改,ふぶき,fubuki,吹雪改,chuixuegai",
     "build_time": 20,
     "broken": [
       1,
@@ -17365,7 +17391,7 @@
     "ctype": 12,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "白雪改,shirayuki,白雪改,baixuegai",
+    "name_for_search": "白雪改,しらゆき,shirayuki,白雪改,baixuegai",
     "build_time": 20,
     "broken": [
       1,
@@ -17454,7 +17480,7 @@
     "ctype": 12,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "初雪改,hatsuyuki,初雪改,chuxuegai",
+    "name_for_search": "初雪改,はつゆき,hatsuyuki,初雪改,chuxuegai",
     "build_time": 20,
     "broken": [
       1,
@@ -17543,7 +17569,7 @@
     "ctype": 12,
     "cnum": 4,
     "rarity": 0,
-    "name_for_search": "深雪改,miyuki,深雪改,shenxuegai",
+    "name_for_search": "深雪改,みゆき,miyuki,深雪改,shenxuegai",
     "build_time": 20,
     "broken": [
       1,
@@ -17632,7 +17658,7 @@
     "ctype": 12,
     "cnum": 5,
     "rarity": 0,
-    "name_for_search": "叢雲改,murakumo,丛云改,congyungai",
+    "name_for_search": "叢雲改,むらくも,murakumo,丛云改,congyungai",
     "build_time": 20,
     "broken": [
       1,
@@ -17721,7 +17747,7 @@
     "ctype": 12,
     "cnum": 9,
     "rarity": 0,
-    "name_for_search": "磯波改,isonami,矶波改,jibogai",
+    "name_for_search": "磯波改,いそなみ,isonami,矶波改,jibogai",
     "build_time": 20,
     "broken": [
       1,
@@ -17810,7 +17836,7 @@
     "ctype": 1,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "綾波改,ayanami,绫波改,lingbogai",
+    "name_for_search": "綾波改,あやなみ,ayanami,绫波改,lingbogai",
     "build_time": 20,
     "broken": [
       1,
@@ -17899,7 +17925,7 @@
     "ctype": 1,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "敷波改,shikinami,敷波改,fubogai",
+    "name_for_search": "敷波改,しきなみ,shikinami,敷波改,fubogai",
     "build_time": 20,
     "broken": [
       1,
@@ -17988,7 +18014,7 @@
     "ctype": 6,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "金剛改,kongou,金刚改,jinganggai",
+    "name_for_search": "金剛改,こんごう,kongou,金刚改,jinganggai",
     "build_time": 240,
     "broken": [
       10,
@@ -18077,7 +18103,7 @@
     "ctype": 6,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "比叡改,hiei,比睿改,biruigai",
+    "name_for_search": "比叡改,ひえい,hiei,比睿改,biruigai",
     "build_time": 240,
     "broken": [
       10,
@@ -18166,7 +18192,7 @@
     "ctype": 6,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "榛名改,haruna,榛名改,zhenminggai",
+    "name_for_search": "榛名改,はるな,haruna,榛名改,zhenminggai",
     "build_time": 240,
     "broken": [
       10,
@@ -18255,7 +18281,7 @@
     "ctype": 6,
     "cnum": 4,
     "rarity": 0,
-    "name_for_search": "霧島改,kirishima,雾岛改,wudaogai",
+    "name_for_search": "霧島改,きりしま,kirishima,雾岛改,wudaogai",
     "build_time": 240,
     "broken": [
       10,
@@ -18344,7 +18370,7 @@
     "ctype": 21,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "天龍改,tenryuu,天龙改,tianlonggai",
+    "name_for_search": "天龍改,てんりゅう,tenryuu,天龙改,tianlonggai",
     "build_time": 60,
     "broken": [
       1,
@@ -18433,7 +18459,7 @@
     "ctype": 21,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "龍田改,tatsuta,龙田改,longtiangai",
+    "name_for_search": "龍田改,たつた,tatsuta,龙田改,longtiangai",
     "build_time": 60,
     "broken": [
       1,
@@ -18522,7 +18548,7 @@
     "ctype": 4,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "球磨改,kuma,球磨改,qiumogai",
+    "name_for_search": "球磨改,くま,kuma,球磨改,qiumogai",
     "build_time": 60,
     "broken": [
       2,
@@ -18611,7 +18637,7 @@
     "ctype": 4,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "多摩改,tama,多摩改,duomogai",
+    "name_for_search": "多摩改,たま,tama,多摩改,duomogai",
     "build_time": 60,
     "broken": [
       2,
@@ -18700,7 +18726,7 @@
     "ctype": 4,
     "cnum": 5,
     "rarity": 0,
-    "name_for_search": "木曾改,kiso,木曾改,mucenggai",
+    "name_for_search": "木曾改,きそ,kiso,木曾改,mucenggai",
     "build_time": 60,
     "broken": [
       2,
@@ -18789,7 +18815,7 @@
     "ctype": 20,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "長良改,nagara,长良改,zhanglianggai",
+    "name_for_search": "長良改,ながら,nagara,长良改,zhanglianggai",
     "build_time": 60,
     "broken": [
       2,
@@ -18878,7 +18904,7 @@
     "ctype": 20,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "五十鈴改,isuzu,五十铃改,wushilinggai",
+    "name_for_search": "五十鈴改,いすず,isuzu,五十铃改,wushilinggai",
     "build_time": 60,
     "broken": [
       2,
@@ -18967,7 +18993,7 @@
     "ctype": 20,
     "cnum": 4,
     "rarity": 0,
-    "name_for_search": "由良改,yura,由良改,youlianggai",
+    "name_for_search": "由良改,ゆら,yura,由良改,youlianggai",
     "build_time": 60,
     "broken": [
       2,
@@ -19056,7 +19082,7 @@
     "ctype": 20,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "名取改,natori,名取改,mingqugai",
+    "name_for_search": "名取改,なとり,natori,名取改,mingqugai",
     "build_time": 60,
     "broken": [
       2,
@@ -19145,7 +19171,7 @@
     "ctype": 16,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "川内改,sendai,川内改,chuanneigai",
+    "name_for_search": "川内改,せんだい,sendai,川内改,chuanneigai",
     "build_time": 60,
     "broken": [
       2,
@@ -19234,7 +19260,7 @@
     "ctype": 16,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "神通改,jintsuu,神通改,shentonggai",
+    "name_for_search": "神通改,じんつう,jintsuu,神通改,shentonggai",
     "build_time": 60,
     "broken": [
       2,
@@ -19323,7 +19349,7 @@
     "ctype": 16,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "那珂改,naka,那珂改,neikegai",
+    "name_for_search": "那珂改,なか,naka,那珂改,neikegai",
     "build_time": 60,
     "broken": [
       2,
@@ -19412,7 +19438,7 @@
     "ctype": 30,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "陽炎改,kagerou,阳炎改,yangyangai",
+    "name_for_search": "陽炎改,かげろう,kagerou,阳炎改,yangyangai",
     "build_time": 24,
     "broken": [
       1,
@@ -19501,7 +19527,7 @@
     "ctype": 30,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "不知火改,shiranui,不知火改,buzhihuogai",
+    "name_for_search": "不知火改,しらぬい,shiranui,不知火改,buzhihuogai",
     "build_time": 24,
     "broken": [
       1,
@@ -19590,7 +19616,7 @@
     "ctype": 30,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "黒潮改,kuroshio,黑潮改,heichaogai",
+    "name_for_search": "黒潮改,くろしお,kuroshio,黑潮改,heichaogai",
     "build_time": 24,
     "broken": [
       1,
@@ -19679,7 +19705,7 @@
     "ctype": 30,
     "cnum": 8,
     "rarity": 0,
-    "name_for_search": "雪風改,yukikaze,雪风改,xuefenggai",
+    "name_for_search": "雪風改,ゆきかぜ,yukikaze,雪风改,xuefenggai",
     "build_time": 24,
     "broken": [
       1,
@@ -19768,7 +19794,7 @@
     "ctype": 22,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "島風改,shimakaze,岛风改,daofenggai",
+    "name_for_search": "島風改,しまかぜ,shimakaze,岛风改,daofenggai",
     "build_time": 30,
     "broken": [
       1,
@@ -19857,7 +19883,7 @@
     "ctype": 1,
     "cnum": 7,
     "rarity": 0,
-    "name_for_search": "朧改,oboro,胧改,longgai",
+    "name_for_search": "朧改,おぼろ,oboro,胧改,longgai",
     "build_time": 20,
     "broken": [
       1,
@@ -19946,7 +19972,7 @@
     "ctype": 1,
     "cnum": 8,
     "rarity": 0,
-    "name_for_search": "曙改,akebono,曙改,shugai",
+    "name_for_search": "曙改,あけぼの,akebono,曙改,shugai",
     "build_time": 20,
     "broken": [
       1,
@@ -20035,7 +20061,7 @@
     "ctype": 1,
     "cnum": 9,
     "rarity": 0,
-    "name_for_search": "漣改,sazanami,涟改,liangai",
+    "name_for_search": "漣改,さざなみ,sazanami,涟改,liangai",
     "build_time": 20,
     "broken": [
       1,
@@ -20124,7 +20150,7 @@
     "ctype": 1,
     "cnum": 10,
     "rarity": 0,
-    "name_for_search": "潮改,ushio,潮改,chaogai",
+    "name_for_search": "潮改,うしお,ushio,潮改,chaogai",
     "build_time": 20,
     "broken": [
       1,
@@ -20213,7 +20239,7 @@
     "ctype": 5,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "暁改,akatsuki,晓改,xiaogai",
+    "name_for_search": "暁改,あかつき,akatsuki,晓改,xiaogai",
     "build_time": 20,
     "broken": [
       1,
@@ -20302,7 +20328,7 @@
     "ctype": 5,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "響改,hibiki,响改,xianggai",
+    "name_for_search": "響改,ひびき,hibiki,响改,xianggai",
     "build_time": 20,
     "broken": [
       1,
@@ -20391,7 +20417,7 @@
     "ctype": 5,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "雷改,ikaduchi,雷改,leigai",
+    "name_for_search": "雷改,いかづち,ikaduchi,雷改,leigai",
     "build_time": 20,
     "broken": [
       1,
@@ -20480,7 +20506,7 @@
     "ctype": 5,
     "cnum": 4,
     "rarity": 0,
-    "name_for_search": "電改,inaduma,电改,diangai",
+    "name_for_search": "電改,いなづま,inaduma,电改,diangai",
     "build_time": 20,
     "broken": [
       1,
@@ -20569,7 +20595,7 @@
     "ctype": 10,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "初春改,hatsuharu,初春改,chuchungai",
+    "name_for_search": "初春改,はつはる,hatsuharu,初春改,chuchungai",
     "build_time": 20,
     "broken": [
       1,
@@ -20658,7 +20684,7 @@
     "ctype": 10,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "子日改,nenohi,子日改,zirigai",
+    "name_for_search": "子日改,ねのひ,nenohi,子日改,zirigai",
     "build_time": 20,
     "broken": [
       1,
@@ -20747,7 +20773,7 @@
     "ctype": 10,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "若葉改,wakaba,若叶改,ruoyegai",
+    "name_for_search": "若葉改,わかば,wakaba,若叶改,ruoyegai",
     "build_time": 20,
     "broken": [
       1,
@@ -20836,7 +20862,7 @@
     "ctype": 10,
     "cnum": 4,
     "rarity": 0,
-    "name_for_search": "初霜改,hatsushimo,初霜改,chushuanggai",
+    "name_for_search": "初霜改,はつしも,hatsushimo,初霜改,chushuanggai",
     "build_time": 20,
     "broken": [
       1,
@@ -20925,7 +20951,7 @@
     "ctype": 23,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "白露改,shiratsuyu,白露改,bailugai",
+    "name_for_search": "白露改,しらつゆ,shiratsuyu,白露改,bailugai",
     "build_time": 22,
     "broken": [
       1,
@@ -21014,7 +21040,7 @@
     "ctype": 23,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "時雨改,shigure,时雨改,shiyugai",
+    "name_for_search": "時雨改,しぐれ,shigure,时雨改,shiyugai",
     "build_time": 22,
     "broken": [
       1,
@@ -21103,7 +21129,7 @@
     "ctype": 23,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "村雨改,murasame,村雨改,cunyugai",
+    "name_for_search": "村雨改,むらさめ,murasame,村雨改,cunyugai",
     "build_time": 22,
     "broken": [
       1,
@@ -21192,7 +21218,7 @@
     "ctype": 23,
     "cnum": 4,
     "rarity": 0,
-    "name_for_search": "夕立改,yuudachi,夕立改,xiligai",
+    "name_for_search": "夕立改,ゆうだち,yuudachi,夕立改,xiligai",
     "build_time": 22,
     "broken": [
       1,
@@ -21281,7 +21307,7 @@
     "ctype": 23,
     "cnum": 6,
     "rarity": 0,
-    "name_for_search": "五月雨改,samidare,五月雨改,wuyueyugai",
+    "name_for_search": "五月雨改,さみだれ,samidare,五月雨改,wuyueyugai",
     "build_time": 22,
     "broken": [
       1,
@@ -21370,7 +21396,7 @@
     "ctype": 23,
     "cnum": 10,
     "rarity": 0,
-    "name_for_search": "涼風改,suzukaze,凉风改,liangfenggai",
+    "name_for_search": "涼風改,すずかぜ,suzukaze,凉风改,liangfenggai",
     "build_time": 22,
     "broken": [
       1,
@@ -21459,7 +21485,7 @@
     "ctype": 18,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "朝潮改,asashio,朝潮改,chaochaogai",
+    "name_for_search": "朝潮改,あさしお,asashio,朝潮改,chaochaogai",
     "build_time": 22,
     "broken": [
       1,
@@ -21548,7 +21574,7 @@
     "ctype": 18,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "大潮改,ooshio,大潮改,dachaogai",
+    "name_for_search": "大潮改,おおしお,ooshio,大潮改,dachaogai",
     "build_time": 22,
     "broken": [
       1,
@@ -21637,7 +21663,7 @@
     "ctype": 18,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "満潮改,michishio,满潮改,manchaogai",
+    "name_for_search": "満潮改,みちしお,michishio,满潮改,manchaogai",
     "build_time": 22,
     "broken": [
       1,
@@ -21726,7 +21752,7 @@
     "ctype": 18,
     "cnum": 4,
     "rarity": 0,
-    "name_for_search": "荒潮改,arashio,荒潮改,huangchaogai",
+    "name_for_search": "荒潮改,あらしお,arashio,荒潮改,huangchaogai",
     "build_time": 22,
     "broken": [
       1,
@@ -21815,7 +21841,7 @@
     "ctype": 18,
     "cnum": 9,
     "rarity": 0,
-    "name_for_search": "霰改,arare,霰改,xiangai",
+    "name_for_search": "霰改,あられ,arare,霰改,xiangai",
     "build_time": 22,
     "broken": [
       1,
@@ -21904,7 +21930,7 @@
     "ctype": 18,
     "cnum": 10,
     "rarity": 0,
-    "name_for_search": "霞改,kasumi,霞改,xiagai",
+    "name_for_search": "霞改,かすみ,kasumi,霞改,xiagai",
     "build_time": 22,
     "broken": [
       1,
@@ -21993,7 +22019,7 @@
     "ctype": 28,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "睦月改,mutsuki,睦月改,muyuegai",
+    "name_for_search": "睦月改,むつき,mutsuki,睦月改,muyuegai",
     "build_time": 18,
     "broken": [
       1,
@@ -22082,7 +22108,7 @@
     "ctype": 28,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "如月改,kisaragi,如月改,ruyuegai",
+    "name_for_search": "如月改,きさらぎ,kisaragi,如月改,ruyuegai",
     "build_time": 18,
     "broken": [
       1,
@@ -22171,7 +22197,7 @@
     "ctype": 28,
     "cnum": 5,
     "rarity": 0,
-    "name_for_search": "皐月改,satsuki,皋月改,gaoyuegai",
+    "name_for_search": "皐月改,さつき,satsuki,皋月改,gaoyuegai",
     "build_time": 18,
     "broken": [
       1,
@@ -22260,7 +22286,7 @@
     "ctype": 28,
     "cnum": 7,
     "rarity": 0,
-    "name_for_search": "文月改,fumiduki,文月改,wenyuegai",
+    "name_for_search": "文月改,ふみづき,fumiduki,文月改,wenyuegai",
     "build_time": 18,
     "broken": [
       1,
@@ -22349,7 +22375,7 @@
     "ctype": 28,
     "cnum": 8,
     "rarity": 0,
-    "name_for_search": "長月改,nagatsuki,长月改,zhangyuegai",
+    "name_for_search": "長月改,ながつき,nagatsuki,长月改,zhangyuegai",
     "build_time": 18,
     "broken": [
       1,
@@ -22438,7 +22464,7 @@
     "ctype": 28,
     "cnum": 9,
     "rarity": 0,
-    "name_for_search": "菊月改,kikuduki,菊月改,juyuegai",
+    "name_for_search": "菊月改,きくづき,kikuduki,菊月改,juyuegai",
     "build_time": 18,
     "broken": [
       1,
@@ -22527,7 +22553,7 @@
     "ctype": 28,
     "cnum": 10,
     "rarity": 0,
-    "name_for_search": "三日月改,mikaduki,三日月改,sanriyuegai",
+    "name_for_search": "三日月改,みかづき,mikaduki,三日月改,sanriyuegai",
     "build_time": 18,
     "broken": [
       1,
@@ -22616,7 +22642,7 @@
     "ctype": 28,
     "cnum": 11,
     "rarity": 0,
-    "name_for_search": "望月改,mochiduki,望月改,wangyuegai",
+    "name_for_search": "望月改,もちづき,mochiduki,望月改,wangyuegai",
     "build_time": 18,
     "broken": [
       1,
@@ -22705,7 +22731,7 @@
     "ctype": 7,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "古鷹改,furutaka,古鹰改,guyinggai",
+    "name_for_search": "古鷹改,ふるたか,furutaka,古鹰改,guyinggai",
     "build_time": 60,
     "broken": [
       3,
@@ -22794,7 +22820,7 @@
     "ctype": 7,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "加古改,kako,加古改,jiagugai",
+    "name_for_search": "加古改,かこ,kako,加古改,jiagugai",
     "build_time": 60,
     "broken": [
       3,
@@ -22883,7 +22909,7 @@
     "ctype": 13,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "青葉改,aoba,青叶改,qingyegai",
+    "name_for_search": "青葉改,あおば,aoba,青叶改,qingyegai",
     "build_time": 60,
     "broken": [
       3,
@@ -22972,7 +22998,7 @@
     "ctype": 29,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "妙高改,myoukou,妙高改,miaogaogai",
+    "name_for_search": "妙高改,みょうこう,myoukou,妙高改,miaogaogai",
     "build_time": 80,
     "broken": [
       4,
@@ -23061,7 +23087,7 @@
     "ctype": 29,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "那智改,nachi,那智改,neizhigai",
+    "name_for_search": "那智改,なち,nachi,那智改,neizhigai",
     "build_time": 80,
     "broken": [
       4,
@@ -23150,7 +23176,7 @@
     "ctype": 29,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "足柄改,ashigara,足柄改,zubinggai",
+    "name_for_search": "足柄改,あしがら,ashigara,足柄改,zubinggai",
     "build_time": 80,
     "broken": [
       4,
@@ -23239,7 +23265,7 @@
     "ctype": 29,
     "cnum": 4,
     "rarity": 0,
-    "name_for_search": "羽黒改,haguro,羽黑改,yuheigai",
+    "name_for_search": "羽黒改,はぐろ,haguro,羽黑改,yuheigai",
     "build_time": 80,
     "broken": [
       4,
@@ -23328,7 +23354,7 @@
     "ctype": 8,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "高雄改,takao,高雄改,gaoxionggai",
+    "name_for_search": "高雄改,たかお,takao,高雄改,gaoxionggai",
     "build_time": 85,
     "broken": [
       4,
@@ -23417,7 +23443,7 @@
     "ctype": 8,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "愛宕改,atago,爱宕改,aidanggai",
+    "name_for_search": "愛宕改,あたご,atago,爱宕改,aidanggai",
     "build_time": 85,
     "broken": [
       4,
@@ -23506,7 +23532,7 @@
     "ctype": 8,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "摩耶改,maya,摩耶改,moyegai",
+    "name_for_search": "摩耶改,まや,maya,摩耶改,moyegai",
     "build_time": 85,
     "broken": [
       4,
@@ -23595,7 +23621,7 @@
     "ctype": 8,
     "cnum": 4,
     "rarity": 0,
-    "name_for_search": "鳥海改,choukai,鸟海改,niaohaigai",
+    "name_for_search": "鳥海改,ちょうかい,choukai,鸟海改,niaohaigai",
     "build_time": 85,
     "broken": [
       4,
@@ -23684,7 +23710,7 @@
     "ctype": 31,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "利根改,tone,利根改,ligengai",
+    "name_for_search": "利根改,とね,tone,利根改,ligengai",
     "build_time": 90,
     "broken": [
       5,
@@ -23773,7 +23799,7 @@
     "ctype": 31,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "筑摩改,chikuma,筑摩改,zhumogai",
+    "name_for_search": "筑摩改,ちくま,chikuma,筑摩改,zhumogai",
     "build_time": 90,
     "broken": [
       5,
@@ -23862,7 +23888,7 @@
     "ctype": 19,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "長門改,nagato,长门改,zhangmengai",
+    "name_for_search": "長門改,ながと,nagato,长门改,zhangmengai",
     "build_time": 300,
     "broken": [
       20,
@@ -23879,6 +23905,9 @@
     "consume": [
       100,
       160
+    ],
+    "extra_equip_type": [
+      38
     ],
     "equip": {
       "slots": 4,
@@ -23951,7 +23980,7 @@
     "ctype": 19,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "陸奥改,mutsu,陆奥改,luaogai",
+    "name_for_search": "陸奥改,むつ,mutsu,陆奥改,luaogai",
     "build_time": 300,
     "broken": [
       20,
@@ -23968,6 +23997,9 @@
     "consume": [
       100,
       160
+    ],
+    "extra_equip_type": [
+      38
     ],
     "equip": {
       "slots": 4,
@@ -24040,7 +24072,7 @@
     "ctype": 14,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "赤城改,akagi,赤城改,chichenggai",
+    "name_for_search": "赤城改,あかぎ,akagi,赤城改,chichenggai",
     "build_time": 270,
     "broken": [
       10,
@@ -24129,7 +24161,7 @@
     "ctype": 3,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "加賀改,kaga,加贺改,jiahegai",
+    "name_for_search": "加賀改,かが,kaga,加贺改,jiahegai",
     "build_time": 260,
     "broken": [
       10,
@@ -24218,7 +24250,7 @@
     "ctype": 17,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "蒼龍改,souryuu,苍龙改,canglonggai",
+    "name_for_search": "蒼龍改,そうりゅう,souryuu,苍龙改,canglonggai",
     "build_time": 250,
     "broken": [
       9,
@@ -24307,7 +24339,7 @@
     "ctype": 25,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "飛龍改,hiryuu,飞龙改,feilonggai",
+    "name_for_search": "飛龍改,ひりゅう,hiryuu,飞龙改,feilonggai",
     "build_time": 250,
     "broken": [
       9,
@@ -24396,7 +24428,7 @@
     "ctype": 32,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "龍驤改,ryuujou,龙骧改,longxianggai",
+    "name_for_search": "龍驤改,りゅうじょう,ryuujou,龙骧改,longxianggai",
     "build_time": 170,
     "broken": [
       4,
@@ -24485,7 +24517,7 @@
     "ctype": 11,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "祥鳳改,shouhou,祥凤改,xiangfenggai",
+    "name_for_search": "祥鳳改,しょうほう,shouhou,祥凤改,xiangfenggai",
     "build_time": 160,
     "broken": [
       4,
@@ -24574,7 +24606,7 @@
     "ctype": 24,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "飛鷹改,hiyou,飞鹰改,feiyinggai",
+    "name_for_search": "飛鷹改,ひよう,hiyou,飞鹰改,feiyinggai",
     "build_time": 180,
     "broken": [
       6,
@@ -24663,7 +24695,7 @@
     "ctype": 24,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "隼鷹改,jun\u0027you,隼鹰改,sunyinggai",
+    "name_for_search": "隼鷹改,じゅんよう,jun\u0027you,隼鹰改,sunyinggai",
     "build_time": 180,
     "broken": [
       6,
@@ -24752,7 +24784,7 @@
     "ctype": 27,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "鳳翔改,houshou,凤翔改,fengxianggai",
+    "name_for_search": "鳳翔改,ほうしょう,houshou,凤翔改,fengxianggai",
     "build_time": 120,
     "broken": [
       3,
@@ -24841,7 +24873,7 @@
     "ctype": 26,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "扶桑改,fusou,扶桑改,fusanggai",
+    "name_for_search": "扶桑改,ふそう,fusou,扶桑改,fusanggai",
     "build_time": 260,
     "broken": [
       10,
@@ -24930,7 +24962,7 @@
     "ctype": 26,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "山城改,yamashiro,山城改,shanchenggai",
+    "name_for_search": "山城改,やましろ,yamashiro,山城改,shanchenggai",
     "build_time": 260,
     "broken": [
       10,
@@ -25019,7 +25051,7 @@
     "ctype": 33,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "翔鶴改,shoukaku,翔鹤改,xianghegai",
+    "name_for_search": "翔鶴改,しょうかく,shoukaku,翔鹤改,xianghegai",
     "build_time": 360,
     "broken": [
       7,
@@ -25108,7 +25140,7 @@
     "ctype": 20,
     "cnum": 5,
     "rarity": 0,
-    "name_for_search": "鬼怒改,kinu,鬼怒改,guinugai",
+    "name_for_search": "鬼怒改,きぬ,kinu,鬼怒改,guinugai",
     "build_time": 75,
     "broken": [
       2,
@@ -25197,7 +25229,7 @@
     "ctype": 20,
     "cnum": 6,
     "rarity": 0,
-    "name_for_search": "阿武隈改,abukuma,阿武隈改,awuweigai",
+    "name_for_search": "阿武隈改,あぶくま,abukuma,阿武隈改,awuweigai",
     "build_time": 75,
     "broken": [
       2,
@@ -25286,7 +25318,7 @@
     "ctype": 15,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "千歳航改,chitose,千岁航改,qiansuihanggai",
+    "name_for_search": "千歳航改,ちとせ,chitose,千岁航改,qiansuihanggai",
     "build_time": 190,
     "broken": [
       5,
@@ -25375,7 +25407,7 @@
     "ctype": 15,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "千代田航改,chiyoda,千代田航改,qiandaitianhanggai",
+    "name_for_search": "千代田航改,ちよだ,chiyoda,千代田航改,qiandaitianhanggai",
     "build_time": 190,
     "broken": [
       5,
@@ -25464,7 +25496,7 @@
     "ctype": 34,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "夕張改,yuubari,夕张改,xizhanggai",
+    "name_for_search": "夕張改,ゆうばり,yuubari,夕张改,xizhanggai",
     "build_time": 82,
     "broken": [
       2,
@@ -25553,7 +25585,7 @@
     "ctype": 30,
     "cnum": 18,
     "rarity": 0,
-    "name_for_search": "舞風改,maikaze,舞风改,wufenggai",
+    "name_for_search": "舞風改,まいかぜ,maikaze,舞风改,wufenggai",
     "build_time": 24,
     "broken": [
       1,
@@ -25642,7 +25674,7 @@
     "ctype": 13,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "衣笠改,kinugasa,衣笠改,yiligai",
+    "name_for_search": "衣笠改,きぬがさ,kinugasa,衣笠改,yiligai",
     "build_time": 60,
     "broken": [
       3,
@@ -25731,7 +25763,7 @@
     "ctype": 15,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "千歳航改二,chitose,千岁航改二,qiansuihanggaier",
+    "name_for_search": "千歳航改二,ちとせ,chitose,千岁航改二,qiansuihanggaier",
     "build_time": 190,
     "broken": [
       5,
@@ -25820,7 +25852,7 @@
     "ctype": 15,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "千代田航改二,chiyoda,千代田航改二,qiandaitianhanggaier",
+    "name_for_search": "千代田航改二,ちよだ,chiyoda,千代田航改二,qiandaitianhanggaier",
     "build_time": 190,
     "broken": [
       5,
@@ -25909,7 +25941,7 @@
     "ctype": 30,
     "cnum": 7,
     "rarity": 0,
-    "name_for_search": "初風改,hatsukaze,初风改,chufenggai",
+    "name_for_search": "初風改,はつかぜ,hatsukaze,初风改,chufenggai",
     "build_time": 24,
     "broken": [
       1,
@@ -25998,7 +26030,7 @@
     "ctype": 30,
     "cnum": 19,
     "rarity": 0,
-    "name_for_search": "秋雲改,akigumo,秋云改,qiuyungai",
+    "name_for_search": "秋雲改,あきぐも,akigumo,秋云改,qiuyungai",
     "build_time": 24,
     "broken": [
       1,
@@ -26087,7 +26119,7 @@
     "ctype": 38,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "夕雲改,yuugumo,夕云改,xiyungai",
+    "name_for_search": "夕雲改,ゆうぐも,yuugumo,夕云改,xiyungai",
     "build_time": 24,
     "broken": [
       1,
@@ -26176,7 +26208,7 @@
     "ctype": 38,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "巻雲改,makigumo,卷云改,juanyungai",
+    "name_for_search": "巻雲改,まきぐも,makigumo,卷云改,juanyungai",
     "build_time": 24,
     "broken": [
       1,
@@ -26265,7 +26297,7 @@
     "ctype": 38,
     "cnum": 4,
     "rarity": 0,
-    "name_for_search": "長波改,naganami,长波改,zhangbogai",
+    "name_for_search": "長波改,ながなみ,naganami,长波改,zhangbogai",
     "build_time": 24,
     "broken": [
       1,
@@ -26354,7 +26386,7 @@
     "ctype": 41,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "阿賀野改,agano,阿贺野改,aheyegai",
+    "name_for_search": "阿賀野改,あがの,agano,阿贺野改,aheyegai",
     "build_time": 60,
     "broken": [
       3,
@@ -26443,7 +26475,7 @@
     "ctype": 41,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "能代改,noshiro,能代改,nengdaigai",
+    "name_for_search": "能代改,のしろ,noshiro,能代改,nengdaigai",
     "build_time": 60,
     "broken": [
       3,
@@ -26532,7 +26564,7 @@
     "ctype": 41,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "矢矧改,yahagi,矢矧改,shishengai",
+    "name_for_search": "矢矧改,やはぎ,yahagi,矢矧改,shishengai",
     "build_time": 60,
     "broken": [
       3,
@@ -26621,7 +26653,7 @@
     "ctype": 28,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "弥生改,yayoi,弥生改,mishenggai",
+    "name_for_search": "弥生改,やよい,yayoi,弥生改,mishenggai",
     "build_time": 18,
     "broken": [
       1,
@@ -26710,7 +26742,7 @@
     "ctype": 28,
     "cnum": 4,
     "rarity": 0,
-    "name_for_search": "卯月改,uduki,卯月改,maoyuegai",
+    "name_for_search": "卯月改,うづき,uduki,卯月改,maoyuegai",
     "build_time": 18,
     "broken": [
       1,
@@ -26799,7 +26831,7 @@
     "ctype": 48,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "Z1改,reーberehito・maーsu,Z1改,gai",
+    "name_for_search": "Z1改,レーベレヒト・マース,reーberehito・maーsu,Z1改,gai",
     "build_time": 24,
     "broken": [
       1,
@@ -26888,7 +26920,7 @@
     "ctype": 48,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "Z3改,makkusu・shurutsu,Z3改,gai",
+    "name_for_search": "Z3改,マックス・シュルツ,makkusu・shurutsu,Z3改,gai",
     "build_time": 24,
     "broken": [
       1,
@@ -26977,7 +27009,7 @@
     "ctype": 30,
     "cnum": 13,
     "rarity": 0,
-    "name_for_search": "浜風改,hamakaze,浜风改,bangfenggai",
+    "name_for_search": "浜風改,はまかぜ,hamakaze,浜风改,bangfenggai",
     "build_time": 24,
     "broken": [
       1,
@@ -27066,7 +27098,7 @@
     "ctype": 30,
     "cnum": 14,
     "rarity": 0,
-    "name_for_search": "谷風改,tanikaze,谷风改,gufenggai",
+    "name_for_search": "谷風改,たにかぜ,tanikaze,谷风改,gufenggai",
     "build_time": 24,
     "broken": [
       1,
@@ -27155,7 +27187,7 @@
     "ctype": 41,
     "cnum": 4,
     "rarity": 0,
-    "name_for_search": "酒匂改,sakawa,酒匂改,jiugai",
+    "name_for_search": "酒匂改,さかわ,sakawa,酒匂改,jiugai",
     "build_time": 60,
     "broken": [
       3,
@@ -27244,7 +27276,7 @@
     "ctype": 30,
     "cnum": 9,
     "rarity": 0,
-    "name_for_search": "天津風改,amatsukaze,天津风改,tianjinfenggai",
+    "name_for_search": "天津風改,あまつかぜ,amatsukaze,天津风改,tianjinfenggai",
     "build_time": 24,
     "broken": [
       1,
@@ -27333,7 +27365,7 @@
     "ctype": 30,
     "cnum": 11,
     "rarity": 0,
-    "name_for_search": "浦風改,urakaze,浦风改,pufenggai",
+    "name_for_search": "浦風改,うらかぜ,urakaze,浦风改,pufenggai",
     "build_time": 24,
     "broken": [
       1,
@@ -27422,7 +27454,7 @@
     "ctype": 51,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "龍鳳改,taigei・ryuuhou,龙凤改,longfenggai",
+    "name_for_search": "龍鳳改,たいげい・りゅうほう,taigei・ryuuhou,龙凤改,longfenggai",
     "build_time": 160,
     "broken": [
       4,
@@ -27511,7 +27543,7 @@
     "ctype": 29,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "妙高改二,myoukou,妙高改二,miaogaogaier",
+    "name_for_search": "妙高改二,みょうこう,myoukou,妙高改二,miaogaogaier",
     "build_time": 80,
     "broken": [
       4,
@@ -27600,7 +27632,7 @@
     "ctype": 30,
     "cnum": 12,
     "rarity": 0,
-    "name_for_search": "磯風改,isokaze,矶风改,jifenggai",
+    "name_for_search": "磯風改,いそかぜ,isokaze,矶风改,jifenggai",
     "build_time": 24,
     "broken": [
       1,
@@ -27689,7 +27721,7 @@
     "ctype": 52,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "大淀改,ooyodo,大淀改,dadiangai",
+    "name_for_search": "大淀改,おおよど,ooyodo,大淀改,dadiangai",
     "build_time": 80,
     "broken": [
       4,
@@ -27778,7 +27810,7 @@
     "ctype": 30,
     "cnum": 10,
     "rarity": 0,
-    "name_for_search": "時津風改,tokitsukaze,时津风改,shijinfenggai",
+    "name_for_search": "時津風改,ときつかぜ,tokitsukaze,时津风改,shijinfenggai",
     "build_time": 24,
     "broken": [
       1,
@@ -27867,7 +27899,7 @@
     "ctype": 23,
     "cnum": 5,
     "rarity": 0,
-    "name_for_search": "春雨改,harusame,春雨改,chunyugai",
+    "name_for_search": "春雨改,はるさめ,harusame,春雨改,chunyugai",
     "build_time": 22,
     "broken": [
       1,
@@ -27956,7 +27988,7 @@
     "ctype": 38,
     "cnum": 17,
     "rarity": 0,
-    "name_for_search": "早霜改,hayashimo,早霜改,zaoshuanggai",
+    "name_for_search": "早霜改,はやしも,hayashimo,早霜改,zaoshuanggai",
     "build_time": 24,
     "broken": [
       1,
@@ -28045,7 +28077,7 @@
     "ctype": 38,
     "cnum": 19,
     "rarity": 0,
-    "name_for_search": "清霜改,kiyoshimo,清霜改,qingshuanggai",
+    "name_for_search": "清霜改,きよしも,kiyoshimo,清霜改,qingshuanggai",
     "build_time": 24,
     "broken": [
       1,
@@ -28134,7 +28166,7 @@
     "ctype": 10,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "初春改二,hatsuharu,初春改二,chuchungaier",
+    "name_for_search": "初春改二,はつはる,hatsuharu,初春改二,chuchungaier",
     "build_time": 20,
     "broken": [
       1,
@@ -28223,7 +28255,7 @@
     "ctype": 18,
     "cnum": 5,
     "rarity": 0,
-    "name_for_search": "朝雲改,asagumo,朝云改,chaoyungai",
+    "name_for_search": "朝雲改,あさぐも,asagumo,朝云改,chaoyungai",
     "build_time": 22,
     "broken": [
       1,
@@ -28312,7 +28344,7 @@
     "ctype": 18,
     "cnum": 6,
     "rarity": 0,
-    "name_for_search": "山雲改,yamagumo,山云改,shanyungai",
+    "name_for_search": "山雲改,やまぐも,yamagumo,山云改,shanyungai",
     "build_time": 22,
     "broken": [
       1,
@@ -28401,7 +28433,7 @@
     "ctype": 30,
     "cnum": 15,
     "rarity": 0,
-    "name_for_search": "野分改,nowaki,野分改,yefengai",
+    "name_for_search": "野分改,のわき,nowaki,野分改,yefengai",
     "build_time": 24,
     "broken": [
       1,
@@ -28490,7 +28522,7 @@
     "ctype": 54,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "秋月改,akiduki,秋月改,qiuyuegai",
+    "name_for_search": "秋月改,あきづき,akiduki,秋月改,qiuyuegai",
     "build_time": 30,
     "broken": [
       1,
@@ -28579,7 +28611,7 @@
     "ctype": 53,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "天城,amagi,天城,tiancheng",
+    "name_for_search": "天城,あまぎ,amagi,天城,tiancheng",
     "build_time": 210,
     "broken": [
       7,
@@ -28668,7 +28700,7 @@
     "ctype": 53,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "葛城,katsuragi,葛城,gecheng",
+    "name_for_search": "葛城,かつらぎ,katsuragi,葛城,gecheng",
     "build_time": 210,
     "broken": [
       7,
@@ -28757,7 +28789,7 @@
     "ctype": 57,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "U-511改,yuー511・ro500,U-511改,gai",
+    "name_for_search": "U-511改,ゆー511・ろ500,yuー511・ro500,U-511改,gai",
     "build_time": 22,
     "broken": [
       1,
@@ -28846,7 +28878,7 @@
     "ctype": 56,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "香取改,katori,香取改,xiangqugai",
+    "name_for_search": "香取改,かとり,katori,香取改,xiangqugai",
     "build_time": 70,
     "broken": [
       3,
@@ -28935,7 +28967,7 @@
     "ctype": 38,
     "cnum": 16,
     "rarity": 0,
-    "name_for_search": "朝霜改,asashimo,朝霜改,chaoshuanggai",
+    "name_for_search": "朝霜改,あさしも,asashimo,朝霜改,chaoshuanggai",
     "build_time": 24,
     "broken": [
       1,
@@ -29024,7 +29056,7 @@
     "ctype": 38,
     "cnum": 6,
     "rarity": 0,
-    "name_for_search": "高波改,takanami,高波改,gaobogai",
+    "name_for_search": "高波改,たかなみ,takanami,高波改,gaobogai",
     "build_time": 24,
     "broken": [
       1,
@@ -29113,7 +29145,7 @@
     "ctype": 54,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "照月改,teruduki,照月改,zhaoyuegai",
+    "name_for_search": "照月改,てるづき,teruduki,照月改,zhaoyuegai",
     "build_time": 30,
     "broken": [
       1,
@@ -29202,7 +29234,7 @@
     "ctype": 61,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "Libeccio改,ribecchio,利伯齐奥改,liboqiaogai",
+    "name_for_search": "Libeccio改,リベッチオ,ribecchio,利伯齐奥改,liboqiaogai",
     "build_time": 23,
     "broken": [
       1,
@@ -29291,7 +29323,7 @@
     "ctype": 62,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "瑞穂改,mizuho,瑞穗改,ruisuigai",
+    "name_for_search": "瑞穂改,みずほ,mizuho,瑞穗改,ruisuigai",
     "build_time": 140,
     "broken": [
       3,
@@ -29380,7 +29412,7 @@
     "ctype": 38,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "風雲改,kazagumo,风云改,fengyungai",
+    "name_for_search": "風雲改,かざぐも,kazagumo,风云改,fengyungai",
     "build_time": 24,
     "broken": [
       1,
@@ -29469,7 +29501,7 @@
     "ctype": 23,
     "cnum": 7,
     "rarity": 0,
-    "name_for_search": "海風改,umikaze,海风改,haifenggai",
+    "name_for_search": "海風改,うみかぜ,umikaze,海风改,haifenggai",
     "build_time": 22,
     "broken": [
       1,
@@ -29558,7 +29590,7 @@
     "ctype": 23,
     "cnum": 9,
     "rarity": 0,
-    "name_for_search": "江風改,kawakaze,江风改,jiangfenggai",
+    "name_for_search": "江風改,かわかぜ,kawakaze,江风改,jiangfenggai",
     "build_time": 22,
     "broken": [
       1,
@@ -29647,7 +29679,7 @@
     "ctype": 60,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "速吸改,hayasui,速吸改,suxigai",
+    "name_for_search": "速吸改,はやすい,hayasui,速吸改,suxigai",
     "build_time": 220,
     "broken": [
       8,
@@ -29736,7 +29768,7 @@
     "ctype": 63,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "Graf Zeppelin改,guraーfu・tsepperin,齐柏林改,qibolingai",
+    "name_for_search": "Graf Zeppelin改,グラーフ・ツェッペリン,guraーfu・tsepperin,齐柏林改,qibolingai",
     "build_time": 270,
     "broken": [
       10,
@@ -29825,7 +29857,7 @@
     "ctype": 30,
     "cnum": 16,
     "rarity": 0,
-    "name_for_search": "嵐改,arashi,岚‎‎改,langai",
+    "name_for_search": "嵐改,あらし,arashi,岚‎‎改,langai",
     "build_time": 24,
     "broken": [
       1,
@@ -29914,7 +29946,7 @@
     "ctype": 30,
     "cnum": 17,
     "rarity": 0,
-    "name_for_search": "萩風改,hagikaze,萩风‎改,qiufenggai",
+    "name_for_search": "萩風改,はぎかぜ,hagikaze,萩风‎改,qiufenggai",
     "build_time": 24,
     "broken": [
       1,
@@ -30003,7 +30035,7 @@
     "ctype": 56,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "鹿島改,kashima,鹿岛改,ludaogai",
+    "name_for_search": "鹿島改,かしま,kashima,鹿岛改,ludaogai",
     "build_time": 70,
     "broken": [
       3,
@@ -30092,7 +30124,7 @@
     "ctype": 54,
     "cnum": 4,
     "rarity": 0,
-    "name_for_search": "初月改,hatsuduki,初月改,chuyuegai",
+    "name_for_search": "初月改,はつづき,hatsuduki,初月改,chuyuegai",
     "build_time": 30,
     "broken": [
       1,
@@ -30181,7 +30213,7 @@
     "ctype": 64,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "Zara改,zara,扎拉改,zhalagai",
+    "name_for_search": "Zara改,ザラ,zara,扎拉改,zhalagai",
     "build_time": 70,
     "broken": [
       4,
@@ -30198,6 +30230,10 @@
     "consume": [
       45,
       65
+    ],
+    "extra_equip_type": [
+      11,
+      45
     ],
     "equip": {
       "slots": 4,
@@ -30270,7 +30306,7 @@
     "ctype": 38,
     "cnum": 14,
     "rarity": 0,
-    "name_for_search": "沖波改,okinami,冲波改,chongbogai",
+    "name_for_search": "沖波改,おきなみ,okinami,冲波改,chongbogai",
     "build_time": 24,
     "broken": [
       1,
@@ -30359,7 +30395,7 @@
     "ctype": 65,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "Iowa改,aiowa,衣阿华改,yiahuagai",
+    "name_for_search": "Iowa改,アイオワ,aiowa,衣阿华改,yiahuagai",
     "build_time": 500,
     "broken": [
       32,
@@ -30448,7 +30484,7 @@
     "ctype": 64,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "Pola改,poーra,波拉改,bolagai",
+    "name_for_search": "Pola改,ポーラ,poーra,波拉改,bolagai",
     "build_time": 70,
     "broken": [
       4,
@@ -30465,6 +30501,10 @@
     "consume": [
       45,
       65
+    ],
+    "extra_equip_type": [
+      11,
+      45
     ],
     "equip": {
       "slots": 4,
@@ -30537,7 +30577,7 @@
     "ctype": 30,
     "cnum": 4,
     "rarity": 0,
-    "name_for_search": "親潮改,oyashio,亲潮改,qinchaogai",
+    "name_for_search": "親潮改,おやしお,oyashio,亲潮改,qinchaogai",
     "build_time": 24,
     "broken": [
       1,
@@ -30626,7 +30666,7 @@
     "ctype": 66,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "春風改,harukaze,春风改,chunfenggai",
+    "name_for_search": "春風改,はるかぜ,harukaze,春风改,chunfenggai",
     "build_time": 18,
     "broken": [
       1,
@@ -30715,7 +30755,7 @@
     "ctype": 35,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "伊168改,i168,伊168改,yigai",
+    "name_for_search": "伊168改,い168,i168,伊168改,yigai",
     "build_time": 22,
     "broken": [
       1,
@@ -30804,7 +30844,7 @@
     "ctype": 36,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "伊58改,i58,伊58改,yigai",
+    "name_for_search": "伊58改,い58,i58,伊58改,yigai",
     "build_time": 22,
     "broken": [
       1,
@@ -30893,7 +30933,7 @@
     "ctype": 40,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "伊8改,i8,伊8改,yigai",
+    "name_for_search": "伊8改,い8,i8,伊8改,yigai",
     "build_time": 22,
     "broken": [
       1,
@@ -30982,7 +31022,7 @@
     "ctype": 39,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "伊19改,i19,伊19改,yigai",
+    "name_for_search": "伊19改,い19,i19,伊19改,yigai",
     "build_time": 22,
     "broken": [
       1,
@@ -31071,7 +31111,7 @@
     "ctype": 46,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "まるゆ改,maruyu,丸输改,wanshugai",
+    "name_for_search": "まるゆ改,まるゆ,maruyu,丸输改,wanshugai",
     "build_time": 17,
     "broken": [
       1,
@@ -31160,7 +31200,7 @@
     "ctype": 44,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "伊401改,i401,伊401改,yigai",
+    "name_for_search": "伊401改,い401,i401,伊401改,yigai",
     "build_time": 200,
     "broken": [
       1,
@@ -31249,7 +31289,7 @@
     "ctype": 53,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "雲龍,unryuu,云龙,yunlong",
+    "name_for_search": "雲龍,うんりゅう,unryuu,云龙,yunlong",
     "build_time": 210,
     "broken": [
       7,
@@ -31338,7 +31378,7 @@
     "ctype": 23,
     "cnum": 5,
     "rarity": 0,
-    "name_for_search": "春雨,harusame,春雨,chunyu",
+    "name_for_search": "春雨,はるさめ,harusame,春雨,chunyu",
     "build_time": 22,
     "broken": [
       1,
@@ -31427,7 +31467,7 @@
     "ctype": 53,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "雲龍改,unryuu,云龙改,yunlonggai",
+    "name_for_search": "雲龍改,うんりゅう,unryuu,云龙改,yunlonggai",
     "build_time": 210,
     "broken": [
       7,
@@ -31516,7 +31556,7 @@
     "ctype": 1,
     "cnum": 10,
     "rarity": 0,
-    "name_for_search": "潮改二,ushio,潮改二,chaogaier",
+    "name_for_search": "潮改二,うしお,ushio,潮改二,chaogaier",
     "build_time": 20,
     "broken": [
       1,
@@ -31605,7 +31645,7 @@
     "ctype": 24,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "隼鷹改二,jun\u0027you,隼鹰改二,sunyinggaier",
+    "name_for_search": "隼鷹改二,じゅんよう,jun\u0027you,隼鹰改二,sunyinggaier",
     "build_time": 180,
     "broken": [
       6,
@@ -31694,7 +31734,7 @@
     "ctype": 38,
     "cnum": 17,
     "rarity": 0,
-    "name_for_search": "早霜,hayashimo,早霜,zaoshuang",
+    "name_for_search": "早霜,はやしも,hayashimo,早霜,zaoshuang",
     "build_time": 24,
     "broken": [
       1,
@@ -31783,7 +31823,7 @@
     "ctype": 38,
     "cnum": 19,
     "rarity": 0,
-    "name_for_search": "清霜,kiyoshimo,清霜,qingshuang",
+    "name_for_search": "清霜,きよしも,kiyoshimo,清霜,qingshuang",
     "build_time": 24,
     "broken": [
       1,
@@ -31872,7 +31912,7 @@
     "ctype": 26,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "扶桑改二,fusou,扶桑改二,fusanggaier",
+    "name_for_search": "扶桑改二,ふそう,fusou,扶桑改二,fusanggaier",
     "build_time": 260,
     "broken": [
       12,
@@ -31961,7 +32001,7 @@
     "ctype": 26,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "山城改二,yamashiro,山城改二,shanchenggaier",
+    "name_for_search": "山城改二,やましろ,yamashiro,山城改二,shanchenggaier",
     "build_time": 260,
     "broken": [
       12,
@@ -32050,7 +32090,7 @@
     "ctype": 18,
     "cnum": 5,
     "rarity": 0,
-    "name_for_search": "朝雲,asagumo,朝云,chaoyun",
+    "name_for_search": "朝雲,あさぐも,asagumo,朝云,chaoyun",
     "build_time": 22,
     "broken": [
       1,
@@ -32139,7 +32179,7 @@
     "ctype": 18,
     "cnum": 6,
     "rarity": 0,
-    "name_for_search": "山雲,yamagumo,山云,shanyun",
+    "name_for_search": "山雲,やまぐも,yamagumo,山云,shanyun",
     "build_time": 22,
     "broken": [
       1,
@@ -32228,7 +32268,7 @@
     "ctype": 30,
     "cnum": 15,
     "rarity": 0,
-    "name_for_search": "野分,nowaki,野分,yefen",
+    "name_for_search": "野分,のわき,nowaki,野分,yefen",
     "build_time": 24,
     "broken": [
       1,
@@ -32317,7 +32357,7 @@
     "ctype": 7,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "古鷹改二,furutaka,古鹰改二,guyinggaier",
+    "name_for_search": "古鷹改二,ふるたか,furutaka,古鹰改二,guyinggaier",
     "build_time": 60,
     "broken": [
       3,
@@ -32406,7 +32446,7 @@
     "ctype": 7,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "加古改二,kako,加古改二,jiagugaier",
+    "name_for_search": "加古改二,かこ,kako,加古改二,jiagugaier",
     "build_time": 60,
     "broken": [
       3,
@@ -32495,7 +32535,7 @@
     "ctype": 28,
     "cnum": 5,
     "rarity": 0,
-    "name_for_search": "皐月改二,satsuki,皋月改二,gaoyuegaier",
+    "name_for_search": "皐月改二,さつき,satsuki,皋月改二,gaoyuegaier",
     "build_time": 18,
     "broken": [
       1,
@@ -32512,6 +32552,10 @@
     "consume": [
       15,
       15
+    ],
+    "extra_equip_type": [
+      24,
+      46
     ],
     "equip": {
       "slots": 3,
@@ -32584,7 +32628,7 @@
     "ctype": 10,
     "cnum": 4,
     "rarity": 0,
-    "name_for_search": "初霜改二,hatsushimo,初霜改二,chushuanggaier",
+    "name_for_search": "初霜改二,はつしも,hatsushimo,初霜改二,chushuanggaier",
     "build_time": 22,
     "broken": [
       1,
@@ -32673,7 +32717,7 @@
     "ctype": 12,
     "cnum": 5,
     "rarity": 0,
-    "name_for_search": "叢雲改二,murakumo,丛云改二,congyungaier",
+    "name_for_search": "叢雲改二,むらくも,murakumo,丛云改二,congyungaier",
     "build_time": 22,
     "broken": [
       1,
@@ -32762,7 +32806,7 @@
     "ctype": 54,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "秋月,akiduki,秋月,qiuyue",
+    "name_for_search": "秋月,あきづき,akiduki,秋月,qiuyue",
     "build_time": 30,
     "broken": [
       1,
@@ -32851,7 +32895,7 @@
     "ctype": 54,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "照月,teruduki,照月,zhaoyue",
+    "name_for_search": "照月,てるづき,teruduki,照月,zhaoyue",
     "build_time": 30,
     "broken": [
       1,
@@ -32940,7 +32984,7 @@
     "ctype": 54,
     "cnum": 4,
     "rarity": 0,
-    "name_for_search": "初月,hatsuduki,初月,chuyue",
+    "name_for_search": "初月,はつづき,hatsuduki,初月,chuyue",
     "build_time": 30,
     "broken": [
       1,
@@ -33029,7 +33073,7 @@
     "ctype": 38,
     "cnum": 6,
     "rarity": 0,
-    "name_for_search": "高波,takanami,高波,gaobo",
+    "name_for_search": "高波,たかなみ,takanami,高波,gaobo",
     "build_time": 24,
     "broken": [
       1,
@@ -33118,7 +33162,7 @@
     "ctype": 38,
     "cnum": 16,
     "rarity": 0,
-    "name_for_search": "朝霜,asashimo,朝霜,chaoshuang",
+    "name_for_search": "朝霜,あさしも,asashimo,朝霜,chaoshuang",
     "build_time": 24,
     "broken": [
       1,
@@ -33207,7 +33251,7 @@
     "ctype": 12,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "吹雪改二,fubuki,吹雪改二,chuixuegaier",
+    "name_for_search": "吹雪改二,ふぶき,fubuki,吹雪改二,chuixuegaier",
     "build_time": 20,
     "broken": [
       1,
@@ -33296,7 +33340,7 @@
     "ctype": 8,
     "cnum": 4,
     "rarity": 0,
-    "name_for_search": "鳥海改二,choukai,鸟海改二,niaohaigaier",
+    "name_for_search": "鳥海改二,ちょうかい,choukai,鸟海改二,niaohaigaier",
     "build_time": 85,
     "broken": [
       4,
@@ -33385,7 +33429,7 @@
     "ctype": 8,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "摩耶改二,maya,摩耶改二,moyegaier",
+    "name_for_search": "摩耶改二,まや,maya,摩耶改二,moyegaier",
     "build_time": 85,
     "broken": [
       4,
@@ -33474,7 +33518,7 @@
     "ctype": 53,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "天城改,amagi,天城改,tianchenggai",
+    "name_for_search": "天城改,あまぎ,amagi,天城改,tianchenggai",
     "build_time": 210,
     "broken": [
       7,
@@ -33563,7 +33607,7 @@
     "ctype": 53,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "葛城改,katsuragi,葛城改,gechenggai",
+    "name_for_search": "葛城改,かつらぎ,katsuragi,葛城改,gechenggai",
     "build_time": 210,
     "broken": [
       7,
@@ -33652,7 +33696,7 @@
     "ctype": 57,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "U-511,yuー511・ro500,U-511,",
+    "name_for_search": "U-511,ゆー511・ろ500,yuー511・ro500,U-511,",
     "build_time": 22,
     "broken": [
       1,
@@ -33741,7 +33785,7 @@
     "ctype": 63,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "Graf Zeppelin,guraーfu・tsepperin,齐柏林,qibolin",
+    "name_for_search": "Graf Zeppelin,グラーフ・ツェッペリン,guraーfu・tsepperin,齐柏林,qibolin",
     "build_time": 270,
     "broken": [
       8,
@@ -33830,7 +33874,7 @@
     "ctype": 28,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "睦月改二,mutsuki,睦月改二,muyuegaier",
+    "name_for_search": "睦月改二,むつき,mutsuki,睦月改二,muyuegaier",
     "build_time": 18,
     "broken": [
       1,
@@ -33847,6 +33891,9 @@
     "consume": [
       15,
       15
+    ],
+    "extra_equip_type": [
+      24
     ],
     "equip": {
       "slots": 3,
@@ -33919,7 +33966,7 @@
     "ctype": 28,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "如月改二,kisaragi,如月改二,ruyuegaier",
+    "name_for_search": "如月改二,きさらぎ,kisaragi,如月改二,ruyuegaier",
     "build_time": 18,
     "broken": [
       1,
@@ -33936,6 +33983,9 @@
     "consume": [
       15,
       15
+    ],
+    "extra_equip_type": [
+      24
     ],
     "equip": {
       "slots": 3,
@@ -34008,7 +34058,7 @@
     "ctype": 57,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "呂500,yuー511・ro500,吕500,lv",
+    "name_for_search": "呂500,ゆー511・ろ500,yuー511・ro500,吕500,lv",
     "build_time": 22,
     "broken": [
       1,
@@ -34097,7 +34147,7 @@
     "ctype": 5,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "暁改二,akatsuki,晓改二,xiaogaier",
+    "name_for_search": "暁改二,あかつき,akatsuki,晓改二,xiaogaier",
     "build_time": 20,
     "broken": [
       1,
@@ -34186,7 +34236,7 @@
     "ctype": 65,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "Iowa,aiowa,衣阿华,yiahua",
+    "name_for_search": "Iowa,アイオワ,aiowa,衣阿华,yiahua",
     "build_time": 500,
     "broken": [
       30,
@@ -34275,7 +34325,7 @@
     "ctype": 58,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "Littorio,rittorio・itaria,利托里奥,lituoliao",
+    "name_for_search": "Littorio,リットリオ・イタリア,rittorio・itaria,利托里奥,lituoliao",
     "build_time": 300,
     "broken": [
       10,
@@ -34364,7 +34414,7 @@
     "ctype": 58,
     "cnum": 4,
     "rarity": 0,
-    "name_for_search": "Roma,roーma,罗马,luoma",
+    "name_for_search": "Roma,ローマ,roーma,罗马,luoma",
     "build_time": 300,
     "broken": [
       10,
@@ -34453,7 +34503,7 @@
     "ctype": 61,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "Libeccio,ribecchio,利伯齐奥,liboqiao",
+    "name_for_search": "Libeccio,リベッチオ,ribecchio,利伯齐奥,liboqiao",
     "build_time": 23,
     "broken": [
       1,
@@ -34542,7 +34592,7 @@
     "ctype": 59,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "秋津洲,akitsushima,秋津洲,qiujinzhou",
+    "name_for_search": "秋津洲,あきつしま,akitsushima,秋津洲,qiujinzhou",
     "build_time": 70,
     "broken": [
       3,
@@ -34631,7 +34681,7 @@
     "ctype": 58,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "Italia,rittorio・itaria,意大利,yidali",
+    "name_for_search": "Italia,リットリオ・イタリア,rittorio・itaria,意大利,yidali",
     "build_time": 300,
     "broken": [
       18,
@@ -34720,7 +34770,7 @@
     "ctype": 58,
     "cnum": 4,
     "rarity": 0,
-    "name_for_search": "Roma改,roーma,罗马改,luomagai",
+    "name_for_search": "Roma改,ローマ,roーma,罗马改,luomagai",
     "build_time": 300,
     "broken": [
       18,
@@ -34809,7 +34859,7 @@
     "ctype": 64,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "Zara,zara,扎拉,zhala",
+    "name_for_search": "Zara,ザラ,zara,扎拉,zhala",
     "build_time": 70,
     "broken": [
       2,
@@ -34898,7 +34948,7 @@
     "ctype": 64,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "Pola,poーra,波拉,bola",
+    "name_for_search": "Pola,ポーラ,poーra,波拉,bola",
     "build_time": 70,
     "broken": [
       2,
@@ -34987,7 +35037,7 @@
     "ctype": 59,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "秋津洲改,akitsushima,秋津洲改,qiujinzhougai",
+    "name_for_search": "秋津洲改,あきつしま,akitsushima,秋津洲改,qiujinzhougai",
     "build_time": 70,
     "broken": [
       3,
@@ -35076,7 +35126,7 @@
     "ctype": 62,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "瑞穂,mizuho,瑞穗,ruisui",
+    "name_for_search": "瑞穂,みずほ,mizuho,瑞穗,ruisui",
     "build_time": 140,
     "broken": [
       3,
@@ -35165,7 +35215,7 @@
     "ctype": 38,
     "cnum": 14,
     "rarity": 0,
-    "name_for_search": "沖波,okinami,冲波,chongbo",
+    "name_for_search": "沖波,おきなみ,okinami,冲波,chongbo",
     "build_time": 24,
     "broken": [
       1,
@@ -35254,7 +35304,7 @@
     "ctype": 38,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "風雲,kazagumo,风云,fengyun",
+    "name_for_search": "風雲,かざぐも,kazagumo,风云,fengyun",
     "build_time": 24,
     "broken": [
       1,
@@ -35343,7 +35393,7 @@
     "ctype": 30,
     "cnum": 16,
     "rarity": 0,
-    "name_for_search": "嵐,arashi,岚‎‎,lan",
+    "name_for_search": "嵐,あらし,arashi,岚‎‎,lan",
     "build_time": 24,
     "broken": [
       1,
@@ -35432,7 +35482,7 @@
     "ctype": 30,
     "cnum": 17,
     "rarity": 0,
-    "name_for_search": "萩風,hagikaze,萩风‎,qiufeng",
+    "name_for_search": "萩風,はぎかぜ,hagikaze,萩风‎,qiufeng",
     "build_time": 24,
     "broken": [
       1,
@@ -35521,7 +35571,7 @@
     "ctype": 30,
     "cnum": 4,
     "rarity": 0,
-    "name_for_search": "親潮,oyashio,亲潮,qinchao",
+    "name_for_search": "親潮,おやしお,oyashio,亲潮,qinchao",
     "build_time": 24,
     "broken": [
       1,
@@ -35610,7 +35660,7 @@
     "ctype": 23,
     "cnum": 7,
     "rarity": 0,
-    "name_for_search": "海風,umikaze,海风,haifeng",
+    "name_for_search": "海風,うみかぜ,umikaze,海风,haifeng",
     "build_time": 22,
     "broken": [
       1,
@@ -35699,7 +35749,7 @@
     "ctype": 23,
     "cnum": 9,
     "rarity": 0,
-    "name_for_search": "江風,kawakaze,江风,jiangfeng",
+    "name_for_search": "江風,かわかぜ,kawakaze,江风,jiangfeng",
     "build_time": 22,
     "broken": [
       1,
@@ -35788,7 +35838,7 @@
     "ctype": 60,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "速吸,hayasui,速吸,suxi",
+    "name_for_search": "速吸,はやすい,hayasui,速吸,suxi",
     "build_time": 220,
     "broken": [
       6,
@@ -35877,7 +35927,7 @@
     "ctype": 33,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "翔鶴改二,shoukaku,翔鹤改二,xianghegaier",
+    "name_for_search": "翔鶴改二,しょうかく,shoukaku,翔鹤改二,xianghegaier",
     "build_time": 360,
     "broken": [
       12,
@@ -35966,7 +36016,7 @@
     "ctype": 33,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "瑞鶴改二,zuikaku,瑞鹤改二,ruihegaier",
+    "name_for_search": "瑞鶴改二,ずいかく,zuikaku,瑞鹤改二,ruihegaier",
     "build_time": 360,
     "broken": [
       12,
@@ -36055,7 +36105,7 @@
     "ctype": 18,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "朝潮改二,asashio,朝潮改二,chaochaogaier",
+    "name_for_search": "朝潮改二,あさしお,asashio,朝潮改二,chaochaogaier",
     "build_time": 22,
     "broken": [
       1,
@@ -36144,7 +36194,7 @@
     "ctype": 18,
     "cnum": 10,
     "rarity": 0,
-    "name_for_search": "霞改二,kasumi,霞改二,xiagaier",
+    "name_for_search": "霞改二,かすみ,kasumi,霞改二,xiagaier",
     "build_time": 22,
     "broken": [
       1,
@@ -36161,6 +36211,11 @@
     "consume": [
       15,
       20
+    ],
+    "extra_equip_type": [
+      34,
+      24,
+      46
     ],
     "equip": {
       "slots": 3,
@@ -36233,7 +36288,7 @@
     "ctype": 56,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "鹿島,kashima,鹿岛,ludao",
+    "name_for_search": "鹿島,かしま,kashima,鹿岛,ludao",
     "build_time": 70,
     "broken": [
       3,
@@ -36322,7 +36377,7 @@
     "ctype": 33,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "翔鶴改二甲,shoukaku,翔鹤改二甲,xianghegaierjia",
+    "name_for_search": "翔鶴改二甲,しょうかく,shoukaku,翔鹤改二甲,xianghegaierjia",
     "build_time": 360,
     "broken": [
       12,
@@ -36411,7 +36466,7 @@
     "ctype": 33,
     "cnum": 2,
     "rarity": 0,
-    "name_for_search": "瑞鶴改二甲,zuikaku,瑞鹤改二甲,ruihegaierjia",
+    "name_for_search": "瑞鶴改二甲,ずいかく,zuikaku,瑞鹤改二甲,ruihegaierjia",
     "build_time": 360,
     "broken": [
       12,
@@ -36500,7 +36555,7 @@
     "ctype": 18,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "朝潮改二丁,asashio,朝潮改二丁,chaochaogaierding",
+    "name_for_search": "朝潮改二丁,あさしお,asashio,朝潮改二丁,chaochaogaierding",
     "build_time": 22,
     "broken": [
       1,
@@ -36517,6 +36572,10 @@
     "consume": [
       15,
       20
+    ],
+    "extra_equip_type": [
+      24,
+      46
     ],
     "equip": {
       "slots": 3,
@@ -36589,7 +36648,7 @@
     "ctype": 23,
     "cnum": 9,
     "rarity": 0,
-    "name_for_search": "江風改二,kawakaze,江风改二,jiangfenggaier",
+    "name_for_search": "江風改二,かわかぜ,kawakaze,江风改二,jiangfenggaier",
     "build_time": 22,
     "broken": [
       1,
@@ -36606,6 +36665,9 @@
     "consume": [
       15,
       20
+    ],
+    "extra_equip_type": [
+      24
     ],
     "equip": {
       "slots": 3,
@@ -36678,7 +36740,7 @@
     "ctype": 18,
     "cnum": 10,
     "rarity": 0,
-    "name_for_search": "霞改二乙,kasumi,霞改二乙,xiagaieryi",
+    "name_for_search": "霞改二乙,かすみ,kasumi,霞改二乙,xiagaieryi",
     "build_time": 22,
     "broken": [
       1,
@@ -36695,6 +36757,11 @@
     "consume": [
       15,
       20
+    ],
+    "extra_equip_type": [
+      13,
+      24,
+      46
     ],
     "equip": {
       "slots": 3,
@@ -36767,7 +36834,7 @@
     "ctype": 66,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "神風,kamikaze,神风,shenfeng",
+    "name_for_search": "神風,かみかぜ,kamikaze,神风,shenfeng",
     "build_time": 18,
     "broken": [
       1,
@@ -36856,7 +36923,7 @@
     "ctype": 66,
     "cnum": 3,
     "rarity": 0,
-    "name_for_search": "春風,harukaze,春风,chunfeng",
+    "name_for_search": "春風,はるかぜ,harukaze,春风,chunfeng",
     "build_time": 18,
     "broken": [
       1,
@@ -36945,7 +37012,7 @@
     "ctype": 66,
     "cnum": 1,
     "rarity": 0,
-    "name_for_search": "神風改,kamikaze,神风改,shenfenggai",
+    "name_for_search": "神風改,かみかぜ,kamikaze,神风改,shenfenggai",
     "build_time": 18,
     "broken": [
       1,
@@ -37033,7 +37100,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "駆逐イ級,-,",
+    "name_for_search": "駆逐イ級,-,-,",
     "build_time": 0,
     "equip": {
       "slots": 2,
@@ -37076,7 +37143,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "駆逐ロ級,-,",
+    "name_for_search": "駆逐ロ級,-,-,",
     "build_time": 0,
     "equip": {
       "slots": 2,
@@ -37119,7 +37186,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "駆逐ハ級,-,",
+    "name_for_search": "駆逐ハ級,-,-,",
     "build_time": 0,
     "equip": {
       "slots": 2,
@@ -37162,7 +37229,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "駆逐ニ級,-,",
+    "name_for_search": "駆逐ニ級,-,-,",
     "build_time": 0,
     "equip": {
       "slots": 2,
@@ -37205,7 +37272,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "軽巡ホ級,-,",
+    "name_for_search": "軽巡ホ級,-,-,",
     "build_time": 0,
     "equip": {
       "slots": 2,
@@ -37248,7 +37315,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "軽巡ヘ級,-,",
+    "name_for_search": "軽巡ヘ級,-,-,",
     "build_time": 0,
     "equip": {
       "slots": 2,
@@ -37291,7 +37358,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "軽巡ト級,-,",
+    "name_for_search": "軽巡ト級,-,-,",
     "build_time": 0,
     "equip": {
       "slots": 3,
@@ -37334,7 +37401,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "雷巡チ級,-,",
+    "name_for_search": "雷巡チ級,-,-,",
     "build_time": 0,
     "equip": {
       "slots": 3,
@@ -37377,7 +37444,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "重巡リ級,-,",
+    "name_for_search": "重巡リ級,-,-,",
     "build_time": 0,
     "equip": {
       "slots": 3,
@@ -37420,7 +37487,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "軽母ヌ級,-,",
+    "name_for_search": "軽母ヌ級,-,-,",
     "build_time": 0,
     "equip": {
       "slots": 3,
@@ -37463,7 +37530,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "戦艦ル級,-,",
+    "name_for_search": "戦艦ル級,-,-,",
     "build_time": 0,
     "equip": {
       "slots": 3,
@@ -37506,7 +37573,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "空母ヲ級,-,",
+    "name_for_search": "空母ヲ級,-,-,",
     "build_time": 0,
     "equip": {
       "slots": 3,
@@ -37549,7 +37616,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "輸送ワ級,-,",
+    "name_for_search": "輸送ワ級,-,-,",
     "build_time": 0,
     "equip": {
       "slots": 0,
@@ -37592,7 +37659,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "駆逐イ級,elite,",
+    "name_for_search": "駆逐イ級,elite,elite,",
     "build_time": 0,
     "equip": {
       "slots": 2,
@@ -37635,7 +37702,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "駆逐ロ級,elite,",
+    "name_for_search": "駆逐ロ級,elite,elite,",
     "build_time": 0,
     "equip": {
       "slots": 2,
@@ -37678,7 +37745,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "駆逐ハ級,elite,",
+    "name_for_search": "駆逐ハ級,elite,elite,",
     "build_time": 0,
     "equip": {
       "slots": 2,
@@ -37721,7 +37788,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "駆逐ニ級,elite,",
+    "name_for_search": "駆逐ニ級,elite,elite,",
     "build_time": 0,
     "equip": {
       "slots": 2,
@@ -37764,7 +37831,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "軽巡ホ級,elite,",
+    "name_for_search": "軽巡ホ級,elite,elite,",
     "build_time": 0,
     "equip": {
       "slots": 2,
@@ -37807,7 +37874,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "軽巡ヘ級,elite,",
+    "name_for_search": "軽巡ヘ級,elite,elite,",
     "build_time": 0,
     "equip": {
       "slots": 2,
@@ -37850,7 +37917,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "軽巡ト級,elite,",
+    "name_for_search": "軽巡ト級,elite,elite,",
     "build_time": 0,
     "equip": {
       "slots": 3,
@@ -37893,7 +37960,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "雷巡チ級,elite,",
+    "name_for_search": "雷巡チ級,elite,elite,",
     "build_time": 0,
     "equip": {
       "slots": 3,
@@ -37936,7 +38003,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "重巡リ級,elite,",
+    "name_for_search": "重巡リ級,elite,elite,",
     "build_time": 0,
     "equip": {
       "slots": 4,
@@ -37979,7 +38046,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "軽母ヌ級,elite,",
+    "name_for_search": "軽母ヌ級,elite,elite,",
     "build_time": 0,
     "equip": {
       "slots": 3,
@@ -38022,7 +38089,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "戦艦ル級,elite,",
+    "name_for_search": "戦艦ル級,elite,elite,",
     "build_time": 0,
     "equip": {
       "slots": 4,
@@ -38065,7 +38132,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "空母ヲ級,elite,",
+    "name_for_search": "空母ヲ級,elite,elite,",
     "build_time": 0,
     "equip": {
       "slots": 3,
@@ -38108,7 +38175,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "輸送ワ級,elite,",
+    "name_for_search": "輸送ワ級,elite,elite,",
     "build_time": 0,
     "equip": {
       "slots": 3,
@@ -38151,7 +38218,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "重巡リ級,flagship,",
+    "name_for_search": "重巡リ級,flagship,flagship,",
     "build_time": 0,
     "equip": {
       "slots": 4,
@@ -38194,7 +38261,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "空母ヲ級,flagship,",
+    "name_for_search": "空母ヲ級,flagship,flagship,",
     "build_time": 0,
     "equip": {
       "slots": 3,
@@ -38237,7 +38304,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "戦艦ル級,flagship,",
+    "name_for_search": "戦艦ル級,flagship,flagship,",
     "build_time": 0,
     "equip": {
       "slots": 4,
@@ -38366,7 +38433,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "潜水カ級,elite,",
+    "name_for_search": "潜水カ級,elite,elite,",
     "build_time": 0,
     "equip": {
       "slots": 3,
@@ -38409,7 +38476,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "潜水ヨ級,elite,",
+    "name_for_search": "潜水ヨ級,elite,elite,",
     "build_time": 0,
     "equip": {
       "slots": 3,
@@ -38452,7 +38519,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "潜水カ級,flagship,",
+    "name_for_search": "潜水カ級,flagship,flagship,",
     "build_time": 0,
     "equip": {
       "slots": 3,
@@ -38495,7 +38562,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "潜水ヨ級,flagship,",
+    "name_for_search": "潜水ヨ級,flagship,flagship,",
     "build_time": 0,
     "equip": {
       "slots": 3,
@@ -38796,7 +38863,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "戦艦タ級,elite,",
+    "name_for_search": "戦艦タ級,elite,elite,",
     "build_time": 0,
     "equip": {
       "slots": 4,
@@ -38839,7 +38906,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "戦艦タ級,flagship,",
+    "name_for_search": "戦艦タ級,flagship,flagship,",
     "build_time": 0,
     "equip": {
       "slots": 4,
@@ -39226,7 +39293,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "駆逐ロ級,flagship,",
+    "name_for_search": "駆逐ロ級,flagship,flagship,",
     "build_time": 0,
     "equip": {
       "slots": 3,
@@ -39269,7 +39336,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "駆逐ハ級,flagship,",
+    "name_for_search": "駆逐ハ級,flagship,flagship,",
     "build_time": 0,
     "equip": {
       "slots": 3,
@@ -39312,7 +39379,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "軽巡ホ級,flagship,",
+    "name_for_search": "軽巡ホ級,flagship,flagship,",
     "build_time": 0,
     "equip": {
       "slots": 3,
@@ -39355,7 +39422,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "軽巡ヘ級,flagship,",
+    "name_for_search": "軽巡ヘ級,flagship,flagship,",
     "build_time": 0,
     "equip": {
       "slots": 4,
@@ -39484,7 +39551,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "輸送ワ級,flagship,",
+    "name_for_search": "輸送ワ級,flagship,flagship,",
     "build_time": 0,
     "equip": {
       "slots": 3,
@@ -39527,7 +39594,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "雷巡チ級,flagship,",
+    "name_for_search": "雷巡チ級,flagship,flagship,",
     "build_time": 0,
     "equip": {
       "slots": 3,
@@ -39570,7 +39637,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "軽母ヌ級,flagship,",
+    "name_for_search": "軽母ヌ級,flagship,flagship,",
     "build_time": 0,
     "equip": {
       "slots": 4,
@@ -39656,7 +39723,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "戦艦レ級,elite,",
+    "name_for_search": "戦艦レ級,elite,elite,",
     "build_time": 0,
     "equip": {
       "slots": 4,
@@ -39699,7 +39766,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "駆逐イ級,flagship,",
+    "name_for_search": "駆逐イ級,flagship,flagship,",
     "build_time": 0,
     "equip": {
       "slots": 3,
@@ -39742,7 +39809,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "空母ヲ級改,flagship,",
+    "name_for_search": "空母ヲ級改,flagship,flagship,",
     "build_time": 0,
     "equip": {
       "slots": 4,
@@ -39785,7 +39852,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "重巡リ級改,flagship,",
+    "name_for_search": "重巡リ級改,flagship,flagship,",
     "build_time": 0,
     "equip": {
       "slots": 4,
@@ -39828,7 +39895,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "戦艦ル級改,flagship,",
+    "name_for_search": "戦艦ル級改,flagship,flagship,",
     "build_time": 0,
     "equip": {
       "slots": 4,
@@ -39914,7 +39981,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "潜水ソ級,elite,",
+    "name_for_search": "潜水ソ級,elite,elite,",
     "build_time": 0,
     "equip": {
       "slots": 3,
@@ -39957,7 +40024,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "潜水ソ級,flagship,",
+    "name_for_search": "潜水ソ級,flagship,flagship,",
     "build_time": 0,
     "equip": {
       "slots": 3,
@@ -40258,7 +40325,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "空母ヲ級,flagship,",
+    "name_for_search": "空母ヲ級,flagship,flagship,",
     "build_time": 0,
     "equip": {
       "slots": 3,
@@ -40774,7 +40841,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "軽巡ツ級,elite,",
+    "name_for_search": "軽巡ツ級,elite,elite,",
     "build_time": 0,
     "equip": {
       "slots": 4,
@@ -40860,7 +40927,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "重巡ネ級,elite,",
+    "name_for_search": "重巡ネ級,elite,elite,",
     "build_time": 0,
     "equip": {
       "slots": 4,
@@ -41634,7 +41701,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "空母ヲ級,flagship,",
+    "name_for_search": "空母ヲ級,flagship,flagship,",
     "build_time": 0,
     "equip": {
       "slots": 3,
@@ -41677,7 +41744,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "空母ヲ級,flagship,",
+    "name_for_search": "空母ヲ級,flagship,flagship,",
     "build_time": 0,
     "equip": {
       "slots": 3,
@@ -41720,7 +41787,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "空母ヲ級改,flagship,",
+    "name_for_search": "空母ヲ級改,flagship,flagship,",
     "build_time": 0,
     "equip": {
       "slots": 3,
@@ -41763,7 +41830,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "空母ヲ級改,flagship,",
+    "name_for_search": "空母ヲ級改,flagship,flagship,",
     "build_time": 0,
     "equip": {
       "slots": 3,
@@ -41806,7 +41873,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "空母ヲ級改,flagship,",
+    "name_for_search": "空母ヲ級改,flagship,flagship,",
     "build_time": 0,
     "equip": {
       "slots": 3,
@@ -41935,7 +42002,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "駆逐イ級後期型,elite,",
+    "name_for_search": "駆逐イ級後期型,elite,elite,",
     "build_time": 0,
     "equip": {
       "slots": 3,
@@ -41978,7 +42045,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "駆逐ロ級後期型,elite,",
+    "name_for_search": "駆逐ロ級後期型,elite,elite,",
     "build_time": 0,
     "equip": {
       "slots": 3,
@@ -42021,7 +42088,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "駆逐ハ級後期型,elite,",
+    "name_for_search": "駆逐ハ級後期型,elite,elite,",
     "build_time": 0,
     "equip": {
       "slots": 3,
@@ -42064,7 +42131,7 @@
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,
-    "name_for_search": "駆逐ニ級後期型,elite,",
+    "name_for_search": "駆逐ニ級後期型,elite,elite,",
     "build_time": 0,
     "equip": {
       "slots": 3,
