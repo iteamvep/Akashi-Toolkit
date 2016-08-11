@@ -69,6 +69,10 @@ public class FleetListActivity extends BaseActivity {
             @Override
             public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
                 outRect.set(0, 0, 0, Utils.dpToPx(8));
+
+                if (parent.getChildAdapterPosition(view) == 0) {
+                    outRect.top = Utils.dpToPx(8);
+                }
             }
         });
 
