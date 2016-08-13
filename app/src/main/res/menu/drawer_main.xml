@@ -10,12 +10,12 @@
         <!--<item
             android:id="@+id/nav_twitter"
             android:icon="@drawable/ic_nav_twitter_24dp"
-            android:title="@string/official_twitter"/>
+            android:title="@string/official_twitter"/>-->
 
         <item
             android:id="@+id/nav_new"
             android:icon="@drawable/ic_nav_new_24dp"
-            android:title="@string/new_content"/>-->
+            android:title="@string/event"/>
 
         <item
             android:id="@+id/nav_item_improve"

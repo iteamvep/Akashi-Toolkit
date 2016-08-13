@@ -304,4 +304,5 @@ Activity &amp; Extra:
 
     <string name="fleet_default_title">New fleet</string>
 
+    <string name="event">Event</string>
 </resources>

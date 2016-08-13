@@ -34,10 +34,12 @@ public class SeasonalGalleryGenerator {
     private static Pattern GALLERY_PATTERN2 = Pattern.compile("文件:([^\\|]+)");
 
     public static void parse(List<Gallery> list, String line) {
-        Matcher m = GALLERY_PATTERN.matcher(line);
+        Matcher m = GALLERY_PATTERN.matcher(line.replace("File:", "文件:"));
 
         if (m.find()) {
-            list.add(new Gallery(m.group(1), m.group(2).replace("[[", "").replace("]]", "")));
+            list.add(new Gallery(
+                    m.group(1),
+                    m.group(2).replace("[[", "").replace("]]", "")));
         } else {
             m = GALLERY_PATTERN2.matcher(line);
             if (m.find()) {

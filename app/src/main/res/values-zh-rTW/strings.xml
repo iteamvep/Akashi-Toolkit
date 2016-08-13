@@ -284,4 +284,6 @@
 
     <string name="fleet_default_title">新的舰队</string>
 
+    <string name="event">活动</string>
+
 </resources>

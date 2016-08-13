@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import rikka.akashitoolkit.viewholder.IBindViewHolder;
+
 
 /**
  * Created by Rikka on 2016/4/13.
@@ -102,7 +104,9 @@ public abstract class BaseRecyclerAdapter<VH extends RecyclerView.ViewHolder, T>
     }
 
     @Override
-    public void onBindViewHolder(VH holder, int position, List<Object> payloads) {
-        super.onBindViewHolder(holder, position, payloads);
+    public void onBindViewHolder(VH holder, int position) {
+        if (holder instanceof IBindViewHolder) {
+            ((IBindViewHolder) holder).bind(getItem(position), position);
+        }
     }
 }

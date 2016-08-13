@@ -8,7 +8,8 @@
     tools:background="@color/windowBackground"
     android:clickable="true"
     android:focusable="true"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:stateListAnimator="@animator/raise">
 
     <!--android:stateListAnimator="@animator/raise"-->
 

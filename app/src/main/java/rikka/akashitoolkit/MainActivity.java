@@ -30,6 +30,7 @@ import java.util.Map;
 import rikka.akashitoolkit.enemy.EnemyDisplayFragment;
 import rikka.akashitoolkit.equip.EquipDisplayFragment;
 import rikka.akashitoolkit.equip_improvement.EquipImprovementDisplayFragment;
+import rikka.akashitoolkit.event.EventFragment;
 import rikka.akashitoolkit.expedition.ExpeditionDisplayFragment;
 import rikka.akashitoolkit.home.HomeFragment;
 import rikka.akashitoolkit.map.MapDisplayFragment;
@@ -141,8 +142,8 @@ public class MainActivity extends BaseActivity
 
         if (savedInstanceState != null) {
             findFragmentByNavId(mFragmentMap, R.id.nav_home);
-            /*findFragmentByNavId(mFragmentMap, R.id.nav_twitter);
-            findFragmentByNavId(mFragmentMap, R.id.nav_new);*/
+            /*findFragmentByNavId(mFragmentMap, R.id.nav_twitter);*/
+            findFragmentByNavId(mFragmentMap, R.id.nav_new);
             findFragmentByNavId(mFragmentMap, R.id.nav_item_improve);
             findFragmentByNavId(mFragmentMap, R.id.nav_enemy);
             findFragmentByNavId(mFragmentMap, R.id.nav_item);
@@ -167,8 +168,8 @@ public class MainActivity extends BaseActivity
         } else {
             switch (id) {
                 case R.id.nav_home:
-                /*case R.id.nav_twitter:
-                case R.id.nav_new:*/
+                /*case R.id.nav_twitter:*/
+                case R.id.nav_new:
                 case R.id.nav_enemy:
                 case R.id.nav_item_improve:
                 case R.id.nav_item:
@@ -331,9 +332,9 @@ public class MainActivity extends BaseActivity
             case R.id.nav_home:
                 return new HomeFragment();
             /*case R.id.nav_twitter:
-                return new TwitterFragment();
+                return new TwitterFragment();*/
             case R.id.nav_new:
-                return new SeasonalFragment();*/
+                return new EventFragment();
             case R.id.nav_enemy:
                 return new EnemyDisplayFragment();
             case R.id.nav_item_improve:

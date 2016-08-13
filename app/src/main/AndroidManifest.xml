@@ -94,6 +94,10 @@
             android:theme="@style/AppTheme.ItemActivity">
         </activity>
         <activity
+            android:name=".event.EventMapActivity"
+            android:theme="@style/AppTheme.ItemActivity">
+        </activity>
+        <activity
             android:name=".gallery.ImagesActivity"
             android:theme="@style/AppTheme.ImagesActivity">
         </activity>

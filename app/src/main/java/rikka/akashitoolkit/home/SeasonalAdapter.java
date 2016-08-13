@@ -3,6 +3,7 @@ package rikka.akashitoolkit.home;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Rect;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -25,6 +26,7 @@ import rikka.akashitoolkit.adapter.SimpleAdapter;
 import rikka.akashitoolkit.model.Seasonal;
 import rikka.akashitoolkit.gallery.GalleryActivity;
 import rikka.akashitoolkit.gallery.ImagesActivity;
+import rikka.akashitoolkit.viewholder.IBindViewHolder;
 import rikka.akashitoolkit.voice.VoiceActivity;
 import rikka.akashitoolkit.ui.widget.BaseRecyclerViewItemDecoration;
 import rikka.akashitoolkit.utils.Utils;
@@ -44,8 +46,12 @@ public class SeasonalAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHolder
     public SeasonalAdapter() {
     }
 
-    public void parseData(List<Seasonal> data) {
+    public void parseData(@Nullable List<Seasonal> data) {
         clearItemList();
+
+        if (data == null) {
+            return;
+        }
 
         for (Seasonal entry : data) {
 
@@ -90,6 +96,8 @@ public class SeasonalAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHolder
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+        super.onBindViewHolder(holder, position);
+
         switch (getItemViewType(position)) {
             case TYPE_TITLE:
                 bindViewHolder((TitleViewHolder) holder, position);

@@ -10,6 +10,7 @@ import retrofit2.http.Query;
 import retrofit2.http.Streaming;
 import rikka.akashitoolkit.model.Avatars;
 import rikka.akashitoolkit.model.CheckUpdate;
+import rikka.akashitoolkit.model.Event;
 import rikka.akashitoolkit.model.LatestAvatar;
 import rikka.akashitoolkit.model.ShipVoice;
 import rikka.akashitoolkit.model.Twitter;
@@ -24,10 +25,6 @@ public class RetrofitAPI {
         Call<Twitter> get(
                 @Query("json") int json,
                 @Query("count") int count);
-
-        @Deprecated
-        @GET("/image_url.txt")
-        Call<ResponseBody> getAvatarUrl();
 
         @GET("/avatar/latest")
         Call<LatestAvatar> getLatestAvatarUrl();
@@ -53,11 +50,15 @@ public class RetrofitAPI {
                 @Query("api_version") int api_version);
     }
 
-    /*public interface Voice {
-        @GET("JKancolle/voice.do")
-        Call<ShipVoice> get(
-                @Query("id") int shipId);
-    }*/
+    public interface EventAPI {
+        @GET("/Akashi/event_list.php")
+        Call<List<String>> getList(
+                @Query("api_version") int api_version);
+
+        @GET("/Akashi/event.php")
+        Call<Event> get(
+                @Query("api_version") int api_version);
+    }
 
     public interface Voice {
         @GET("subtitle/detail/{shipId}")
@@ -65,9 +66,4 @@ public class RetrofitAPI {
                 @Path("shipId") int shipId);
     }
 
-    /*public interface Voice {
-        @GET("JKancolle/voice.do")
-        Call<ShipVoice> get(
-                @Query("id") int shipId);
-    }*/
 }
