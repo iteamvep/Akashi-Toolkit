@@ -37,9 +37,9 @@ public class EquipGenerator {
 
         RetrofitAPI.KcwikiService service = retrofit.create(RetrofitAPI.KcwikiService.class);
         ResponseBody body = service.getPage("模块:舰娘装备数据改", "raw").execute().body();
-        //Reader reader = body.charStream();
+        Reader reader = body.charStream();
 
-        Reader reader = new FileReader(new File("datagenerator/equip.lua"));
+        //Reader reader = new FileReader(new File("datagenerator/equip.lua"));
 
         int count = 0;
         StringBuilder sb = new StringBuilder();

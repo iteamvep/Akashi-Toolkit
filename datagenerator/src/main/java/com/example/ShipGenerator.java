@@ -4,6 +4,7 @@ import com.example.list.ShipForm;
 import com.example.model.MultiLanguageEntry;
 import com.example.model.NewShip;
 import com.example.model.ShipClass;
+import com.example.network.RetrofitAPI;
 import com.example.utils.TextUtils;
 import com.example.utils.WanaKanaJava;
 import com.github.promeg.pinyinhelper.Pinyin;
@@ -18,6 +19,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 import static com.example.utils.Utils.objectToJsonFile;
 import static com.example.list.ShipForm.*;
@@ -229,7 +233,7 @@ public class ShipGenerator {
     }
 
     private static List<NewShip> getShipList() throws IOException {
-        /*Gson gson = new GsonBuilder()
+        Gson gson = new GsonBuilder()
                 .create();
 
         Retrofit retrofit = new Retrofit.Builder()
@@ -238,10 +242,10 @@ public class ShipGenerator {
                 .build();
 
         RetrofitAPI.ShipService service = retrofit.create(RetrofitAPI.ShipService.class);
-        return service.getDetail().execute().body();*/
-        return new Gson().fromJson(
+        return service.getDetail().execute().body();
+        /*return new Gson().fromJson(
                 new FileReader(new File("datagenerator/ships_detail.json")),
-                new TypeToken<List<NewShip>>() {}.getType());
+                new TypeToken<List<NewShip>>() {}.getType());*/
     }
 
     private static String getNameForSearch(NewShip item) {

@@ -291,10 +291,13 @@ public class TwitterFragment extends Fragment implements TwitterAdapter.Listener
         if (animate) {
             mRecyclerView.scrollToPosition(0);
 
-            if (added == 0) {
-                Snackbar.make(mSwipeRefreshLayout, R.string.no_new_tweet, Snackbar.LENGTH_SHORT).show();
-            } else {
-                Snackbar.make(mSwipeRefreshLayout, String.format(getString(R.string.new_twitter), added), Snackbar.LENGTH_SHORT).show();
+            // 为了有些数量设置为 0 的人..
+            if (mTwitterAdapter.getItemCount() > 0) {
+                if (added == 0) {
+                    Snackbar.make(mSwipeRefreshLayout, R.string.no_new_tweet, Snackbar.LENGTH_SHORT).show();
+                } else {
+                    Snackbar.make(mSwipeRefreshLayout, String.format(getString(R.string.new_twitter), added), Snackbar.LENGTH_SHORT).show();
+                }
             }
         }
     }
