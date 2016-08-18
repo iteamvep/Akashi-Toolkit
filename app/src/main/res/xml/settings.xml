@@ -21,6 +21,12 @@
             android:summary="@string/data_language_title_summary"
             android:defaultValue="true"/>
 
+        <SwitchPreference
+            android:key="twitter_grid_layout"
+            android:title="@string/twitter_grid_layout"
+            android:summary="@string/twitter_grid_layout_summary"
+            android:defaultValue="false"/>
+
         <!--<SwitchPreference
             android:key="download_wifi_only"
             android:title="@string/download_wifi_only"
@@ -109,12 +115,6 @@
             android:entries="@array/twitter_display_language"
             android:entryValues="@array/twitter_display_language_value"
             android:defaultValue="0"/>
-
-        <SwitchPreference
-            android:key="twitter_grid_layout"
-            android:title="@string/twitter_grid_layout"
-            android:summary="@string/twitter_grid_layout_summary"
-            android:defaultValue="false"/>
 
     </PreferenceCategory>
 

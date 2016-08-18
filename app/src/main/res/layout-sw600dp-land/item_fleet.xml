@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/card_twitter_margin_vertical"
+    android:layout_marginLeft="@dimen/card_twitter_margin_horizontal"
+    android:layout_marginRight="@dimen/card_twitter_margin_horizontal"
+    android:layout_marginTop="@dimen/card_twitter_margin_vertical"
+    android:orientation="vertical"
+    android:foreground="?attr/selectableItemBackground"
+    android:clickable="true"
+    android:stateListAnimator="@animator/raise"
+    app:cardElevation="2dp"
+    app:cardMaxElevation="4dp"
+    app:cardCornerRadius="2dp"
+    app:cardBackgroundColor="@color/cardBackground">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:paddingLeft="@dimen/item_padding"
+        android:paddingRight="@dimen/item_padding"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@android:id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="aaa"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:id="@android:id/summary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:lineSpacingExtra="2dp"
+            tools:text="aaa"
+            android:textSize="16sp"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@android:id/content"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </android.support.v7.widget.RecyclerView>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@android:id/button1"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_gravity="end"
+        android:layout_margin="12dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:padding="6dp"
+        android:contentDescription="@null"
+        app:srcCompat="@drawable/ic_more_vert_24dp"/>
+
+</android.support.v7.widget.CardView>

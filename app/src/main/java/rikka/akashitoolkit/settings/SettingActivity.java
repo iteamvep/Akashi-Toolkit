@@ -106,7 +106,7 @@ public class SettingActivity extends BaseActivity {
             }
 
             if (!StaticData.instance(getActivity()).isTablet) {
-                ((PreferenceCategory) findPreference("twitter")).removePreference(findPreference(Settings.TWITTER_GRID_LAYOUT));
+                ((PreferenceCategory) findPreference("general")).removePreference(findPreference(Settings.TWITTER_GRID_LAYOUT));
             }
 
             findPreference("clear_cache").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {

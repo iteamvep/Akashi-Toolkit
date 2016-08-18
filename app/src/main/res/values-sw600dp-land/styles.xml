@@ -1,9 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="AppTheme.ItemActivity" parent="AppTheme.BaseItemActivity">
         <item name="windowFixedHeightMinor">95%</item>
         <item name="windowFixedHeightMajor">95%</item>
+    </style>
+
+    <style name="AppTheme.BottomSheetDialog" parent="Theme.AppCompat.DayNight.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowAnimationStyle">@style/Animation.Design.BottomSheetDialog</item>
+        <item name="bottomSheetStyle">@style/AppTheme.BottomSheet.Modal</item>
+    </style>
+
+    <style name="AppTheme.BottomSheet.Modal" parent="android:Widget">
+        <item name="android:layout_marginLeft">24dp</item>
+        <item name="android:layout_marginRight">24dp</item>
+        <item name="android:background">@color/cardBackground</item>
+        <item name="android:elevation" tools:ignore="NewApi">
+            @dimen/design_bottom_sheet_modal_elevation
+        </item>
+        <item name="behavior_peekHeight">300dp</item>
+        <item name="behavior_hideable">true</item>
+        <item name="behavior_skipCollapsed">false</item>
     </style>
 
 </resources>

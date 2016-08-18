@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.squareup.otto.Subscribe;
 
 import java.io.ByteArrayInputStream;
 import java.io.FileNotFoundException;
@@ -30,9 +31,11 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import rikka.akashitoolkit.R;
-import rikka.akashitoolkit.home.SeasonalAdapter;
 import rikka.akashitoolkit.model.Seasonal;
 import rikka.akashitoolkit.network.RetrofitAPI;
+import rikka.akashitoolkit.otto.BusProvider;
+import rikka.akashitoolkit.otto.PreferenceChangedAction;
+import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.utils.Utils;
 
 /**
@@ -51,9 +54,16 @@ public class SeasonalFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        BusProvider.instance().register(this);
         setHasOptionsMenu(true);
 
         CACHE_FILE = getContext().getCacheDir().getAbsolutePath() + JSON_NAME;
+    }
+
+    @Override
+    public void onDestroy() {
+        BusProvider.instance().unregister(this);
+        super.onDestroy();
     }
 
     @Override
@@ -81,6 +91,8 @@ public class SeasonalFragment extends Fragment {
         mAdapter = new SeasonalAdapter();
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setClipToPadding(false);
+
+        GridRecyclerViewHelper.init(mRecyclerView);
 
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -164,5 +176,14 @@ public class SeasonalFragment extends Fragment {
                 Snackbar.make(mSwipeRefreshLayout, R.string.refresh_fail, Snackbar.LENGTH_SHORT).show();
             }
         });
+    }
+
+    @Subscribe
+    public void preferenceChanged(PreferenceChangedAction action) {
+        switch (action.getKey()) {
+            case Settings.TWITTER_GRID_LAYOUT:
+                GridRecyclerViewHelper.init(mRecyclerView);
+                break;
+        }
     }
 }

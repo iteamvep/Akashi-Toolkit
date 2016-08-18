@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -220,6 +221,11 @@ public class SeasonalAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHolder
 
             mTitle = (TextView) itemView.findViewById(android.R.id.title);
             mSummary = (TextView) itemView.findViewById(android.R.id.summary);
+
+            if (itemView.getLayoutParams() instanceof StaggeredGridLayoutManager.LayoutParams) {
+                StaggeredGridLayoutManager.LayoutParams layoutParams = (StaggeredGridLayoutManager.LayoutParams) itemView.getLayoutParams();
+                layoutParams.setFullSpan(true);
+            }
         }
     }
 

@@ -4,11 +4,6 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.AnimatedVectorDrawable;
-import android.graphics.drawable.Drawable;
-import android.os.Build;
-import android.support.v4.widget.TextViewCompat;
-import android.support.v7.widget.AppCompatDrawableManager;
 import android.support.v7.widget.LinearSmoothScroller;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -38,7 +33,6 @@ import rikka.akashitoolkit.support.StaticData;
 import rikka.akashitoolkit.ui.BaseItemDisplayActivity;
 import rikka.akashitoolkit.ui.widget.LinearLayoutManager;
 import rikka.akashitoolkit.utils.Utils;
-import rikka.akashitoolkit.viewholder.SimpleTitleDividerViewHolder;
 import rx.Observable;
 import rx.Observer;
 import rx.Subscriber;
@@ -254,7 +248,7 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
             case 0:
                 return new ShipViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_ship, parent, false));
             case 1:
-                return new SimpleTitleDividerViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_ship_subtitle, parent, false));
+                return new TypeViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_ship_subtitle, parent, false));
         }
         return null;
     }
@@ -266,7 +260,7 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
                 bindViewHolder((ShipViewHolder) holder, position);
                 break;
             case 1:
-                bindViewHolder((SimpleTitleDividerViewHolder) holder, position);
+                bindViewHolder((TypeViewHolder) holder, position);
                 break;
         }
     }
@@ -377,33 +371,17 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
         }
     }
 
-    private SimpleTitleDividerViewHolder mLastHolder;
+    private TypeViewHolder mLastHolder;
 
     private int mFirstVisibleItemPosition = -1;
     private long mItemId = -1;
 
-    private void bindViewHolder(final SimpleTitleDividerViewHolder holder, int position) {
-        Context context = holder.itemView.getContext();
-
+    private void bindViewHolder(final TypeViewHolder holder, int position) {
         boolean expanded = mIsSearching || requireBookmarked() || mExpanded.get(getItemId(position));
         boolean showDivider = position != 0 && expanded || position != 0 && (getItemViewType(position - 1) != getItemViewType(position));
 
         holder.mDivider.setVisibility(showDivider ? View.VISIBLE : View.GONE);
         holder.mTitle.setText((String) getItem(position));
-
-        if (holder.itemView.isSelected() != expanded
-                && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            AnimatedVectorDrawable drawable = (AnimatedVectorDrawable) context.getDrawable(expanded ? R.drawable.ic_expand_more_to_less_24dp : R.drawable.ic_expand_less_to_more_24dp);
-            drawable.start();
-            TextViewCompat.setCompoundDrawablesRelativeWithIntrinsicBounds(holder.mTitle, null, null, drawable, null);
-
-            mItemId = -1;
-        } else {
-            Drawable drawable = AppCompatDrawableManager.get()
-                    .getDrawable(context, expanded ? R.drawable.ic_expand_less_24dp : R.drawable.ic_expand_more_24dp);
-            TextViewCompat.setCompoundDrawablesRelativeWithIntrinsicBounds(holder.mTitle, null, null, drawable, null);
-
-        }
 
         holder.itemView.setSelected(expanded);
         holder.itemView.setOnClickListener(new View.OnClickListener() {

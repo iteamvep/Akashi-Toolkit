@@ -134,7 +134,7 @@ public class TwitterFragment extends Fragment implements TwitterAdapter.Listener
                 .instance(getContext())
                 .getString(Settings.TWITTER_AVATAR_URL, ""));
 
-        setUpRecyclerView();
+        GridRecyclerViewHelper.init(mRecyclerView);
 
         mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefreshLayout);
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -161,47 +161,6 @@ public class TwitterFragment extends Fragment implements TwitterAdapter.Listener
         }*/
 
         return view;
-    }
-
-    private RecyclerView.ItemDecoration mItemDecoration;
-
-    private void setUpRecyclerView() {
-        RecyclerView.LayoutManager layoutManager;
-        if (StaticData.instance(getActivity()).isTablet) {
-            if (Settings.instance(getActivity()).getBoolean(Settings.TWITTER_GRID_LAYOUT, false)) {
-                layoutManager = new StaggeredGridLayoutManager(2, RecyclerView.VERTICAL);
-
-                if (mItemDecoration != null) {
-                    mRecyclerView.removeItemDecoration(mItemDecoration);
-                }
-            } else {
-                layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-
-                if (mItemDecoration == null) {
-                    mItemDecoration = new RecyclerView.ItemDecoration() {
-                        int width = 0;
-
-                        @Override
-                        public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-                            if (width == 0) {
-                                width = Utils.dpToPx(560 + 8 + 8 + 8);
-                            }
-
-                            outRect.left = (mRecyclerView.getWidth() - width) / 2;
-                            outRect.right = (mRecyclerView.getWidth() - width) / 2;
-                        }
-                    };
-                }
-
-                if (getResources().getDimension(R.dimen.card_width) != -1) {
-                    mRecyclerView.addItemDecoration(mItemDecoration);
-                }
-            }
-
-        } else {
-            layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-        }
-        mRecyclerView.setLayoutManager(layoutManager);
     }
 
     private void loadFromCache() {
@@ -425,7 +384,7 @@ public class TwitterFragment extends Fragment implements TwitterAdapter.Listener
                 });
                 break;
             case Settings.TWITTER_GRID_LAYOUT:
-                setUpRecyclerView();
+                GridRecyclerViewHelper.init(mRecyclerView);
                 break;
         }
     }

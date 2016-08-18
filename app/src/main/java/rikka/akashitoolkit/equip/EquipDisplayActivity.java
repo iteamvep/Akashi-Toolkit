@@ -185,19 +185,19 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
             return;
         }
 
-        addAttrView(parent, R.string.attr_firepower, mItem.getAttr().getFirepower(), R.drawable.item_attr_fire);
-        addAttrView(parent, R.string.attr_aa, mItem.getAttr().getAA(), R.drawable.item_attr_aa);
-        addAttrView(parent, R.string.attr_accuracy, mItem.getAttr().getAccuracy(), R.drawable.item_attr_acc);
-        addAttrView(parent, R.string.attr_torpedo, mItem.getAttr().getTorpedo(), R.drawable.item_attr_torpedo);
-        addAttrView(parent, R.string.attr_boom, mItem.getAttr().getBombing(), R.drawable.item_attr_bomb);
-        addAttrView(parent, R.string.attr_asw, mItem.getAttr().getASW(), R.drawable.item_attr_asw);
-        addAttrView(parent, R.string.attr_evasion, mItem.getAttr().getEvasion(), R.drawable.item_attr_dodge);
-        addAttrView(parent, R.string.attr_los, mItem.getAttr().getLOS(), R.drawable.item_attr_search);
-        addAttrView(parent, R.string.attr_armor, mItem.getAttr().getArmor(), R.drawable.item_attr_armor);
+        addAttrView(parent, R.string.attr_firepower, mItem.getAttr().getFirepower());
+        addAttrView(parent, R.string.attr_aa, mItem.getAttr().getAA());
+        addAttrView(parent, R.string.attr_accuracy, mItem.getAttr().getAccuracy());
+        addAttrView(parent, R.string.attr_torpedo, mItem.getAttr().getTorpedo());
+        addAttrView(parent, R.string.attr_boom, mItem.getAttr().getBombing());
+        addAttrView(parent, R.string.attr_asw, mItem.getAttr().getASW());
+        addAttrView(parent, R.string.attr_evasion, mItem.getAttr().getEvasion());
+        addAttrView(parent, R.string.attr_los, mItem.getAttr().getLOS());
+        addAttrView(parent, R.string.attr_armor, mItem.getAttr().getArmor());
         if (mItem.getParentType() == 3) {
-            addAttrView(parent, R.string.attr_range_aircraft, mItem.getAttr().getRange(), R.drawable.item_attr_range);
+            addAttrView(parent, R.string.attr_range_aircraft, mItem.getAttr().getRange());
         } else {
-            addAttrView(parent, R.string.attr_range, mItem.getAttr().getRange(), R.drawable.item_attr_range);
+            addAttrView(parent, R.string.attr_range, mItem.getAttr().getRange());
         }
     }
 
@@ -605,7 +605,7 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
     private int attr = 0;
 
     @SuppressLint("DefaultLocale")
-    private void addAttrView(ViewGroup parent, @StringRes int title, int value, int icon) {
+    private void addAttrView(ViewGroup parent, @StringRes int title, int value) {
         if (value == 0) {
             return;
         }

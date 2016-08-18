@@ -32,7 +32,6 @@ import retrofit2.Response;
 import rikka.akashitoolkit.BuildConfig;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.Listener;
-import rikka.akashitoolkit.home.MessageAdapter;
 import rikka.akashitoolkit.model.CheckUpdate;
 import rikka.akashitoolkit.model.MessageReadStatus;
 import rikka.akashitoolkit.otto.BusProvider;
@@ -121,7 +120,8 @@ public class MessageFragment extends Fragment {
         mRecyclerView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.windowBackground));
         mAdapter = new MessageAdapter();
         mRecyclerView.setAdapter(mAdapter);
-        setUpRecyclerView();
+        //setUpRecyclerView();
+        GridRecyclerViewHelper.init(mRecyclerView);
 
         mAdapter.setListener(new Listener() {
             @Override
@@ -287,47 +287,6 @@ public class MessageFragment extends Fragment {
         });
     }
 
-    private RecyclerView.ItemDecoration mItemDecoration;
-
-    private void setUpRecyclerView() {
-        RecyclerView.LayoutManager layoutManager;
-        if (StaticData.instance(getActivity()).isTablet) {
-            if (Settings.instance(getActivity()).getBoolean(Settings.TWITTER_GRID_LAYOUT, false)) {
-                layoutManager = new StaggeredGridLayoutManager(2, RecyclerView.VERTICAL);
-
-                if (mItemDecoration != null) {
-                    mRecyclerView.removeItemDecoration(mItemDecoration);
-                }
-            } else {
-                layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-
-                if (mItemDecoration == null) {
-                    mItemDecoration = new RecyclerView.ItemDecoration() {
-                        int width = 0;
-
-                        @Override
-                        public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-                            if (width == 0) {
-                                width = Utils.dpToPx(560 + 8 + 8 + 8);
-                            }
-
-                            outRect.left = (mRecyclerView.getWidth() - width) / 2;
-                            outRect.right = (mRecyclerView.getWidth() - width) / 2;
-                        }
-                    };
-                }
-
-                if (getResources().getDimension(R.dimen.card_width) != -1) {
-                    mRecyclerView.addItemDecoration(mItemDecoration);
-                }
-            }
-
-        } else {
-            layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-        }
-        mRecyclerView.setLayoutManager(layoutManager);
-    }
-
     @Subscribe
     public void readStatusReset(ReadStatusResetAction action) {
         if (mMessageReadStatus != null) {
@@ -342,13 +301,18 @@ public class MessageFragment extends Fragment {
 
     @Subscribe
     public void preferenceChanged(PreferenceChangedAction action) {
-        if (action.getKey().equals(Settings.UPDATE_CHECK_CHANNEL)) {
-            if (mMessageReadStatus != null) {
-                mMessageReadStatus.setMessageId(new ArrayList<Long>());
-                mMessageReadStatus.setVersionCode(0);
-            }
+        switch (action.getKey()) {
+            case Settings.UPDATE_CHECK_CHANNEL:
+                if (mMessageReadStatus != null) {
+                    mMessageReadStatus.setMessageId(new ArrayList<Long>());
+                    mMessageReadStatus.setVersionCode(0);
+                }
 
-            refresh();
+                refresh();
+                break;
+            case Settings.TWITTER_GRID_LAYOUT:
+                GridRecyclerViewHelper.init(mRecyclerView);
+                break;
         }
     }
 }

@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.squareup.otto.Subscribe;
 
 import java.io.ByteArrayInputStream;
 import java.io.FileNotFoundException;
@@ -30,8 +31,12 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import rikka.akashitoolkit.MainActivity;
 import rikka.akashitoolkit.R;
+import rikka.akashitoolkit.home.GridRecyclerViewHelper;
 import rikka.akashitoolkit.model.Event;
 import rikka.akashitoolkit.network.RetrofitAPI;
+import rikka.akashitoolkit.otto.BusProvider;
+import rikka.akashitoolkit.otto.PreferenceChangedAction;
+import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.Statistics;
 import rikka.akashitoolkit.ui.fragments.BaseDrawerItemFragment;
 import rikka.akashitoolkit.utils.Utils;
@@ -55,12 +60,19 @@ public class EventFragment extends BaseDrawerItemFragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        BusProvider.instance().register(this);
         setHasOptionsMenu(true);
 
         CACHE_FILE = getContext().getCacheDir().getAbsolutePath() + JSON_NAME;
 
         if (savedInstanceState == null)
             onShow();
+    }
+
+    @Override
+    public void onDestroy() {
+        BusProvider.instance().unregister(this);
+        super.onDestroy();
     }
 
     @Override
@@ -84,7 +96,8 @@ public class EventFragment extends BaseDrawerItemFragment {
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         mRecyclerView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.windowBackground));
 
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), OrientationHelper.VERTICAL, false));
+        GridRecyclerViewHelper.init(mRecyclerView);
+
         mAdapter = new EventAdapter();
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setClipToPadding(false);
@@ -227,5 +240,14 @@ public class EventFragment extends BaseDrawerItemFragment {
         super.onHide();
 
         Statistics.onFragmentEnd("EventFragment");
+    }
+
+    @Subscribe
+    public void preferenceChanged(PreferenceChangedAction action) {
+        switch (action.getKey()) {
+            case Settings.TWITTER_GRID_LAYOUT:
+                GridRecyclerViewHelper.init(mRecyclerView);
+                break;
+        }
     }
 }

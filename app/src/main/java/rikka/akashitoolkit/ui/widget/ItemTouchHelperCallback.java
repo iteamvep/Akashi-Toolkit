@@ -1,6 +1,8 @@
 package rikka.akashitoolkit.ui.widget;
 
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
 
@@ -31,7 +33,12 @@ public class ItemTouchHelperCallback extends ItemTouchHelper.Callback {
             dragFlags = ((ItemTouchHelperViewHolder) viewHolder).getDragFlags();
             swipeFlags = ((ItemTouchHelperViewHolder) viewHolder).getSwipeFlags();
         }
-        return makeMovementFlags(dragFlags, swipeFlags);
+        if (recyclerView.getLayoutManager() != null
+                && recyclerView.getLayoutManager() instanceof GridLayoutManager || recyclerView.getLayoutManager() instanceof StaggeredGridLayoutManager) {
+            return makeMovementFlags(dragFlags | ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT, swipeFlags);
+        } else {
+            return makeMovementFlags(dragFlags, swipeFlags);
+        }
     }
 
     @Override

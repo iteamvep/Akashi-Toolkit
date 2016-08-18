@@ -2,6 +2,7 @@ package rikka.akashitoolkit.fleet_editor;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.Rect;
 import android.os.Build;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
@@ -26,6 +28,7 @@ import rikka.akashitoolkit.model.Fleet;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.ItemSelectAction;
 import rikka.akashitoolkit.staticdata.FleetList;
+import rikka.akashitoolkit.support.StaticData;
 import rikka.akashitoolkit.ui.widget.ItemTouchHelperCallback;
 import rikka.akashitoolkit.utils.Utils;
 
@@ -74,19 +77,29 @@ public class FleetEditActivity extends AppCompatActivity {
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.content_container);
         mAdapter = new FleetAdapter();
         recyclerView.setAdapter(mAdapter);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-        recyclerView.setLayoutManager(layoutManager);
 
-        recyclerView.addItemDecoration(new RecyclerView.ItemDecoration() {
-            @Override
-            public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-                outRect.set(0, 0, 0, Utils.dpToPx(8));
+        RecyclerView.LayoutManager layoutManager;
+        if (StaticData.instance(this).isTablet && getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            layoutManager = new StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL);
 
-                if (parent.getChildAdapterPosition(view) == 0) {
-                    outRect.top = Utils.dpToPx(8);
+            int padding = (int) getResources().getDimension(R.dimen.list_padding);
+            recyclerView.setPadding(padding, padding, padding, padding);
+            recyclerView.setClipToPadding(false);
+        } else {
+            layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+
+            recyclerView.addItemDecoration(new RecyclerView.ItemDecoration() {
+                @Override
+                public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+                    outRect.set(0, 0, 0, Utils.dpToPx(8));
+
+                    if (parent.getChildAdapterPosition(view) == 0) {
+                        outRect.top = Utils.dpToPx(8);
+                    }
                 }
-            }
-        });
+            });
+        }
+        recyclerView.setLayoutManager(layoutManager);
 
         int position = getIntent().getIntExtra(EXTRA_ID, 0);
         mFleet = FleetList.get(this).get(position);
