@@ -26,4 +26,10 @@
         <attr name="android:foreground"/>
         <attr name="foregroundInsidePadding"/>
     </declare-styleable>
+
+    <declare-styleable name="ForegroundRelativeLayout">
+        <attr name="android:foregroundGravity"/>
+        <attr name="android:foreground"/>
+        <attr name="foregroundInsidePadding"/>
+    </declare-styleable>
 </resources>

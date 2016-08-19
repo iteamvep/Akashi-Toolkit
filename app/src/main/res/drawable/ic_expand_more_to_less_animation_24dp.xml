@@ -5,6 +5,6 @@
                  tools:ignore="NewApi">
     <target
         android:name="v"
-        android:animation="@anim/ic_expand_to_less_animation"/>
+        android:animation="@animator/ic_expand_to_less_animation"/>
 
 </animated-vector>

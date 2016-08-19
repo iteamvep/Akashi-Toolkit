@@ -31,9 +31,18 @@ import rikka.akashitoolkit.ui.BaseItemDisplayActivity;
 /**
  * Created by Rikka on 2016/3/17.
  */
-public class EquipImprovementAdapter extends BaseBookmarkRecyclerAdapter<EquipImprovementViewHolder, EquipImprovement> {
+public class EquipImprovementAdapter extends BaseBookmarkRecyclerAdapter<EquipImprovementViewHolder, EquipImprovementAdapter.Data> {
 
-    private List<String> mDataShip;
+    protected static class Data {
+        protected String ship;
+        protected EquipImprovement data;
+
+        public Data(String ship, EquipImprovement data) {
+            this.ship = ship;
+            this.data = data;
+        }
+    }
+
     private Activity mActivity;
     private int mType;
 
@@ -41,7 +50,6 @@ public class EquipImprovementAdapter extends BaseBookmarkRecyclerAdapter<EquipIm
         super(bookmarked);
 
         mActivity = activity;
-        mDataShip = new ArrayList<>();
         mType = type;
 
         setHasStableIds(true);
@@ -61,62 +69,15 @@ public class EquipImprovementAdapter extends BaseBookmarkRecyclerAdapter<EquipIm
 
     @Override
     public void onBindViewHolder(final EquipImprovementViewHolder holder, int position) {
-        Context context = holder.itemView.getContext();
-        EquipImprovement item = getItem(position);
-        Equip equip = EquipList.findItemById(mActivity, item.getId());
+        holder.mAdapter = this;
+        super.onBindViewHolder(holder, position);
+    }
 
-        if (equip == null) {
-            holder.mName.setText(String.format(context.getString(R.string.equip_not_found), getItem(position).getId()));
-            return;
-        }
-        if (!item.isBookmarked()) {
-            holder.mName.setText(equip.getName().get(mActivity));
-        } else {
-            holder.mName.setText(String.format("%s ★", equip.getName().get(mActivity)));
-        }
-
-        holder.mShip.setText(mDataShip.get(position));
-
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                EquipImprovement item = getItem(holder.getAdapterPosition());
-
-                Intent intent = new Intent(v.getContext(), EquipDisplayActivity.class);
-                intent.putExtra(EquipDisplayActivity.EXTRA_ITEM_ID, getItem(holder.getAdapterPosition()).getId());
-
-                int[] location = new int[2];
-                holder.itemView.getLocationOnScreen(location);
-                intent.putExtra(EquipDisplayActivity.EXTRA_START_Y, location[1]);
-                intent.putExtra(EquipDisplayActivity.EXTRA_START_HEIGHT, holder.itemView.getHeight());
-                intent.putExtra(EquipDisplayActivity.EXTRA_EQUIP_IMPROVE_ID, item.getId());
-
-                BaseItemDisplayActivity.start(mActivity, intent);
-            }
-        });
-
-        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
-            @SuppressLint("DefaultLocale")
-            @Override
-            public boolean onLongClick(View v) {
-                EquipImprovement item = getItem(holder.getAdapterPosition());
-
-                item.setBookmarked(!item.isBookmarked());
-
-                Settings.instance(mActivity)
-                        .putBoolean(String.format("equip_improve_%d", item.getId()), item.isBookmarked());
-
-                showToast(mActivity, item.isBookmarked());
-
-                notifyItemChanged(holder.getAdapterPosition());
-
-                BusProvider.instance().post(new BookmarkItemChanged.ItemImprovement());
-
-                return true;
-            }
-        });
-
-        EquipTypeList.setIntoImageView(holder.mImageView, equip.getIcon());
+    @Override
+    public void onViewRecycled(EquipImprovementViewHolder holder) {
+        holder.mAdapter = null;
+        holder.mCheckBox.setOnCheckedChangeListener(null);
+        super.onViewRecycled(holder);
     }
 
     @Override
@@ -132,7 +93,6 @@ public class EquipImprovementAdapter extends BaseBookmarkRecyclerAdapter<EquipIm
             @Override
             protected void onPostExecute(Void aVoid) {
                 clearItemList();
-                mDataShip.clear();
 
                 for (EquipImprovement item :
                         EquipImprovementList.get(mActivity)) {
@@ -197,8 +157,7 @@ public class EquipImprovementAdapter extends BaseBookmarkRecyclerAdapter<EquipIm
                                 .getBoolean(String.format("equip_improve_%d", item.getId()), false));
 
                         if (!requireBookmarked() || item.isBookmarked()) {
-                            addItem(generateItemId(item), 0, item);
-                            mDataShip.add(sb.toString());
+                            addItem(generateItemId(item), 0, new Data(sb.toString(), item));
                         }
                     }
                 }

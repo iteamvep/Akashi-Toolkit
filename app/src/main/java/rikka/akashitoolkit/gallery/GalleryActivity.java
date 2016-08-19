@@ -101,6 +101,7 @@ public class GalleryActivity extends AppCompatActivity {
                 mItemSize = (v.getWidth() - Utils.dpToPx(1) * (mSpanCount - 1)) / mSpanCount;
                 adapter.setNames(mNames);
                 adapter.setUrls(mUrls);
+                adapter.notifyDataSetChanged();
 
                 v.removeOnLayoutChangeListener(this);
             }

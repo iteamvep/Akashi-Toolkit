@@ -26,7 +26,7 @@
         android:paddingBottom="16dp"
         android:textColor="@color/subtitle"
         android:gravity="center_vertical"
-        tools:drawableEnd="@drawable/btn_expand_material_anim"
+        tools:drawableEnd="@drawable/btn_expand_material_anim_24dp"
         tools:text="Title"/>
 
 </LinearLayout>

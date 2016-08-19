@@ -1,4 +1,4 @@
-<android.support.design.internal.ForegroundLinearLayout
+<rikka.akashitoolkit.ui.widget.ForegroundRelativeLayout
     android:id="@+id/linearLayout"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -10,6 +10,7 @@
     android:paddingLeft="@dimen/item_padding"
     android:paddingRight="@dimen/item_padding"
     android:paddingTop="8dp"
+    android:clipToPadding="false"
     android:gravity="center_vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -29,16 +30,7 @@
             android:layout_gravity="end"
             android:contentDescription="@null"/>
 
-        <!--<FrameLayout
-            android:layout_width="40dp"
-            android:layout_height="32dp"
-            android:background="@drawable/banner_mask"
-            android:layout_gravity="end"
-            tools:ignore="UselessLeaf">
-        </FrameLayout>-->
-
     </FrameLayout>
-
 
     <TextView
         android:id="@android:id/title"
@@ -49,16 +41,46 @@
         android:maxLines="1"
         android:textAppearance="@style/TextAppearance.AppCompat"
         android:textSize="16sp"
-        tools:text="睦月"/>
+        tools:text="睦月"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/content_container"
+        android:layout_toEndOf="@+id/content_container"/>
 
     <TextView
         android:id="@android:id/content"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:textSize="16sp"
+        tools:text="睦月型一号舰"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
+
+    <!--<TextView
+        android:id="@android:id/content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:textSize="16sp"
+        tools:text="睦月型一号舰"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_toLeftOf="@android:id/checkbox"
+        android:layout_toStartOf="@android:id/checkbox"/>
+
+    <CheckBox
+        android:id="@android:id/checkbox"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:gravity="center_vertical|end"
-        android:maxLines="1"
-        android:textSize="16sp"
-        tools:text="睦月型一号舰"/>
+        android:button="@drawable/btn_bookmark_material_anim_32dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="-4dp"
+        android:layout_marginEnd="-4dp"/>-->
 
-</android.support.design.internal.ForegroundLinearLayout>
+</rikka.akashitoolkit.ui.widget.ForegroundRelativeLayout>

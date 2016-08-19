@@ -8,7 +8,6 @@ import android.support.v7.content.res.AppCompatResources;
 import android.util.StateSet;
 import android.view.View;
 
-import rikka.akashitoolkit.BuildConfig;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.viewholder.SimpleTitleDividerViewHolder;
 
@@ -21,7 +20,7 @@ public class TypeViewHolder extends SimpleTitleDividerViewHolder {
         super(itemView);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            Drawable drawable = itemView.getContext().getDrawable(R.drawable.btn_expand_material_anim);
+            Drawable drawable = itemView.getContext().getDrawable(R.drawable.btn_expand_material_anim_24dp);
             TextViewCompat.setCompoundDrawablesRelativeWithIntrinsicBounds(mTitle, null, null, drawable, null);
         } else {
             StateListDrawable drawable = new StateListDrawable();

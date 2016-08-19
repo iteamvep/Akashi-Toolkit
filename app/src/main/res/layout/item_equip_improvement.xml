@@ -50,7 +50,13 @@
             android:lineSpacingExtra="6dp"
             tools:text="12.7cm連装砲 ★+10\n无"/>
 
-
     </LinearLayout>
+
+    <CheckBox
+        android:id="@android:id/checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        tools:button="@drawable/btn_bookmark_material_anim_32dp"/>
 
 </LinearLayout>
