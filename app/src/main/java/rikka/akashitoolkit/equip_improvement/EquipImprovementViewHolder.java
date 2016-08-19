@@ -3,9 +3,11 @@ package rikka.akashitoolkit.equip_improvement;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
 import android.os.Build;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.content.res.AppCompatResources;
 import android.support.v7.widget.RecyclerView;
 import android.util.StateSet;
@@ -48,12 +50,24 @@ public class EquipImprovementViewHolder extends RecyclerView.ViewHolder implemen
         mCheckBox = (CheckBox) itemView.findViewById(android.R.id.checkbox);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            Drawable drawable = itemView.getContext().getDrawable(R.drawable.btn_bookmark_material_anim_32dp);
+            Drawable drawable = AppCompatResources.getDrawable(itemView.getContext(), R.drawable.btn_bookmark_material_anim_32dp);
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+                ColorStateList colorStateList = AppCompatResources.getColorStateList(itemView.getContext(), R.color.control_checkable_material);
+                drawable.setTintList(colorStateList);
+            }
+
             mCheckBox.setButtonDrawable(drawable);
         } else {
+            Context context = itemView.getContext();
             StateListDrawable drawable = new StateListDrawable();
-            drawable.addState(new int[]{android.R.attr.state_checked}, AppCompatResources.getDrawable(itemView.getContext(), R.drawable.ic_bookmark_checked_32dp));
-            drawable.addState(StateSet.WILD_CARD, AppCompatResources.getDrawable(itemView.getContext(), R.drawable.ic_bookmark_unchecked_32dp));
+            ColorStateList colorStateList = AppCompatResources.getColorStateList(context, R.color.control_checkable_material);
+            Drawable _drawable;
+            _drawable = AppCompatResources.getDrawable(context, R.drawable.ic_bookmark_checked_32dp);
+            DrawableCompat.setTintList(_drawable, colorStateList);
+            drawable.addState(new int[]{android.R.attr.state_checked}, _drawable);
+            _drawable = AppCompatResources.getDrawable(context, R.drawable.ic_bookmark_unchecked_32dp);
+            DrawableCompat.setTintList(_drawable, colorStateList);
+            drawable.addState(StateSet.WILD_CARD, _drawable);
             mCheckBox.setButtonDrawable(drawable);
         }
     }

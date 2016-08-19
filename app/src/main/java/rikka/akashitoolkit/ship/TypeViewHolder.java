@@ -20,7 +20,7 @@ public class TypeViewHolder extends SimpleTitleDividerViewHolder {
         super(itemView);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            Drawable drawable = itemView.getContext().getDrawable(R.drawable.btn_expand_material_anim_24dp);
+            Drawable drawable = AppCompatResources.getDrawable(itemView.getContext(), R.drawable.btn_expand_material_anim_24dp);
             TextViewCompat.setCompoundDrawablesRelativeWithIntrinsicBounds(mTitle, null, null, drawable, null);
         } else {
             StateListDrawable drawable = new StateListDrawable();
