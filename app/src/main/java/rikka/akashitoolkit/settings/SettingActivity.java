@@ -7,10 +7,13 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -25,14 +28,17 @@ import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.DataChangedAction;
 import rikka.akashitoolkit.otto.PreferenceChangedAction;
 import rikka.akashitoolkit.otto.ReadStatusResetAction;
+import rikka.akashitoolkit.support.ApiConstParam;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.StaticData;
 import rikka.akashitoolkit.ui.BaseActivity;
 import rikka.akashitoolkit.utils.Utils;
 import rikka.materialpreference.DropDownPreference;
+import rikka.materialpreference.ListPreference;
 import rikka.materialpreference.Preference;
 import rikka.materialpreference.PreferenceCategory;
 import rikka.materialpreference.PreferenceFragment;
+import rikka.materialpreference.PreferenceViewHolder;
 
 public class SettingActivity extends BaseActivity {
 
@@ -54,7 +60,7 @@ public class SettingActivity extends BaseActivity {
         if (savedInstanceState == null) {
             SettingFragment fragment = new SettingFragment();
 
-            getFragmentManager().beginTransaction().replace(R.id.fragment,
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment,
                     fragment).commit();
         }
     }
@@ -71,9 +77,35 @@ public class SettingActivity extends BaseActivity {
     }
 
     public static class SettingFragment extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener {
-        private DropDownPreference mDropDownPreference;
 
         private AsyncTask<Void, Void, Void> mTask;
+
+        @Nullable
+        @Override
+        public DividerDecoration onCreateItemDecoration() {
+            return new DefaultDividerDecoration() {
+                @Override
+                public boolean shouldDrawDividerAbove(View view, RecyclerView parent) {
+                    PreferenceViewHolder holder =
+                            (PreferenceViewHolder) parent.getChildViewHolder(view);
+
+                    boolean nextAllowed = false;
+                    int index = parent.indexOfChild(view);
+                    if (index < parent.getChildCount() - 1) {
+                        View nextView = parent.getChildAt(index + 1);
+                        PreferenceViewHolder nextHolder =
+                                (PreferenceViewHolder) parent.getChildViewHolder(nextView);
+                        nextAllowed = nextHolder.isDividerAllowedAbove();
+                    }
+                    return nextAllowed && !holder.isDividerAllowedAbove() && index != 0;
+                }
+
+                @Override
+                public boolean shouldDrawDividerBelow(View view, RecyclerView parent) {
+                    return false;
+                }
+            };
+        }
 
         @Override
         public void onCreatePreferences(Bundle bundle, String s) {
@@ -81,7 +113,6 @@ public class SettingActivity extends BaseActivity {
             getPreferenceManager().setSharedPreferencesMode(MODE_PRIVATE);
 
             setPreferencesFromResource(R.xml.settings, null);
-            mDropDownPreference = (DropDownPreference) findPreference(Settings.NIGHT_MODE);
 
             findPreference("reset_read").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 @Override
@@ -136,48 +167,29 @@ public class SettingActivity extends BaseActivity {
                 }
             });
 
-            final DropDownPreference dropDownPreference = (DropDownPreference) findPreference("data_language");
-            dropDownPreference.addItem(Locale.SIMPLIFIED_CHINESE.getDisplayName(), 0);
-            dropDownPreference.addItem(Locale.JAPANESE.getDisplayName(), 1);
-            dropDownPreference.setSelectedValue(Settings.instance(getActivity()).getInt(Settings.DATA_LANGUAGE, Utils.getDefaultDataLanguage()));
-            dropDownPreference.setCallback(new DropDownPreference.Callback() {
-                @Override
-                public boolean onItemSelected(int i, Object o) {
-                    Settings.instance(getActivity()).putInt(Settings.DATA_LANGUAGE, (Integer) o);
-                    StaticData.instance(getActivity()).dataLanguage = (Integer) o;
+            final ListPreference dropDownPreference = (ListPreference) findPreference(Settings.DATA_LANGUAGE);
+            dropDownPreference.setEntries(new CharSequence[]{Locale.SIMPLIFIED_CHINESE.getDisplayName(), Locale.JAPANESE.getDisplayName()});
+            dropDownPreference.setEntryValues(new CharSequence[]{"0", "1"});
+            if (dropDownPreference.getValue() == null) {
+                dropDownPreference.setValueIndex(Utils.getDefaultDataLanguage());
+            }
 
-                    BusProvider
-                            .instance()
-                            .post(new DataChangedAction("any"));
-                    return true;
-                }
+            final ListPreference dropDownPreference2 = (ListPreference) findPreference(Settings.APP_LANGUAGE);
+            dropDownPreference2.setEntries(new CharSequence[]{
+                    Locale.SIMPLIFIED_CHINESE.getDisplayName(),
+                    Locale.TRADITIONAL_CHINESE.getDisplayName(),
+                    Locale.ENGLISH.getDisplayName(),
+                    Locale.JAPANESE.getDisplayName()
             });
-
-            final DropDownPreference dropDownPreference2 = (DropDownPreference) findPreference("ui_language");
-            dropDownPreference2.addItem(Locale.SIMPLIFIED_CHINESE.getDisplayName(), "sc");
-            dropDownPreference2.addItem(Locale.TRADITIONAL_CHINESE.getDisplayName(), "tc");
-            dropDownPreference2.addItem(Locale.ENGLISH.getDisplayName(), "en");
-            dropDownPreference2.addItem(Locale.JAPANESE.getDisplayName(), "ja");
-            dropDownPreference2.setSelectedValue(Settings.instance(getActivity()).getString(Settings.APP_LANGUAGE, Utils.getDefaultSettingFromLocale()));
-            dropDownPreference2.setCallback(new DropDownPreference.Callback() {
-                @Override
-                public boolean onItemSelected(int i, Object o) {
-                    dropDownPreference2.setEnabled(false);
-
-                    ((BaseActivity) getActivity()).setLocale();
-
-                    // so bad
-                    Settings.instance(getActivity()).putString(Settings.APP_LANGUAGE, (String) o);
-                    getActivity().findViewById(R.id.toolbar).postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            ((BaseActivity) getActivity()).fakeRecreate();
-                        }
-                    }, 300);
-                    //((BaseActivity) getActivity()).fakeRecreate();
-                    return false;
-                }
+            dropDownPreference2.setEntryValues(new CharSequence[]{
+                    "sc",
+                    "tc",
+                    "en",
+                    "ja"
             });
+            if (dropDownPreference2.getValue() == null) {
+                dropDownPreference2.setValue(Settings.instance(getActivity()).getString(Settings.APP_LANGUAGE, Utils.getDefaultSettingFromLocale()));
+            }
         }
 
         @Override
@@ -198,8 +210,7 @@ public class SettingActivity extends BaseActivity {
         public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
             switch (key) {
                 case Settings.NIGHT_MODE:
-                    int mode = Integer.parseInt(
-                            (String) mDropDownPreference.getSelectedValue());
+                    int mode = Integer.parseInt(sharedPreferences.getString(key, "0"));
 
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                         if (mode == DayNightMode.MODE_NIGHT_FOLLOW_SYSTEM) {
@@ -228,6 +239,8 @@ public class SettingActivity extends BaseActivity {
                     ((BaseDayNightModeActivity) getActivity()).setNightMode(mode);
                     break;
                 case Settings.DATA_LANGUAGE:
+                    StaticData.instance(getActivity()).dataLanguage = Integer.parseInt(
+                            sharedPreferences.getString(key, Integer.toString(ApiConstParam.Language.ZH_CN)));
                 case Settings.DATA_TITLE_LANGUAGE:
                     BusProvider
                             .instance()
@@ -235,12 +248,21 @@ public class SettingActivity extends BaseActivity {
                     break;
                 case Settings.NAV_BAR_COLOR:
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                        if (Settings.instance(getActivity()).getBoolean(Settings.NAV_BAR_COLOR, false)) {
+                        if (sharedPreferences.getBoolean(key, false)) {
                             getActivity().getWindow().setNavigationBarColor(ContextCompat.getColor(getActivity(), R.color.colorPrimary));
                         } else {
                             getActivity().getWindow().setNavigationBarColor(ContextCompat.getColor(getActivity(), android.R.color.black));
                         }
                     }
+                    break;
+                case Settings.APP_LANGUAGE:
+                    // android.view.WindowLeaked
+                    getListView().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            ((BaseActivity) getActivity()).fakeRecreate();
+                        }
+                    }, 300);
                     break;
             }
 

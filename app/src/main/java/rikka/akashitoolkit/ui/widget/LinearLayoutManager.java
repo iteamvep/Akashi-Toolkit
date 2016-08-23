@@ -2,6 +2,7 @@ package rikka.akashitoolkit.ui.widget;
 
 import android.content.Context;
 import android.graphics.PointF;
+import android.graphics.Rect;
 import android.support.v7.widget.LinearSmoothScroller;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
@@ -16,6 +17,8 @@ import rikka.akashitoolkit.utils.Utils;
  */
 public class LinearLayoutManager extends android.support.v7.widget.LinearLayoutManager {
 
+    private static final String TAG = "LinearLayoutManager";
+
     public LinearLayoutManager(Context context) {
         super(context);
     }
@@ -28,11 +31,33 @@ public class LinearLayoutManager extends android.support.v7.widget.LinearLayoutM
         super(context, attrs, defStyleAttr, defStyleRes);
     }
 
+    /*@Override
+    public boolean requestChildRectangleOnScreen(RecyclerView parent, View child, Rect rect, boolean immediate) {
+        Log.d(TAG, "requestChildRectangleOnScreen");
+        return super.requestChildRectangleOnScreen(parent, child, rect, immediate);
+    }
+
+    @Override
+    public void scrollToPosition(int position) {
+        Log.d(TAG, "scrollToPosition");
+        super.scrollToPosition(position);
+    }
+
+    @Override
+    public void smoothScrollToPosition(RecyclerView recyclerView, RecyclerView.State state, int position) {
+        Log.d(TAG, "smoothScrollToPosition");
+        super.smoothScrollToPosition(recyclerView, state, position);
+    }*/
+
     public void smoothScrollToPosition(RecyclerView recyclerView, int position, int snapPreference) {
+        //Log.d(TAG, "smoothScrollToPosition");
+
         smoothScrollToPositionWithOffset(recyclerView, position, snapPreference, 0);
     }
 
     public void smoothScrollToPositionWithOffset(RecyclerView recyclerView, final int position, final int snapPreference, final int offset) {
+        //Log.d(TAG, "smoothScrollToPositionWithOffset");
+
         LinearSmoothScroller linearSmoothScroller =
                 new LinearSmoothScroller(recyclerView.getContext()) {
                     @Override

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.Rect;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.LinearSmoothScroller;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
@@ -60,7 +61,20 @@ public class GridRecyclerViewHelper {
                 }
             }
         } else {
-            layoutManager = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
+            layoutManager = new rikka.akashitoolkit.ui.widget.LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false) {
+                @Override
+                public void smoothScrollToPosition(RecyclerView recyclerView, RecyclerView.State state, int position) {
+                    LinearSmoothScroller linearSmoothScroller =
+                            new LinearSmoothScroller(recyclerView.getContext()) {
+                                @Override
+                                protected int getVerticalSnapPreference() {
+                                    return LinearSmoothScroller.SNAP_TO_START;
+                                }
+                            };
+                    linearSmoothScroller.setTargetPosition(position);
+                    startSmoothScroll(linearSmoothScroller);
+                }
+            };
         }
 
         recyclerView.setLayoutManager(layoutManager);

@@ -3,7 +3,6 @@ package rikka.akashitoolkit.support;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.content.res.Configuration;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.utils.Utils;
@@ -24,7 +23,7 @@ public class StaticData {
     private StaticData(Context context) {
         dataLanguage = Settings
                 .instance(context)
-                .getInt(Settings.DATA_LANGUAGE, Utils.getDefaultDataLanguage());
+                .getIntFromString(Settings.DATA_LANGUAGE, Utils.getDefaultDataLanguage());
 
         if (!init) {
             try {

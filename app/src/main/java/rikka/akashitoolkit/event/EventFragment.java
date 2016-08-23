@@ -39,6 +39,7 @@ import rikka.akashitoolkit.otto.PreferenceChangedAction;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.Statistics;
 import rikka.akashitoolkit.ui.fragments.BaseDrawerItemFragment;
+import rikka.akashitoolkit.ui.widget.ConsumeScrollRecyclerView;
 import rikka.akashitoolkit.utils.Utils;
 
 /**
@@ -54,7 +55,7 @@ public class EventFragment extends BaseDrawerItemFragment {
     private String CACHE_FILE;
 
     private SwipeRefreshLayout mSwipeRefreshLayout;
-    private RecyclerView mRecyclerView;
+    private ConsumeScrollRecyclerView mRecyclerView;
     private EventAdapter mAdapter;
 
     @Override
@@ -64,9 +65,6 @@ public class EventFragment extends BaseDrawerItemFragment {
         setHasOptionsMenu(true);
 
         CACHE_FILE = getContext().getCacheDir().getAbsolutePath() + JSON_NAME;
-
-        if (savedInstanceState == null)
-            onShow();
     }
 
     @Override
@@ -93,7 +91,7 @@ public class EventFragment extends BaseDrawerItemFragment {
         View view = inflater.inflate(R.layout.content_twitter_container, container, false);
 
         mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefreshLayout);
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
+        mRecyclerView = (ConsumeScrollRecyclerView) view.findViewById(R.id.recyclerView);
         mRecyclerView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.windowBackground));
 
         GridRecyclerViewHelper.init(mRecyclerView);
@@ -119,6 +117,10 @@ public class EventFragment extends BaseDrawerItemFragment {
             }, 500);
         }
 
+        if (savedInstanceState == null) {
+            onShow();
+        }
+
         loadFromCache();
 
         return view;
@@ -139,6 +141,8 @@ public class EventFragment extends BaseDrawerItemFragment {
     }
 
     private void updateData(Event data) {
+        fixRecyclerViewRequestChildFocus();
+
         mSwipeRefreshLayout.setRefreshing(false);
 
         mAdapter.clearItemList();
@@ -232,6 +236,8 @@ public class EventFragment extends BaseDrawerItemFragment {
         MainActivity activity = ((MainActivity) getActivity());
         activity.getSupportActionBar().setTitle(getString(R.string.event));
 
+        fixRecyclerViewRequestChildFocus();
+
         Statistics.onFragmentStart("EventFragment");
     }
 
@@ -248,6 +254,22 @@ public class EventFragment extends BaseDrawerItemFragment {
             case Settings.TWITTER_GRID_LAYOUT:
                 GridRecyclerViewHelper.init(mRecyclerView);
                 break;
+        }
+    }
+
+    /**
+     * "修复" RecyclerView 自己动
+     */
+
+    private void fixRecyclerViewRequestChildFocus() {
+        if (mRecyclerView != null) {
+            mRecyclerView.setDisableRequestChildFocus(true);
+            mRecyclerView.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    mRecyclerView.setDisableRequestChildFocus(false);
+                }
+            }, 200);
         }
     }
 }

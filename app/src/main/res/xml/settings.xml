@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+                  xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <PreferenceCategory
         android:key="general"
         android:title="@string/category_general">
 
-        <DropDownPreference
-            android:key="ui_language"
+        <SimpleMenuPreference
+            android:key="app_language"
             android:title="@string/ui_language"
             android:summary="%s"/>
 
-        <DropDownPreference
-            android:key="data_language"
+        <SimpleMenuPreference
+            android:key="data_language2"
             android:title="@string/data_language"
             android:summary="%s"/>
 
@@ -44,7 +45,7 @@
             android:summary="@string/open_in_new_document_summary"
             android:defaultValue="false"/>
 
-        <DropDownPreference
+        <SimpleMenuPreference
             android:key="night_mode"
             android:title="@string/night_mode"
             android:summary="%s"
@@ -63,7 +64,7 @@
     <PreferenceCategory
         android:title="@string/category_cache">
 
-        <DropDownPreference
+        <SimpleMenuPreference
             android:key="cache_max_size"
             android:title="@string/cache_max_size"
             android:summary="%s"
@@ -86,7 +87,7 @@
             android:title="@string/notification_sound"
             android:defaultValue="false"/>
 
-        <DropDownPreference
+        <SimpleMenuPreference
             android:key="notification_priority"
             android:title="@string/notification_priority"
             android:summary="%s"
@@ -105,10 +106,12 @@
             android:title="@string/twitter_count"
             android:summary="%s"
             android:defaultValue="30"
-            android:inputType="number">
+            android:inputType="number"
+            app:commitOnEnter="true"
+            android:selectAllOnFocus="true">
         </EditTextPreference>
 
-        <DropDownPreference
+        <SimpleMenuPreference
             android:key="twitter_display_language"
             android:title="@string/twitter_display_language"
             android:summary="%s"
@@ -133,7 +136,7 @@
         android:key="update"
         android:title="@string/category_update">
 
-        <DropDownPreference
+        <SimpleMenuPreference
             android:key="update_check_channel"
             android:title="@string/update_check_channel"
             android:summary="%s"

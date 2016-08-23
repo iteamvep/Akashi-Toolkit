@@ -46,7 +46,7 @@ public class AboutActivity extends BaseActivity {
         if (savedInstanceState == null) {
             AboutFragment fragment = new AboutFragment();
 
-            getFragmentManager().beginTransaction().replace(R.id.fragment,
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment,
                     fragment).commit();
         }
     }
