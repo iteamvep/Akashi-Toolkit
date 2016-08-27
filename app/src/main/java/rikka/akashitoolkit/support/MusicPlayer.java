@@ -23,6 +23,15 @@ public class MusicPlayer {
     private static String lastPlayed;
 
     public static void play(String path) throws IOException {
+        if (path == null) {
+            return;
+        }
+
+        // so bad
+        if (path.startsWith("http://kc.6candy.com/")) {
+            path = path.replace("http://kc.6candy.com/", "https://kc.6candy.com/");
+        }
+
         DiskCache diskCache = DiskCacheProvider.get();
 
         final Key key = new SimpleKey(path);

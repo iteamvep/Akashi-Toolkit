@@ -237,7 +237,7 @@ public class ShipGenerator {
                 .create();
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://api.kcwiki.moe")
+                .baseUrl("https://api.kcwiki.moe")
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
 

@@ -32,7 +32,7 @@ import retrofit2.Retrofit;
 public class EquipGenerator {
     public static void main(String[] args) throws IOException {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://zh.kcwiki.moe/")
+                .baseUrl("https://zh.kcwiki.moe/")
                 .build();
 
         RetrofitAPI.KcwikiService service = retrofit.create(RetrofitAPI.KcwikiService.class);

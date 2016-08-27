@@ -25,11 +25,11 @@ public class ExpeditionGenerator {
 
     public static void main(String[] args) throws IOException {
         /*System.out.println("getInputStream..");
-        String originStr = Utils.streamToString(getUrlStream("http://zh.kcwiki.moe/index.php?title=远征列表&action=raw"));
+        String originStr = Utils.streamToString(getUrlStream("https://zh.kcwiki.moe/index.php?title=远征列表&action=raw"));
         System.out.println("finished..");*/
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://zh.kcwiki.moe/")
+                .baseUrl("https://zh.kcwiki.moe/")
                 .build();
 
         RetrofitAPI.KcwikiService service = retrofit.create(RetrofitAPI.KcwikiService.class);

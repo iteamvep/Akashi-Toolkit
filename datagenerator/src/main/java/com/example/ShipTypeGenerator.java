@@ -26,7 +26,7 @@ public class ShipTypeGenerator {
         }.getType());
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://api.kcwiki.moe")
+                .baseUrl("https://api.kcwiki.moe")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

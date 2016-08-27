@@ -87,7 +87,7 @@ public class QuestGenerator {
 
     private static List<String> getLines() throws IOException {
         System.out.println("getInputStream..");
-        String originStr = Utils.streamToString(getUrlStream("http://zh.kcwiki.moe/index.php?title=%E4%BB%BB%E5%8A%A1&action=raw"));
+        String originStr = Utils.streamToString(getUrlStream("https://zh.kcwiki.moe/index.php?title=%E4%BB%BB%E5%8A%A1&action=raw"));
         System.out.println("finished..");
         originStr = originStr.replaceAll("\n", "").replaceAll("\r", "");
 

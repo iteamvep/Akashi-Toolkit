@@ -27,7 +27,7 @@
 
         <intent
             android:action="android.intent.action.VIEW"
-            android:data="http://zh.kcwiki.moe/wiki/%E8%88%B0%E5%A8%98%E7%99%BE%E7%A7%91"/>
+            android:data="https://zh.kcwiki.moe/wiki/%E8%88%B0%E5%A8%98%E7%99%BE%E7%A7%91"/>
 
     </Preference>
 
