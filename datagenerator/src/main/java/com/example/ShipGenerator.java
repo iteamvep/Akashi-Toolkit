@@ -291,8 +291,12 @@ public class ShipGenerator {
 
             if (ship.getClassNum() == 0) {
                 NewShip cur = ship;
-                while (cur.getRemodel().getFromId() != 0) {
-                    cur = findById(cur.getRemodel().getFromId(), list);
+                if (cur.getRemodel() == null) {
+                    System.out.println(cur.getNameCN());
+                } else {
+                    while (cur.getRemodel().getFromId() != 0) {
+                        cur = findById(cur.getRemodel().getFromId(), list);
+                    }
                 }
 
                 ship.setClassType(cur.getClassType());

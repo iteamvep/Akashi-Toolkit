@@ -30745,6 +30745,142 @@
     }
   },
   {
+    "id": 364,
+    "wiki_id": "239a",
+    "name": {
+      "zh_cn": "厌战改",
+      "ja": "Warspite改"
+    },
+    "stype": 9,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "name_for_search": "Warspite改,ウォースパイト,whoーsupaito,厌战改,yanzhangai",
+    "build_time": 0,
+    "attr": {
+      "range": 3,
+      "speed": 5,
+      "aa": 48,
+      "armor": 78,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 86,
+      "hp": 0,
+      "luck": 70,
+      "los": 0,
+      "torpedo": 0
+    },
+    "attr_max": {
+      "aa": 50,
+      "armor": 15,
+      "fire": 0,
+      "luck": 39,
+      "torpedo": 0
+    }
+  },
+  {
+    "id": 365,
+    "wiki_id": "244a",
+    "name": {
+      "zh_cn": "鹫座改",
+      "ja": "Aquila改"
+    },
+    "stype": 11,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "name_for_search": "Aquila改,アクィラ,aqwira,鹫座改,jiuzuogai",
+    "build_time": 0,
+    "attr": {
+      "range": 1,
+      "speed": 10,
+      "aa": 30,
+      "armor": 28,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 7,
+      "los": 0,
+      "torpedo": 0
+    },
+    "attr_max": {
+      "aa": 42,
+      "armor": 29,
+      "fire": 0,
+      "luck": 30,
+      "torpedo": 0
+    }
+  },
+  {
+    "id": 366,
+    "wiki_id": "281a",
+    "name": {
+      "zh_cn": "水无月改",
+      "ja": "水無月改"
+    },
+    "stype": 2,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "name_for_search": "水無月改,みなづき,minaduki,水无月改,shuiwuyuegai",
+    "build_time": 0,
+    "attr": {
+      "range": 1,
+      "speed": 10,
+      "aa": 12,
+      "armor": 11,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 9,
+      "hp": 0,
+      "luck": 16,
+      "los": 0,
+      "torpedo": 18
+    },
+    "attr_max": {
+      "aa": 27,
+      "armor": 28,
+      "fire": 0,
+      "luck": 50,
+      "torpedo": 51
+    }
+  },
+  {
+    "id": 367,
+    "wiki_id": "283a",
+    "name": {
+      "zh_cn": "伊26改",
+      "ja": "伊26改"
+    },
+    "stype": 14,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "name_for_search": "伊26改,い26,i26,伊26改,yigai",
+    "build_time": 0,
+    "attr": {
+      "range": 1,
+      "speed": 5,
+      "aa": 0,
+      "armor": 5,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 3,
+      "hp": 0,
+      "luck": 16,
+      "los": 0,
+      "torpedo": 39
+    },
+    "attr_max": {
+      "aa": 0,
+      "armor": 14,
+      "fire": 0,
+      "luck": 50,
+      "torpedo": 47
+    }
+  },
+  {
     "id": 398,
     "wiki_id": "126a",
     "name": {
@@ -34226,6 +34362,40 @@
     }
   },
   {
+    "id": 439,
+    "wiki_id": "239",
+    "name": {
+      "zh_cn": "厌战",
+      "ja": "Warspite"
+    },
+    "stype": 9,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "name_for_search": "Warspite,ウォースパイト,whoーsupaito,厌战,yanzhan",
+    "build_time": 0,
+    "attr": {
+      "range": 3,
+      "speed": 5,
+      "aa": 38,
+      "armor": 72,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 72,
+      "hp": 0,
+      "luck": 55,
+      "los": 0,
+      "torpedo": 0
+    },
+    "attr_max": {
+      "aa": 50,
+      "armor": 19,
+      "fire": 0,
+      "luck": 34,
+      "torpedo": 0
+    }
+  },
+  {
     "id": 440,
     "wiki_id": "240",
     "name": {
@@ -34579,6 +34749,40 @@
       "evasion": 19,
       "hp": 4,
       "los": 7
+    }
+  },
+  {
+    "id": 444,
+    "wiki_id": "244",
+    "name": {
+      "zh_cn": "鹫座",
+      "ja": "Aquila"
+    },
+    "stype": 11,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "name_for_search": "Aquila,アクィラ,aqwira,鹫座,jiuzuo",
+    "build_time": 0,
+    "attr": {
+      "range": 1,
+      "speed": 10,
+      "aa": 18,
+      "armor": 18,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 5,
+      "los": 0,
+      "torpedo": 0
+    },
+    "attr_max": {
+      "aa": 30,
+      "armor": 20,
+      "fire": 0,
+      "luck": 24,
+      "torpedo": 0
     }
   },
   {
@@ -37088,6 +37292,74 @@
       "evasion": 21,
       "hp": 4,
       "los": 19
+    }
+  },
+  {
+    "id": 481,
+    "wiki_id": "281",
+    "name": {
+      "zh_cn": "水无月",
+      "ja": "水無月"
+    },
+    "stype": 2,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "name_for_search": "水無月,みなづき,minaduki,水无月,shuiwuyue",
+    "build_time": 0,
+    "attr": {
+      "range": 1,
+      "speed": 10,
+      "aa": 7,
+      "armor": 5,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 6,
+      "hp": 0,
+      "luck": 13,
+      "los": 0,
+      "torpedo": 18
+    },
+    "attr_max": {
+      "aa": 22,
+      "armor": 13,
+      "fire": 0,
+      "luck": 40,
+      "torpedo": 31
+    }
+  },
+  {
+    "id": 483,
+    "wiki_id": "283",
+    "name": {
+      "zh_cn": "伊26",
+      "ja": "伊26"
+    },
+    "stype": 13,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "name_for_search": "伊26,い26,i26,伊26,yi",
+    "build_time": 0,
+    "attr": {
+      "range": 1,
+      "speed": 5,
+      "aa": 0,
+      "armor": 4,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 2,
+      "hp": 0,
+      "luck": 14,
+      "los": 0,
+      "torpedo": 32
+    },
+    "attr_max": {
+      "aa": 0,
+      "armor": 14,
+      "fire": 0,
+      "luck": 37,
+      "torpedo": 43
     }
   },
   {
@@ -44222,6 +44494,186 @@
       "ja": "駆逐古姫"
     },
     "stype": 2,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "name_for_search": "",
+    "build_time": 0
+  },
+  {
+    "id": 693,
+    "name": {
+      "ja": "潜水夏姫"
+    },
+    "stype": 13,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "name_for_search": "潜水夏姫,flagship,flagship,",
+    "build_time": 0
+  },
+  {
+    "id": 694,
+    "name": {
+      "ja": "潜水夏姫"
+    },
+    "stype": 13,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "name_for_search": "潜水夏姫,flagship,flagship,",
+    "build_time": 0
+  },
+  {
+    "id": 695,
+    "name": {
+      "ja": "潜水夏姫"
+    },
+    "stype": 13,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "name_for_search": "潜水夏姫,flagship,flagship,",
+    "build_time": 0
+  },
+  {
+    "id": 696,
+    "name": {
+      "ja": "戦艦夏姫"
+    },
+    "stype": 9,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "name_for_search": "",
+    "build_time": 0
+  },
+  {
+    "id": 697,
+    "name": {
+      "ja": "戦艦夏姫"
+    },
+    "stype": 9,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "name_for_search": "",
+    "build_time": 0
+  },
+  {
+    "id": 698,
+    "name": {
+      "ja": "戦艦夏姫"
+    },
+    "stype": 9,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "name_for_search": "",
+    "build_time": 0
+  },
+  {
+    "id": 699,
+    "name": {
+      "ja": "港湾夏姫"
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "name_for_search": "",
+    "build_time": 0
+  },
+  {
+    "id": 700,
+    "name": {
+      "ja": "港湾夏姫"
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "name_for_search": "",
+    "build_time": 0
+  },
+  {
+    "id": 701,
+    "name": {
+      "ja": "港湾夏姫"
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "name_for_search": "",
+    "build_time": 0
+  },
+  {
+    "id": 702,
+    "name": {
+      "ja": "港湾夏姫-壊"
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "name_for_search": "",
+    "build_time": 0
+  },
+  {
+    "id": 703,
+    "name": {
+      "ja": "港湾夏姫-壊"
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "name_for_search": "",
+    "build_time": 0
+  },
+  {
+    "id": 704,
+    "name": {
+      "ja": "港湾夏姫-壊"
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "name_for_search": "",
+    "build_time": 0
+  },
+  {
+    "id": 705,
+    "name": {
+      "ja": "重巡夏姫"
+    },
+    "stype": 5,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "name_for_search": "",
+    "build_time": 0
+  },
+  {
+    "id": 706,
+    "name": {
+      "ja": "重巡夏姫"
+    },
+    "stype": 5,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "name_for_search": "",
+    "build_time": 0
+  },
+  {
+    "id": 707,
+    "name": {
+      "ja": "重巡夏姫"
+    },
+    "stype": 5,
     "ctype": 0,
     "cnum": 0,
     "rarity": 0,

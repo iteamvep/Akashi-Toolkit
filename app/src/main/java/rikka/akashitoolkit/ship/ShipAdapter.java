@@ -198,19 +198,21 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
             return false;
         }
 
-        if (!mIsSearching) {
-            switch (mShowVersion) {
-                case 1:
-                    if (item.getRemodel().getFromId() != 0) {
-                        return false;
-                    }
-                    break;
-                case 2:
-                    if ((item.getRemodel().getToId() != 0 &&
-                            item.getRemodel().getToId() != item.getRemodel().getFromId())) {
-                        return false;
-                    }
-                    break;
+        if (item.getRemodel() != null) {
+            if (!mIsSearching) {
+                switch (mShowVersion) {
+                    case 1:
+                        if (item.getRemodel().getFromId() != 0) {
+                            return false;
+                        }
+                        break;
+                    case 2:
+                        if ((item.getRemodel().getToId() != 0 &&
+                                item.getRemodel().getToId() != item.getRemodel().getFromId())) {
+                            return false;
+                        }
+                        break;
+                }
             }
         }
 
