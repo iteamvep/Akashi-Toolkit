@@ -345,7 +345,7 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        RetrofitAPI.Voice service = retrofit.create(RetrofitAPI.Voice.class);
+        RetrofitAPI.VoiceAPI service = retrofit.create(RetrofitAPI.VoiceAPI.class);
         Call<List<ShipVoice>> call = service.get(mItem.getId());
 
         call.enqueue(new Callback<List<ShipVoice>>() {

@@ -1,15 +1,12 @@
 package rikka.akashitoolkit.home;
 
-import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -17,12 +14,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.google.gson.Gson;
 import com.squareup.otto.Subscribe;
 
-import java.io.ByteArrayInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -44,10 +37,8 @@ import rikka.akashitoolkit.network.RetrofitAPI;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.PreferenceChangedAction;
 import rikka.akashitoolkit.support.Settings;
-import rikka.akashitoolkit.support.StaticData;
 import rikka.akashitoolkit.gallery.GalleryActivity;
 import rikka.akashitoolkit.utils.NetworkUtils;
-import rikka.akashitoolkit.utils.Utils;
 
 /**
  * Created by Rikka on 2016/3/6.
@@ -59,7 +50,7 @@ public class TwitterFragment extends Fragment implements TwitterAdapter.Listener
     private TwitterAdapter mTwitterAdapter;
     private SwipeRefreshLayout mSwipeRefreshLayout;
 
-    private Call<Twitter> mCall;
+    private Call<List<Twitter>> mCall;
     private Call<LatestAvatar> mCall2;
 
     private Avatars mAvatars;
@@ -138,15 +129,13 @@ public class TwitterFragment extends Fragment implements TwitterAdapter.Listener
         });
         mSwipeRefreshLayout.setColorSchemeColors(ContextCompat.getColor(getActivity(), R.color.colorAccent));
 
-        loadFromCache();
-
         if (savedInstanceState == null) {
-            mSwipeRefreshLayout.postDelayed(new Runnable() {
+            mSwipeRefreshLayout.post(new Runnable() {
                 @Override
                 public void run() {
                     refresh(false);
                 }
-            }, 500);
+            });
         }
 
         /*if (!isHiddenBeforeSaveInstanceState()) {
@@ -156,26 +145,8 @@ public class TwitterFragment extends Fragment implements TwitterAdapter.Listener
         return view;
     }
 
-    private void loadFromCache() {
-        refresh(true);
-        /*Twitter twitter;
-        try {
-            Gson gson = new Gson();
-            twitter = gson.fromJson(
-                    new FileReader(CACHE_FILE),
-                    Twitter.class);
-
-            mAvatars = gson.fromJson(
-                    new FileReader(CACHE_FILE_AVATARS),
-                    Avatars.class);
-
-            updateData(twitter, false);
-        } catch (FileNotFoundException ignored) {
-        }*/
-    }
-
-    private void updateData(Twitter source, boolean animate) {
-        if (source == null || source.getPosts() == null) {
+    private void updateData(List<Twitter> list, boolean animate) {
+        if (list == null) {
             return;
         }
 
@@ -183,45 +154,17 @@ public class TwitterFragment extends Fragment implements TwitterAdapter.Listener
             return;
         }
 
-        List<TwitterAdapter.DataModel> data;
-
-        int id = -1;
+        long timestamp = -1;
         int added = 0;
-        if (mTwitterAdapter.getData().size() > 0) {
-            id = mTwitterAdapter.getData().get(0).getId();
+        if (mTwitterAdapter.getItemList().size() > 0) {
+            timestamp = mTwitterAdapter.getItemList().get(0).getTimestamp();
         }
 
-        data = new ArrayList<>();
+        for (Twitter item :
+                list) {
 
-        for (Twitter.PostsEntity entity:
-                source.getPosts()) {
-            TwitterAdapter.DataModel item = new TwitterAdapter.DataModel();
-            String content = entity.getContent();
-
-            Pattern r = Pattern.compile("<p>[\\w\\W]+?</p>");
-            Matcher m = r.matcher(content);
-
-            int i = 0;
-            while (m.find()) {
-                if (i == 0) {
-                    item.setText(
-                            cutString(m.group(), "<p>", "</p>"));
-                } else {
-                    item.setTranslated(
-                            // bad way
-                            (i > 1 ? item.getTranslated() + "\n" : "") +
-                            cutString(m.group(), "<p>", "</p>"));
-                }
-                i ++;
-            }
-
-            item.setDate(entity.getDate());
-            item.setId(entity.getId());
-            item.setModified(entity.getModified());
-            data.add(item);
-
-            r = Pattern.compile("(\\d{4})-(\\d{2})-(\\d{2}) (\\d{2}):(\\d{2}):(\\d{2})");
-            m = r.matcher(entity.getDate());
+            Pattern r = Pattern.compile("(\\d{4})-(\\d{2})-(\\d{2}) (\\d{2}):(\\d{2}):(\\d{2})");
+            Matcher m = r.matcher(item.getDate());
             if (m.find()) {
                 int yy = Integer.parseInt(m.group(1));
                 int MM = Integer.parseInt(m.group(2));
@@ -231,15 +174,15 @@ public class TwitterFragment extends Fragment implements TwitterAdapter.Listener
                 int ss = Integer.parseInt(m.group(6));
                 Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("GMT+08:00"), Locale.getDefault());
                 calendar.set(yy, MM - 1, DD, HH, mm, ss);
-                item.setTime(calendar.getTimeInMillis());
+                item.setTimestamp(calendar.getTimeInMillis());
             }
 
-            if (id != -1 && entity.getId() > id) {
+            if (timestamp != -1 && item.getTimestamp() > timestamp) {
                 added++;
             }
         }
 
-        mTwitterAdapter.setData(data);
+        mTwitterAdapter.setItemList(list);
         mTwitterAdapter.notifyDataSetChanged();
         if (animate) {
             mRecyclerView.scrollToPosition(0);
@@ -257,22 +200,21 @@ public class TwitterFragment extends Fragment implements TwitterAdapter.Listener
 
     private void refresh(boolean force_cache) {
         mSwipeRefreshLayout.setRefreshing(true);
-        refresh(1,
-                Settings.instance(getContext())
+        refresh(Settings.instance(getContext())
                         .getIntFromString(Settings.TWITTER_COUNT, 30)
                 , force_cache);
 
         Log.d(TAG, "start refresh");
     }
 
-    private void refresh(final int json, final int count, boolean force_cache) {
+    private void refresh(final int count, boolean force_cache) {
         Retrofit retrofit = new Retrofit.Builder()
                 .client(NetworkUtils.getClient(force_cache))
                 .baseUrl("https://api.kcwiki.moe/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        RetrofitAPI.TwitterService service = retrofit.create(RetrofitAPI.TwitterService.class);
+        RetrofitAPI.TwitterAPI service = retrofit.create(RetrofitAPI.TwitterAPI.class);
         mCall2 = service.getLatestAvatarUrl();
         mCall2.enqueue(new Callback<LatestAvatar>() {
             @Override
@@ -294,11 +236,15 @@ public class TwitterFragment extends Fragment implements TwitterAdapter.Listener
             }
         });
 
-        retrofit.create(RetrofitAPI.TwitterService.class)
+        retrofit.create(RetrofitAPI.TwitterAPI.class)
                 .getAvatars()
                 .enqueue(new Callback<Avatars>() {
                     @Override
                     public void onResponse(Call<Avatars> call, Response<Avatars> response) {
+                        if (response.code() >= 400) {
+                            return;
+                        }
+
                         mAvatars = response.body();
                     }
 
@@ -308,26 +254,19 @@ public class TwitterFragment extends Fragment implements TwitterAdapter.Listener
                     }
                 });
 
+        RetrofitAPI.TwitterAPI service2 = retrofit.create(RetrofitAPI.TwitterAPI.class);
+        mCall = service2.getTweets(count);
 
-        Retrofit retrofit2 = new Retrofit.Builder()
-                .client(NetworkUtils.getClient(force_cache))
-                .baseUrl("http://t.kcwiki.moe/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        RetrofitAPI.TwitterService service2 = retrofit2.create(RetrofitAPI.TwitterService.class);
-        mCall = service2.get(json, count);
-
-        mCall.enqueue(new Callback<Twitter>() {
+        mCall.enqueue(new Callback<List<Twitter>>() {
             @Override
-            public void onResponse(Call<Twitter> call, Response<Twitter> response) {
+            public void onResponse(Call<List<Twitter>> call, Response<List<Twitter>> response) {
                 mSwipeRefreshLayout.setRefreshing(false);
 
                 updateData(response.body(), true);
             }
 
             @Override
-            public void onFailure(Call<Twitter> call, Throwable t) {
+            public void onFailure(Call<List<Twitter>> call, Throwable t) {
                 if (getContext() == null) {
                     return;
                 }
@@ -353,13 +292,13 @@ public class TwitterFragment extends Fragment implements TwitterAdapter.Listener
                                 .instance(getContext())
                                 .getIntFromString(Settings.TWITTER_COUNT, 30));
 
-                mTwitterAdapter.getData().clear();
+                mTwitterAdapter.clearItemList();
                 mTwitterAdapter.notifyDataSetChanged();
 
                 mRecyclerView.post(new Runnable() {
                     @Override
                     public void run() {
-                        loadFromCache();
+                        refresh(false);
                     }
                 });
                 break;

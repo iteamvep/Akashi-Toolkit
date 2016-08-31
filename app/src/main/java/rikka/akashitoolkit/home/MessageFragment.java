@@ -198,7 +198,7 @@ public class MessageFragment extends BaseRefreshFragment<CheckUpdate> {
                 .instance(getActivity())
                 .getIntFromString(Settings.UPDATE_CHECK_CHANNEL, 0);
 
-        RetrofitAPI.CheckUpdateService service = retrofit.create(RetrofitAPI.CheckUpdateService.class);
+        RetrofitAPI.UpdateAPI service = retrofit.create(RetrofitAPI.UpdateAPI.class);
         call = service.get(5, channel);
 
         super.onRefresh(call, force_cache);

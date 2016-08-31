@@ -20,20 +20,18 @@ import rikka.akashitoolkit.model.Seasonal;
  * Created by Rikka on 2016/3/8.
  */
 public class RetrofitAPI {
-    public interface TwitterService {
-        @GET("/")
-        Call<Twitter> get(
-                @Query("json") int json,
-                @Query("count") int count);
-
+    public interface TwitterAPI {
         @GET("/avatar/latest")
         Call<LatestAvatar> getLatestAvatarUrl();
 
         @GET("/avatars")
         Call<Avatars> getAvatars();
+
+        @GET("/tweet/{count}")
+        Call<List<Twitter>> getTweets(@Path("count") int count);
     }
 
-    public interface CheckUpdateService {
+    public interface UpdateAPI {
         @GET("/Akashi/info.php")
         Call<CheckUpdate> get(
                 @Query("api_version") int api_version,
@@ -60,7 +58,7 @@ public class RetrofitAPI {
                 @Query("api_version") int api_version);
     }
 
-    public interface Voice {
+    public interface VoiceAPI {
         @GET("subtitle/detail/{shipId}")
         Call<List<ShipVoice>> get(
                 @Path("shipId") int shipId);
