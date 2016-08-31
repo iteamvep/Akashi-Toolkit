@@ -8,6 +8,7 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -62,6 +63,9 @@ import rikka.akashitoolkit.ui.BaseActivity;
 import rikka.akashitoolkit.utils.Utils;
 
 public class ImagesActivity extends BaseActivity implements View.OnClickListener {
+
+    private static final String TAG = "ImagesActivity";
+
     public static final String EXTRA_URL = "EXTRA_URL";
     public static final String EXTRA_POSITION = "EXTRA_POSITION";
     public static final String EXTRA_TITLE = "EXTRA_TITLE";
@@ -122,6 +126,10 @@ public class ImagesActivity extends BaseActivity implements View.OnClickListener
 
         mList = getIntent().getStringArrayListExtra(EXTRA_URL);
         mPosition = getIntent().getIntExtra(EXTRA_POSITION, 0);
+        if (mPosition == -1) {
+            Log.e(TAG, "position is -1, set to 0");
+            mPosition = 0;
+        }
         mIsDownloaded = new boolean[mList.size()];
 
         mDownloadable = getIntent().getBooleanExtra(EXTRA_DOWNLOADABLE, true);
@@ -339,27 +347,28 @@ public class ImagesActivity extends BaseActivity implements View.OnClickListener
                         File imagePath = new File(picturePath, "AkashiToolkit");
                         File image = new File(imagePath, data.filename);
 
-                        /*final Intent intent = new Intent(Intent.ACTION_VIEW);
+                        final Intent intent = new Intent(Intent.ACTION_VIEW, data.uri);
                         intent.setType("image/*");
-                        Uri uri = FileProvider.getUriForFile(
+                        /*Uri uri = FileProvider.getUriForFile(
                                 context, "rikka.akashitoolkit.fileprovider", image);
 
-                        intent.setUrls(uri);
+                        intent.setUrls(uri);*/
+
                         intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
 
                         List<ResolveInfo> resInfoList = context.getPackageManager().queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
                         for (ResolveInfo resolveInfo : resInfoList) {
                             String packageName = resolveInfo.activityInfo.packageName;
-                            context.grantUriPermission(packageName, uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                        }*/
+                            context.grantUriPermission(packageName, data.uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                        }
 
                         Snackbar.make(mCoordinatorLayout, String.format(getString(R.string.saved), Uri.fromFile(picturePath).getLastPathSegment() + "/AkashiToolkit/" + data.filename), Snackbar.LENGTH_LONG)
-                                /*.setAction(R.string.open, new View.OnClickListener() {
+                                .setAction(R.string.open, new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
                                         startActivity(intent);
                                     }
-                                })*/.show();
+                                }).show();
                     }
                 } else {
                     Snackbar.make(mCoordinatorLayout, getString(R.string.save_failed), Snackbar.LENGTH_LONG)
@@ -452,7 +461,7 @@ public class ImagesActivity extends BaseActivity implements View.OnClickListener
         scaleAnimation.setStartOffset(500);
         mFAB.startAnimation(scaleAnimation);
 
-        Log.d(getClass().getSimpleName(), "show FAB " + Integer.toString(mPosition));
+        //Log.d(getClass().getSimpleName(), "show FAB " + Integer.toString(mPosition));
     }
 
     private void hideFAB() {
