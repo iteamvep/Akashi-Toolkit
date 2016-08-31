@@ -1,7 +1,9 @@
-package rikka.akashitoolkit.utils;
+package rikka.akashitoolkit.ui.widget;
 
 import android.text.Spannable;
 import android.text.style.URLSpan;
+
+import rikka.akashitoolkit.utils.MyUrlSpan;
 
 /**
  * Created by Rikka on 2016/4/6.

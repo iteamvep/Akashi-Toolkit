@@ -1,58 +1,43 @@
 package rikka.akashitoolkit.home;
 
-import android.graphics.Rect;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.text.format.DateUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.google.gson.Gson;
 import com.squareup.otto.Subscribe;
 
-import java.io.ByteArrayInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 import rikka.akashitoolkit.BuildConfig;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.Listener;
 import rikka.akashitoolkit.model.CheckUpdate;
 import rikka.akashitoolkit.model.MessageReadStatus;
+import rikka.akashitoolkit.network.RetrofitAPI;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.PreferenceChangedAction;
 import rikka.akashitoolkit.otto.ReadStatusResetAction;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.StaticData;
-import rikka.akashitoolkit.utils.UpdateCheck;
-import rikka.akashitoolkit.utils.Utils;
+import rikka.akashitoolkit.utils.NetworkUtils;
 
 import static rikka.akashitoolkit.support.ApiConstParam.Message.COUNT_DOWN;
 
 /**
  * Created by Rikka on 2016/6/11.
  */
-public class MessageFragment extends Fragment {
-    private static final String JSON_NAME = "/json/home.json";
-    private String CACHE_FILE;
+public class MessageFragment extends BaseRefreshFragment<CheckUpdate> {
 
-    private SwipeRefreshLayout mSwipeRefreshLayout;
-    private RecyclerView mRecyclerView;
     private MessageAdapter mAdapter;
 
     private MessageReadStatus mMessageReadStatus;
@@ -62,14 +47,12 @@ public class MessageFragment extends Fragment {
         super.onCreate(savedInstanceState);
         BusProvider.instance().register(this);
         setHasOptionsMenu(true);
-        CACHE_FILE = getContext().getCacheDir().getAbsolutePath() + JSON_NAME;
 
         loadReadStatus();
     }
 
     @Override
     public void onStop() {
-        UpdateCheck.instance().recycle();
         saveReadStatus();
         super.onStop();
     }
@@ -99,28 +82,20 @@ public class MessageFragment extends Fragment {
         super.onDestroy();
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_refresh:
-                if (!mSwipeRefreshLayout.isRefreshing()) {
-                    refresh();
-                }
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.content_twitter_container, container, false);
+        return inflater.inflate(R.layout.content_twitter_container, container, false);
+    }
 
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
         mRecyclerView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.windowBackground));
         mAdapter = new MessageAdapter();
         mRecyclerView.setAdapter(mAdapter);
-        //setUpRecyclerView();
+
         GridRecyclerViewHelper.init(mRecyclerView);
 
         mAdapter.setListener(new Listener() {
@@ -138,51 +113,11 @@ public class MessageFragment extends Fragment {
             }
         });
 
-        mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefreshLayout);
-        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                refresh();
-            }
-        });
         mSwipeRefreshLayout.setColorSchemeColors(ContextCompat.getColor(getActivity(), R.color.colorAccent));
-
-        loadFromCache();
-
-        if (savedInstanceState == null) {
-            mSwipeRefreshLayout.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    refresh();
-                }
-            }, 500);
-        }
-
-        return view;
     }
 
-    private void loadFromCache() {
-        CheckUpdate data;
-        try {
-            Gson gson = new Gson();
-            data = gson.fromJson(
-                    new FileReader(CACHE_FILE),
-                    CheckUpdate.class);
-
-            // clear old messages
-            if (data != null && data.getMessages() != null)
-                data.getMessages().clear();
-
-            updateData(data);
-        } catch (FileNotFoundException ignored) {
-        }
-    }
-
-    private void updateData(CheckUpdate data) {
-        if (data == null) {
-            return;
-        }
-
+    @Override
+    public void onSuccess(@NonNull CheckUpdate data) {
         mAdapter.clearItemList();
 
         addLocalCard();
@@ -192,6 +127,11 @@ public class MessageFragment extends Fragment {
         /*checkDataUpdate(data.getData());*/
 
         mAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onFailure(Call<CheckUpdate> call, Throwable t) {
+
     }
 
     private void addLocalCard() {
@@ -246,45 +186,22 @@ public class MessageFragment extends Fragment {
         }
     }
 
-    private void refresh() {
-        mSwipeRefreshLayout.setRefreshing(true);
+    @Override
+    public void onRefresh(Call<CheckUpdate> call, boolean force_cache) {
+        Retrofit retrofit = new Retrofit.Builder()
+                .client(NetworkUtils.getClient(force_cache))
+                .baseUrl("http://www.minamion.com/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
 
-        UpdateCheck.instance().check(getContext(), new Callback<CheckUpdate>() {
-            @Override
-            public void onResponse(Call<CheckUpdate> call, final Response<CheckUpdate> response) {
-                UpdateCheck.instance().recycle();
+        int channel = Settings
+                .instance(getActivity())
+                .getIntFromString(Settings.UPDATE_CHECK_CHANNEL, 0);
 
-                if (getContext() == null) {
-                    Log.d("MessageFragment", "onResponse context == null");
-                    return;
-                }
+        RetrofitAPI.CheckUpdateService service = retrofit.create(RetrofitAPI.CheckUpdateService.class);
+        call = service.get(5, channel);
 
-                if (response.body() == null) {
-                    onFailure(call, new NullPointerException());
-                }
-
-                updateData(response.body());
-
-                UpdateCheck.instance().recycle();
-                mSwipeRefreshLayout.setRefreshing(false);
-
-                Gson gson = new Gson();
-                Utils.saveStreamToFile(new ByteArrayInputStream(gson.toJson(response.body()).getBytes()),
-                        CACHE_FILE);
-            }
-
-            @Override
-            public void onFailure(Call<CheckUpdate> call, Throwable t) {
-                UpdateCheck.instance().recycle();
-
-                if (getContext() == null) {
-                    return;
-                }
-
-                mSwipeRefreshLayout.setRefreshing(false);
-                //Snackbar.make(mSwipeRefreshLayout, R.string.refresh_fail, Snackbar.LENGTH_SHORT).show();
-            }
-        });
+        super.onRefresh(call, force_cache);
     }
 
     @Subscribe
@@ -294,7 +211,7 @@ public class MessageFragment extends Fragment {
             mMessageReadStatus.setVersionCode(0);
         }
 
-        refresh();
+        onRefresh(true);
 
         Toast.makeText(getActivity(), R.string.read_status_reset, Toast.LENGTH_SHORT).show();
     }
@@ -308,7 +225,7 @@ public class MessageFragment extends Fragment {
                     mMessageReadStatus.setVersionCode(0);
                 }
 
-                refresh();
+                onRefresh(true);
                 break;
             case Settings.TWITTER_GRID_LAYOUT:
                 GridRecyclerViewHelper.init(mRecyclerView);

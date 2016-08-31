@@ -20,7 +20,6 @@ import rikka.akashitoolkit.tools.SendReportActivity;
 import rikka.akashitoolkit.ui.BaseActivity;
 import rikka.akashitoolkit.utils.ClipBoardUtils;
 import rikka.akashitoolkit.utils.DonateUtils;
-import rikka.akashitoolkit.utils.UpdateCheck;
 import rikka.akashitoolkit.utils.Utils;
 import rikka.materialpreference.Preference;
 import rikka.materialpreference.PreferenceFragment;
@@ -65,7 +64,6 @@ public class AboutActivity extends BaseActivity {
     public static class AboutFragment extends PreferenceFragment {
         @Override
         public void onStop() {
-            UpdateCheck.instance().recycle();
             super.onStop();
         }
 

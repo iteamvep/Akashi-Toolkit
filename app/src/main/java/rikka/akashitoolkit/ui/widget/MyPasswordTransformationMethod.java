@@ -1,4 +1,4 @@
-package rikka.akashitoolkit.utils;
+package rikka.akashitoolkit.ui.widget;
 
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;

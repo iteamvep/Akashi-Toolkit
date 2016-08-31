@@ -86,8 +86,8 @@ import rikka.akashitoolkit.gallery.ImagesActivity;
 import rikka.akashitoolkit.tools.SendReportActivity;
 import rikka.akashitoolkit.ui.widget.LinearLayoutManager;
 import rikka.akashitoolkit.utils.KCStringFormatter;
-import rikka.akashitoolkit.utils.MyPasswordTransformationMethod;
-import rikka.akashitoolkit.utils.MySpannableFactory;
+import rikka.akashitoolkit.ui.widget.MyPasswordTransformationMethod;
+import rikka.akashitoolkit.ui.widget.MySpannableFactory;
 import rikka.akashitoolkit.utils.Utils;
 
 /**

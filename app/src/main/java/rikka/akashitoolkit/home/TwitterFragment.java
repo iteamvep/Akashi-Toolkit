@@ -46,6 +46,7 @@ import rikka.akashitoolkit.otto.PreferenceChangedAction;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.StaticData;
 import rikka.akashitoolkit.gallery.GalleryActivity;
+import rikka.akashitoolkit.utils.NetworkUtils;
 import rikka.akashitoolkit.utils.Utils;
 
 /**
@@ -53,11 +54,6 @@ import rikka.akashitoolkit.utils.Utils;
  */
 public class TwitterFragment extends Fragment implements TwitterAdapter.Listener {
     private static final String TAG = "TwitterFragment";
-
-    private static final String JSON_NAME = "/json/twitter.json";
-    private static final String JSON_NAME_AVATARS = "/json/twitter_avatars.json";
-    private String CACHE_FILE;
-    private String CACHE_FILE_AVATARS;
 
     private RecyclerView mRecyclerView;
     private TwitterAdapter mTwitterAdapter;
@@ -88,9 +84,6 @@ public class TwitterFragment extends Fragment implements TwitterAdapter.Listener
         setHasOptionsMenu(true);
 
         BusProvider.instance().register(this);
-
-        CACHE_FILE = getContext().getCacheDir().getAbsolutePath() + JSON_NAME;
-        CACHE_FILE_AVATARS = getContext().getCacheDir().getAbsolutePath() + JSON_NAME_AVATARS;
     }
 
     @Override
@@ -104,7 +97,7 @@ public class TwitterFragment extends Fragment implements TwitterAdapter.Listener
         switch (item.getItemId()) {
             case R.id.action_refresh:
                 if (!mSwipeRefreshLayout.isRefreshing()) {
-                    refresh();
+                    refresh(false);
                 }
                 return true;
         }
@@ -140,7 +133,7 @@ public class TwitterFragment extends Fragment implements TwitterAdapter.Listener
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                refresh();
+                refresh(false);
             }
         });
         mSwipeRefreshLayout.setColorSchemeColors(ContextCompat.getColor(getActivity(), R.color.colorAccent));
@@ -151,7 +144,7 @@ public class TwitterFragment extends Fragment implements TwitterAdapter.Listener
             mSwipeRefreshLayout.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    refresh();
+                    refresh(false);
                 }
             }, 500);
         }
@@ -164,7 +157,8 @@ public class TwitterFragment extends Fragment implements TwitterAdapter.Listener
     }
 
     private void loadFromCache() {
-        Twitter twitter;
+        refresh(true);
+        /*Twitter twitter;
         try {
             Gson gson = new Gson();
             twitter = gson.fromJson(
@@ -177,7 +171,7 @@ public class TwitterFragment extends Fragment implements TwitterAdapter.Listener
 
             updateData(twitter, false);
         } catch (FileNotFoundException ignored) {
-        }
+        }*/
     }
 
     private void updateData(Twitter source, boolean animate) {
@@ -261,17 +255,19 @@ public class TwitterFragment extends Fragment implements TwitterAdapter.Listener
         }
     }
 
-    private void refresh() {
+    private void refresh(boolean force_cache) {
         mSwipeRefreshLayout.setRefreshing(true);
         refresh(1,
                 Settings.instance(getContext())
-                        .getIntFromString(Settings.TWITTER_COUNT, 30));
+                        .getIntFromString(Settings.TWITTER_COUNT, 30)
+                , force_cache);
 
         Log.d(TAG, "start refresh");
     }
 
-    private void refresh(final int json, final int count) {
+    private void refresh(final int json, final int count, boolean force_cache) {
         Retrofit retrofit = new Retrofit.Builder()
+                .client(NetworkUtils.getClient(force_cache))
                 .baseUrl("https://api.kcwiki.moe/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
@@ -281,6 +277,10 @@ public class TwitterFragment extends Fragment implements TwitterAdapter.Listener
         mCall2.enqueue(new Callback<LatestAvatar>() {
             @Override
             public void onResponse(Call<LatestAvatar> call, Response<LatestAvatar> response) {
+                if (response.code() >= 400) {
+                    return;
+                }
+
                 String url = response.body().getLatest();
 
                 if (url != null) {
@@ -300,10 +300,6 @@ public class TwitterFragment extends Fragment implements TwitterAdapter.Listener
                     @Override
                     public void onResponse(Call<Avatars> call, Response<Avatars> response) {
                         mAvatars = response.body();
-
-                        Gson gson = new Gson();
-                        Utils.saveStreamToFile(new ByteArrayInputStream(gson.toJson(response.body()).getBytes()),
-                                CACHE_FILE_AVATARS);
                     }
 
                     @Override
@@ -314,6 +310,7 @@ public class TwitterFragment extends Fragment implements TwitterAdapter.Listener
 
 
         Retrofit retrofit2 = new Retrofit.Builder()
+                .client(NetworkUtils.getClient(force_cache))
                 .baseUrl("http://t.kcwiki.moe/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
@@ -327,10 +324,6 @@ public class TwitterFragment extends Fragment implements TwitterAdapter.Listener
                 mSwipeRefreshLayout.setRefreshing(false);
 
                 updateData(response.body(), true);
-                // save result to local
-                Gson gson = new Gson();
-                Utils.saveStreamToFile(new ByteArrayInputStream(gson.toJson(response.body()).getBytes()),
-                        CACHE_FILE);
             }
 
             @Override

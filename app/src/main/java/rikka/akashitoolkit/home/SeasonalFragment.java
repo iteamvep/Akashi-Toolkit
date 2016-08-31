@@ -1,6 +1,7 @@
 package rikka.akashitoolkit.home;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -41,14 +42,9 @@ import rikka.akashitoolkit.utils.Utils;
 /**
  * Created by Rikka on 2016/4/30.
  */
-public class SeasonalFragment extends Fragment {
+public class SeasonalFragment extends BaseRefreshFragment<List<Seasonal>> {
     private static final int API_VERSION = 5;
 
-    private static final String JSON_NAME = "/json/seasonal_v4.json";
-    private String CACHE_FILE;
-
-    private SwipeRefreshLayout mSwipeRefreshLayout;
-    private RecyclerView mRecyclerView;
     private SeasonalAdapter mAdapter;
 
     @Override
@@ -56,8 +52,6 @@ public class SeasonalFragment extends Fragment {
         super.onCreate(savedInstanceState);
         BusProvider.instance().register(this);
         setHasOptionsMenu(true);
-
-        CACHE_FILE = getContext().getCacheDir().getAbsolutePath() + JSON_NAME;
     }
 
     @Override
@@ -66,25 +60,16 @@ public class SeasonalFragment extends Fragment {
         super.onDestroy();
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_refresh:
-                if (!mSwipeRefreshLayout.isRefreshing()) {
-                    refresh();
-                }
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.content_twitter_container, container, false);
+        return inflater.inflate(R.layout.content_twitter_container, container, false);
+    }
 
-        mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefreshLayout);
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
         mRecyclerView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.windowBackground));
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), OrientationHelper.VERTICAL, false));
@@ -94,88 +79,32 @@ public class SeasonalFragment extends Fragment {
 
         GridRecyclerViewHelper.init(mRecyclerView);
 
-        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                refresh();
-            }
-        });
         mSwipeRefreshLayout.setColorSchemeColors(ContextCompat.getColor(getActivity(), R.color.colorAccent));
-
-        if (savedInstanceState == null) {
-            mSwipeRefreshLayout.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    refresh();
-                }
-            }, 500);
-        }
-
-        loadFromCache();
-
-        return view;
     }
 
-    private void loadFromCache() {
-        List<Seasonal> data;
-        try {
-            Gson gson = new Gson();
-            data = gson.fromJson(
-                    new FileReader(CACHE_FILE),
-                    new TypeToken<ArrayList<Seasonal>>() {
-                    }.getType());
-
-            updateData(data);
-        } catch (FileNotFoundException ignored) {
-        }
-    }
-
-    private void updateData(List<Seasonal> data) {
+    @Override
+    public void onSuccess(@NonNull List<Seasonal> data) {
         mSwipeRefreshLayout.setRefreshing(false);
         //setAdapter(data);
         mAdapter.parseData(data);
     }
 
-    private void refresh() {
-        Log.d("SeasonalFragment", "refreshing");
+    @Override
+    public void onFailure(Call<List<Seasonal>> call, Throwable t) {
+        Snackbar.make(mSwipeRefreshLayout, R.string.refresh_fail, Snackbar.LENGTH_SHORT).show();
+    }
 
-        mSwipeRefreshLayout.setRefreshing(true);
-
+    @Override
+    public void onRefresh(Call<List<Seasonal>> call, boolean force_cache) {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://www.minamion.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         RetrofitAPI.SeasonalAPI service = retrofit.create(RetrofitAPI.SeasonalAPI.class);
-        Call<List<Seasonal>> call = service.get(API_VERSION);
+        call = service.get(API_VERSION);
 
-        call.enqueue(new Callback<List<Seasonal>>() {
-            @Override
-            public void onResponse(Call<List<Seasonal>> call, Response<List<Seasonal>> response) {
-                Log.d("SeasonalFragment", "refresh succeeded");
-
-                if (getContext() == null) {
-                    return;
-                }
-
-                updateData(response.body());
-
-                Gson gson = new Gson();
-                Utils.saveStreamToFile(new ByteArrayInputStream(gson.toJson(response.body()).getBytes()),
-                        CACHE_FILE);
-            }
-
-            @Override
-            public void onFailure(Call<List<Seasonal>> call, Throwable t) {
-                Log.d("SeasonalFragment", "refresh failed");
-                if (getContext() == null) {
-                    return;
-                }
-
-                mSwipeRefreshLayout.setRefreshing(false);
-                Snackbar.make(mSwipeRefreshLayout, R.string.refresh_fail, Snackbar.LENGTH_SHORT).show();
-            }
-        });
+        super.onRefresh(call, force_cache);
     }
 
     @Subscribe

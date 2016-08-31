@@ -45,7 +45,7 @@ public class ConsumeScrollRecyclerView extends RecyclerView {
 
     @Override
     public void requestChildFocus(View child, View focused) {
-        Log.d(TAG, "requestChildFocus child " + child + " focused " + focused);
+        //Log.d(TAG, "requestChildFocus child " + child + " focused " + focused);
 
         if (!isDisableRequestChildFocus()) {
             super.requestChildFocus(child, focused);

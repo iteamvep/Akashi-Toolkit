@@ -1,6 +1,7 @@
 package rikka.akashitoolkit.event;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
@@ -45,17 +46,12 @@ import rikka.akashitoolkit.utils.Utils;
 /**
  * Created by Rikka on 2016/8/12.
  */
-public class EventFragment extends BaseDrawerItemFragment {
+public class EventFragment extends BaseEventFragment<Event> {
 
     private static final String TAG = "EventFragment";
 
     private static final int API_VERSION = 2;
 
-    private static final String JSON_NAME = "/json/event_v2.json";
-    private String CACHE_FILE;
-
-    private SwipeRefreshLayout mSwipeRefreshLayout;
-    private ConsumeScrollRecyclerView mRecyclerView;
     private EventAdapter mAdapter;
 
     @Override
@@ -63,8 +59,6 @@ public class EventFragment extends BaseDrawerItemFragment {
         super.onCreate(savedInstanceState);
         BusProvider.instance().register(this);
         setHasOptionsMenu(true);
-
-        CACHE_FILE = getContext().getCacheDir().getAbsolutePath() + JSON_NAME;
     }
 
     @Override
@@ -73,74 +67,19 @@ public class EventFragment extends BaseDrawerItemFragment {
         super.onDestroy();
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_refresh:
-                if (!mSwipeRefreshLayout.isRefreshing()) {
-                    refresh();
-                }
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.content_twitter_container, container, false);
-
-        mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefreshLayout);
-        mRecyclerView = (ConsumeScrollRecyclerView) view.findViewById(R.id.recyclerView);
-        mRecyclerView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.windowBackground));
-
-        GridRecyclerViewHelper.init(mRecyclerView);
-
-        mAdapter = new EventAdapter();
-        mRecyclerView.setAdapter(mAdapter);
-        mRecyclerView.setClipToPadding(false);
-
-        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                refresh();
-            }
-        });
-        mSwipeRefreshLayout.setColorSchemeColors(ContextCompat.getColor(getActivity(), R.color.colorAccent));
-
-        if (savedInstanceState == null) {
-            mSwipeRefreshLayout.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    refresh();
-                }
-            }, 500);
-        }
-
-        if (savedInstanceState == null) {
-            onShow();
-        }
-
-        loadFromCache();
-
-        return view;
+        return inflater.inflate(R.layout.content_twitter_container, container, false);
     }
 
-    private void loadFromCache() {
-        Event data;
-        try {
-            Gson gson = new Gson();
-            data = gson.fromJson(
-                    new FileReader(CACHE_FILE),
-                    new TypeToken<Event>() {
-                    }.getType());
-
-            updateData(data);
-        } catch (FileNotFoundException ignored) {
-        }
+    @Override
+    public void onFailure(Call<Event> call, Throwable t) {
+        Snackbar.make(mSwipeRefreshLayout, R.string.refresh_fail, Snackbar.LENGTH_SHORT).show();
     }
 
-    private void updateData(Event data) {
+    @Override
+    public void onSuccess(@NonNull Event data) {
         fixRecyclerViewRequestChildFocus();
 
         mSwipeRefreshLayout.setRefreshing(false);
@@ -187,46 +126,36 @@ public class EventFragment extends BaseDrawerItemFragment {
         mAdapter.notifyDataSetChanged();
     }
 
-    private void refresh() {
-        Log.d("EventFragment", "refreshing");
-
-        mSwipeRefreshLayout.setRefreshing(true);
-
+    @Override
+    public void onRefresh(Call<Event> call, boolean force_cache) {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://www.minamion.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         RetrofitAPI.EventAPI service = retrofit.create(RetrofitAPI.EventAPI.class);
-        Call<Event> call = service.get(API_VERSION);
+        call = service.get(API_VERSION);
 
-        call.enqueue(new Callback<Event>() {
-            @Override
-            public void onResponse(Call<Event> call, Response<Event> response) {
-                Log.d("EventFragment", "refresh succeeded");
+        super.onRefresh(call, force_cache);
+    }
 
-                if (getContext() == null) {
-                    return;
-                }
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
-                updateData(response.body());
+        mRecyclerView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.windowBackground));
 
-                Gson gson = new Gson();
-                Utils.saveStreamToFile(new ByteArrayInputStream(gson.toJson(response.body()).getBytes()),
-                        CACHE_FILE);
-            }
+        GridRecyclerViewHelper.init(mRecyclerView);
 
-            @Override
-            public void onFailure(Call<Event> call, Throwable t) {
-                Log.d("EventFragment", "refresh failed");
-                if (getContext() == null) {
-                    return;
-                }
+        mAdapter = new EventAdapter();
+        mRecyclerView.setAdapter(mAdapter);
+        mRecyclerView.setClipToPadding(false);
 
-                mSwipeRefreshLayout.setRefreshing(false);
-                Snackbar.make(mSwipeRefreshLayout, R.string.refresh_fail, Snackbar.LENGTH_SHORT).show();
-            }
-        });
+        mSwipeRefreshLayout.setColorSchemeColors(ContextCompat.getColor(getActivity(), R.color.colorAccent));
+
+        if (savedInstanceState == null) {
+            onShow();
+        }
     }
 
     @Override
@@ -269,7 +198,9 @@ public class EventFragment extends BaseDrawerItemFragment {
                 public void run() {
                     mRecyclerView.setDisableRequestChildFocus(false);
                 }
-            }, 200);
+            }, 500);
         }
     }
+
+
 }

@@ -16,7 +16,7 @@ import java.util.List;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.gallery.ImagesActivity;
-import rikka.akashitoolkit.utils.MySpannableFactory;
+import rikka.akashitoolkit.ui.widget.MySpannableFactory;
 import rikka.akashitoolkit.utils.Utils;
 
 /**

@@ -3,6 +3,7 @@ package rikka.akashitoolkit.home;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Rect;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -47,12 +48,8 @@ public class SeasonalAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHolder
     public SeasonalAdapter() {
     }
 
-    public void parseData(@Nullable List<Seasonal> data) {
+    public void parseData(@NonNull List<Seasonal> data) {
         clearItemList();
-
-        if (data == null) {
-            return;
-        }
 
         for (Seasonal entry : data) {
 
