@@ -224,6 +224,10 @@ public class QuestGenerator {
         value = value.replace("[[试制35.6cm三连装炮]]*1*1", "[[试制35.6cm三连装炮]]*1");
         value = value.replace("[[大发动艇]]", "[[大发动艇]]*1");
         value = value.replace("[[大发动艇]]*1*1", "[[大发动艇]]*1");
+        value = value.replace("[[九六式陆攻]]", "[[九六式陆攻]]*1");
+        value = value.replace("[[九六式陆攻]]*1*1", "[[九六式陆攻]]*1");
+        value = value.replace("[[一式陆攻]]", "[[一式陆攻]]*1");
+        value = value.replace("[[一式陆攻]]*1*1", "[[一式陆攻]]*1");
 
         Pattern r;
         Matcher m;

@@ -1,143 +1,173 @@
 [
   {
     "id": 0,
-    "code": "B75",
-    "newMission": true,
-    "unlock": [
-      "B70"
-    ],
-    "period": 0,
-    "type": 2,
-    "title": {
-      "zh_cn": "水雷战队、南西诸岛防卫线反复出击！",
-      "ja": "水雷戦隊、南西諸島防衛線に反復出撃せよ！"
-    },
-    "content": {
-      "zh_cn": "编成以轻巡为旗舰和四艘驱逐舰为基干的护卫舰队，反复出击\u003cb\u003e南西诸岛防卫线（1-4）\u003c/b\u003e，努力确保同海域的制海权！",
-      "ja": "軽巡級旗艦と駆逐艦4隻を基幹とした護衛艦隊を編成、南西諸島防衛線に反復出撃し、同海域の制海権確保に努めよ！"
-    },
-    "reward": {
-      "resource": [
-        0,
-        350,
-        0,
-        350
-      ],
-      "ship": [],
-      "equip": [],
-      "item": [
-        0,
-        4,
-        1,
-        1
-      ],
-      "str": ""
-    },
-    "note": "旗舰轻巡+四艘驱逐舰（必要）与一艘任意舰，出击1-4，击败Boss 获得S胜两次。"
-  },
-  {
-    "id": 1,
-    "code": "B76",
+    "code": "F37",
     "newMission": true,
     "unlock": [],
     "period": 0,
-    "type": 2,
-    "title": {
-      "zh_cn": "制油所地带沿岸的警戒的实施！",
-      "ja": "製油所地帯沿岸の哨戒を実施せよ！"
-    },
-    "content": {
-      "zh_cn": "编成以轻空母为旗舰和三艘驱逐舰为基干的护卫舰队，在\u003cb\u003e制油所地带沿岸(1-3)\u003c/b\u003e展开，实施对这一海域的哨戒，确保这一海域的安全！",
-      "ja": "軽空母旗艦と駆逐艦3隻を基幹とした護衛艦隊を編成、製油所地帯沿岸に展開し、同海域の哨戒を実施、同海域の安全を確保せよ!"
-    },
-    "reward": {
-      "resource": [
-        600,
-        0,
-        0,
-        0
-      ],
-      "ship": [],
-      "equip": [],
-      "item": [
-        2,
-        1
-      ],
-      "str": ""
-    },
-    "note": "旗舰轻母+三艘驱逐舰（必要）与两艘任意舰，出击1-3，击败Boss 获得S胜一次。"
-  },
-  {
-    "id": 2,
-    "code": "F35",
-    "newMission": true,
-    "unlock": [
-      "F34"
-    ],
-    "period": 0,
     "type": 6,
     "title": {
-      "zh_cn": "「熟练搭乘员」养成",
-      "ja": "「熟練搭乗員」養成"
+      "zh_cn": "“航空基地设营”事前准备",
+      "ja": "「航空基地設営」事前準備"
     },
     "content": {
-      "zh_cn": "消费勋章x2：以「\u003cb\u003e凤翔\u003c/b\u003e」为秘书舰搭载一架练度max及改修max的「\u003cb\u003e九六式舰战\u003c/b\u003e」，养成\u003cb\u003e熟练搭乘员\u003c/b\u003e！（任务完成后，部队将会被消去）",
-      "ja": "勲章x2消費:「鳳翔」秘書艦に練度max及び改修max「九六式艦戦」を搭載、熟練搭乗員を養成せよ！（任務達成後、部隊は消滅します）"
+      "zh_cn": "“航空基地设营”的事前准备开始。于工厂中废弃\u003cb\u003e桶(运输用)\u003c/b\u003e两个，另准备\u003cb\u003e7.7mm机铳\u003c/b\u003e、\u003cb\u003e九六式舰战 \u003c/b\u003e各两个！（任务达成后装备消失）",
+      "ja": "「航空基地設営」の事前準備を開始する。「ドラム缶(輸送用)」を二つ「工廠」で廃棄し、「7.7mm機銃」及び「九六式艦戦」を各二つずつ用意せよ！（任務達成後、用意した必要装備は消滅します）"
     },
     "reward": {
       "resource": [
+        200,
         0,
         0,
-        0,
-        100
-      ],
-      "ship": [],
-      "equip": [],
-      "item": [
-        3,
-        1
-      ],
-      "str": ""
-    },
-    "note": "凤翔装备一个改修Max与练度Max的九六舰战并消耗两个勋章,获得一个熟练搭乘员。\u003cbr /\u003e前置任务待验证"
-  },
-  {
-    "id": 3,
-    "code": "F36",
-    "newMission": true,
-    "unlock": [
-      "B71",
-      "F34"
-    ],
-    "period": 0,
-    "type": 6,
-    "title": {
-      "zh_cn": "新型鱼雷兵装的开发",
-      "ja": "新型魚雷兵装の開発"
-    },
-    "content": {
-      "zh_cn": "消费勋章x2：以「\u003cb\u003e岛风\u003c/b\u003e」为秘书舰装备改修max的「\u003cb\u003e61cm五连装(酸素)鱼雷\u003c/b\u003e」和改修max的「\u003cb\u003e61cm三连装(酸素)鱼雷\u003c/b\u003e」！（任务完成后，各装备将会被消去）",
-      "ja": "勲章x2消費:「島風」秘書艦に改修max「61cm五連装(酸素)魚雷」と改修max「61cm三連装(酸素)魚雷」を装備！(任務達成後、各装備は消滅します)"
-    },
-    "reward": {
-      "resource": [
-        0,
-        600,
-        0,
-        0
+        200
       ],
       "ship": [],
       "equip": [
-        179,
+        168,
+        1
+      ],
+      "item": [
+        0,
+        2
+      ],
+      "str": ""
+    },
+    "note": ""
+  },
+  {
+    "id": 1,
+    "code": "F38",
+    "newMission": true,
+    "unlock": [
+      "B77"
+    ],
+    "period": 0,
+    "type": 6,
+    "title": {
+      "zh_cn": "“陆攻”队的增强",
+      "ja": "「陸攻」隊の増勢"
+    },
+    "content": {
+      "zh_cn": "为建设“基地航空队”，追加采购“陆攻”。准备\u003cb\u003e7.7mm机铳\u003c/b\u003e、\u003cb\u003e九九式舰爆 \u003c/b\u003e各两个！（任务达成后装备消失）",
+      "ja": "「基地航空隊」開設に向け、「陸攻」の追加調達を行う。「7.7mm機銃」及び「九九式艦爆」を各二つずつ準備せよ！（任務達成後、用意した必要装備は消滅します）"
+    },
+    "reward": {
+      "resource": [
+        0,
+        200,
+        0,
+        200
+      ],
+      "ship": [],
+      "equip": [
+        168,
         1
       ],
       "item": [],
       "str": ""
     },
-    "note": "旗舰岛风装备一个五连装酸素鱼雷Max与一个三连装酸素鱼雷Max并消耗两个勋章,获得一个六连装酸素鱼雷同时原装备消失。\u003cbr /\u003e前置任务待验证"
+    "note": ""
+  },
+  {
+    "id": 2,
+    "code": "F39",
+    "newMission": true,
+    "unlock": [],
+    "period": 0,
+    "type": 6,
+    "title": {
+      "zh_cn": "主力“陆攻”的采购",
+      "ja": "主力「陸攻」の調達"
+    },
+    "content": {
+      "zh_cn": "新采购主力陆上攻击机“一式陆攻”。于工厂废弃\u003cb\u003e零式舰战21型 \u003c/b\u003e两个，另准备\u003cb\u003e九六式陆攻\u003c/b\u003e一个、\u003cb\u003e九七式舰攻\u003c/b\u003e两个！（任务达成后装备消失）",
+      "ja": "主力陸上攻撃機「一式陸攻」の新規調達を行う。「零式艦戦21型」を二つ工廠で廃棄し、「九六式陸攻」一つと「九七式艦攻」二つを準備せよ！（任務達成後、用意した必要装備は消滅します）"
+    },
+    "reward": {
+      "resource": [
+        250,
+        0,
+        0,
+        250
+      ],
+      "ship": [],
+      "equip": [
+        169,
+        1
+      ],
+      "item": [],
+      "str": ""
+    },
+    "note": ""
+  },
+  {
+    "id": 3,
+    "code": "C10",
+    "newMission": true,
+    "unlock": [],
+    "period": 0,
+    "type": 3,
+    "title": {
+      "zh_cn": "秋季大演习",
+      "ja": "秋季大演習"
+    },
+    "content": {
+      "zh_cn": "同日中演习取得八次胜利以上，进一步加强舰队练度！",
+      "ja": "秋の一日中に「演習」で8回以上「勝利」をおさめ、艦隊のさらなる練度に努めよ！"
+    },
+    "reward": {
+      "resource": [
+        1000,
+        0,
+        300,
+        0
+      ],
+      "ship": [],
+      "equip": [],
+      "item": [],
+      "str": ""
+    },
+    "note": ""
   },
   {
     "id": 4,
+    "code": "B77",
+    "newMission": true,
+    "unlock": [],
+    "after": [
+      "F38"
+    ],
+    "period": 0,
+    "type": 2,
+    "title": {
+      "zh_cn": "水雷战队、南西诸岛海域的警戒！",
+      "ja": "水雷戦隊、南西諸島海域を哨戒せよ！"
+    },
+    "content": {
+      "zh_cn": "以水雷战队出击\u003cb\u003e巴士岛近海\u003c/b\u003e、\u003cb\u003e东部奥廖尔海\u003c/b\u003e，捕捉歼灭同海域的敌军！",
+      "ja": "水雷戦隊を基幹とした有力な艦隊で南西諸島海域バシー島及び東部オリョール海を哨戒、同海域に遊弋する敵艦隊を捕捉、これを撃滅せよ！"
+    },
+    "reward": {
+      "resource": [
+        600,
+        600,
+        0,
+        0
+      ],
+      "ship": [],
+      "equip": [],
+      "item": [
+        1,
+        1,
+        2,
+        1
+      ],
+      "str": ""
+    },
+    "note": "出击2-2、2-3各一次S胜达成即可\u003cbr /\u003e水雷战队（轻巡为旗舰，驱逐舰四艘，其余自由）"
+  },
+  {
+    "id": 5,
     "code": "A1",
     "newMission": false,
     "unlock": [],
@@ -168,7 +198,7 @@
     "note": ""
   },
   {
-    "id": 5,
+    "id": 6,
     "code": "A2",
     "newMission": false,
     "unlock": [],
@@ -192,7 +222,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        4,
+        3,
         1
       ],
       "str": ""
@@ -200,7 +230,7 @@
     "note": ""
   },
   {
-    "id": 6,
+    "id": 7,
     "code": "A3",
     "newMission": false,
     "unlock": [],
@@ -227,7 +257,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         1
       ],
       "str": ""
@@ -235,7 +265,7 @@
     "note": ""
   },
   {
-    "id": 7,
+    "id": 8,
     "code": "A4",
     "newMission": false,
     "unlock": [
@@ -270,7 +300,7 @@
     "note": ""
   },
   {
-    "id": 8,
+    "id": 9,
     "code": "A5",
     "newMission": false,
     "unlock": [],
@@ -278,7 +308,8 @@
       "A7",
       "A8",
       "B29",
-      "D1"
+      "D1",
+      "F11"
     ],
     "period": 0,
     "type": 1,
@@ -300,7 +331,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         1
       ],
       "str": ""
@@ -308,7 +339,7 @@
     "note": ""
   },
   {
-    "id": 9,
+    "id": 10,
     "code": "A6",
     "newMission": false,
     "unlock": [
@@ -337,7 +368,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        4,
+        3,
         1
       ],
       "str": ""
@@ -345,7 +376,7 @@
     "note": ""
   },
   {
-    "id": 10,
+    "id": 11,
     "code": "A7",
     "newMission": false,
     "unlock": [
@@ -375,7 +406,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        0,
+        4,
         1
       ],
       "str": ""
@@ -383,7 +414,7 @@
     "note": ""
   },
   {
-    "id": 11,
+    "id": 12,
     "code": "A8",
     "newMission": false,
     "unlock": [
@@ -412,7 +443,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        4,
+        3,
         2
       ],
       "str": ""
@@ -420,7 +451,7 @@
     "note": ""
   },
   {
-    "id": 12,
+    "id": 13,
     "code": "A9",
     "newMission": false,
     "unlock": [
@@ -451,7 +482,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         1
       ],
       "str": ""
@@ -459,7 +490,7 @@
     "note": ""
   },
   {
-    "id": 13,
+    "id": 14,
     "code": "A10",
     "newMission": false,
     "unlock": [
@@ -467,6 +498,7 @@
     ],
     "after": [
       "A28",
+      "B12",
       "B42"
     ],
     "period": 0,
@@ -489,7 +521,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        6,
+        5,
         1
       ],
       "str": ""
@@ -497,7 +529,7 @@
     "note": "只配置任务要求的舰娘"
   },
   {
-    "id": 14,
+    "id": 15,
     "code": "A11",
     "newMission": false,
     "unlock": [
@@ -526,7 +558,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        4,
+        3,
         2
       ],
       "str": ""
@@ -534,7 +566,7 @@
     "note": "配置\u003cb\u003e正规空母\u003c/b\u003e或\u003cb\u003e轻空母\u003c/b\u003e\u003cbr /\u003e\u003cb\u003e水上机母舰\u003c/b\u003e不可\u003cbr /\u003e外加配置\u003cb\u003e驱逐舰\u003c/b\u003e*3"
   },
   {
-    "id": 15,
+    "id": 16,
     "code": "A12",
     "newMission": false,
     "unlock": [
@@ -563,7 +595,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         1
       ],
       "str": ""
@@ -571,7 +603,7 @@
     "note": "配置\u003cb\u003e正规空母\u003c/b\u003e或\u003cb\u003e轻空母\u003c/b\u003e\u003cbr /\u003e\u003cb\u003e水上机母舰\u003c/b\u003e不可\u003cbr /\u003e外加配置\u003cb\u003e驱逐舰\u003c/b\u003e*3\u003cbr /\u003e前置任务存在争议"
   },
   {
-    "id": 16,
+    "id": 17,
     "code": "A13",
     "newMission": false,
     "unlock": [
@@ -602,7 +634,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        4,
+        3,
         2
       ],
       "str": ""
@@ -610,7 +642,7 @@
     "note": "\u003cb\u003e航空战舰\u003c/b\u003e不可"
   },
   {
-    "id": 17,
+    "id": 18,
     "code": "A14",
     "newMission": false,
     "unlock": [
@@ -645,7 +677,7 @@
     "note": ""
   },
   {
-    "id": 18,
+    "id": 19,
     "code": "A15",
     "newMission": false,
     "unlock": [
@@ -674,9 +706,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
-        1,
         0,
+        1,
+        4,
         1
       ],
       "str": ""
@@ -684,7 +716,7 @@
     "note": ""
   },
   {
-    "id": 19,
+    "id": 20,
     "code": "A16",
     "newMission": false,
     "unlock": [
@@ -718,7 +750,7 @@
     "note": ""
   },
   {
-    "id": 20,
+    "id": 21,
     "code": "A17",
     "newMission": false,
     "unlock": [
@@ -747,9 +779,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
-        1,
         0,
+        1,
+        4,
         1
       ],
       "str": ""
@@ -757,7 +789,7 @@
     "note": "航空战舰也可以完成任务"
   },
   {
-    "id": 21,
+    "id": 22,
     "code": "A18",
     "newMission": false,
     "unlock": [
@@ -783,9 +815,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
-        2,
         0,
+        2,
+        4,
         2
       ],
       "str": ""
@@ -793,7 +825,7 @@
     "note": "航空战舰也可以完成任务"
   },
   {
-    "id": 22,
+    "id": 23,
     "code": "A19",
     "newMission": false,
     "unlock": [
@@ -822,9 +854,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         4,
-        4,
+        3,
         2
       ],
       "str": ""
@@ -832,7 +864,7 @@
     "note": "只配置任务要求的舰娘"
   },
   {
-    "id": 23,
+    "id": 24,
     "code": "A20",
     "newMission": false,
     "unlock": [
@@ -862,7 +894,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        0,
+        4,
         3
       ],
       "str": ""
@@ -870,7 +902,7 @@
     "note": "配置任务要求的舰娘\u003cbr /\u003e再配置任意高速舰"
   },
   {
-    "id": 24,
+    "id": 25,
     "code": "A21",
     "newMission": false,
     "unlock": [
@@ -904,9 +936,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
-        1,
         0,
+        1,
+        4,
         2
       ],
       "str": ""
@@ -914,7 +946,7 @@
     "note": ""
   },
   {
-    "id": 25,
+    "id": 26,
     "code": "A22",
     "newMission": false,
     "unlock": [
@@ -945,7 +977,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        7,
+        6,
         1
       ],
       "str": ""
@@ -953,7 +985,7 @@
     "note": ""
   },
   {
-    "id": 26,
+    "id": 27,
     "code": "A23",
     "newMission": false,
     "unlock": [
@@ -985,7 +1017,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        6,
+        5,
         1
       ],
       "str": ""
@@ -993,7 +1025,7 @@
     "note": ""
   },
   {
-    "id": 27,
+    "id": 28,
     "code": "A24",
     "newMission": false,
     "unlock": [
@@ -1022,7 +1054,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        7,
+        6,
         1
       ],
       "str": ""
@@ -1030,7 +1062,7 @@
     "note": ""
   },
   {
-    "id": 28,
+    "id": 29,
     "code": "A25",
     "newMission": false,
     "unlock": [
@@ -1060,7 +1092,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        6,
+        5,
         1
       ],
       "str": ""
@@ -1068,7 +1100,7 @@
     "note": "\u003cb\u003e潜水艇\u003c/b\u003e，\u003cb\u003e潜水空母\u003c/b\u003e均可"
   },
   {
-    "id": 29,
+    "id": 30,
     "code": "A26",
     "newMission": false,
     "unlock": [
@@ -1097,7 +1129,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        0,
+        4,
         2
       ],
       "str": ""
@@ -1105,7 +1137,7 @@
     "note": ""
   },
   {
-    "id": 30,
+    "id": 31,
     "code": "A27",
     "newMission": false,
     "unlock": [
@@ -1135,7 +1167,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        7,
+        6,
         1
       ],
       "str": ""
@@ -1143,7 +1175,7 @@
     "note": "\u003cb\u003e潜水艇\u003c/b\u003e，\u003cb\u003e潜水空母\u003c/b\u003e均可"
   },
   {
-    "id": 31,
+    "id": 32,
     "code": "A28",
     "newMission": false,
     "unlock": [
@@ -1173,7 +1205,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        7,
+        6,
         1
       ],
       "str": ""
@@ -1181,7 +1213,7 @@
     "note": ""
   },
   {
-    "id": 32,
+    "id": 33,
     "code": "A29",
     "newMission": false,
     "unlock": [
@@ -1210,7 +1242,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        0,
+        4,
         3
       ],
       "str": ""
@@ -1218,7 +1250,7 @@
     "note": ""
   },
   {
-    "id": 33,
+    "id": 34,
     "code": "A30",
     "newMission": false,
     "unlock": [
@@ -1247,7 +1279,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        6,
+        5,
         1
       ],
       "str": ""
@@ -1255,7 +1287,7 @@
     "note": ""
   },
   {
-    "id": 34,
+    "id": 35,
     "code": "A31",
     "newMission": false,
     "unlock": [
@@ -1285,7 +1317,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         3
       ],
       "str": ""
@@ -1293,7 +1325,7 @@
     "note": "只配置任务要求的舰娘"
   },
   {
-    "id": 35,
+    "id": 36,
     "code": "A32",
     "newMission": false,
     "unlock": [
@@ -1303,7 +1335,8 @@
       "A42",
       "A47",
       "A70",
-      "B21"
+      "B21",
+      "B58"
     ],
     "period": 0,
     "type": 1,
@@ -1325,9 +1358,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         1,
-        6,
+        5,
         1
       ],
       "str": ""
@@ -1335,7 +1368,7 @@
     "note": "只配置任务要求的舰娘"
   },
   {
-    "id": 36,
+    "id": 37,
     "code": "A33",
     "newMission": false,
     "unlock": [
@@ -1365,9 +1398,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        0,
+        4,
         2,
-        6,
+        5,
         1
       ],
       "str": ""
@@ -1375,7 +1408,7 @@
     "note": "只配置任务要求的舰娘"
   },
   {
-    "id": 37,
+    "id": 38,
     "code": "A34",
     "newMission": false,
     "unlock": [
@@ -1405,7 +1438,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         3
       ],
       "str": ""
@@ -1413,7 +1446,7 @@
     "note": "只配置任务要求的舰娘"
   },
   {
-    "id": 38,
+    "id": 39,
     "code": "A35",
     "newMission": false,
     "unlock": [
@@ -1445,7 +1478,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         5
       ],
       "str": ""
@@ -1453,7 +1486,7 @@
     "note": ""
   },
   {
-    "id": 39,
+    "id": 40,
     "code": "A36",
     "newMission": false,
     "unlock": [
@@ -1482,9 +1515,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
-        2,
         0,
+        2,
+        4,
         2
       ],
       "str": ""
@@ -1492,7 +1525,7 @@
     "note": "\u003cb\u003e飞龙改二\u003c/b\u003e必须为旗舰"
   },
   {
-    "id": 40,
+    "id": 41,
     "code": "A37",
     "newMission": false,
     "unlock": [
@@ -1521,7 +1554,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         3
       ],
       "str": ""
@@ -1529,7 +1562,7 @@
     "note": "\u003cb\u003e大鲸\u003c/b\u003e必须为旗舰"
   },
   {
-    "id": 41,
+    "id": 42,
     "code": "A38",
     "newMission": false,
     "unlock": [
@@ -1563,7 +1596,7 @@
     "note": ""
   },
   {
-    "id": 42,
+    "id": 43,
     "code": "A39",
     "newMission": false,
     "unlock": [
@@ -1592,9 +1625,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         2,
-        4,
+        3,
         1
       ],
       "str": ""
@@ -1602,7 +1635,7 @@
     "note": "\u003cb\u003e苍龙改二\u003c/b\u003e必须为旗舰"
   },
   {
-    "id": 43,
+    "id": 44,
     "code": "A40",
     "newMission": false,
     "unlock": [
@@ -1636,7 +1669,7 @@
     "note": "要求：\u003cb\u003e金刚改二\u003c/b\u003e，\u003cb\u003e比睿改二\u003c/b\u003e\u003cbr /\u003e\u003cb\u003e榛名改二\u003c/b\u003e，\u003cb\u003e雾岛改二\u003c/b\u003e"
   },
   {
-    "id": 44,
+    "id": 45,
     "code": "A41",
     "newMission": false,
     "unlock": [
@@ -1665,7 +1698,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         2
       ],
       "str": ""
@@ -1673,7 +1706,7 @@
     "note": ""
   },
   {
-    "id": 45,
+    "id": 46,
     "code": "A42",
     "newMission": false,
     "unlock": [
@@ -1702,7 +1735,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        0,
+        4,
         2
       ],
       "str": ""
@@ -1710,7 +1743,7 @@
     "note": ""
   },
   {
-    "id": 46,
+    "id": 47,
     "code": "A43",
     "newMission": false,
     "unlock": [
@@ -1739,7 +1772,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         3
       ],
       "str": ""
@@ -1747,7 +1780,7 @@
     "note": "大和型，长门型，伊势型，扶桑型中只能选择3艘"
   },
   {
-    "id": 47,
+    "id": 48,
     "code": "A44",
     "newMission": false,
     "unlock": [
@@ -1777,9 +1810,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         2,
-        8,
+        7,
         3
       ],
       "str": ""
@@ -1787,7 +1820,7 @@
     "note": ""
   },
   {
-    "id": 48,
+    "id": 49,
     "code": "A45",
     "newMission": false,
     "unlock": [
@@ -1817,7 +1850,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        8,
+        7,
         5
       ],
       "str": "\u003cb\u003e[[明石的改修工厂|改修工厂]]开启\u003c/b\u003e"
@@ -1825,7 +1858,7 @@
     "note": ""
   },
   {
-    "id": 49,
+    "id": 50,
     "code": "A46",
     "newMission": false,
     "unlock": [
@@ -1854,9 +1887,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
-        2,
         0,
+        2,
+        4,
         2
       ],
       "str": ""
@@ -1864,7 +1897,7 @@
     "note": "前置任务存在争议"
   },
   {
-    "id": 50,
+    "id": 51,
     "code": "A47",
     "newMission": false,
     "unlock": [
@@ -1894,7 +1927,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         3
       ],
       "str": ""
@@ -1902,7 +1935,7 @@
     "note": "只配置任务要求的舰娘"
   },
   {
-    "id": 51,
+    "id": 52,
     "code": "A48",
     "newMission": false,
     "unlock": [
@@ -1931,7 +1964,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        0,
+        4,
         3
       ],
       "str": ""
@@ -1939,7 +1972,7 @@
     "note": "只配置任务要求的舰娘"
   },
   {
-    "id": 52,
+    "id": 53,
     "code": "A49",
     "newMission": false,
     "unlock": [
@@ -1968,9 +2001,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
-        2,
         0,
+        2,
+        4,
         2
       ],
       "str": ""
@@ -1978,7 +2011,7 @@
     "note": ""
   },
   {
-    "id": 53,
+    "id": 54,
     "code": "A50",
     "newMission": false,
     "unlock": [
@@ -2009,7 +2042,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        0,
+        4,
         2
       ],
       "str": ""
@@ -2017,7 +2050,7 @@
     "note": "\u003cb\u003e鸟海改二\u003c/b\u003e作为旗舰，\u003cb\u003e古鹰\u003c/b\u003e/\u003cb\u003e加古\u003c/b\u003e/\u003cb\u003e青叶\u003c/b\u003e/\u003cb\u003e衣笠\u003c/b\u003e/\u003cb\u003e夕張\u003c/b\u003e/\u003cb\u003e天龙\u003c/b\u003e之中任意选择选5艘"
   },
   {
-    "id": 54,
+    "id": 55,
     "code": "A51",
     "newMission": false,
     "unlock": [
@@ -2046,7 +2079,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         2
       ],
       "str": ""
@@ -2054,7 +2087,7 @@
     "note": "可能需要完成A18"
   },
   {
-    "id": 55,
+    "id": 56,
     "code": "A52",
     "newMission": false,
     "unlock": [
@@ -2083,9 +2116,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         2,
-        4,
+        3,
         2
       ],
       "str": ""
@@ -2093,15 +2126,14 @@
     "note": ""
   },
   {
-    "id": 56,
+    "id": 57,
     "code": "A53",
     "newMission": false,
     "unlock": [
       "B14"
     ],
     "after": [
-      "B45",
-      "F34"
+      "B45"
     ],
     "period": 0,
     "type": 1,
@@ -2131,7 +2163,7 @@
     "note": "只配置任务要求的舰娘\u003cbr /\u003e\u003cb\u003eВерный\u003c/b\u003e可"
   },
   {
-    "id": 57,
+    "id": 58,
     "code": "A54",
     "newMission": false,
     "unlock": [
@@ -2161,9 +2193,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        0,
+        4,
         2,
-        9,
+        8,
         1
       ],
       "str": ""
@@ -2171,7 +2203,7 @@
     "note": "\u003cb\u003eВерный\u003c/b\u003e可"
   },
   {
-    "id": 58,
+    "id": 59,
     "code": "A55",
     "newMission": false,
     "unlock": [
@@ -2200,9 +2232,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        0,
+        4,
         3,
-        10,
+        9,
         1
       ],
       "str": ""
@@ -2210,7 +2242,7 @@
     "note": "必须\u003cb\u003e阿武隈改二\u003c/b\u003e\u003cbr /\u003e\u003cb\u003eВерный\u003c/b\u003e可\u003cbr /\u003e前置任务存在争议"
   },
   {
-    "id": 59,
+    "id": 60,
     "code": "A56",
     "newMission": false,
     "unlock": [
@@ -2240,7 +2272,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         3
       ],
       "str": ""
@@ -2248,7 +2280,7 @@
     "note": "编成任务剩余位置舰娘任意即可"
   },
   {
-    "id": 60,
+    "id": 61,
     "code": "A57",
     "newMission": false,
     "unlock": [
@@ -2278,9 +2310,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         2,
-        8,
+        7,
         2
       ],
       "str": ""
@@ -2288,7 +2320,7 @@
     "note": "必须「\u003cb\u003e那智改二\u003c/b\u003e」、「\u003cb\u003e足柄改二\u003c/b\u003e」\u003cbr /\u003e多摩改，木曾改，木曾改二可"
   },
   {
-    "id": 61,
+    "id": 62,
     "code": "A58",
     "newMission": false,
     "unlock": [
@@ -2317,9 +2349,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
-        2,
         0,
+        2,
+        4,
         2
       ],
       "str": ""
@@ -2327,7 +2359,7 @@
     "note": "编成任务剩余位置舰娘任意即可\u003cbr /\u003e「\u003cb\u003e足柄\u003c/b\u003e」作为旗舰，足柄改及足柄改二可\u003cbr /\u003e球磨改，长良改可\u003cbr /\u003e可能需要完成A14，验证中"
   },
   {
-    "id": 62,
+    "id": 63,
     "code": "A59",
     "newMission": false,
     "unlock": [
@@ -2358,9 +2390,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         2,
-        3,
+        10,
         1
       ],
       "str": ""
@@ -2368,7 +2400,7 @@
     "note": "\u003cb\u003e千岁\u003c/b\u003e、\u003cb\u003e千代田\u003c/b\u003e在改造成轻型航母之前不能达成任务"
   },
   {
-    "id": 63,
+    "id": 64,
     "code": "A60",
     "newMission": false,
     "unlock": [
@@ -2401,7 +2433,7 @@
         1
       ],
       "item": [
-        8,
+        7,
         2
       ],
       "str": ""
@@ -2409,7 +2441,7 @@
     "note": ""
   },
   {
-    "id": 64,
+    "id": 65,
     "code": "A61",
     "newMission": false,
     "unlock": [
@@ -2439,9 +2471,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         2,
-        6,
+        5,
         1
       ],
       "str": ""
@@ -2449,7 +2481,7 @@
     "note": "\u003cb\u003e千岁\u003c/b\u003e、\u003cb\u003e千代田\u003c/b\u003e在改造成轻型航母之前不能达成任务"
   },
   {
-    "id": 65,
+    "id": 66,
     "code": "A62",
     "newMission": false,
     "unlock": [
@@ -2478,9 +2510,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        7,
+        6,
         1,
-        3,
+        10,
         1
       ],
       "str": ""
@@ -2488,7 +2520,7 @@
     "note": "\u003cb\u003e翔鹤改二\u003c/b\u003e、\u003cb\u003e翔鹤改二甲\u003c/b\u003e都可\u003cb\u003e瑞鹤\u003c/b\u003e同理\u003cbr /\u003e驱逐舰两艘以上\u003cbr /\u003e可能需要F23等其他任务，验证中"
   },
   {
-    "id": 66,
+    "id": 67,
     "code": "A63",
     "newMission": false,
     "unlock": [
@@ -2517,9 +2549,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
-        2,
         0,
+        2,
+        4,
         2
       ],
       "str": ""
@@ -2527,7 +2559,7 @@
     "note": ""
   },
   {
-    "id": 67,
+    "id": 68,
     "code": "A64",
     "newMission": false,
     "unlock": [
@@ -2557,9 +2589,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        8,
+        7,
         2,
-        5,
+        0,
         2
       ],
       "str": ""
@@ -2567,7 +2599,7 @@
     "note": ""
   },
   {
-    "id": 68,
+    "id": 69,
     "code": "A65",
     "newMission": false,
     "unlock": [
@@ -2596,7 +2628,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        0,
+        4,
         3
       ],
       "str": ""
@@ -2604,7 +2636,7 @@
     "note": "可能存在其他前置任务"
   },
   {
-    "id": 69,
+    "id": 70,
     "code": "A66",
     "newMission": false,
     "unlock": [
@@ -2634,7 +2666,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        0,
+        4,
         2,
         1,
         1
@@ -2644,7 +2676,7 @@
     "note": "前置待确认"
   },
   {
-    "id": 70,
+    "id": 71,
     "code": "A67",
     "newMission": false,
     "unlock": [
@@ -2673,9 +2705,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        0,
+        4,
         2,
-        5,
+        0,
         2
       ],
       "str": ""
@@ -2683,7 +2715,7 @@
     "note": "前置待确认"
   },
   {
-    "id": 71,
+    "id": 72,
     "code": "A68",
     "newMission": false,
     "unlock": [
@@ -2713,7 +2745,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        0,
+        4,
         2
       ],
       "str": ""
@@ -2721,7 +2753,7 @@
     "note": "编成水雷战队只能含有轻巡和驱逐舰\u003cbr /\u003e其他前置待确认"
   },
   {
-    "id": 72,
+    "id": 73,
     "code": "A69",
     "newMission": false,
     "unlock": [
@@ -2751,7 +2783,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        0,
+        4,
         2
       ],
       "str": ""
@@ -2759,7 +2791,7 @@
     "note": "轻巡作为旗舰四艘驱逐作为伴随舰"
   },
   {
-    "id": 73,
+    "id": 74,
     "code": "A70",
     "newMission": false,
     "unlock": [
@@ -2788,7 +2820,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         3
       ],
       "str": ""
@@ -2796,7 +2828,7 @@
     "note": "朝潮改二和朝潮改二丁都能完成任务，如果不行可以尝试更换舰队编成\u003cbr /\u003e{{待验证"
   },
   {
-    "id": 74,
+    "id": 75,
     "code": "A71",
     "newMission": false,
     "unlock": [
@@ -2828,7 +2860,7 @@
       "item": [
         1,
         1,
-        8,
+        7,
         3
       ],
       "str": ""
@@ -2836,7 +2868,7 @@
     "note": ""
   },
   {
-    "id": 75,
+    "id": 76,
     "code": "B1",
     "newMission": false,
     "unlock": [],
@@ -2863,7 +2895,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        0,
+        4,
         1
       ],
       "str": ""
@@ -2871,7 +2903,7 @@
     "note": "出击一次"
   },
   {
-    "id": 76,
+    "id": 77,
     "code": "B2",
     "newMission": false,
     "unlock": [
@@ -2902,7 +2934,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        0,
+        4,
         1
       ],
       "str": ""
@@ -2910,7 +2942,7 @@
     "note": "击破BOSS,B胜及以上"
   },
   {
-    "id": 77,
+    "id": 78,
     "code": "B3",
     "newMission": false,
     "unlock": [
@@ -2939,7 +2971,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         1
       ],
       "str": ""
@@ -2947,7 +2979,7 @@
     "note": "出击一次"
   },
   {
-    "id": 78,
+    "id": 79,
     "code": "B4",
     "newMission": false,
     "unlock": [
@@ -2976,7 +3008,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        0,
+        4,
         1
       ],
       "str": ""
@@ -2984,7 +3016,7 @@
     "note": "出击一次"
   },
   {
-    "id": 79,
+    "id": 80,
     "code": "B5",
     "newMission": false,
     "unlock": [
@@ -3015,7 +3047,7 @@
       ],
       "equip": [],
       "item": [
-        5,
+        0,
         1
       ],
       "str": ""
@@ -3023,7 +3055,7 @@
     "note": "击破BOSS"
   },
   {
-    "id": 80,
+    "id": 81,
     "code": "B6",
     "newMission": false,
     "unlock": [
@@ -3061,7 +3093,7 @@
     "note": "出击一次"
   },
   {
-    "id": 81,
+    "id": 82,
     "code": "B7",
     "newMission": false,
     "unlock": [
@@ -3091,7 +3123,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         1
       ],
       "str": ""
@@ -3099,7 +3131,7 @@
     "note": "出击一次"
   },
   {
-    "id": 82,
+    "id": 83,
     "code": "B8",
     "newMission": false,
     "unlock": [
@@ -3128,7 +3160,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         1
       ],
       "str": ""
@@ -3136,7 +3168,7 @@
     "note": "出击一次，航空战舰不可"
   },
   {
-    "id": 83,
+    "id": 84,
     "code": "B9",
     "newMission": false,
     "unlock": [
@@ -3162,9 +3194,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        0,
+        4,
         1,
-        5,
+        0,
         1
       ],
       "str": ""
@@ -3172,7 +3204,7 @@
     "note": "旗舰配置\u003cb\u003e正规空母\u003c/b\u003e或\u003cb\u003e轻空母\u003c/b\u003e\u003cbr/\u003e\u003cb\u003e水上机母舰\u003c/b\u003e不可\u003cbr/\u003e其余配置\u003cb\u003e轻巡\u003c/b\u003e/\u003cb\u003e驱逐\u003c/b\u003e，编成六艘舰队，出击一次"
   },
   {
-    "id": 84,
+    "id": 85,
     "code": "B10",
     "newMission": false,
     "unlock": [
@@ -3205,7 +3237,7 @@
     "note": "击沉敌方任意正规空母或者轻空母\u003cbr /\u003e\u003cp style\"font-weight:bold;color:#F00\"\u003e舰队中有正航或者轻母击沉敌方航母时追加奖励赤城一艘，请务必携带正航或者轻母完成此任务！\u003c/p\u003e"
   },
   {
-    "id": 85,
+    "id": 86,
     "code": "B11",
     "newMission": false,
     "unlock": [
@@ -3231,7 +3263,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        6,
+        5,
         1
       ],
       "str": ""
@@ -3239,11 +3271,12 @@
     "note": "使用\u003cb\u003e鸟海\u003c/b\u003e/\u003cb\u003e青叶\u003c/b\u003e/\u003cb\u003e加古\u003c/b\u003e/\u003cb\u003e古鹰\u003c/b\u003e/\u003cb\u003e天龙\u003c/b\u003e以及任一高速舰\u003cbr /\u003e出击一次"
   },
   {
-    "id": 86,
+    "id": 87,
     "code": "B12",
     "newMission": false,
     "unlock": [
-      "A10，Bw3"
+      "A10",
+      "Bw3"
     ],
     "period": 0,
     "type": 2,
@@ -3265,7 +3298,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        0,
+        4,
         1
       ],
       "str": ""
@@ -3273,7 +3306,7 @@
     "note": "出击一次\u003cbr /\u003e不可携带其他舰娘\u003cbr /\u003e\u003cb\u003eВерный\u003c/b\u003e可\u003cbr /\u003e有只完成A10也能开启此任务的情况"
   },
   {
-    "id": 87,
+    "id": 88,
     "code": "B13",
     "newMission": false,
     "unlock": [
@@ -3299,7 +3332,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        0,
+        4,
         2
       ],
       "str": ""
@@ -3307,7 +3340,7 @@
     "note": "击破BOSS\u003cbr /\u003e可以携带其他舰娘"
   },
   {
-    "id": 88,
+    "id": 89,
     "code": "B14",
     "newMission": false,
     "unlock": [
@@ -3337,7 +3370,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        0,
+        4,
         2,
         11,
         1
@@ -3347,7 +3380,7 @@
     "note": "击破BOSS，B胜及以上\u003cbr /\u003e可以携带其他舰娘"
   },
   {
-    "id": 89,
+    "id": 90,
     "code": "B15",
     "newMission": false,
     "unlock": [
@@ -3373,9 +3406,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        0,
+        4,
         2,
-        9,
+        8,
         1
       ],
       "str": ""
@@ -3383,7 +3416,7 @@
     "note": "击破BOSS，B胜及以上\u003cbr /\u003e可以携带其他舰娘"
   },
   {
-    "id": 90,
+    "id": 91,
     "code": "B16",
     "newMission": false,
     "unlock": [
@@ -3413,7 +3446,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        6,
+        5,
         1
       ],
       "str": ""
@@ -3421,7 +3454,7 @@
     "note": "使用\u003cb\u003e鸟海\u003c/b\u003e/\u003cb\u003e青叶\u003c/b\u003e/\u003cb\u003e加古\u003c/b\u003e/\u003cb\u003e古鹰\u003c/b\u003e/\u003cb\u003e天龙\u003c/b\u003e/\u003cb\u003e衣笠\u003c/b\u003e出击，击破BOSS，B胜及以上\u003cbr /\u003e"
   },
   {
-    "id": 91,
+    "id": 92,
     "code": "B17",
     "newMission": false,
     "unlock": [
@@ -3455,7 +3488,7 @@
     "note": "击破BOSS，B胜及以上\u003cbr /\u003e潜艇任意两艘{{待验证"
   },
   {
-    "id": 92,
+    "id": 93,
     "code": "B18",
     "newMission": false,
     "unlock": [
@@ -3481,7 +3514,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        7,
+        6,
         1
       ],
       "str": ""
@@ -3489,7 +3522,7 @@
     "note": "击破BOSS，B胜及以上\u003cbr /\u003e可以携带其他舰娘"
   },
   {
-    "id": 93,
+    "id": 94,
     "code": "B19",
     "newMission": false,
     "unlock": [
@@ -3519,9 +3552,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        9,
+        8,
         1,
-        6,
+        5,
         1
       ],
       "str": ""
@@ -3529,7 +3562,7 @@
     "note": "使用\u003cb\u003e古鹰\u003c/b\u003e/\u003cb\u003e加古\u003c/b\u003e/\u003cb\u003e青叶\u003c/b\u003e/\u003cb\u003e衣笠\u003c/b\u003e出击，击破BOSS,必须S胜\u003cbr /\u003e可以携带其他舰娘"
   },
   {
-    "id": 94,
+    "id": 95,
     "code": "B20",
     "newMission": false,
     "unlock": [
@@ -3561,9 +3594,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         1,
-        9,
+        8,
         1
       ],
       "str": ""
@@ -3571,7 +3604,7 @@
     "note": "使用\u003cb\u003e朝潮\u003c/b\u003e/\u003cb\u003e满潮\u003c/b\u003e/\u003cb\u003e荒潮\u003c/b\u003e/\u003cb\u003e大潮\u003c/b\u003e出击，击破BOSS，B胜及以上\u003cbr /\u003e可以携带其他舰娘"
   },
   {
-    "id": 95,
+    "id": 96,
     "code": "B21",
     "newMission": false,
     "unlock": [
@@ -3601,9 +3634,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         2,
-        10,
+        9,
         1
       ],
       "str": ""
@@ -3611,7 +3644,7 @@
     "note": "使用\u003cb\u003e霰\u003c/b\u003e/\u003cb\u003e霞\u003c/b\u003e/\u003cb\u003e阳炎\u003c/b\u003e/\u003cb\u003e不知火\u003c/b\u003e出击，击破BOSS，B胜及以上\u003cbr /\u003e可以携带其他舰娘"
   },
   {
-    "id": 96,
+    "id": 97,
     "code": "B22",
     "newMission": false,
     "unlock": [
@@ -3637,7 +3670,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        7,
+        6,
         1
       ],
       "str": ""
@@ -3645,7 +3678,7 @@
     "note": "使用\u003cb\u003e睦月\u003c/b\u003e/\u003cb\u003e如月\u003c/b\u003e/\u003cb\u003e弥生\u003c/b\u003e/\u003cb\u003e望月\u003c/b\u003e出击，击破BOSS，B胜及以上\u003cbr /\u003e可以携带其他舰娘\u003cbr /\u003eC败北可，D败北不可"
   },
   {
-    "id": 97,
+    "id": 98,
     "code": "B23",
     "newMission": false,
     "unlock": [
@@ -3671,9 +3704,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        0,
+        4,
         3,
-        10,
+        9,
         1
       ],
       "str": ""
@@ -3681,7 +3714,7 @@
     "note": "击破BOSS，B胜及以上\u003cbr /\u003e可以携带其他舰娘"
   },
   {
-    "id": 98,
+    "id": 99,
     "code": "B24",
     "newMission": false,
     "unlock": [
@@ -3719,7 +3752,7 @@
     "note": "使用\u003cb\u003e睦月\u003c/b\u003e/\u003cb\u003e卯月\u003c/b\u003e/\u003cb\u003e弥生\u003c/b\u003e/\u003cb\u003e望月\u003c/b\u003e出击，击破BOSS\u003cbr /\u003e可以携带其他舰娘\u003cbr /\u003eC败北可，D败北不可"
   },
   {
-    "id": 99,
+    "id": 100,
     "code": "B25",
     "newMission": false,
     "unlock": [
@@ -3750,7 +3783,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        7,
+        6,
         1
       ],
       "str": ""
@@ -3758,7 +3791,7 @@
     "note": "使用\u003cb\u003e飞龙改二\u003c/b\u003e(旗舰)/\u003cb\u003e苍龙\u003c/b\u003e，外加\u003cb\u003e驱逐舰\u003c/b\u003e2艘出击，击破BOSS（S胜利）\u003cbr /\u003e可以携带其他舰娘\u003cbr /\u003e苍龙/苍龙改/苍龙改二均可"
   },
   {
-    "id": 100,
+    "id": 101,
     "code": "B26",
     "newMission": false,
     "unlock": [
@@ -3792,7 +3825,7 @@
     "note": "使用\u003cb\u003e苍龙改二\u003c/b\u003e(旗舰)/\u003cb\u003e飞龙改二\u003c/b\u003e，外加\u003cb\u003e驱逐舰\u003c/b\u003e2艘出击，击破BOSS（S胜利）\u003cbr /\u003e可以携带其他舰娘\u003cbr /\u003e飞龙必须改二"
   },
   {
-    "id": 101,
+    "id": 102,
     "code": "B27",
     "newMission": false,
     "unlock": [
@@ -3826,7 +3859,7 @@
     "note": "使用\u003cb\u003e榛名改二\u003c/b\u003e(旗舰)出击，击破BOSS（S胜利）\u003cbr /\u003e可以携带其他舰娘"
   },
   {
-    "id": 102,
+    "id": 103,
     "code": "B28",
     "newMission": false,
     "unlock": [
@@ -3858,7 +3891,7 @@
         1
       ],
       "item": [
-        10,
+        9,
         1
       ],
       "str": ""
@@ -3866,7 +3899,7 @@
     "note": "使用\u003cb\u003e云龙改\u003c/b\u003e出击，击破BOSS（S胜利）\u003cbr /\u003e可以携带其他舰娘"
   },
   {
-    "id": 103,
+    "id": 104,
     "code": "B29",
     "newMission": false,
     "unlock": [
@@ -3892,9 +3925,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        0,
+        4,
         3,
-        6,
+        5,
         1
       ],
       "str": ""
@@ -3902,7 +3935,7 @@
     "note": "击破BOSS（S胜利）\u003cbr /\u003e可以携带其他舰娘\u003cbr /\u003e轻空母/轻巡/驱逐舰以外的舰种投入任务将不能完成"
   },
   {
-    "id": 104,
+    "id": 105,
     "code": "B30",
     "newMission": false,
     "unlock": [
@@ -3931,7 +3964,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        10,
+        9,
         1,
         2,
         1
@@ -3941,7 +3974,7 @@
     "note": "击破BOSS（S胜利）\u003cbr /\u003e可以携带其他舰娘\u003cbr /\u003e轻巡/驱逐舰以外的舰种投入任务将不能完成"
   },
   {
-    "id": 105,
+    "id": 106,
     "code": "B31",
     "newMission": false,
     "unlock": [
@@ -3978,7 +4011,7 @@
     "note": "使用\u003cb\u003e长门\u003c/b\u003e/\u003cb\u003e陆奥\u003c/b\u003e/\u003cb\u003e扶桑\u003c/b\u003e/\u003cb\u003e山城\u003c/b\u003e出击，击破BOSS交战（S胜利）两次\u003cbr /\u003e可以携带其他舰娘"
   },
   {
-    "id": 106,
+    "id": 107,
     "code": "B32",
     "newMission": false,
     "unlock": [
@@ -4010,7 +4043,7 @@
         1
       ],
       "item": [
-        5,
+        0,
         2
       ],
       "str": ""
@@ -4018,7 +4051,7 @@
     "note": "击破BOSS交战（S胜利）\u003cbr /\u003e可以携带其他舰娘\u003cbr /\u003e正规空母1只以上/战舰3只以上/轻空母2只以上，投入任务将不能完成。航空战舰也会导致任务不能完成。战舰/空母大于4只会导致航向偏离。"
   },
   {
-    "id": 107,
+    "id": 108,
     "code": "B33",
     "newMission": false,
     "unlock": [
@@ -4044,7 +4077,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        8,
+        7,
         5,
         12,
         1
@@ -4054,7 +4087,7 @@
     "note": "使用\u003cb\u003e扶桑\u003c/b\u003e/\u003cb\u003e山城\u003c/b\u003e/\u003cb\u003e最上\u003c/b\u003e/\u003cb\u003e時雨\u003c/b\u003e/\u003cb\u003e满潮\u003c/b\u003e出击，击破BOSS（S胜利）\u003cbr /\u003e可以携带其他舰娘，但不能是旗舰"
   },
   {
-    "id": 108,
+    "id": 109,
     "code": "B34",
     "newMission": false,
     "unlock": [
@@ -4083,7 +4116,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        10,
+        9,
         1,
         2,
         1
@@ -4093,7 +4126,7 @@
     "note": "击破BOSS（S胜利）\u003cbr /\u003e可以携带其他舰娘"
   },
   {
-    "id": 109,
+    "id": 110,
     "code": "B35",
     "newMission": false,
     "unlock": [
@@ -4122,7 +4155,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        7,
+        6,
         1
       ],
       "str": ""
@@ -4130,7 +4163,7 @@
     "note": "使用\u003cb\u003e吹雪\u003c/b\u003e/\u003cb\u003e白雪\u003c/b\u003e/\u003cb\u003e初雪\u003c/b\u003e/\u003cb\u003e丛云\u003c/b\u003e出击，击破BOSS（B胜利）\u003cbr /\u003e可以携带其他舰娘"
   },
   {
-    "id": 110,
+    "id": 111,
     "code": "B36",
     "newMission": false,
     "unlock": [
@@ -4159,7 +4192,7 @@
         1
       ],
       "item": [
-        5,
+        0,
         2
       ],
       "str": ""
@@ -4167,7 +4200,7 @@
     "note": "使用\u003cb\u003e吹雪\u003c/b\u003e/\u003cb\u003e白雪\u003c/b\u003e/\u003cb\u003e初雪\u003c/b\u003e/\u003cb\u003e丛云\u003c/b\u003e出击，击破BOSS\u003cbr /\u003e可以携带其他舰娘\u003cbr /\u003eC败北可，D败北不可\u003cbr /\u003e四艘出击限定"
   },
   {
-    "id": 111,
+    "id": 112,
     "code": "B37",
     "newMission": false,
     "unlock": [
@@ -4204,7 +4237,7 @@
     "note": "使用\u003cb\u003e初春\u003c/b\u003e/\u003cb\u003e子日\u003c/b\u003e/\u003cb\u003e若叶\u003c/b\u003e/\u003cb\u003e初霜\u003c/b\u003e出击，击破BOSS（S胜利）\u003cbr /\u003e可以携带其他舰娘"
   },
   {
-    "id": 112,
+    "id": 113,
     "code": "B38",
     "newMission": false,
     "unlock": [
@@ -4234,9 +4267,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        8,
+        7,
         2,
-        10,
+        9,
         1
       ],
       "str": ""
@@ -4244,7 +4277,7 @@
     "note": "击破BOSS（S胜利）\u003cbr /\u003e可以携带其他舰娘"
   },
   {
-    "id": 113,
+    "id": 114,
     "code": "B39",
     "newMission": false,
     "unlock": [
@@ -4270,7 +4303,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        9,
+        8,
         1,
         1,
         1
@@ -4280,7 +4313,7 @@
     "note": "使用\u003cb\u003e皐月\u003c/b\u003e/\u003cb\u003e文月\u003c/b\u003e/\u003cb\u003e长月\u003c/b\u003e出击，击破BOSS（S胜利）\u003cbr /\u003e可携带其他舰娘，但必须有一艘是驱逐"
   },
   {
-    "id": 114,
+    "id": 115,
     "code": "B40",
     "newMission": false,
     "unlock": [
@@ -4319,7 +4352,7 @@
     "note": "击破BOSS（S胜利）\u003cbr /\u003e可携带其他舰娘\u003cbr /\u003e摩耶改二可"
   },
   {
-    "id": 115,
+    "id": 116,
     "code": "B41",
     "newMission": false,
     "unlock": [
@@ -4345,9 +4378,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         3,
-        8,
+        7,
         3
       ],
       "str": ""
@@ -4355,7 +4388,7 @@
     "note": "使用\u003cb\u003e鸟海改二\u003c/b\u003e作为旗舰，选择\u003cb\u003e古鹰\u003c/b\u003e/\u003cb\u003e加古\u003c/b\u003e/\u003cb\u003e青叶\u003c/b\u003e/\u003cb\u003e衣笠\u003c/b\u003e/\u003cb\u003e夕张\u003c/b\u003e/\u003cb\u003e天龙\u003c/b\u003e之中的任何5艘编成舰队出击，击破BOSS（S胜利）"
   },
   {
-    "id": 116,
+    "id": 117,
     "code": "B42",
     "newMission": false,
     "unlock": [
@@ -4388,7 +4421,7 @@
         1
       ],
       "item": [
-        5,
+        0,
         3
       ],
       "str": ""
@@ -4396,7 +4429,7 @@
     "note": "使用\u003cb\u003e晓\u003c/b\u003e/\u003cb\u003e响\u003c/b\u003e/\u003cb\u003e雷\u003c/b\u003e/\u003cb\u003e电\u003c/b\u003e出击，击破BOSS\u003cbr /\u003e可以携带其他舰娘\u003cbr /\u003eC败北可，D败北不可\u003cbr /\u003e四艘出击限定\u003cbr /\u003e\u003cb\u003eВерный\u003c/b\u003e可"
   },
   {
-    "id": 117,
+    "id": 118,
     "code": "B43",
     "newMission": false,
     "unlock": [
@@ -4422,7 +4455,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        0,
+        4,
         3,
         2,
         1
@@ -4432,7 +4465,7 @@
     "note": "击破BOSS（S胜利）\u003cbr /\u003e可携带其他舰娘"
   },
   {
-    "id": 118,
+    "id": 119,
     "code": "B44",
     "newMission": false,
     "unlock": [
@@ -4459,9 +4492,9 @@
       "ship": [],
       "equip": [],
       "item": [
+        0,
         5,
-        5,
-        8,
+        7,
         2
       ],
       "str": ""
@@ -4469,7 +4502,7 @@
     "note": "击破BOSS（S胜利）\u003cbr /\u003e可携带其他舰娘"
   },
   {
-    "id": 119,
+    "id": 120,
     "code": "B45",
     "newMission": false,
     "unlock": [
@@ -4499,7 +4532,7 @@
         1
       ],
       "item": [
-        8,
+        7,
         2
       ],
       "str": ""
@@ -4507,7 +4540,7 @@
     "note": "使用\u003cb\u003e晓\u003c/b\u003e/\u003cb\u003e响\u003c/b\u003e/\u003cb\u003e雷\u003c/b\u003e/\u003cb\u003e电\u003c/b\u003e出击，击破BOSS\u003cbr /\u003e可以携带其他舰娘\u003cbr /\u003eC败北可，D败北不可\u003cbr /\u003e四艘出击限定\u003cbr /\u003e\u003cb\u003eВерный\u003c/b\u003e可"
   },
   {
-    "id": 120,
+    "id": 121,
     "code": "B46",
     "newMission": false,
     "unlock": [
@@ -4537,7 +4570,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        0,
+        4,
         3,
         2,
         1
@@ -4547,7 +4580,7 @@
     "note": "\u003cb\u003e阿武隈\u003c/b\u003e旗舰\u003cb\u003e响\u003c/b\u003e/\u003cb\u003e初霜\u003c/b\u003e/\u003cb\u003e若叶\u003c/b\u003e/\u003cb\u003e五月雨\u003c/b\u003e/\u003cb\u003e岛风\u003c/b\u003e出击\u003cbr /\u003e击破BOSS，胜利即可\u003cbr /\u003e\u003cb\u003eВерный\u003c/b\u003e可"
   },
   {
-    "id": 121,
+    "id": 122,
     "code": "B47",
     "newMission": false,
     "unlock": [
@@ -4573,9 +4606,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         4,
-        8,
+        7,
         4
       ],
       "str": ""
@@ -4583,7 +4616,7 @@
     "note": "必须\u003cb\u003e阿武隈改二\u003c/b\u003e旗舰\u003cb\u003e响\u003c/b\u003e/\u003cb\u003e夕云\u003c/b\u003e/\u003cb\u003e长波\u003c/b\u003e/\u003cb\u003e秋云\u003c/b\u003e/\u003cb\u003e岛风\u003c/b\u003e出击\u003cbr /\u003e击破BOSS，必须S胜\u003cbr /\u003e\u003cb\u003eВерный\u003c/b\u003e可\u003cbr /\u003e{{待验证"
   },
   {
-    "id": 122,
+    "id": 123,
     "code": "B48",
     "newMission": false,
     "unlock": [
@@ -4617,7 +4650,7 @@
     "note": "Bd1完成之后，有可能需要完成其他任务才能开启本任务（Bd2是否是条件现在在情报收集中）"
   },
   {
-    "id": 123,
+    "id": 124,
     "code": "B49",
     "newMission": false,
     "unlock": [
@@ -4645,7 +4678,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        8,
+        7,
         3,
         14,
         2
@@ -4655,7 +4688,7 @@
     "note": "任务B32和Bd8（似乎还需要完成其他任务，需验证）完成之后开放。"
   },
   {
-    "id": 124,
+    "id": 125,
     "code": "B50",
     "newMission": false,
     "unlock": [
@@ -4687,7 +4720,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        0,
+        4,
         3,
         1,
         1
@@ -4697,7 +4730,7 @@
     "note": ""
   },
   {
-    "id": 125,
+    "id": 126,
     "code": "B51",
     "newMission": false,
     "unlock": [
@@ -4736,7 +4769,7 @@
     "note": ""
   },
   {
-    "id": 126,
+    "id": 127,
     "code": "B52",
     "newMission": false,
     "unlock": [
@@ -4765,7 +4798,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        9,
+        8,
         1,
         13,
         1
@@ -4775,7 +4808,7 @@
     "note": "旗舰 足柄 必须，改造及改二亦可"
   },
   {
-    "id": 127,
+    "id": 128,
     "code": "B53",
     "newMission": false,
     "unlock": [
@@ -4804,7 +4837,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        0,
+        4,
         2,
         1,
         1
@@ -4814,7 +4847,7 @@
     "note": "\u003cb\u003e千岁\u003c/b\u003e、\u003cb\u003e千代田\u003c/b\u003e在改造成轻型航母之前不能达成任务\u003cbr /\u003e击破BOSS（S胜利）"
   },
   {
-    "id": 128,
+    "id": 129,
     "code": "B54",
     "newMission": false,
     "unlock": [
@@ -4847,7 +4880,7 @@
         1
       ],
       "item": [
-        0,
+        4,
         3
       ],
       "str": ""
@@ -4855,7 +4888,7 @@
     "note": "\u003cb\u003e瑞鹤改二\u003c/b\u003e、\u003cb\u003e瑞鹤改二甲\u003c/b\u003e都可\u003cbr /\u003e\u003cb\u003e千岁\u003c/b\u003e、\u003cb\u003e千代田\u003c/b\u003e在改造成轻型航母之前不能达成任务\u003cbr /\u003e击破BOSS（S胜利）"
   },
   {
-    "id": 129,
+    "id": 130,
     "code": "B55",
     "newMission": false,
     "unlock": [
@@ -4885,9 +4918,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        10,
+        9,
         1,
-        7,
+        6,
         1
       ],
       "str": ""
@@ -4895,7 +4928,7 @@
     "note": "2-3BOSS击破（S胜利）\u003cbr /\u003e\u003cb\u003e名取\u003c/b\u003e为旗舰,\u003cb\u003e五十铃\u003c/b\u003e、\u003cb\u003e鬼怒\u003c/b\u003e必要，其它自由搭配"
   },
   {
-    "id": 130,
+    "id": 131,
     "code": "B56",
     "newMission": false,
     "unlock": [
@@ -4924,7 +4957,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        8,
+        7,
         2,
         2,
         1
@@ -4934,7 +4967,7 @@
     "note": "3-3BOSS击破（S胜利）"
   },
   {
-    "id": 131,
+    "id": 132,
     "code": "B57",
     "newMission": false,
     "unlock": [
@@ -4961,7 +4994,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        8,
+        7,
         3,
         13,
         1
@@ -4971,11 +5004,15 @@
     "note": "2-5BOSS击破（S胜利）\u003cbr /\u003e舰队配置同前置任务"
   },
   {
-    "id": 132,
+    "id": 133,
     "code": "B58",
     "newMission": false,
     "unlock": [
-      "A32，C2"
+      "A32",
+      "C2"
+    ],
+    "after": [
+      "B59"
     ],
     "period": 0,
     "type": 2,
@@ -5008,11 +5045,12 @@
     "note": "\u003cb\u003e霞改二\u003c/b\u003e、\u003cb\u003e霞改二乙\u003c/b\u003e均可完成任务\u003cbr /\u003e\u003cb\u003e霞改二\u003c/b\u003e为旗舰,三艘驱逐舰必要，其它自由搭配，出击北方海域\u003cb\u003e莫雷海(3-1)\u003c/b\u003eBOSS战B胜以上即可完成任务\u003cbr /\u003e其他前置待确认"
   },
   {
-    "id": 133,
+    "id": 134,
     "code": "B59",
     "newMission": false,
     "unlock": [
-      "B58，D2"
+      "B58",
+      "D2"
     ],
     "after": [
       "B66"
@@ -5045,7 +5083,7 @@
     "note": "2-5BOSS击破（S胜利）\u003cbr /\u003e\u003cb\u003e霞改二\u003c/b\u003e为旗舰，其他驱逐两艘，其他自由搭配\u003cbr /\u003e可能存在其他前置任务"
   },
   {
-    "id": 134,
+    "id": 135,
     "code": "B60",
     "newMission": false,
     "unlock": [
@@ -5071,7 +5109,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        8,
+        7,
         3,
         15,
         1
@@ -5081,7 +5119,7 @@
     "note": "1-6顺利完成一次即可\u003cbr /\u003e\u003cb\u003e五十铃改二\u003c/b\u003e为旗舰、\u003cb\u003e皋月改二\u003c/b\u003e、\u003cb\u003e卯月改\u003c/b\u003e和任意三艘其他舰\u003cbr /\u003e{{待验证"
   },
   {
-    "id": 135,
+    "id": 136,
     "code": "B61",
     "newMission": false,
     "unlock": [
@@ -5112,7 +5150,7 @@
     "note": "2-3Boss战S胜即可\u003cbr /\u003e\u003cb\u003e白露改\u003c/b\u003e为旗舰、\u003cb\u003e时雨\u003c/b\u003e、\u003cb\u003e春雨\u003c/b\u003e、\u003cb\u003e五月雨\u003c/b\u003e和任意两艘其他舰"
   },
   {
-    "id": 136,
+    "id": 137,
     "code": "B62",
     "newMission": false,
     "unlock": [
@@ -5141,7 +5179,7 @@
         1
       ],
       "item": [
-        8,
+        7,
         3
       ],
       "str": ""
@@ -5149,7 +5187,7 @@
     "note": "\u003cb\u003e6-3\u003c/b\u003eBoss战B胜即可\u003cbr /\u003e{{待验证"
   },
   {
-    "id": 137,
+    "id": 138,
     "code": "B63",
     "newMission": false,
     "unlock": [
@@ -5188,7 +5226,7 @@
     "note": "1-3BossS胜3次即可(只含1轻巡且其他舰船均为驱逐舰即可完成)"
   },
   {
-    "id": 138,
+    "id": 139,
     "code": "B64",
     "newMission": false,
     "unlock": [
@@ -5228,7 +5266,7 @@
     "note": "1-4BossS胜5次即可\u003cbr /\u003e{{待验证"
   },
   {
-    "id": 139,
+    "id": 140,
     "code": "B65",
     "newMission": false,
     "unlock": [
@@ -5268,7 +5306,7 @@
     "note": "2-3BossS胜6次即可\u003cbr /\u003e\u003cb\u003e大潮\u003c/b\u003e为旗舰其他五艘任意"
   },
   {
-    "id": 140,
+    "id": 141,
     "code": "B66",
     "newMission": false,
     "unlock": [
@@ -5300,7 +5338,7 @@
       "item": [
         14,
         1,
-        8,
+        7,
         3
       ],
       "str": ""
@@ -5308,7 +5346,7 @@
     "note": "3-5BossS胜即可\u003cbr /\u003e\u003cb\u003e大潮改二\u003c/b\u003e为旗舰其他可任意搭配"
   },
   {
-    "id": 141,
+    "id": 142,
     "code": "B67",
     "newMission": false,
     "unlock": [],
@@ -5337,7 +5375,7 @@
     "note": "出击2-2和2-3分别击破bossS胜即可\u003cbr /\u003e{{待验证"
   },
   {
-    "id": 142,
+    "id": 143,
     "code": "B68",
     "newMission": false,
     "unlock": [
@@ -5366,7 +5404,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        8,
+        7,
         2,
         1,
         1
@@ -5376,7 +5414,7 @@
     "note": "4-1boss战A胜达成即可"
   },
   {
-    "id": 143,
+    "id": 144,
     "code": "B69",
     "newMission": false,
     "unlock": [
@@ -5403,9 +5441,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        8,
+        7,
         3,
-        3,
+        10,
         1
       ],
       "str": ""
@@ -5413,15 +5451,15 @@
     "note": "4-5boss战S胜达成"
   },
   {
-    "id": 144,
+    "id": 145,
     "code": "B70",
     "newMission": false,
     "unlock": [
       "A69"
     ],
     "after": [
-      "B75",
-      "B71"
+      "B71",
+      "B75"
     ],
     "period": 0,
     "type": 2,
@@ -5443,9 +5481,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        7,
+        6,
         1,
-        0,
+        4,
         3
       ],
       "str": ""
@@ -5453,7 +5491,7 @@
     "note": "水雷战队出击1-4"
   },
   {
-    "id": 145,
+    "id": 146,
     "code": "B71",
     "newMission": false,
     "unlock": [
@@ -5484,7 +5522,7 @@
       "item": [
         2,
         1,
-        5,
+        0,
         4
       ],
       "str": ""
@@ -5492,7 +5530,7 @@
     "note": "水雷战队出击1-6"
   },
   {
-    "id": 146,
+    "id": 147,
     "code": "B72",
     "newMission": false,
     "unlock": [
@@ -5525,7 +5563,7 @@
         1
       ],
       "item": [
-        8,
+        7,
         2
       ],
       "str": ""
@@ -5533,7 +5571,7 @@
     "note": "五十铃改二（旗舰），皋月改二，卯月改，和任意任意3只舰娘通关1-6两次"
   },
   {
-    "id": 147,
+    "id": 148,
     "code": "B73",
     "newMission": false,
     "unlock": [
@@ -5569,7 +5607,7 @@
     "note": "朝潮改二旗舰，大潮，满朝，荒潮加上任意两只舰娘通关1-6一次"
   },
   {
-    "id": 148,
+    "id": 149,
     "code": "B74",
     "newMission": false,
     "unlock": [
@@ -5598,7 +5636,7 @@
         1
       ],
       "item": [
-        8,
+        7,
         4
       ],
       "str": ""
@@ -5606,7 +5644,77 @@
     "note": "用包含朝潮改二丁，大潮改二的舰队击破1-5BOSS两次"
   },
   {
-    "id": 149,
+    "id": 150,
+    "code": "B75",
+    "newMission": false,
+    "unlock": [
+      "B70"
+    ],
+    "period": 0,
+    "type": 2,
+    "title": {
+      "zh_cn": "水雷战队、南西诸岛防卫线反复出击！",
+      "ja": "水雷戦隊、南西諸島防衛線に反復出撃せよ！"
+    },
+    "content": {
+      "zh_cn": "编成以轻巡为旗舰和四艘驱逐舰为基干的护卫舰队，反复出击\u003cb\u003e南西诸岛防卫线（1-4）\u003c/b\u003e，努力确保同海域的制海权！",
+      "ja": "軽巡級旗艦と駆逐艦4隻を基幹とした護衛艦隊を編成、南西諸島防衛線に反復出撃し、同海域の制海権確保に努めよ！"
+    },
+    "reward": {
+      "resource": [
+        0,
+        350,
+        0,
+        350
+      ],
+      "ship": [],
+      "equip": [],
+      "item": [
+        4,
+        4,
+        1,
+        1
+      ],
+      "str": ""
+    },
+    "note": "旗舰轻巡+四艘驱逐舰（必要）与一艘任意舰，出击1-4，击败Boss 获得S胜两次。"
+  },
+  {
+    "id": 151,
+    "code": "B76",
+    "newMission": false,
+    "unlock": [],
+    "period": 0,
+    "type": 2,
+    "title": {
+      "zh_cn": "制油所地带沿岸的警戒的实施！",
+      "ja": "製油所地帯沿岸の哨戒を実施せよ！"
+    },
+    "content": {
+      "zh_cn": "编成以轻空母为旗舰和三艘驱逐舰为基干的护卫舰队，在\u003cb\u003e制油所地带沿岸(1-3)\u003c/b\u003e展开，实施对这一海域的哨戒，确保这一海域的安全！",
+      "ja": "軽空母旗艦と駆逐艦3隻を基幹とした護衛艦隊を編成、製油所地帯沿岸に展開し、同海域の哨戒を実施、同海域の安全を確保せよ!"
+    },
+    "reward": {
+      "resource": [
+        600,
+        0,
+        0,
+        0
+      ],
+      "ship": [],
+      "equip": [],
+      "item": [
+        2,
+        1,
+        8,
+        1
+      ],
+      "str": ""
+    },
+    "note": "旗舰轻母+三艘驱逐舰（必要）与两艘任意舰，出击1-3，击败Boss 获得S胜一次。"
+  },
+  {
+    "id": 152,
     "code": "Bq1",
     "newMission": false,
     "unlock": [
@@ -5633,9 +5741,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        8,
-        5,
         7,
+        5,
+        6,
         1
       ],
       "str": ""
@@ -5643,7 +5751,7 @@
     "note": "{{待验证"
   },
   {
-    "id": 150,
+    "id": 153,
     "code": "C1",
     "newMission": false,
     "unlock": [],
@@ -5670,7 +5778,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         1
       ],
       "str": ""
@@ -5678,13 +5786,14 @@
     "note": "无论胜负"
   },
   {
-    "id": 151,
+    "id": 154,
     "code": "C2",
     "newMission": false,
     "unlock": [
       "C1"
     ],
     "after": [
+      "B58",
       "C3",
       "C4"
     ],
@@ -5708,7 +5817,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        4,
+        3,
         1
       ],
       "str": ""
@@ -5716,7 +5825,7 @@
     "note": "无论胜负"
   },
   {
-    "id": 152,
+    "id": 155,
     "code": "C3",
     "newMission": false,
     "unlock": [
@@ -5742,7 +5851,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         1
       ],
       "str": ""
@@ -5750,7 +5859,7 @@
     "note": "截止20160621，C2和C5,C6,C9这三个其中一个同时接的话，会出现没接C3(C2没有完成）胜利数也会记入的情况"
   },
   {
-    "id": 153,
+    "id": 156,
     "code": "C4",
     "newMission": false,
     "unlock": [
@@ -5776,9 +5885,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         2,
-        8,
+        7,
         1
       ],
       "str": ""
@@ -5786,7 +5895,7 @@
     "note": ""
   },
   {
-    "id": 154,
+    "id": 157,
     "code": "C5",
     "newMission": false,
     "unlock": [
@@ -5815,7 +5924,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        0,
+        4,
         2
       ],
       "str": ""
@@ -5823,7 +5932,7 @@
     "note": ""
   },
   {
-    "id": 155,
+    "id": 158,
     "code": "C6",
     "newMission": false,
     "unlock": [
@@ -5852,9 +5961,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        0,
+        4,
         2,
-        8,
+        7,
         1
       ],
       "str": ""
@@ -5862,7 +5971,7 @@
     "note": ""
   },
   {
-    "id": 156,
+    "id": 159,
     "code": "C7",
     "newMission": false,
     "unlock": [
@@ -5891,9 +6000,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        0,
+        4,
         2,
-        8,
+        7,
         1
       ],
       "str": ""
@@ -5901,7 +6010,7 @@
     "note": ""
   },
   {
-    "id": 157,
+    "id": 160,
     "code": "C8",
     "newMission": false,
     "unlock": [
@@ -5927,7 +6036,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        0,
+        4,
         2,
         14,
         1
@@ -5937,7 +6046,7 @@
     "note": "（现阶段需要0点过后日常5点刷新之前的关于该任务的报告）演习B胜利七次即可。\u003cbr /\u003e根据提督日常任务完成的情况，该任务的出现会推迟。\u003cbr /\u003eBd2完成之后，有可能需要完成其他任务才能开启本任务（Bd3是否是条件现在在情报收集中）"
   },
   {
-    "id": 158,
+    "id": 161,
     "code": "C9",
     "newMission": false,
     "unlock": [
@@ -5967,7 +6076,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         2,
         14,
         1
@@ -5977,7 +6086,7 @@
     "note": ""
   },
   {
-    "id": 159,
+    "id": 162,
     "code": "D1",
     "newMission": false,
     "unlock": [
@@ -6015,13 +6124,14 @@
     "note": "任意远征1次"
   },
   {
-    "id": 160,
+    "id": 163,
     "code": "D2",
     "newMission": false,
     "unlock": [
       "D1"
     ],
     "after": [
+      "B59",
       "D3"
     ],
     "period": 0,
@@ -6044,7 +6154,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         1
       ],
       "str": ""
@@ -6052,7 +6162,7 @@
     "note": "任意远征3次"
   },
   {
-    "id": 161,
+    "id": 164,
     "code": "D3",
     "newMission": false,
     "unlock": [
@@ -6080,7 +6190,7 @@
       "item": [
         11,
         1,
-        10,
+        9,
         1
       ],
       "str": ""
@@ -6088,7 +6198,7 @@
     "note": "任意远征10次"
   },
   {
-    "id": 162,
+    "id": 165,
     "code": "D4",
     "newMission": false,
     "unlock": [
@@ -6114,9 +6224,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        10,
+        9,
         1,
-        5,
+        0,
         3
       ],
       "str": ""
@@ -6124,7 +6234,7 @@
     "note": "一周内任意远征30次"
   },
   {
-    "id": 163,
+    "id": 166,
     "code": "D5",
     "newMission": false,
     "unlock": [
@@ -6153,7 +6263,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        6,
+        5,
         1
       ],
       "str": ""
@@ -6161,7 +6271,7 @@
     "note": "远征「潜水舰派遣作战」\u003cbr /\u003e完成1次"
   },
   {
-    "id": 164,
+    "id": 167,
     "code": "D6",
     "newMission": false,
     "unlock": [
@@ -6198,7 +6308,7 @@
     "note": "远征「潜水舰派遣作战」\u003cbr /\u003e完成1次"
   },
   {
-    "id": 165,
+    "id": 168,
     "code": "D7",
     "newMission": false,
     "unlock": [
@@ -6238,7 +6348,7 @@
     "note": "远征「潜水舰派遣作战」\u003cbr /\u003e完成2次\u003cbr /\u003e任务出现时完成度已为50%\u003cbr /\u003e属于显示BUG"
   },
   {
-    "id": 166,
+    "id": 169,
     "code": "D8",
     "newMission": false,
     "unlock": [
@@ -6271,7 +6381,7 @@
     "note": "远征「海外舰との接触」\u003cbr /\u003e完成1次\u003cbr /\u003e\u003cb\u003eZ1\u003c/b\u003e作为秘书舰\u003cbr /\u003e才可以建造\u003cb\u003eZ3\u003c/b\u003e和\u003cb\u003e俾斯麦\u003c/b\u003e"
   },
   {
-    "id": 167,
+    "id": 170,
     "code": "D9",
     "newMission": false,
     "unlock": [
@@ -6309,7 +6419,7 @@
     "note": "完成远征「东京急行」或「东京急行（二）」一次"
   },
   {
-    "id": 168,
+    "id": 171,
     "code": "D10",
     "newMission": false,
     "unlock": [
@@ -6347,7 +6457,7 @@
     "note": "远征「航空战舰运用演习」\u003cbr /\u003e完成1次"
   },
   {
-    "id": 169,
+    "id": 172,
     "code": "D11",
     "newMission": false,
     "unlock": [
@@ -6373,9 +6483,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        8,
+        7,
         1,
-        5,
+        0,
         2
       ],
       "str": ""
@@ -6383,7 +6493,7 @@
     "note": "完成远征「东京急行」或「东京急行（二）」，共计6次\u003cbr /\u003e（和D9共计7次）"
   },
   {
-    "id": 170,
+    "id": 173,
     "code": "D12",
     "newMission": false,
     "unlock": [
@@ -6417,7 +6527,7 @@
     "note": "远征「航空战舰运用演习」\u003cbr /\u003e完成3次"
   },
   {
-    "id": 171,
+    "id": 174,
     "code": "D13",
     "newMission": false,
     "unlock": [
@@ -6454,7 +6564,7 @@
     "note": "远征「远洋潜水舰作战」\u003cbr /\u003e完成1次"
   },
   {
-    "id": 172,
+    "id": 175,
     "code": "D14",
     "newMission": false,
     "unlock": [
@@ -6488,7 +6598,7 @@
     "note": "远征「远洋潜水舰作战」\u003cbr /\u003e完成2次"
   },
   {
-    "id": 173,
+    "id": 176,
     "code": "D15",
     "newMission": false,
     "unlock": [
@@ -6517,7 +6627,7 @@
         1
       ],
       "item": [
-        5,
+        0,
         2
       ],
       "str": ""
@@ -6525,7 +6635,7 @@
     "note": "远征「防空射击演习」\u003cbr /\u003e完成3次"
   },
   {
-    "id": 174,
+    "id": 177,
     "code": "D16",
     "newMission": false,
     "unlock": [
@@ -6554,7 +6664,7 @@
         1
       ],
       "item": [
-        5,
+        0,
         2
       ],
       "str": ""
@@ -6562,7 +6672,7 @@
     "note": "远征「囮机动部队支援作战」\u003cbr /\u003e完成1次"
   },
   {
-    "id": 175,
+    "id": 178,
     "code": "D17",
     "newMission": false,
     "unlock": [
@@ -6591,7 +6701,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         3
       ],
       "str": ""
@@ -6599,7 +6709,7 @@
     "note": "远征「观舰式予行」\u003cbr /\u003e完成2次"
   },
   {
-    "id": 176,
+    "id": 179,
     "code": "D18",
     "newMission": false,
     "unlock": [
@@ -6625,7 +6735,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        8,
+        7,
         1,
         16,
         1
@@ -6635,7 +6745,7 @@
     "note": "远征「观舰式」\u003cbr /\u003e完成1次"
   },
   {
-    "id": 177,
+    "id": 180,
     "code": "D19",
     "newMission": false,
     "unlock": [
@@ -6665,9 +6775,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        8,
+        7,
         2,
-        10,
+        9,
         1
       ],
       "str": ""
@@ -6675,7 +6785,7 @@
     "note": "远征「ＭＯ作戦」及「敵母港空襲作戦」\u003cbr /\u003e各完成1次"
   },
   {
-    "id": 178,
+    "id": 181,
     "code": "E1",
     "newMission": false,
     "unlock": [
@@ -6701,7 +6811,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        0,
+        4,
         1
       ],
       "str": ""
@@ -6709,7 +6819,7 @@
     "note": "为舰船补给1次"
   },
   {
-    "id": 179,
+    "id": 182,
     "code": "E2",
     "newMission": false,
     "unlock": [
@@ -6738,7 +6848,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         1
       ],
       "str": ""
@@ -6746,7 +6856,7 @@
     "note": "为受损的舰船入渠维修1次"
   },
   {
-    "id": 180,
+    "id": 183,
     "code": "E3",
     "newMission": false,
     "unlock": [],
@@ -6773,7 +6883,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        0,
+        4,
         2
       ],
       "str": ""
@@ -6781,7 +6891,7 @@
     "note": "入渠修复舰船5次"
   },
   {
-    "id": 181,
+    "id": 184,
     "code": "E4",
     "newMission": false,
     "unlock": [
@@ -6807,9 +6917,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         1,
-        4,
+        3,
         1
       ],
       "str": ""
@@ -6817,7 +6927,7 @@
     "note": "为舰船补给15次\u003cbr /\u003e注意：为舰队全体补给也只算1次"
   },
   {
-    "id": 182,
+    "id": 185,
     "code": "F1",
     "newMission": false,
     "unlock": [],
@@ -6844,7 +6954,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         1
       ],
       "str": ""
@@ -6852,7 +6962,7 @@
     "note": "\u003cb\u003e建造\u003c/b\u003e舰船1次"
   },
   {
-    "id": 183,
+    "id": 186,
     "code": "F2",
     "newMission": false,
     "unlock": [
@@ -6882,7 +6992,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         1
       ],
       "str": ""
@@ -6890,7 +7000,7 @@
     "note": "\u003cb\u003e开发\u003c/b\u003e装备1次\u003cbr /\u003e（不论成败）"
   },
   {
-    "id": 184,
+    "id": 187,
     "code": "F3",
     "newMission": false,
     "unlock": [
@@ -6919,9 +7029,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         1,
-        4,
+        3,
         1
       ],
       "str": ""
@@ -6929,7 +7039,7 @@
     "note": "解体舰船1次"
   },
   {
-    "id": 185,
+    "id": 188,
     "code": "F4",
     "newMission": false,
     "unlock": [
@@ -6955,9 +7065,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
-        1,
         0,
+        1,
+        4,
         1
       ],
       "str": ""
@@ -6965,7 +7075,7 @@
     "note": "废弃装备1次"
   },
   {
-    "id": 186,
+    "id": 189,
     "code": "F5",
     "newMission": false,
     "unlock": [
@@ -6994,9 +7104,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         1,
-        4,
+        3,
         1
       ],
       "str": ""
@@ -7004,7 +7114,7 @@
     "note": "\u003cb\u003e开发\u003c/b\u003e装备1次"
   },
   {
-    "id": 187,
+    "id": 190,
     "code": "F6",
     "newMission": false,
     "unlock": [
@@ -7033,9 +7143,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
-        1,
         0,
+        1,
+        4,
         1
       ],
       "str": ""
@@ -7043,7 +7153,7 @@
     "note": "\u003cb\u003e建造\u003c/b\u003e舰船1次"
   },
   {
-    "id": 188,
+    "id": 191,
     "code": "F7",
     "newMission": false,
     "unlock": [
@@ -7072,7 +7182,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         2
       ],
       "str": ""
@@ -7080,7 +7190,7 @@
     "note": "\u003cb\u003e开发\u003c/b\u003e装备3次\u003cbr /\u003e（不论成败）"
   },
   {
-    "id": 189,
+    "id": 192,
     "code": "F8",
     "newMission": false,
     "unlock": [
@@ -7111,9 +7221,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         2,
-        4,
+        3,
         1
       ],
       "str": ""
@@ -7121,7 +7231,7 @@
     "note": "\u003cb\u003e建造\u003c/b\u003e舰船3次"
   },
   {
-    "id": 190,
+    "id": 193,
     "code": "F9",
     "newMission": false,
     "unlock": [
@@ -7147,7 +7257,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        0,
+        4,
         1
       ],
       "str": ""
@@ -7155,7 +7265,7 @@
     "note": "解体舰船2次"
   },
   {
-    "id": 191,
+    "id": 194,
     "code": "F10",
     "newMission": false,
     "unlock": [
@@ -7186,11 +7296,11 @@
     "note": "废弃装备4次"
   },
   {
-    "id": 192,
+    "id": 195,
     "code": "F11",
     "newMission": false,
     "unlock": [
-      "a5"
+      "A5"
     ],
     "period": 0,
     "type": 6,
@@ -7220,7 +7330,7 @@
     "note": "废弃装备3次\u003cbr /\u003e{{待验证"
   },
   {
-    "id": 193,
+    "id": 196,
     "code": "F12",
     "newMission": false,
     "unlock": [
@@ -7254,7 +7364,7 @@
     "note": "废弃装备24次"
   },
   {
-    "id": 194,
+    "id": 197,
     "code": "F13",
     "newMission": false,
     "unlock": [
@@ -7288,7 +7398,7 @@
     "note": "\u003cp style\"font-weight:bold;color:#F00\"\u003e任务细节请参考：\u003cbr /\u003e\u003cb\u003e#机种转换\u0026\u0026\u0026机种转换\u003c/b\u003e\u003c/p\u003e"
   },
   {
-    "id": 195,
+    "id": 198,
     "code": "F14",
     "newMission": false,
     "unlock": [
@@ -7322,7 +7432,7 @@
     "note": "\u003cp style\"font-weight:bold;color:#F00\"\u003e任务细节请参考：\u003cbr /\u003e\u003cb\u003e#机种转换\u0026\u0026\u0026机种转换\u003c/b\u003e\u003c/p\u003e"
   },
   {
-    "id": 196,
+    "id": 199,
     "code": "F15",
     "newMission": false,
     "unlock": [
@@ -7356,7 +7466,7 @@
     "note": "\u003cp style\"font-weight:bold;color:#F00\"\u003e任务细节请参考：\u003cbr /\u003e\u003cb\u003e#机种转换\u0026\u0026\u0026机种转换\u003c/b\u003e\u003c/p\u003e"
   },
   {
-    "id": 197,
+    "id": 200,
     "code": "F16",
     "newMission": false,
     "unlock": [
@@ -7390,7 +7500,7 @@
     "note": "废弃装备10次"
   },
   {
-    "id": 198,
+    "id": 201,
     "code": "F17",
     "newMission": false,
     "unlock": [
@@ -7419,7 +7529,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        8,
+        7,
         7
       ],
       "str": ""
@@ -7427,7 +7537,7 @@
     "note": "\u003cb\u003e改修\u003c/b\u003e装备1次\u003cbr /\u003e失败也可达成"
   },
   {
-    "id": 199,
+    "id": 202,
     "code": "F18",
     "newMission": false,
     "unlock": [
@@ -7457,7 +7567,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        8,
+        7,
         1
       ],
       "str": ""
@@ -7465,7 +7575,7 @@
     "note": "\u003cb\u003e改修\u003c/b\u003e装备1次\u003cbr /\u003e失败也可达成"
   },
   {
-    "id": 200,
+    "id": 203,
     "code": "F19",
     "newMission": false,
     "unlock": [
@@ -7499,7 +7609,7 @@
     "note": "\u003cp style\"font-weight:bold;color:#F00\"\u003e任务细节请参考：\u003cbr /\u003e\u003cb\u003e#机种转换\u0026\u0026\u0026机种转换\u003c/b\u003e\u003c/p\u003e"
   },
   {
-    "id": 201,
+    "id": 204,
     "code": "F20",
     "newMission": false,
     "unlock": [
@@ -7530,10 +7640,10 @@
       "item": [],
       "str": ""
     },
-    "note": "\u003cp style\"font-weight:bold;color:#F00\"\u003e任务细节请参考：\u003cbr /\u003e\u003cb\u003e#机种转换\u0026\u0026\u0026机种转换\u003c/b\u003e\u003c/p\u003e"
+    "note": "\u003cp style\"font-weight:bold;color:#F00\"\u003e任务细节请参考：\u003cbr /\u003e\u003cb\u003e#机种转换\u0026\u0026\u0026机种转换\u003c/b\u003e\u003c/p\u003e\u003cbr\u003e或有其他前置任务需确认"
   },
   {
-    "id": 202,
+    "id": 205,
     "code": "F21",
     "newMission": false,
     "unlock": [
@@ -7570,7 +7680,7 @@
     "note": "废弃7个装备完成任务\u003cbr /\u003e"
   },
   {
-    "id": 203,
+    "id": 206,
     "code": "F22",
     "newMission": false,
     "unlock": [
@@ -7609,7 +7719,7 @@
     "note": "需具备熟练搭乘要员才可完成任务\u003cbr /\u003e任务达成时消耗一个熟练搭乘要员"
   },
   {
-    "id": 204,
+    "id": 207,
     "code": "F23",
     "newMission": false,
     "unlock": [
@@ -7644,7 +7754,7 @@
     "note": "可能需要完成其他任务才能开启"
   },
   {
-    "id": 205,
+    "id": 208,
     "code": "F24",
     "newMission": false,
     "unlock": [
@@ -7682,7 +7792,7 @@
     "note": "注意与F25任务的差别\u003cbr /\u003e如果没有开启此任务，可以完成A59后再次尝试"
   },
   {
-    "id": 206,
+    "id": 209,
     "code": "F25",
     "newMission": false,
     "unlock": [
@@ -7717,7 +7827,7 @@
     "note": "注意与F24任务的差别"
   },
   {
-    "id": 207,
+    "id": 210,
     "code": "F26",
     "newMission": false,
     "unlock": [
@@ -7754,7 +7864,7 @@
     "note": "可能还需其他条件才能开启任务"
   },
   {
-    "id": 208,
+    "id": 211,
     "code": "F27",
     "newMission": false,
     "unlock": [
@@ -7789,7 +7899,7 @@
     "note": ""
   },
   {
-    "id": 209,
+    "id": 212,
     "code": "F28",
     "newMission": false,
     "unlock": [
@@ -7826,7 +7936,7 @@
     "note": "可能还需其他条件才能开启任务"
   },
   {
-    "id": 210,
+    "id": 213,
     "code": "F29",
     "newMission": false,
     "unlock": [
@@ -7863,7 +7973,7 @@
     "note": ""
   },
   {
-    "id": 211,
+    "id": 214,
     "code": "F30",
     "newMission": false,
     "unlock": [
@@ -7897,7 +8007,7 @@
     "note": ""
   },
   {
-    "id": 212,
+    "id": 215,
     "code": "F31",
     "newMission": false,
     "unlock": [
@@ -7934,7 +8044,7 @@
     "note": ""
   },
   {
-    "id": 213,
+    "id": 216,
     "code": "F32",
     "newMission": false,
     "unlock": [
@@ -7963,7 +8073,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        9,
+        8,
         1
       ],
       "str": ""
@@ -7971,7 +8081,7 @@
     "note": "废弃装备五次"
   },
   {
-    "id": 214,
+    "id": 217,
     "code": "F33",
     "newMission": false,
     "unlock": [
@@ -8009,12 +8119,11 @@
     "note": "\u003cb\u003e7.7mm机铳\u003c/b\u003e、\u003cb\u003e12.7mm单装机铳\u003c/b\u003e各废弃两个"
   },
   {
-    "id": 215,
+    "id": 218,
     "code": "F34",
     "newMission": false,
     "unlock": [
-      "F18",
-      "A53"
+      "F18"
     ],
     "after": [
       "F35",
@@ -8040,9 +8149,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        8,
+        7,
         1,
-        5,
+        0,
         2
       ],
       "str": ""
@@ -8050,7 +8159,76 @@
     "note": "在工厂废弃6个机枪系装备\u003cbr /\u003e{{待验证"
   },
   {
-    "id": 216,
+    "id": 219,
+    "code": "F35",
+    "newMission": false,
+    "unlock": [
+      "F34"
+    ],
+    "period": 0,
+    "type": 6,
+    "title": {
+      "zh_cn": "「熟练搭乘员」养成",
+      "ja": "「熟練搭乗員」養成"
+    },
+    "content": {
+      "zh_cn": "消费勋章x2：以「\u003cb\u003e凤翔\u003c/b\u003e」为秘书舰搭载一架练度max及改修max的「\u003cb\u003e九六式舰战\u003c/b\u003e」，养成\u003cb\u003e熟练搭乘员\u003c/b\u003e！（任务完成后，部队将会被消去）",
+      "ja": "勲章x2消費:「鳳翔」秘書艦に練度max及び改修max「九六式艦戦」を搭載、熟練搭乗員を養成せよ！（任務達成後、部隊は消滅します）"
+    },
+    "reward": {
+      "resource": [
+        0,
+        0,
+        0,
+        100
+      ],
+      "ship": [],
+      "equip": [],
+      "item": [
+        10,
+        1
+      ],
+      "str": ""
+    },
+    "note": "凤翔装备一个改修Max与练度Max的九六舰战并消耗两个勋章,获得一个熟练搭乘员。\u003cbr /\u003e前置任务待验证"
+  },
+  {
+    "id": 220,
+    "code": "F36",
+    "newMission": false,
+    "unlock": [
+      "B71",
+      "F34"
+    ],
+    "period": 0,
+    "type": 6,
+    "title": {
+      "zh_cn": "新型鱼雷兵装的开发",
+      "ja": "新型魚雷兵装の開発"
+    },
+    "content": {
+      "zh_cn": "消费勋章x2：以「\u003cb\u003e岛风\u003c/b\u003e」为秘书舰装备改修max的「\u003cb\u003e61cm五连装(酸素)鱼雷\u003c/b\u003e」和改修max的「\u003cb\u003e61cm三连装(酸素)鱼雷\u003c/b\u003e」！（任务完成后，各装备将会被消去）",
+      "ja": "勲章x2消費:「島風」秘書艦に改修max「61cm五連装(酸素)魚雷」と改修max「61cm三連装(酸素)魚雷」を装備！(任務達成後、各装備は消滅します)"
+    },
+    "reward": {
+      "resource": [
+        0,
+        600,
+        0,
+        0
+      ],
+      "ship": [],
+      "equip": [
+        179,
+        1
+      ],
+      "item": [],
+      "str": ""
+    },
+    "note": "旗舰岛风装备一个五连装酸素鱼雷Max与一个三连装酸素鱼雷Max并消耗两个勋章,获得一个六连装酸素鱼雷同时原装备消失。\u003cbr /\u003e前置任务待验证"
+  },
+  {
+    "id": 221,
     "code": "G1",
     "newMission": false,
     "unlock": [],
@@ -8074,7 +8252,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         1
       ],
       "str": ""
@@ -8082,7 +8260,7 @@
     "note": "\u003cb\u003e近代化改修\u003c/b\u003e成功1次"
   },
   {
-    "id": 217,
+    "id": 222,
     "code": "G2",
     "newMission": false,
     "unlock": [],
@@ -8109,7 +8287,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        0,
+        4,
         1
       ],
       "str": ""
@@ -8117,7 +8295,7 @@
     "note": "\u003cb\u003e近代化改修\u003c/b\u003e成功2次"
   },
   {
-    "id": 218,
+    "id": 223,
     "code": "G3",
     "newMission": false,
     "unlock": [
@@ -8143,9 +8321,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         2,
-        4,
+        3,
         1
       ],
       "str": ""
@@ -8153,7 +8331,7 @@
     "note": "\u003cb\u003e近代化改修\u003c/b\u003e成功15次"
   },
   {
-    "id": 219,
+    "id": 224,
     "code": "G4",
     "newMission": false,
     "unlock": [
@@ -8182,7 +8360,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         1
       ],
       "str": ""
@@ -8190,7 +8368,7 @@
     "note": "\u003cb\u003e近代化改修\u003c/b\u003e成功4次"
   },
   {
-    "id": 220,
+    "id": 225,
     "code": "WF01",
     "newMission": false,
     "unlock": [
@@ -8219,7 +8397,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         1
       ],
       "str": ""
@@ -8227,7 +8405,7 @@
     "note": "废弃装备2次"
   },
   {
-    "id": 221,
+    "id": 226,
     "code": "WC01",
     "newMission": false,
     "unlock": [
@@ -8256,7 +8434,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         1
       ],
       "str": ""
@@ -8264,7 +8442,7 @@
     "note": "演习胜利2次"
   },
   {
-    "id": 222,
+    "id": 227,
     "code": "WA01",
     "newMission": false,
     "unlock": [
@@ -8293,7 +8471,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        10,
+        9,
         1
       ],
       "str": ""
@@ -8301,7 +8479,7 @@
     "note": "第一舰队旗舰\u003cbr /\u003e配置90级以上的舰娘\u003cbr /\u003e大于100级则不可"
   },
   {
-    "id": 223,
+    "id": 228,
     "code": "WB01",
     "newMission": false,
     "unlock": [
@@ -8338,7 +8516,7 @@
     "note": "旗舰为90级以上的舰娘出击，击破BOSS（S胜）\u003cbr /\u003e可以携带其他舰娘\u003cbr /\u003e旗舰大于100级则不可"
   },
   {
-    "id": 224,
+    "id": 229,
     "code": "WA02",
     "newMission": false,
     "unlock": [
@@ -8367,7 +8545,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        6,
+        5,
         1
       ],
       "str": ""
@@ -8375,7 +8553,7 @@
     "note": "第一舰队旗舰\u003cbr /\u003e配置100级以上的舰娘"
   },
   {
-    "id": 225,
+    "id": 230,
     "code": "WB02",
     "newMission": false,
     "unlock": [
@@ -8409,7 +8587,7 @@
     "note": "旗舰为100级以上的舰娘出击，击破BOSS战（S胜）\u003cbr /\u003e可以携带其他舰娘"
   },
   {
-    "id": 226,
+    "id": 231,
     "code": "A59",
     "newMission": false,
     "unlock": [
@@ -8436,9 +8614,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         2,
-        3,
+        10,
         1
       ],
       "str": ""
@@ -8446,7 +8624,7 @@
     "note": "\u003cb\u003e千岁\u003c/b\u003e、\u003cb\u003e千代田\u003c/b\u003e在改造成轻型航母之前不能达成任务"
   },
   {
-    "id": 227,
+    "id": 232,
     "code": "B53",
     "newMission": false,
     "unlock": [
@@ -8472,7 +8650,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        0,
+        4,
         2,
         1,
         1
@@ -8482,7 +8660,7 @@
     "note": "\u003cb\u003e千岁\u003c/b\u003e、\u003cb\u003e千代田\u003c/b\u003e在改造成轻型航母之前不能达成任务\u003cbr /\u003e击破BOSS（S胜利）"
   },
   {
-    "id": 228,
+    "id": 233,
     "code": "A60",
     "newMission": false,
     "unlock": [
@@ -8511,7 +8689,7 @@
         1
       ],
       "item": [
-        8,
+        7,
         2
       ],
       "str": ""
@@ -8519,7 +8697,7 @@
     "note": ""
   },
   {
-    "id": 229,
+    "id": 234,
     "code": "A61",
     "newMission": false,
     "unlock": [
@@ -8546,9 +8724,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         2,
-        6,
+        5,
         1
       ],
       "str": ""
@@ -8556,7 +8734,7 @@
     "note": "\u003cb\u003e千岁\u003c/b\u003e、\u003cb\u003e千代田\u003c/b\u003e在改造成轻型航母之前不能达成任务"
   },
   {
-    "id": 230,
+    "id": 235,
     "code": "A62",
     "newMission": false,
     "unlock": [
@@ -8582,9 +8760,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        7,
+        6,
         1,
-        3,
+        10,
         1
       ],
       "str": ""
@@ -8592,7 +8770,7 @@
     "note": "\u003cb\u003e翔鹤改二\u003c/b\u003e、\u003cb\u003e翔鹤改二甲\u003c/b\u003e都可\u003cb\u003e瑞鹤\u003c/b\u003e同理\u003cbr /\u003e驱逐舰两艘以上"
   },
   {
-    "id": 231,
+    "id": 236,
     "code": "B54",
     "newMission": false,
     "unlock": [
@@ -8621,7 +8799,7 @@
         1
       ],
       "item": [
-        0,
+        4,
         3
       ],
       "str": ""
@@ -8629,7 +8807,7 @@
     "note": "\u0027\u0027\u0027瑞鹤旗舰\u0027\u0027\u0027\u003cbr /\u003e\u003cb\u003e瑞鹤改二\u003c/b\u003e、\u003cb\u003e瑞鹤改二甲\u003c/b\u003e都可\u003cbr /\u003e\u003cb\u003e千岁\u003c/b\u003e、\u003cb\u003e千代田\u003c/b\u003e在改造成轻型航母之前不能达成任务\u003cbr /\u003e击破BOSS（S胜利）"
   },
   {
-    "id": 232,
+    "id": 237,
     "code": "F22",
     "newMission": false,
     "unlock": [
@@ -8663,7 +8841,7 @@
     "note": "需具备熟练搭乘要员才可完成任务\u003cbr /\u003e任务达成时消耗一个熟练搭乘要员"
   },
   {
-    "id": 233,
+    "id": 238,
     "code": "F23",
     "newMission": false,
     "unlock": [
@@ -8697,7 +8875,7 @@
     "note": ""
   },
   {
-    "id": 234,
+    "id": 239,
     "code": "F24",
     "newMission": false,
     "unlock": [
@@ -8731,7 +8909,7 @@
     "note": "注意与F25任务的差别"
   },
   {
-    "id": 235,
+    "id": 240,
     "code": "F25",
     "newMission": false,
     "unlock": [
@@ -8765,7 +8943,7 @@
     "note": "注意与F24任务的差别"
   },
   {
-    "id": 236,
+    "id": 241,
     "code": "F26",
     "newMission": false,
     "unlock": [
@@ -8799,7 +8977,7 @@
     "note": "可能还需其他条件才能开启任务"
   },
   {
-    "id": 237,
+    "id": 242,
     "code": "F27",
     "newMission": false,
     "unlock": [
@@ -8833,7 +9011,7 @@
     "note": ""
   },
   {
-    "id": 238,
+    "id": 243,
     "code": "F28",
     "newMission": false,
     "unlock": [
@@ -8867,7 +9045,7 @@
     "note": "可能还需其他条件才能开启任务"
   },
   {
-    "id": 239,
+    "id": 244,
     "code": "F29",
     "newMission": false,
     "unlock": [
@@ -8901,7 +9079,7 @@
     "note": ""
   },
   {
-    "id": 240,
+    "id": 245,
     "code": "F30",
     "newMission": false,
     "unlock": [
@@ -8935,7 +9113,7 @@
     "note": "可能还需其他条件才能开启任务"
   },
   {
-    "id": 241,
+    "id": 246,
     "code": "Bd1",
     "newMission": false,
     "unlock": [],
@@ -8967,7 +9145,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         1
       ],
       "str": ""
@@ -8975,7 +9153,7 @@
     "note": "出击胜利一次"
   },
   {
-    "id": 242,
+    "id": 247,
     "code": "Bd2",
     "newMission": false,
     "unlock": [
@@ -9014,9 +9192,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
-        1,
         0,
+        1,
+        4,
         1
       ],
       "str": ""
@@ -9024,7 +9202,7 @@
     "note": "出击胜利一次"
   },
   {
-    "id": 243,
+    "id": 248,
     "code": "Bd3",
     "newMission": false,
     "unlock": [
@@ -9050,7 +9228,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         1
       ],
       "str": ""
@@ -9058,7 +9236,7 @@
     "note": "出击胜利十次"
   },
   {
-    "id": 244,
+    "id": 249,
     "code": "Bd4",
     "newMission": false,
     "unlock": [
@@ -9084,7 +9262,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        0,
+        4,
         2
       ],
       "str": ""
@@ -9092,7 +9270,7 @@
     "note": "击沉敌方3艘正规空母或轻空母\u003cbr /\u003e日期尾数为3/7/0时出现"
   },
   {
-    "id": 245,
+    "id": 250,
     "code": "Bd5",
     "newMission": false,
     "unlock": [
@@ -9122,9 +9300,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
-        1,
         0,
+        1,
+        4,
         1
       ],
       "str": ""
@@ -9132,7 +9310,7 @@
     "note": "击沉敌方3艘补给舰"
   },
   {
-    "id": 246,
+    "id": 251,
     "code": "Bd6",
     "newMission": false,
     "unlock": [
@@ -9158,7 +9336,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         2
       ],
       "str": ""
@@ -9166,7 +9344,7 @@
     "note": "击沉敌方补给船5艘\u003cbr /\u003e日期尾数为2或8时出现"
   },
   {
-    "id": 247,
+    "id": 252,
     "code": "Bd7",
     "newMission": false,
     "unlock": [
@@ -9195,9 +9373,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        4,
+        3,
         1,
-        0,
+        4,
         1
       ],
       "str": ""
@@ -9205,7 +9383,7 @@
     "note": "击破\u003cb\u003e南西群岛海域\u003c/b\u003e任意BOSS点五次"
   },
   {
-    "id": 248,
+    "id": 253,
     "code": "Bd8",
     "newMission": false,
     "unlock": [
@@ -9234,7 +9412,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        0,
+        4,
         1
       ],
       "str": ""
@@ -9242,7 +9420,7 @@
     "note": "击沉敌方6艘潜艇"
   },
   {
-    "id": 249,
+    "id": 254,
     "code": "C2",
     "newMission": false,
     "unlock": [
@@ -9268,7 +9446,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        4,
+        3,
         1
       ],
       "str": ""
@@ -9276,7 +9454,7 @@
     "note": "无论胜负"
   },
   {
-    "id": 250,
+    "id": 255,
     "code": "C3",
     "newMission": false,
     "unlock": [
@@ -9302,7 +9480,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         1
       ],
       "str": ""
@@ -9310,7 +9488,7 @@
     "note": ""
   },
   {
-    "id": 251,
+    "id": 256,
     "code": "D2",
     "newMission": false,
     "unlock": [
@@ -9336,7 +9514,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         1
       ],
       "str": ""
@@ -9344,7 +9522,7 @@
     "note": "远征3次成功"
   },
   {
-    "id": 252,
+    "id": 257,
     "code": "D3",
     "newMission": false,
     "unlock": [
@@ -9372,7 +9550,7 @@
       "item": [
         11,
         1,
-        9,
+        8,
         1
       ],
       "str": ""
@@ -9380,7 +9558,7 @@
     "note": "远征10次成功"
   },
   {
-    "id": 253,
+    "id": 258,
     "code": "E3",
     "newMission": false,
     "unlock": [
@@ -9406,7 +9584,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        0,
+        4,
         2
       ],
       "str": ""
@@ -9414,7 +9592,7 @@
     "note": "入渠修复舰船5次"
   },
   {
-    "id": 254,
+    "id": 259,
     "code": "E4",
     "newMission": false,
     "unlock": [
@@ -9440,9 +9618,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         1,
-        4,
+        3,
         1
       ],
       "str": ""
@@ -9450,7 +9628,7 @@
     "note": "为舰船补给15次\u003cbr /\u003e注意：为舰队全体补给也只算1次"
   },
   {
-    "id": 255,
+    "id": 260,
     "code": "F5",
     "newMission": false,
     "unlock": [
@@ -9476,9 +9654,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         1,
-        4,
+        3,
         1
       ],
       "str": ""
@@ -9486,7 +9664,7 @@
     "note": "\u003cb\u003e开发\u003c/b\u003e装备1次"
   },
   {
-    "id": 256,
+    "id": 261,
     "code": "F6",
     "newMission": false,
     "unlock": [
@@ -9512,9 +9690,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
-        1,
         0,
+        1,
+        4,
         1
       ],
       "str": ""
@@ -9522,7 +9700,7 @@
     "note": "\u003cb\u003e建造\u003c/b\u003e舰船1次"
   },
   {
-    "id": 257,
+    "id": 262,
     "code": "F7",
     "newMission": false,
     "unlock": [
@@ -9548,7 +9726,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         2
       ],
       "str": ""
@@ -9556,7 +9734,7 @@
     "note": "\u003cb\u003e开发\u003c/b\u003e装备3次\u003cbr /\u003e（不论成败）"
   },
   {
-    "id": 258,
+    "id": 263,
     "code": "F8",
     "newMission": false,
     "unlock": [
@@ -9582,9 +9760,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         2,
-        4,
+        3,
         1
       ],
       "str": ""
@@ -9592,7 +9770,7 @@
     "note": "\u003cb\u003e建造\u003c/b\u003e舰船3次"
   },
   {
-    "id": 259,
+    "id": 264,
     "code": "F9",
     "newMission": false,
     "unlock": [
@@ -9618,7 +9796,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        0,
+        4,
         1
       ],
       "str": ""
@@ -9626,7 +9804,7 @@
     "note": "解体舰船2次"
   },
   {
-    "id": 260,
+    "id": 265,
     "code": "F18",
     "newMission": false,
     "unlock": [
@@ -9653,7 +9831,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        8,
+        7,
         1
       ],
       "str": ""
@@ -9661,7 +9839,7 @@
     "note": "\u003cb\u003e改修\u003c/b\u003e装备1次\u003cbr /\u003e失败也可达成"
   },
   {
-    "id": 261,
+    "id": 266,
     "code": "G2",
     "newMission": false,
     "unlock": [],
@@ -9685,7 +9863,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        0,
+        4,
         1
       ],
       "str": ""
@@ -9693,7 +9871,7 @@
     "note": "\u003cb\u003e近代化改修\u003c/b\u003e成功2次"
   },
   {
-    "id": 262,
+    "id": 267,
     "code": "Bw1",
     "newMission": false,
     "unlock": [
@@ -9722,9 +9900,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         2,
-        4,
+        3,
         2
       ],
       "str": ""
@@ -9732,7 +9910,7 @@
     "note": "出击36次\u003cbr /\u003e进入BOSS点24次\u003cbr /\u003eBOSS战胜利12次\u003cbr /\u003eS胜6次"
   },
   {
-    "id": 263,
+    "id": 268,
     "code": "Bw2",
     "newMission": false,
     "unlock": [
@@ -9762,7 +9940,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         2
       ],
       "str": ""
@@ -9770,11 +9948,14 @@
     "note": "击沉敌方20艘艘正规空母或轻空母"
   },
   {
-    "id": 264,
+    "id": 269,
     "code": "Bw3",
     "newMission": false,
     "unlock": [
       "Bd2"
+    ],
+    "after": [
+      "B12"
     ],
     "period": 2,
     "type": 2,
@@ -9796,7 +9977,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         3
       ],
       "str": ""
@@ -9804,7 +9985,7 @@
     "note": "击沉敌方20艘补给舰"
   },
   {
-    "id": 265,
+    "id": 270,
     "code": "Bw4",
     "newMission": false,
     "unlock": [
@@ -9836,7 +10017,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        0,
+        4,
         3
       ],
       "str": ""
@@ -9844,7 +10025,7 @@
     "note": "击沉敌方50艘补给舰"
   },
   {
-    "id": 266,
+    "id": 271,
     "code": "Bw5",
     "newMission": false,
     "unlock": [
@@ -9876,9 +10057,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        0,
+        4,
         2,
-        8,
+        7,
         1
       ],
       "str": ""
@@ -9886,7 +10067,7 @@
     "note": "击沉敌方15艘潜水艇"
   },
   {
-    "id": 267,
+    "id": 272,
     "code": "Bw6",
     "newMission": false,
     "unlock": [
@@ -9915,7 +10096,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         2
       ],
       "str": ""
@@ -9923,7 +10104,7 @@
     "note": "击破【\u003cb\u003e西方海域\u003c/b\u003e】任意海域BOSS 累积12次"
   },
   {
-    "id": 268,
+    "id": 273,
     "code": "Bw7",
     "newMission": false,
     "unlock": [
@@ -9949,9 +10130,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         3,
-        8,
+        7,
         3
       ],
       "str": ""
@@ -9959,7 +10140,7 @@
     "note": "击破\u003cb\u003e阿尔锋西诺方向(3-3)\u003c/b\u003e\u003cbr /\u003e或\u003cb\u003e北方海域全域(3-4)\u003c/b\u003e\u003cbr /\u003e或\u003cb\u003e北方阿留申海域(3-5)\u003c/b\u003e\u003cbr /\u003eBOSS 累积5次"
   },
   {
-    "id": 269,
+    "id": 274,
     "code": "Bw8",
     "newMission": false,
     "unlock": [
@@ -9988,9 +10169,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
-        1,
         0,
+        1,
+        4,
         1
       ],
       "str": ""
@@ -9998,7 +10179,7 @@
     "note": "击破BOSS"
   },
   {
-    "id": 270,
+    "id": 275,
     "code": "Bw9",
     "newMission": false,
     "unlock": [
@@ -10028,9 +10209,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         2,
-        8,
+        7,
         2
       ],
       "str": ""
@@ -10038,7 +10219,7 @@
     "note": "击破BOSS战（S胜）两次"
   },
   {
-    "id": 271,
+    "id": 276,
     "code": "Bw10",
     "newMission": false,
     "unlock": [
@@ -10065,7 +10246,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        8,
+        7,
         3
       ],
       "str": ""
@@ -10073,7 +10254,7 @@
     "note": "击破BOSS（A胜利以上）\u003cbr /\u003e累积3次"
   },
   {
-    "id": 272,
+    "id": 277,
     "code": "C4",
     "newMission": false,
     "unlock": [
@@ -10099,9 +10280,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         2,
-        8,
+        7,
         1
       ],
       "str": ""
@@ -10109,7 +10290,7 @@
     "note": ""
   },
   {
-    "id": 273,
+    "id": 278,
     "code": "D4",
     "newMission": false,
     "unlock": [
@@ -10135,9 +10316,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         3,
-        10,
+        9,
         1
       ],
       "str": ""
@@ -10145,7 +10326,7 @@
     "note": "远征30次成功"
   },
   {
-    "id": 274,
+    "id": 279,
     "code": "D9",
     "newMission": false,
     "unlock": [
@@ -10179,7 +10360,7 @@
     "note": "远征「东京急行」\u003cbr /\u003e或「东京急行(二）」\u003cbr /\u003e成功1次"
   },
   {
-    "id": 275,
+    "id": 280,
     "code": "D11",
     "newMission": false,
     "unlock": [
@@ -10205,9 +10386,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         2,
-        8,
+        7,
         1
       ],
       "str": ""
@@ -10215,7 +10396,7 @@
     "note": "远征「东京急行」\u003cbr /\u003e或「东京急行(二)」\u003cbr /\u003e成功7次"
   },
   {
-    "id": 276,
+    "id": 281,
     "code": "F12",
     "newMission": false,
     "unlock": [
@@ -10249,7 +10430,7 @@
     "note": "废弃装备24次"
   },
   {
-    "id": 277,
+    "id": 282,
     "code": "G3",
     "newMission": false,
     "unlock": [
@@ -10275,9 +10456,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         2,
-        4,
+        3,
         1
       ],
       "str": ""
@@ -10285,7 +10466,7 @@
     "note": "\u003cb\u003e近代化改修\u003c/b\u003e成功15次"
   },
   {
-    "id": 278,
+    "id": 283,
     "code": "Bm1",
     "newMission": false,
     "unlock": [
@@ -10315,9 +10496,9 @@
       "ship": [],
       "equip": [],
       "item": [
+        0,
         5,
-        5,
-        10,
+        9,
         1
       ],
       "str": ""
@@ -10325,7 +10506,7 @@
     "note": "使用\u003cb\u003e妙高\u003c/b\u003e/\u003cb\u003e那智\u003c/b\u003e/\u003cb\u003e羽黑\u003c/b\u003e出击，击破BOSS（S胜利）\u003cbr /\u003e可以携带其他舰娘"
   },
   {
-    "id": 279,
+    "id": 284,
     "code": "Bm2",
     "newMission": false,
     "unlock": [
@@ -10351,7 +10532,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        10,
+        9,
         1,
         1,
         1
@@ -10361,7 +10542,7 @@
     "note": "队伍中配备\u003cb\u003e潜水艇\u003c/b\u003e出击，击破BOSS（S胜利）3次\u003cbr /\u003e和同名任务\u003cb\u003e#B17\u0026\u0026\u0026B17\u003c/b\u003e注意区分"
   },
   {
-    "id": 280,
+    "id": 285,
     "code": "Bm3",
     "newMission": false,
     "unlock": [
@@ -10370,7 +10551,7 @@
     "period": 3,
     "type": 2,
     "title": {
-      "zh_cn": "「水雷战队」往南西！",
+      "zh_cn": "「水雷战队」前往南西！",
       "ja": "「水雷戦隊」南西へ！"
     },
     "content": {
@@ -10387,7 +10568,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        8,
+        7,
         3,
         1,
         1
@@ -10397,7 +10578,7 @@
     "note": "击破BOSS（S胜利）\u003cbr /\u003e可以携带其他舰娘\u003cbr /\u003e轻巡/驱逐舰以外的舰种投入将达成不可"
   },
   {
-    "id": 281,
+    "id": 286,
     "code": "Bm4",
     "newMission": false,
     "unlock": [
@@ -10409,7 +10590,7 @@
     "period": 3,
     "type": 2,
     "title": {
-      "zh_cn": "「水上打击部队」往南方！",
+      "zh_cn": "「水上打击部队」前往南方！",
       "ja": "「水上打撃部隊」南方へ！"
     },
     "content": {
@@ -10426,9 +10607,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        0,
+        4,
         3,
-        8,
+        7,
         4
       ],
       "str": ""
@@ -10436,7 +10617,7 @@
     "note": "击破BOSS（S胜利）\u003cbr /\u003e可以携带其他舰娘\u003cbr /\u003e航空战舰可以使用，高速战舰投入任务将不能完成。"
   },
   {
-    "id": 282,
+    "id": 287,
     "code": "Bm5",
     "newMission": false,
     "unlock": [
@@ -10467,9 +10648,9 @@
       "ship": [],
       "equip": [],
       "item": [
+        0,
         5,
-        5,
-        8,
+        7,
         3
       ],
       "str": ""
@@ -10477,7 +10658,7 @@
     "note": "击破BOSS（A胜利以上）\u003cbr /\u003e累积10次"
   },
   {
-    "id": 283,
+    "id": 288,
     "code": "Bm6",
     "newMission": false,
     "unlock": [
@@ -10494,7 +10675,7 @@
     "period": 3,
     "type": 2,
     "title": {
-      "zh_cn": "「空母机动部队」往西方！",
+      "zh_cn": "「空母机动部队」前往西方！",
       "ja": "「空母機動部隊」西へ！"
     },
     "content": {
@@ -10511,9 +10692,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        10,
+        9,
         2,
-        8,
+        7,
         2
       ],
       "str": ""
@@ -10521,7 +10702,7 @@
     "note": "击破BOSS（S胜利）\u003cbr /\u003e可以携带其他舰娘"
   },
   {
-    "id": 284,
+    "id": 289,
     "code": "Bm7",
     "newMission": false,
     "unlock": [
@@ -10551,9 +10732,9 @@
       "ship": [],
       "equip": [],
       "item": [
-        5,
+        0,
         4,
-        8,
+        7,
         2
       ],
       "str": ""
@@ -10561,7 +10742,7 @@
     "note": "击破BOSS（S胜利）\u003cbr /\u003e可以携带其他舰娘"
   },
   {
-    "id": 285,
+    "id": 290,
     "code": "C8",
     "newMission": false,
     "unlock": [
@@ -10587,7 +10768,7 @@
       "ship": [],
       "equip": [],
       "item": [
-        0,
+        4,
         2,
         14,
         1
@@ -10597,7 +10778,7 @@
     "note": "（现阶段需要0点过后日常5点刷新之前的关于该任务的报告）演习B胜利七次即可。\u003cbr /\u003e根据提督日常任务完成的情况，该任务的出现会推迟。\u003cbr /\u003eBd2完成之后，有可能需要完成其他任务才能开启本任务（Bd3是否是条件现在在情报收集中）"
   },
   {
-    "id": 286,
+    "id": 291,
     "code": "F22",
     "newMission": false,
     "unlock": [
@@ -10631,7 +10812,7 @@
     "note": "需具备熟练搭乘要员才可完成任务\u003cbr /\u003e任务达成时消耗一个熟练搭乘要员"
   },
   {
-    "id": 287,
+    "id": 292,
     "code": "F25",
     "newMission": false,
     "unlock": [
