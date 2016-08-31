@@ -1,4 +1,4 @@
-package rikka.akashitoolkit.utils;
+package rikka.akashitoolkit.ui.widget;
 
 import android.content.ActivityNotFoundException;
 import android.content.Context;
@@ -20,6 +20,7 @@ public class MyUrlSpan extends URLSpan {
 
     @Override
     public void updateDrawState(TextPaint ds) {
+        super.updateDrawState(ds);
         //ds.setColor(ds.linkColor);
         //ds.setColor(Color.parseColor("#8C9EFF"));
         ds.setUnderlineText(false);

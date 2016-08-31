@@ -21,6 +21,7 @@ import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.BaseRecyclerAdapter;
 import rikka.akashitoolkit.gallery.ImagesActivity;
 import rikka.akashitoolkit.model.Twitter;
+import rikka.akashitoolkit.ui.widget.MySpannableFactory;
 import rikka.akashitoolkit.utils.HtmlUtils;
 
 import static rikka.akashitoolkit.support.ApiConstParam.TwitterContentLanguage.JP_AND_ZH;
@@ -113,9 +114,9 @@ public class TwitterAdapter extends BaseRecyclerAdapter<TwitterAdapter.ViewHolde
             }
         });
 
-        holder.mTvContent.setText(HtmlUtils.fromHtml(getItem(position).getJp()));
+        holder.mTvContent.setText(HtmlUtils.fromHtml(getItem(position).getJp().replace("<p>", "").replace("</p>", "")));
 
-        String translated = getItem(position).getZh();
+        String translated = getItem(position).getZh().replace("<p>", "").replace("</p>", "");
         if (TextUtils.isEmpty(translated)) {
             holder.mTvContentTranslated.setText(holder.mTvContentTranslated.getContext().getString(R.string.no_translated));
             holder.mTvContentTranslated.setEnabled(false);
@@ -123,6 +124,9 @@ public class TwitterAdapter extends BaseRecyclerAdapter<TwitterAdapter.ViewHolde
             holder.mTvContentTranslated.setText(HtmlUtils.fromHtml(translated));
             holder.mTvContentTranslated.setEnabled(true);
         }
+
+        holder.mTvContent.setMovementMethod(LinkMovementMethod.getInstance());
+        holder.mTvContentTranslated.setMovementMethod(LinkMovementMethod.getInstance());
 
         switch (mLanguage) {
             case JP_AND_ZH:
@@ -211,12 +215,10 @@ public class TwitterAdapter extends BaseRecyclerAdapter<TwitterAdapter.ViewHolde
             mImage = (ImageView) itemView.findViewById(R.id.image_twitter_content);
             mMoreButton = (ImageView) itemView.findViewById(R.id.more_button);
 
-            mTvContent.setMovementMethod(LinkMovementMethod.getInstance());
-            mTvContentTranslated.setMovementMethod(LinkMovementMethod.getInstance());
-
             mTvContent.setTextIsSelectable(true);
             mTvContentTranslated.setTextIsSelectable(true);
-
+            mTvContent.setSpannableFactory(MySpannableFactory.getInstance());
+            mTvContentTranslated.setSpannableFactory(MySpannableFactory.getInstance());
         }
     }
 
