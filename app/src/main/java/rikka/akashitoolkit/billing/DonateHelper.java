@@ -65,7 +65,7 @@ public class DonateHelper implements IabBroadcastReceiver.IabBroadcastListener {
                     return;
                 }
 
-                isSuccess = false;
+                isSuccess = true;
 
                 // Have we been disposed of in the meantime? If so, quit.
                 if (mHelper == null) return;

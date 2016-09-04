@@ -76,7 +76,7 @@ public class Push {
                     .setPositiveButton("下载国内版", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.minamion.com/Akashi/")));
+                            activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://app.kcwiki.moe/")));
                             activity.finish();
                         }
                     })

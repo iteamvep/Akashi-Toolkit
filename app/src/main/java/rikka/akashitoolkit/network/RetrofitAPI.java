@@ -21,6 +21,7 @@ import rikka.akashitoolkit.model.Version;
  * Created by Rikka on 2016/3/8.
  */
 public class RetrofitAPI {
+
     public interface TwitterAPI {
         @GET("/avatar/latest")
         Call<LatestAvatar> getLatestAvatarUrl();
@@ -33,28 +34,20 @@ public class RetrofitAPI {
     }
 
     public interface UpdateAPI {
-        @GET("/Akashi/info.php")
+        @GET("/api/info.php")
         Call<CheckUpdate> get(
                 @Query("api_version") int api_version,
-                @Query("channel") int channel);
-
-        @GET("/Akashi/json/{filename}")
-        @Streaming
-        Call<ResponseBody> download(@Path("filename") String filename);
+                @Query("api_channel") int api_channel);
     }
 
     public interface SeasonalAPI {
-        @GET("/Akashi/seasonal.php")
+        @GET("/api/seasonal.php")
         Call<List<Seasonal>> get(
                 @Query("api_version") int api_version);
     }
 
     public interface EventAPI {
-        @GET("/Akashi/event_list.php")
-        Call<List<String>> getList(
-                @Query("api_version") int api_version);
-
-        @GET("/Akashi/event.php")
+        @GET("/api/event.php")
         Call<Event> get(
                 @Query("api_version") int api_version);
     }

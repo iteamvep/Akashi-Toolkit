@@ -97,7 +97,7 @@ public class SeasonalFragment extends BaseRefreshFragment<List<Seasonal>> {
     @Override
     public void onRefresh(Call<List<Seasonal>> call, boolean force_cache) {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://www.minamion.com/")
+                .baseUrl("http://app.kcwiki.moe/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

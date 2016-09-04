@@ -10,7 +10,7 @@ public class CheckUpdate {
     /**
      * versionCode : 7
      * versionName : 0.0.7-alpha
-     * url : http://www.minamion.com/Akashi/akashitoolkit-alpha-7.apk
+     * url : http://
      * change : - 增加装备改修模块
      - 增加统计 (LeanCloud)
      */

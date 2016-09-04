@@ -129,7 +129,7 @@ public class EventFragment extends BaseEventFragment<Event> {
     @Override
     public void onRefresh(Call<Event> call, boolean force_cache) {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://www.minamion.com/")
+                .baseUrl("http://app.kcwiki.moe/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
