@@ -43,7 +43,7 @@ import rikka.akashitoolkit.utils.Utils;
  * Created by Rikka on 2016/4/30.
  */
 public class SeasonalFragment extends BaseRefreshFragment<List<Seasonal>> {
-    private static final int API_VERSION = 5;
+    private static final int API_VERSION = 1;
 
     private SeasonalAdapter mAdapter;
 
