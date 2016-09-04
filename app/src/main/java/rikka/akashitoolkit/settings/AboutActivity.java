@@ -1,31 +1,36 @@
 package rikka.akashitoolkit.settings;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Toast;
 
 import rikka.akashitoolkit.BuildConfig;
 import rikka.akashitoolkit.R;
+import rikka.akashitoolkit.billing.DonateHelper;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.StaticData;
 import rikka.akashitoolkit.tools.PushSendActivity;
 import rikka.akashitoolkit.tools.SendReportActivity;
 import rikka.akashitoolkit.ui.BaseActivity;
 import rikka.akashitoolkit.utils.ClipBoardUtils;
-import rikka.akashitoolkit.utils.DonateUtils;
+import rikka.akashitoolkit.utils.AlipayDonateUtils;
 import rikka.akashitoolkit.utils.Utils;
 import rikka.materialpreference.Preference;
 import rikka.materialpreference.PreferenceFragment;
 import rikka.materialpreference.PreferenceScreen;
 
 public class AboutActivity extends BaseActivity {
+
+    DonateHelper mDonateHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +53,21 @@ public class AboutActivity extends BaseActivity {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment,
                     fragment).commit();
         }
+
+        mDonateHelper = new DonateHelper(this);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (!mDonateHelper.onActivityResult(requestCode, resultCode, data)) {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        mDonateHelper.onDestroy();
+        super.onDestroy();
     }
 
     @Override
@@ -108,14 +128,57 @@ public class AboutActivity extends BaseActivity {
             findPreference("donate").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 @Override
                 public boolean onPreferenceClick(Preference preference) {
-                    DonateUtils.startActivity(getActivity());
+                    if (((AboutActivity) getActivity()).mDonateHelper.isSuccess()) {
+                        final DonateHelper.OnPurchaseSuccessListener listener = new DonateHelper.OnPurchaseSuccessListener() {
+                            @Override
+                            public void onSuccess(String sku) {
+                                if (isVisible()) {
+                                    Toast.makeText(getActivity(), R.string.donate_gp_thanks, Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        };
+                        new AlertDialog.Builder(getActivity())
+                                .setItems(new CharSequence[]{"1 USD", "2 USD", "5 USD", "10 USD"}, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        switch (which) {
+                                            case 0:
+                                                ((AboutActivity) getActivity()).mDonateHelper.start(getActivity(), DonateHelper.SKU_DONATE_1, listener);
+                                                break;
+                                            case 1:
+                                                ((AboutActivity) getActivity()).mDonateHelper.start(getActivity(), DonateHelper.SKU_DONATE_2, listener);
+                                                break;
+                                            case 2:
+                                                ((AboutActivity) getActivity()).mDonateHelper.start(getActivity(), DonateHelper.SKU_DONATE_5, listener);
+                                                break;
+                                            case 3:
+                                                ((AboutActivity) getActivity()).mDonateHelper.start(getActivity(), DonateHelper.SKU_DONATE_10, listener);
+                                                break;
+                                        }
+                                    }
+                                })
+                                .show();
+                    } else {
+                        new AlertDialog.Builder(getActivity())
+                                .setMessage(R.string.donate_gp_set_up_failed)
+                                .setPositiveButton(android.R.string.ok, null)
+                                .show();
+                    }
+                    return false;
+                }
+            });
+
+            findPreference("donate_alipay").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                @Override
+                public boolean onPreferenceClick(Preference preference) {
+                    AlipayDonateUtils.startActivity(getActivity());
                     return false;
                 }
             });
 
             if (BuildConfig.isGooglePlay
-                    && !Utils.isPackageInstalled(getActivity(), DonateUtils.PACKAGENAME_ALIPAY)) {
-                ((PreferenceScreen) findPreference("screen")).removePreference(findPreference("donate"));
+                    && !Utils.isPackageInstalled(getActivity(), AlipayDonateUtils.PACKAGENAME_ALIPAY)) {
+                ((PreferenceScreen) findPreference("screen")).removePreference(findPreference("donate_alipay"));
             }
 
             findPreference("version").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {

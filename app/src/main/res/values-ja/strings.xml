@@ -150,7 +150,8 @@
     <string name="ranking">戦果検索</string>
 
     <string name="feedback_summary">フィードバックを送信</string>
-    <string name="donate">寄付</string>
+    <string name="donate">Donate developer</string>
+    <string name="donate_alipay">Donate developer (via Alipay)</string>
     <string name="telegram_group">Telegram グループ</string>
     <string name="telegram_group_join">クリックして参加 (もしこのアプリの開発に興味があれば)</string>
     <string name="qq_group">QQグループ</string>
@@ -287,4 +288,12 @@
 
     <string name="event">イベント</string>
 
+    <string name="donate_via_google_play">Donate via Google Play</string>
+
+    <string name="donate_gp_thanks">Thank you for your support</string>
+    <string name="donate_gp_set_up_failed">Setting up in-app billing failed, probably Google Play not installed.</string>
+
+    <string name="donate_alipay_thanks">Thank you for your support</string>
+    <string name="donate_alipay_not_installed">Alipay not installed</string>
+    <string name="donate_alipay_disabled">Alipay disabled</string>
 </resources>

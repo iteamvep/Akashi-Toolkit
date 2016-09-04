@@ -169,7 +169,8 @@ Activity &amp; Extra:
     <string name="ranking">Ranking</string>
 
     <string name="feedback_summary">Send email to developer</string>
-    <string name="donate">Donate</string>
+    <string name="donate">Donate developer</string>
+    <string name="donate_alipay">Donate developer (via Alipay)</string>
     <string name="telegram_group">Telegram group</string>
     <string name="telegram_group_join">Click to join (if you want to help develop)</string>
     <string name="qq_group">QQ group</string>
@@ -305,4 +306,13 @@ Activity &amp; Extra:
     <string name="fleet_default_title">New fleet</string>
 
     <string name="event">Event</string>
+
+    <string name="donate_via_google_play">Donate via Google Play</string>
+
+    <string name="donate_gp_thanks">Thank you for your support</string>
+    <string name="donate_gp_set_up_failed">Setting up in-app billing failed, probably Google Play not installed.</string>
+
+    <string name="donate_alipay_thanks">Thank you for your support</string>
+    <string name="donate_alipay_not_installed">Alipay not installed</string>
+    <string name="donate_alipay_disabled">Alipay disabled</string>
 </resources>

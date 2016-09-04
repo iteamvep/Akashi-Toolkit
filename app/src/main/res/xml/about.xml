@@ -15,7 +15,12 @@
     <Preference
         android:key="donate"
         android:title="@string/donate"
-        android:summary="支付宝: rikka@xing.moe"/>
+        android:summary="@string/donate_via_google_play"/>
+
+    <Preference
+        android:key="donate_alipay"
+        android:title="@string/donate_alipay"
+        android:summary="rikka@xing.moe"/>
 
     <Preference
         android:key="version"
