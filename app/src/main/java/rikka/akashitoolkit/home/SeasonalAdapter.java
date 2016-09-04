@@ -181,7 +181,7 @@ public class SeasonalAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHolder
     @SuppressLint("DefaultLocale")
     private void bindViewHolder(final VoiceViewHolder holder, int position) {
         Seasonal data = (Seasonal) getItem(position);
-        //Seasonal.VoiceAPI voice = data.getVoice();
+        //Seasonal.SubtitleAPI voice = data.getVoice();
         final String title = data.getTitle();
         holder.mTitle.setText(data.getTitle());
         holder.mSummary.setText(data.getSummary());

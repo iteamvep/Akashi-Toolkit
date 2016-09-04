@@ -15,6 +15,7 @@ import rikka.akashitoolkit.model.LatestAvatar;
 import rikka.akashitoolkit.model.ShipVoice;
 import rikka.akashitoolkit.model.Twitter;
 import rikka.akashitoolkit.model.Seasonal;
+import rikka.akashitoolkit.model.Version;
 
 /**
  * Created by Rikka on 2016/3/8.
@@ -58,10 +59,13 @@ public class RetrofitAPI {
                 @Query("api_version") int api_version);
     }
 
-    public interface VoiceAPI {
+    public interface SubtitleAPI {
         @GET("subtitle/detail/{shipId}")
-        Call<List<ShipVoice>> get(
+        Call<List<ShipVoice>> getDetail(
                 @Path("shipId") int shipId);
+
+        @GET("subtitles/version")
+        Call<Version> getVersion();
     }
 
 }

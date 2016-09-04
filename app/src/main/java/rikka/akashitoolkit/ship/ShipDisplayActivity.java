@@ -77,6 +77,7 @@ import rikka.akashitoolkit.staticdata.EquipList;
 import rikka.akashitoolkit.staticdata.ExtraIllustrationList;
 import rikka.akashitoolkit.staticdata.ShipClassList;
 import rikka.akashitoolkit.staticdata.ShipList;
+import rikka.akashitoolkit.staticdata.Subtitle;
 import rikka.akashitoolkit.support.MusicPlayer;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.StaticData;
@@ -88,6 +89,7 @@ import rikka.akashitoolkit.ui.widget.LinearLayoutManager;
 import rikka.akashitoolkit.utils.KCStringFormatter;
 import rikka.akashitoolkit.ui.widget.MyPasswordTransformationMethod;
 import rikka.akashitoolkit.ui.widget.MySpannableFactory;
+import rikka.akashitoolkit.utils.NetworkUtils;
 import rikka.akashitoolkit.utils.Utils;
 
 /**
@@ -313,49 +315,19 @@ public class ShipDisplayActivity extends BaseItemDisplayActivity implements View
             mRecyclerView.startAnimation(animation);
         }
 
-        cache_file = getCacheDir().getAbsolutePath() + "/json/voice/" + mItem.getId() + ".json";
-        File file = new File(cache_file);
-
-        if (file.exists()) {
-            try {
-                mAdapter.setData((List<ShipVoice>) new Gson().fromJson(
-                        new FileReader(cache_file),
-                        new TypeToken<ArrayList<ShipVoice>>() {
-                        }.getType()));
-
-                Log.d(getClass().getSimpleName(), "use cached file: " + cache_file);
-
-                // get new after 1 day
-                if (System.currentTimeMillis() - file.lastModified() > 60 * 60 * 24 * 1000L) {
-                    downloadVoiceList();
-                }
-            } catch (Exception ignored) {
-                downloadVoiceList();
-            }
-        } else {
-            downloadVoiceList();
-        }
-    }
-
-    private String cache_file;
-
-    private void downloadVoiceList() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://api.kcwiki.moe")
+                .client(NetworkUtils.getClient(Subtitle.shouldUseCache()))
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        RetrofitAPI.VoiceAPI service = retrofit.create(RetrofitAPI.VoiceAPI.class);
-        Call<List<ShipVoice>> call = service.get(mItem.getId());
+        RetrofitAPI.SubtitleAPI service = retrofit.create(RetrofitAPI.SubtitleAPI.class);
+        Call<List<ShipVoice>> call = service.getDetail(mItem.getId());
 
         call.enqueue(new Callback<List<ShipVoice>>() {
             @Override
             public void onResponse(Call<List<ShipVoice>> call, Response<List<ShipVoice>> response) {
                 mAdapter.setData(response.body());
-
-                Gson gson = new Gson();
-                Utils.saveStreamToFile(new ByteArrayInputStream(gson.toJson(response.body()).getBytes()),
-                        cache_file);
             }
 
             @Override

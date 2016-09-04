@@ -55,6 +55,11 @@ public class NetworkUtils {
                 .build();
     }
 
+    /**
+     * 返回一个强制使用缓存的 OkHttpClient
+     *
+     * @return OkHttpClient
+     */
     public static OkHttpClient getForceCacheClient() {
         return sForceCacheClient;
     }
@@ -63,6 +68,10 @@ public class NetworkUtils {
         return force_cache ? sForceCacheClient : sClient;
     }
 
+    /**
+     * 返回一个普通的 OkHttpClient
+     * @return OkHttpClient
+     */
     public static OkHttpClient getClient() {
         return sClient;
     }
