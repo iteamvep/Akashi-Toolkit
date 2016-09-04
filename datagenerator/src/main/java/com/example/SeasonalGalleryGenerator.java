@@ -24,17 +24,19 @@ public class SeasonalGalleryGenerator {
                 break;
             }
 
-            parse(galleryList, line);
+            if (!line.equals("<gallery>")) {
+                parse(galleryList, line);
+            }
         }
 
         print(galleryList);
     }
 
-    private static Pattern GALLERY_PATTERN = Pattern.compile("文件:([^\\|]+)\\|(.+)");
-    private static Pattern GALLERY_PATTERN2 = Pattern.compile("文件:([^\\|]+)");
+    private static Pattern GALLERY_PATTERN = Pattern.compile("([^\\|]+)\\|(.+)");
+    private static Pattern GALLERY_PATTERN2 = Pattern.compile("([^\\|]+)");
 
     public static void parse(List<Gallery> list, String line) {
-        Matcher m = GALLERY_PATTERN.matcher(line.replace("File:", "文件:"));
+        Matcher m = GALLERY_PATTERN.matcher(line/*.replace("File:", "文件:")*/);
 
         if (m.find()) {
             list.add(new Gallery(

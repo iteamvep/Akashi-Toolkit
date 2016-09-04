@@ -83,28 +83,7 @@ public class SettingActivity extends BaseActivity {
         @Nullable
         @Override
         public DividerDecoration onCreateItemDecoration() {
-            return new DefaultDividerDecoration() {
-                @Override
-                public boolean shouldDrawDividerAbove(View view, RecyclerView parent) {
-                    PreferenceViewHolder holder =
-                            (PreferenceViewHolder) parent.getChildViewHolder(view);
-
-                    boolean nextAllowed = false;
-                    int index = parent.indexOfChild(view);
-                    if (index < parent.getChildCount() - 1) {
-                        View nextView = parent.getChildAt(index + 1);
-                        PreferenceViewHolder nextHolder =
-                                (PreferenceViewHolder) parent.getChildViewHolder(nextView);
-                        nextAllowed = nextHolder.isDividerAllowedAbove();
-                    }
-                    return nextAllowed && !holder.isDividerAllowedAbove() && index != 0;
-                }
-
-                @Override
-                public boolean shouldDrawDividerBelow(View view, RecyclerView parent) {
-                    return false;
-                }
-            };
+            return new CategoryDivideDividerDecoration();
         }
 
         @Override

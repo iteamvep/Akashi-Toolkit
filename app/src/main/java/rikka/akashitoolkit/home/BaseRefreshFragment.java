@@ -74,10 +74,12 @@ public abstract class BaseRefreshFragment<T> extends Fragment implements IRefres
 
                 if (response.code() >= 400) {
                     onFailure(call, null);
+                    return;
                 }
 
                 if (response.body() == null) {
                     onFailure(call, null);
+                    return;
                 }
 
                 BaseRefreshFragment.this.onSuccess(response.body());
