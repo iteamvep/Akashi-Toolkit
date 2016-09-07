@@ -318,4 +318,10 @@ Activity &amp; Extra:
 
     <string name="share_by_image">Share by image</string>
     <string name="preview">Preview</string>
+
+    <string name="send_via_akashi_toolkit">via Akashi Toolkit</string>
+
+    <string name="share_no_footer">No footer sharing</string>
+    <string name="share_no_footer_summary">Do not add footer when sharing image</string>
+
 </resources>

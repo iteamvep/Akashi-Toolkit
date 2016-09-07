@@ -56,6 +56,8 @@ public class Settings {
 
     public static final String SUBTITLE_VERSION = "subtitle_version";
 
+    public static final String SHARE_NO_FOOTER = "share_no_footer";
+
     private static BaseSetting sInstance;
 
     public static synchronized BaseSetting instance(Context context) {

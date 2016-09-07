@@ -30,6 +30,7 @@ import java.io.IOException;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.model.Twitter;
+import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.ui.widget.MySpannableFactory;
 import rikka.akashitoolkit.utils.HtmlUtils;
 import rikka.akashitoolkit.utils.Utils;
@@ -100,6 +101,10 @@ public class TwitterShareDialogFragment extends DialogFragment implements Dialog
             holder.image.setVisibility(View.GONE);
         }
 
+        if (Settings.instance(getContext()).getBoolean(Settings.SHARE_NO_FOOTER, false)) {
+            holder.footer.setVisibility(View.GONE);
+        }
+
         view.measure(View.MeasureSpec.makeMeasureSpec(1000, View.MeasureSpec.EXACTLY), View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
         view.layout(0, 0, view.getMeasuredWidth(), view.getMeasuredHeight());
 
@@ -151,6 +156,7 @@ public class TwitterShareDialogFragment extends DialogFragment implements Dialog
         public final TextView translated;
         public final TextView time;
         public final ImageView image;
+        public final View footer;
 
         public ViewHolder(View itemView) {
             avatar = (ImageView) itemView.findViewById(R.id.image_twitter_avatar);
@@ -159,6 +165,7 @@ public class TwitterShareDialogFragment extends DialogFragment implements Dialog
             translated = (TextView) itemView.findViewById(R.id.text_twitter_content_translated);
             time = (TextView) itemView.findViewById(R.id.text_twitter_time);
             image = (ImageView) itemView.findViewById(R.id.image_twitter_content);
+            footer = itemView.findViewById(android.R.id.text2);
 
             content.setSpannableFactory(MySpannableFactory.getInstance());
             translated.setSpannableFactory(MySpannableFactory.getInstance());

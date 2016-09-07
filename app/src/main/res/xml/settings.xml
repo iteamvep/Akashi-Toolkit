@@ -119,6 +119,12 @@
             android:entryValues="@array/twitter_display_language_value"
             android:defaultValue="0"/>
 
+        <SwitchPreference
+            android:key="share_no_footer"
+            android:title="@string/share_no_footer"
+            android:summary="@string/share_no_footer_summary"
+            android:defaultValue="false"/>
+
     </PreferenceCategory>
 
     <!--<PreferenceCategory

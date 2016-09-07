@@ -298,4 +298,10 @@
 
     <string name="share_by_image">以图片分享</string>
     <string name="preview">预览</string>
+
+    <string name="send_via_akashi_toolkit">由明石工具箱发送</string>
+
+    <string name="share_no_footer">不要加入页脚</string>
+    <string name="share_no_footer_summary">在以图片分享时不要在加入页脚</string>
+
 </resources>
