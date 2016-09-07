@@ -8,31 +8,33 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import rikka.akashitoolkit.R;
+import rikka.akashitoolkit.model.Twitter;
 import rikka.akashitoolkit.utils.ClipBoardUtils;
-import rikka.akashitoolkit.utils.IntentUtils;
+import rikka.akashitoolkit.utils.HtmlUtils;
 
 /**
  * Created by Rikka on 2016/6/1.
  */
 public class TwitterMoreDialogFragment extends DialogFragment implements DialogInterface.OnClickListener {
-    private String text;
-    private String translate;
+
+    private Twitter data;
+    private String url;
 
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         Bundle bundle = getArguments();
-        text = bundle.getString("TEXT");
-        translate = bundle.getString("TRANSLATE");
+        data = bundle.getParcelable("DATA");
+        url = bundle.getString("URL");
 
         Context context = getActivity();
         AlertDialog.Builder builder = new AlertDialog.Builder(context, R.style.AppTheme_Dialog_Alert)
                 .setItems(new CharSequence[]{
                         getString(R.string.share),
+                        getString(R.string.share_by_image),
                         getString(R.string.copy_original_text),
                         getString(R.string.copy_translated_text)
                 }, this);
@@ -46,17 +48,26 @@ public class TwitterMoreDialogFragment extends DialogFragment implements DialogI
             case 0:
                 Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);
-                sendIntent.putExtra(Intent.EXTRA_TEXT, text);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, HtmlUtils.fromHtml(data.getJp()).toString());
                 sendIntent.setType("text/plain");
                 sendIntent = Intent.createChooser(sendIntent, "Share via");
                 startActivity(sendIntent);
                 break;
             case 1:
-                ClipBoardUtils.putTextIntoClipboard(getActivity(), text);
-                Toast.makeText(getActivity(), R.string.copied_to_clipboard, Toast.LENGTH_SHORT).show();
+                TwitterShareDialogFragment f = new TwitterShareDialogFragment();
+                Bundle bundle = new Bundle();
+                bundle.putParcelable("DATA", data);
+                bundle.putString("URL", url);
+                f.setArguments(bundle);
+
+                f.show(getFragmentManager(), "TwitterShareDialogFragment");
                 break;
             case 2:
-                ClipBoardUtils.putTextIntoClipboard(getActivity(), translate);
+                ClipBoardUtils.putTextIntoClipboard(getActivity(), HtmlUtils.fromHtml(data.getJp()).toString());
+                Toast.makeText(getActivity(), R.string.copied_to_clipboard, Toast.LENGTH_SHORT).show();
+                break;
+            case 3:
+                ClipBoardUtils.putTextIntoClipboard(getActivity(), HtmlUtils.fromHtml(data.getZh()).toString());
                 Toast.makeText(getActivity(), R.string.copied_to_clipboard, Toast.LENGTH_SHORT).show();
                 break;
         }

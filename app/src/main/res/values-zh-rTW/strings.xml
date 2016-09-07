@@ -295,4 +295,7 @@
     <string name="donate_alipay_thanks">有了提督君的支持，我会变得更好用的哟~</string>
     <string name="donate_alipay_not_installed">您没有安装支付宝客户端</string>
     <string name="donate_alipay_disabled">您的支付宝已被禁用</string>
+
+    <string name="share_by_image">以图片分享</string>
+    <string name="preview">预览</string>
 </resources>

@@ -278,11 +278,6 @@ public class TwitterFragment extends Fragment implements TwitterAdapter.Listener
         });
     }
 
-    private String cutString(String string, String a, String b) {
-        int len = string.length();
-        return string.substring(a.length(), len - b.length());
-    }
-
     @Subscribe
     public void preferenceChanged(PreferenceChangedAction action) {
         switch (action.getKey()) {
@@ -322,15 +317,15 @@ public class TwitterFragment extends Fragment implements TwitterAdapter.Listener
     }
 
     @Override
-    public void onMoreButtonClick(TwitterAdapter.ShareDataModel data) {
+    public void onMoreButtonClick(Twitter data) {
         TwitterMoreDialogFragment f = new TwitterMoreDialogFragment();
         Bundle bundle = new Bundle();
-        bundle.putString("TEXT", data.text);
-        bundle.putString("TRANSLATE", data.translated);
+        bundle.putParcelable("DATA", data);
+        bundle.putString("URL", mTwitterAdapter.getAvatarUrl());
         f.setArguments(bundle);
 
         f.setTargetFragment(this, 0);
-        f.show(getChildFragmentManager(), TAG);
+        f.show(getFragmentManager(), TAG);
     }
 
     @Override

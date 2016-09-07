@@ -35,30 +35,12 @@ public class TwitterAdapter extends BaseRecyclerAdapter<TwitterAdapter.ViewHolde
 
     private static final String TAG = "TwitterAdapter";
 
-    public static class ShareDataModel {
-        public String text;
-        public String translated;
-        public String url;
-        public String title;
-        public String date;
-
-        public ShareDataModel() {
-        }
-
-        public ShareDataModel(String text, String translated, String url, String title) {
-            this.text = text;
-            this.translated = translated;
-            this.url = url;
-            this.title = title;
-        }
-    }
-
     private int mMaxItem;
     private int mLanguage;
     private String mAvatarUrl;
 
     public interface Listener {
-        void onMoreButtonClick(ShareDataModel data);
+        void onMoreButtonClick(Twitter data);
 
         void onAvatarLongClick();
     }
@@ -67,6 +49,10 @@ public class TwitterAdapter extends BaseRecyclerAdapter<TwitterAdapter.ViewHolde
 
     public void setListener(Listener listener) {
         mListener = listener;
+    }
+
+    public String getAvatarUrl() {
+        return mAvatarUrl;
     }
 
     public void setAvatarUrl(String avatarUrl) {
@@ -114,9 +100,9 @@ public class TwitterAdapter extends BaseRecyclerAdapter<TwitterAdapter.ViewHolde
             }
         });
 
-        holder.mTvContent.setText(HtmlUtils.fromHtml(getItem(position).getJp().replace("<p>", "").replace("</p>", "")));
+        holder.mTvContent.setText(HtmlUtils.fromHtml(getItem(position).getJp()));
 
-        String translated = getItem(position).getZh().replace("<p>", "").replace("</p>", "");
+        String translated = getItem(position).getZh();
         if (TextUtils.isEmpty(translated)) {
             holder.mTvContentTranslated.setText(holder.mTvContentTranslated.getContext().getString(R.string.no_translated));
             holder.mTvContentTranslated.setEnabled(false);
@@ -158,15 +144,15 @@ public class TwitterAdapter extends BaseRecyclerAdapter<TwitterAdapter.ViewHolde
         holder.mMoreButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ShareDataModel shareData = new ShareDataModel();
+                /*ShareDataModel shareData = new ShareDataModel();
                 shareData.text = holder.mTvContent.getText().toString();
                 shareData.translated = holder.mTvContentTranslated.getText().toString();
                 shareData.url = mAvatarUrl;
                 shareData.date = holder.mTime.getText().toString();
-                shareData.title = "「艦これ」開発/運営";
+                shareData.title = "「艦これ」開発/運営";*/
 
                 if (mListener != null) {
-                    mListener.onMoreButtonClick(shareData);
+                    mListener.onMoreButtonClick(getItem(holder.getAdapterPosition()) /*shareData*/);
                 }
             }
         });

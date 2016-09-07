@@ -296,4 +296,7 @@
     <string name="donate_alipay_thanks">Thank you for your support</string>
     <string name="donate_alipay_not_installed">Alipay not installed</string>
     <string name="donate_alipay_disabled">Alipay disabled</string>
+
+    <string name="share_by_image">Share by image</string>
+    <string name="preview">Preview</string>
 </resources>
