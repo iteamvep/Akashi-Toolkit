@@ -79,7 +79,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ship.ShipDisplayActivity"
+            android:name=".ship.ShipDetailActivity"
             android:theme="@style/AppTheme.ItemActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>

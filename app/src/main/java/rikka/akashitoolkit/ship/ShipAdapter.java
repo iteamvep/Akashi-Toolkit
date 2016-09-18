@@ -323,13 +323,13 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
 
                     Ship item = (Ship) getItem(holder.getAdapterPosition());
 
-                    Intent intent = new Intent(v.getContext(), ShipDisplayActivity.class);
-                    intent.putExtra(ShipDisplayActivity.EXTRA_ITEM_ID, item.getId());
+                    Intent intent = new Intent(v.getContext(), ShipDetailActivity.class);
+                    intent.putExtra(ShipDetailActivity.EXTRA_ITEM_ID, item.getId());
 
                     int[] location = new int[2];
                     holder.itemView.getLocationOnScreen(location);
-                    intent.putExtra(ShipDisplayActivity.EXTRA_START_Y, location[1]);
-                    intent.putExtra(ShipDisplayActivity.EXTRA_START_HEIGHT, holder.itemView.getHeight());
+                    intent.putExtra(ShipDetailActivity.EXTRA_START_Y, location[1]);
+                    intent.putExtra(ShipDetailActivity.EXTRA_START_HEIGHT, holder.itemView.getHeight());
 
                     BaseItemDisplayActivity.start(mActivity, intent);
                 }

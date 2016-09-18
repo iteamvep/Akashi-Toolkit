@@ -15,7 +15,7 @@ import rikka.akashitoolkit.ui.BaseActivity;
 import rikka.akashitoolkit.equip.EquipDisplayActivity;
 import rikka.akashitoolkit.MainActivity;
 import rikka.akashitoolkit.map.MapActivity;
-import rikka.akashitoolkit.ship.ShipDisplayActivity;
+import rikka.akashitoolkit.ship.ShipDetailActivity;
 
 /**
  * Created by Rikka on 2016/5/3.
@@ -78,8 +78,8 @@ public class PushHandler {
             switch (activity) {
                 case "EquipDisplayActivity":
                     return new Intent(context, EquipDisplayActivity.class);
-                case "ShipDisplayActivity":
-                    return new Intent(context, ShipDisplayActivity.class);
+                case "ShipDetailActivity":
+                    return new Intent(context, ShipDetailActivity.class);
                 case "MapActivity":
                     return new Intent(context, MapActivity.class);
             }

@@ -140,9 +140,10 @@ public class MessageFragment extends BaseRefreshFragment<CheckUpdate> {
     }
 
     private void addUpdateCard(final CheckUpdate.UpdateEntity entity) {
-        if (BuildConfig.isGooglePlay) {
+        // TODO if republish at Play Store uncomment it
+        /*if (BuildConfig.isGooglePlay) {
             return;
-        }
+        }*/
 
         if (entity == null) {
             return;

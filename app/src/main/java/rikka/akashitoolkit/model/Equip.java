@@ -1,8 +1,5 @@
 package rikka.akashitoolkit.model;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
-
 import java.util.List;
 
 /**
@@ -12,7 +9,7 @@ public class Equip extends BaseDataModel {
     private MultiLanguageEntry name;
     private MultiLanguageEntry introduction;
     private String remark;
-    private AttrEntity attr;
+    private AttributeEntity attr;
     private int rarity;
     private int[] type;
     private int parent_type;
@@ -77,11 +74,11 @@ public class Equip extends BaseDataModel {
         this.remark = remark;
     }
 
-    public AttrEntity getAttr() {
+    public AttributeEntity getAttr() {
         return attr;
     }
 
-    public void setAttr(AttrEntity attr) {
+    public void setAttr(AttributeEntity attr) {
         this.attr = attr;
     }
 

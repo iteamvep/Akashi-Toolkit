@@ -13,12 +13,19 @@ import static rikka.akashitoolkit.support.ApiConstParam.Language.ZH_CN;
  * Created by Rikka on 2016/4/16.
  */
 public class MultiLanguageEntry {
+
+    private static Context sContext;
+
     private String zh_cn;
     private String ja;
 
     public MultiLanguageEntry() {
         zh_cn = "";
         ja = "";
+    }
+
+    public static void init(Context context) {
+        sContext = context;
     }
 
     public String get(Context context, boolean isTitle) {
@@ -29,6 +36,19 @@ public class MultiLanguageEntry {
         }
 
         return get(context);
+    }
+
+    /**
+     * 得到根据当前语言设置决定的文本
+     *
+     * @return 根据当前语言设置决定的文本
+     */
+    public String get() {
+        if (sContext == null) {
+            throw new RuntimeException("Call init(Context) in Application onCreate()");
+        }
+
+        return get(sContext);
     }
 
     public String get(Context context) {

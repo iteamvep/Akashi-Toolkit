@@ -100,7 +100,7 @@ public class Fleet {
         @Expose
         List<Equip> equips;
         rikka.akashitoolkit.model.Ship ship;
-        AttrEntity attr;
+        AttributeEntity attr;
         double[] aa;
         int[] slots;
 
@@ -136,11 +136,11 @@ public class Fleet {
             this.ship = ship;
         }
 
-        public AttrEntity getAttr() {
+        public AttributeEntity getAttr() {
             return attr;
         }
 
-        public void setAttr(AttrEntity attr) {
+        public void setAttr(AttributeEntity attr) {
             this.attr = attr;
         }
 
@@ -210,7 +210,6 @@ public class Fleet {
 
                 setEquip(equip);
 
-                // TODO check if ship can use this equip
                 if (!equip.isRankupable()) {
                     rank = 0;
                 }
@@ -300,7 +299,7 @@ public class Fleet {
          * 在内部数据发生变化事调用来重新计算
          */
         public void calc() {
-            setAttr(new AttrEntity());
+            setAttr(new AttributeEntity());
             setAttr(getShip().getAttr().plus(getShip().getAttrMax()));
 
             double aa = 0;

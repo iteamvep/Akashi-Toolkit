@@ -2,6 +2,7 @@ package rikka.akashitoolkit;
 
 import moe.xing.daynightmode.DayNightMode;
 import rikka.akashitoolkit.cache.DiskCacheProvider;
+import rikka.akashitoolkit.model.MultiLanguageEntry;
 import rikka.akashitoolkit.staticdata.EquipList;
 import rikka.akashitoolkit.staticdata.ShipList;
 import rikka.akashitoolkit.staticdata.Subtitle;
@@ -38,5 +39,8 @@ public class Application extends android.app.Application {
 
         NetworkUtils.init(this);
         Subtitle.init(this);
+        MultiLanguageEntry.init(this);
+
+        ShipList.init(this);
     }
 }

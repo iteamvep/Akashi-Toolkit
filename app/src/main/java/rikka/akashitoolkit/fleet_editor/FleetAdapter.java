@@ -14,12 +14,12 @@ import android.view.ViewGroup;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.BaseItemTouchHelperAdapter;
-import rikka.akashitoolkit.model.AttrEntity;
+import rikka.akashitoolkit.model.AttributeEntity;
 import rikka.akashitoolkit.model.Fleet;
 import rikka.akashitoolkit.model.Ship;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.ItemSelectAction;
-import rikka.akashitoolkit.ship.ShipDisplayActivity;
+import rikka.akashitoolkit.ship.ShipDetailActivity;
 import rikka.akashitoolkit.staticdata.ShipList;
 import rikka.akashitoolkit.ui.widget.EditTextAlertDialog;
 import rikka.akashitoolkit.ui.widget.ListBottomSheetDialog;
@@ -118,9 +118,9 @@ public class FleetAdapter extends BaseItemTouchHelperAdapter<FleetViewHolder, Fl
                 final Context context = holder.itemView.getContext();
                 switch (i) {
                     case 0:
-                        Intent intent = new Intent(context, ShipDisplayActivity.class);
-                        intent.putExtra(ShipDisplayActivity.EXTRA_ITEM_ID, getItem(position).getId());
-                        ShipDisplayActivity.start(context, intent);
+                        Intent intent = new Intent(context, ShipDetailActivity.class);
+                        intent.putExtra(ShipDetailActivity.EXTRA_ITEM_ID, getItem(position).getId());
+                        ShipDetailActivity.start(context, intent);
                         break;
                     case 1:
                         new EditTextAlertDialog.Builder(context, R.style.AppTheme_Dialog_Alert)
@@ -193,7 +193,7 @@ public class FleetAdapter extends BaseItemTouchHelperAdapter<FleetViewHolder, Fl
 
         Ship ship = ShipList.findItemById(context, item.getId());
 
-        AttrEntity attr = item.getAttr();
+        AttributeEntity attr = item.getAttr();
 
         StringBuilder sb = new StringBuilder();
         appendAttrString(context, sb, R.string.attr_firepower, attr.getFirepower());

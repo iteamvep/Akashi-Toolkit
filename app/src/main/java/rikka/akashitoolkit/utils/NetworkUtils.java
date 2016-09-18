@@ -4,6 +4,7 @@ import android.content.Context;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import okhttp3.Cache;
 import okhttp3.CacheControl;
@@ -18,6 +19,7 @@ public class NetworkUtils {
 
     private static Context sContext;
     private static OkHttpClient sForceCacheClient;
+    private static OkHttpClient sCacheClient;
     private static OkHttpClient sClient;
 
     public static void init(Context context) {
@@ -34,7 +36,21 @@ public class NetworkUtils {
                     public Response intercept(Chain chain) throws IOException {
                         return chain.proceed(chain.request()
                                 .newBuilder()
-                                .cacheControl(CacheControl.FORCE_CACHE)
+                                .cacheControl(new CacheControl.Builder().maxStale(Integer.MAX_VALUE, TimeUnit.SECONDS).build())
+                                .build());
+                    }
+                })
+                .build();
+
+        sCacheClient = new OkHttpClient
+                .Builder()
+                .cache(cache)
+                .addInterceptor(new Interceptor() {
+                    @Override
+                    public Response intercept(Chain chain) throws IOException {
+                        return chain.proceed(chain.request()
+                                .newBuilder()
+                                .cacheControl(new CacheControl.Builder().maxStale(1, TimeUnit.DAYS).build())
                                 .build());
                     }
                 })
@@ -56,12 +72,21 @@ public class NetworkUtils {
     }
 
     /**
-     * 返回一个强制使用缓存的 OkHttpClient
+     * 返回一个使用缓存的 OkHttpClient
      *
      * @return OkHttpClient
      */
     public static OkHttpClient getForceCacheClient() {
         return sForceCacheClient;
+    }
+
+    /**
+     * 返回一个使用最大一天缓存的 OkHttpClient
+     *
+     * @return OkHttpClient
+     */
+    public static OkHttpClient getCacheClient() {
+        return sCacheClient;
     }
 
     public static OkHttpClient getClient(boolean force_cache) {

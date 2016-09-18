@@ -193,7 +193,7 @@ public class FleetEditActivity extends AppCompatActivity {
                 } else {
                     mAdapter.notifyItemChanged(mCurrentEditingPosition);
                 }
-            } else { // TODO edit
+            } else {
                 mAdapter.getItem(mCurrentEditingPosition).setId(data.getIntExtra(EXTRA_ID, 1));
 
                 Log.d(TAG, "edit ship position: " + mCurrentEditingPosition

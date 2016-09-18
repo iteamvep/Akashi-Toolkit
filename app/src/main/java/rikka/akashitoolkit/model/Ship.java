@@ -3,7 +3,6 @@ package rikka.akashitoolkit.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -206,24 +205,24 @@ public class Ship extends BaseDataModel {
     }
 
     @Expose
-    private AttrEntity attr;
-    private AttrEntity attr_max;
-    private AttrEntity attr_99;
-    private AttrEntity attr_155;
+    private AttributeEntity attr;
+    private AttributeEntity attr_max;
+    private AttributeEntity attr_99;
+    private AttributeEntity attr_155;
 
-    public AttrEntity getAttr() {
+    public AttributeEntity getAttr() {
         return attr;
     }
 
-    public AttrEntity getAttrMax() {
+    public AttributeEntity getAttrMax() {
         return attr_max;
     }
 
-    public AttrEntity getAttr99() {
+    public AttributeEntity getAttr99() {
         return attr_99;
     }
 
-    public AttrEntity getAttr155() {
+    public AttributeEntity getAttr155() {
         return attr_155;
     }
 }

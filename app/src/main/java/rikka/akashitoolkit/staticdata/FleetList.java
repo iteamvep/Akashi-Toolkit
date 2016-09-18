@@ -1,7 +1,6 @@
 package rikka.akashitoolkit.staticdata;
 
 import android.content.Context;
-import android.text.TextUtils;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -11,9 +10,7 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import rikka.akashitoolkit.model.AttrEntity;
 import rikka.akashitoolkit.model.Fleet;
-import rikka.akashitoolkit.model.Ship;
 
 /**
  * Created by Rikka on 2016/7/29.

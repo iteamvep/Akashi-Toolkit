@@ -8,7 +8,7 @@ import android.text.style.URLSpan;
 import android.view.View;
 
 import rikka.akashitoolkit.equip.EquipDisplayActivity;
-import rikka.akashitoolkit.ship.ShipDisplayActivity;
+import rikka.akashitoolkit.ship.ShipDetailActivity;
 
 /**
  * Created by Rikka on 2016/4/6.
@@ -37,8 +37,8 @@ public class MyUrlSpan extends URLSpan {
                 intent = new Intent(widget.getContext(), EquipDisplayActivity.class);
                 intent.putExtra(EquipDisplayActivity.EXTRA_ITEM_ID, id);
             } else if (url.contains("ship/")) {
-                intent = new Intent(widget.getContext(), ShipDisplayActivity.class);
-                intent.putExtra(ShipDisplayActivity.EXTRA_ITEM_ID, id);
+                intent = new Intent(widget.getContext(), ShipDetailActivity.class);
+                intent.putExtra(ShipDetailActivity.EXTRA_ITEM_ID, id);
             }
             try {
                 context.startActivity(intent);

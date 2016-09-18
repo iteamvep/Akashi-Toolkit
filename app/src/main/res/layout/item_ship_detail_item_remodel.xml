@@ -2,15 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:app="http://schemas.android.com/apk/res-auto"
               xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="0dp"
+              android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:background="?attr/selectableItemBackground"
-              android:clickable="true"
-              android:focusable="true"
               android:orientation="horizontal"
               android:paddingLeft="@dimen/item_activity_margin"
-              android:paddingRight="@dimen/item_activity_margin"
-              tools:layout_width="match_parent">
+              android:paddingRight="@dimen/item_activity_margin">
 
     <TextView
         android:id="@android:id/title"
@@ -25,7 +22,7 @@
         tools:text="吹雪"/>
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@android:id/icon"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_gravity="center_vertical|end"

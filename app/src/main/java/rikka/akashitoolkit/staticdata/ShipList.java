@@ -20,7 +20,12 @@ import rikka.akashitoolkit.support.Settings;
 public class ShipList {
     private static final String FILE_NAME = "Ship.json";
 
+    private static Context sContext;
     private static List<Ship> sList;
+
+    public static void init(Context context) {
+        sContext = context;
+    }
 
     public static synchronized List<Ship> get(final Context context) {
         if (sList == null) {
@@ -186,12 +191,19 @@ public class ShipList {
         });
     }
 
+    public static Ship findItemById(int id) {
+        return findItemById(id, get(sContext));
+    }
 
     public static Ship findItemById(Context context, int id) {
         return findItemById(id, get(context));
     }
 
     public static Ship findItemById(int id, List<Ship> ships) {
+        if (id == 0) {
+            return null;
+        }
+
         for (Ship item : ships) {
             if (item.getId() == id) {
                 return item;

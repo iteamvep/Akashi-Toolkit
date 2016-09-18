@@ -1,6 +1,5 @@
 package rikka.akashitoolkit.adapter;
 
-import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -14,6 +13,7 @@ import rikka.akashitoolkit.viewholder.IBindViewHolder;
  * Created by Rikka on 2016/4/13.
  */
 public abstract class BaseRecyclerAdapter<VH extends RecyclerView.ViewHolder, T> extends RecyclerView.Adapter<VH> {
+
     private List<T> mData;
     private List<Long> mId;
     private List<Integer> mType;
@@ -62,6 +62,14 @@ public abstract class BaseRecyclerAdapter<VH extends RecyclerView.ViewHolder, T>
         }
 
         return mData.get(position);
+    }
+
+    final public void addItem(T data) {
+        addItem(0, data);
+    }
+
+    final public void addItem(int type, T data) {
+        addItem(RecyclerView.NO_ID, type, data);
     }
 
     final public void addItem(long id, int type, T data) {

@@ -47,7 +47,7 @@ import rikka.akashitoolkit.model.Equip;
 import rikka.akashitoolkit.model.EquipImprovement;
 import rikka.akashitoolkit.model.Ship;
 import rikka.akashitoolkit.model.ShipType;
-import rikka.akashitoolkit.ship.ShipDisplayActivity;
+import rikka.akashitoolkit.ship.ShipDetailActivity;
 import rikka.akashitoolkit.staticdata.EquipImprovementList;
 import rikka.akashitoolkit.staticdata.EquipList;
 import rikka.akashitoolkit.staticdata.EquipTypeList;
@@ -334,8 +334,8 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(EquipDisplayActivity.this, ShipDisplayActivity.class);
-                    intent.putExtra(ShipDisplayActivity.EXTRA_ITEM_ID, id);
+                    Intent intent = new Intent(EquipDisplayActivity.this, ShipDetailActivity.class);
+                    intent.putExtra(ShipDetailActivity.EXTRA_ITEM_ID, id);
                     startActivity(intent);
                 }
             });
@@ -523,7 +523,7 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(EquipDisplayActivity.this, EquipDisplayActivity.class);
-                intent.putExtra(ShipDisplayActivity.EXTRA_ITEM_ID, item.getId());
+                intent.putExtra(ShipDetailActivity.EXTRA_ITEM_ID, item.getId());
                 BaseItemDisplayActivity.start(EquipDisplayActivity.this, intent);
             }
         });
@@ -561,7 +561,7 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
                         @Override
                         public void onClick(View v) {
                             Intent intent = new Intent(EquipDisplayActivity.this, EquipDisplayActivity.class);
-                            intent.putExtra(ShipDisplayActivity.EXTRA_ITEM_ID, item.getId());
+                            intent.putExtra(ShipDetailActivity.EXTRA_ITEM_ID, item.getId());
                             startActivity(intent);
                         }
                     });

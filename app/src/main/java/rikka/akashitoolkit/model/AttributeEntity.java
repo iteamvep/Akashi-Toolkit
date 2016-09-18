@@ -1,9 +1,11 @@
 package rikka.akashitoolkit.model;
 
+import android.support.annotation.Nullable;
+
 /**
  * Created by Rikka on 2016/7/27.
  */
-public class AttrEntity {
+public class AttributeEntity {
 
     private int range;
     private int speed;
@@ -71,12 +73,12 @@ public class AttrEntity {
         return accuracy;
     }
 
-    public AttrEntity plus(AttrEntity o) {
+    public AttributeEntity plus(@Nullable AttributeEntity o) {
         if (o == null) {
             return this;
         }
 
-        AttrEntity n = new AttrEntity();
+        AttributeEntity n = new AttributeEntity();
 
         n.aa = aa + o.aa;
         n.armor = armor + o.aa;

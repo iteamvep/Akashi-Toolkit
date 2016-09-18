@@ -1,6 +1,7 @@
 package rikka.akashitoolkit.staticdata;
 
 import android.content.Context;
+import android.util.Log;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -21,14 +22,18 @@ import rikka.akashitoolkit.utils.NetworkUtils;
  */
 public class Subtitle {
 
-    private static boolean use_cache = true;
+    private static boolean use_cache;
+
+    public Subtitle() {
+        use_cache = true;
+    }
 
     public static void init(final Context context) {
         final String version = Settings.instance(context).getString(Settings.SUBTITLE_VERSION, "-1");
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://api.kcwiki.moe")
-                .client(NetworkUtils.getClient())
+                .client(NetworkUtils.getCacheClient())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -39,8 +44,9 @@ public class Subtitle {
             @Override
             public void onResponse(Call<Version> call, Response<Version> response) {
                 if (response.body() != null) {
-                    use_cache = !response.body().getVersion().equals(version);
+                    use_cache = response.body().getVersion().equals(version);
                     Settings.instance(context).putString(Settings.SUBTITLE_VERSION, response.body().getVersion());
+                    Log.d("Subtitle", "use cache: " + use_cache + " old: " + version + " new: " + response.body().getVersion());
                 }
             }
 

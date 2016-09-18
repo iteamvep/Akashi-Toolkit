@@ -26,32 +26,4 @@ public class VoiceAdapter extends BaseRecyclerAdapter<VoiceViewHolder, ShipVoice
     public VoiceViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return new VoiceViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_ship_voice, parent, false));
     }
-
-    @Override
-    public void onBindViewHolder(final VoiceViewHolder holder, int position) {
-        ShipVoice item = getItem(position);
-
-        holder.mScene.setText(item.getScene());
-        holder.mTextJa.setText(item.getJp());
-        holder.mTextZh.setText(item.getZh());
-
-        holder.mTextJa.setVisibility(Utils.isJapanese(holder.itemView.getContext()) ? View.GONE : View.VISIBLE);
-
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ShipVoice item = getItem(holder.getAdapterPosition());
-                String url = item.getUrl();
-                if (!url.startsWith("http")) {
-                    url = Utils.getKCWikiFileUrl(url);
-                }
-
-                try {
-                    MusicPlayer.play(url);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
 }

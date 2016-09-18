@@ -56,9 +56,9 @@ public class MessageAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHolder,
         mListener = listener;
     }
 
-    public void addItem(int type, Object object) {
+    /*public void addItem(int type, Object object) {
         addItem(type, object, -1);
-    }
+    }*/
 
     public void addItem(int type, Object object, int position) {
         if (position == -1) {
