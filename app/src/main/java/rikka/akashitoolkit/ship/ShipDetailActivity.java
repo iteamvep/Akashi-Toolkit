@@ -70,7 +70,6 @@ public class ShipDetailActivity extends BaseItemDisplayActivity {
     private RecyclerView mRecyclerView;
     private Ship mItem;
     private int mId;
-    private boolean mIsEnemy;
     private ShipDetailAdapter mAdapter;
 
     @Override
@@ -98,8 +97,6 @@ public class ShipDetailActivity extends BaseItemDisplayActivity {
             }
         }
 
-        mIsEnemy = id >= 500;
-
         setContentView(R.layout.activity_ship_display);
 
         mCoordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinatorLayout);
@@ -115,9 +112,10 @@ public class ShipDetailActivity extends BaseItemDisplayActivity {
                 }
             }
         });
-        setupAppbar();
 
         setItem(id, null);
+
+        setupAppbar();
 
         //mCoordinatorLayout.setBackgroundColor(ContextCompat.getColor(ShipDetailActivity.this, R.color.windowBackground));
         mRecyclerView.setBackgroundColor(ContextCompat.getColor(ShipDetailActivity.this, R.color.background));
@@ -252,7 +250,7 @@ public class ShipDetailActivity extends BaseItemDisplayActivity {
     }
 
     private void downloadShipVoice() {
-        if (mIsEnemy) {
+        if (mItem.isEnemy()) {
             return;
         }
 
@@ -283,7 +281,19 @@ public class ShipDetailActivity extends BaseItemDisplayActivity {
                     return;
                 }
 
-                int start = mAdapter.getItemCount();
+                int start;
+                for (start = 0; start < mAdapter.getItemCount(); start++) {
+                    if (mAdapter.getItemViewType(start) == ShipDetailAdapter.TYPE_VOICE) {
+                        break;
+                    }
+                }
+
+                for (int i = start; i < mAdapter.getItemCount(); i++) {
+                    mAdapter.removeItem(start);
+                    mAdapter.notifyItemRemoved(start);
+                }
+
+                start = mAdapter.getItemCount();
                 for (ShipVoice item : response.body()) {
                     mAdapter.addItem(ShipDetailAdapter.TYPE_VOICE, item);
                 }
@@ -318,7 +328,7 @@ public class ShipDetailActivity extends BaseItemDisplayActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        if (mIsEnemy) {
+        if (mItem.isEnemy()) {
             mToolbar.findViewById(android.R.id.icon).setVisibility(View.GONE);
             return;
         }
@@ -428,7 +438,7 @@ public class ShipDetailActivity extends BaseItemDisplayActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.ship_display, menu);
 
-        if (!mIsEnemy) {
+        if (!mItem.isEnemy()) {
             menu.findItem(R.id.action_bookmark).setIcon(
                     AppCompatDrawableManager.get().getDrawable(this, mItem.isBookmarked() ? R.drawable.ic_bookmark_24dp : R.drawable.ic_bookmark_border_24dp));
         } else {
