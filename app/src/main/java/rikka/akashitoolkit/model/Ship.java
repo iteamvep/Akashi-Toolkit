@@ -1,8 +1,5 @@
 package rikka.akashitoolkit.model;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
-
 import java.util.List;
 
 /**
@@ -137,11 +134,8 @@ public class Ship extends BaseDataModel {
     }
 
     public static class EquipEntity {
-        @Expose
         private int slots;
-        @Expose
         private int[] id;
-        @Expose
         private int[] space;
 
         public int getSlots() {
@@ -157,7 +151,6 @@ public class Ship extends BaseDataModel {
         }
     }
 
-    @Expose
     private RemodelEntity remodel;
 
     public RemodelEntity getRemodel() {
@@ -169,30 +162,34 @@ public class Ship extends BaseDataModel {
     }
 
     public static class RemodelEntity {
-        @Expose
-        @SerializedName("blueprint")
-        private boolean requireBlueprint;
-        @Expose
-        @SerializedName("from_id")
-        private int fromId;
-        @Expose
-        @SerializedName("to_id")
-        private int toId;
-        @Expose
+        private boolean blueprint;
+        private boolean catapult;
+        private int from_id;
+        private int to_id;
         private int level;
-        @Expose
         private int[] cost;
 
-        public boolean isRequireBlueprint() {
-            return requireBlueprint;
+        /**
+         * @return 是否需要“试制甲板用弹射器”
+         */
+        public boolean requireCatapult() {
+            return catapult;
+        }
+
+        /**
+         *
+         * @return 是否需要“改装设计图”
+         */
+        public boolean requireBlueprint() {
+            return blueprint;
         }
 
         public int getFromId() {
-            return fromId;
+            return from_id;
         }
 
         public int getToId() {
-            return toId;
+            return to_id;
         }
 
         public int getLevel() {
@@ -204,7 +201,6 @@ public class Ship extends BaseDataModel {
         }
     }
 
-    @Expose
     private AttributeEntity attr;
     private AttributeEntity attr_max;
     private AttributeEntity attr_99;
@@ -224,5 +220,78 @@ public class Ship extends BaseDataModel {
 
     public AttributeEntity getAttr155() {
         return attr_155;
+    }
+
+    public boolean isEnemy() {
+        return getId() >= 500;
+    }
+
+    private String painter;
+    private String cv;
+
+    public String getCV() {
+        return cv;
+    }
+
+    public String getPainter() {
+        return painter;
+    }
+
+    private GetEntity get;
+
+    public GetEntity getGet() {
+        return get;
+    }
+
+    public static class GetEntity {
+        private int drop;
+        private int remodel;
+        private int build;
+        private int build_time;
+
+        public int getDrop() {
+            return drop;
+        }
+
+        public void setDrop(int drop) {
+            this.drop = drop;
+        }
+
+        public int getRemodel() {
+            return remodel;
+        }
+
+        public void setRemodel(int remodel) {
+            this.remodel = remodel;
+        }
+
+        public int getBuild() {
+            return build;
+        }
+
+        public void setBuild(int build) {
+            this.build = build;
+        }
+
+        /**
+         * 得到建造时间 (分钟)
+         *
+         * @return 建造时间 (分钟)
+         */
+        public int getBuildTime() {
+            return build_time;
+        }
+
+        public void setBuildTime(int build_time) {
+            this.build_time = build_time;
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Ship{" +
+                "id=" + getId() + '\'' +
+                ", name=" + name.getZh_cn() +
+                '}';
     }
 }

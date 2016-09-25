@@ -1,22 +1,37 @@
 package com.example.model;
 
+import com.google.gson.annotations.Expose;
+
 /**
  * Created by Rikka on 2016/8/9.
  */
 public class AttrEntity {
 
+    @Expose
     private int range;
+    @Expose
     private int speed;
+    @Expose
     private int aa;
+    @Expose
     private int armor;
+    @Expose
     private int asw;
+    @Expose
     private int evasion;
+    @Expose
     private int fire;
+    @Expose
     private int hp;
+    @Expose
     private int luck;
+    @Expose
     private int los;
+    @Expose
     private int torpedo;
+    @Expose
     private int bomb;
+    @Expose
     private int accuracy;
 
     public int getRange() {
@@ -93,5 +108,57 @@ public class AttrEntity {
         //n.range = range > o.range ? range : o.range;
 
         return n;
+    }
+
+    public void setRange(int range) {
+        this.range = range;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
+
+    public void setAA(int aa) {
+        this.aa = aa;
+    }
+
+    public void setArmor(int armor) {
+        this.armor = armor;
+    }
+
+    public void setASW(int asw) {
+        this.asw = asw;
+    }
+
+    public void setEvasion(int evasion) {
+        this.evasion = evasion;
+    }
+
+    public void setFire(int fire) {
+        this.fire = fire;
+    }
+
+    public void setHP(int hp) {
+        this.hp = hp;
+    }
+
+    public void setLuck(int luck) {
+        this.luck = luck;
+    }
+
+    public void setLOS(int los) {
+        this.los = los;
+    }
+
+    public void setTorpedo(int torpedo) {
+        this.torpedo = torpedo;
+    }
+
+    public void setBombing(int bomb) {
+        this.bomb = bomb;
+    }
+
+    public void setAccuracy(int accuracy) {
+        this.accuracy = accuracy;
     }
 }

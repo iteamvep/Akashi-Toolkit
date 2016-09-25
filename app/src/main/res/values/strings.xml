@@ -271,6 +271,7 @@ Activity &amp; Extra:
     <string name="view_all_format">View all (%d more)</string>
 
     <string name="blueprint">Blueprint</string>
+    <string name="catapult">試製甲板カタパルト</string>
 
     <string name="ship_select">Ship select</string>
     <string name="equip_select">Equip select</string>
@@ -323,5 +324,10 @@ Activity &amp; Extra:
 
     <string name="share_no_footer">No footer sharing</string>
     <string name="share_no_footer_summary">Do not add footer when sharing image</string>
+
+    <string name="res_fuel">Fuel</string>
+    <string name="res_ammo">Ammo</string>
+    <string name="res_steel">Steel</string>
+    <string name="res_bauxite">Bauxite</string>
 
 </resources>

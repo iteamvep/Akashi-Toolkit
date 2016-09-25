@@ -18,7 +18,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import rikka.akashitoolkit.R;
-import rikka.akashitoolkit.equip.EquipDisplayActivity;
+import rikka.akashitoolkit.equip.EquipDetailActivity;
 import rikka.akashitoolkit.model.Equip;
 import rikka.akashitoolkit.model.EquipImprovement;
 import rikka.akashitoolkit.otto.BookmarkItemChanged;
@@ -98,14 +98,14 @@ public class EquipImprovementViewHolder extends RecyclerView.ViewHolder implemen
 
                 EquipImprovement item = mAdapter.getItem(getAdapterPosition()).data;
 
-                Intent intent = new Intent(v.getContext(), EquipDisplayActivity.class);
-                intent.putExtra(EquipDisplayActivity.EXTRA_ITEM_ID, item.getId());
+                Intent intent = new Intent(v.getContext(), EquipDetailActivity.class);
+                intent.putExtra(EquipDetailActivity.EXTRA_ITEM_ID, item.getId());
 
                 int[] location = new int[2];
                 itemView.getLocationOnScreen(location);
-                intent.putExtra(EquipDisplayActivity.EXTRA_START_Y, location[1]);
-                intent.putExtra(EquipDisplayActivity.EXTRA_START_HEIGHT, itemView.getHeight());
-                intent.putExtra(EquipDisplayActivity.EXTRA_EQUIP_IMPROVE_ID, item.getId());
+                intent.putExtra(EquipDetailActivity.EXTRA_START_Y, location[1]);
+                intent.putExtra(EquipDetailActivity.EXTRA_START_HEIGHT, itemView.getHeight());
+                intent.putExtra(EquipDetailActivity.EXTRA_EQUIP_IMPROVE_ID, item.getId());
 
                 BaseItemDisplayActivity.start(context, intent);
             }

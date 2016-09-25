@@ -251,6 +251,7 @@
     <string name="view_all_format">查看全部 (和其他 %d 个)</string>
 
     <string name="blueprint">改裝設計圖</string>
+    <string name="catapult">试制甲板用弹射器</string>
 
     <string name="fleet_fp">制空</string>
 
@@ -304,4 +305,8 @@
     <string name="share_no_footer">不要加入页脚</string>
     <string name="share_no_footer_summary">在以图片分享时不要在加入页脚</string>
 
+    <string name="res_fuel">燃料</string>
+    <string name="res_ammo">弹药</string>
+    <string name="res_steel">钢铁</string>
+    <string name="res_bauxite">铝</string>
 </resources>

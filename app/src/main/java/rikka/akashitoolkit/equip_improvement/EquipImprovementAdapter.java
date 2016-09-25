@@ -2,8 +2,6 @@ package rikka.akashitoolkit.equip_improvement;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,18 +13,13 @@ import java.util.Map;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.BaseBookmarkRecyclerAdapter;
-import rikka.akashitoolkit.equip.EquipDisplayActivity;
 import rikka.akashitoolkit.model.Equip;
 import rikka.akashitoolkit.model.EquipImprovement;
 import rikka.akashitoolkit.model.Ship;
-import rikka.akashitoolkit.otto.BookmarkItemChanged;
-import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.staticdata.EquipImprovementList;
 import rikka.akashitoolkit.staticdata.EquipList;
-import rikka.akashitoolkit.staticdata.EquipTypeList;
 import rikka.akashitoolkit.staticdata.ShipList;
 import rikka.akashitoolkit.support.Settings;
-import rikka.akashitoolkit.ui.BaseItemDisplayActivity;
 
 /**
  * Created by Rikka on 2016/3/17.

@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import rikka.akashitoolkit.R;
-import rikka.akashitoolkit.equip.EquipDisplayActivity;
+import rikka.akashitoolkit.equip.EquipDetailActivity;
 import rikka.akashitoolkit.model.Equip;
 import rikka.akashitoolkit.model.Ship;
 import rikka.akashitoolkit.staticdata.EquipList;
@@ -75,8 +75,8 @@ public class ShipDetailEquipsViewHolder extends RecyclerView.ViewHolder implemen
                     holder.itemView.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent intent = new Intent(itemView.getContext(), EquipDisplayActivity.class);
-                            intent.putExtra(EquipDisplayActivity.EXTRA_ITEM_ID, item.getId());
+                            Intent intent = new Intent(itemView.getContext(), EquipDetailActivity.class);
+                            intent.putExtra(EquipDetailActivity.EXTRA_ITEM_ID, item.getId());
                             BaseItemDisplayActivity.start(itemView.getContext(), intent);
                         }
                     });
@@ -86,7 +86,13 @@ public class ShipDetailEquipsViewHolder extends RecyclerView.ViewHolder implemen
                 holder.mTitle.setEnabled(false);
             }
 
-            holder.mContent.setText(Integer.toString(mEquipEntity.getSpace()[position]));
+            if (mEquipEntity.getSpace()[position] <= 0) {
+                holder.mContent.setText("0");
+                holder.mContent.setEnabled(false);
+            } else {
+                holder.mContent.setText(Integer.toString(mEquipEntity.getSpace()[position]));
+                holder.mContent.setEnabled(true);
+            }
         }
 
         @Override

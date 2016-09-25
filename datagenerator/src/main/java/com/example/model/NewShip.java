@@ -75,7 +75,7 @@ public class NewShip {
     }
 
     private int after_lv;
-    private String after_ship_id;
+    private int after_ship_id;
     private String get_mes;
     private int voice_f;
     private String filename;
@@ -169,11 +169,11 @@ public class NewShip {
         this.after_lv = after_lv;
     }
 
-    public String getAfter_ship_id() {
+    public int getAfter_ship_id() {
         return after_ship_id;
     }
 
-    public void setAfter_ship_id(String after_ship_id) {
+    public void setAfter_ship_id(int after_ship_id) {
         this.after_ship_id = after_ship_id;
     }
 
@@ -686,8 +686,8 @@ public class NewShip {
         @SerializedName("tyku") private List<Integer> aa;
         private List<Integer> luck;
         private List<Integer> max_eq;
-        private List<Integer> broken;
-        private List<Integer> pow_up;
+        private int[] broken;
+        private int[] pow_up;
 
         public int getSpeed() {
             return speed;
@@ -825,19 +825,19 @@ public class NewShip {
             this.max_eq = max_eq;
         }
 
-        public List<Integer> getBroken() {
+        public int[] getBroken() {
             return broken;
         }
 
-        public void setBroken(List<Integer> broken) {
+        public void setBroken(int[] broken) {
             this.broken = broken;
         }
 
-        public List<Integer> getPow_up() {
+        public int[] getPow_up() {
             return pow_up;
         }
 
-        public void setPow_up(List<Integer> pow_up) {
+        public void setPow_up(int[] pow_up) {
             this.pow_up = pow_up;
         }
     }

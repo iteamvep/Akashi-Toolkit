@@ -7,7 +7,7 @@ import java.io.IOException;
  */
 public class Main {
     public static void main(String[] args) throws IOException {
-        ShipGenerator.main(null);
+        ShipGeneratorOld.main(null);
         EquipGenerator.main(null);
         QuestGenerator.main(null);
     }

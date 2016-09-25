@@ -219,7 +219,7 @@ public class ShipDetailActivity extends BaseItemDisplayActivity {
                         setToolbarTitle();
                     }
 
-                    mAdapter.setItem(mItem);
+                    mAdapter.setItem(ShipDetailActivity.this, mItem);
 
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                         animateRevealColorFromCoordinates(mCoordinatorLayout, R.color.background, location[0], location[1], FADE_OUT, true);

@@ -89,6 +89,12 @@ public class NetworkUtils {
         return sCacheClient;
     }
 
+    /**
+     * 返回一个使用缓存的 OkHttpClient 或是普通的 OkHttpClient
+     *
+     * @param force_cache 是否使用缓存
+     * @return OkHttpClient
+     */
     public static OkHttpClient getClient(boolean force_cache) {
         return force_cache ? sForceCacheClient : sClient;
     }

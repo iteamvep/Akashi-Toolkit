@@ -11,8 +11,8 @@ import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.ContextCompat;
 
 import rikka.akashitoolkit.R;
+import rikka.akashitoolkit.equip.EquipDetailActivity;
 import rikka.akashitoolkit.ui.BaseActivity;
-import rikka.akashitoolkit.equip.EquipDisplayActivity;
 import rikka.akashitoolkit.MainActivity;
 import rikka.akashitoolkit.map.MapActivity;
 import rikka.akashitoolkit.ship.ShipDetailActivity;
@@ -76,8 +76,8 @@ public class PushHandler {
         Intent intent;
         if (activity != null) {
             switch (activity) {
-                case "EquipDisplayActivity":
-                    return new Intent(context, EquipDisplayActivity.class);
+                case "EquipDetailActivity":
+                    return new Intent(context, EquipDetailActivity.class);
                 case "ShipDetailActivity":
                     return new Intent(context, ShipDetailActivity.class);
                 case "MapActivity":

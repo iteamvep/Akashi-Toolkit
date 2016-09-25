@@ -3,6 +3,7 @@ package rikka.akashitoolkit.gallery;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.ColorInt;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
@@ -10,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -19,6 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import rikka.akashitoolkit.R;
+import rikka.akashitoolkit.utils.Utils;
 
 /**
  * Created by Rikka on 2016/7/15.
@@ -34,6 +37,10 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHold
     private int mImagePadding;
     private Drawable mItemBackground;
 
+    private int mImageWidth;
+    private int mImageHeight;
+    private ImageView.ScaleType mImageScaleType;
+
     public GalleryAdapter() {
         this(R.layout.item_illustrations);
 
@@ -46,9 +53,12 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHold
         mPlaceholder = new ColorDrawable(Color.parseColor("#00000000"));
 
         setHasStableIds(true);
+
+        mImageWidth = mImageHeight = -1;
+        mImageScaleType = null;
     }
 
-    public void setItemBackgroundColor(int color) {
+    public void setItemBackgroundColor(@ColorInt int color) {
         mItemBackground = new ColorDrawable(color);
     }
 
@@ -75,6 +85,18 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHold
 
     public void setImagePadding(int imagePadding) {
         mImagePadding = imagePadding;
+    }
+
+    public void setImageWidth(int imageWidth) {
+        mImageWidth = imageWidth;
+    }
+
+    public void setImageHeight(int imageHeight) {
+        mImageHeight = imageHeight;
+    }
+
+    public void setImageScaleType(ImageView.ScaleType imageScaleType) {
+        mImageScaleType = imageScaleType;
     }
 
     @Override
@@ -107,6 +129,14 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHold
                 onItemClicked(v, mUrls, holder.getLayoutPosition());
             }
         });
+
+        if (mImageWidth != -1 && mImageHeight != -1) {
+            holder.mImageView.setLayoutParams(new LinearLayout.LayoutParams(mImageWidth, mImageHeight));
+        }
+
+        if (mImageScaleType != null) {
+            holder.mImageView.setScaleType(mImageScaleType);
+        }
 
         if (holder.mTitle != null) {
             if (mNames != null) {

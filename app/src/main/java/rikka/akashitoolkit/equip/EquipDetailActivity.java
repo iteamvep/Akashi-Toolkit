@@ -61,7 +61,7 @@ import rikka.akashitoolkit.tools.SendReportActivity;
 import rikka.akashitoolkit.utils.KCStringFormatter;
 import rikka.akashitoolkit.utils.Utils;
 
-public class EquipDisplayActivity extends BaseItemDisplayActivity {
+public class EquipDetailActivity extends BaseItemDisplayActivity {
     public static final String EXTRA_ITEM_ID = "EXTRA_ITEM_ID";
     public static final String EXTRA_EQUIP_IMPROVE_ID = "EXTRA_EQUIP_IMPROVE_ID";
 
@@ -77,8 +77,8 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
     private Toast mToast;
 
     public static Intent intent(Context context, int id) {
-        Intent intent = new Intent(context, EquipDisplayActivity.class);
-        intent.putExtra(EquipDisplayActivity.EXTRA_ITEM_ID, id);
+        Intent intent = new Intent(context, EquipDetailActivity.class);
+        intent.putExtra(EquipDetailActivity.EXTRA_ITEM_ID, id);
         return intent;
     }
 
@@ -120,7 +120,7 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
 
         mItem = EquipList.findItemById(this, id);
         if (mItem == null) {
-            Log.d("EquipDisplayActivity", "No item find? id=" + Integer.toString(id));
+            Log.d("EquipDetailActivity", "No item find? id=" + Integer.toString(id));
             finish();
             return;
         }
@@ -334,7 +334,7 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(EquipDisplayActivity.this, ShipDetailActivity.class);
+                    Intent intent = new Intent(EquipDetailActivity.this, ShipDetailActivity.class);
                     intent.putExtra(ShipDetailActivity.EXTRA_ITEM_ID, id);
                     startActivity(intent);
                 }
@@ -522,9 +522,9 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
         ((View) linearLayout.findViewById(R.id.text_number_0).getParent()).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(EquipDisplayActivity.this, EquipDisplayActivity.class);
+                Intent intent = new Intent(EquipDetailActivity.this, EquipDetailActivity.class);
                 intent.putExtra(ShipDetailActivity.EXTRA_ITEM_ID, item.getId());
-                BaseItemDisplayActivity.start(EquipDisplayActivity.this, intent);
+                BaseItemDisplayActivity.start(EquipDetailActivity.this, intent);
             }
         });
 
@@ -560,7 +560,7 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
                     ((View) linearLayout.findViewById(R.id.text_number_2).getParent()).setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent intent = new Intent(EquipDisplayActivity.this, EquipDisplayActivity.class);
+                            Intent intent = new Intent(EquipDetailActivity.this, EquipDetailActivity.class);
                             intent.putExtra(ShipDetailActivity.EXTRA_ITEM_ID, item.getId());
                             startActivity(intent);
                         }
@@ -568,7 +568,7 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
 
                     EquipTypeList.setIntoImageView((ImageView) linearLayout.findViewById(R.id.imageView), item.getIcon());
                 } else {
-                    Log.d("EquipDisplayActivity", "Equip not found: " + res[5]);
+                    Log.d("EquipDetailActivity", "Equip not found: " + res[5]);
                 }
             } else {
                 linearLayout.findViewById(R.id.linearLayout).setVisibility(View.GONE);
@@ -627,16 +627,16 @@ public class EquipDisplayActivity extends BaseItemDisplayActivity {
 
         cell.setVisibility(View.VISIBLE);
 
-        ((TextView) cell.findViewById(R.id.textView)).setText(title);
+        ((TextView) cell.findViewById(android.R.id.title)).setText(title);
 
         if (title == R.string.attr_range) {
-            ((TextView) cell.findViewById(R.id.textView2)).setText(KCStringFormatter.getRange(cell.getContext(), value));
+            ((TextView) cell.findViewById(android.R.id.content)).setText(KCStringFormatter.getRange(cell.getContext(), value));
         } else if (title == R.string.attr_range_aircraft) {
-            ((TextView) cell.findViewById(R.id.textView2)).setText(String.format("%d", value));
+            ((TextView) cell.findViewById(android.R.id.content)).setText(String.format("%d", value));
         } else {
-            ((TextView) cell.findViewById(R.id.textView2)).setText(String.format("%s%d", value > 0 ? "+" : "", value));
+            ((TextView) cell.findViewById(android.R.id.content)).setText(String.format("%s%d", value > 0 ? "+" : "", value));
             if (value < 0)
-                ((TextView) cell.findViewById(R.id.textView2)).setTextColor(ContextCompat.getColor(this, R.color.material_red_300));
+                ((TextView) cell.findViewById(android.R.id.content)).setTextColor(ContextCompat.getColor(this, R.color.material_red_300));
         }
 
         if (attr % 2 == 0) {

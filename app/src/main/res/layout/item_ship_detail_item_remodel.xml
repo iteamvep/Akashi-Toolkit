@@ -17,8 +17,8 @@
         android:layout_weight="1"
         android:gravity="center_vertical"
         android:maxWidth="0dp"
-        android:singleLine="true"
         android:textSize="16sp"
+        android:maxLines="1"
         tools:text="吹雪"/>
 
     <ImageView

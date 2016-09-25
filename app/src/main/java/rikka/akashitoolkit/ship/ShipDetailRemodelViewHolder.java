@@ -1,7 +1,5 @@
 package rikka.akashitoolkit.ship;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.Typeface;
@@ -101,8 +99,9 @@ public class ShipDetailRemodelViewHolder extends RecyclerView.ViewHolder impleme
             Ship prev = ShipList.findItemById(cur.getRemodel().getFromId());
             if (prev != null) {
                 Ship.RemodelEntity remodel = prev.getRemodel();
-                boolean can_back = remodel.getFromId() != 0 && remodel.getFromId() == remodel.getToId();
-                mList.add(new Adapter.Data(cur.getId(), cur, remodel.getLevel(), can_back, remodel.isRequireBlueprint(), false));
+                Ship next = ShipList.findItemById(cur.getRemodel().getToId());
+                boolean can_back = next != null && next.getRemodel().getToId() != 0 && next.getRemodel().getFromId() == next.getRemodel().getToId();
+                mList.add(new Adapter.Data(cur.getId(), cur, remodel.getLevel(), can_back, remodel.requireBlueprint(), remodel.requireCatapult()));
                 mSpanSizeList.add(1);
             }
 
@@ -126,15 +125,15 @@ public class ShipDetailRemodelViewHolder extends RecyclerView.ViewHolder impleme
             public int level;
             public boolean can_back;
             public boolean blueprint;
-            public boolean deck;
+            public boolean catapult;
 
-            public Data(int id, Ship ship, int level, boolean can_back, boolean blueprint, boolean deck) {
+            public Data(int id, Ship ship, int level, boolean can_back, boolean blueprint, boolean catapult) {
                 this.id = id;
                 this.ship = ship;
                 this.level = level;
                 this.can_back = can_back;
                 this.blueprint = blueprint;
-                this.deck = deck;
+                this.catapult = catapult;
             }
         }
 
@@ -191,6 +190,9 @@ public class ShipDetailRemodelViewHolder extends RecyclerView.ViewHolder impleme
                 sb.append(" (").append(data.level);
                 if (data.blueprint) {
                     sb.append(" + ").append(holder.itemView.getContext().getString(R.string.blueprint));
+                }
+                if (data.catapult) {
+                    sb.append(" + ").append(holder.itemView.getContext().getString(R.string.catapult));
                 }
                 sb.append(")");
             }

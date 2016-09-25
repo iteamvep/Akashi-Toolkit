@@ -14,9 +14,9 @@
         android:gravity="center_vertical"
         android:paddingLeft="@dimen/item_activity_margin"
         android:paddingRight="@dimen/item_activity_margin"
-        android:singleLine="true"
         android:textSize="@dimen/card_font_large"
-        tools:text="21号电探改二"/>
+        tools:text="21号电探改二"
+        android:maxLines="1"/>
 
     <TextView
         android:id="@android:id/content"

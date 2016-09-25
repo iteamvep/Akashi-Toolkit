@@ -7,7 +7,7 @@ import android.text.TextPaint;
 import android.text.style.URLSpan;
 import android.view.View;
 
-import rikka.akashitoolkit.equip.EquipDisplayActivity;
+import rikka.akashitoolkit.equip.EquipDetailActivity;
 import rikka.akashitoolkit.ship.ShipDetailActivity;
 
 /**
@@ -34,8 +34,8 @@ public class MyUrlSpan extends URLSpan {
             Intent intent = null;
             int id = Integer.parseInt(url.split("/")[3]);
             if (url.contains("equip/")) {
-                intent = new Intent(widget.getContext(), EquipDisplayActivity.class);
-                intent.putExtra(EquipDisplayActivity.EXTRA_ITEM_ID, id);
+                intent = new Intent(widget.getContext(), EquipDetailActivity.class);
+                intent.putExtra(EquipDetailActivity.EXTRA_ITEM_ID, id);
             } else if (url.contains("ship/")) {
                 intent = new Intent(widget.getContext(), ShipDetailActivity.class);
                 intent.putExtra(ShipDetailActivity.EXTRA_ITEM_ID, id);

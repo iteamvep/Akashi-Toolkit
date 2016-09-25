@@ -129,15 +129,21 @@ public class TwitterFragment extends Fragment implements TwitterAdapter.Listener
         });
         mSwipeRefreshLayout.setColorSchemeColors(ContextCompat.getColor(getActivity(), R.color.colorAccent));
 
+        mSwipeRefreshLayout.post(new Runnable() {
+            @Override
+            public void run() {
+                refresh(true);
+            }
+        });
+
         if (savedInstanceState == null) {
-            mSwipeRefreshLayout.post(new Runnable() {
+            mSwipeRefreshLayout.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     refresh(false);
                 }
-            });
+            }, 500);
         }
-
         /*if (!isHiddenBeforeSaveInstanceState()) {
             onShow();
         }*/

@@ -1,9 +1,10 @@
 package com.example;
 
-import com.example.list.ShipForm;
-import com.example.model.MultiLanguageEntry;
+import com.example.model.AttrEntity;
 import com.example.model.NewShip;
+import com.example.model.Ship2;
 import com.example.model.ShipClass;
+import com.example.model.Start2;
 import com.example.network.RetrofitAPI;
 import com.example.utils.TextUtils;
 import com.example.utils.WanaKanaJava;
@@ -13,227 +14,252 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.Reader;
+import java.io.StringReader;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
+import okhttp3.ResponseBody;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 import static com.example.utils.Utils.objectToJsonFile;
-import static com.example.list.ShipForm.*;
 
 /**
- * Created by Rikka on 2016/6/28.
+ * Created by Rikka on 2016/9/17.
  */
 public class ShipGenerator {
     private static WanaKanaJava wkj = new WanaKanaJava(false);
+    private static Start2 start2;
+    private static List<ShipClass> shipClassList = new ArrayList<>();
+
+    static {
+        try {
+            start2 = new Gson().fromJson(new FileReader("datagenerator/api_start2.json"), Start2.class);
+        } catch (FileNotFoundException ignored) {
+        }
+    }
 
     public static void main(String[] args) throws IOException {
-        List<NewShip> list = getShipList();
+        for (Ship2 ship : getList()) {
+            NewShip apiShip = getAPIShip(ship.getId());
 
-        for (NewShip item : list) {
-            item.setName(new MultiLanguageEntry());
-            item.getName().setJa(item.getNameJP());
-            item.getName().setZh_cn(item.getNameCN());
+            ship.getName().setJa(ship.get日文名());
+            ship.getName().setZh_cn(ship.get中文名());
+            ship.setNameForSearch(getNameForSearch(ship));
 
-            if (item.getStats().getFirepower() != null) {
-                NewShip.AttrEntity attr = item.getAttr();
-                NewShip.AttrEntityMax attr_max = item.getAttrMax();
+            ship.setClassNum(apiShip.getClassNum());
+            ship.setClassType(apiShip.getClassType());
 
-                attr.setArmor(item.getStats().getArmor().get(0));
-                attr_max.setArmor(item.getStats().getArmor().get(1) - item.getStats().getArmor().get(0));
+            ship.setRarity(ship.get数据().get稀有度());
+            ship.setBuildTime(ship.get获得().getBuildTime());
 
-                attr.setFirepower(item.getStats().getFirepower().get(0));
-                attr_max.setFirepower(item.getStats().getFirepower().get(1) - item.getStats().getFirepower().get(1));
+            ship.setBrokenResources(new int[]{ship.get解体().get燃料(), ship.get解体().get弹药(), ship.get解体().get铝(), ship.get解体().get铝()});
+            ship.setModernizationBonus(new int[]{ship.get改修().get火力(), ship.get改修().get雷装(), ship.get改修().get对空(), ship.get改修().get装甲()});
 
-                attr.setTorpedo(item.getStats().getTorpedo().get(0));
-                attr_max.setTorpedo(item.getStats().getTorpedo().get(1) - item.getStats().getTorpedo().get(0));
+            ship.setResourceConsume(new int[]{ship.get消耗().get燃料(), ship.get消耗().get弹药()});
 
-                attr.setAA(item.getStats().getAA().get(0));
-                attr_max.setAA(item.getStats().getAA().get(1) - item.getStats().getAA().get(0));
+            AttrEntity attr;
+            attr = new AttrEntity();
+            ship.setAttr(attr);
+            attr.setHP(ship.get数据().get耐久().get(0));
+            attr.setAA(ship.get数据().get对空().get(0));
+            attr.setArmor(ship.get数据().get装甲().get(0));
+            attr.setASW(ship.get数据().get对潜().get(0));
+            attr.setEvasion(ship.get数据().get回避().get(0));
+            attr.setFire(ship.get数据().get火力().get(0));
+            attr.setLOS(ship.get数据().get索敌().get(0));
+            attr.setLuck(ship.get数据().get运().get(0));
+            attr.setTorpedo(ship.get数据().get雷装().get(0));
+            attr.setRange(ship.get数据().get射程());
+            attr.setSpeed(ship.get数据().get速力());
 
-                attr.setLuck(item.getStats().getLuck().get(0));
-                attr_max.setLuck(item.getStats().getLuck().get(1) - item.getStats().getLuck().get(0));
+            attr = new AttrEntity();
+            ship.setAttr_max(attr);
 
-                attr.setSpeed(item.getStats().getSpeed());
-                attr.setRange(item.getStats().getRange());
-            }
+            attr.setAA(ship.get数据().get耐久().get(1) - ship.get数据().get耐久().get(0));
+            attr.setAA(ship.get数据().get对空().get(1) - ship.get数据().get对空().get(0));
+            attr.setArmor(ship.get数据().get装甲().get(1) - ship.get数据().get装甲().get(0));
+            attr.setFire(ship.get数据().get火力().get(1) - ship.get数据().get火力().get(0));
+            attr.setTorpedo(ship.get数据().get雷装().get(1) - ship.get数据().get雷装().get(0));
+            attr.setLuck(ship.get数据().get运().get(1) - ship.get数据().get运().get(0));
 
-            //System.out.println(item.getStats() + "  " + item.getStats().getFirepower());
+            attr = new AttrEntity();
+            ship.setAttr_99(attr);
 
-            item.setNameForSearch(getNameForSearch(item));
+            attr.setASW(ship.get数据().get对潜().get(1) - ship.get数据().get对潜().get(0));
+            attr.setEvasion(ship.get数据().get回避().get(1) - ship.get数据().get回避().get(0));
+            attr.setLOS(ship.get数据().get索敌().get(1) - ship.get数据().get索敌().get(0));
+
+            Ship2.RemodelEntity remodel = new Ship2.RemodelEntity();
+            remodel.setToId(apiShip.getAfter_ship_id());
+            remodel.setLevel(apiShip.getAfter_lv());
+            remodel.setCost(new int[]{ship.getAfter_bull(), ship.getAfter_fuel()});
+            ship.setRemodel(remodel);
         }
 
-        // 不要名字为空或者带有“纪念日”的
-        List<NewShip> list2 = list
-                .stream()
-                .filter(item -> !TextUtils.isEmpty(item.getNameJP()) && !item.getNameJP().contains("記念日") && !item.getNameJP().contains("梅雨") && !item.getNameJP().contains("携帯"))
-                .collect(Collectors.toList());
+        for (Ship2 ship : getList()) {
+            for (Start2.ApiMstShipupgradeEntity entity : start2.getApi_mst_shipupgrade()) {
+                if (entity.getApi_current_ship_id() == ship.getId()) {
+                    if (entity.getApi_drawing_count() >= 1) {
+                        ship.getRemodel().setRequireBlueprint(true);
+                    }
 
-        for (NewShip item : list2) {
-            int[] row = ShipForm.getIntRowById(item.getId());
-            String[] row_string = ShipForm.getRowById(item.getId());
+                    if (entity.getApi_catapult_count() >= 1) {
+                        ship.getRemodel().setCatapult(true);
+                    }
+                }
+            }
 
-            if (row == null) {
-                System.out.println("表格中不存在 " + item.getNameJP() + " " + item.getId());
+            if (ship.getRemodel().getToId() == 0) {
                 continue;
             }
 
-            // 不是敌舰
-            if (item.getId() < 500) {
-                item.setBuildTime(item.getStats().getBuild_time());
-                item.setBrokenResources(item.getStats().getBroken().stream().mapToInt(i->i).toArray());
-                item.setModernizationBonus(item.getStats().getPow_up().stream().mapToInt(i->i).toArray());
-                item.setResourceConsume(new int[]{item.getStats().getFuel_max(), item.getStats().getBull_max()});
-
-                NewShip.RemodelEntity remodel = new NewShip.RemodelEntity();
-                item.setRemodel(remodel);
-                remodel.setLevel(row[COLUMN_REMODEL_LEVEL]);
-                remodel.setCost(row[COLUMN_REMODEL_AMMO], row[COLUMN_REMODEL_FUEL]);
-                remodel.setFromId(row[COLUMN_REMODEL_FROM]);
-                remodel.setToId(row[COLUMN_REMODEL_AFTER]);
-                remodel.setRequireBlueprint(row[COLUMN_REMODEL_BLUEPRINT]);
-
-                if (item.getAttr().getHP() == 0) {
-                    NewShip.AttrEntity attr = item.getAttr();
-                    NewShip.AttrEntityMax attr_max = item.getAttrMax();
-                    NewShip.AttrEntity99 attr99 = item.getAttr99();
-                    NewShip.AttrEntity99 attr155 = item.getAttr155();
-
-                    attr.setHP(row[COLUMN_HP]);
-                    attr155.setHP(row[COLUMN_HP_WEDDING] - row[COLUMN_HP]);
-
-                    attr.setAA(row[COLUMN_AA]);
-                    attr_max.setAA(row[COLUMN_AA_MAX] - row[COLUMN_AA]);
-
-                    attr.setFirepower(row[COLUMN_FIRE]);
-                    attr_max.setFirepower(row[COLUMN_FIRE_MAX] - row[COLUMN_FIRE]);
-
-                    attr.setTorpedo(row[COLUMN_TORPEDO]);
-                    attr_max.setTorpedo(row[COLUMN_TORPEDO_MAX] - row[COLUMN_TORPEDO]);
-
-                    attr.setArmor(row[COLUMN_ARMOR]);
-                    attr_max.setArmor(row[COLUMN_ARMOR_MAX] - row[COLUMN_ARMOR]);
-
-                    attr.setLuck(row[COLUMN_LUCK]);
-                    attr_max.setLuck(row[COLUMN_LUCK_MAX] - row[COLUMN_LUCK]);
-
-                    attr.setSpeed(row[COLUMN_SPEED]);
-                    attr.setRange(row[COLUMN_RANGE]);
-                }
-
-                NewShip.AttrEntity attr = item.getAttr();
-                NewShip.AttrEntity99 attr99 = item.getAttr99();
-                NewShip.AttrEntity99 attr155 = item.getAttr155();
-
-                attr.setHP(row[COLUMN_HP]);
-                attr155.setHP(row[COLUMN_HP_WEDDING] - row[COLUMN_HP]);
-
-                attr.setASW(row[COLUMN_ASW]);
-                attr99.setASW(row[COLUMN_ASW_MAX] - row[COLUMN_ASW]);
-                attr155.setASW(row[COLUMN_ASW_MAX2] - row[COLUMN_ASW_MAX]);
-
-                attr.setLOS(row[COLUMN_LOS]);
-                attr99.setLOS(row[COLUMN_LOS_MAX] - row[COLUMN_LOS]);
-                attr155.setLOS(row[COLUMN_LOS_MAX2] - row[COLUMN_LOS_MAX]);
-
-                attr.setEvasion(row[COLUMN_EVASION]);
-                attr99.setEvasion(row[COLUMN_EVASION_MAX] - row[COLUMN_EVASION]);
-                attr155.setEvasion(row[COLUMN_EVASION_MAX2] - row[COLUMN_EVASION_MAX]);
-            } else {
-                if (item.getAttr().getHP() == 0) {
-                    NewShip.AttrEntity attr = item.getAttr();
-                    attr.setHP(row[COLUMN_HP]);
-                    attr.setAA(row[COLUMN_AA]);
-                    attr.setFirepower(row[COLUMN_FIRE]);
-                    attr.setTorpedo(row[COLUMN_TORPEDO]);
-                    attr.setArmor(row[COLUMN_ARMOR]);
-                    //attr.setLuck(row[COLUMN_LUCK], row[COLUMN_LUCK_MAX]);
-                    //attr.setASW(row[COLUMN_ASW], row[COLUMN_ASW_MAX], row[COLUMN_ASW_MAX]);
-                    //attr.setLOS(row[COLUMN_LOS], row[COLUMN_LOS_MAX], row[COLUMN_LOS_MAX]);
-                    //attr.setEvasion(row[COLUMN_EVASION], row[COLUMN_EVASION_MAX], row[COLUMN_EVASION_MAX]);
-                    attr.setSpeed(row[COLUMN_SPEED]);
-                    attr.setRange(row[COLUMN_RANGE]);
-                }
-
-                // TODO 用来搜索的名字需要改
-                if (row_string != null && !row_string[COLUMN_READING].equals("-"))
-                    item.getName().setJa(String.format("%s %s", item.getNameJP(), row_string[COLUMN_READING]));
+            Ship2 to = getList().getById(ship.getRemodel().getToId());
+            if (to.getRemodel().getFromId() == 0) {
+                to.getRemodel().setFromId(ship.getId());
             }
-
-            NewShip.EquipEntity equip = new NewShip.EquipEntity();
-            item.setEquip(equip);
-            equip.setSlots(row[COLUMN_SLOT_COUNT]);
-            equip.setIds(row[COLUMN_EQUIP_1], row[COLUMN_EQUIP_2], row[COLUMN_EQUIP_3], row[COLUMN_EQUIP_4], row[COLUMN_EQUIP_5]);
-            equip.setSpaces(row[COLUMN_SLOT_MAX_1], row[COLUMN_SLOT_MAX_2], row[COLUMN_SLOT_MAX_3], row[COLUMN_SLOT_MAX_4], row[COLUMN_SLOT_MAX_5]);
         }
 
-        // 按id从小到大排序
-        Collections.sort(list2, (o1, o2) -> o1.getId() - o2.getId());
+        for (Ship2 ship : getList()) {
+            if (ship.getClassType() == 0) {
+                Ship2 s = ship;
+                while (s.getRemodel().getFromId() != 0) {
+                    s = getList().getById(s.getRemodel().getFromId());
+                }
+
+                ship.setClassNum(s.getClassNum());
+                ship.setClassType(s.getClassType());
+            }
+            addToShipClassList(shipClassList, ship.getClassType(), ship.get中文名());
+        }
+
+        addExtraEquipType();
+
+        for (Ship2 ship : getList()) {
+            if (ship.getClassType() == 0 || ship.getClassNum() == 0) {
+                System.out.println(ship.get中文名());
+            }
+        }
 
         Gson gson = new GsonBuilder()
                 .excludeFieldsWithoutExposeAnnotation()
                 .create();
 
-        makeShipClassList(list2);
-
-        addExtraEquipType(list2);
-
-        String str = gson.toJson(list2).replace("\"name2\"", "\"name\"");
+        String str = gson.toJson(getList());
 
         objectToJsonFile(str, "app/src/main/assets/Ship.json");
         objectToJsonFile(shipClassList, "app/src/main/assets/ShipClass.json");
     }
 
-    private static void addExtraEquipType(List<NewShip> list) {
+    private static ShipList sShipList;
 
-        findByName("大和", list).getExtraEquipType().add(38); // 大口径主砲(II)
-        findByName("大和改", list).getExtraEquipType().add(38);
-        findByName("武藏", list).getExtraEquipType().add(38);
-        findByName("武藏改", list).getExtraEquipType().add(38);
-        findByName("长门改", list).getExtraEquipType().add(38);
-        findByName("陆奥改", list).getExtraEquipType().add(38);
+    private static ShipList getList() throws IOException {
+        if (sShipList != null) {
+            return sShipList;
+        }
+        /*Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://zh.kcwiki.moe/")
+                .build();
 
-        findByName("波拉改", list).getExtraEquipType().add(11); // 水上爆撃機
-        findByName("扎拉改", list).getExtraEquipType().add(11);
+        RetrofitAPI.KcwikiService service = retrofit.create(RetrofitAPI.KcwikiService.class);
+        ResponseBody body = service.getPage("模块:舰娘数据", "raw").execute().body();
+        Reader reader = body.charStream();*/
+        Reader reader = new FileReader("datagenerator/ship.lua");
 
-        findByName("波拉改", list).getExtraEquipType().add(45); // 水上戦闘機
-        findByName("扎拉改", list).getExtraEquipType().add(45);
+        int count = 0;
+        StringBuilder sb = new StringBuilder();
+        for (int c = reader.read(); c != -1; c = reader.read()) {
+            if ((char) c == '{') {
+                count++;
+            }
 
-        findByName("霞改二乙", list).getExtraEquipType().add(13); // 大型電探
+            if (count > 0) {
+                sb.append((char) c);
+            }
 
-        findByName("霞改二", list).getExtraEquipType().add(34); // 司令部施設
+            if ((char) c == '}') {
+                count--;
+            }
+        }
 
-        findByName("阿武隈", list).getExtraEquipType().add(22); // 特殊潜航艇
+        String str = sb.toString()
+                .substring(2);
 
-        findByName("阿武隈", list).getExtraEquipType().add(24); // 上陸用舟艇
-        findByName("江风改二", list).getExtraEquipType().add(24);
-        findByName("大潮改二", list).getExtraEquipType().add(24);
-        findByName("霞改二", list).getExtraEquipType().add(24);
-        findByName("Верный", list).getExtraEquipType().add(24);
-        findByName("朝潮改二丁", list).getExtraEquipType().add(24);
-        findByName("霞改二乙", list).getExtraEquipType().add(24);
-        findByName("睦月改二", list).getExtraEquipType().add(24);
-        findByName("如月改二", list).getExtraEquipType().add(24);
-        findByName("皋月改二", list).getExtraEquipType().add(24);
+        reader = new StringReader(str);
+        sb = new StringBuilder();
+        boolean skipSpace = true;
+        for (int c = reader.read(); c != -1; c = reader.read()) {
+            if (c == '"') {
+                skipSpace = !skipSpace;
+            }
 
-        findByName("朝潮改二丁", list).getExtraEquipType().add(46); // 特型内火艇
-        findByName("阿武隈", list).getExtraEquipType().add(46);
-        findByName("霞改二乙", list).getExtraEquipType().add(46);
-        findByName("霞改二", list).getExtraEquipType().add(46);
-        findByName("大潮改二", list).getExtraEquipType().add(46);
-        findByName("Верный", list).getExtraEquipType().add(46);
-        findByName("皋月改二", list).getExtraEquipType().add(46);
+            if (c != ' ' || !skipSpace) {
+                sb.append((char) c);
+            }
+        }
 
-        findByName("Верный", list).getExtraEquipType().add(46); // 追加装甲(中型)
+        str = sb.toString()
+                .replace("\r\n", "\n")
+                .replace("\r", "")
+                .replace("\t", "")
+
+                .replaceAll("\\[\"(\\d+a?)\"]=\\{", "{\n[\"id\"]=\"$1\",")
+                .replaceAll("\\[\"([^]]+)\"\\]=", "\"$1\":")
+                .replaceAll("\"([^\"]+)\":\\{([^:=\\}]+)\\}", "\"$1\":[$2]");
+
+        if (str.charAt(str.length() - 3) == ',') {
+            str = "[" + str.substring(1, str.length() - 3) + "\n]";
+        } else {
+            str = "[" + str.substring(1, str.length() - 1) + "]";
+        }
+
+        str = str.replace("\"id\"", "\"wiki_id\"")
+                .replace("\"ID\"", "\"id\"")
+                .replace("\"舰种\"", "\"stype\"")
+
+                .replace("\"装备\"", "\"equip\"")
+                .replace("\"格数\"", "\"slots\"")
+                .replace("\"搭载\"", "\"space\"")
+                .replace("\"初期装备\"", "\"id\"")
+
+                .replace("\"画师\"", "\"painter\"")
+                .replace("\"声优\"", "\"cv\"")
+
+                .replace("\"获得\"", "\"get\"")
+                .replace("\"掉落\"", "\"drop\"")
+                //.replace("\"改造\"", "\"remodel2\"")
+                .replace("\"建造\"", "\"build\"")
+                .replace("\"时间\"", "\"build_time\"");
+
+        str = str.replace("\"space\":{}", "\"space\":[]")
+                .replace("\"id\":{}", "\"id\":[]");
+
+        sShipList = new Gson().fromJson(str, ShipList.class);
+        return sShipList;
     }
 
-    private static List<NewShip> getShipList() throws IOException {
-        Gson gson = new GsonBuilder()
+    private static List<NewShip> sApiShipList;
+
+    private static NewShip getAPIShip(int id) throws IOException {
+        if (sApiShipList == null) {
+            sApiShipList = getAPIShipList();
+        }
+
+        for (NewShip item : sApiShipList) {
+            if (item.getId() == id) {
+                return item;
+            }
+        }
+
+        throw new NullPointerException("id " + id);
+    }
+
+    private static List<NewShip> getAPIShipList() throws IOException {
+        /*Gson gson = new GsonBuilder()
                 .create();
 
         Retrofit retrofit = new Retrofit.Builder()
@@ -242,32 +268,33 @@ public class ShipGenerator {
                 .build();
 
         RetrofitAPI.ShipService service = retrofit.create(RetrofitAPI.ShipService.class);
-        return service.getDetail().execute().body();
-        /*return new Gson().fromJson(
+        return service.getDetail().execute().body();*/
+        return new Gson().fromJson(
                 new FileReader(new File("datagenerator/ships_detail.json")),
-                new TypeToken<List<NewShip>>() {}.getType());*/
+                new TypeToken<List<NewShip>>() {
+                }.getType());
     }
 
-    private static String getNameForSearch(NewShip item) {
+    private static String getNameForSearch(Ship2 item) {
         StringBuilder sb = new StringBuilder();
 
-        if (!TextUtils.isEmpty(item.getYomi())) {
-            sb.append(item.getNameJP())
+        if (!TextUtils.isEmpty(item.get假名())) {
+            sb.append(item.get日文名())
                     .append(',')
-                    .append(item.getYomi())
+                    .append(item.get假名())
                     .append(',')
-                    .append(wkj.toRomaji(item.getYomi()));
+                    .append(wkj.toRomaji(item.get假名()));
         }
 
         if (sb.length() > 0 && sb.charAt(sb.length() - 1) != ',') {
             sb.append(',');
         }
 
-        if (!TextUtils.isEmpty(item.getNameCN())) {
-            sb.append(item.getNameCN())
+        if (!TextUtils.isEmpty(item.get中文名())) {
+            sb.append(item.get中文名())
                     .append(',');
 
-            for (char c : item.getNameCN().toCharArray()) {
+            for (char c : item.get中文名().toCharArray()) {
                 if (Pinyin.isChinese(c)) {
                     sb.append(Pinyin.toPinyin(c).toLowerCase());
                 }
@@ -277,47 +304,47 @@ public class ShipGenerator {
         return sb.toString();
     }
 
-    private static List<ShipClass> shipClassList = new ArrayList<>();
+    private static void addExtraEquipType() throws IOException {
 
-    private static void makeShipClassList(List<NewShip> list) {
-        for (NewShip ship : list) {
-            if (ship.getId() > 500) {
-                break;
-            }
+        getList().getByName("大和").getExtraEquipType().add(38); // 大口径主砲(II)
+        getList().getByName("大和改").getExtraEquipType().add(38);
+        getList().getByName("武藏").getExtraEquipType().add(38);
+        getList().getByName("武藏改").getExtraEquipType().add(38);
+        getList().getByName("长门改").getExtraEquipType().add(38);
+        getList().getByName("陆奥改").getExtraEquipType().add(38);
 
-            if (ship.getClassNum() == 1) {
-                addToShipClassList(shipClassList, ship.getClassType(), ship.getName().getZh_cn());
-            }
+        getList().getByName("波拉改").getExtraEquipType().add(11); // 水上爆撃機
+        getList().getByName("扎拉改").getExtraEquipType().add(11);
 
-            if (ship.getClassNum() == 0) {
-                NewShip cur = ship;
-                if (cur.getRemodel() == null) {
-                    System.out.println(cur.getNameCN());
-                } else {
-                    while (cur.getRemodel().getFromId() != 0) {
-                        cur = findById(cur.getRemodel().getFromId(), list);
-                    }
-                }
+        getList().getByName("波拉改").getExtraEquipType().add(45); // 水上戦闘機
+        getList().getByName("扎拉改").getExtraEquipType().add(45);
 
-                ship.setClassType(cur.getClassType());
-                ship.setClassNum(cur.getClassNum());
+        getList().getByName("霞改二乙").getExtraEquipType().add(13); // 大型電探
 
-                //System.out.println(ship.getName().getZh_cn() + " 舰级为空 设定为了和 " + cur.getName().getZh_cn() + " 一样的类型");
-            }
-        }
+        getList().getByName("霞改二").getExtraEquipType().add(34); // 司令部施設
 
-        for (NewShip ship : list) {
-            if (ship.getId() > 500) {
-                break;
-            }
+        getList().getByName("阿武隈").getExtraEquipType().add(22); // 特殊潜航艇
 
-            if (ship.getClassType() == 0) {
-                //System.out.println(ship.getName().getZh_cn() + " 没有类型");
-            } else if (!isShipClassExist(shipClassList, ship.getClassType())) {
-                //System.out.println(ship.getName().getZh_cn() + " 没有一号舰");
-                addToShipClassList(shipClassList, ship.getClassType(), ship.getName().getZh_cn());
-            }
-        }
+        getList().getByName("阿武隈").getExtraEquipType().add(24); // 上陸用舟艇
+        getList().getByName("江风改二").getExtraEquipType().add(24);
+        getList().getByName("大潮改二").getExtraEquipType().add(24);
+        getList().getByName("霞改二").getExtraEquipType().add(24);
+        getList().getByName("Верный").getExtraEquipType().add(24);
+        getList().getByName("朝潮改二丁").getExtraEquipType().add(24);
+        getList().getByName("霞改二乙").getExtraEquipType().add(24);
+        getList().getByName("睦月改二").getExtraEquipType().add(24);
+        getList().getByName("如月改二").getExtraEquipType().add(24);
+        getList().getByName("皋月改二").getExtraEquipType().add(24);
+
+        getList().getByName("朝潮改二丁").getExtraEquipType().add(46); // 特型内火艇
+        getList().getByName("阿武隈").getExtraEquipType().add(46);
+        getList().getByName("霞改二乙").getExtraEquipType().add(46);
+        getList().getByName("霞改二").getExtraEquipType().add(46);
+        getList().getByName("大潮改二").getExtraEquipType().add(46);
+        getList().getByName("Верный").getExtraEquipType().add(46);
+        getList().getByName("皋月改二").getExtraEquipType().add(46);
+
+        getList().getByName("Верный").getExtraEquipType().add(46); // 追加装甲(中型)
     }
 
     private static boolean isShipClassExist(List<ShipClass> list, int type) {
@@ -394,6 +421,9 @@ public class ShipGenerator {
                 case "速吸":
                     shipClass.setName("风早级");
                     break;
+                case "厌战":
+                    shipClass.setName("伊丽莎白女王级");
+                    break;
                 default:
                     shipClass.setName(shipName + "级");
             }
@@ -402,21 +432,24 @@ public class ShipGenerator {
         }
     }
 
-    public static NewShip findById(int id, List<NewShip> ship) {
-        for (NewShip item : ship) {
-            if (item.getId() == id) {
-                return item;
-            }
-        }
-        return null;
-    }
+    private static class ShipList extends ArrayList<Ship2> {
 
-    public static NewShip findByName(String name, List<NewShip> ship) {
-        for (NewShip item : ship) {
-            if (name.equals(item.getNameCN()) || name.equals(item.getNameJP())) {
-                return item;
+        public Ship2 getById(int id) {
+            for (Ship2 item : this) {
+                if (item.getId() == id) {
+                    return item;
+                }
             }
+            return null;
         }
-        throw new IllegalArgumentException(name + " not found");
+
+        public Ship2 getByName(String name) {
+            for (Ship2 item : this) {
+                if (item.get中文名().equals(name) || item.get日文名().equals(name)) {
+                    return item;
+                }
+            }
+            return null;
+        }
     }
 }

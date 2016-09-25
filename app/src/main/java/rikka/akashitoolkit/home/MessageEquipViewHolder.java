@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.TimeZone;
 
 import rikka.akashitoolkit.R;
-import rikka.akashitoolkit.equip.EquipDisplayActivity;
+import rikka.akashitoolkit.equip.EquipDetailActivity;
 import rikka.akashitoolkit.model.Equip;
 import rikka.akashitoolkit.model.EquipImprovement;
 import rikka.akashitoolkit.otto.BusProvider;
@@ -108,8 +108,8 @@ public class MessageEquipViewHolder extends RecyclerView.ViewHolder {
                         view.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                Intent intent = new Intent(v.getContext(), EquipDisplayActivity.class);
-                                intent.putExtra(EquipDisplayActivity.EXTRA_ITEM_ID, equip.getId());
+                                Intent intent = new Intent(v.getContext(), EquipDetailActivity.class);
+                                intent.putExtra(EquipDetailActivity.EXTRA_ITEM_ID, equip.getId());
 
                                 v.getContext().startActivity(intent);
                             }

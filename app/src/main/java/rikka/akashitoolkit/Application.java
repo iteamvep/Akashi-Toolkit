@@ -27,7 +27,7 @@ public class Application extends android.app.Application {
         DiskCacheProvider.init(this);
 
         // so bad to avoid ConcurrentModificationException
-        ShipList.get(this);
+        ShipList.init(this);
         EquipList.get(this);
 
         /*if (!BuildConfig.DEBUG) {
@@ -42,5 +42,7 @@ public class Application extends android.app.Application {
         MultiLanguageEntry.init(this);
 
         ShipList.init(this);
+
+        Settings.init(this);
     }
 }

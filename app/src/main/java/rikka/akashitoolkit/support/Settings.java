@@ -67,4 +67,16 @@ public class Settings {
 
         return sInstance;
     }
+
+    public static void init(Context context) {
+        instance(context);
+    }
+
+    public static BaseSetting instance() {
+        if (sInstance == null) {
+            throw new RuntimeException("Call init() in Application onCreate()");
+        }
+
+        return sInstance;
+    }
 }

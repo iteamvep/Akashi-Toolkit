@@ -41,7 +41,7 @@ public class SeasonalGalleryGenerator {
         if (m.find()) {
             list.add(new Gallery(
                     m.group(1),
-                    m.group(2).replace("[[", "").replace("]]", "")));
+                    m.group(2).replaceAll("\\[\\[.+\\|(.+)]]", "$1").replace(" ", "")));
         } else {
             m = GALLERY_PATTERN2.matcher(line);
             if (m.find()) {

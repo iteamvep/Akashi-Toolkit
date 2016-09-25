@@ -52,6 +52,11 @@ public abstract class BaseRecyclerAdapter<VH extends RecyclerView.ViewHolder, T>
         notifyDataSetChanged();
     }
 
+    /**
+     * 得到数据 List
+     *
+     * @return List
+     */
     final public List<T> getItemList() {
         return mData;
     }

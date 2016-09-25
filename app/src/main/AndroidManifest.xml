@@ -66,7 +66,7 @@
         -->
 
         <activity
-            android:name=".equip.EquipDisplayActivity"
+            android:name=".equip.EquipDetailActivity"
             android:theme="@style/AppTheme.ItemActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>

@@ -9,12 +9,12 @@ import android.view.ViewGroup;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.BaseItemTouchHelperAdapter;
+import rikka.akashitoolkit.equip.EquipDetailActivity;
 import rikka.akashitoolkit.model.Fleet;
 import rikka.akashitoolkit.model.Ship;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.ItemSelectAction;
 import rikka.akashitoolkit.staticdata.EquipTypeList;
-import rikka.akashitoolkit.equip.EquipDisplayActivity;
 import rikka.akashitoolkit.ui.widget.ListBottomSheetDialog;
 
 /**
@@ -97,7 +97,7 @@ public class FleetEquipAdapter extends BaseItemTouchHelperAdapter<FleetEquipView
                             int position = holder.getAdapterPosition();
                             switch (i) {
                                 case 0:
-                                    context.startActivity(EquipDisplayActivity.intent(context, getItem(position).getId()));
+                                    context.startActivity(EquipDetailActivity.intent(context, getItem(position).getId()));
                                     break;
                                 case 1:
                                     showEditAttrDialog(context, holder, holder.getAdapterPosition());
@@ -125,7 +125,7 @@ public class FleetEquipAdapter extends BaseItemTouchHelperAdapter<FleetEquipView
                             int position = holder.getAdapterPosition();
                             switch (i) {
                                 case 0:
-                                    context.startActivity(EquipDisplayActivity.intent(context, getItem(position).getId()));
+                                    context.startActivity(EquipDetailActivity.intent(context, getItem(position).getId()));
                                     break;
                                 case 1:
                                     BusProvider.instance().post(new ItemSelectAction.StartEquip(mPosition, position));

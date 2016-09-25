@@ -15,7 +15,6 @@ import rikka.akashitoolkit.adapter.BaseBookmarkRecyclerAdapter;
 import rikka.akashitoolkit.model.Equip;
 import rikka.akashitoolkit.model.EquipType;
 import rikka.akashitoolkit.model.Ship;
-import rikka.akashitoolkit.model.ShipType;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.DataListRebuiltFinished;
 import rikka.akashitoolkit.otto.ItemSelectAction;
@@ -155,14 +154,14 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewH
                 public void onClick(View v) {
                     Context context = v.getContext();
 
-                    Intent intent = new Intent(context, EquipDisplayActivity.class);
-                    intent.putExtra(EquipDisplayActivity.EXTRA_ITEM_ID,
+                    Intent intent = new Intent(context, EquipDetailActivity.class);
+                    intent.putExtra(EquipDetailActivity.EXTRA_ITEM_ID,
                             ((Equip) getItem(holder.getAdapterPosition())).getId());
 
                     int[] location = new int[2];
                     holder.mLinearLayout.getLocationOnScreen(location);
-                    intent.putExtra(EquipDisplayActivity.EXTRA_START_Y, location[1]);
-                    intent.putExtra(EquipDisplayActivity.EXTRA_START_HEIGHT, holder.mLinearLayout.getHeight());
+                    intent.putExtra(EquipDetailActivity.EXTRA_START_Y, location[1]);
+                    intent.putExtra(EquipDetailActivity.EXTRA_START_HEIGHT, holder.mLinearLayout.getHeight());
 
                     BaseItemDisplayActivity.start(mActivity, intent);
                 }

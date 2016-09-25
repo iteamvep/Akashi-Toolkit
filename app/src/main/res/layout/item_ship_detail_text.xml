@@ -2,16 +2,18 @@
 <TextView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@android:id/title"
+    android:id="@android:id/text1"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:minHeight="48dp"
+    android:paddingBottom="8dp"
+    android:paddingTop="8dp"
     android:paddingLeft="@dimen/item_activity_margin"
     android:paddingRight="@dimen/item_activity_margin"
     android:gravity="center_vertical"
-    android:fontFamily="sans-serif-medium"
-    android:textColor="@color/colorPrimaryItemActivity"
-    tools:text="属性"
-    tools:ignore="UnusedAttribute">
+    android:textSize="16sp"
+    tools:text="建造 / 05:00:00
+掉落 / 可通过打捞获得"
+    tools:ignore="UnusedAttribute"
+    android:lineSpacingExtra="8sp">
 
 </TextView>

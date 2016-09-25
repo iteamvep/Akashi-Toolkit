@@ -20,11 +20,10 @@ import rikka.akashitoolkit.support.Settings;
 public class ShipList {
     private static final String FILE_NAME = "Ship.json";
 
-    private static Context sContext;
     private static List<Ship> sList;
 
     public static void init(Context context) {
-        sContext = context;
+        get(context);
     }
 
     public static synchronized List<Ship> get(final Context context) {
@@ -86,9 +85,9 @@ public class ShipList {
         }
 
         sortById(list);
-        sortByRemodel(list);
+        //sortByRemodel(list);
         sortByClass(list);
-        //sortByType(list);
+        sortByType(list);
     }
 
     private static synchronized void _sortByType(List<Ship> list) {
@@ -97,8 +96,8 @@ public class ShipList {
         }
 
         sortById(list);
-        sortByRemodel(list);
-        //sortByClass(list);
+        //sortByRemodel(list);
+        sortByClass(list);
         sortByType(list);
     }
 
@@ -192,7 +191,11 @@ public class ShipList {
     }
 
     public static Ship findItemById(int id) {
-        return findItemById(id, get(sContext));
+        if (sList == null) {
+            throw new RuntimeException("call get() first");
+        }
+
+        return findItemById(id, sList);
     }
 
     public static Ship findItemById(Context context, int id) {

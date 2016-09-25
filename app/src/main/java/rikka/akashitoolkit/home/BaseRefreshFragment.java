@@ -40,13 +40,20 @@ public abstract class BaseRefreshFragment<T> extends Fragment implements IRefres
             }
         });
 
+        mSwipeRefreshLayout.post(new Runnable() {
+            @Override
+            public void run() {
+                onRefresh(true);
+            }
+        });
+
         if (savedInstanceState == null) {
-            mSwipeRefreshLayout.post(new Runnable() {
+            mSwipeRefreshLayout.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     onRefresh(false);
                 }
-            });
+            }, 500);
         }
     }
 
