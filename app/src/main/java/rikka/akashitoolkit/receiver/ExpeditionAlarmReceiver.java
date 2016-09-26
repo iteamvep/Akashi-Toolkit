@@ -32,7 +32,7 @@ public class ExpeditionAlarmReceiver extends BroadcastReceiver {
                     .setSmallIcon(R.mipmap.ic_launcher_flower)
                     .setColor(ContextCompat.getColor(context, R.color.material_pink_500))
                     .setContentText(context.getString(R.string.expedition_finished))
-                    .setContentTitle(expedition.getName().get(context))
+                    .setContentTitle(expedition.getName().get())
                     .setPriority(NotificationCompat.PRIORITY_HIGH)
                     .setDefaults(Notification.DEFAULT_VIBRATE | Notification.DEFAULT_SOUND)
                     .setLights(ContextCompat.getColor(context, R.color.material_pink_500), 1000, 1000)

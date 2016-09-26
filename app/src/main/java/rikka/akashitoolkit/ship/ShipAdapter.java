@@ -150,7 +150,7 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
                                 if (mSort == 0) {
                                     id = item.getType() * 10;
                                     ShipType shipType = ShipTypeList.findItemById(mActivity, item.getType());
-                                    curType = shipType.getName().get(mActivity);
+                                    curType = shipType.getName().get();
                                 } else {
                                     ShipClass shipClass = ShipClassList.findItemById(mActivity, item.getClassType());
                                     if (shipClass != null) {
@@ -236,7 +236,7 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
 
         if (mIsSearching && mKeyword != null &&
                 !item.getName().getJa().contains(mKeyword) &&
-                !item.getName().getZh_cn().contains(mKeyword) &&
+                !item.getName().getZhCN().contains(mKeyword) &&
                 (item.getNameForSearch() == null || !item.getNameForSearch().contains(mKeyword))) {
             return false;
         }
@@ -272,7 +272,7 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
         Ship item = (Ship) getItem(position);
 
         holder.mTitle.setText(String.format(item.isBookmarked() ? "%s ★" : "%s",
-                item.getName().get(holder.mTitle.getContext())));
+                item.getName().get()));
 
         @SuppressLint("DefaultLocale")
         String banner = mEnemy ?
@@ -296,7 +296,7 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
                     holder.mContent.setText("");
                 }
             } else {
-                Log.d("ShipAdapter", "No ship class: " + item.getName().get(mActivity));
+                Log.d("ShipAdapter", "No ship class: " + item.getName().get());
                 holder.mContent.setText("");
             }
         }

@@ -97,7 +97,7 @@ public class EquipViewPagerFragment extends Fragment {
         };
 
         for (MultiLanguageEntry entry : EquipTypeList.getsParentList(getContext())) {
-            mViewPagerAdapter.addFragment(EquipFragment.class, entry.get(getActivity()));
+            mViewPagerAdapter.addFragment(EquipFragment.class, entry.get());
         }
 
         return mViewPagerAdapter;

@@ -74,7 +74,7 @@ public class MapActivity extends BaseItemDisplayActivity {
             return;
         }
 
-        mTitle = mItem.getName().get(this);
+        mTitle = mItem.getName().get();
         mSeaId = mId / 10;
         mId = mId % 10;
 
@@ -229,7 +229,7 @@ public class MapActivity extends BaseItemDisplayActivity {
                     fleets.getShips()) {
                 Ship ship = ShipList.findItemById(this, shipId);
                 if (ship != null) {
-                    sb.append(ship.getName().get(this)).append("\t");
+                    sb.append(ship.getName().get()).append("\t");
                 }
             }
             ((TextView) view.findViewById(R.id.text_content)).setText(sb.toString());
@@ -254,7 +254,7 @@ public class MapActivity extends BaseItemDisplayActivity {
              drop.getShip()) {
             Ship ship = ShipList.findItemById(this, shipId);
             if (ship != null) {
-                sb.append(ship.getName().get(this)).append("\t");
+                sb.append(ship.getName().get()).append("\t");
             }
         }
         ((TextView) view.findViewById(R.id.text_content)).setText(sb.toString());

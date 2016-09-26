@@ -95,7 +95,7 @@ public class MapDisplayFragment extends BaseDrawerItemFragment {
 
         for (MapType type :
                 MapTypeList.get(getContext())) {
-            adapter.addFragment(MapFragment.class, type.getName().get(getContext()));
+            adapter.addFragment(MapFragment.class, type.getName().get());
         }
 
         return adapter;

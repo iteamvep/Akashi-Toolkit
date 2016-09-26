@@ -223,7 +223,7 @@ public class FleetEquipAdapter extends BaseItemTouchHelperAdapter<FleetEquipView
 
                 if (equip != null) {
                     StringBuilder sb = new StringBuilder();
-                    sb.append(equip.getName().get(context));
+                    sb.append(equip.getName().get());
                     if (e.getStar() > 0) {
                         sb.append(" ★+").append(e.getStar());
                     }

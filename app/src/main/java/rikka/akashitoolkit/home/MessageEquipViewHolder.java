@@ -84,7 +84,7 @@ public class MessageEquipViewHolder extends RecyclerView.ViewHolder {
                             } else {
                                 rikka.akashitoolkit.model.Ship s = ShipList.findItemById(context, id);
                                 if (s != null)
-                                    sb.append(s.getName().get(context));
+                                    sb.append(s.getName().get());
                             }
                         }
                     }
@@ -103,7 +103,7 @@ public class MessageEquipViewHolder extends RecyclerView.ViewHolder {
                         View view = LayoutInflater.from(context).inflate(R.layout.item_message_equip, mContainer, false);
                         EquipTypeList.setIntoImageView((ImageView) view.findViewById(android.R.id.icon), equip.getIcon());
                         ((TextView) view.findViewById(android.R.id.title)).setText(
-                                String.format("%s (%s)", equip.getName().get(context), sb.toString()));
+                                String.format("%s (%s)", equip.getName().get(), sb.toString()));
 
                         view.setOnClickListener(new View.OnClickListener() {
                             @Override

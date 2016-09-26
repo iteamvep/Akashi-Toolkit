@@ -4,8 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
-import android.support.v7.util.DiffUtil;
-import android.support.v7.util.ListUpdateCallback;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.view.LayoutInflater;
@@ -17,6 +15,7 @@ import java.util.List;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.BaseBookmarkRecyclerAdapter;
 import rikka.akashitoolkit.model.Expedition;
+import rikka.akashitoolkit.model.MultiLanguageEntry;
 import rikka.akashitoolkit.otto.BookmarkItemChanged;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.staticdata.ExpeditionList;
@@ -74,7 +73,7 @@ public class ExpeditionAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.
                     if (mFilter == null || mFilter.size() == 0 || mFilter.indexOf(item.getId()) != -1) {
                         if (type != item.getType()) {
                             type = item.getType();
-                            addItem(RecyclerView.NO_ID, 1, MapTypeList.get(mContext).get(type).getName(mContext));
+                            addItem(RecyclerView.NO_ID, 1, MapTypeList.get(mContext).get(type).getName());
                         }
 
                         addItem(item.getId(), 0, item);
@@ -114,7 +113,7 @@ public class ExpeditionAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.
         Context context = holder.itemView.getContext();
         Expedition item = (Expedition) getItem(position);
 
-        holder.mTitle.setText(String.format(item.isBookmarked() ? "%d %s ★" : "%d %s", item.getId(), item.getName().get(context)));
+        holder.mTitle.setText(String.format(item.isBookmarked() ? "%d %s ★" : "%d %s", item.getId(), item.getName().get()));
         holder.mTime.setText(Html.fromHtml(item.getTimeString()));
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -154,7 +153,7 @@ public class ExpeditionAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.
 
     private void bindViewHolder(SimpleTitleDividerViewHolder holder, int position) {
         holder.mDivider.setVisibility(position == 0 ? View.GONE : View.VISIBLE);
-        holder.mTitle.setText((String) getItem(position));
+        holder.mTitle.setText(((MultiLanguageEntry) getItem(position)).get());
     }
 
     private void setViewDetail(final ExpeditionViewHolder holder, int position) {

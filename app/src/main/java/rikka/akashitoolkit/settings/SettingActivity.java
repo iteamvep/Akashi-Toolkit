@@ -24,6 +24,7 @@ import moe.xing.daynightmode.BaseDayNightModeActivity;
 import moe.xing.daynightmode.DayNightMode;
 import rikka.akashitoolkit.BuildConfig;
 import rikka.akashitoolkit.R;
+import rikka.akashitoolkit.model.MultiLanguageEntry;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.DataChangedAction;
 import rikka.akashitoolkit.otto.PreferenceChangedAction;
@@ -218,12 +219,16 @@ public class SettingActivity extends BaseActivity {
                     ((BaseDayNightModeActivity) getActivity()).setNightMode(mode);
                     break;
                 case Settings.DATA_LANGUAGE:
-                    StaticData.instance(getActivity()).dataLanguage = Integer.parseInt(
+                    int language = Integer.parseInt(
                             sharedPreferences.getString(key, Integer.toString(ApiConstParam.Language.ZH_CN)));
+
+                    StaticData.instance(getActivity()).dataLanguage = language;
+                    MultiLanguageEntry.language = language;
                 case Settings.DATA_TITLE_LANGUAGE:
                     BusProvider
                             .instance()
                             .post(new DataChangedAction("any"));
+                    MultiLanguageEntry.titleUseJa = sharedPreferences.getBoolean(Settings.DATA_TITLE_LANGUAGE, true);
                     break;
                 case Settings.NAV_BAR_COLOR:
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {

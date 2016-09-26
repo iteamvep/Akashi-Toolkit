@@ -11,6 +11,7 @@ import rikka.akashitoolkit.utils.Utils;
  * Created by Rikka on 2016/4/16.
  */
 public class StaticData {
+
     private static StaticData sInstance;
 
     public int dataLanguage;

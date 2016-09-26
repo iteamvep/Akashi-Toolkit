@@ -75,7 +75,7 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewH
                         lastType = equip.getType();
                         EquipType equipType = EquipTypeList.findItemById(mActivity, equip.getType());
                         if (equipType != null)
-                            addItem(equipType.getId() * 10000, 1, equipType.getName(mActivity));
+                            addItem(equipType.getId() * 10000, 1, equipType.getName());
                     }
                     addItem(equip.getId(), 0, equip);
                 }
@@ -144,7 +144,7 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewH
         Equip item = (Equip) getItem(position);
 
         holder.mName.setText(String.format(item.isBookmarked() ? "%s ★" : "%s",
-                item.getName().get(holder.mName.getContext())));
+                item.getName().get()));
 
         EquipTypeList.setIntoImageView(holder.mImageView, item.getIcon());
 

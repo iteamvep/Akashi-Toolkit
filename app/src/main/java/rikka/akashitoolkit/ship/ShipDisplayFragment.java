@@ -168,7 +168,7 @@ public class ShipDisplayFragment extends BaseSearchFragment {
                 continue;
             }
 
-            mCheckBoxGroups[2].addItem(String.format("%s (%s)", shipType.getName().get(getActivity()), shipType.getShortX()), shipType.getId());
+            mCheckBoxGroups[2].addItem(String.format("%s (%s)", shipType.getName().get(), shipType.getShortX()), shipType.getId());
         }
 
         mCheckBoxGroups[2].setOnCheckedChangeListener(new CheckBoxGroup.OnCheckedChangeListener() {

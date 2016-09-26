@@ -1,7 +1,5 @@
 package rikka.akashitoolkit.model;
 
-import android.content.Context;
-
 import com.google.gson.annotations.SerializedName;
 
 /**
@@ -37,10 +35,6 @@ public class EquipType {
         this.patent_id = patent_id;
     }
 
-    public String getParentName(Context context) {
-        return parent_name.get(context);
-    }
-
     public MultiLanguageEntry getParentName() {
         return parent_name;
     }
@@ -49,8 +43,8 @@ public class EquipType {
         this.parent_name = parent;
     }
 
-    public String getName(Context context) {
-        return name.get(context);
+    public String getName() {
+        return name.get();
     }
 
     public void setName(MultiLanguageEntry name) {

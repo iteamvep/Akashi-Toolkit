@@ -34,20 +34,20 @@ public class RetrofitAPI {
     }
 
     public interface UpdateAPI {
-        @GET("/api/info.php")
+        @GET("/api_v2/info.php")
         Call<CheckUpdate> get(
                 @Query("api_version") int api_version,
                 @Query("api_channel") int api_channel);
     }
 
     public interface SeasonalAPI {
-        @GET("/api/seasonal.php")
+        @GET("/api_v2/seasonal.php")
         Call<List<Seasonal>> get(
                 @Query("api_version") int api_version);
     }
 
     public interface EventAPI {
-        @GET("/api/event.php")
+        @GET("/api_v2/event.php")
         Call<Event> get(
                 @Query("api_version") int api_version);
     }

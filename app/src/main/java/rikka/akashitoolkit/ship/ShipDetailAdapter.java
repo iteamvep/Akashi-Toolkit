@@ -14,6 +14,7 @@ import java.util.Locale;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.BaseRecyclerAdapter;
 import rikka.akashitoolkit.model.Ship;
+import rikka.akashitoolkit.utils.FlavorsUtils;
 import rikka.akashitoolkit.viewholder.SimpleStringHolder;
 import rikka.akashitoolkit.viewholder.SimpleTitleViewHolder;
 
@@ -63,10 +64,14 @@ public class ShipDetailAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHold
                 addItem(ShipDetailAdapter.TYPE_TITLE, "画师 & 声优");
                 addItem(ShipDetailAdapter.TYPE_PAINTER_CV, null);
             }
-            addItem(ShipDetailAdapter.TYPE_TITLE, context.getString(R.string.illustration));
-            addItem(ShipDetailAdapter.TYPE_ILLUSTRATION, item);
-            if (!is_enemy) {
-                addItem(ShipDetailAdapter.TYPE_TITLE, context.getString(R.string.voice));
+
+            if (!FlavorsUtils.isPlay()) {
+                addItem(ShipDetailAdapter.TYPE_TITLE, context.getString(R.string.illustration));
+                addItem(ShipDetailAdapter.TYPE_ILLUSTRATION, item);
+
+                if (!is_enemy) {
+                    addItem(ShipDetailAdapter.TYPE_TITLE, context.getString(R.string.voice));
+                }
             }
 
             for (int i = 0; i < getItemList().size(); i++) {

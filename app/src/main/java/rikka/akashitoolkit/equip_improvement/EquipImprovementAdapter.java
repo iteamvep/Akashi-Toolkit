@@ -108,9 +108,9 @@ public class EquipImprovementAdapter extends BaseBookmarkRecyclerAdapter<EquipIm
                                     Equip equip = EquipList.findItemById(mActivity, id);
                                     if (equip != null) {
                                         if (level > 0) {
-                                            upgrade = String.format("%s ★+%d", equip.getName().get(mActivity), level);
+                                            upgrade = String.format("%s ★+%d", equip.getName().get(), level);
                                         } else {
-                                            upgrade = equip.getName().get(mActivity);
+                                            upgrade = equip.getName().get();
                                         }
                                     }
 
@@ -138,7 +138,7 @@ public class EquipImprovementAdapter extends BaseBookmarkRecyclerAdapter<EquipIm
                                     } else {
                                         Ship s = ShipList.findItemById(mActivity, id);
                                         if (s != null)
-                                            sb.append(s.getName().get(mActivity));
+                                            sb.append(s.getName().get());
                                     }
                                 }
                             }

@@ -56,7 +56,7 @@ public class MessageExpeditionViewHolder extends RecyclerView.ViewHolder {
                 continue;
 
             View view = LayoutInflater.from(context).inflate(R.layout.item_message_expedition, mContainer, false);
-            ((TextView) view.findViewById(android.R.id.title)).setText(expedition.getName().get(context));
+            ((TextView) view.findViewById(android.R.id.title)).setText(expedition.getName().get());
             final CountdownTextView textView = (CountdownTextView) view.findViewById(android.R.id.content);
 
             textView.setFinishText(context.getString(R.string.finished));

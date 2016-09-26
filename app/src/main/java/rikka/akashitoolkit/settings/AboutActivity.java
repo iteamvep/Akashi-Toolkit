@@ -18,11 +18,10 @@ import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.billing.DonateHelper;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.StaticData;
-import rikka.akashitoolkit.tools.PushSendActivity;
 import rikka.akashitoolkit.tools.SendReportActivity;
 import rikka.akashitoolkit.ui.BaseActivity;
-import rikka.akashitoolkit.utils.ClipBoardUtils;
 import rikka.akashitoolkit.utils.AlipayDonateUtils;
+import rikka.akashitoolkit.utils.ClipBoardUtils;
 import rikka.akashitoolkit.utils.Utils;
 import rikka.materialpreference.Preference;
 import rikka.materialpreference.PreferenceFragment;
@@ -198,20 +197,6 @@ public class AboutActivity extends BaseActivity {
                     return false;
                 }
             });
-
-            if (!Settings.instance(getActivity()).getBoolean(Settings.DEVELOPER, false)) {
-                ((PreferenceScreen) findPreference("screen")).removePreference(findPreference("developer"));
-            } else {
-                findPreference("developer").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-                    @Override
-                    public boolean onPreferenceClick(Preference preference) {
-                        startActivity(new Intent(getActivity(), PushSendActivity.class));
-
-                        return false;
-                    }
-                });
-            }
-
         }
 
         private int click = 0;

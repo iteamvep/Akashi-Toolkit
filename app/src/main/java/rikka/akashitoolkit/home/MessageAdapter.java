@@ -22,6 +22,7 @@ import rikka.akashitoolkit.adapter.Listener;
 import rikka.akashitoolkit.model.CheckUpdate;
 import rikka.akashitoolkit.otto.BookmarkItemChanged;
 import rikka.akashitoolkit.otto.BusProvider;
+import rikka.akashitoolkit.utils.HtmlUtils;
 
 import static rikka.akashitoolkit.support.ApiConstParam.Message.ACTION_VIEW_BUTTON;
 import static rikka.akashitoolkit.support.ApiConstParam.Message.COUNT_DOWN;
@@ -109,7 +110,7 @@ public class MessageAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHolder,
         CheckUpdate.MessagesEntity data = (CheckUpdate.MessagesEntity) getItem(position);
 
         // title
-        holder.mTitle.setText(data.getTitle());
+        holder.mTitle.setText(data.getTitle().get());
 
         // summary
         holder.mSummary.setVisibility(View.GONE);
@@ -133,7 +134,7 @@ public class MessageAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHolder,
             holder.mPositiveButton.setVisibility(View.VISIBLE);
 
             if (data.getActionName() != null)
-                holder.mPositiveButton.setText(data.getActionName());
+                holder.mPositiveButton.setText(data.getActionName().get());
             else
                 holder.mPositiveButton.setText(R.string.open_link);
 
@@ -160,7 +161,7 @@ public class MessageAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHolder,
                 holder.mCountDownTimer.cancel();
             }
 
-            final String format = data.getMessage();
+            final String format = data.getMessage().get();
             holder.mCountDownTimer = new CountDownTimer(
                     data.getTime() * DateUtils.SECOND_IN_MILLIS - System.currentTimeMillis(), 1000) {
 
@@ -179,10 +180,10 @@ public class MessageAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHolder,
             }.start();
         } else {
             if (isHtml) {
-                holder.mContent.setText(Html.fromHtml(data.getMessage()));
+                holder.mContent.setText(HtmlUtils.fromHtml(data.getMessage().get()));
                 holder.mContent.setMovementMethod(LinkMovementMethod.getInstance());
             } else {
-                holder.mContent.setText(data.getMessage());
+                holder.mContent.setText(data.getMessage().get());
                 holder.mContent.setMovementMethod(null);
             }
         }
@@ -200,7 +201,7 @@ public class MessageAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHolder,
 
         holder.mTitle.setText(R.string.new_version_available);
         holder.mSummary.setText(String.format(context.getString(R.string.new_version_summary), data.getVersionName(), data.getVersionCode()));
-        holder.mContent.setText(String.format(context.getString(R.string.new_version_content), data.getChange()));
+        holder.mContent.setText(String.format(context.getString(R.string.new_version_content), data.getChange().get()));
         holder.mPositiveButton.setText(R.string.download);
         holder.mPositiveButton.setOnClickListener(new View.OnClickListener() {
             @Override

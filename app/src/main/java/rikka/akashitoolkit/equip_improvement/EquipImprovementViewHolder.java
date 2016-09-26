@@ -84,7 +84,7 @@ public class EquipImprovementViewHolder extends RecyclerView.ViewHolder implemen
             return;
         }
 
-        mName.setText(equip.getName().get(context));
+        mName.setText(equip.getName().get());
         mShip.setText(data.ship);
 
         if (mCheckBox.isChecked() != item.isBookmarked()) {

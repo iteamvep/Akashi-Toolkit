@@ -27,6 +27,7 @@ import rikka.akashitoolkit.staticdata.FleetList;
 import rikka.akashitoolkit.support.StaticData;
 import rikka.akashitoolkit.ui.BaseActivity;
 import rikka.akashitoolkit.ui.widget.ItemTouchHelperCallback;
+import rikka.akashitoolkit.utils.FileUtils;
 import rikka.akashitoolkit.utils.Utils;
 
 public class FleetListActivity extends BaseActivity {
@@ -139,7 +140,7 @@ public class FleetListActivity extends BaseActivity {
                 .excludeFieldsWithoutExposeAnnotation()
                 .create();
 
-        Utils.saveStreamToFile(new ByteArrayInputStream(gson.toJson(mFleets).getBytes()),
+        FileUtils.saveStreamToFile(new ByteArrayInputStream(gson.toJson(mFleets).getBytes()),
                 CACHE_FILE);
     }
 }

@@ -60,6 +60,7 @@ import java.util.concurrent.ExecutionException;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.ViewPagerStateAdapter;
 import rikka.akashitoolkit.ui.BaseActivity;
+import rikka.akashitoolkit.utils.FileUtils;
 import rikka.akashitoolkit.utils.Utils;
 
 public class ImagesActivity extends BaseActivity implements View.OnClickListener {
@@ -278,7 +279,7 @@ public class ImagesActivity extends BaseActivity implements View.OnClickListener
                     dst = new File(dst.getAbsolutePath() + fileName);
 
                     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
-                        Utils.copyFile(src, dst);
+                        FileUtils.copyFile(src, dst);
 
                         return new TaskReturn(Environment.DIRECTORY_PICTURES + fileName, null);
                     } else {

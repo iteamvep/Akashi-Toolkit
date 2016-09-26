@@ -137,7 +137,7 @@ public class EquipDetailActivity extends BaseItemDisplayActivity {
 
     @Override
     protected String getTaskDescriptionLabel() {
-        return mItem.getName().get(this);
+        return mItem.getName().get();
     }
 
     @Override
@@ -161,14 +161,14 @@ public class EquipDetailActivity extends BaseItemDisplayActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
 
         if (mItem.getName() != null) {
-            getSupportActionBar().setTitle(mItem.getName().get(this));
+            getSupportActionBar().setTitle(mItem.getName().get());
         }
 
         /*((TextView) findViewById(R.id.text_title)).setText(*/
         getSupportActionBar().setSubtitle(String.format(
                 "No. %d %s",
                 mItem.getId(),
-                EquipTypeList.findItemById(this, mItem.getType()).getName(this)
+                EquipTypeList.findItemById(this, mItem.getType()).getName()
                 /*KCStringFormatter.getStars(mItem.getRarity())*/));
 
         addAttrViews(mLinearLayout);
@@ -225,7 +225,7 @@ public class EquipDetailActivity extends BaseItemDisplayActivity {
             }
 
             TextView textView = new TextView(this);
-            textView.setText(list.get(shipType).getName().get(this));
+            textView.setText(list.get(shipType).getName().get());
             textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
             textView.setLayoutParams(new LinearLayout.LayoutParams(0, Utils.dpToPx(36), 1));
             textView.setGravity(Gravity.CENTER_VERTICAL);
@@ -299,10 +299,10 @@ public class EquipDetailActivity extends BaseItemDisplayActivity {
 
     private void addIntroduction(ViewGroup parent) {
         if (mItem.getIntroduction() != null
-                && mItem.getIntroduction().get(this) != null
-                && mItem.getIntroduction().get(this).length() > 0) {
+                && mItem.getIntroduction().get() != null
+                && mItem.getIntroduction().get().length() > 0) {
             ViewGroup cell = addCell(parent, R.string.introduction);
-            addTextView(cell, mItem.getIntroduction().get(this)).setPadding((int) getResources().getDimension(R.dimen.item_activity_margin), 0, (int) getResources().getDimension(R.dimen.item_activity_margin), 0);
+            addTextView(cell, mItem.getIntroduction().get()).setPadding((int) getResources().getDimension(R.dimen.item_activity_margin), 0, (int) getResources().getDimension(R.dimen.item_activity_margin), 0);
         }
     }
 
@@ -328,7 +328,7 @@ public class EquipDetailActivity extends BaseItemDisplayActivity {
             }
 
             TextView view = (TextView) LayoutInflater.from(this).inflate(R.layout.clickable_textview, linearLayout, false);
-            view.setText(ShipList.findItemById(this, shipId).getName().get(this));
+            view.setText(ShipList.findItemById(this, shipId).getName().get());
 
             final int id = shipId;
             view.setOnClickListener(new View.OnClickListener() {
@@ -368,7 +368,7 @@ public class EquipDetailActivity extends BaseItemDisplayActivity {
                 if (improvement.getUpgrade() != null) {
                     Equip equip = EquipList.findItemById(this, improvement.getUpgrade()[0]);
                     if (equip != null) {
-                        name = equip.getName().get(this);
+                        name = equip.getName().get();
                     }
                 }
 
@@ -475,7 +475,7 @@ public class EquipDetailActivity extends BaseItemDisplayActivity {
                 } else {
                     Ship s = ShipList.findItemById(this, id);
                     if (s != null)
-                        sb.append(s.getName().get(this));
+                        sb.append(s.getName().get());
                 }
             }
             TextView view = new TextView(this);
@@ -513,7 +513,7 @@ public class EquipDetailActivity extends BaseItemDisplayActivity {
         }
 
         StringBuilder sb = new StringBuilder();
-        sb.append(item.getName().get(this));
+        sb.append(item.getName().get());
         if (id[1] > 0) {
             sb.append(" ★+").append(id[1]);
         }
@@ -554,7 +554,7 @@ public class EquipDetailActivity extends BaseItemDisplayActivity {
                 if (item != null) {
                     ((TextView) linearLayout.findViewById(R.id.text_number_2)).setText(
                             String.format("%s ×%d",
-                                    item.getName().get(this),
+                                    item.getName().get(),
                                     res[4]));
 
                     ((View) linearLayout.findViewById(R.id.text_number_2).getParent()).setOnClickListener(new View.OnClickListener() {

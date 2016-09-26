@@ -79,11 +79,11 @@ public class FleetAdapter extends BaseItemTouchHelperAdapter<FleetViewHolder, Fl
 
         Ship ship = ShipList.findItemById(context, item.getId());
 
-        holder.mTitle.setText(String.format("%s Lv.%d", ship.getName().get(context), item.getLevel()));
+        holder.mTitle.setText(String.format("%s Lv.%d", ship.getName().get(), item.getLevel()));
 
         holder.mSummary.setText(String.format("%s %s",
                 KCStringFormatter.getSpeed(context, ship.getAttr().getSpeed()),
-                ship.getShipType().getName().get(context)));
+                ship.getShipType().getName().get()));
 
         resetEquipRelatedText(holder, position);
 
@@ -176,7 +176,7 @@ public class FleetAdapter extends BaseItemTouchHelperAdapter<FleetViewHolder, Fl
 
         Ship ship = ShipList.findItemById(context, item.getId());
 
-        holder.mTitle.setText(String.format("%s Lv.%d", ship.getName().get(context), item.getLevel()));
+        holder.mTitle.setText(String.format("%s Lv.%d", ship.getName().get(), item.getLevel()));
 
     }
 

@@ -80,23 +80,7 @@ public class CheckUpdate {
         private int versionCode;
         private String versionName;
         private String url;
-        private String change;
-
-        public void setVersionCode(int versionCode) {
-            this.versionCode = versionCode;
-        }
-
-        public void setVersionName(String versionName) {
-            this.versionName = versionName;
-        }
-
-        public void setUrl(String url) {
-            this.url = url;
-        }
-
-        public void setChange(String change) {
-            this.change = change;
-        }
+        private LocaleMultiLanguageEntry change;
 
         public int getVersionCode() {
             return versionCode;
@@ -110,50 +94,30 @@ public class CheckUpdate {
             return url;
         }
 
-        public String getChange() {
+        public MultiLanguageEntry getChange() {
             return change;
         }
     }
 
     public static class MessagesEntity {
-        private String title;
-        private String message;
+        private LocaleMultiLanguageEntry title;
+        private LocaleMultiLanguageEntry message;
         private int type;
+        private boolean show_first;
         private String link;
-        private String action_name;
+        private LocaleMultiLanguageEntry action_name;
         private int time;
         private List<String> images;
-        private boolean show_first;
 
         public long getId() {
-            return (title + message).hashCode();
+            return (title.getZhCN() + message.getZhCN()).hashCode();
         }
 
-        public void setTitle(String title) {
-            this.title = title;
-        }
-
-        public void setMessage(String message) {
-            this.message = message;
-        }
-
-        public void setType(int type) {
-            this.type = type;
-        }
-
-        public void setLink(String link) {
-            this.link = link;
-        }
-
-        public void setActionName(String action_name) {
-            this.action_name = action_name;
-        }
-
-        public String getTitle() {
+        public MultiLanguageEntry getTitle() {
             return title;
         }
 
-        public String getMessage() {
+        public MultiLanguageEntry getMessage() {
             return message;
         }
 
@@ -161,11 +125,15 @@ public class CheckUpdate {
             return type;
         }
 
+        public boolean isShowFirst() {
+            return show_first;
+        }
+
         public String getLink() {
             return link;
         }
 
-        public String getActionName() {
+        public MultiLanguageEntry getActionName() {
             return action_name;
         }
 
@@ -173,24 +141,8 @@ public class CheckUpdate {
             return time;
         }
 
-        public void setTime(int time) {
-            this.time = time;
-        }
-
         public List<String> getImages() {
             return images;
-        }
-
-        public void setImages(List<String> images) {
-            this.images = images;
-        }
-
-        public boolean isShowFirst() {
-            return show_first;
-        }
-
-        public void setShowFirst(boolean show_first) {
-            this.show_first = show_first;
         }
     }
 }

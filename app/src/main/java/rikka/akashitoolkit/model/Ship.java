@@ -291,7 +291,7 @@ public class Ship extends BaseDataModel {
     public String toString() {
         return "Ship{" +
                 "id=" + getId() + '\'' +
-                ", name=" + name.getZh_cn() +
+                ", name=" + name.getZhCN() +
                 '}';
     }
 }

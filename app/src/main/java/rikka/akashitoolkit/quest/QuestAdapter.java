@@ -87,9 +87,9 @@ public class QuestAdapter extends BaseBookmarkRecyclerAdapter<QuestViewHolder, Q
                     return false;
                 }
 
-                if (item.getTitle().get(mContext).contains(mKeyword) ||
+                if (item.getTitle().get().contains(mKeyword) ||
                         item.getCode().contains(mKeyword.toUpperCase()) ||
-                        item.getContent().get(mContext).contains(mKeyword)) {
+                        item.getContent().get().contains(mKeyword)) {
                     return true;
                 }
             }
@@ -142,7 +142,7 @@ public class QuestAdapter extends BaseBookmarkRecyclerAdapter<QuestViewHolder, Q
                 quest.getReward().getShip()) {
             Ship ship = ShipList.findItemById(mContext, shipId);
             if (ship != null) {
-                sb.append(ShipTypeList.findItemById(mContext, ship.getType()).getName().get(mContext)).append(" ").append(ship.getName().get(mContext)).append("<br>");
+                sb.append(ShipTypeList.findItemById(mContext, ship.getType()).getName().get()).append(" ").append(ship.getName().get()).append("<br>");
             }
         }
 
@@ -152,7 +152,7 @@ public class QuestAdapter extends BaseBookmarkRecyclerAdapter<QuestViewHolder, Q
             if (!isNumber) {
                 Equip equip = EquipList.findItemById(mContext, equipId);
                 if (equip != null) {
-                    sb.append(equip.getName().get(mContext));
+                    sb.append(equip.getName().get());
                 }
             } else {
                 sb.append(" * ").append(equipId).append("<br>");
@@ -166,7 +166,7 @@ public class QuestAdapter extends BaseBookmarkRecyclerAdapter<QuestViewHolder, Q
             if (!isNumber) {
                 Item item = ItemList.findItemById(mContext, itemId);
                 if (item != null) {
-                    sb.append(item.getName().get(mContext));
+                    sb.append(item.getName().get());
                 }
             } else {
                 sb.append(" * ").append(itemId).append("<br>");
@@ -218,7 +218,7 @@ public class QuestAdapter extends BaseBookmarkRecyclerAdapter<QuestViewHolder, Q
         holder.mName.setText(
                 String.format(quest.isBookmarked() ? "%s %s ★" : "%s %s",
                         quest.getCode(),
-                        quest.getTitle().get(mContext, true)));
+                        quest.getTitle().get(true)));
 
         holder.mType[0].setVisibility(View.INVISIBLE);
         holder.mType[1].setVisibility(View.INVISIBLE);
@@ -283,7 +283,7 @@ public class QuestAdapter extends BaseBookmarkRecyclerAdapter<QuestViewHolder, Q
     private void setViewDetail(QuestViewHolder holder, int position) {
         Quest quest = getItem(position);
 
-        holder.mDetail.setText(Html.fromHtml(quest.getContent().get(holder.itemView.getContext())));
+        holder.mDetail.setText(Html.fromHtml(quest.getContent().get()));
 
         setRewardText(holder, position, 0);
         setRewardText(holder, position, 1);
@@ -323,7 +323,7 @@ public class QuestAdapter extends BaseBookmarkRecyclerAdapter<QuestViewHolder, Q
 
             View view = LayoutInflater.from(mContext).inflate(R.layout.card_quest_next, holder.mQuestContainer, false);
             ((TextView) view).setText(
-                    String.format(format, unlockQuest.getCode(), unlockQuest.getTitle().get(mContext, true)));
+                    String.format(format, unlockQuest.getCode(), unlockQuest.getTitle().get(true)));
 
             view.setOnClickListener(new View.OnClickListener() {
                 @Override

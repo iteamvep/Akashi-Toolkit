@@ -8,7 +8,6 @@ import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -70,12 +69,12 @@ public class EquipTypeList {
         for (EquipType item:
                 list) {
 
-            if (map.get(item.getParentName().getZh_cn()) == null) {
+            if (map.get(item.getParentName().getZhCN()) == null) {
                 sParentList.add(item.getParentName());
-                map.put(item.getParentName().getZh_cn(), sParentList.size());
+                map.put(item.getParentName().getZhCN(), sParentList.size());
             }
 
-            item.setPatentId(map.get(item.getParentName().getZh_cn()));
+            item.setPatentId(map.get(item.getParentName().getZhCN()));
         }
     }
 

@@ -39,7 +39,6 @@ public class Application extends android.app.Application {
 
         NetworkUtils.init(this);
         Subtitle.init(this);
-        MultiLanguageEntry.init(this);
 
         ShipList.init(this);
 

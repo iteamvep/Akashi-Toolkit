@@ -52,6 +52,7 @@ import rikka.akashitoolkit.support.StaticData;
 import rikka.akashitoolkit.tools.SendReportActivity;
 import rikka.akashitoolkit.ui.BaseItemDisplayActivity;
 import rikka.akashitoolkit.ui.widget.LinearLayoutManager;
+import rikka.akashitoolkit.utils.FlavorsUtils;
 import rikka.akashitoolkit.utils.NetworkUtils;
 import rikka.akashitoolkit.utils.Utils;
 
@@ -148,9 +149,9 @@ public class ShipDetailActivity extends BaseItemDisplayActivity {
             if (shipClass != null) {
                 c = String.format("%s%s号舰", shipClass.getName(), Utils.getChineseNumberString(mItem.getClassNum()));
             } else {
-                Log.d("ShipDetailActivity", "No ship class: " + mItem.getName().get(this));
+                Log.d("ShipDetailActivity", "No ship class: " + mItem.getName().get());
             }
-            ((TextView) mToolbar.findViewById(android.R.id.title)).setText(mItem.getName().get(ShipDetailActivity.this));
+            ((TextView) mToolbar.findViewById(android.R.id.title)).setText(mItem.getName().get());
             ((TextView) mToolbar.findViewById(android.R.id.summary)).setText(String.format("No.%s %s",
                     mItem.getWikiId(),
                     c/*,
@@ -250,6 +251,10 @@ public class ShipDetailActivity extends BaseItemDisplayActivity {
     }
 
     private void downloadShipVoice() {
+        if (FlavorsUtils.isPlay()) {
+            return;
+        }
+
         if (mItem.isEnemy()) {
             return;
         }
@@ -318,7 +323,7 @@ public class ShipDetailActivity extends BaseItemDisplayActivity {
 
     @Override
     protected String getTaskDescriptionLabel() {
-        return mItem.getName().get(this);
+        return mItem.getName().get();
     }
 
     private void setupAppbar() {
@@ -342,13 +347,13 @@ public class ShipDetailActivity extends BaseItemDisplayActivity {
                 while (cur.getRemodel().getFromId() != 0) {
                     cur = ShipList.findItemById(v.getContext(), cur.getRemodel().getFromId());
                 }
-                popupMenu.getMenu().add(0, cur.getId(), 0, cur.getName().get(v.getContext()));
+                popupMenu.getMenu().add(0, cur.getId(), 0, cur.getName().get());
 
                 int i = 1;
                 while (cur.getRemodel().getToId() != 0 &&
                         cur.getRemodel().getToId() != cur.getRemodel().getFromId()) {
                     cur = ShipList.findItemById(v.getContext(), cur.getRemodel().getToId());
-                    popupMenu.getMenu().add(0, cur.getId(), i, cur.getName().get(v.getContext()));
+                    popupMenu.getMenu().add(0, cur.getId(), i, cur.getName().get());
                     i++;
                 }
                 popupMenu.setGravity(Gravity.TOP);

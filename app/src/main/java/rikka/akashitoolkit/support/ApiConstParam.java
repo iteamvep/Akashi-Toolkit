@@ -24,6 +24,8 @@ public class ApiConstParam {
     public static final class Language {
         public static final int ZH_CN = 0;
         public static final int JA = 1;
+        public static final int EN = 2;
+        public static final int ZH_TW = 3;
     }
 
     public static final class Message {

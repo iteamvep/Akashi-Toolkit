@@ -71,7 +71,7 @@ public class KCStringFormatter {
 
     @SuppressLint("DefaultLocale")
     public static Spanned getLinkEquip(Equip equip) {
-        return Html.fromHtml(String.format("<a href=akashitoolkit://equip/%d>%s</a>", equip.getId(), equip.getName().getZh_cn()));
+        return Html.fromHtml(String.format("<a href=akashitoolkit://equip/%d>%s</a>", equip.getId(), equip.getName().getZhCN()));
     }
 
     @SuppressLint("DefaultLocale")
