@@ -103,10 +103,6 @@
             android:name=".gallery.ImagesActivity"
             android:theme="@style/AppTheme.ImagesActivity">
         </activity>
-        <activity
-            android:name=".tools.PushSendActivity"
-            android:label="Push send">
-        </activity>
 
         <!--
         <activity

@@ -12,7 +12,7 @@
             android:summary="%s"/>
 
         <SimpleMenuPreference
-            android:key="data_language2"
+            android:key="data_language"
             android:title="@string/data_language"
             android:summary="%s"/>
 
