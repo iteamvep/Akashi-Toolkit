@@ -13,6 +13,7 @@ import rikka.akashitoolkit.MainActivity;
 public class Push {
     public static void init(Context context) {
         PushService.setDefaultPushCallback(context, MainActivity.class);
+        // TODO
         PushService.subscribe(context, "public", MainActivity.class);
         AVInstallation.getCurrentInstallation().saveInBackground();
     }

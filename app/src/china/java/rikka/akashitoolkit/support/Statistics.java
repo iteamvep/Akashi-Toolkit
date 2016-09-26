@@ -9,6 +9,7 @@ import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 
+import rikka.akashitoolkit.BuildConfig;
 import rikka.akashitoolkit.R;
 
 /**
@@ -18,7 +19,7 @@ public class Statistics {
     private static Tracker sTracker;
 
     public static synchronized void init(Application application) {
-        AVOSCloud.initialize(application, "q6Sj083vVxS6XrNgGD09w9kX-gzGzoHsz", "M9EUfoOVEnm9P5yoGXhAbwly");
+        AVOSCloud.initialize(application, BuildConfig.LEANCLOUD_APP_ID, BuildConfig.LEANCLOUD_APP_KEY);
         //AVAnalytics.enableCrashReport(application, true);
 
         sTracker = getDefaultTracker(application);
