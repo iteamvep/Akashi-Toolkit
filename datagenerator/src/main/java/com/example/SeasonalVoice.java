@@ -56,16 +56,17 @@ public class SeasonalVoice {
     private static void print(List<Object> list) {
         System.out.println("$data = null;");
         System.out.println("$data['type'] = $TYPE_VOICE;");
-        System.out.println("$data['title'] = \"title\";");
-        System.out.println("$data['summary'] = \"summary\";");
-        System.out.println("$data['voice'] = array();");
+        System.out.println("$data['not_safe'] = true;");
+        System.out.println("$data['object']['title']['zh_cn'] = \"title\";");
+        // System.out.println("$data['summary'] = \"summary\";");
+        System.out.println("$data['object']['voices'] = array();");
         System.out.println();
 
         boolean print = false;
         for (Object obj : list) {
             if (obj instanceof String) {
                 if (print) {
-                    System.out.println("array_push($data['voice'], $data_voice);");
+                    System.out.println("array_push($data['object']['voices'], $data_voice);");
                 }
 
                 print = true;
@@ -88,7 +89,7 @@ public class SeasonalVoice {
             }
         }
 
-        System.out.println("array_push($data['voice'], $data_voice);");
+        System.out.println("array_push($data['object']['voices'], $data_voice);");
         System.out.println("array_push($json, $data);");
     }
 

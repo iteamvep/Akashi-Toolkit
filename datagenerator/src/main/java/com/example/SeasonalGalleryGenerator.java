@@ -40,8 +40,8 @@ public class SeasonalGalleryGenerator {
 
         if (m.find()) {
             list.add(new Gallery(
-                    m.group(1),
-                    m.group(2).replaceAll("\\[\\[.+\\|(.+)]]", "$1").replace(" ", "")));
+                    m.group(1).replace("File:", "").replace("文件:", "").trim(),
+                    m.group(2).replaceAll("\\[\\[.+\\|(.+)]]", "$1").replace(" ", "").trim()));
         } else {
             m = GALLERY_PATTERN2.matcher(line);
             if (m.find()) {
@@ -53,23 +53,24 @@ public class SeasonalGalleryGenerator {
     public static void print(List<Gallery> list) {
         System.out.println("$data = null;");
         System.out.println("$data['type'] = $TYPE_GALLERY;");
-        System.out.println("$data['title'] = \"title\";");
-        System.out.println("$data['summary'] = \"summary\";");
-        System.out.println("$data['content'] = \"content\";");
-        System.out.println("$data['gallery']['urls'] = array(");
+        System.out.println("$data['not_safe'] = true;");
+        System.out.println("$data['object']['title']['zh_cn'] = \"title\";");
+        //System.out.println("$data['object']['summary'] = \"summary\";");
+        //System.out.println("$data['object']['content'] = \"content\";");
+        System.out.println("$data['object']['urls'] = array(");
         for (Gallery entry : list) {
             System.out.println("\"" + entry.url + "\",");
         }
         System.out.println(");");
 
         if (list.size() > 0 && !TextUtils.isEmpty(list.get(0).name)) {
-            System.out.println("$data['gallery']['names'] = array(");
+            System.out.println("$data['object']['names'] = array(");
             for (Gallery entry : list) {
                 System.out.println("\"" + entry.name + "\",");
             }
             System.out.println(");");
         } else {
-            System.out.println("$data['gallery']['names'] = null;");
+            System.out.println("$data['object']['names'] = null;");
         }
 
         System.out.println("array_push($json, $data);");

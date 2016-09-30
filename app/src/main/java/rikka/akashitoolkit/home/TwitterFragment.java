@@ -268,6 +268,10 @@ public class TwitterFragment extends Fragment implements TwitterAdapter.Listener
             public void onResponse(Call<List<Twitter>> call, Response<List<Twitter>> response) {
                 mSwipeRefreshLayout.setRefreshing(false);
 
+                if (response.code() >= 400) {
+                    return;
+                }
+
                 updateData(response.body(), true);
             }
 

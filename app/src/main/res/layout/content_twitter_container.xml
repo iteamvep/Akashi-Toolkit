@@ -4,13 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <rikka.akashitoolkit.ui.widget.ConsumeScrollRecyclerView
+    <rikka.akashitoolkit.ui.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
         android:padding="@dimen/list_padding">
 
-    </rikka.akashitoolkit.ui.widget.ConsumeScrollRecyclerView>
+    </rikka.akashitoolkit.ui.widget.RecyclerView>
 
 </android.support.v4.widget.SwipeRefreshLayout>

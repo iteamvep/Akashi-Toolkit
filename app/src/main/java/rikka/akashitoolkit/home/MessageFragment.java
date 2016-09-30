@@ -167,6 +167,11 @@ public class MessageFragment extends BaseRefreshFragment<CheckUpdate> {
 
         for (final CheckUpdate.MessagesEntity entity :
                 list) {
+            // do not add card should not show
+            if (!entity.shouldShow()) {
+                continue;
+            }
+
             // do not add card that time is early than now
             if ((entity.getType() & COUNT_DOWN) > 0) {
                 if (entity.getTime() * DateUtils.SECOND_IN_MILLIS < System.currentTimeMillis()) {
@@ -200,7 +205,7 @@ public class MessageFragment extends BaseRefreshFragment<CheckUpdate> {
                 .getIntFromString(Settings.UPDATE_CHECK_CHANNEL, 0);
 
         RetrofitAPI.UpdateAPI service = retrofit.create(RetrofitAPI.UpdateAPI.class);
-        call = service.get(5, channel);
+        call = service.get(CheckUpdate.API_VERSION, channel);
 
         super.onRefresh(call, force_cache);
     }

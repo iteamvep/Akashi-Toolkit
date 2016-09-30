@@ -17,14 +17,11 @@ import okhttp3.Response;
  */
 public class NetworkUtils {
 
-    private static Context sContext;
     private static OkHttpClient sForceCacheClient;
     private static OkHttpClient sCacheClient;
     private static OkHttpClient sClient;
 
     public static void init(Context context) {
-        sContext = context;
-
         File file = new File(context.getCacheDir(), "api_cache");
         Cache cache = new Cache(file, 10 * 1024 * 1024);
 

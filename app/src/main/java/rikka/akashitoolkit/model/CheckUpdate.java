@@ -2,10 +2,16 @@ package rikka.akashitoolkit.model;
 
 import java.util.List;
 
+import rikka.akashitoolkit.utils.FlavorsUtils;
+
 /**
  * Created by Rikka on 2016/3/15.
  */
+
+// TODO 改为和 Event 那个一样的？
 public class CheckUpdate {
+
+    public static final int API_VERSION = 1;
 
     /**
      * versionCode : 7
@@ -100,6 +106,22 @@ public class CheckUpdate {
     }
 
     public static class MessagesEntity {
+
+        private boolean only_play;
+        private boolean only_china;
+
+        private int min_api;
+        private int max_api;
+
+        /**
+         * 根据 API 版本，是否是 Play 版 / 国内版决定是否显示
+         *
+         * @return 是否显示
+         */
+        public boolean shouldShow() {
+            return !((max_api != 0 && API_VERSION > max_api) || (min_api != 0 && API_VERSION < min_api)) && !(only_china && FlavorsUtils.isPlay()) && !(only_play && !FlavorsUtils.isPlay());
+        }
+
         private LocaleMultiLanguageEntry title;
         private LocaleMultiLanguageEntry message;
         private int type;
