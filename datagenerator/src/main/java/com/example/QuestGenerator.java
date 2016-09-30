@@ -228,6 +228,8 @@ public class QuestGenerator {
         value = value.replace("[[九六式陆攻]]*1*1", "[[九六式陆攻]]*1");
         value = value.replace("[[一式陆攻]]", "[[一式陆攻]]*1");
         value = value.replace("[[一式陆攻]]*1*1", "[[一式陆攻]]*1");
+        value = value.replace("[[一式陆攻二二型甲]]", "[[一式陆攻二二型甲]]*1");
+        value = value.replace("[[一式陆攻二二型甲]]*1*1", "[[一式陆攻二二型甲]]*1");
 
         Pattern r;
         Matcher m;
