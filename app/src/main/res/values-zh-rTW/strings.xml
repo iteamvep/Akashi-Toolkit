@@ -35,6 +35,7 @@
     <string name="twitter_grid_layout">网格布局</string>
     <string name="twitter_grid_layout_summary">同时展示两列内容</string>
     <string name="twitter_history_avatars">历史头像</string>
+    <string name="twitter_view_on_twitter">在 Twitter 查看</string>
 
     <string name="ship">艦娘</string>
 
@@ -297,7 +298,7 @@
     <string name="donate_alipay_not_installed">您没有安装支付宝客户端</string>
     <string name="donate_alipay_disabled">您的支付宝已被禁用</string>
 
-    <string name="share_by_image">以图片分享</string>
+    <string name="share_as_image">以图片分享</string>
     <string name="preview">预览</string>
 
     <string name="send_via_akashi_toolkit">由明石工具箱发送</string>
@@ -309,4 +310,9 @@
     <string name="res_ammo">弹药</string>
     <string name="res_steel">钢铁</string>
     <string name="res_bauxite">铝</string>
+
+    <string name="share_via">分享方式</string>
+
+    <string name="home_card_voice_summary">%d 条语音</string>
+
 </resources>

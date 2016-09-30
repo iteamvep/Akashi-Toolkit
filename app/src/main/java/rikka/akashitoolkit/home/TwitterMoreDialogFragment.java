@@ -1,6 +1,5 @@
 package rikka.akashitoolkit.home;
 
-import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -35,9 +34,9 @@ public class TwitterMoreDialogFragment extends DialogFragment implements DialogI
         Context context = getActivity();
         AlertDialog.Builder builder = new AlertDialog.Builder(context, R.style.AppTheme_Dialog_Alert)
                 .setItems(new CharSequence[]{
-                        "View original Tweet",
+                        context.getString(R.string.twitter_view_on_twitter),
                         getString(R.string.share),
-                        getString(R.string.share_by_image),
+                        getString(R.string.share_as_image),
                         getString(R.string.copy_original_text),
                         getString(R.string.copy_translated_text)
                 }, this);
@@ -56,7 +55,7 @@ public class TwitterMoreDialogFragment extends DialogFragment implements DialogI
                 sendIntent.setAction(Intent.ACTION_SEND);
                 sendIntent.putExtra(Intent.EXTRA_TEXT, HtmlUtils.fromHtml(data.getJp()).toString());
                 sendIntent.setType("text/plain");
-                sendIntent = Intent.createChooser(sendIntent, "Share via");
+                sendIntent = Intent.createChooser(sendIntent, getString(R.string.share_via));
                 startActivity(sendIntent);
                 break;
             case 2:
