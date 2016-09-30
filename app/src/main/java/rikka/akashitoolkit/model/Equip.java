@@ -226,4 +226,11 @@ public class Equip extends BaseDataModel {
     public boolean isRankupable() {
         return status.rank == 1;
     }
+
+    /**
+     * @return 是否为敌人装备
+     */
+    public boolean isEnemy() {
+        return getId() >= 500;
+    }
 }

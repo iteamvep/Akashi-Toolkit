@@ -53,7 +53,7 @@ public class Event extends ArrayList<Event.Container> {
          * @return 是否显示
          */
         public boolean shouldShow() {
-            return !((max_api != 0 && API_VERSION > max_api) || (min_api != 0 && API_VERSION < min_api)) && !(only_china && FlavorsUtils.isPlay()) && !(only_play && !FlavorsUtils.isPlay()) && !(not_safe && FlavorsUtils.isPlay());
+            return !((max_api != 0 && API_VERSION > max_api) || (min_api != 0 && API_VERSION < min_api)) && !(only_china && FlavorsUtils.isPlay()) && !(only_play && !FlavorsUtils.isPlay()) && !(not_safe && FlavorsUtils.isPlay() && FlavorsUtils.shouldSafeCheck());
         }
     }
 

@@ -316,4 +316,8 @@
 
     <string name="home_card_voice_summary">%d voices</string>
 
+    <string name="ship_detail_illustrator_cv">画师 &amp; 声优</string>
+    <string name="ship_detail_consume_break_modernization">Consume &amp; Breaking &amp; Modernization</string>
+    <string name="ship_detail_get">Getting</string>
+
 </resources>

@@ -15,6 +15,15 @@ public class FlavorsUtils {
      * @return 是否是 Google Play 版
      */
     public static boolean isPlay() {
-        return BuildConfig.isGooglePlay && !BuildConfig.DEBUG /* && !Settings.instance().getBoolean(Settings.DEVELOPER, false)*/;
+        return BuildConfig.isGooglePlay/* && !BuildConfig.DEBUG *//* && !Settings.instance().getBoolean(Settings.DEVELOPER, false)*/;
+    }
+
+    /**
+     * Google: 不可以，这很色情
+     *
+     * @return 返回是否需要“安全”检查
+     */
+    public static boolean shouldSafeCheck() {
+        return false;
     }
 }

@@ -57,15 +57,15 @@ public class ShipDetailAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHold
                 addItem(ShipDetailAdapter.TYPE_TITLE, context.getString(R.string.remodel));
                 addItem(ShipDetailAdapter.TYPE_REMODEL, item);
 
-                addItem(ShipDetailAdapter.TYPE_TITLE, "消耗 & 解体 & 合成");
+                addItem(ShipDetailAdapter.TYPE_TITLE, context.getString(R.string.ship_detail_consume_break_modernization));
                 addItem(ShipDetailAdapter.TYPE_CONSUME, null);
-                addItem(ShipDetailAdapter.TYPE_TITLE, "入手方式");
+                addItem(ShipDetailAdapter.TYPE_TITLE, context.getString(R.string.ship_detail_get));
                 addItem(ShipDetailAdapter.TYPE_GET, null);
-                addItem(ShipDetailAdapter.TYPE_TITLE, "画师 & 声优");
+                addItem(ShipDetailAdapter.TYPE_TITLE, context.getString(R.string.ship_detail_illustrator_cv));
                 addItem(ShipDetailAdapter.TYPE_PAINTER_CV, null);
             }
 
-            if (!FlavorsUtils.isPlay()) {
+            if (!FlavorsUtils.shouldSafeCheck() || !FlavorsUtils.isPlay()) {
                 addItem(ShipDetailAdapter.TYPE_TITLE, context.getString(R.string.illustration));
                 addItem(ShipDetailAdapter.TYPE_ILLUSTRATION, item);
 

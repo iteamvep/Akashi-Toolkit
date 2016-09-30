@@ -315,5 +315,8 @@
     <string name="share_via">分享方式</string>
 
     <string name="home_card_voice_summary">%d 条语音</string>
+    <string name="ship_detail_illustrator_cv">画师 &amp; 声优</string>
+    <string name="ship_detail_consume_break_modernization">消耗 &amp; 解体 &amp; 合成</string>
+    <string name="ship_detail_get">入手方式</string>
 
 </resources>

@@ -279,67 +279,8 @@ public class ShipDisplayFragment extends BaseSearchFragment {
         activity.getTabLayout().setupWithViewPager(mViewPager);
         activity.getSupportActionBar().setTitle(getString(R.string.ship));
 
-        /*Observable
-                .create(new Observable.OnSubscribe<Object>() {
-                    @Override
-                    public void call(Subscriber<? super Object> subscriber) {
-                        setDrawerView();
-                        subscriber.onCompleted();
-                    }
-                })
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<Object>() {
-                    @Override
-                    public void onCompleted() {
-                        mFinalVersion = Settings
-                                .instance(getContext())
-                                .getInt(Settings.SHIP_FINAL_VERSION, 0);
-
-                        mCheckBoxGroups[0].setChecked(mFinalVersion);
-
-                        mSpeed = Settings
-                                .instance(getContext())
-                                .getInt(Settings.SHIP_SPEED, 0);
-
-                        mCheckBoxGroups[1].setChecked(mSpeed);
-
-                        mFlag = Settings
-                                .instance(getContext())
-                                .getInt(Settings.SHIP_FILTER, 0);
-
-                        mCheckBoxGroups[2].setChecked(mFlag);
-
-                        mActivity.getRightDrawerContent().addView(mScrollView);
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-
-                    }
-
-                    @Override
-                    public void onNext(Object o) {
-
-                    }
-                });*/
-
         setDrawerView();
         postSetDrawerView();
-
-        // may crash
-        /*new AsyncTask<Void, Void, Void>() {
-            @Override
-            protected Void doInBackground(Void... params) {
-                setDrawerView();
-                return null;
-            }
-
-            @Override
-            protected void onPostExecute(Void aVoid) {
-                postSetDrawerView();
-            }
-        }.execute();*/
 
         Statistics.onFragmentStart("ShipDisplayFragment");
     }
