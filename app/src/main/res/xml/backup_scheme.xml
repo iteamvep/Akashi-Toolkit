@@ -3,4 +3,8 @@
     <include
         domain="sharedpref"
         path="settings.xml"/>
+
+    <include
+        domain="file"
+        path="json/fleets.json"/>
 </full-backup-content>
