@@ -2,7 +2,7 @@
 <rikka.akashitoolkit.ui.widget.ForegroundFrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:foreground="?attr/selectableItemBackground"
+    android:foreground="@drawable/selectable_item_foreground"
     android:layout_width="48dp"
     android:layout_height="48dp"
     tools:selected="true">

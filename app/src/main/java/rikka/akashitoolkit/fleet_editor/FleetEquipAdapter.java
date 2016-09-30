@@ -184,8 +184,11 @@ public class FleetEquipAdapter extends BaseItemTouchHelperAdapter<FleetEquipView
         if (mEquipEntity == null) {
             return;
         }
-
-        holder.mSummary.setText(Integer.toString(mEquipEntity.getSpace()[position]));
+        if (mEquipEntity.getSpace()[position] <= 0) {
+            holder.mSummary.setText("0");
+        } else {
+            holder.mSummary.setText(Integer.toString(mEquipEntity.getSpace()[position]));
+        }
     }
 
     @Override
