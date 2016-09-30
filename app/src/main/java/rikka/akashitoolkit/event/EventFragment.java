@@ -5,43 +5,25 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.OrientationHelper;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.squareup.otto.Subscribe;
 
-import java.io.ByteArrayInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.util.ArrayList;
-import java.util.List;
-
 import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import rikka.akashitoolkit.MainActivity;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.home.GridRecyclerViewHelper;
-import rikka.akashitoolkit.model.Event;
 import rikka.akashitoolkit.network.RetrofitAPI;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.PreferenceChangedAction;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.Statistics;
-import rikka.akashitoolkit.ui.fragments.BaseDrawerItemFragment;
-import rikka.akashitoolkit.ui.widget.ConsumeScrollRecyclerView;
-import rikka.akashitoolkit.utils.Utils;
+import rikka.akashitoolkit.ui.widget.RecyclerView;
+import rikka.akashitoolkit.utils.NetworkUtils;
 
 /**
  * Created by Rikka on 2016/8/12.
@@ -49,8 +31,6 @@ import rikka.akashitoolkit.utils.Utils;
 public class EventFragment extends BaseEventFragment<Event> {
 
     private static final String TAG = "EventFragment";
-
-    private static final int API_VERSION = 2;
 
     private EventAdapter mAdapter;
 
@@ -86,42 +66,12 @@ public class EventFragment extends BaseEventFragment<Event> {
 
         mAdapter.clearItemList();
 
-        Gson gson = new Gson();
-        for (Event.Container container : data) {
-            String json = gson.toJson(container.getObject());
-            Object object = null;
-            switch (container.getType()) {
-                case EventAdapter.TYPE_TITLE:
-                case EventAdapter.TYPE_CONTENT:
-                    object = gson.fromJson(json, Event.Title.class);
-                    break;
-                case EventAdapter.TYPE_GALLERY:
-                    object = gson.fromJson(json, Event.Gallery.class);
-
-                    Event.Gallery _data = (Event.Gallery) object;
-
-                    List<String> urls = new ArrayList<>();
-                    for (String url : _data.getUrls()) {
-                        if (!url.startsWith("http")) {
-                            urls.add(Utils.getKCWikiFileUrl(url));
-                        } else {
-                            urls.add(url);
-                        }
-                    }
-                    _data.getUrls().clear();
-                    _data.getUrls().addAll(urls);
-                    break;
-                case EventAdapter.TYPE_MAPS:
-                    object = gson.fromJson(json, Event.Maps.class);
-                    break;
-                case EventAdapter.TYPE_URL:
-                    object = gson.fromJson(json, Event.Url.class);
-                    break;
-                default:
-                    Log.w(TAG, "unhandled: " + json);
+        data.parse(new Event.OnItemParseListener() {
+            @Override
+            public void onItemParse(int type, Object object) {
+                mAdapter.addItem(RecyclerView.NO_ID, type, object);
             }
-            mAdapter.addItem(RecyclerView.NO_ID, container.getType(), object);
-        }
+        });
 
         mAdapter.notifyDataSetChanged();
     }
@@ -130,11 +80,12 @@ public class EventFragment extends BaseEventFragment<Event> {
     public void onRefresh(Call<Event> call, boolean force_cache) {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://app.kcwiki.moe/")
+                .client(NetworkUtils.getClient(force_cache))
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         RetrofitAPI.EventAPI service = retrofit.create(RetrofitAPI.EventAPI.class);
-        call = service.get(API_VERSION);
+        call = service.get(Event.API_VERSION);
 
         super.onRefresh(call, force_cache);
     }

@@ -1,35 +1,30 @@
 package rikka.akashitoolkit.ui.widget;
 
 import android.content.Context;
-import android.graphics.Rect;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
-import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
-import android.view.ViewGroup;
 
 /**
  * 用糟糕方法解决当 RecyclerView 放在 CoordinatorLayout 里面时 overscroll 效果会没有的问题..
  * 用糟糕方法解决 RecyclerView 会自己动..
  */
-public class ConsumeScrollRecyclerView extends RecyclerView {
+public class RecyclerView extends android.support.v7.widget.RecyclerView {
 
     private static final String TAG = "RecyclerView";
 
     private boolean mDisableRequestChildFocus;
 
-    public ConsumeScrollRecyclerView(Context context) {
+    public RecyclerView(Context context) {
         this(context, null);
     }
 
-    public ConsumeScrollRecyclerView(Context context, @Nullable AttributeSet attrs) {
+    public RecyclerView(Context context, @Nullable AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public ConsumeScrollRecyclerView(Context context, @Nullable AttributeSet attrs, int defStyle) {
+    public RecyclerView(Context context, @Nullable AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
 
         mDisableRequestChildFocus = false;

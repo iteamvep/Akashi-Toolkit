@@ -1,34 +1,32 @@
 package rikka.akashitoolkit.event;
 
-import android.content.Intent;
+import android.annotation.SuppressLint;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
-
-import com.zzhoujay.markdown.MarkDown;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.SimpleAdapter;
-import rikka.akashitoolkit.model.Event;
-import rikka.akashitoolkit.ui.BaseItemDisplayActivity;
 import rikka.akashitoolkit.ui.widget.BaseRecyclerViewItemDecoration;
 import rikka.akashitoolkit.viewholder.IBindViewHolder;
+import rikka.akashitoolkit.voice.VoiceActivity;
 
 /**
- * Created by Rikka on 2016/8/12.
+ * Created by Rikka on 2016/9/28.
  */
-public class EventMapViewHolder extends RecyclerView.ViewHolder implements IBindViewHolder {
+
+public class VoicesViewHolder extends RecyclerView.ViewHolder implements IBindViewHolder<Event.Voices> {
 
     public TextView mTitle;
     public TextView mSummary;
     public RecyclerView mRecyclerView;
     public SimpleAdapter<String> mAdapter;
 
-    public EventMapViewHolder(View itemView) {
+    public VoicesViewHolder(View itemView) {
         super(itemView);
 
         mTitle = (TextView) itemView.findViewById(android.R.id.title);
@@ -50,35 +48,28 @@ public class EventMapViewHolder extends RecyclerView.ViewHolder implements IBind
         mRecyclerView.setNestedScrollingEnabled(false);
     }
 
+    @SuppressLint("DefaultLocale")
     @Override
-    public void bind(Object _data, int position) {
-        if (!(_data instanceof Event.Maps)) {
-            return;
-        }
-
-        final Event.Maps data = (Event.Maps) _data;
-
-        if (data.getIds() == null) {
-            return;
-        }
-
-        mTitle.setText(data.getTitle());
-        mSummary.setVisibility(View.GONE);
+    public void bind(final Event.Voices data, int position) {
+        final String title = data.getTitle().get();
+        mTitle.setText(data.getTitle().get());
 
         List<String> list = new ArrayList<>();
-        for (Integer id : data.getIds()) {
-            list.add(Integer.toString(id));
+
+        int count = 0;
+        for (Event.Voices.Voice voice : data.getVoices()) {
+            list.add(String.format("%s (%d)", voice.getType(), voice.getVoice().size()));
+            count += voice.getVoice().size();
         }
-        mAdapter.setItemList(list);
+
+        mSummary.setText(String.format(itemView.getContext().getString(R.string.home_card_voice_summary), count));
+
         mAdapter.setListener(new SimpleAdapter.Listener() {
             @Override
             public void OnClick(int position) {
-                int id = data.getIds().get(position);
-
-                Intent intent = new Intent(itemView.getContext(), EventMapActivity.class);
-                intent.putExtra(EventMapActivity.EXTRA_ITEM_ID, id);
-                BaseItemDisplayActivity.start(itemView.getContext(), intent);
+                VoiceActivity.start(itemView.getContext(), data.getVoices().get(position).getVoice(), title);
             }
         });
+        mAdapter.setItemList(list);
     }
 }

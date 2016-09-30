@@ -17,14 +17,13 @@ import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.gallery.GalleryActivity;
 import rikka.akashitoolkit.gallery.GalleryAdapter;
 import rikka.akashitoolkit.gallery.ImagesActivity;
-import rikka.akashitoolkit.model.Event;
 import rikka.akashitoolkit.utils.Utils;
 import rikka.akashitoolkit.viewholder.IBindViewHolder;
 
 /**
  * Created by Rikka on 2016/8/12.
  */
-public class GalleryViewHolder extends RecyclerView.ViewHolder implements IBindViewHolder {
+public class GalleryViewHolder extends RecyclerView.ViewHolder implements IBindViewHolder<Event.Gallery> {
 
     private static final String TAG = "GalleryViewHolder";
 
@@ -89,18 +88,12 @@ public class GalleryViewHolder extends RecyclerView.ViewHolder implements IBindV
     }
 
     @Override
-    public void bind(Object _data, int position) {
-        if (!(_data instanceof Event.Gallery)) {
-            return;
-        }
-
+    public void bind(Event.Gallery data, int position) {
         Context context = itemView.getContext();
 
-        Event.Gallery data = (Event.Gallery) _data;
-
-        final String title = data.getTitle();
-        final String summary = data.getSummary();
-        final String content = data.getContent();
+        final String title = data.getTitle().get();
+        final String summary = data.getSummary().get();
+        final String content = data.getContent().get();
         final List<String> urls = data.getUrls();
         final List<String> names = data.getNames();
 
@@ -115,7 +108,11 @@ public class GalleryViewHolder extends RecyclerView.ViewHolder implements IBindV
             @Override
             public void onClick(View v) {
                 Context context = v.getContext();
-                GalleryActivity.start(context, urls, names, title);
+                /*List<String> list = new ArrayList<>();
+                for (LocaleMultiLanguageEntry entry : names) {
+                    list.add(entry.get());
+                }*/
+                GalleryActivity.start(context, urls, names/*list*/, title);
             }
         });
         mButton.setVisibility(TextUtils.isEmpty(content) ? View.VISIBLE : View.GONE);

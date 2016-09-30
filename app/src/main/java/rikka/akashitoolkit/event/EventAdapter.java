@@ -14,12 +14,6 @@ public class EventAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHolder, O
 
     private static final String TAG = "EventAdapter";
 
-    public static final int TYPE_TITLE = 0;
-    public static final int TYPE_GALLERY = 1;
-    public static final int TYPE_CONTENT = 2;
-    public static final int TYPE_MAPS = 3;
-    public static final int TYPE_URL = 4;
-
     public EventAdapter() {
     }
 
@@ -32,16 +26,16 @@ public class EventAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHolder, O
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         switch (viewType) {
-            case TYPE_TITLE:
+            case Event.TYPE_TITLE:
                 return new TitleSummaryViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.card_seansonal_title, parent, false));
-            case TYPE_GALLERY:
+            case Event.TYPE_GALLERY:
                 return new GalleryViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.card_seansonal_gallery, parent, false));
-            case TYPE_CONTENT:
+            case Event.TYPE_CONTENT:
                 return new TitleSummaryViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.card_seansonal_text, parent, false));
-            case TYPE_MAPS:
-                return new EventMapViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.card_seansonal_voice, parent, false));
-            case TYPE_URL:
+            case Event.TYPE_URL:
                 return new TitleSummaryButtonViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.card_event_action, parent, false));
+            case Event.TYPE_VOICE:
+                return new VoicesViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.card_seansonal_voice, parent, false));
         }
         return null;
     }

@@ -29,6 +29,7 @@ import rikka.akashitoolkit.otto.PreferenceChangedAction;
 import rikka.akashitoolkit.otto.ReadStatusResetAction;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.StaticData;
+import rikka.akashitoolkit.utils.FlavorsUtils;
 import rikka.akashitoolkit.utils.NetworkUtils;
 
 import static rikka.akashitoolkit.support.ApiConstParam.Message.COUNT_DOWN;
@@ -140,10 +141,9 @@ public class MessageFragment extends BaseRefreshFragment<CheckUpdate> {
     }
 
     private void addUpdateCard(final CheckUpdate.UpdateEntity entity) {
-        // TODO if republish at Play Store uncomment it
-        /*if (BuildConfig.isGooglePlay) {
+        if (FlavorsUtils.isPlay()) {
             return;
-        }*/
+        }
 
         if (entity == null) {
             return;

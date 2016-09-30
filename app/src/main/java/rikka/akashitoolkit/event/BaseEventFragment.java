@@ -3,9 +3,7 @@ package rikka.akashitoolkit.event;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -15,7 +13,7 @@ import retrofit2.Response;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.home.IRefresh;
 import rikka.akashitoolkit.ui.fragments.BaseDrawerItemFragment;
-import rikka.akashitoolkit.ui.widget.ConsumeScrollRecyclerView;
+import rikka.akashitoolkit.ui.widget.RecyclerView;
 
 /**
  * Created by Rikka on 2016/8/31.
@@ -23,13 +21,13 @@ import rikka.akashitoolkit.ui.widget.ConsumeScrollRecyclerView;
 public abstract class BaseEventFragment<T> extends BaseDrawerItemFragment implements IRefresh<T> {
 
     protected SwipeRefreshLayout mSwipeRefreshLayout;
-    protected ConsumeScrollRecyclerView mRecyclerView;
+    protected RecyclerView mRecyclerView;
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        mRecyclerView = (ConsumeScrollRecyclerView) view.findViewById(R.id.recyclerView);
+        mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefreshLayout);
 
         if (mRecyclerView == null || mSwipeRefreshLayout == null) {

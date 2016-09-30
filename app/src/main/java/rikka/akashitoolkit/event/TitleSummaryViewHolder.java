@@ -1,10 +1,10 @@
 package rikka.akashitoolkit.event;
 
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
-import rikka.akashitoolkit.model.Event;
 import rikka.akashitoolkit.viewholder.IBindViewHolder;
 
 /**
@@ -34,7 +34,11 @@ public class TitleSummaryViewHolder extends RecyclerView.ViewHolder implements I
 
         Event.Title data = (Event.Title) _data;
 
-        mTitle.setText(data.getTitle());
-        mSummary.setText(data.getContent());
+        mTitle.setText(data.getTitle().get());
+        if (!TextUtils.isEmpty(data.getSummary().get())) {
+            mSummary.setText(data.getSummary().get());
+        } else if (!TextUtils.isEmpty(data.getContent().get())) {
+            mSummary.setText(data.getContent().get());
+        }
     }
 }

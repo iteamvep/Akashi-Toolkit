@@ -2,19 +2,16 @@ package rikka.akashitoolkit.network;
 
 import java.util.List;
 
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
-import retrofit2.http.Streaming;
 import rikka.akashitoolkit.model.Avatars;
 import rikka.akashitoolkit.model.CheckUpdate;
-import rikka.akashitoolkit.model.Event;
+import rikka.akashitoolkit.event.Event;
 import rikka.akashitoolkit.model.LatestAvatar;
 import rikka.akashitoolkit.model.ShipVoice;
 import rikka.akashitoolkit.model.Twitter;
-import rikka.akashitoolkit.model.Seasonal;
 import rikka.akashitoolkit.model.Version;
 
 /**
@@ -42,7 +39,7 @@ public class RetrofitAPI {
 
     public interface SeasonalAPI {
         @GET("/api_v2/seasonal.php")
-        Call<List<Seasonal>> get(
+        Call<Event> get(
                 @Query("api_version") int api_version);
     }
 

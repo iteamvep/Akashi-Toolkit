@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import rikka.akashitoolkit.model.Event;
 import rikka.akashitoolkit.viewholder.IBindViewHolder;
 
 /**
@@ -40,11 +39,11 @@ public class TitleSummaryButtonViewHolder extends RecyclerView.ViewHolder implem
 
         final Event.Url data = (Event.Url) _data;
 
-        mTitle.setText(data.getTitle());
-        mSummary.setText(data.getContent());
-        mButton.setText(data.getUrlText());
+        mTitle.setText(data.getTitle().get());
+        mSummary.setText(data.getContent().get());
+        mButton.setText(data.getUrlText().get());
 
-        mSummary.setVisibility(TextUtils.isEmpty(data.getContent()) ? View.GONE : View.VISIBLE);
+        mSummary.setVisibility(TextUtils.isEmpty(data.getContent().get()) ? View.GONE : View.VISIBLE);
 
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override

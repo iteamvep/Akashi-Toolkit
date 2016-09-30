@@ -9,6 +9,7 @@ import static rikka.akashitoolkit.support.ApiConstParam.Language.ZH_TW;
 
 /**
  * Created by Rikka on 2016/4/16.
+ * 根据数据语言设置
  */
 public class MultiLanguageEntry {
 

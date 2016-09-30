@@ -6,6 +6,7 @@ import rikka.akashitoolkit.support.ApiConstParam;
 
 /**
  * Created by Rikka on 2016/9/26.
+ * 根据应用语言设置的 MultiLanguageEntry
  */
 
 public class LocaleMultiLanguageEntry extends MultiLanguageEntry {

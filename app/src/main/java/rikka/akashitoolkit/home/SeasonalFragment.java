@@ -4,48 +4,33 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.squareup.otto.Subscribe;
 
-import java.io.ByteArrayInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.util.ArrayList;
-import java.util.List;
-
 import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import rikka.akashitoolkit.R;
-import rikka.akashitoolkit.model.Seasonal;
+import rikka.akashitoolkit.event.Event;
+import rikka.akashitoolkit.event.EventAdapter;
 import rikka.akashitoolkit.network.RetrofitAPI;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.PreferenceChangedAction;
 import rikka.akashitoolkit.support.Settings;
-import rikka.akashitoolkit.utils.Utils;
 
 /**
  * Created by Rikka on 2016/4/30.
  */
-public class SeasonalFragment extends BaseRefreshFragment<List<Seasonal>> {
-    private static final int API_VERSION = 1;
+public class SeasonalFragment extends BaseRefreshFragment<Event> {
 
-    private SeasonalAdapter mAdapter;
+    private EventAdapter mAdapter;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -73,7 +58,7 @@ public class SeasonalFragment extends BaseRefreshFragment<List<Seasonal>> {
         mRecyclerView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.windowBackground));
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), OrientationHelper.VERTICAL, false));
-        mAdapter = new SeasonalAdapter();
+        mAdapter = new EventAdapter();
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setClipToPadding(false);
 
@@ -83,26 +68,34 @@ public class SeasonalFragment extends BaseRefreshFragment<List<Seasonal>> {
     }
 
     @Override
-    public void onSuccess(@NonNull List<Seasonal> data) {
+    public void onSuccess(@NonNull Event data) {
         mSwipeRefreshLayout.setRefreshing(false);
-        //setAdapter(data);
-        mAdapter.parseData(data);
+        mAdapter.clearItemList();
+
+        data.parse(new Event.OnItemParseListener() {
+            @Override
+            public void onItemParse(int type, Object object) {
+                mAdapter.addItem(RecyclerView.NO_ID, type, object);
+            }
+        });
+
+        mAdapter.notifyDataSetChanged();
     }
 
     @Override
-    public void onFailure(Call<List<Seasonal>> call, Throwable t) {
+    public void onFailure(Call<Event> call, Throwable t) {
         Snackbar.make(mSwipeRefreshLayout, R.string.refresh_fail, Snackbar.LENGTH_SHORT).show();
     }
 
     @Override
-    public void onRefresh(Call<List<Seasonal>> call, boolean force_cache) {
+    public void onRefresh(Call<Event> call, boolean force_cache) {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://app.kcwiki.moe/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         RetrofitAPI.SeasonalAPI service = retrofit.create(RetrofitAPI.SeasonalAPI.class);
-        call = service.get(API_VERSION);
+        call = service.get(Event.API_VERSION);
 
         super.onRefresh(call, force_cache);
     }
