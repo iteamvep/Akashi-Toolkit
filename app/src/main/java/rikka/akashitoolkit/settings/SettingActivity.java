@@ -149,8 +149,8 @@ public class SettingActivity extends BaseActivity {
             });
 
             final ListPreference dropDownPreference = (ListPreference) findPreference(Settings.DATA_LANGUAGE);
-            dropDownPreference.setEntries(new CharSequence[]{Locale.SIMPLIFIED_CHINESE.getDisplayName(), Locale.JAPANESE.getDisplayName()});
-            dropDownPreference.setEntryValues(new CharSequence[]{"0", "1"});
+            dropDownPreference.setEntries(new CharSequence[]{Locale.SIMPLIFIED_CHINESE.getDisplayName(), Locale.JAPANESE.getDisplayName(), Locale.ENGLISH.getDisplayName()});
+            dropDownPreference.setEntryValues(new CharSequence[]{"0", "1", "2"});
             if (dropDownPreference.getValue() == null) {
                 dropDownPreference.setValueIndex(Utils.getDefaultDataLanguage());
             }
@@ -163,10 +163,10 @@ public class SettingActivity extends BaseActivity {
                     Locale.JAPANESE.getDisplayName()
             });
             dropDownPreference2.setEntryValues(new CharSequence[]{
-                    "sc",
-                    "tc",
-                    "en",
-                    "ja"
+                    Locale.SIMPLIFIED_CHINESE.toString(),
+                    Locale.TRADITIONAL_CHINESE.toString(),
+                    Locale.ENGLISH.toString(),
+                    Locale.JAPANESE.toString()
             });
             if (dropDownPreference2.getValue() == null) {
                 dropDownPreference2.setValue(Settings.instance(getActivity()).getString(Settings.APP_LANGUAGE, Utils.getDefaultSettingFromLocale()));

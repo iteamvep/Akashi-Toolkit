@@ -26,6 +26,7 @@ import java.util.Locale;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.StaticData;
 
+import static rikka.akashitoolkit.support.ApiConstParam.Language.EN;
 import static rikka.akashitoolkit.support.ApiConstParam.Language.JA;
 import static rikka.akashitoolkit.support.ApiConstParam.Language.ZH_CN;
 
@@ -147,15 +148,15 @@ public class Utils {
             case "zh":
                 switch (Locale.getDefault().getCountry()) {
                     case "CN":
-                        return "sc";
+                        return Locale.SIMPLIFIED_CHINESE.toString();
                     default:
-                        return "tc";
+                        return Locale.TRADITIONAL_CHINESE.toString();
                 }
             case "ja":
-                return "ja";
+                return Locale.JAPAN.toString();
         }
 
-        return "en";
+        return Locale.ENGLISH.toString();
     }
 
     public static int getDefaultDataLanguage() {
@@ -164,6 +165,8 @@ public class Utils {
                 return ZH_CN;
             case "ja":
                 return JA;
+            case "en":
+                return EN;
         }
 
         return ZH_CN;

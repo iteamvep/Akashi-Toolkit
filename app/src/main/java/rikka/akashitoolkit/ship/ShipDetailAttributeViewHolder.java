@@ -80,7 +80,7 @@ public class ShipDetailAttributeViewHolder extends AttributeViewHolder implement
      */
     @SuppressLint("DefaultLocale")
     private void addEnemy(Adapter adapter, @StringRes int title, int min, int max) {
-        if (max != 0 && min == max) {
+        if (max == 0 || min == max) {
             adapter.add(title, String.format("%d", min));
         } else {
             adapter.add(title, String.format("%d / %d", min, max));

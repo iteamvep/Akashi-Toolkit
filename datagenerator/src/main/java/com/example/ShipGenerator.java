@@ -58,6 +58,7 @@ public class ShipGenerator {
 
             ship.getName().setJa(ship.get日文名());
             ship.getName().setZh_cn(ship.get中文名());
+            ship.getName().setEn(getRomaji(ship));
             ship.setNameForSearch(getNameForSearch(ship));
 
             ship.setClassNum(apiShip.getClassNum());
@@ -287,6 +288,35 @@ public class ShipGenerator {
                 }.getType());
     }
 
+    private static String getRomaji(Ship2 item) {
+        StringBuilder sb = new StringBuilder();
+        if (item.get日文名().charAt(0) <= 'Z') {
+            sb.append(item.get日文名());
+        } else if (!TextUtils.isEmpty(item.get假名())) {
+            sb.append(wkj.toRomaji(item.get假名()));
+            sb.setCharAt(0, (char) (sb.charAt(0) + ('A' - 'a')));
+        }
+
+        if (item.get中文名().contains("改")) {
+            sb.append(" Kai");
+        }
+        if (item.get中文名().contains("二")) {
+            sb.append(" Ni");
+        }
+        if (item.get中文名().contains("甲")) {
+            sb.append(" A");
+        }
+        if (item.get中文名().contains("乙")) {
+            sb.append(" B");
+        }
+        if (item.get中文名().contains("丙")) {
+            sb.append(" C");
+        }
+        if (item.get中文名().contains("丁")) {
+            sb.append(" D");
+        }
+        return sb.toString();
+    }
     private static String getNameForSearch(Ship2 item) {
         StringBuilder sb = new StringBuilder();
 

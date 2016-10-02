@@ -37,10 +37,10 @@ public abstract class BaseActivity extends BaseDayNightModeActivity {
 
     public void setLocale() {
         switch (Settings.instance(this).getString(Settings.APP_LANGUAGE, Utils.getDefaultSettingFromLocale())) {
-            case "sc":
+            case "zh_CN":
                 Locale.setDefault(Locale.SIMPLIFIED_CHINESE);
                 break;
-            case "tc":
+            case "zh_TW":
                 Locale.setDefault(Locale.TRADITIONAL_CHINESE);
                 break;
             case "ja":

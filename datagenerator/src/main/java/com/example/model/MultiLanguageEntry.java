@@ -8,15 +8,19 @@ import com.google.gson.annotations.Expose;
 public class MultiLanguageEntry {
     @Expose private String zh_cn;
     @Expose private String ja;
+    @Expose
+    private String en;
 
     public MultiLanguageEntry() {
         zh_cn = "";
         ja = "";
+        en = "";
     }
 
     public MultiLanguageEntry(String name) {
         zh_cn = name;
         ja = name;
+        en = name;
     }
 
     public String getZh_cn() {
@@ -33,6 +37,14 @@ public class MultiLanguageEntry {
 
     public void setJa(String ja) {
         this.ja = ja;
+    }
+
+    public String getEn() {
+        return en;
+    }
+
+    public void setEn(String en) {
+        this.en = en;
     }
 
     @Override

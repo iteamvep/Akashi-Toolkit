@@ -43,5 +43,6 @@ public class Application extends android.app.Application {
         ShipList.init(this);
 
         Settings.init(this);
+        MultiLanguageEntry.init(this);
     }
 }

@@ -6,10 +6,10 @@
     android:layout_height="@dimen/item_height"
     android:background="@color/cardBackground"
     android:foreground="?attr/selectableItemBackground"
-    android:paddingBottom="8dp"
     android:paddingLeft="@dimen/item_padding"
     android:paddingRight="@dimen/item_padding"
     android:paddingTop="8dp"
+    android:paddingBottom="8dp"
     android:clipToPadding="false"
     android:gravity="center_vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
