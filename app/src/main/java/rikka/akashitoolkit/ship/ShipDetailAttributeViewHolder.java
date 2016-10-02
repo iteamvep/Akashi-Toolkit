@@ -51,10 +51,10 @@ public class ShipDetailAttributeViewHolder extends AttributeViewHolder implement
             add(adapter, R.string.attr_luck, attr.getLuck(), attr_max.getLuck());
         } else {
             adapter.add(R.string.attr_hp, attr.getHP());
-            adapter.add(R.string.attr_firepower, attr.getFirepower());
-            adapter.add(R.string.attr_aa, attr.getAA());
-            adapter.add(R.string.attr_torpedo, attr.getTorpedo());
-            adapter.add(R.string.attr_armor, attr.getArmor());
+            addEnemy(adapter, R.string.attr_firepower, attr.getFirepower(), attr_max.getFirepower());
+            addEnemy(adapter, R.string.attr_aa, attr.getAA(), attr_max.getAA());
+            addEnemy(adapter, R.string.attr_torpedo, attr.getTorpedo(), attr_max.getTorpedo());
+            addEnemy(adapter, R.string.attr_armor, attr.getArmor(), attr_max.getArmor());
             adapter.add(R.string.attr_speed, KCStringFormatter.getSpeed(context, attr.getSpeed()));
             adapter.add(R.string.attr_range, KCStringFormatter.getRange(context, attr.getRange()));
         }
@@ -66,6 +66,24 @@ public class ShipDetailAttributeViewHolder extends AttributeViewHolder implement
             adapter.add(title, String.format("%d", min));
         } else {
             adapter.add(title, String.format("%d → %d", min, max));
+        }
+    }
+
+    /**
+     * 使用来自 https://zh.kcwiki.moe/wiki/深海栖舰列表 的数据
+     * 原文 "/"前后数值表示："面板火力或雷装/计入装备后火力或雷装"
+     *
+     * @param adapter Adapter
+     * @param title   标题
+     * @param min     不带有装备的数值
+     * @param max     带有装备的数值
+     */
+    @SuppressLint("DefaultLocale")
+    private void addEnemy(Adapter adapter, @StringRes int title, int min, int max) {
+        if (min == max) {
+            adapter.add(title, String.format("%d", min));
+        } else {
+            adapter.add(title, String.format("%d / %d", min, max));
         }
     }
 }

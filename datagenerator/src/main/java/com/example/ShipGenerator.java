@@ -545,28 +545,28 @@ public class ShipGenerator {
                 ship.getAttr().setFire(Utils.stringToInt(value));
                 break;
             case "火力2":
-                ship.getAttrMax().setFire(Utils.stringToInt(value));
+                ship.getAttrMax().setFire(Utils.stringToInt(value) - ship.getAttr().getFirepower());
                 break;
 
             case "雷装":
                 ship.getAttr().setTorpedo(Utils.stringToInt(value));
                 break;
             case "雷装2":
-                ship.getAttrMax().setTorpedo(Utils.stringToInt(value));
+                ship.getAttrMax().setTorpedo(Utils.stringToInt(value) - ship.getAttr().getTorpedo());
                 break;
 
             case "对空":
                 ship.getAttr().setAA(Utils.stringToInt(value));
                 break;
             case "对空2":
-                ship.getAttrMax().setAA(Utils.stringToInt(value));
+                ship.getAttrMax().setAA(Utils.stringToInt(value) - ship.getAttr().getAA());
                 break;
 
             case "装甲":
                 ship.getAttr().setArmor(Utils.stringToInt(value));
                 break;
             case "装甲2":
-                ship.getAttrMax().setArmor(Utils.stringToInt(value));
+                ship.getAttrMax().setArmor(Utils.stringToInt(value) - ship.getAttr().getArmor());
                 break;
 
             case "运":
