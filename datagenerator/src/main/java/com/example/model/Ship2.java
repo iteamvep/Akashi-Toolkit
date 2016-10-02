@@ -652,7 +652,7 @@ public class Ship2 {
 
     @Override
     public String toString() {
-        return "Ship2{" + 中文名 + " " + id + '}';
+        return "Ship2{" + getName().getZh_cn() + " " + id + '}';
     }
 
 

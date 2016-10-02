@@ -27,7 +27,7 @@ public class AlipayDonateUtils {
 
         if (!Utils.isPackageEnabled(context, PACKAGENAME_ALIPAY)) {
             String text = String.format("%s\n%s",
-                    context.getString(R.string.donate_alipay_not_installed),
+                    context.getString(R.string.donate_alipay_disabled),
                     String.format(context.getString(R.string.copied_to_clipboard_format), "rikka@xing.moe"));
 
             Toast.makeText(context, text, Toast.LENGTH_LONG).show();

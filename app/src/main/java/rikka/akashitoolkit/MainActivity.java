@@ -146,7 +146,7 @@ public class MainActivity extends BaseActivity
             /*findFragmentByNavId(mFragmentMap, R.id.nav_twitter);*/
             findFragmentByNavId(mFragmentMap, R.id.nav_new);
             findFragmentByNavId(mFragmentMap, R.id.nav_item_improve);
-            //findFragmentByNavId(mFragmentMap, R.id.nav_enemy);
+            findFragmentByNavId(mFragmentMap, R.id.nav_enemy);
             findFragmentByNavId(mFragmentMap, R.id.nav_item);
             findFragmentByNavId(mFragmentMap, R.id.nav_quest);
             findFragmentByNavId(mFragmentMap, R.id.nav_map);
@@ -171,7 +171,7 @@ public class MainActivity extends BaseActivity
                 case R.id.nav_home:
                 /*case R.id.nav_twitter:*/
                 case R.id.nav_new:
-                    //case R.id.nav_enemy:
+                case R.id.nav_enemy:
                 case R.id.nav_item_improve:
                 case R.id.nav_item:
                 case R.id.nav_quest:
@@ -335,8 +335,8 @@ public class MainActivity extends BaseActivity
                 return new TwitterFragment();*/
             case R.id.nav_new:
                 return new EventFragment();
-            /*case R.id.nav_enemy:
-                return new EnemyDisplayFragment();*/
+            case R.id.nav_enemy:
+                return new EnemyDisplayFragment();
             case R.id.nav_item_improve:
                 return new EquipImprovementDisplayFragment();
             case R.id.nav_item:

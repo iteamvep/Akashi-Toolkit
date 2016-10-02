@@ -31,7 +31,7 @@
             tools:src="@mipmap/ic_launcher"/>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center_vertical"
@@ -99,6 +99,7 @@
             android:layout_marginTop="24px"
             android:contentDescription="@null"
             android:maxWidth="720px"
+            android:minHeight="1000px"
             android:scaleType="centerInside"
             android:visibility="gone"
             tools:layout_width="720px"

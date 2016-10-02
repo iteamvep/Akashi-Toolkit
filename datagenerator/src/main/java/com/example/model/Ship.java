@@ -144,6 +144,18 @@ public class Ship {
         public int[] getSpace() {
             return space;
         }
+
+        public void setSlots(int slots) {
+            this.slots = slots;
+        }
+
+        public void setId(int[] id) {
+            this.id = id;
+        }
+
+        public void setSpace(int[] space) {
+            this.space = space;
+        }
     }
 
     @Expose

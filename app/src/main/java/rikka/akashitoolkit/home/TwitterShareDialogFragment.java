@@ -22,6 +22,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.drawable.GlideDrawable;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -94,6 +97,8 @@ public class TwitterShareDialogFragment extends DialogFragment implements Dialog
         holder.time.setText(DateUtils.formatDateTime(context, data.getTimestamp(), DateUtils.FORMAT_SHOW_YEAR));
 
         if (!TextUtils.isEmpty(data.getImg())) {
+            holder.image.setVisibility(View.VISIBLE);
+
             Glide.with(context)
                     .load(data.getImg())
                     .into(holder.image);

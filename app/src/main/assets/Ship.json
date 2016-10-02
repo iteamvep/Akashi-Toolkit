@@ -45619,5 +45619,10181 @@
       "build": -1,
       "build_time": -1
     }
+  },
+  {
+    "id": 501,
+    "wiki_id": "501",
+    "name": {
+      "zh_cn": "驱逐I级 ",
+      "ja": "駆逐イ級 "
+    },
+    "stype": 2,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 2,
+      "id": [
+        501,
+        0
+      ],
+      "space": [
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 0,
+      "aa": 6,
+      "armor": 5,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 5,
+      "hp": 20,
+      "luck": 1,
+      "los": 0,
+      "torpedo": 15,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 6,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 514,
+    "wiki_id": "514",
+    "name": {
+      "zh_cn": "驱逐I级 elite",
+      "ja": "駆逐イ級 elite"
+    },
+    "stype": 2,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 2,
+      "id": [
+        501,
+        514
+      ],
+      "space": [
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 0,
+      "aa": 10,
+      "armor": 12,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 15,
+      "hp": 30,
+      "luck": 10,
+      "los": 0,
+      "torpedo": 32,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 16,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 37,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 564,
+    "wiki_id": "564",
+    "name": {
+      "zh_cn": "驱逐I级 flagship",
+      "ja": "駆逐イ級 flagship"
+    },
+    "stype": 2,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        531,
+        545,
+        542
+      ],
+      "space": [
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 0,
+      "aa": 24,
+      "armor": 24,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 39,
+      "hp": 20,
+      "luck": 30,
+      "los": 0,
+      "torpedo": 60,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 575,
+    "wiki_id": "575",
+    "name": {
+      "zh_cn": "驱逐I级 后期型",
+      "ja": "駆逐イ級 后期型"
+    },
+    "stype": 2,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        502,
+        545,
+        542
+      ],
+      "space": [
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 0,
+      "aa": 30,
+      "armor": 22,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 38,
+      "hp": 35,
+      "luck": 30,
+      "los": 0,
+      "torpedo": 60,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 40,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 621,
+    "wiki_id": "621",
+    "name": {
+      "zh_cn": "驱逐I级 elite",
+      "ja": "駆逐イ級 elite"
+    },
+    "stype": 2,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        502,
+        502,
+        559
+      ],
+      "space": [
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 0,
+      "aa": 40,
+      "armor": 30,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 48,
+      "hp": 39,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 76,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 502,
+    "wiki_id": "502",
+    "name": {
+      "zh_cn": "驱逐RO级 ",
+      "ja": "駆逐ロ級 "
+    },
+    "stype": 2,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 2,
+      "id": [
+        502,
+        0
+      ],
+      "space": [
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 0,
+      "aa": 7,
+      "armor": 6,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 7,
+      "hp": 22,
+      "luck": 1,
+      "los": 0,
+      "torpedo": 16,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 9,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 515,
+    "wiki_id": "515",
+    "name": {
+      "zh_cn": "驱逐RO级 elite",
+      "ja": "駆逐ロ級 elite"
+    },
+    "stype": 2,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 2,
+      "id": [
+        502,
+        514
+      ],
+      "space": [
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 0,
+      "aa": 12,
+      "armor": 14,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 20,
+      "hp": 35,
+      "luck": 10,
+      "los": 0,
+      "torpedo": 32,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 22,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 37,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 552,
+    "wiki_id": "552",
+    "name": {
+      "zh_cn": "驱逐RO级flagship flagship",
+      "ja": "null flagship"
+    },
+    "stype": 2,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        502,
+        515,
+        542
+      ],
+      "space": [
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 0,
+      "aa": 24,
+      "armor": 24,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 33,
+      "hp": 43,
+      "luck": 20,
+      "los": 0,
+      "torpedo": 60,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 35,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 70,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 576,
+    "wiki_id": "576",
+    "name": {
+      "zh_cn": "驱逐RO级 后期型",
+      "ja": "駆逐ロ級 后期型"
+    },
+    "stype": 2,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        502,
+        545,
+        542
+      ],
+      "space": [
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 0,
+      "aa": 32,
+      "armor": 26,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 38,
+      "hp": 37,
+      "luck": 36,
+      "los": 0,
+      "torpedo": 66,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 40,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 622,
+    "wiki_id": "622",
+    "name": {
+      "zh_cn": "驱逐RO级 elite",
+      "ja": "駆逐ロ級 elite"
+    },
+    "stype": 2,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        502,
+        502,
+        559
+      ],
+      "space": [
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 0,
+      "aa": 44,
+      "armor": 36,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 58,
+      "hp": 43,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 88,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 503,
+    "wiki_id": "503",
+    "name": {
+      "zh_cn": "驱逐HA级 ",
+      "ja": "駆逐ハ級 "
+    },
+    "stype": 2,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 2,
+      "id": [
+        502,
+        513
+      ],
+      "space": [
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 0,
+      "aa": 6,
+      "armor": 7,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 6,
+      "hp": 24,
+      "luck": 1,
+      "los": 0,
+      "torpedo": 16,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 8,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 18,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 516,
+    "wiki_id": "516",
+    "name": {
+      "zh_cn": "驱逐HA级 elite",
+      "ja": "駆逐ハ級 elite"
+    },
+    "stype": 2,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 2,
+      "id": [
+        502,
+        515
+      ],
+      "space": [
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 0,
+      "aa": 14,
+      "armor": 16,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 15,
+      "hp": 40,
+      "luck": 10,
+      "los": 0,
+      "torpedo": 32,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 17,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 42,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 553,
+    "wiki_id": "553",
+    "name": {
+      "zh_cn": "驱逐HA级 flagship",
+      "ja": "駆逐ハ級 flagship"
+    },
+    "stype": 2,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        502,
+        515,
+        542
+      ],
+      "space": [
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 0,
+      "aa": 24,
+      "armor": 27,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 30,
+      "hp": 47,
+      "luck": 20,
+      "los": 0,
+      "torpedo": 60,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 32,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 70,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 577,
+    "wiki_id": "577",
+    "name": {
+      "zh_cn": "驱逐HA级 后期型",
+      "ja": "駆逐ハ級 后期型"
+    },
+    "stype": 2,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        502,
+        515,
+        542
+      ],
+      "space": [
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 0,
+      "aa": 36,
+      "armor": 29,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 44,
+      "hp": 38,
+      "luck": 42,
+      "los": 0,
+      "torpedo": 72,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 46,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 82,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 623,
+    "wiki_id": "623",
+    "name": {
+      "zh_cn": "驱逐HA级 elite",
+      "ja": "駆逐ハ級 elite"
+    },
+    "stype": 2,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        502,
+        559,
+        545
+      ],
+      "space": [
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 0,
+      "aa": 48,
+      "armor": 36,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 58,
+      "hp": 46,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 76,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 504,
+    "wiki_id": "504",
+    "name": {
+      "zh_cn": "驱逐NI级 ",
+      "ja": "駆逐二級 "
+    },
+    "stype": 2,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 2,
+      "id": [
+        502,
+        513
+      ],
+      "space": [
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 0,
+      "aa": 8,
+      "armor": 9,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 8,
+      "hp": 28,
+      "luck": 5,
+      "los": 0,
+      "torpedo": 24,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 10,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 26,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 517,
+    "wiki_id": "517",
+    "name": {
+      "zh_cn": "驱逐NI级 elite",
+      "ja": "駆逐二級 elite"
+    },
+    "stype": 2,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 2,
+      "id": [
+        502,
+        515
+      ],
+      "space": [
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 0,
+      "aa": 18,
+      "armor": 18,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 20,
+      "hp": 45,
+      "luck": 10,
+      "los": 0,
+      "torpedo": 40,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 22,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 50,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 578,
+    "wiki_id": "578",
+    "name": {
+      "zh_cn": "驱逐NI级 后期型",
+      "ja": "駆逐二級 后期型"
+    },
+    "stype": 2,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        502,
+        515,
+        542
+      ],
+      "space": [
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 0,
+      "aa": 38,
+      "armor": 33,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 48,
+      "hp": 40,
+      "luck": 48,
+      "los": 0,
+      "torpedo": 84,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 50,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 94,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 624,
+    "wiki_id": "624",
+    "name": {
+      "zh_cn": "驱逐NI级 elite",
+      "ja": "駆逐二級 elite"
+    },
+    "stype": 2,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        502,
+        502,
+        559
+      ],
+      "space": [
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 0,
+      "aa": 48,
+      "armor": 48,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 64,
+      "hp": 49,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 98,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 505,
+    "wiki_id": "505",
+    "name": {
+      "zh_cn": "轻巡HO级 ",
+      "ja": "軽巡ホ級 "
+    },
+    "stype": 3,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 2,
+      "id": [
+        504,
+        525
+      ],
+      "space": [
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 10,
+      "armor": 15,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 14,
+      "hp": 33,
+      "luck": 1,
+      "los": 0,
+      "torpedo": 24,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 13,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 16,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 24,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 518,
+    "wiki_id": "518",
+    "name": {
+      "zh_cn": "轻巡HO级 elite",
+      "ja": "軽巡ホ級 elite"
+    },
+    "stype": 3,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 2,
+      "id": [
+        504,
+        525
+      ],
+      "space": [
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 20,
+      "armor": 30,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 30,
+      "hp": 48,
+      "luck": 10,
+      "los": 0,
+      "torpedo": 40,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 23,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 32,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 554,
+    "wiki_id": "554",
+    "name": {
+      "zh_cn": "轻巡HO级 flagship",
+      "ja": "軽巡ホ級 flagship"
+    },
+    "stype": 3,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        504,
+        542,
+        543
+      ],
+      "space": [
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 27,
+      "armor": 36,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 42,
+      "hp": 53,
+      "luck": 20,
+      "los": 0,
+      "torpedo": 72,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 29,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 44,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 506,
+    "wiki_id": "506",
+    "name": {
+      "zh_cn": "轻巡HE级 ",
+      "ja": "軽巡ヘ級 "
+    },
+    "stype": 3,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 2,
+      "id": [
+        506,
+        525
+      ],
+      "space": [
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 12,
+      "armor": 18,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 16,
+      "hp": 36,
+      "luck": 1,
+      "los": 0,
+      "torpedo": 28,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 16,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 19,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 28,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 519,
+    "wiki_id": "519",
+    "name": {
+      "zh_cn": "轻巡HE级 elite",
+      "ja": "軽巡ヘ級 elite"
+    },
+    "stype": 3,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 2,
+      "id": [
+        506,
+        525
+      ],
+      "space": [
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 23,
+      "armor": 32,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 34,
+      "hp": 52,
+      "luck": 10,
+      "los": 0,
+      "torpedo": 48,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 27,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 37,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 48,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 555,
+    "wiki_id": "555",
+    "name": {
+      "zh_cn": "轻巡HE级 flagship",
+      "ja": "軽巡ヘ級 flagship"
+    },
+    "stype": 3,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        506,
+        525,
+        542,
+        543
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 30,
+      "armor": 39,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 48,
+      "hp": 57,
+      "luck": 20,
+      "los": 0,
+      "torpedo": 80,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 34,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 51,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 80,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 507,
+    "wiki_id": "507",
+    "name": {
+      "zh_cn": "轻巡TO级 ",
+      "ja": "軽巡ト級 "
+    },
+    "stype": 3,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        506,
+        513,
+        525
+      ],
+      "space": [
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 12,
+      "armor": 20,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 24,
+      "hp": 39,
+      "luck": 5,
+      "los": 0,
+      "torpedo": 28,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 16,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 27,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 30,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 520,
+    "wiki_id": "520",
+    "name": {
+      "zh_cn": "轻巡TO级 elite",
+      "ja": "軽巡ト級 elite"
+    },
+    "stype": 3,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        506,
+        513,
+        525
+      ],
+      "space": [
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 24,
+      "armor": 36,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 36,
+      "hp": 55,
+      "luck": 10,
+      "los": 0,
+      "torpedo": 48,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 28,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 39,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 50,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 591,
+    "wiki_id": "591",
+    "name": {
+      "zh_cn": "轻巡TSU级 ",
+      "ja": "軽巡ツ級 "
+    },
+    "stype": 3,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        550,
+        550,
+        545,
+        525
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 88,
+      "armor": 55,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 58,
+      "hp": 48,
+      "luck": 55,
+      "los": 0,
+      "torpedo": 84,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 107,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 62,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 592,
+    "wiki_id": "592",
+    "name": {
+      "zh_cn": "轻巡TSU级 elite",
+      "ja": "軽巡ツ級 elite"
+    },
+    "stype": 3,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        550,
+        550,
+        545,
+        525
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 96,
+      "armor": 68,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 64,
+      "hp": 66,
+      "luck": 66,
+      "los": 0,
+      "torpedo": 92,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 115,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 68,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 508,
+    "wiki_id": "508",
+    "name": {
+      "zh_cn": "雷巡CHI级 ",
+      "ja": "雷巡チ級 "
+    },
+    "stype": 4,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        504,
+        513,
+        513
+      ],
+      "space": [
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 10,
+      "armor": 22,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 18,
+      "hp": 48,
+      "luck": 5,
+      "los": 0,
+      "torpedo": 48,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 12,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 20,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 52,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 521,
+    "wiki_id": "521",
+    "name": {
+      "zh_cn": "雷巡CHI级 elite",
+      "ja": "雷巡チ級 elite"
+    },
+    "stype": 4,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        506,
+        514,
+        514
+      ],
+      "space": [
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 20,
+      "armor": 34,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 35,
+      "hp": 50,
+      "luck": 10,
+      "los": 0,
+      "torpedo": 72,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 23,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 38,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 82,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 559,
+    "wiki_id": "559",
+    "name": {
+      "zh_cn": "雷巡CHI级 flagship",
+      "ja": "雷巡チ級 flagship"
+    },
+    "stype": 4,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        506,
+        515,
+        515
+      ],
+      "space": [
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 30,
+      "armor": 60,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 50,
+      "hp": 70,
+      "luck": 30,
+      "los": 0,
+      "torpedo": 120,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 33,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 53,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 140,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 509,
+    "wiki_id": "509",
+    "name": {
+      "zh_cn": "重巡RI级 ",
+      "ja": "重巡リ級 "
+    },
+    "stype": 5,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        505,
+        513,
+        525
+      ],
+      "space": [
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 16,
+      "armor": 28,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 32,
+      "hp": 58,
+      "luck": 1,
+      "los": 0,
+      "torpedo": 32,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 19,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 40,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 34,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 522,
+    "wiki_id": "522",
+    "name": {
+      "zh_cn": "重巡RI级 elite",
+      "ja": "重巡リ級 elite"
+    },
+    "stype": 5,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        505,
+        506,
+        525,
+        525
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 30,
+      "armor": 60,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 58,
+      "hp": 60,
+      "luck": 10,
+      "los": 0,
+      "torpedo": 42,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 37,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 69,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 527,
+    "wiki_id": "527",
+    "name": {
+      "zh_cn": "重巡RI级 flagship",
+      "ja": "重巡リ級 flagship"
+    },
+    "stype": 5,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        505,
+        506,
+        515,
+        525
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 40,
+      "armor": 70,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 68,
+      "hp": 76,
+      "luck": 20,
+      "los": 0,
+      "torpedo": 48,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 46,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 79,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 58,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 566,
+    "wiki_id": "566",
+    "name": {
+      "zh_cn": "重巡RI级 改flagship",
+      "ja": "重巡リ級 改flagship"
+    },
+    "stype": 5,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        505,
+        505,
+        515,
+        526
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 58,
+      "armor": 80,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 88,
+      "hp": 88,
+      "luck": 40,
+      "los": 0,
+      "torpedo": 80,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 64,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 104,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 90,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 594,
+    "wiki_id": "594",
+    "name": {
+      "zh_cn": "重巡NE级 ",
+      "ja": "重巡ネ級 "
+    },
+    "stype": 5,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        505,
+        505,
+        515,
+        525
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 72,
+      "armor": 82,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 73,
+      "hp": 80,
+      "luck": 60,
+      "los": 0,
+      "torpedo": 66,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 77,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 89,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 76,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 595,
+    "wiki_id": "595",
+    "name": {
+      "zh_cn": "重巡NE级 elite",
+      "ja": "重巡ネ級 elite"
+    },
+    "stype": 5,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        505,
+        505,
+        515,
+        525
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 79,
+      "armor": 89,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 79,
+      "hp": 88,
+      "luck": 70,
+      "los": 0,
+      "torpedo": 74,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 84,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 95,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 84,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 511,
+    "wiki_id": "511",
+    "name": {
+      "zh_cn": "战舰RU级 ",
+      "ja": "戦艦ル級 "
+    },
+    "stype": 9,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        509,
+        512,
+        525
+      ],
+      "space": [
+        0,
+        0,
+        3
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 70,
+      "armor": 70,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 65,
+      "hp": 90,
+      "luck": 5,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 79,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 92,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 524,
+    "wiki_id": "524",
+    "name": {
+      "zh_cn": "战舰RU级 elite",
+      "ja": "戦艦ル級 elite"
+    },
+    "stype": 9,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        509,
+        509,
+        512,
+        528
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 70,
+      "armor": 85,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 85,
+      "hp": 90,
+      "luck": 10,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 83,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 132,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 529,
+    "wiki_id": "529",
+    "name": {
+      "zh_cn": "战舰RU级 flagship",
+      "ja": "戦艦ル級 flagship"
+    },
+    "stype": 9,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        509,
+        509,
+        525,
+        528
+      ],
+      "space": [
+        0,
+        0,
+        3,
+        0
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 80,
+      "armor": 85,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 90,
+      "hp": 98,
+      "luck": 20,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 91,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 130,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 567,
+    "wiki_id": "567",
+    "name": {
+      "zh_cn": "战舰RU级 改flagship",
+      "ja": "戦艦ル級 改flagship"
+    },
+    "stype": 9,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        509,
+        509,
+        529,
+        526
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        5
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 88,
+      "armor": 110,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 110,
+      "hp": 130,
+      "luck": 50,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 100,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 150,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 541,
+    "wiki_id": "541",
+    "name": {
+      "zh_cn": "战舰TA级 ",
+      "ja": "戦艦タ級 "
+    },
+    "stype": 8,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        508,
+        508,
+        512,
+        525
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        4
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 70,
+      "armor": 80,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 60,
+      "hp": 84,
+      "luck": 10,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 97,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 542,
+    "wiki_id": "542",
+    "name": {
+      "zh_cn": "战舰TA级 elite",
+      "ja": "戦艦タ級 elite"
+    },
+    "stype": 8,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        509,
+        508,
+        512,
+        528
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 65,
+      "armor": 88,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 75,
+      "hp": 88,
+      "luck": 20,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 77,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 117,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 543,
+    "wiki_id": "543",
+    "name": {
+      "zh_cn": "战舰TA级 flagship",
+      "ja": "戦艦タ級 flagship"
+    },
+    "stype": 8,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        509,
+        509,
+        525,
+        529
+      ],
+      "space": [
+        0,
+        0,
+        4,
+        0
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 70,
+      "armor": 96,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 85,
+      "hp": 90,
+      "luck": 30,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 81,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 125,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 561,
+    "wiki_id": "561",
+    "name": {
+      "zh_cn": "战舰RE级 ",
+      "ja": "戦艦レ級 "
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        509,
+        512,
+        515,
+        546
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        140
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 80,
+      "armor": 110,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 90,
+      "hp": 180,
+      "luck": 60,
+      "los": 0,
+      "torpedo": 100,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 96,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 117,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 110,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 562,
+    "wiki_id": "562",
+    "name": {
+      "zh_cn": "战舰RE级 elite",
+      "ja": "戦艦レ級 elite"
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        509,
+        512,
+        541,
+        546
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        180
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 100,
+      "armor": 130,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 130,
+      "hp": 270,
+      "luck": 70,
+      "los": 0,
+      "torpedo": 120,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 116,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 157,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 138,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 510,
+    "wiki_id": "510",
+    "name": {
+      "zh_cn": "轻母NU级 ",
+      "ja": "軽母ヌ級 "
+    },
+    "stype": 7,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        519,
+        523,
+        516
+      ],
+      "space": [
+        18,
+        18,
+        18
+      ]
+    },
+    "attr": {
+      "range": 0,
+      "speed": 0,
+      "aa": 15,
+      "armor": 25,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 65,
+      "luck": 1,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 17,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 4,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 523,
+    "wiki_id": "523",
+    "name": {
+      "zh_cn": "轻母NU级 elite",
+      "ja": "軽母ヌ級 elite"
+    },
+    "stype": 7,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        520,
+        523,
+        516
+      ],
+      "space": [
+        24,
+        24,
+        24
+      ]
+    },
+    "attr": {
+      "range": 0,
+      "speed": 0,
+      "aa": 15,
+      "armor": 35,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 70,
+      "luck": 10,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 20,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 4,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 560,
+    "wiki_id": "560",
+    "name": {
+      "zh_cn": "轻母NU级 flagship",
+      "ja": "軽母ヌ級 flagship"
+    },
+    "stype": 7,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        520,
+        524,
+        524,
+        517
+      ],
+      "space": [
+        22,
+        22,
+        22,
+        22
+      ]
+    },
+    "attr": {
+      "range": 0,
+      "speed": 0,
+      "aa": 36,
+      "armor": 70,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 18,
+      "hp": 84,
+      "luck": 30,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 41,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 6,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 512,
+    "wiki_id": "512",
+    "name": {
+      "zh_cn": "空母WO级 ",
+      "ja": "空母ヲ級 "
+    },
+    "stype": 11,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        519,
+        523,
+        516
+      ],
+      "space": [
+        27,
+        27,
+        27
+      ]
+    },
+    "attr": {
+      "range": 0,
+      "speed": 0,
+      "aa": 30,
+      "armor": 40,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 85,
+      "luck": 1,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 32,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 4,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 525,
+    "wiki_id": "525",
+    "name": {
+      "zh_cn": "空母WO级 elite",
+      "ja": "空母ヲ級 elite"
+    },
+    "stype": 11,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        520,
+        524,
+        517
+      ],
+      "space": [
+        30,
+        30,
+        30
+      ]
+    },
+    "attr": {
+      "range": 0,
+      "speed": 0,
+      "aa": 40,
+      "armor": 55,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 88,
+      "luck": 10,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 45,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 6,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 528,
+    "wiki_id": "528",
+    "name": {
+      "zh_cn": "空母WO级 flagship",
+      "ja": "空母ヲ級 flagship"
+    },
+    "stype": 11,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        520,
+        517,
+        524
+      ],
+      "space": [
+        32,
+        32,
+        32
+      ]
+    },
+    "attr": {
+      "range": 0,
+      "speed": 0,
+      "aa": 50,
+      "armor": 80,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 25,
+      "hp": 96,
+      "luck": 20,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 55,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 6,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 579,
+    "wiki_id": "579",
+    "name": {
+      "zh_cn": "空母WO级 flagship",
+      "ja": "空母ヲ級 flagship"
+    },
+    "stype": 11,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        547,
+        548,
+        549
+      ],
+      "space": [
+        32,
+        32,
+        27
+      ]
+    },
+    "attr": {
+      "range": 0,
+      "speed": 0,
+      "aa": 50,
+      "armor": 80,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 25,
+      "hp": 96,
+      "luck": 30,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 68,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 26,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 614,
+    "wiki_id": "614",
+    "name": {
+      "zh_cn": "空母WO级 flagship",
+      "ja": "空母ヲ級 flagship"
+    },
+    "stype": 11,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        556,
+        548,
+        558
+      ],
+      "space": [
+        32,
+        32,
+        27
+      ]
+    },
+    "attr": {
+      "range": 0,
+      "speed": 0,
+      "aa": 50,
+      "armor": 80,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 25,
+      "hp": 96,
+      "luck": 30,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 71,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 29,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 615,
+    "wiki_id": "615",
+    "name": {
+      "zh_cn": "空母WO级 flagship",
+      "ja": "空母ヲ級 flagship"
+    },
+    "stype": 11,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        556,
+        557,
+        558
+      ],
+      "space": [
+        32,
+        32,
+        27
+      ]
+    },
+    "attr": {
+      "range": 0,
+      "speed": 0,
+      "aa": 50,
+      "armor": 80,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 25,
+      "hp": 96,
+      "luck": 30,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 72,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 32,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 565,
+    "wiki_id": "565",
+    "name": {
+      "zh_cn": "空母WO级 改flagship",
+      "ja": "空母ヲ級 改flagship"
+    },
+    "stype": 11,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        521,
+        524,
+        518,
+        518
+      ],
+      "space": [
+        36,
+        36,
+        36,
+        36
+      ]
+    },
+    "attr": {
+      "range": 0,
+      "speed": 0,
+      "aa": 90,
+      "armor": 120,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 40,
+      "hp": 160,
+      "luck": 30,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 107,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 22,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 616,
+    "wiki_id": "616",
+    "name": {
+      "zh_cn": "空母WO级 改flagship",
+      "ja": "空母ヲ級 改flagship"
+    },
+    "stype": 11,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        547,
+        548,
+        549
+      ],
+      "space": [
+        36,
+        36,
+        36
+      ]
+    },
+    "attr": {
+      "range": 0,
+      "speed": 0,
+      "aa": 90,
+      "armor": 120,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 40,
+      "hp": 160,
+      "luck": 30,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 108,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 26,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 617,
+    "wiki_id": "617",
+    "name": {
+      "zh_cn": "空母WO级 改flagship",
+      "ja": "空母ヲ級 改flagship"
+    },
+    "stype": 11,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        556,
+        548,
+        558
+      ],
+      "space": [
+        36,
+        36,
+        36
+      ]
+    },
+    "attr": {
+      "range": 0,
+      "speed": 0,
+      "aa": 90,
+      "armor": 120,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 40,
+      "hp": 160,
+      "luck": 30,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 111,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 29,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 618,
+    "wiki_id": "618",
+    "name": {
+      "zh_cn": "空母WO级 改flagship",
+      "ja": "空母ヲ級 改flagship"
+    },
+    "stype": 11,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        556,
+        557,
+        558
+      ],
+      "space": [
+        36,
+        36,
+        36
+      ]
+    },
+    "attr": {
+      "range": 0,
+      "speed": 0,
+      "aa": 90,
+      "armor": 120,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 40,
+      "hp": 160,
+      "luck": 30,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 112,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 32,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 513,
+    "wiki_id": "513",
+    "name": {
+      "zh_cn": "输送WA级 ",
+      "ja": "輸送ワ級 "
+    },
+    "stype": 15,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 0,
+      "id": [],
+      "space": []
+    },
+    "attr": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 10,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 70,
+      "luck": 1,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 526,
+    "wiki_id": "526",
+    "name": {
+      "zh_cn": "输送WA级 elite",
+      "ja": "輸送ワ級 elite"
+    },
+    "stype": 15,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        501,
+        503,
+        503
+      ],
+      "space": [
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 0,
+      "aa": 0,
+      "armor": 35,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 15,
+      "hp": 80,
+      "luck": 10,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 2,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 18,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 558,
+    "wiki_id": "558",
+    "name": {
+      "zh_cn": "输送WA级 flagship",
+      "ja": "輸送ワ級 flagship"
+    },
+    "stype": 15,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        506,
+        504,
+        504
+      ],
+      "space": [
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 40,
+      "armor": 65,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 55,
+      "hp": 130,
+      "luck": 20,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 47,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 62,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 530,
+    "wiki_id": "530",
+    "name": {
+      "zh_cn": "潜水KA级 ",
+      "ja": "潜水カ級 "
+    },
+    "stype": 13,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 2,
+      "id": [
+        513,
+        513
+      ],
+      "space": [
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 0,
+      "aa": 0,
+      "armor": 7,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 19,
+      "luck": 1,
+      "los": 0,
+      "torpedo": 42,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 46,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 532,
+    "wiki_id": "532",
+    "name": {
+      "zh_cn": "潜水KA级 elite",
+      "ja": "潜水カ級 elite"
+    },
+    "stype": 13,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        515,
+        513,
+        513
+      ],
+      "space": [
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 0,
+      "aa": 0,
+      "armor": 21,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 27,
+      "luck": 10,
+      "los": 0,
+      "torpedo": 64,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 78,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 534,
+    "wiki_id": "534",
+    "name": {
+      "zh_cn": "潜水KA级 flagship",
+      "ja": "潜水カ級 flagship"
+    },
+    "stype": 13,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        515,
+        515,
+        513
+      ],
+      "space": [
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 0,
+      "aa": 0,
+      "armor": 30,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 37,
+      "luck": 20,
+      "los": 0,
+      "torpedo": 86,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 108,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 531,
+    "wiki_id": "531",
+    "name": {
+      "zh_cn": "潜水YO级 ",
+      "ja": "潜水ヨ級 "
+    },
+    "stype": 13,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 2,
+      "id": [
+        514,
+        514
+      ],
+      "space": [
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 0,
+      "aa": 0,
+      "armor": 9,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 24,
+      "luck": 5,
+      "los": 0,
+      "torpedo": 52,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 62,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 533,
+    "wiki_id": "533",
+    "name": {
+      "zh_cn": "潜水YO级 elite",
+      "ja": "潜水ヨ級 elite"
+    },
+    "stype": 13,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        515,
+        514,
+        514
+      ],
+      "space": [
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 0,
+      "aa": 0,
+      "armor": 27,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 34,
+      "luck": 10,
+      "los": 0,
+      "torpedo": 74,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 94,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 535,
+    "wiki_id": "535",
+    "name": {
+      "zh_cn": "潜水YO级 flagship",
+      "ja": "潜水ヨ級 flagship"
+    },
+    "stype": 13,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        515,
+        515,
+        514
+      ],
+      "space": [
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 0,
+      "aa": 0,
+      "armor": 36,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 44,
+      "luck": 20,
+      "los": 0,
+      "torpedo": 96,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 121,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 570,
+    "wiki_id": "570",
+    "name": {
+      "zh_cn": "潜水SO级 ",
+      "ja": "潜水ソ級 "
+    },
+    "stype": 13,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 2,
+      "id": [
+        514,
+        503
+      ],
+      "space": [
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 0,
+      "aa": 0,
+      "armor": 15,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 24,
+      "hp": 33,
+      "luck": 15,
+      "los": 0,
+      "torpedo": 70,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 25,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 80,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 571,
+    "wiki_id": "571",
+    "name": {
+      "zh_cn": "潜水SO级 elite",
+      "ja": "潜水ソ級 elite"
+    },
+    "stype": 13,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        515,
+        515,
+        503
+      ],
+      "space": [
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 0,
+      "aa": 0,
+      "armor": 30,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 30,
+      "hp": 45,
+      "luck": 30,
+      "los": 0,
+      "torpedo": 100,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 31,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 120,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 572,
+    "wiki_id": "572",
+    "name": {
+      "zh_cn": "潜水SO级 flagship",
+      "ja": "潜水ソ級 flagship"
+    },
+    "stype": 13,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        515,
+        515,
+        515
+      ],
+      "space": [
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 0,
+      "aa": 0,
+      "armor": 42,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 30,
+      "hp": 48,
+      "luck": 45,
+      "los": 0,
+      "torpedo": 135,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 165,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 536,
+    "wiki_id": "536",
+    "name": {
+      "zh_cn": "浮游要塞 ",
+      "ja": "浮遊要塞 "
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        505,
+        520,
+        524
+      ],
+      "space": [
+        0,
+        45,
+        45
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 20,
+      "armor": 40,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 50,
+      "hp": 88,
+      "luck": 1,
+      "los": 0,
+      "torpedo": 40,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 58,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 537,
+    "wiki_id": "537",
+    "name": {
+      "zh_cn": "浮游要塞 ",
+      "ja": "浮遊要塞 "
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        505,
+        520,
+        524
+      ],
+      "space": [
+        0,
+        45,
+        45
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 20,
+      "armor": 40,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 50,
+      "hp": 88,
+      "luck": 1,
+      "los": 0,
+      "torpedo": 40,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 58,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 538,
+    "wiki_id": "538",
+    "name": {
+      "zh_cn": "浮游要塞 ",
+      "ja": "浮遊要塞 "
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        505,
+        520,
+        524
+      ],
+      "space": [
+        0,
+        45,
+        45
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 20,
+      "armor": 40,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 50,
+      "hp": 88,
+      "luck": 1,
+      "los": 0,
+      "torpedo": 40,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 58,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 549,
+    "wiki_id": "549",
+    "name": {
+      "zh_cn": "护卫要塞 ",
+      "ja": "null "
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        505,
+        520,
+        517
+      ],
+      "space": [
+        0,
+        35,
+        35
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 20,
+      "armor": 50,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 55,
+      "hp": 66,
+      "luck": 1,
+      "los": 0,
+      "torpedo": 45,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 63,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 550,
+    "wiki_id": "550",
+    "name": {
+      "zh_cn": "护卫要塞 ",
+      "ja": "null "
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        505,
+        520,
+        524
+      ],
+      "space": [
+        0,
+        35,
+        35
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 20,
+      "armor": 45,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 55,
+      "hp": 66,
+      "luck": 1,
+      "los": 0,
+      "torpedo": 45,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 63,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 551,
+    "wiki_id": "551",
+    "name": {
+      "zh_cn": "护卫要塞 ",
+      "ja": "null "
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        505,
+        520,
+        524
+      ],
+      "space": [
+        0,
+        35,
+        35
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 20,
+      "armor": 45,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 55,
+      "hp": 66,
+      "luck": 1,
+      "los": 0,
+      "torpedo": 45,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 63,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 637,
+    "wiki_id": "637",
+    "name": {
+      "zh_cn": "PT小鬼群 ",
+      "ja": "PT小鬼群 "
+    },
+    "stype": 2,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 2,
+      "id": [
+        515,
+        0
+      ],
+      "space": [
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 0,
+      "speed": 0,
+      "aa": 12,
+      "armor": 19,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 9,
+      "hp": 9,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 88,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 98,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 638,
+    "wiki_id": "638",
+    "name": {
+      "zh_cn": "PT小鬼群 ",
+      "ja": "PT小鬼群 "
+    },
+    "stype": 2,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 2,
+      "id": [
+        515,
+        515
+      ],
+      "space": [
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 0,
+      "speed": 0,
+      "aa": 12,
+      "armor": 29,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 9,
+      "hp": 9,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 98,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 118,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 639,
+    "wiki_id": "639",
+    "name": {
+      "zh_cn": "PT小鬼群 ",
+      "ja": "PT小鬼群 "
+    },
+    "stype": 2,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 2,
+      "id": [
+        515,
+        515
+      ],
+      "space": [
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 0,
+      "speed": 0,
+      "aa": 12,
+      "armor": 9,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 15,
+      "hp": 15,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 98,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 118,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 640,
+    "wiki_id": "640",
+    "name": {
+      "zh_cn": "PT小鬼群 ",
+      "ja": "PT小鬼群 "
+    },
+    "stype": 2,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 2,
+      "id": [
+        515,
+        515
+      ],
+      "space": [
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 0,
+      "speed": 0,
+      "aa": 24,
+      "armor": 39,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 18,
+      "hp": 18,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 118,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 138,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 539,
+    "wiki_id": "539",
+    "name": {
+      "zh_cn": "泊地栖鬼 ",
+      "ja": "泊地棲鬼 "
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        536,
+        520,
+        517
+      ],
+      "space": [
+        0,
+        90,
+        90
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 70,
+      "armor": 80,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 90,
+      "hp": 180,
+      "luck": 30,
+      "los": 0,
+      "torpedo": 60,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 105,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 540,
+    "wiki_id": "540",
+    "name": {
+      "zh_cn": "泊地栖姬 ",
+      "ja": "泊地棲姫 "
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        536,
+        520,
+        517
+      ],
+      "space": [
+        0,
+        90,
+        90
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 80,
+      "armor": 90,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 96,
+      "hp": 300,
+      "luck": 40,
+      "los": 0,
+      "torpedo": 90,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 111,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 544,
+    "wiki_id": "544",
+    "name": {
+      "zh_cn": "装甲空母鬼 ",
+      "ja": "装甲空母鬼 "
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        520,
+        524,
+        508
+      ],
+      "space": [
+        80,
+        80,
+        0
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 60,
+      "armor": 80,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 70,
+      "hp": 150,
+      "luck": 10,
+      "los": 0,
+      "torpedo": 80,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 69,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 85,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 545,
+    "wiki_id": "545",
+    "name": {
+      "zh_cn": "装甲空母姬 ",
+      "ja": "装甲空母姫 "
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        520,
+        517,
+        508
+      ],
+      "space": [
+        96,
+        96,
+        0
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 70,
+      "armor": 90,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 90,
+      "hp": 270,
+      "luck": 20,
+      "los": 0,
+      "torpedo": 90,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 79,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 105,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 96,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 546,
+    "wiki_id": "546",
+    "name": {
+      "zh_cn": "南方栖鬼 ",
+      "ja": "南方棲鬼 "
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        509,
+        505,
+        520
+      ],
+      "space": [
+        0,
+        0,
+        50
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 70,
+      "armor": 90,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 90,
+      "hp": 180,
+      "luck": 30,
+      "los": 0,
+      "torpedo": 80,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 118,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 547,
+    "wiki_id": "547",
+    "name": {
+      "zh_cn": "南方栖战鬼 ",
+      "ja": "南方棲戦鬼 "
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        509,
+        520,
+        524
+      ],
+      "space": [
+        0,
+        70,
+        70
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 80,
+      "armor": 10,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 120,
+      "hp": 240,
+      "luck": 40,
+      "los": 0,
+      "torpedo": 90,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 140,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 548,
+    "wiki_id": "548",
+    "name": {
+      "zh_cn": "南方栖战姬 ",
+      "ja": "南方棲戦姫 "
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        509,
+        509,
+        520
+      ],
+      "space": [
+        0,
+        0,
+        90
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 80,
+      "armor": 120,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 160,
+      "hp": 350,
+      "luck": 50,
+      "los": 0,
+      "torpedo": 100,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 200,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 557,
+    "wiki_id": "557",
+    "name": {
+      "zh_cn": "战舰栖姬 ",
+      "ja": "戦艦棲姫 "
+    },
+    "stype": 9,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        509,
+        509,
+        512,
+        529
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 80,
+      "armor": 160,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 180,
+      "hp": 400,
+      "luck": 40,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 227,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 585,
+    "wiki_id": "585",
+    "name": {
+      "zh_cn": "空母栖鬼 ",
+      "ja": "空母棲鬼 "
+    },
+    "stype": 11,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        547,
+        548,
+        549,
+        532
+      ],
+      "space": [
+        48,
+        48,
+        48,
+        0
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 100,
+      "armor": 138,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 120,
+      "hp": 250,
+      "luck": 50,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 586,
+    "wiki_id": "586",
+    "name": {
+      "zh_cn": "空母栖姬 ",
+      "ja": "空母棲姫 "
+    },
+    "stype": 11,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        547,
+        548,
+        549,
+        532
+      ],
+      "space": [
+        60,
+        52,
+        56,
+        0
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 130,
+      "armor": 150,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 180,
+      "hp": 350,
+      "luck": 70,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 597,
+    "wiki_id": "597",
+    "name": {
+      "zh_cn": "驱逐栖姬 ",
+      "ja": "駆逐棲姫 "
+    },
+    "stype": 2,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        502,
+        502,
+        515
+      ],
+      "space": [
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 0,
+      "aa": 60,
+      "armor": 100,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 59,
+      "hp": 150,
+      "luck": 70,
+      "los": 0,
+      "torpedo": 90,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 63,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 100,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 598,
+    "wiki_id": "598",
+    "name": {
+      "zh_cn": "驱逐栖姬 最终形态",
+      "ja": "駆逐棲姫 最终形态"
+    },
+    "stype": 2,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        502,
+        502,
+        515
+      ],
+      "space": [
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 0,
+      "aa": 60,
+      "armor": 115,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 69,
+      "hp": 190,
+      "luck": 80,
+      "los": 0,
+      "torpedo": 90,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 73,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 100,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 599,
+    "wiki_id": "599",
+    "name": {
+      "zh_cn": "空母水鬼 ",
+      "ja": "空母水鬼 "
+    },
+    "stype": 11,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        547,
+        548,
+        549,
+        532
+      ],
+      "space": [
+        66,
+        60,
+        60,
+        0
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 110,
+      "armor": 170,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 140,
+      "hp": 370,
+      "luck": 70,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 600,
+    "wiki_id": "600",
+    "name": {
+      "zh_cn": "空母水鬼 最终形态",
+      "ja": "空母水鬼 最终形态"
+    },
+    "stype": 11,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        547,
+        548,
+        549,
+        532
+      ],
+      "space": [
+        66,
+        60,
+        60,
+        0
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 140,
+      "armor": 190,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 190,
+      "hp": 390,
+      "luck": 70,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 601,
+    "wiki_id": "601",
+    "name": {
+      "zh_cn": "轻巡栖鬼 ",
+      "ja": "軽巡棲鬼 "
+    },
+    "stype": 3,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        506,
+        506,
+        529,
+        525
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        3
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 60,
+      "armor": 135,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 59,
+      "hp": 210,
+      "luck": 70,
+      "los": 0,
+      "torpedo": 88,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 65,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 602,
+    "wiki_id": "602",
+    "name": {
+      "zh_cn": "轻巡栖鬼 最终形态",
+      "ja": "軽巡棲鬼 最终形态"
+    },
+    "stype": 3,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        506,
+        506,
+        529,
+        525
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        3
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 60,
+      "armor": 170,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 69,
+      "hp": 270,
+      "luck": 90,
+      "los": 0,
+      "torpedo": 88,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 75,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 603,
+    "wiki_id": "603",
+    "name": {
+      "zh_cn": "战舰水鬼 ",
+      "ja": "戦艦水鬼 "
+    },
+    "stype": 9,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        551,
+        551,
+        529,
+        525
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        6
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 88,
+      "armor": 168,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 188,
+      "hp": 415,
+      "luck": 60,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 242,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 604,
+    "wiki_id": "604",
+    "name": {
+      "zh_cn": "战舰水鬼 ",
+      "ja": "戦艦水鬼 "
+    },
+    "stype": 9,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        551,
+        551,
+        529,
+        525
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        6
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 96,
+      "armor": 200,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 198,
+      "hp": 500,
+      "luck": 90,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 252,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 625,
+    "wiki_id": "625",
+    "name": {
+      "zh_cn": "水母栖姬 ",
+      "ja": "水母棲姫 "
+    },
+    "stype": 16,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        550,
+        550,
+        541,
+        554
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        32
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 70,
+      "armor": 150,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 75,
+      "hp": 350,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 88,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 79,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 106,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 626,
+    "wiki_id": "626",
+    "name": {
+      "zh_cn": "水母栖姬 ",
+      "ja": "水母棲姫 "
+    },
+    "stype": 16,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        550,
+        550,
+        541,
+        554
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        64
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 80,
+      "armor": 175,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 95,
+      "hp": 350,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 99,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 99,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 116,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 627,
+    "wiki_id": "627",
+    "name": {
+      "zh_cn": "水母栖姬 ",
+      "ja": "水母棲姫 "
+    },
+    "stype": 16,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        550,
+        550,
+        541,
+        554
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        96
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 90,
+      "armor": 195,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 115,
+      "hp": 350,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 98,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 119,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 116,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 628,
+    "wiki_id": "628",
+    "name": {
+      "zh_cn": "防空栖姬 ",
+      "ja": "防空棲姫 "
+    },
+    "stype": 2,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        553,
+        553,
+        559
+      ],
+      "space": [
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 300,
+      "armor": 273,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 130,
+      "hp": 255,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 85,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 140,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 629,
+    "wiki_id": "629",
+    "name": {
+      "zh_cn": "防空栖姬 ",
+      "ja": "防空棲姫 "
+    },
+    "stype": 2,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        553,
+        553,
+        559
+      ],
+      "space": [
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 360,
+      "armor": 303,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 160,
+      "hp": 255,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 90,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 170,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 630,
+    "wiki_id": "630",
+    "name": {
+      "zh_cn": "防空栖姬 ",
+      "ja": "防空棲姫 "
+    },
+    "stype": 2,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        553,
+        553,
+        559
+      ],
+      "space": [
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 390,
+      "armor": 333,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 190,
+      "hp": 255,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 95,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 200,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 641,
+    "wiki_id": "641",
+    "name": {
+      "zh_cn": "轻巡栖姬 ",
+      "ja": "軽巡栖姫 "
+    },
+    "stype": 3,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        511,
+        511,
+        515,
+        560
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 50,
+      "armor": 145,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 64,
+      "hp": 230,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 93,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 68,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 642,
+    "wiki_id": "642",
+    "name": {
+      "zh_cn": "轻巡栖姬 ",
+      "ja": "軽巡栖姫 "
+    },
+    "stype": 3,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        511,
+        511,
+        515,
+        560
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 55,
+      "armor": 175,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 74,
+      "hp": 290,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 96,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 78,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 643,
+    "wiki_id": "643",
+    "name": {
+      "zh_cn": "轻巡栖姬 ",
+      "ja": "軽巡栖姫 "
+    },
+    "stype": 3,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        511,
+        511,
+        515,
+        560
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 55,
+      "armor": 185,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 79,
+      "hp": 330,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 99,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 83,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 644,
+    "wiki_id": "644",
+    "name": {
+      "zh_cn": "潜水栖姬 ",
+      "ja": "潜水棲姫 "
+    },
+    "stype": 13,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        515,
+        515,
+        515
+      ],
+      "space": [
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 0,
+      "aa": 0,
+      "armor": 53,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 50,
+      "hp": 110,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 140,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 170,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 645,
+    "wiki_id": "645",
+    "name": {
+      "zh_cn": "潜水栖姬 ",
+      "ja": "潜水棲姫 "
+    },
+    "stype": 13,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        541,
+        515,
+        515
+      ],
+      "space": [
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 0,
+      "aa": 0,
+      "armor": 73,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 70,
+      "hp": 130,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 155,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 193,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 646,
+    "wiki_id": "646",
+    "name": {
+      "zh_cn": "潜水栖姬 ",
+      "ja": "潜水棲姫 "
+    },
+    "stype": 13,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        541,
+        541,
+        515
+      ],
+      "space": [
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 0,
+      "aa": 0,
+      "armor": 33,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 90,
+      "hp": 160,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 170,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 216,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 647,
+    "wiki_id": "647",
+    "name": {
+      "zh_cn": "驱逐水鬼 ",
+      "ja": "駆逐水鬼 "
+    },
+    "stype": 2,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        0,
+        0,
+        515,
+        531
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 0,
+      "aa": 70,
+      "armor": 150,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 100,
+      "hp": 255,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 110,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 104,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 120,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 648,
+    "wiki_id": "648",
+    "name": {
+      "zh_cn": "驱逐水鬼 ",
+      "ja": "駆逐水鬼 "
+    },
+    "stype": 2,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        0,
+        0,
+        515,
+        531
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 0,
+      "aa": 80,
+      "armor": 150,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 120,
+      "hp": 255,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 120,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 124,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 130,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 649,
+    "wiki_id": "649",
+    "name": {
+      "zh_cn": "驱逐水鬼 ",
+      "ja": "駆逐水鬼 "
+    },
+    "stype": 2,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        0,
+        0,
+        515,
+        531
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 0,
+      "aa": 90,
+      "armor": 150,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 140,
+      "hp": 255,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 130,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 144,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 148,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 676,
+    "wiki_id": "676",
+    "name": {
+      "zh_cn": "驱逐水鬼 ",
+      "ja": "駆逐水鬼 "
+    },
+    "stype": 2,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        0,
+        0,
+        515,
+        531
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 0,
+      "aa": 70,
+      "armor": 155,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 100,
+      "hp": 200,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 110,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 104,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 120,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 677,
+    "wiki_id": "677",
+    "name": {
+      "zh_cn": "驱逐水鬼 ",
+      "ja": "駆逐水鬼 "
+    },
+    "stype": 2,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        0,
+        0,
+        515,
+        531
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 0,
+      "aa": 80,
+      "armor": 160,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 120,
+      "hp": 220,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 120,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 124,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 130,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 678,
+    "wiki_id": "678",
+    "name": {
+      "zh_cn": "驱逐水鬼 ",
+      "ja": "駆逐水鬼 "
+    },
+    "stype": 2,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        0,
+        0,
+        515,
+        531
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 0,
+      "aa": 90,
+      "armor": 170,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 140,
+      "hp": 240,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 130,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 144,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 148,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 659,
+    "wiki_id": "659",
+    "name": {
+      "zh_cn": "重巡栖姬 ",
+      "ja": "重巡棲姫 "
+    },
+    "stype": 5,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        563,
+        563,
+        515,
+        564
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        4
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 72,
+      "armor": 145,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 100,
+      "hp": 350,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 66,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 116,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 76,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 660,
+    "wiki_id": "660",
+    "name": {
+      "zh_cn": "重巡栖姬 ",
+      "ja": "重巡棲姫 "
+    },
+    "stype": 5,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        563,
+        563,
+        515,
+        564
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        4
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 79,
+      "armor": 175,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 130,
+      "hp": 350,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 74,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 146,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 84,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 661,
+    "wiki_id": "661",
+    "name": {
+      "zh_cn": "重巡栖姬 ",
+      "ja": "重巡棲姫 "
+    },
+    "stype": 5,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        563,
+        563,
+        515,
+        564
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        4
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 86,
+      "armor": 195,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 160,
+      "hp": 350,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 82,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 176,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 92,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 662,
+    "wiki_id": "662",
+    "name": {
+      "zh_cn": "重巡栖姬 ",
+      "ja": "重巡棲姫 "
+    },
+    "stype": 5,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        563,
+        563,
+        541,
+        564
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        4
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 79,
+      "armor": 158,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 130,
+      "hp": 370,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 74,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 146,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 84,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 663,
+    "wiki_id": "663",
+    "name": {
+      "zh_cn": "重巡栖姬 ",
+      "ja": "重巡棲姫 "
+    },
+    "stype": 5,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        563,
+        563,
+        541,
+        564
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        4
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 86,
+      "armor": 188,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 160,
+      "hp": 380,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 82,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 176,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 100,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 664,
+    "wiki_id": "664",
+    "name": {
+      "zh_cn": "重巡栖姬 ",
+      "ja": "重巡棲姫 "
+    },
+    "stype": 5,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        563,
+        563,
+        541,
+        564
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        4
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 93,
+      "armor": 208,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 190,
+      "hp": 390,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 90,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 206,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 108,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 673,
+    "wiki_id": "673",
+    "name": {
+      "zh_cn": "驱逐古鬼 ",
+      "ja": "駆逐古鬼 "
+    },
+    "stype": 2,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        501,
+        501,
+        541,
+        531
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 0,
+      "aa": 58,
+      "armor": 149,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 80,
+      "hp": 170,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 100,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 82,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 118,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 674,
+    "wiki_id": "674",
+    "name": {
+      "zh_cn": "驱逐古鬼 ",
+      "ja": "駆逐古鬼 "
+    },
+    "stype": 2,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        501,
+        501,
+        541,
+        531
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 0,
+      "aa": 64,
+      "armor": 158,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 88,
+      "hp": 180,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 110,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 90,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 128,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 675,
+    "wiki_id": "675",
+    "name": {
+      "zh_cn": "驱逐古鬼 ",
+      "ja": "駆逐古鬼 "
+    },
+    "stype": 2,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        501,
+        501,
+        541,
+        531
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 0,
+      "aa": 81,
+      "armor": 167,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 96,
+      "hp": 190,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 120,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 98,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 138,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 692,
+    "wiki_id": "692",
+    "name": {
+      "zh_cn": "驱逐古姬 ",
+      "ja": "駆逐古姫 "
+    },
+    "stype": 2,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        0,
+        0,
+        541,
+        559
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 0,
+      "aa": 90,
+      "armor": 167,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 130,
+      "hp": 195,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 140,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 134,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 158,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 693,
+    "wiki_id": "693",
+    "name": {
+      "zh_cn": "潜水夏姬 flagship",
+      "ja": "潜水夏姫 flagship"
+    },
+    "stype": 13,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        570,
+        515,
+        0
+      ],
+      "space": [
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 0,
+      "aa": 0,
+      "armor": 38,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 50,
+      "hp": 110,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 140,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 163,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 694,
+    "wiki_id": "694",
+    "name": {
+      "zh_cn": "潜水夏姬 flagship",
+      "ja": "潜水夏姫 flagship"
+    },
+    "stype": 13,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        570,
+        570,
+        515
+      ],
+      "space": [
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 0,
+      "aa": 0,
+      "armor": 48,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 70,
+      "hp": 140,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 155,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 191,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 695,
+    "wiki_id": "695",
+    "name": {
+      "zh_cn": "潜水夏姬 flagship",
+      "ja": "潜水夏姫 flagship"
+    },
+    "stype": 13,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 3,
+      "id": [
+        570,
+        570,
+        570
+      ],
+      "space": [
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 0,
+      "aa": 0,
+      "armor": 58,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 90,
+      "hp": 180,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 170,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 209,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 696,
+    "wiki_id": "696",
+    "name": {
+      "zh_cn": "战舰夏姬 ",
+      "ja": "戦艦夏姫 "
+    },
+    "stype": 9,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        509,
+        509,
+        0,
+        0
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 80,
+      "armor": 148,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 180,
+      "hp": 400,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 220,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 697,
+    "wiki_id": "697",
+    "name": {
+      "zh_cn": "战舰夏姬 ",
+      "ja": "戦艦夏姫 "
+    },
+    "stype": 9,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        509,
+        509,
+        512,
+        0
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 84,
+      "armor": 158,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 185,
+      "hp": 450,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 232,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 698,
+    "wiki_id": "698",
+    "name": {
+      "zh_cn": "战舰夏姬 ",
+      "ja": "戦艦夏姫 "
+    },
+    "stype": 9,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        509,
+        509,
+        512,
+        0
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 88,
+      "armor": 168,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 195,
+      "hp": 530,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 242,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 705,
+    "wiki_id": "705",
+    "name": {
+      "zh_cn": "重巡夏姬 ",
+      "ja": "重巡夏姫 "
+    },
+    "stype": 5,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        563,
+        563,
+        515,
+        564
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 72,
+      "armor": 139,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 110,
+      "hp": 370,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 74,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 126,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 84,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 706,
+    "wiki_id": "706",
+    "name": {
+      "zh_cn": "重巡夏姬 ",
+      "ja": "重巡夏姫 "
+    },
+    "stype": 5,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        563,
+        563,
+        515,
+        564
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 79,
+      "armor": 169,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 140,
+      "hp": 430,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 82,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 156,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 92,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 707,
+    "wiki_id": "707",
+    "name": {
+      "zh_cn": "重巡夏姬 ",
+      "ja": "重巡夏姫 "
+    },
+    "stype": 5,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        563,
+        563,
+        515,
+        564
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 86,
+      "armor": 189,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 170,
+      "hp": 490,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 90,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 186,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 100,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 556,
+    "wiki_id": "556",
+    "name": {
+      "zh_cn": "飞行场姬 ",
+      "ja": "飛行場姫 "
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        520,
+        520,
+        524,
+        517
+      ],
+      "space": [
+        98,
+        98,
+        98,
+        98
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 120,
+      "armor": 140,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 70,
+      "hp": 500,
+      "luck": 10,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 573,
+    "wiki_id": "573",
+    "name": {
+      "zh_cn": "港湾栖姬 ",
+      "ja": "港湾棲姫 "
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        520,
+        524,
+        517,
+        517
+      ],
+      "space": [
+        80,
+        80,
+        80,
+        80
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 150,
+      "armor": 135,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 100,
+      "hp": 380,
+      "luck": 20,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 613,
+    "wiki_id": "613",
+    "name": {
+      "zh_cn": "港湾栖姬 ",
+      "ja": "港湾棲姫 "
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        552,
+        552,
+        536,
+        549
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        180
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 170,
+      "armor": 177,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 180,
+      "hp": 490,
+      "luck": 65,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 221,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 574,
+    "wiki_id": "574",
+    "name": {
+      "zh_cn": "离岛栖鬼 ",
+      "ja": "離島棲鬼 "
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        521,
+        524,
+        518,
+        518
+      ],
+      "space": [
+        90,
+        90,
+        90,
+        90
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 100,
+      "armor": 150,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 150,
+      "hp": 450,
+      "luck": 10,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 581,
+    "wiki_id": "581",
+    "name": {
+      "zh_cn": "北方栖姬 ",
+      "ja": "北方棲姫 "
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        504,
+        521,
+        548,
+        517
+      ],
+      "space": [
+        0,
+        72,
+        64,
+        36
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 130,
+      "armor": 135,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 90,
+      "hp": 360,
+      "luck": 40,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 92,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 582,
+    "wiki_id": "582",
+    "name": {
+      "zh_cn": "北方栖姬 ",
+      "ja": "北方棲姫 "
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        504,
+        547,
+        548,
+        549
+      ],
+      "space": [
+        0,
+        72,
+        80,
+        40
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 160,
+      "armor": 145,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 170,
+      "hp": 500,
+      "luck": 50,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 172,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 587,
+    "wiki_id": "587",
+    "name": {
+      "zh_cn": "北方栖姬 ",
+      "ja": "北方棲姫 "
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        504,
+        521,
+        548,
+        517
+      ],
+      "space": [
+        0,
+        72,
+        64,
+        36
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 120,
+      "armor": 125,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 80,
+      "hp": 300,
+      "luck": 40,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 82,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 588,
+    "wiki_id": "588",
+    "name": {
+      "zh_cn": "北方栖姬 ",
+      "ja": "北方棲姫 "
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        504,
+        547,
+        548,
+        549
+      ],
+      "space": [
+        0,
+        72,
+        72,
+        40
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 140,
+      "armor": 140,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 140,
+      "hp": 390,
+      "luck": 50,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 142,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 589,
+    "wiki_id": "589",
+    "name": {
+      "zh_cn": "北方栖姬 ",
+      "ja": "北方棲姫 "
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        504,
+        521,
+        548,
+        517
+      ],
+      "space": [
+        0,
+        64,
+        48,
+        36
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 100,
+      "armor": 110,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 60,
+      "hp": 300,
+      "luck": 35,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 62,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 590,
+    "wiki_id": "590",
+    "name": {
+      "zh_cn": "北方栖姬 ",
+      "ja": "北方棲姫 "
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        504,
+        547,
+        548,
+        549
+      ],
+      "space": [
+        0,
+        64,
+        68,
+        40
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 120,
+      "armor": 125,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 140,
+      "hp": 390,
+      "luck": 40,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 142,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 583,
+    "wiki_id": "583",
+    "name": {
+      "zh_cn": "中间栖姬 ",
+      "ja": "中間棲姫 "
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 5,
+      "id": [
+        505,
+        547,
+        548,
+        549,
+        0
+      ],
+      "space": [
+        0,
+        64,
+        58,
+        58,
+        0
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 140,
+      "armor": 135,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 100,
+      "hp": 550,
+      "luck": 50,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 108,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 584,
+    "wiki_id": "584",
+    "name": {
+      "zh_cn": "中间栖姬 ",
+      "ja": "中間棲姫 "
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 5,
+      "id": [
+        505,
+        547,
+        548,
+        532,
+        0
+      ],
+      "space": [
+        0,
+        84,
+        96,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 180,
+      "armor": 180,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 180,
+      "hp": 600,
+      "luck": 60,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 188,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 605,
+    "wiki_id": "605",
+    "name": {
+      "zh_cn": "港湾水鬼 ",
+      "ja": "港湾水鬼 "
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        551,
+        551,
+        547,
+        548
+      ],
+      "space": [
+        0,
+        0,
+        90,
+        90
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 100,
+      "armor": 120,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 120,
+      "hp": 450,
+      "luck": 60,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 174,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 606,
+    "wiki_id": "606",
+    "name": {
+      "zh_cn": "港湾水鬼 ",
+      "ja": "港湾水鬼 "
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        551,
+        551,
+        547,
+        548
+      ],
+      "space": [
+        0,
+        0,
+        108,
+        108
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 120,
+      "armor": 140,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 130,
+      "hp": 450,
+      "luck": 65,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 184,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 607,
+    "wiki_id": "607",
+    "name": {
+      "zh_cn": "港湾水鬼 ",
+      "ja": "港湾水鬼 "
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        551,
+        551,
+        547,
+        548
+      ],
+      "space": [
+        0,
+        0,
+        108,
+        108
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 140,
+      "armor": 140,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 140,
+      "hp": 500,
+      "luck": 70,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 194,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 608,
+    "wiki_id": "608",
+    "name": {
+      "zh_cn": "港湾水鬼 ",
+      "ja": "港湾水鬼 "
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        551,
+        551,
+        547,
+        548
+      ],
+      "space": [
+        0,
+        0,
+        130,
+        130
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 160,
+      "armor": 160,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 160,
+      "hp": 500,
+      "luck": 75,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 214,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 609,
+    "wiki_id": "609",
+    "name": {
+      "zh_cn": "泊地水鬼 ",
+      "ja": "泊地水鬼 "
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        536,
+        508,
+        508,
+        548
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        120
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 80,
+      "armor": 200,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 120,
+      "hp": 330,
+      "luck": 70,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 165,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 610,
+    "wiki_id": "610",
+    "name": {
+      "zh_cn": "泊地水鬼 ",
+      "ja": "泊地水鬼 "
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        536,
+        508,
+        508,
+        548
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        140
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 90,
+      "armor": 220,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 130,
+      "hp": 330,
+      "luck": 75,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 175,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 611,
+    "wiki_id": "611",
+    "name": {
+      "zh_cn": "泊地水鬼 ",
+      "ja": "泊地水鬼 "
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        536,
+        551,
+        551,
+        548
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        160
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 100,
+      "armor": 220,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 140,
+      "hp": 430,
+      "luck": 80,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 209,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 612,
+    "wiki_id": "612",
+    "name": {
+      "zh_cn": "泊地水鬼 ",
+      "ja": "泊地水鬼 "
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        536,
+        551,
+        551,
+        548
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        180
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 110,
+      "armor": 240,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 150,
+      "hp": 430,
+      "luck": 85,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 219,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 653,
+    "wiki_id": "653",
+    "name": {
+      "zh_cn": "集积地栖姬 ",
+      "ja": "集積地棲姫 "
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        561,
+        561,
+        561,
+        561
+      ],
+      "space": [
+        12,
+        12,
+        6,
+        6
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 60,
+      "armor": 100,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 70,
+      "hp": 600,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 88,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 654,
+    "wiki_id": "654",
+    "name": {
+      "zh_cn": "集积地栖姬 ",
+      "ja": "集積地棲姫 "
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        562,
+        561,
+        561,
+        561
+      ],
+      "space": [
+        24,
+        12,
+        6,
+        6
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 70,
+      "armor": 130,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 90,
+      "hp": 600,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 98,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 655,
+    "wiki_id": "655",
+    "name": {
+      "zh_cn": "集积地栖姬 ",
+      "ja": "集積地棲姫 "
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        562,
+        562,
+        561,
+        561
+      ],
+      "space": [
+        24,
+        24,
+        12,
+        12
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 80,
+      "armor": 160,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 130,
+      "hp": 600,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 118,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 656,
+    "wiki_id": "656",
+    "name": {
+      "zh_cn": "集积地栖姬-坏 ",
+      "ja": "集積地棲姫-壊 "
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        562,
+        561,
+        561,
+        561
+      ],
+      "space": [
+        24,
+        12,
+        6,
+        6
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 70,
+      "armor": 130,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 130,
+      "hp": 380,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 88,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 657,
+    "wiki_id": "657",
+    "name": {
+      "zh_cn": "集积地栖姬-坏 ",
+      "ja": "集積地棲姫-壊 "
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        562,
+        562,
+        561,
+        561
+      ],
+      "space": [
+        24,
+        24,
+        12,
+        12
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 80,
+      "armor": 160,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 160,
+      "hp": 430,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 98,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 658,
+    "wiki_id": "658",
+    "name": {
+      "zh_cn": "集积地栖姬-坏 ",
+      "ja": "集積地棲姫-壊 "
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        562,
+        562,
+        562,
+        561
+      ],
+      "space": [
+        36,
+        24,
+        24,
+        12
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 90,
+      "armor": 190,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 190,
+      "hp": 600,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 118,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 668,
+    "wiki_id": "668",
+    "name": {
+      "zh_cn": "离岛栖姬 ",
+      "ja": "離島棲姫 "
+    },
+    "stype": 11,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        562,
+        561,
+        561,
+        566
+      ],
+      "space": [
+        16,
+        12,
+        12,
+        8
+      ]
+    },
+    "attr": {
+      "range": 0,
+      "speed": 0,
+      "aa": 120,
+      "armor": 190,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 150,
+      "hp": 480,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 669,
+    "wiki_id": "669",
+    "name": {
+      "zh_cn": "离岛栖姬 ",
+      "ja": "離島棲姫 "
+    },
+    "stype": 11,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        562,
+        561,
+        566,
+        566
+      ],
+      "space": [
+        20,
+        18,
+        18,
+        8
+      ]
+    },
+    "attr": {
+      "range": 0,
+      "speed": 0,
+      "aa": 120,
+      "armor": 190,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 150,
+      "hp": 480,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 670,
+    "wiki_id": "670",
+    "name": {
+      "zh_cn": "离岛栖姬 ",
+      "ja": "離島棲姫 "
+    },
+    "stype": 11,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 671,
+    "wiki_id": "671",
+    "name": {
+      "zh_cn": "离岛栖姬 ",
+      "ja": "離島棲姫 "
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        565,
+        565,
+        566,
+        566
+      ],
+      "space": [
+        0,
+        0,
+        32,
+        32
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 120,
+      "armor": 190,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 180,
+      "hp": 480,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 672,
+    "wiki_id": "672",
+    "name": {
+      "zh_cn": "离岛栖姬 ",
+      "ja": "離島棲姫 "
+    },
+    "stype": 9,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        565,
+        565,
+        540,
+        567
+      ],
+      "space": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 120,
+      "armor": 190,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 180,
+      "hp": 480,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 679,
+    "wiki_id": "679",
+    "name": {
+      "zh_cn": "彼岸栖姬 ",
+      "ja": "リコリス棲姫 "
+    },
+    "stype": 11,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        561,
+        561,
+        556,
+        566
+      ],
+      "space": [
+        24,
+        24,
+        24,
+        24
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 0,
+      "aa": 120,
+      "armor": 100,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 150,
+      "hp": 600,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 680,
+    "wiki_id": "680",
+    "name": {
+      "zh_cn": "彼岸栖姬 ",
+      "ja": "リコリス棲姫 "
+    },
+    "stype": 11,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        562,
+        561,
+        556,
+        566
+      ],
+      "space": [
+        30,
+        30,
+        30,
+        30
+      ]
+    },
+    "attr": {
+      "range": 0,
+      "speed": 0,
+      "aa": 130,
+      "armor": 120,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 170,
+      "hp": 640,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 681,
+    "wiki_id": "681",
+    "name": {
+      "zh_cn": "彼岸栖姬 ",
+      "ja": "リコリス棲姫 "
+    },
+    "stype": 11,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        562,
+        562,
+        556,
+        566
+      ],
+      "space": [
+        36,
+        36,
+        36,
+        36
+      ]
+    },
+    "attr": {
+      "range": 0,
+      "speed": 0,
+      "aa": 140,
+      "armor": 140,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 190,
+      "hp": 680,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 682,
+    "wiki_id": "682",
+    "name": {
+      "zh_cn": "彼岸栖姬 ",
+      "ja": "リコリス棲姫 "
+    },
+    "stype": 11,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        562,
+        561,
+        556,
+        566
+      ],
+      "space": [
+        28,
+        21,
+        21,
+        14
+      ]
+    },
+    "attr": {
+      "range": 0,
+      "speed": 0,
+      "aa": 120,
+      "armor": 100,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 150,
+      "hp": 600,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 683,
+    "wiki_id": "683",
+    "name": {
+      "zh_cn": "彼岸栖姬 ",
+      "ja": "リコリス棲姫 "
+    },
+    "stype": 11,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        562,
+        562,
+        556,
+        566
+      ],
+      "space": [
+        40,
+        30,
+        30,
+        20
+      ]
+    },
+    "attr": {
+      "range": 0,
+      "speed": 0,
+      "aa": 120,
+      "armor": 100,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 150,
+      "hp": 600,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 684,
+    "wiki_id": "684",
+    "name": {
+      "zh_cn": "中枢栖姬 ",
+      "ja": "中枢棲姫 "
+    },
+    "stype": 9,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        568,
+        568,
+        569,
+        567
+      ],
+      "space": [
+        0,
+        0,
+        16,
+        0
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 100,
+      "armor": 180,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 110,
+      "hp": 600,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 80,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 161,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 685,
+    "wiki_id": "685",
+    "name": {
+      "zh_cn": "中枢栖姬 ",
+      "ja": "中枢棲姫 "
+    },
+    "stype": 9,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        568,
+        568,
+        569,
+        567
+      ],
+      "space": [
+        0,
+        0,
+        16,
+        0
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 120,
+      "armor": 210,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 170,
+      "hp": 800,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 90,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 211,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 686,
+    "wiki_id": "686",
+    "name": {
+      "zh_cn": "中枢栖姬 ",
+      "ja": "中枢棲姫 "
+    },
+    "stype": 9,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        568,
+        568,
+        569,
+        567
+      ],
+      "space": [
+        0,
+        0,
+        16,
+        0
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 180,
+      "armor": 240,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 190,
+      "hp": 900,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 100,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 251,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 687,
+    "wiki_id": "687",
+    "name": {
+      "zh_cn": "中枢栖姬-坏 ",
+      "ja": "中枢棲姫-壊 "
+    },
+    "stype": 9,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        568,
+        568,
+        569,
+        567
+      ],
+      "space": [
+        0,
+        0,
+        16,
+        0
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 100,
+      "armor": 210,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 150,
+      "hp": 550,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 120,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 201,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 688,
+    "wiki_id": "688",
+    "name": {
+      "zh_cn": "中枢栖姬-坏 ",
+      "ja": "中枢棲姫-壊 "
+    },
+    "stype": 9,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        568,
+        568,
+        569,
+        567
+      ],
+      "space": [
+        0,
+        0,
+        16,
+        0
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 140,
+      "armor": 240,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 180,
+      "hp": 750,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 140,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 231,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 689,
+    "wiki_id": "689",
+    "name": {
+      "zh_cn": "中枢栖姬-坏 ",
+      "ja": "中枢棲姫-壊 "
+    },
+    "stype": 9,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        568,
+        568,
+        569,
+        567
+      ],
+      "space": [
+        0,
+        0,
+        16,
+        0
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 180,
+      "armor": 270,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 230,
+      "hp": 850,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 160,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 281,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
   }
 ]

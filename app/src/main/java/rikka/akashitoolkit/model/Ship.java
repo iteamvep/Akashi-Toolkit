@@ -206,15 +206,15 @@ public class Ship extends BaseDataModel {
     private AttributeEntity attr_99;
     private AttributeEntity attr_155;
 
-    public AttributeEntity getAttr() {
+    public AttributeEntity getAttribute() {
         return attr;
     }
 
-    public AttributeEntity getAttrMax() {
+    public AttributeEntity getAttributeMax() {
         return attr_max;
     }
 
-    public AttributeEntity getAttr99() {
+    public AttributeEntity getAttribute99() {
         return attr_99;
     }
 

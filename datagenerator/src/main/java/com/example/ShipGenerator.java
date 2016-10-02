@@ -1,12 +1,17 @@
 package com.example;
 
+import com.example.list.EquipList;
+import com.example.model.APIShipType;
 import com.example.model.AttrEntity;
+import com.example.model.NewEquip;
 import com.example.model.NewShip;
+import com.example.model.Ship;
 import com.example.model.Ship2;
 import com.example.model.ShipClass;
 import com.example.model.Start2;
 import com.example.network.RetrofitAPI;
 import com.example.utils.TextUtils;
+import com.example.utils.Utils;
 import com.example.utils.WanaKanaJava;
 import com.github.promeg.pinyinhelper.Pinyin;
 import com.google.gson.Gson;
@@ -20,7 +25,11 @@ import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import okhttp3.ResponseBody;
 import retrofit2.Retrofit;
@@ -101,6 +110,7 @@ public class ShipGenerator {
             ship.setRemodel(remodel);
         }
 
+        // 从 api_start2 中取得特殊的改造
         for (Ship2 ship : getList()) {
             for (Start2.ApiMstShipupgradeEntity entity : start2.getApi_mst_shipupgrade()) {
                 if (entity.getApi_current_ship_id() == ship.getId()) {
@@ -144,6 +154,8 @@ public class ShipGenerator {
                 System.out.println(ship.get中文名());
             }
         }
+
+        addEnemyShip();
 
         Gson gson = new GsonBuilder()
                 .excludeFieldsWithoutExposeAnnotation()
@@ -450,6 +462,175 @@ public class ShipGenerator {
                 }
             }
             return null;
+        }
+    }
+
+    private static Pattern ENEMY_LINE = Pattern.compile("\\{\\{深海栖姬单条列表\\n  \\|(编号=[^}]*)}}");
+    private static Pattern ENEMY_LINE_START = Pattern.compile("\\{\\{深海栖姬列表\\|日文名=(.+)\\|中文名=(.+)}}");
+
+    private static void addEnemyShip() throws IOException {
+        //getList()
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://zh.kcwiki.moe/")
+                .build();
+
+        RetrofitAPI.KcwikiService service = retrofit.create(RetrofitAPI.KcwikiService.class);
+        ResponseBody body = service.getPage("深海栖舰列表", "raw").execute().body();
+        String str = body.string();
+
+        Map<String, String> map = new HashMap<>();
+        Matcher m;
+        m = ENEMY_LINE_START.matcher(str);
+        while (m.find()) {
+            map.put(m.group(2).trim(), m.group(1).trim());
+        }
+
+        m = ENEMY_LINE.matcher(str);
+        while (m.find()) {
+            String line = m.group(1).replace("\n", "").replace("\r", "");
+
+            if (line.contains("编号=mist")) {
+                continue;
+            }
+
+            Ship2 ship = new Ship2();
+            getList().add(ship);
+            ship.setAttr(new AttrEntity());
+            ship.setAttr_max(new AttrEntity());
+
+            String[] groups = line.split("\\|");
+            for (String kv : groups) {
+                String key, value;
+                String[] s = kv.split("=");
+                key = s[0];
+                if (s.length > 1) {
+                    value = s[1];
+                } else {
+                    value = "";
+                }
+                parseEnemyShip(ship, map, key.trim(), value.trim());
+
+                if (ship.getId() != 0 && ship.getType() == 0) {
+                    NewShip newship = getAPIShip(ship.getId());
+                    ship.setType(newship.getType());
+                    ship.setEquip(new Ship.EquipEntity());
+                    ship.getEquip().setSlots(newship.getStats().getSlot_num());
+                    ship.getEquip().setId(new int[ship.getEquip().getSlots()]);
+                    ship.getEquip().setSpace(new int[ship.getEquip().getSlots()]);
+                }
+            }
+        }
+    }
+
+    private static void parseEnemyShip(Ship2 ship, Map<String, String> map, String key, String value) {
+        switch (key) {
+            case "编号":
+                ship.setId(Utils.stringToInt(value));
+                ship.setWikiId(value);
+                break;
+            case "名字":
+                ship.getName().setZh_cn(value);
+                ship.getName().setJa(map.get(value));
+                break;
+            case "级别":
+                ship.getName().setZh_cn(ship.getName().getZh_cn() + " " + value);
+                ship.getName().setJa(ship.getName().getJa() + " " + value);
+                break;
+
+            case "耐久":
+                ship.getAttr().setHP(Utils.stringToInt(value));
+                break;
+
+            case "火力":
+                ship.getAttr().setFire(Utils.stringToInt(value));
+                break;
+            case "火力2":
+                ship.getAttrMax().setFire(Utils.stringToInt(value));
+                break;
+
+            case "雷装":
+                ship.getAttr().setTorpedo(Utils.stringToInt(value));
+                break;
+            case "雷装2":
+                ship.getAttrMax().setTorpedo(Utils.stringToInt(value));
+                break;
+
+            case "对空":
+                ship.getAttr().setAA(Utils.stringToInt(value));
+                break;
+            case "对空2":
+                ship.getAttrMax().setAA(Utils.stringToInt(value));
+                break;
+
+            case "装甲":
+                ship.getAttr().setArmor(Utils.stringToInt(value));
+                break;
+            case "装甲2":
+                ship.getAttrMax().setArmor(Utils.stringToInt(value));
+                break;
+
+            case "运":
+                ship.getAttr().setLuck(Utils.stringToInt(value));
+                break;
+
+            case "射程":
+                switch (value) {
+                    case "短":
+                        ship.getAttr().setRange(1);
+                        break;
+                    case "中":
+                        ship.getAttr().setRange(2);
+                        break;
+                    case "长":
+                        ship.getAttr().setRange(3);
+                        break;
+                    case "超长":
+                        ship.getAttr().setRange(4);
+                        break;
+                }
+                break;
+
+            case "装备1":
+            case "装备2":
+            case "装备3":
+            case "装备4":
+            case "装备5":
+                if (TextUtils.isEmpty(value)) {
+                    break;
+                }
+
+                int slot = key.charAt(2) - '1';
+                NewEquip equip = EquipList.findByName(value);
+                if (equip == null) {
+                    int id = 0;
+                    switch (value) {
+                        case "22英寸鱼雷后期型":
+                            id = 515;
+                            break;
+                        case "16英寸三连装炮(新)":
+                            id = 568;
+                            break;
+                    }
+                    ship.getEquip().getId()[slot] = id;
+                } else {
+                    if (slot < ship.getEquip().getId().length)
+                        ship.getEquip().getId()[slot] = equip.getId();
+                }
+                break;
+
+            case "搭载1":
+            case "搭载2":
+            case "搭载3":
+            case "搭载4":
+            case "搭载5":
+                if (TextUtils.isEmpty(value)) {
+                    break;
+                }
+
+                int slot2 = key.charAt(2) - '1';
+                if (slot2 < ship.getEquip().getSpace().length)
+                    ship.getEquip().getSpace()[slot2] = Utils.stringToInt(value.replace("?", ""));
+                break;
         }
     }
 }

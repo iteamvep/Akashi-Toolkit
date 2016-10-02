@@ -300,7 +300,7 @@ public class Fleet {
          */
         public void calc() {
             setAttr(new AttributeEntity());
-            setAttr(getShip().getAttr().plus(getShip().getAttrMax()));
+            setAttr(getShip().getAttribute().plus(getShip().getAttributeMax()));
 
             double aa = 0;
             double min_aa = 0, max_aa = 0;
@@ -375,7 +375,7 @@ public class Fleet {
             fuel += s.getShip().getResourceConsume()[0];
             ammo += s.getShip().getResourceConsume()[1];
 
-            if (s.getShip().getAttr().getSpeed() < 10) {
+            if (s.getShip().getAttribute().getSpeed() < 10) {
                 setLowSpeed(true);
             }
         }

@@ -37,11 +37,11 @@
             android:icon="@drawable/ic_nav_map_24dp"
             android:title="@string/maps"/>
 
-        <!--<item
+        <item
             android:id="@+id/nav_enemy"
             android:visible="true"
             android:icon="@drawable/ic_nav_ship_24dp"
-            android:title="@string/enemy"/>-->
+            android:title="@string/enemy"/>
 
         <item
             android:id="@+id/nav_quest"

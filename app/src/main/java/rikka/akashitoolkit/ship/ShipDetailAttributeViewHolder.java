@@ -23,11 +23,15 @@ public class ShipDetailAttributeViewHolder extends AttributeViewHolder implement
 
     @Override
     public void bind(Ship data, int position) {
+        if (data.getAttribute() == null) {
+            return;
+        }
+
         Context context = itemView.getContext();
         Adapter adapter = mAdapter;
 
-        AttributeEntity attr = data.getAttr();
-        AttributeEntity attr_max = attr.plus(data.getAttrMax()).plus(data.getAttr99());
+        AttributeEntity attr = data.getAttribute();
+        AttributeEntity attr_max = attr.plus(data.getAttributeMax()).plus(data.getAttribute99());
 
         if (!data.isEnemy()) {
             adapter.add(R.string.attr_hp, attr.getHP()/*, attr_max.getHP()*/);

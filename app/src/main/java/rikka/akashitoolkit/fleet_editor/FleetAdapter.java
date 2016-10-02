@@ -82,7 +82,7 @@ public class FleetAdapter extends BaseItemTouchHelperAdapter<FleetViewHolder, Fl
         holder.mTitle.setText(String.format("%s Lv.%d", ship.getName().get(), item.getLevel()));
 
         holder.mSummary.setText(String.format("%s %s",
-                KCStringFormatter.getSpeed(context, ship.getAttr().getSpeed()),
+                KCStringFormatter.getSpeed(context, ship.getAttribute().getSpeed()),
                 ship.getShipType().getName().get()));
 
         resetEquipRelatedText(holder, position);

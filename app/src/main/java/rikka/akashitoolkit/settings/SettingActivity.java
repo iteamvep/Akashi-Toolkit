@@ -33,6 +33,7 @@ import rikka.akashitoolkit.support.ApiConstParam;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.StaticData;
 import rikka.akashitoolkit.ui.BaseActivity;
+import rikka.akashitoolkit.utils.FlavorsUtils;
 import rikka.akashitoolkit.utils.Utils;
 import rikka.materialpreference.DropDownPreference;
 import rikka.materialpreference.ListPreference;
@@ -107,7 +108,7 @@ public class SettingActivity extends BaseActivity {
                 }
             });
 
-            if (BuildConfig.isGooglePlay) {
+            if (FlavorsUtils.isPlay()) {
                 ((PreferenceCategory) findPreference("update")).removePreference(findPreference(Settings.UPDATE_CHECK_CHANNEL));
             }
 

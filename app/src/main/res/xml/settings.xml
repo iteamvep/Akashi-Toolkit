@@ -43,7 +43,7 @@
             android:key="open_in_new_document"
             android:title="@string/open_in_new_document"
             android:summary="@string/open_in_new_document_summary"
-            android:defaultValue="false"/>
+            android:defaultValue="true"/>
 
         <SimpleMenuPreference
             android:key="night_mode"

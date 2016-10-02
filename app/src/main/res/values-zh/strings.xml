@@ -296,8 +296,8 @@
     <string name="donate_gp_set_up_failed">设置应用内结算失败，可能是您没有安装 Google Play。</string>
 
     <string name="donate_alipay_thanks">有了提督君的支持，我会变得更好用的哟~</string>
-    <string name="donate_alipay_not_installed">您没有安装支付宝客户端 QAQ</string>
-    <string name="donate_alipay_disabled">您的支付宝已被禁用 _(:3｣ ∠)_</string>
+    <string name="donate_alipay_not_installed">您没有安装支付宝客户端</string>
+    <string name="donate_alipay_disabled">您的支付宝已被禁用</string>
 
     <string name="share_as_image">以图片分享</string>
     <string name="preview">预览</string>

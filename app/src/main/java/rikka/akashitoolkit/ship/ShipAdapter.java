@@ -225,8 +225,8 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
         }
 
         if (mShowSpeed != 0 &&
-                !((mShowSpeed & 1) > 0 && item.getAttr().getSpeed() == 5 ||
-                (mShowSpeed & 1 << 1) > 0 && item.getAttr().getSpeed() == 10)) {
+                !((mShowSpeed & 1) > 0 && item.getAttribute().getSpeed() == 5 ||
+                        (mShowSpeed & 1 << 1) > 0 && item.getAttribute().getSpeed() == 10)) {
             return false;
         }
 
