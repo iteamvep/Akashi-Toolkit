@@ -291,7 +291,7 @@ public class ShipGenerator {
     private static String getRomaji(Ship2 item) {
         StringBuilder sb = new StringBuilder();
         if (item.get日文名().charAt(0) <= 'Z') {
-            sb.append(item.get日文名());
+            sb.append(item.get日文名().replace("改", ""));
         } else if (!TextUtils.isEmpty(item.get假名())) {
             sb.append(wkj.toRomaji(item.get假名()));
             sb.setCharAt(0, (char) (sb.charAt(0) + ('A' - 'a')));
@@ -325,7 +325,7 @@ public class ShipGenerator {
                     .append(',')
                     .append(item.get假名())
                     .append(',')
-                    .append(wkj.toRomaji(item.get假名()));
+                    .append(getRomaji(item) /*wkj.toRomaji(item.get假名())*/);
         }
 
         if (sb.length() > 0 && sb.charAt(sb.length() - 1) != ',') {

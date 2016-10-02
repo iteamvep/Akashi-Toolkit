@@ -235,9 +235,7 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
         }
 
         if (mIsSearching && mKeyword != null &&
-                !item.getName().getJa().contains(mKeyword) &&
-                !item.getName().getZhCN().contains(mKeyword) &&
-                (item.getNameForSearch() == null || !item.getNameForSearch().contains(mKeyword))) {
+                (item.getNameForSearch() == null || !item.getNameForSearch().toLowerCase().contains(mKeyword.toLowerCase()))) {
             return false;
         }
 
