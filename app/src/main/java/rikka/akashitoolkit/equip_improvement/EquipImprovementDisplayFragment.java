@@ -82,15 +82,13 @@ public class EquipImprovementDisplayFragment extends BaseDrawerItemFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.content_viewpager, container, false);
+        return inflater.inflate(R.layout.content_viewpager, container, false);
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         mViewPager = (ViewPager) view.findViewById(R.id.view_pager);
         mViewPager.setAdapter(getAdapter());
-
-        if (!isHiddenBeforeSaveInstanceState()) {
-            onShow();
-        }
-
-        return view;
     }
 
     private ViewPagerStateAdapter getAdapter() {

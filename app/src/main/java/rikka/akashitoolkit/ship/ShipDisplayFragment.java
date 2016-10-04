@@ -347,9 +347,9 @@ public class ShipDisplayFragment extends BaseSearchFragment {
         mViewPager = (UnScrollableViewPager) view.findViewById(R.id.view_pager);
         mViewPager.setAdapter(getAdapter());
 
-        if (!isHiddenBeforeSaveInstanceState()) {
+        /*if (!isHiddenBeforeSaveInstanceState()) {
             onShow();
-        }
+        }*/
 
         return view;
     }

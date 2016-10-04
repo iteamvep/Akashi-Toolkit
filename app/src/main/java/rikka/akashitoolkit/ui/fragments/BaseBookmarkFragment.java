@@ -104,10 +104,6 @@ public abstract class BaseBookmarkFragment extends BaseDrawerItemFragment {
         };
         mViewPager.setAdapter(mFragmentPagerAdapter);
 
-        if (!isHiddenBeforeSaveInstanceState()) {
-            onShow();
-        }
-
         return view;
     }
 

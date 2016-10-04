@@ -74,9 +74,9 @@ public class HomeFragment extends BaseDrawerItemFragment {
         mViewPager.setOffscreenPageLimit(3);
         mViewPager.setCurrentItem(1);
 
-        if (!isHiddenBeforeSaveInstanceState()) {
+        /*if (!isHiddenBeforeSaveInstanceState()) {
             onShow();
-        }
+        }*/
 
         return view;
     }

@@ -251,9 +251,9 @@ public class ExpeditionDisplayFragment extends BaseDrawerItemFragment implements
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.cardBackground));
 
-        if (!isHiddenBeforeSaveInstanceState()) {
+        /*if (!isHiddenBeforeSaveInstanceState()) {
             onShow();
-        }
+        }*/
 
         return view;
     }
