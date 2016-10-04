@@ -85,6 +85,58 @@ public class EquipTypeGenerator {
         PARENT.put(48, TYPE_AIRCRAFT);
         PARENT.put(93, TYPE_RADAR);
         PARENT.put(94, TYPE_AIRCRAFT);
+
+        ENGLISH_NAME = new HashMap<>();
+        ENGLISH_NAME.put(1, "Small Caliber Main Gun");
+        ENGLISH_NAME.put(2, "Medium Caliber Main Gun");
+        ENGLISH_NAME.put(3, "Large Caliber Main Gun");
+        ENGLISH_NAME.put(4, "Secondary Gun");
+        ENGLISH_NAME.put(5, "Torpedo");
+        ENGLISH_NAME.put(6, "Carrier-based Fighter");
+        ENGLISH_NAME.put(7, "Carrier-based Dive Bomber");
+        ENGLISH_NAME.put(8, "Carrier-based Torpedo Bomber");
+        ENGLISH_NAME.put(9, "Carrier-based Reconnaissance Aircraft");
+        ENGLISH_NAME.put(10, "Reconnaissance Seaplane");
+        ENGLISH_NAME.put(11, "Seaplane Bomber");
+        ENGLISH_NAME.put(12, "Small Radar");
+        ENGLISH_NAME.put(13, "Large Radar");
+        ENGLISH_NAME.put(14, "Sonar");
+        ENGLISH_NAME.put(15, "Depth Charge");
+        ENGLISH_NAME.put(16, "Extra Armor");
+        ENGLISH_NAME.put(17, "Engine Improvement");
+        ENGLISH_NAME.put(18, "Anti-Aircraft Shell");
+        ENGLISH_NAME.put(19, "Armor Piercing Shell");
+        ENGLISH_NAME.put(20, "Proximity Fuze");
+        ENGLISH_NAME.put(21, "Anti-Aircraft Gun");
+        ENGLISH_NAME.put(22, "Midget Submarine");
+        ENGLISH_NAME.put(23, "Damage Control Personnel");
+        ENGLISH_NAME.put(24, "Landing Craft");
+        ENGLISH_NAME.put(25, "Autogyro");
+        ENGLISH_NAME.put(26, "Anti-submarine Patrol Aircraft");
+        ENGLISH_NAME.put(27, "Extra Armor (Medium)");
+        ENGLISH_NAME.put(28, "Extra Armor (Large)");
+        ENGLISH_NAME.put(29, "Searchlight");
+        ENGLISH_NAME.put(30, "Supply Transport Container");
+        ENGLISH_NAME.put(31, "Ship Repair Facility");
+        ENGLISH_NAME.put(32, "Submarine Torpedo");
+        ENGLISH_NAME.put(33, "Star Shell");
+        ENGLISH_NAME.put(34, "Command Facility");
+        ENGLISH_NAME.put(35, "Aviation Personne");
+        ENGLISH_NAME.put(36, "Anti-Aircraft Fire Director");
+        ENGLISH_NAME.put(37, "Anti-Ground Equipment");
+        ENGLISH_NAME.put(38, "Large Caliber Main Gun (II)");
+        ENGLISH_NAME.put(39, "Surface Ship Personnel");
+        ENGLISH_NAME.put(40, "Large Sonar");
+        ENGLISH_NAME.put(41, "Large Flying Boat");
+        ENGLISH_NAME.put(42, "Large Searchlight");
+        ENGLISH_NAME.put(43, "Combat Ration");
+        ENGLISH_NAME.put(44, "Supplies");
+        ENGLISH_NAME.put(45, "Seaplane Fighter");
+        ENGLISH_NAME.put(46, "Special Amphibious Tank");
+        ENGLISH_NAME.put(47, "Land-based Attack Aircraft");
+        ENGLISH_NAME.put(48, "Interceptor Fighter");
+        ENGLISH_NAME.put(93, "Large Radar (II)");
+        ENGLISH_NAME.put(94, "Carrier-based Reconnaissance Aircraft (II)");
     }
 
     public static void main(String[] args) throws IOException {
@@ -113,7 +165,7 @@ public class EquipTypeGenerator {
             equipType.setName(new MultiLanguageEntry());
             equipType.getName().setJa(item.getName());
             equipType.getName().setZh_cn(item.getChineseName());
-            //equipType.getName().setEn();
+            equipType.getName().setEn(ENGLISH_NAME.get(item.getId()));
             equipType.setParent(PARENT.get(item.getId()));
             list.add(equipType);
         }
