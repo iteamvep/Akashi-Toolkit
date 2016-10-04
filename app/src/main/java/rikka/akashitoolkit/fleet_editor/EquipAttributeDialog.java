@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Rect;
 import android.support.annotation.NonNull;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -88,7 +87,7 @@ public class EquipAttributeDialog extends BottomSheetDialog {
             }
         });
 
-        mImprovementAdapter.setListener(new SimpleAdapter.Listener() {
+        mImprovementAdapter.setOnItemClickListener(new SimpleAdapter.Listener() {
             @Override
             public void OnClick(int position) {
                 if (mListener != null) {
@@ -97,7 +96,7 @@ public class EquipAttributeDialog extends BottomSheetDialog {
             }
         });
 
-        mRankAdapter.setListener(new SimpleAdapter.Listener() {
+        mRankAdapter.setOnItemClickListener(new SimpleAdapter.Listener() {
             @Override
             public void OnClick(int position) {
                 if (mListener != null) {

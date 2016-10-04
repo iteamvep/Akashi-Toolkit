@@ -71,7 +71,7 @@
     <string name="today">(Today)</string>
     <string name="action_filter">Filter</string>
     <string name="action_search">Search</string>
-    <string name="item">Equip</string>
+    <string name="equip">Equip</string>
     <string name="attributes">Attributes</string>
     <string name="item_improvement_data">Equip improvement</string>
     <string name="remark">Remark</string>

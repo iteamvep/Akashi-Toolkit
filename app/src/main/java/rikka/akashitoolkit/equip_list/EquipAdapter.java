@@ -1,20 +1,21 @@
-package rikka.akashitoolkit.equip;
+package rikka.akashitoolkit.equip_list;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.List;
+
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.BaseBookmarkRecyclerAdapter;
+import rikka.akashitoolkit.equip_detail.EquipDetailActivity;
 import rikka.akashitoolkit.model.Equip;
 import rikka.akashitoolkit.model.EquipType;
-import rikka.akashitoolkit.model.Ship;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.DataListRebuiltFinished;
 import rikka.akashitoolkit.otto.ItemSelectAction;
@@ -29,73 +30,62 @@ import rikka.akashitoolkit.viewholder.SimpleTitleDividerViewHolder;
  */
 public class EquipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHolder, Object> {
 
-    private Activity mActivity;
-    private int mType;
-    private boolean mEnemy;
-    private boolean mSelectMode;
-    private Ship mShip;
+    public static final String ARG_TYPE_IDS = "TYPE";
+    public static final String ARG_BOOKMARKED = "BOOKMARKED";
+    public static final String ARG_SELECT_MODE = "SELECT_MODE";
+    public static final String ARG_ENEMY_MODE = "ENEMY";
 
-    public EquipAdapter(Activity activity, int type, boolean bookmarked, boolean enemy, boolean select_mode, Ship ship) {
+    private boolean mEnemyMode;
+    private boolean mSelectMode;
+    private List<Integer> mTypeList;
+
+    public EquipAdapter(Bundle args) {
+        this(args.getIntegerArrayList(ARG_TYPE_IDS),
+                args.getBoolean(ARG_BOOKMARKED),
+                args.getBoolean(ARG_ENEMY_MODE),
+                args.getBoolean(ARG_SELECT_MODE));
+    }
+
+    public EquipAdapter(List<Integer> type, boolean bookmarked, boolean enemy_mode, boolean select_mode) {
         super(bookmarked);
 
         setHasStableIds(true);
 
-        mActivity = activity;
-        mType = type;
-        mEnemy = enemy;
+        mTypeList = type;
+        mEnemyMode = enemy_mode;
         mSelectMode = select_mode;
-        mShip = ship;
 
         rebuildDataList();
     }
 
-    public void setType(int type) {
-        mType = type;
-    }
-
     public void rebuildDataList() {
-        new AsyncTask<Void, Void, Void>() {
-            @Override
-            protected Void doInBackground(Void... params) {
-                EquipList.get(mActivity);
+        clearItemList();
+        int lastType = -1;
 
-                return null;
+        for (Equip equip : EquipList.get()) {
+            if (!check(equip))
+                continue;
+
+            if (getItemCount() == 0 || lastType != equip.getType()) {
+                lastType = equip.getType();
+                EquipType equipType = equip.getEquipType();
+                if (equipType != null)
+                    addItem(equipType.getId() * 10000, 1, equipType.getName().get());
             }
+            addItem(equip.getId(), 0, equip);
+        }
 
-            @Override
-            protected void onPostExecute(Void aVoid) {
-                clearItemList();
-                int lastType = -1;
+        notifyDataSetChanged();
+        BusProvider.instance().post(new DataListRebuiltFinished());
 
-                for (Equip equip : EquipList.get(mActivity)) {
-                    if (!check(equip))
-                        continue;
-
-                    if (getItemCount() == 0 || lastType != equip.getType()) {
-                        lastType = equip.getType();
-                        EquipType equipType = EquipTypeList.findItemById(mActivity, equip.getType());
-                        if (equipType != null)
-                            addItem(equipType.getId() * 10000, 1, equipType.getName());
-                    }
-                    addItem(equip.getId(), 0, equip);
-                }
-
-                if (mType == 0) {
-                    onDataListRebuilt(getItemList());
-                }
-
-                notifyDataSetChanged();
-                BusProvider.instance().post(new DataListRebuiltFinished());
-            }
-        }.execute();
     }
 
     private boolean check(Equip equip) {
-        if (mEnemy && equip.getId() < 500) {
+        if (mEnemyMode && !equip.isEnemy()) {
             return false;
         }
 
-        if (!mEnemy && equip.getId() > 500) {
+        if (!mEnemyMode && equip.isEnemy()) {
             return false;
         }
 
@@ -103,13 +93,7 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewH
             return false;
         }
 
-        if (equip.getParentType() != mType && mType != 0) {
-            return false;
-        }
-
-        if (mShip != null
-                && (mShip.getShipType() != null && !mShip.getShipType().canEquip(equip))
-                && (mShip.getExtraEquipType() == null || !mShip.getExtraEquipType().contains(equip.getTypes()[2]))) {
+        if (mTypeList != null && !mTypeList.contains(equip.getType())) {
             return false;
         }
 
@@ -119,7 +103,7 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewH
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType == 0) {
-            View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_item, parent, false);
+            View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_equip, parent, false);
             return new EquipViewHolder(itemView);
         } else {
             View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_subtitle, parent, false);
@@ -146,10 +130,10 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewH
         holder.mName.setText(String.format(item.isBookmarked() ? "%s ★" : "%s",
                 item.getName().get()));
 
-        EquipTypeList.setIntoImageView(holder.mImageView, item.getIcon());
+        EquipTypeList.setIntoImageView(holder.mIcon, item.getIcon());
 
         if (!mSelectMode) {
-            holder.mLinearLayout.setOnClickListener(new View.OnClickListener() {
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Context context = v.getContext();
@@ -159,15 +143,15 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewH
                             ((Equip) getItem(holder.getAdapterPosition())).getId());
 
                     int[] location = new int[2];
-                    holder.mLinearLayout.getLocationOnScreen(location);
+                    holder.itemView.getLocationOnScreen(location);
                     intent.putExtra(EquipDetailActivity.EXTRA_START_Y, location[1]);
-                    intent.putExtra(EquipDetailActivity.EXTRA_START_HEIGHT, holder.mLinearLayout.getHeight());
+                    intent.putExtra(EquipDetailActivity.EXTRA_START_HEIGHT, holder.itemView.getHeight());
 
-                    BaseItemDisplayActivity.start(mActivity, intent);
+                    BaseItemDisplayActivity.start(v.getContext(), intent);
                 }
             });
         } else {
-            holder.mLinearLayout.setOnClickListener(new View.OnClickListener() {
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Equip item = (Equip) getItem(holder.getAdapterPosition());
@@ -178,8 +162,8 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewH
             });
         }
 
-        if (!mEnemy && !mSelectMode) {
-            holder.mLinearLayout.setOnLongClickListener(new View.OnLongClickListener() {
+        if (!mEnemyMode && !mSelectMode) {
+            holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
                 @SuppressLint("DefaultLocale")
                 @Override
                 public boolean onLongClick(View v) {
@@ -187,10 +171,10 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewH
 
                     item.setBookmarked(!item.isBookmarked());
 
-                    Settings.instance(mActivity)
+                    Settings.instance(v.getContext())
                             .putBoolean(String.format("equip_%d", item.getId()), item.isBookmarked());
 
-                    showToast(mActivity, item.isBookmarked());
+                    showToast(v.getContext(), item.isBookmarked());
 
                     notifyItemChanged(holder.getAdapterPosition());
 
@@ -213,7 +197,7 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewH
         super.onViewRecycled(holder);
 
         if (holder instanceof EquipViewHolder) {
-            ((EquipViewHolder) holder).mImageView.setTag(null);
+            ((EquipViewHolder) holder).mIcon.setTag(null);
         }
     }
 }

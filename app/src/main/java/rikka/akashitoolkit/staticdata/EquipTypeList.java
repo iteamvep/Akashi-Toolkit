@@ -20,62 +20,39 @@ import rikka.akashitoolkit.utils.Utils;
  * Created by Rikka on 2016/3/24.
  */
 public class EquipTypeList {
-    private static final String FILE_NAME = "EquipType.json";
 
     private static List<EquipType> sList;
-    private static List<MultiLanguageEntry> sParentList;
 
-    public static synchronized List<EquipType> get(Context context) {
+    public static void init(Context context) {
         if (sList == null) {
             sList = new BaseGSONList<EquipType>() {
                 @Override
                 public void afterRead(List<EquipType> list) {
-                    generateParentList(list);
                 }
-            }.get(context, FILE_NAME, new TypeToken<ArrayList<EquipType>>() {}.getType());
+            }.get(context, "EquipType.json", new TypeToken<ArrayList<EquipType>>() {
+            }.getType());
         }
-        return sList;
     }
 
     public static synchronized void clear() {
         sList = null;
     }
 
-    public static synchronized List<MultiLanguageEntry> getsParentList(Context context) {
-        if (sParentList == null) {
-            get(context);
-        }
-        return sParentList;
+    public static List<EquipType> getList() {
+        return sList;
     }
 
-    public static EquipType findItemById(Context context, int id) {
-        for (EquipType item:
-                get(context)) {
+    public static EquipType get(int id) {
+        if (sList == null) {
+            throw new RuntimeException("call init() first");
+        }
+
+        for (EquipType item : sList) {
             if (item.getId() == id) {
                 return item;
             }
         }
         return null;
-    }
-
-    private static void generateParentList(List<EquipType> list) {
-        if (sParentList != null) {
-            return;
-        }
-
-        sParentList = new ArrayList<>();
-        Map<String, Integer> map = new HashMap<>();
-
-        for (EquipType item:
-                list) {
-
-            if (map.get(item.getParentName().getZhCN()) == null) {
-                sParentList.add(item.getParentName());
-                map.put(item.getParentName().getZhCN(), sParentList.size());
-            }
-
-            item.setPatentId(map.get(item.getParentName().getZhCN()));
-        }
     }
 
     private static int[] ICON = {

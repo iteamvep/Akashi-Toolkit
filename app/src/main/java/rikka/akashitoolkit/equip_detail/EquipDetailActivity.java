@@ -1,4 +1,4 @@
-package rikka.akashitoolkit.equip;
+package rikka.akashitoolkit.equip_detail;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -47,7 +47,7 @@ import rikka.akashitoolkit.model.Equip;
 import rikka.akashitoolkit.model.EquipImprovement;
 import rikka.akashitoolkit.model.Ship;
 import rikka.akashitoolkit.model.ShipType;
-import rikka.akashitoolkit.ship.ShipDetailActivity;
+import rikka.akashitoolkit.ship_detail.ShipDetailActivity;
 import rikka.akashitoolkit.staticdata.EquipImprovementList;
 import rikka.akashitoolkit.staticdata.EquipList;
 import rikka.akashitoolkit.staticdata.EquipTypeList;
@@ -168,7 +168,7 @@ public class EquipDetailActivity extends BaseItemDisplayActivity {
         getSupportActionBar().setSubtitle(String.format(
                 "No. %d %s",
                 mItem.getId(),
-                EquipTypeList.findItemById(this, mItem.getType()).getName()
+                mItem.getEquipType().getName().get()
                 /*KCStringFormatter.getStars(mItem.getRarity())*/));
 
         addAttrViews(mLinearLayout);
@@ -194,7 +194,7 @@ public class EquipDetailActivity extends BaseItemDisplayActivity {
         addAttrView(parent, R.string.attr_evasion, mItem.getAttr().getEvasion());
         addAttrView(parent, R.string.attr_los, mItem.getAttr().getLOS());
         addAttrView(parent, R.string.attr_armor, mItem.getAttr().getArmor());
-        if (mItem.getParentType() == 3) {
+        if (true/*mItem.getParentType() == 3*/) {
             addAttrView(parent, R.string.attr_range_aircraft, mItem.getAttr().getRange());
         } else {
             addAttrView(parent, R.string.attr_range, mItem.getAttr().getRange());

@@ -1,8 +1,9 @@
-package rikka.akashitoolkit.model;
+package com.example.model;
 
 /**
- * Created by Rikka on 2016/3/24.
+ * Created by Rikka on 2016/10/4.
  */
+
 public class EquipType {
     private int id;
     private MultiLanguageEntry name;

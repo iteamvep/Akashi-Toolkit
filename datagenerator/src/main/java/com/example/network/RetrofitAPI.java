@@ -1,5 +1,6 @@
 package com.example.network;
 
+import com.example.model.APIEquipType;
 import com.example.model.APIShipType;
 import com.example.model.NewShip;
 
@@ -31,6 +32,17 @@ public class RetrofitAPI {
          */
         @GET("/ships/type")
         Call<List<APIShipType>> getTypes();
+    }
+
+    public interface SlotItemService {
+        /**
+         * 返回装备类型信息（基于api_mst_slotitem_equiptype）
+         * http://api.kcwiki.moe/slotitems/type
+         *
+         * @return 列表
+         */
+        @GET("/slotitems/type")
+        Call<List<APIEquipType>> getTypes();
     }
 
 

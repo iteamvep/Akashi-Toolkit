@@ -1,4 +1,4 @@
-package rikka.akashitoolkit.equip;
+package rikka.akashitoolkit.equip_detail;
 
 /**
  * Created by Rikka on 2016/9/21.

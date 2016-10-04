@@ -25,9 +25,12 @@ public class SimpleAdapter<T> extends BaseRecyclerAdapter<RecyclerView.ViewHolde
     private Listener mListener;
 
     @LayoutRes
-    int mResId;
+    private int mResId;
 
-    public SimpleAdapter(int resId) {
+    /**
+     * @param resId LayoutRest
+     */
+    public SimpleAdapter(@LayoutRes int resId) {
         mResId = resId;
     }
 
@@ -62,7 +65,7 @@ public class SimpleAdapter<T> extends BaseRecyclerAdapter<RecyclerView.ViewHolde
         return new SimpleTitleViewHolder(view);
     }
 
-    public void setListener(Listener listener) {
+    public void setOnItemClickListener(Listener listener) {
         mListener = listener;
     }
 }

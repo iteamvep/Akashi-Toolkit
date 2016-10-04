@@ -71,7 +71,7 @@
     <string name="today">(今日)</string>
     <string name="action_filter">篩選</string>
     <string name="action_search">搜索</string>
-    <string name="item">裝備</string>
+    <string name="equip">裝備</string>
     <string name="attributes">屬性</string>
     <string name="item_improvement_data">改修數據</string>
     <string name="remark">備註</string>

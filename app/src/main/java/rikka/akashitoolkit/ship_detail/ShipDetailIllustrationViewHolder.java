@@ -1,4 +1,4 @@
-package rikka.akashitoolkit.ship;
+package rikka.akashitoolkit.ship_detail;
 
 import android.view.View;
 import android.widget.ImageView;

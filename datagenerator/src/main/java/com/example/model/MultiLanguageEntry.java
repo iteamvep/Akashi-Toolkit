@@ -23,6 +23,12 @@ public class MultiLanguageEntry {
         en = name;
     }
 
+    public MultiLanguageEntry(String zh_cn, String ja, String en) {
+        this.zh_cn = zh_cn;
+        this.ja = ja;
+        this.en = en;
+    }
+
     public String getZh_cn() {
         return zh_cn;
     }

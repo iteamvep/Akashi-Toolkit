@@ -29,8 +29,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import rikka.akashitoolkit.enemy.EnemyDisplayFragment;
-import rikka.akashitoolkit.equip.EquipDisplayFragment;
 import rikka.akashitoolkit.equip_improvement.EquipImprovementDisplayFragment;
+import rikka.akashitoolkit.equip_list.EquipTypeListFragment;
 import rikka.akashitoolkit.event.EventFragment;
 import rikka.akashitoolkit.expedition.ExpeditionDisplayFragment;
 import rikka.akashitoolkit.home.HomeFragment;
@@ -41,13 +41,14 @@ import rikka.akashitoolkit.quest.QuestDisplayFragment;
 import rikka.akashitoolkit.settings.AboutActivity;
 import rikka.akashitoolkit.settings.SettingActivity;
 import rikka.akashitoolkit.ship.ShipDisplayFragment;
+import rikka.akashitoolkit.ship_list.ShipListFragment;
 import rikka.akashitoolkit.support.Push;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.StaticData;
 import rikka.akashitoolkit.tools.ToolsFragment;
 import rikka.akashitoolkit.ui.BaseActivity;
 import rikka.akashitoolkit.ui.fragments.BaseDrawerItemFragment;
-import rikka.akashitoolkit.ui.fragments.BaseFragment;
+import rikka.akashitoolkit.ui.fragments.IBackFragment;
 import rikka.akashitoolkit.ui.widget.IconSwitchCompat;
 import rikka.akashitoolkit.ui.widget.SimpleDrawerView;
 import rikka.minidrawer.MiniDrawerLayout;
@@ -145,9 +146,9 @@ public class MainActivity extends BaseActivity
             findFragmentByNavId(mFragmentMap, R.id.nav_home);
             /*findFragmentByNavId(mFragmentMap, R.id.nav_twitter);*/
             findFragmentByNavId(mFragmentMap, R.id.nav_new);
-            findFragmentByNavId(mFragmentMap, R.id.nav_item_improve);
+            findFragmentByNavId(mFragmentMap, R.id.nav_equip_improve);
             findFragmentByNavId(mFragmentMap, R.id.nav_enemy);
-            findFragmentByNavId(mFragmentMap, R.id.nav_item);
+            findFragmentByNavId(mFragmentMap, R.id.nav_equip);
             findFragmentByNavId(mFragmentMap, R.id.nav_quest);
             findFragmentByNavId(mFragmentMap, R.id.nav_map);
             findFragmentByNavId(mFragmentMap, R.id.nav_ship);
@@ -172,8 +173,8 @@ public class MainActivity extends BaseActivity
                 /*case R.id.nav_twitter:*/
                 case R.id.nav_new:
                 case R.id.nav_enemy:
-                case R.id.nav_item_improve:
-                case R.id.nav_item:
+                case R.id.nav_equip_improve:
+                case R.id.nav_equip:
                 case R.id.nav_quest:
                 case R.id.nav_map:
                 case R.id.nav_ship:
@@ -224,7 +225,10 @@ public class MainActivity extends BaseActivity
             mDrawerLayout.closeDrawer(GravityCompat.START);
         } else if (mDrawerLayout.isDrawerOpen(GravityCompat.END)) {
             mDrawerLayout.closeDrawer(GravityCompat.END);
-        } else if (mLastDrawerItemId != R.id.nav_home) {
+        } else if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+            getSupportFragmentManager().popBackStack();
+        }
+        if (mLastDrawerItemId != R.id.nav_home) {
             boolean consumed = false;
             for (Fragment f : getSupportFragmentManager().getFragments()) {
                 if (f == null || !f.isVisible()) {
@@ -237,14 +241,14 @@ public class MainActivity extends BaseActivity
                             continue;
                         }
 
-                        if (f2 instanceof BaseFragment) {
-                            consumed |= ((BaseFragment) f2).onBackPressed();
+                        if (f2 instanceof IBackFragment) {
+                            consumed |= ((IBackFragment) f2).onBackPressed();
                         }
                     }
                 }
 
-                if (f instanceof BaseFragment) {
-                    consumed |= ((BaseFragment) f).onBackPressed();
+                if (f instanceof IBackFragment) {
+                    consumed |= ((IBackFragment) f).onBackPressed();
                 }
             }
 
@@ -337,10 +341,10 @@ public class MainActivity extends BaseActivity
                 return new EventFragment();
             case R.id.nav_enemy:
                 return new EnemyDisplayFragment();
-            case R.id.nav_item_improve:
+            case R.id.nav_equip_improve:
                 return new EquipImprovementDisplayFragment();
-            case R.id.nav_item:
-                return new EquipDisplayFragment();
+            case R.id.nav_equip:
+                return new EquipTypeListFragment();
             case R.id.nav_map:
                 return new MapDisplayFragment();
             case R.id.nav_quest:

@@ -11,11 +11,11 @@ import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.ContextCompat;
 
 import rikka.akashitoolkit.R;
-import rikka.akashitoolkit.equip.EquipDetailActivity;
+import rikka.akashitoolkit.equip_detail.EquipDetailActivity;
 import rikka.akashitoolkit.ui.BaseActivity;
 import rikka.akashitoolkit.MainActivity;
 import rikka.akashitoolkit.map.MapActivity;
-import rikka.akashitoolkit.ship.ShipDetailActivity;
+import rikka.akashitoolkit.ship_detail.ShipDetailActivity;
 
 /**
  * Created by Rikka on 2016/5/3.

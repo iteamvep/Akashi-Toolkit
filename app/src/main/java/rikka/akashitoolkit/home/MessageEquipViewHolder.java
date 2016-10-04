@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.TimeZone;
 
 import rikka.akashitoolkit.R;
-import rikka.akashitoolkit.equip.EquipDetailActivity;
+import rikka.akashitoolkit.equip_detail.EquipDetailActivity;
 import rikka.akashitoolkit.model.Equip;
 import rikka.akashitoolkit.model.EquipImprovement;
 import rikka.akashitoolkit.otto.BusProvider;
@@ -133,7 +133,7 @@ public class MessageEquipViewHolder extends RecyclerView.ViewHolder {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BusProvider.instance().post(new ChangeNavigationDrawerItemAction(R.id.nav_item_improve));
+                BusProvider.instance().post(new ChangeNavigationDrawerItemAction(R.id.nav_equip_improve));
             }
         });
         mContainer.addView(view);

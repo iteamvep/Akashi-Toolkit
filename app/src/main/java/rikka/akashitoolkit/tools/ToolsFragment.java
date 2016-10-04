@@ -60,17 +60,6 @@ public class ToolsFragment extends BaseDrawerItemFragment {
             }
         });
 
-        /*view.findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getContext().startActivity(new Intent(getContext(), RankingActivity.class));
-            }
-        });*/
-
-        if (!isHiddenBeforeSaveInstanceState()) {
-            onShow();
-        }
-
         return view;
     }
 

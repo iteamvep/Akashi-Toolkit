@@ -172,10 +172,6 @@ public class QuestDisplayFragment extends BaseSearchFragment implements CheckBox
         mViewPagerStateAdapter[0] = getAdapter(0);
         mViewPagerStateAdapter[1] = getAdapter(1);
 
-        if (!isHiddenBeforeSaveInstanceState()) {
-            onShow();
-        }
-
         return view;
     }
 

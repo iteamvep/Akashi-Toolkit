@@ -17,13 +17,14 @@ import rikka.akashitoolkit.otto.PreferenceChangedAction;
 import rikka.akashitoolkit.otto.ShipAction;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.ui.fragments.BaseDisplayFragment;
+import rikka.akashitoolkit.ui.fragments.IBackFragment;
 import rikka.akashitoolkit.ui.widget.ItemAnimator;
 import rikka.akashitoolkit.ui.widget.LinearLayoutManager;
 
 /**
  * Created by Rikka on 2016/3/30.
  */
-public class ShipFragment extends BaseDisplayFragment<ShipAdapter> {
+public class ShipFragment extends BaseDisplayFragment<ShipAdapter> implements IBackFragment {
 
     public static final String TAG = "ShipFragment";
 

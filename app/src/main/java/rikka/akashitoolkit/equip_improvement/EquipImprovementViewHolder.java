@@ -18,7 +18,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import rikka.akashitoolkit.R;
-import rikka.akashitoolkit.equip.EquipDetailActivity;
+import rikka.akashitoolkit.equip_detail.EquipDetailActivity;
 import rikka.akashitoolkit.model.Equip;
 import rikka.akashitoolkit.model.EquipImprovement;
 import rikka.akashitoolkit.otto.BookmarkItemChanged;

@@ -1,4 +1,4 @@
-package rikka.akashitoolkit.ship;
+package rikka.akashitoolkit.ship_detail;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;

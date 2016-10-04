@@ -1,4 +1,4 @@
-package rikka.akashitoolkit.equip;
+package rikka.akashitoolkit.equip_detail;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;

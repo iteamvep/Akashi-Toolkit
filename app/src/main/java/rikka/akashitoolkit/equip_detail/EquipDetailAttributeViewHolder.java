@@ -1,4 +1,4 @@
-package rikka.akashitoolkit.equip;
+package rikka.akashitoolkit.equip_detail;
 
 import android.view.View;
 
@@ -34,7 +34,7 @@ public class EquipDetailAttributeViewHolder extends AttributeViewHolder implemen
         adapter.add(R.string.attr_evasion, attr.getEvasion());
         adapter.add(R.string.attr_los, attr.getLOS());
         adapter.add(R.string.attr_armor, attr.getArmor());
-        if (data.getParentType() == 3) {
+        if (true/*data.getParentType() == 3*/) {
             adapter.add(R.string.attr_range_aircraft, attr.getRange());
         } else {
             adapter.add(R.string.attr_range, attr.getRange());

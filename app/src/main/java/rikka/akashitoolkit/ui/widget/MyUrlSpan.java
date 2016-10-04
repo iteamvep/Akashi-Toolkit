@@ -7,8 +7,8 @@ import android.text.TextPaint;
 import android.text.style.URLSpan;
 import android.view.View;
 
-import rikka.akashitoolkit.equip.EquipDetailActivity;
-import rikka.akashitoolkit.ship.ShipDetailActivity;
+import rikka.akashitoolkit.equip_detail.EquipDetailActivity;
+import rikka.akashitoolkit.ship_detail.ShipDetailActivity;
 
 /**
  * Created by Rikka on 2016/4/6.

@@ -76,10 +76,6 @@ public class MapDisplayFragment extends BaseDrawerItemFragment {
         mViewPager = (ViewPager) view.findViewById(R.id.view_pager);
         mViewPager.setAdapter(getAdapter());
 
-        if (!isHiddenBeforeSaveInstanceState()) {
-            onShow();
-        }
-
         return view;
     }
 

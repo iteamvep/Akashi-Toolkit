@@ -9,11 +9,16 @@ import android.view.MenuItem;
 
 import com.squareup.otto.Subscribe;
 
+import java.util.ArrayList;
+
 import rikka.akashitoolkit.R;
+import rikka.akashitoolkit.equip_list.EquipAdapter;
+import rikka.akashitoolkit.equip_list.EquipListFragment;
+import rikka.akashitoolkit.model.Ship;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.ItemSelectAction;
+import rikka.akashitoolkit.staticdata.ShipList;
 import rikka.akashitoolkit.ui.BaseActivity;
-import rikka.akashitoolkit.equip.EquipFragment;
 
 /**
  * Created by Rikka on 2016/7/31.
@@ -38,10 +43,32 @@ public class EquipSelectActivity extends BaseActivity {
         getSupportActionBar().setTitle(getString(R.string.equip_select));
 
         if (savedInstanceState == null) {
-            EquipFragment fragment = new EquipFragment();
+
+            Ship ship = ShipList.findItemById(getIntent().getIntExtra(EXTRA_SHIP_ID, -1));
+            ArrayList<Integer> list = null;
+            if (ship != null) {
+                list = new ArrayList<>();
+
+                if (ship.getShipType().getEquipType() != null) {
+                    int i = 1;
+                    for (char c : ship.getShipType().getEquipType().toCharArray()) {
+                        if (c == '1') {
+                            list.add(i);
+                        }
+                        i++;
+                    }
+                }
+
+                if (ship.getExtraEquipType() != null)
+                    list.addAll(ship.getExtraEquipType());
+            }
+
+
+            EquipListFragment fragment = new EquipListFragment();
             Bundle bundle = new Bundle();
-            bundle.putBoolean(EquipFragment.ARG_SELECT_MODE, true);
-            bundle.putInt(EquipFragment.ARG_SHIP_ID, getIntent().getIntExtra(EXTRA_SHIP_ID, -1));
+            bundle.putBoolean(EquipAdapter.ARG_SELECT_MODE, true);
+            bundle.putIntegerArrayList(EquipAdapter.ARG_TYPE_IDS, list);
+            //bundle.putInt(EquipAdapter.ARG_SHIP_ID, getIntent().getIntExtra(EXTRA_SHIP_ID, -1));
             fragment.setArguments(bundle);
 
             getSupportFragmentManager().beginTransaction()

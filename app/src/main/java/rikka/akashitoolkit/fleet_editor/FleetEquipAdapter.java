@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.BaseItemTouchHelperAdapter;
-import rikka.akashitoolkit.equip.EquipDetailActivity;
+import rikka.akashitoolkit.equip_detail.EquipDetailActivity;
 import rikka.akashitoolkit.model.Fleet;
 import rikka.akashitoolkit.model.Ship;
 import rikka.akashitoolkit.otto.BusProvider;

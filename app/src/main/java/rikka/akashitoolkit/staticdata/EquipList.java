@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import rikka.akashitoolkit.model.Equip;
+import rikka.akashitoolkit.model.EquipTypeParent;
 import rikka.akashitoolkit.model.Ship;
 import rikka.akashitoolkit.support.Settings;
 
@@ -20,11 +21,16 @@ public class EquipList {
 
     private static List<Equip> sList;
 
+    public static List<Equip> get() {
+        return sList;
+    }
+
     public static synchronized List<Equip> get(final Context context) {
         if (sList == null) {
             sList = new BaseGSONList<Equip>() {
                 @Override
                 public void afterRead(List<Equip> list) {
+                    setType(list);
                     sort(list);
                     setBookmarked(context, list);
                     makeEquippedShipList(context, list);
@@ -32,6 +38,13 @@ public class EquipList {
             }.get(context, FILE_NAME, new TypeToken<ArrayList<Equip>>() {}.getType());
         }
         return sList;
+    }
+
+    private static void setType(List<Equip> list) {
+        for (Equip equip : list) {
+            equip.setEquipType(EquipTypeList.get(equip.getTypes()[2]));
+            equip.setEquipTypeParent(EquipTypeParentList.get(equip.getEquipType().getParent()));
+        }
     }
 
     public static synchronized void clear() {
@@ -64,7 +77,7 @@ public class EquipList {
     private static void setBookmarked(Context context, List<Equip> list) {
         for (Equip equip :
                 list) {
-            equip.setParentType(EquipTypeList.findItemById(context, equip.getType()).getPatentId());
+            //equip.setParentType(EquipTypeList.findItemById(context, equip.getType()).getPatentId());
 
             if (equip.getId() > 500) {
                 continue;

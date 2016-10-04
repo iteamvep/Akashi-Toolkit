@@ -12,59 +12,18 @@ import rikka.akashitoolkit.MainActivity;
 
 /**
  * Created by Rikka on 2016/3/10.
- * 会在 onSaveInstanceState 里保存是否可见，在 MainActivity 根据这个再设置是否隐藏
  */
-public abstract class BaseDrawerItemFragment extends BaseFragment {
-
-    private static final String VISIBLE = "VISIBLE";
+public abstract class BaseDrawerItemFragment extends BaseShowHideFragment {
 
     protected MainActivity mActivity;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-
-        outState.putBoolean(VISIBLE, isVisible());
-    }
-
-    @Override
-    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
-        super.onViewStateRestored(savedInstanceState);
-
-        if (savedInstanceState == null || savedInstanceState.getBoolean(VISIBLE)) {
-            onShow();
-        }
-    }
-
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-    }
-
-    public void onHiddenChanged(boolean hidden) {
-        super.onHiddenChanged(hidden);
-
-        if (hidden) {
-            onHide();
-        } else {
-            onShow();
-        }
-    }
-
     public void onShow() {
+        super.onShow();
+
         MainActivity activity = ((MainActivity) getActivity());
         setTabLayoutVisible();
         activity.setRightDrawerLocked(getRightDrawerLock());
         activity.getSwitch().setVisibility(getSwitchVisible() ? View.VISIBLE : View.GONE);
-    }
-
-    public void onHide() {
-
     }
 
     @Override

@@ -6,32 +6,43 @@ import java.util.List;
  * Created by Rikka on 2016/3/26.
  */
 public class Equip extends BaseDataModel {
+
+    private EquipType mEquipType;
+    private EquipTypeParent mEquipTypeParent;
+
+    public EquipType getEquipType() {
+        return mEquipType;
+    }
+
+    public void setEquipType(EquipType equipType) {
+        mEquipType = equipType;
+    }
+
+    public EquipTypeParent getEquipTypeParent() {
+        return mEquipTypeParent;
+    }
+
+    public void setEquipTypeParent(EquipTypeParent equipTypeParent) {
+        mEquipTypeParent = equipTypeParent;
+    }
+
     private MultiLanguageEntry name;
     private MultiLanguageEntry introduction;
     private String remark;
     private AttributeEntity attr;
     private int rarity;
     private int[] type;
-    private int parent_type;
     private List<Integer> shipLimit;
     private List<Integer> shipFrom;
 
     private int[] broken;
-
-    public int getParentType() {
-        return parent_type;
-    }
-
-    public void setParentType(int parent_type) {
-        this.parent_type = parent_type;
-    }
 
     public int getIcon() {
         return type[3];
     }
 
     public int getType() {
-        return type[3];
+        return type[2];
     }
 
     public int[] getBrokenResources() {
@@ -92,10 +103,6 @@ public class Equip extends BaseDataModel {
 
     public int[] getTypes() {
         return type;
-    }
-
-    public void setType(int[] type) {
-        this.type = type;
     }
 
     public List<Integer> getShipLimit() {

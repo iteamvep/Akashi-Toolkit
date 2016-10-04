@@ -71,7 +71,7 @@
     <string name="today">(本日)</string>
     <string name="action_filter">フィルタ</string>
     <string name="action_search">検索</string>
-    <string name="item">装備</string>
+    <string name="equip">装備</string>
     <string name="attributes">装備ステータス</string>
     <string name="item_improvement_data">改修データ</string>
     <string name="remark">備考</string>

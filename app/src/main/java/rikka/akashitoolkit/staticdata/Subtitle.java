@@ -46,7 +46,7 @@ public class Subtitle {
                 if (response.body() != null) {
                     use_cache = response.body().getVersion().equals(version);
                     Settings.instance(context).putString(Settings.SUBTITLE_VERSION, response.body().getVersion());
-                    Log.d("Subtitle", "use cache: " + use_cache + " old: " + version + " new: " + response.body().getVersion());
+                    Log.d("Subtitle", "use cache: " + use_cache + " local: " + version + " online: " + response.body().getVersion());
                 }
             }
 

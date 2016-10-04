@@ -5,9 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.support.annotation.StyleRes;
-import android.support.v7.widget.*;
 import android.support.v7.widget.LinearLayoutManager;
-import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +13,6 @@ import java.util.List;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.SimpleAdapter;
 import rikka.akashitoolkit.utils.Utils;
-import rikka.akashitoolkit.viewholder.SimpleTitleViewHolder;
 
 /**
  * Created by Rikka on 2016/8/6.
@@ -52,7 +49,7 @@ public class ListBottomSheetDialog extends BottomSheetDialog {
             list.add(item.toString());
         }
         adapter.setItemList(list);
-        adapter.setListener(new SimpleAdapter.Listener() {
+        adapter.setOnItemClickListener(new SimpleAdapter.Listener() {
             @Override
             public void OnClick(int position) {
                 if (listener != null) {

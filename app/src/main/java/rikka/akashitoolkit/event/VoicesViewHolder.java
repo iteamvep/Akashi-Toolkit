@@ -64,7 +64,7 @@ public class VoicesViewHolder extends RecyclerView.ViewHolder implements IBindVi
 
         mSummary.setText(String.format(itemView.getContext().getString(R.string.home_card_voice_summary), count));
 
-        mAdapter.setListener(new SimpleAdapter.Listener() {
+        mAdapter.setOnItemClickListener(new SimpleAdapter.Listener() {
             @Override
             public void OnClick(int position) {
                 VoiceActivity.start(itemView.getContext(), data.getVoices().get(position).getVoice(), title);

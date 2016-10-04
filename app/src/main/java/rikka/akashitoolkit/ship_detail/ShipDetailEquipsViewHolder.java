@@ -1,4 +1,4 @@
-package rikka.akashitoolkit.ship;
+package rikka.akashitoolkit.ship_detail;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -10,9 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import rikka.akashitoolkit.R;
-import rikka.akashitoolkit.equip.EquipDetailActivity;
+import rikka.akashitoolkit.equip_detail.EquipDetailActivity;
 import rikka.akashitoolkit.model.Equip;
 import rikka.akashitoolkit.model.Ship;
+import rikka.akashitoolkit.ship.TitleContentViewHolder;
 import rikka.akashitoolkit.staticdata.EquipList;
 import rikka.akashitoolkit.ui.BaseItemDisplayActivity;
 import rikka.akashitoolkit.viewholder.IBindViewHolder;

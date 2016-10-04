@@ -11,7 +11,7 @@
     android:orientation="horizontal">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@android:id/icon"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_gravity="center_vertical"
@@ -20,7 +20,7 @@
         android:src="@drawable/system_icon_01_24dp"/>
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@android:id/text1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"

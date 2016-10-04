@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.ViewPagerStateAdapter;
-import rikka.akashitoolkit.equip.EquipFragment;
+import rikka.akashitoolkit.equip_list.EquipListFragment;
 import rikka.akashitoolkit.ship.ShipFragment;
 import rikka.akashitoolkit.support.Statistics;
 import rikka.akashitoolkit.ui.fragments.BaseDrawerItemFragment;
@@ -71,7 +71,7 @@ public class EnemyDisplayFragment extends BaseDrawerItemFragment {
             }
         };
         adapter.addFragment(ShipFragment.class, getString(R.string.enemy));
-        adapter.addFragment(EquipFragment.class, getString(R.string.item));
+        adapter.addFragment(EquipListFragment.class, getString(R.string.equip));
 
         return adapter;
     }

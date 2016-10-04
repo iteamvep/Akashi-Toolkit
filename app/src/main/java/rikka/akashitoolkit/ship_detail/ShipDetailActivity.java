@@ -1,4 +1,4 @@
-package rikka.akashitoolkit.ship;
+package rikka.akashitoolkit.ship_detail;
 
 import android.animation.Animator;
 import android.annotation.SuppressLint;

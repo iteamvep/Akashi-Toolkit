@@ -25,6 +25,7 @@ import rikka.akashitoolkit.model.ShipClass;
 import rikka.akashitoolkit.model.ShipType;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.ItemSelectAction;
+import rikka.akashitoolkit.ship_detail.ShipDetailActivity;
 import rikka.akashitoolkit.staticdata.ShipClassList;
 import rikka.akashitoolkit.staticdata.ShipList;
 import rikka.akashitoolkit.staticdata.ShipTypeList;

@@ -1,7 +1,5 @@
 package rikka.akashitoolkit.model;
 
-import android.util.Log;
-
 import com.google.gson.annotations.SerializedName;
 
 /**
@@ -54,5 +52,9 @@ public class ShipType {
 
     public boolean canEquip(int equip_type) {
         return this.equip_type.substring(equip_type - 1, equip_type).equals("1");
+    }
+
+    public String getEquipType() {
+        return equip_type;
     }
 }

@@ -1,15 +1,11 @@
-package rikka.akashitoolkit.ship;
+package rikka.akashitoolkit.ship_detail;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
-import android.text.format.DateUtils;
-import android.util.TimeUtils;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-
-import java.util.Locale;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.BaseRecyclerAdapter;

@@ -19,7 +19,7 @@ import rikka.akashitoolkit.model.Fleet;
 import rikka.akashitoolkit.model.Ship;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.ItemSelectAction;
-import rikka.akashitoolkit.ship.ShipDetailActivity;
+import rikka.akashitoolkit.ship_detail.ShipDetailActivity;
 import rikka.akashitoolkit.staticdata.ShipList;
 import rikka.akashitoolkit.ui.widget.EditTextAlertDialog;
 import rikka.akashitoolkit.ui.widget.ListBottomSheetDialog;

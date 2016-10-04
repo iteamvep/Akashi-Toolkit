@@ -28,7 +28,7 @@ public class ShipTypeGenerator {
         ENGLISH_NAME = new HashMap<>();
         ENGLISH_NAME.put(1, "Escort ship");
         ENGLISH_NAME.put(2, "Destroyer");
-        ENGLISH_NAME.put(3, "Light Cruisers");
+        ENGLISH_NAME.put(3, "Light Cruiser");
         ENGLISH_NAME.put(4, "Torpedo Cruiser");
         ENGLISH_NAME.put(5, "Heavy Cruiser");
         ENGLISH_NAME.put(6, "Aviation Cruiser");

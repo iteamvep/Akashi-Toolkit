@@ -18,14 +18,14 @@
             android:title="@string/event"/>
 
         <item
-            android:id="@+id/nav_item_improve"
+            android:id="@+id/nav_equip_improve"
             android:icon="@drawable/ic_nav_item_improvement"
             android:title="@string/item_improvement"/>
 
         <item
-            android:id="@+id/nav_item"
+            android:id="@+id/nav_equip"
             android:icon="@drawable/system_icon_01_24dp"
-            android:title="@string/item"/>
+            android:title="@string/equip"/>
 
         <item
             android:id="@+id/nav_ship"

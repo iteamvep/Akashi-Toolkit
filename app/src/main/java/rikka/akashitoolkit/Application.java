@@ -2,8 +2,11 @@ package rikka.akashitoolkit;
 
 import moe.xing.daynightmode.DayNightMode;
 import rikka.akashitoolkit.cache.DiskCacheProvider;
+import rikka.akashitoolkit.model.EquipTypeParent;
 import rikka.akashitoolkit.model.MultiLanguageEntry;
 import rikka.akashitoolkit.staticdata.EquipList;
+import rikka.akashitoolkit.staticdata.EquipTypeList;
+import rikka.akashitoolkit.staticdata.EquipTypeParentList;
 import rikka.akashitoolkit.staticdata.ShipList;
 import rikka.akashitoolkit.staticdata.Subtitle;
 import rikka.akashitoolkit.support.Settings;
@@ -28,6 +31,10 @@ public class Application extends android.app.Application {
 
         // so bad to avoid ConcurrentModificationException
         ShipList.init(this);
+
+        EquipTypeParentList.init(this);
+        EquipTypeList.init(this);
+
         EquipList.get(this);
 
         /*if (!BuildConfig.DEBUG) {
