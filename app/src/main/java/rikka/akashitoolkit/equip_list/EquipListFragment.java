@@ -8,14 +8,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import rikka.akashitoolkit.MainActivity;
 import rikka.akashitoolkit.R;
-import rikka.akashitoolkit.ui.fragments.BaseDrawerItemFragment;
+import rikka.akashitoolkit.ui.fragments.BaseShowHideFragment;
 
 /**
  * Created by Rikka on 2016/10/4.
  */
 
-public class EquipListFragment extends BaseDrawerItemFragment {
+public class EquipListFragment extends BaseShowHideFragment {
 
     private String mTitle;
 
@@ -43,6 +44,8 @@ public class EquipListFragment extends BaseDrawerItemFragment {
     public void onShow() {
         super.onShow();
 
-        setToolbarTitle(mTitle);
+        if (getActivity() instanceof MainActivity) {
+            ((MainActivity) getActivity()).getSupportActionBar().setTitle(mTitle);
+        }
     }
 }
