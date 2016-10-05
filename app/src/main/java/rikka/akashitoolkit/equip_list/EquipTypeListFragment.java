@@ -29,6 +29,7 @@ import rikka.akashitoolkit.ui.fragments.IBackFragment;
 public class EquipTypeListFragment extends BaseDrawerItemFragment implements SimpleAdapter.Listener, IBackFragment {
 
     private RecyclerView mRecyclerView;
+    private String mTitle;
 
     @Nullable
     @Override
@@ -53,9 +54,11 @@ public class EquipTypeListFragment extends BaseDrawerItemFragment implements Sim
 
     @Override
     public void OnClick(int position) {
+        mTitle = EquipTypeParentList.getList().get(position).getName().get();
+
         Fragment fragment = new EquipListFragment();
         Bundle bundle = new Bundle();
-        bundle.putString("TITLE", EquipTypeParentList.getList().get(position).getName().get());
+        bundle.putString("TITLE", mTitle);
         bundle.putIntegerArrayList(EquipAdapter.ARG_TYPE_IDS, (ArrayList<Integer>) EquipTypeParentList.getList().get(position).getChild());
         fragment.setArguments(bundle);
 
@@ -85,7 +88,7 @@ public class EquipTypeListFragment extends BaseDrawerItemFragment implements Sim
             mRecyclerView.clearAnimation();
             mRecyclerView.startAnimation(animation);
 
-            onShow();
+            setToolbarTitle(R.string.equip);
 
             return true;
         }
@@ -96,6 +99,10 @@ public class EquipTypeListFragment extends BaseDrawerItemFragment implements Sim
     public void onShow() {
         super.onShow();
 
-        setToolbarTitle(R.string.equip);
+        if (getChildFragmentManager().getBackStackEntryCount() > 0) {
+            setToolbarTitle(mTitle);
+        } else {
+            setToolbarTitle(R.string.equip);
+        }
     }
 }
