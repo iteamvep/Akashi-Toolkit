@@ -22,6 +22,7 @@ import rikka.akashitoolkit.support.StaticData;
 import static rikka.akashitoolkit.support.ApiConstParam.Language.EN;
 import static rikka.akashitoolkit.support.ApiConstParam.Language.JA;
 import static rikka.akashitoolkit.support.ApiConstParam.Language.ZH_CN;
+import static rikka.akashitoolkit.support.ApiConstParam.Language.ZH_TW;
 
 /**
  * Created by Rikka on 2016/3/8.
@@ -155,14 +156,17 @@ public class Utils {
     public static int getDefaultDataLanguage() {
         switch (Locale.getDefault().getLanguage()) {
             case "zh":
-                return ZH_CN;
+                switch (Locale.getDefault().getCountry()) {
+                    case "CN":
+                        return ZH_CN;
+                    default:
+                        return ZH_TW;
+                }
             case "ja":
                 return JA;
-            case "en":
+            default:
                 return EN;
         }
-
-        return ZH_CN;
     }
 
     public static boolean isJapanese(Context context) {

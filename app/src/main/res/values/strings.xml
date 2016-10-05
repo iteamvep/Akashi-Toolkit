@@ -318,4 +318,9 @@
     <string name="ship_detail_illustrator_cv">Illustrator &amp; Character Voice</string>
     <string name="ship_detail_consume_break_modernization">Consume &amp; Breaking &amp; Modernization</string>
     <string name="ship_detail_get">Getting</string>
+
+    <string name="play_service_check_google_play_not_installed">Google Play not installed</string>
+    <string name="play_service_check_reason">You are now using Google Play version, however Google Play is not installed on your device.\nThis version have no built-in update feature, we recommend that switch to non-Google Play version.</string>
+    <string name="play_service_check_ignore">Ignore</string>
+    <string name="play_service_check_download_non_play_version">Download non-Google Play version</string>
 </resources>
