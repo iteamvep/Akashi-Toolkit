@@ -92,7 +92,7 @@
     <string name="exp_calc_result_format" formatted="false">合計經驗\n%d\n\n每場經驗 / 剩餘場數\n基本 %d / %d\n旗艦%d / %d\nMVP %d / %d\nMVP和旗艦 %d / %d</string>
     <string name="exp_calc_error">數據有誤</string>
 
-    <string name="ui_language">應用語音</string>
+    <string name="ui_language">應用語言</string>
     <string name="data_language">數據語言</string>
     <string name="data_language_title">使用日語標題</string>
     <string name="data_language_title_summary">對任務標題等顯示日語</string>
@@ -323,4 +323,7 @@
     <string name="play_service_check_reason">您正在使用 Google Play 版，但您的设备没有安装 Google Play。\n由于该版本没有内置更新提示，我们更推荐您使用非 Google Play 版。\n同时如果您是中国大陆用户，由于推送使用 Firebase Cloud Messaging，使用该版本您可能无法正常收到推送。</string>
     <string name="play_service_check_ignore">继续使用</string>
     <string name="play_service_check_download_non_play_version">下载非 Google Play 版</string>
+
+    <string name="setting_category_language">語言</string>
+    <string name="setting_category_ui">外观</string>
 </resources>

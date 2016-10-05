@@ -113,12 +113,12 @@ public class SettingActivity extends BaseActivity {
             }
 
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-                ((PreferenceCategory) findPreference("general")).removePreference(findPreference(Settings.NAV_BAR_COLOR));
-                ((PreferenceCategory) findPreference("general")).removePreference(findPreference(Settings.OPEN_IN_NEW_DOCUMENT));
+                ((PreferenceCategory) findPreference("ui")).removePreference(findPreference(Settings.NAV_BAR_COLOR));
+                ((PreferenceCategory) findPreference("ui")).removePreference(findPreference(Settings.OPEN_IN_NEW_DOCUMENT));
             }
 
             if (!StaticData.instance(getActivity()).isTablet) {
-                ((PreferenceCategory) findPreference("general")).removePreference(findPreference(Settings.TWITTER_GRID_LAYOUT));
+                ((PreferenceCategory) findPreference("ui")).removePreference(findPreference(Settings.TWITTER_GRID_LAYOUT));
             }
 
             findPreference("clear_cache").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {

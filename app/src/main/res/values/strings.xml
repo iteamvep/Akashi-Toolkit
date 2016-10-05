@@ -323,4 +323,7 @@
     <string name="play_service_check_reason">You are now using Google Play version, however Google Play is not installed on your device.\nThis version have no built-in update feature, we recommend that switch to non-Google Play version.</string>
     <string name="play_service_check_ignore">Ignore</string>
     <string name="play_service_check_download_non_play_version">Download non-Google Play version</string>
+
+    <string name="setting_category_language">Language</string>
+    <string name="setting_category_ui">Appearance</string>
 </resources>

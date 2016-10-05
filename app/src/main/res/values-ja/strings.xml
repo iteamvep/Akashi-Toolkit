@@ -325,4 +325,6 @@
     <string name="play_service_check_ignore">Ignore</string>
     <string name="play_service_check_download_non_play_version">Download non-Google Play version</string>
 
+    <string name="setting_category_language">Language</string>
+    <string name="setting_category_ui">Appearance</string>
 </resources>
