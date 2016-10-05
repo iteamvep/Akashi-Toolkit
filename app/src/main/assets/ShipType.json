@@ -3,6 +3,7 @@
     "id": 1,
     "name": {
       "zh_cn": "海防舰",
+      "zh_tw": "海防艦",
       "ja": "海防艦",
       "en": "Escort ship"
     },
@@ -13,6 +14,7 @@
     "id": 2,
     "name": {
       "zh_cn": "驱逐舰",
+      "zh_tw": "驅逐艦",
       "ja": "駆逐艦",
       "en": "Destroyer"
     },
@@ -23,6 +25,7 @@
     "id": 3,
     "name": {
       "zh_cn": "轻巡洋舰",
+      "zh_tw": "輕巡洋艦",
       "ja": "軽巡洋艦",
       "en": "Light Cruiser"
     },
@@ -33,6 +36,7 @@
     "id": 4,
     "name": {
       "zh_cn": "重雷装巡洋舰",
+      "zh_tw": "重雷裝巡洋艦",
       "ja": "重雷装巡洋艦",
       "en": "Torpedo Cruiser"
     },
@@ -43,6 +47,7 @@
     "id": 5,
     "name": {
       "zh_cn": "重巡洋舰",
+      "zh_tw": "重巡洋艦",
       "ja": "重巡洋艦",
       "en": "Heavy Cruiser"
     },
@@ -53,6 +58,7 @@
     "id": 6,
     "name": {
       "zh_cn": "航空巡洋舰",
+      "zh_tw": "航空巡洋艦",
       "ja": "航空巡洋艦",
       "en": "Aviation Cruiser"
     },
@@ -63,6 +69,7 @@
     "id": 7,
     "name": {
       "zh_cn": "轻空母",
+      "zh_tw": "輕空母",
       "ja": "軽空母",
       "en": "Light Aircraft Carrier"
     },
@@ -73,6 +80,7 @@
     "id": 8,
     "name": {
       "zh_cn": "高速战舰",
+      "zh_tw": "高速戰艦",
       "ja": "高速战舰",
       "en": "Battleship (High speed)"
     },
@@ -83,6 +91,7 @@
     "id": 9,
     "name": {
       "zh_cn": "战舰",
+      "zh_tw": "戰艦",
       "ja": "戦艦",
       "en": "Battleship"
     },
@@ -93,6 +102,7 @@
     "id": 10,
     "name": {
       "zh_cn": "航空战舰",
+      "zh_tw": "航空戰艦",
       "ja": "航空戦艦",
       "en": "Aviation Battleship"
     },
@@ -103,6 +113,7 @@
     "id": 11,
     "name": {
       "zh_cn": "正规空母",
+      "zh_tw": "正規空母",
       "ja": "正規空母",
       "en": "Standard Aircraft Carrier"
     },
@@ -113,6 +124,7 @@
     "id": 12,
     "name": {
       "zh_cn": "超弩级战舰",
+      "zh_tw": "超弩級戰艦",
       "ja": "超弩級戦艦",
       "en": "Battleship"
     },
@@ -123,6 +135,7 @@
     "id": 13,
     "name": {
       "zh_cn": "潜水舰",
+      "zh_tw": "潜水艦",
       "ja": "潜水艦",
       "en": "Submarine"
     },
@@ -133,6 +146,7 @@
     "id": 14,
     "name": {
       "zh_cn": "潜水空母",
+      "zh_tw": "潜水空母",
       "ja": "潜水空母",
       "en": "Submarine Aircraft Carrier"
     },
@@ -143,6 +157,7 @@
     "id": 15,
     "name": {
       "zh_cn": "补给舰",
+      "zh_tw": "補給艦",
       "ja": "補給艦",
       "en": "Carriers"
     },
@@ -153,6 +168,7 @@
     "id": 16,
     "name": {
       "zh_cn": "水上机母舰",
+      "zh_tw": "水上機母艦",
       "ja": "水上機母艦",
       "en": "Seaplane Tender"
     },
@@ -163,6 +179,7 @@
     "id": 17,
     "name": {
       "zh_cn": "扬陆舰",
+      "zh_tw": "揚陸艦",
       "ja": "揚陸艦",
       "en": "Amphibious Assault Ship"
     },
@@ -173,6 +190,7 @@
     "id": 18,
     "name": {
       "zh_cn": "装甲空母",
+      "zh_tw": "裝甲空母",
       "ja": "装甲空母",
       "en": "Armored Aircraft Carrier"
     },
@@ -183,6 +201,7 @@
     "id": 19,
     "name": {
       "zh_cn": "工作舰",
+      "zh_tw": "工作艦",
       "ja": "工作艦",
       "en": "Repair Ship"
     },
@@ -193,6 +212,7 @@
     "id": 20,
     "name": {
       "zh_cn": "潜水母舰",
+      "zh_tw": "潜水母艦",
       "ja": "潜水母艦",
       "en": "Submarine Tender"
     },
@@ -203,6 +223,7 @@
     "id": 21,
     "name": {
       "zh_cn": "练习巡洋舰",
+      "zh_tw": "練習巡洋艦",
       "ja": "練習巡洋艦",
       "en": "Training Cruiser"
     },
@@ -213,6 +234,7 @@
     "id": 22,
     "name": {
       "zh_cn": "补给舰",
+      "zh_tw": "補給艦",
       "ja": "補給艦",
       "en": "Fleet Oiler"
     },

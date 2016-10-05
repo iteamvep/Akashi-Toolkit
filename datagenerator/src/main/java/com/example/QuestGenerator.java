@@ -3,6 +3,7 @@ package com.example;
 import com.example.model.*;
 import com.example.list.*;
 import com.example.utils.Utils;
+import com.spreada.utils.chinese.ZHConverter;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -79,6 +80,11 @@ public class QuestGenerator {
                 if (shouldAdd)
                     after.add(quest.getCode());
             }
+        }
+
+        for (Quest item : list) {
+            item.getContent().setZh_tw(ZHConverter.toTC(item.getContent().getZh_cn()));
+            item.getTitle().setZh_tw(ZHConverter.toTC(item.getTitle().getZh_cn()));
         }
 
         objectToJsonFile(list, "app/src/main/assets/Quest.json");

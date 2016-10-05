@@ -3,6 +3,7 @@
     "id": 1,
     "name": {
       "zh_cn": "小口径主炮",
+      "zh_tw": "小口徑主炮",
       "ja": "小口径主砲",
       "en": "Small Caliber Main Gun"
     },
@@ -12,6 +13,7 @@
     "id": 2,
     "name": {
       "zh_cn": "中口径主炮",
+      "zh_tw": "中口徑主炮",
       "ja": "中口径主砲",
       "en": "Medium Caliber Main Gun"
     },
@@ -21,6 +23,7 @@
     "id": 3,
     "name": {
       "zh_cn": "大口径主炮",
+      "zh_tw": "大口徑主炮",
       "ja": "大口径主砲",
       "en": "Large Caliber Main Gun"
     },
@@ -30,6 +33,7 @@
     "id": 4,
     "name": {
       "zh_cn": "副炮",
+      "zh_tw": "副炮",
       "ja": "副砲",
       "en": "Secondary Gun"
     },
@@ -39,6 +43,7 @@
     "id": 5,
     "name": {
       "zh_cn": "鱼雷",
+      "zh_tw": "魚雷",
       "ja": "魚雷",
       "en": "Torpedo"
     },
@@ -48,6 +53,7 @@
     "id": 6,
     "name": {
       "zh_cn": "舰上战斗机",
+      "zh_tw": "艦上戰鬥機",
       "ja": "艦上戦闘機",
       "en": "Carrier-based Fighter"
     },
@@ -57,6 +63,7 @@
     "id": 7,
     "name": {
       "zh_cn": "舰上爆击机",
+      "zh_tw": "艦上爆擊機",
       "ja": "艦上爆撃機",
       "en": "Carrier-based Dive Bomber"
     },
@@ -66,6 +73,7 @@
     "id": 8,
     "name": {
       "zh_cn": "舰上攻击机",
+      "zh_tw": "艦上攻擊機",
       "ja": "艦上攻撃機",
       "en": "Carrier-based Torpedo Bomber"
     },
@@ -75,6 +83,7 @@
     "id": 9,
     "name": {
       "zh_cn": "舰上侦察机",
+      "zh_tw": "艦上偵察機",
       "ja": "艦上偵察機",
       "en": "Carrier-based Reconnaissance Aircraft"
     },
@@ -84,6 +93,7 @@
     "id": 10,
     "name": {
       "zh_cn": "水上侦察机",
+      "zh_tw": "水上偵察機",
       "ja": "水上偵察機",
       "en": "Reconnaissance Seaplane"
     },
@@ -93,6 +103,7 @@
     "id": 11,
     "name": {
       "zh_cn": "水上爆击机",
+      "zh_tw": "水上爆擊機",
       "ja": "水上爆撃機",
       "en": "Seaplane Bomber"
     },
@@ -102,6 +113,7 @@
     "id": 12,
     "name": {
       "zh_cn": "小型电探",
+      "zh_tw": "小型電探",
       "ja": "小型電探",
       "en": "Small Radar"
     },
@@ -111,6 +123,7 @@
     "id": 13,
     "name": {
       "zh_cn": "大型电探",
+      "zh_tw": "大型電探",
       "ja": "大型電探",
       "en": "Large Radar"
     },
@@ -120,6 +133,7 @@
     "id": 14,
     "name": {
       "zh_cn": "声呐",
+      "zh_tw": "聲吶",
       "ja": "ソナー",
       "en": "Sonar"
     },
@@ -129,6 +143,7 @@
     "id": 15,
     "name": {
       "zh_cn": "爆雷",
+      "zh_tw": "爆雷",
       "ja": "爆雷",
       "en": "Depth Charge"
     },
@@ -138,6 +153,7 @@
     "id": 16,
     "name": {
       "zh_cn": "追加装甲",
+      "zh_tw": "追加裝甲",
       "ja": "追加装甲",
       "en": "Extra Armor"
     },
@@ -147,6 +163,7 @@
     "id": 17,
     "name": {
       "zh_cn": "结构强化",
+      "zh_tw": "結構強化",
       "ja": "機関部強化",
       "en": "Engine Improvement"
     },
@@ -156,6 +173,7 @@
     "id": 18,
     "name": {
       "zh_cn": "对空强化弹",
+      "zh_tw": "對空強化彈",
       "ja": "対空強化弾",
       "en": "Anti-Aircraft Shell"
     },
@@ -165,6 +183,7 @@
     "id": 19,
     "name": {
       "zh_cn": "对舰强化弹",
+      "zh_tw": "對艦強化彈",
       "ja": "対艦強化弾",
       "en": "Armor Piercing Shell"
     },
@@ -174,6 +193,7 @@
     "id": 20,
     "name": {
       "zh_cn": "VT信管",
+      "zh_tw": "VT信管",
       "ja": "VT信管",
       "en": "Proximity Fuze"
     },
@@ -183,6 +203,7 @@
     "id": 21,
     "name": {
       "zh_cn": "对空机枪",
+      "zh_tw": "對空機槍",
       "ja": "対空機銃",
       "en": "Anti-Aircraft Gun"
     },
@@ -192,6 +213,7 @@
     "id": 22,
     "name": {
       "zh_cn": "特殊潜航艇",
+      "zh_tw": "特殊潛航艇",
       "ja": "特殊潜航艇",
       "en": "Midget Submarine"
     },
@@ -201,6 +223,7 @@
     "id": 23,
     "name": {
       "zh_cn": "应急修理要员",
+      "zh_tw": "應急修理要員",
       "ja": "応急修理要員",
       "en": "Damage Control Personnel"
     },
@@ -210,6 +233,7 @@
     "id": 24,
     "name": {
       "zh_cn": "登陆艇",
+      "zh_tw": "登陸艇",
       "ja": "上陸用舟艇",
       "en": "Landing Craft"
     },
@@ -219,6 +243,7 @@
     "id": 25,
     "name": {
       "zh_cn": "旋翼机",
+      "zh_tw": "旋翼機",
       "ja": "オートジャイロ",
       "en": "Autogyro"
     },
@@ -228,6 +253,7 @@
     "id": 26,
     "name": {
       "zh_cn": "反潜巡逻机",
+      "zh_tw": "反潛巡邏機",
       "ja": "対潜哨戒機",
       "en": "Anti-submarine Patrol Aircraft"
     },
@@ -237,6 +263,7 @@
     "id": 27,
     "name": {
       "zh_cn": "追加装甲(中型)",
+      "zh_tw": "追加裝甲(中型)",
       "ja": "追加装甲(中型)",
       "en": "Extra Armor (Medium)"
     },
@@ -246,6 +273,7 @@
     "id": 28,
     "name": {
       "zh_cn": "追加装甲(大型)",
+      "zh_tw": "追加裝甲(大型)",
       "ja": "追加装甲(大型)",
       "en": "Extra Armor (Large)"
     },
@@ -255,6 +283,7 @@
     "id": 29,
     "name": {
       "zh_cn": "探照灯",
+      "zh_tw": "探照燈",
       "ja": "探照灯",
       "en": "Searchlight"
     },
@@ -264,6 +293,7 @@
     "id": 30,
     "name": {
       "zh_cn": "简易输送部材",
+      "zh_tw": "簡易輸送部材",
       "ja": "簡易輸送部材",
       "en": "Supply Transport Container"
     },
@@ -273,6 +303,7 @@
     "id": 31,
     "name": {
       "zh_cn": "舰艇修理设施",
+      "zh_tw": "艦艇修理設施",
       "ja": "艦艇修理施設",
       "en": "Ship Repair Facility"
     },
@@ -282,6 +313,7 @@
     "id": 32,
     "name": {
       "zh_cn": "潜艇专用鱼雷",
+      "zh_tw": "潛艇專用魚雷",
       "ja": "潜水艦魚雷",
       "en": "Submarine Torpedo"
     },
@@ -291,6 +323,7 @@
     "id": 33,
     "name": {
       "zh_cn": "照明弹",
+      "zh_tw": "照明彈",
       "ja": "照明弾",
       "en": "Star Shell"
     },
@@ -300,6 +333,7 @@
     "id": 34,
     "name": {
       "zh_cn": "舰队司令部设施",
+      "zh_tw": "艦隊司令部設施",
       "ja": "司令部施設",
       "en": "Command Facility"
     },
@@ -309,6 +343,7 @@
     "id": 35,
     "name": {
       "zh_cn": "舰空要员",
+      "zh_tw": "艦空要員",
       "ja": "航空要員",
       "en": "Aviation Personne"
     },
@@ -318,6 +353,7 @@
     "id": 36,
     "name": {
       "zh_cn": "高射装置",
+      "zh_tw": "高射裝置",
       "ja": "高射装置",
       "en": "Anti-Aircraft Fire Director"
     },
@@ -327,6 +363,7 @@
     "id": 37,
     "name": {
       "zh_cn": "对地装备",
+      "zh_tw": "對地裝備",
       "ja": "対地装備",
       "en": "Anti-Ground Equipment"
     },
@@ -336,6 +373,7 @@
     "id": 38,
     "name": {
       "zh_cn": "大口径主炮（II）",
+      "zh_tw": "大口徑主炮（II）",
       "ja": "大口径主砲（II）",
       "en": "Large Caliber Main Gun (II)"
     },
@@ -345,6 +383,7 @@
     "id": 39,
     "name": {
       "zh_cn": "水上舰要员",
+      "zh_tw": "水上艦要員",
       "ja": "水上艦要員",
       "en": "Surface Ship Personnel"
     },
@@ -354,6 +393,7 @@
     "id": 40,
     "name": {
       "zh_cn": "大型声呐",
+      "zh_tw": "大型聲吶",
       "ja": "大型ソナー",
       "en": "Large Sonar"
     },
@@ -363,6 +403,7 @@
     "id": 41,
     "name": {
       "zh_cn": "大型飞行艇",
+      "zh_tw": "大型飛行艇",
       "ja": "大型飛行艇",
       "en": "Large Flying Boat"
     },
@@ -372,6 +413,7 @@
     "id": 42,
     "name": {
       "zh_cn": "大型探照灯",
+      "zh_tw": "大型探照燈",
       "ja": "大型探照灯",
       "en": "Large Searchlight"
     },
@@ -381,6 +423,7 @@
     "id": 43,
     "name": {
       "zh_cn": "战斗粮食",
+      "zh_tw": "戰鬥糧食",
       "ja": "戦闘糧食",
       "en": "Combat Ration"
     },
@@ -390,6 +433,7 @@
     "id": 44,
     "name": {
       "zh_cn": "补给物资",
+      "zh_tw": "補給物資",
       "ja": "補給物資",
       "en": "Supplies"
     },
@@ -399,6 +443,7 @@
     "id": 45,
     "name": {
       "zh_cn": "水上战斗机",
+      "zh_tw": "水上戰鬥機",
       "ja": "水上戦闘機",
       "en": "Seaplane Fighter"
     },
@@ -408,6 +453,7 @@
     "id": 46,
     "name": {
       "zh_cn": "特型内火艇",
+      "zh_tw": "特型內火艇",
       "ja": "特型内火艇",
       "en": "Special Amphibious Tank"
     },
@@ -417,6 +463,7 @@
     "id": 47,
     "name": {
       "zh_cn": "陆上攻击机",
+      "zh_tw": "陸上攻擊機",
       "ja": "陸上攻撃機",
       "en": "Land-based Attack Aircraft"
     },
@@ -426,6 +473,7 @@
     "id": 48,
     "name": {
       "zh_cn": "局地战斗机",
+      "zh_tw": "局地戰鬥機",
       "ja": "局地戦闘機",
       "en": "Interceptor Fighter"
     },
@@ -435,6 +483,7 @@
     "id": 93,
     "name": {
       "zh_cn": "大型电探（II）",
+      "zh_tw": "大型電探（II）",
       "ja": "大型電探（II）",
       "en": "Large Radar (II)"
     },
@@ -444,6 +493,7 @@
     "id": 94,
     "name": {
       "zh_cn": "舰上侦察机（II）",
+      "zh_tw": "艦上偵察機（II）",
       "ja": "艦上偵察機（II）",
       "en": "Carrier-based Reconnaissance Aircraft (II)"
     },

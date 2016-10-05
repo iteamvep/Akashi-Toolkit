@@ -3,6 +3,7 @@ package com.example;
 import com.example.model.Expedition;
 import com.example.network.RetrofitAPI;
 import com.example.utils.Utils;
+import com.spreada.utils.chinese.ZHConverter;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -49,6 +50,10 @@ public class ExpeditionGenerator {
 
         for (Expedition e : list) {
             System.out.println(e);
+        }
+
+        for (Expedition e : list) {
+            e.getName().setZh_tw(ZHConverter.toTC(e.getName().getZh_cn()));
         }
 
         objectToJsonFile(list, "app/src/main/assets/Expedition.json");

@@ -7,6 +7,7 @@ import com.example.utils.Utils;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
+import com.spreada.utils.chinese.ZHConverter;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -73,6 +74,7 @@ public class ShipTypeGenerator {
         for (ShipType shipType : list) {
             shipType.getName().setJa(shipType.getName().getJa().trim());
             shipType.getName().setZh_cn(shipType.getName().getZh_cn().trim());
+            shipType.getName().setZh_tw(ZHConverter.toTC(shipType.getName().getZh_cn().trim()));
             shipType.getName().setEn(ENGLISH_NAME.get(shipType.getId()));
         }
 

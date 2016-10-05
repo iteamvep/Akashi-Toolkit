@@ -3,6 +3,7 @@
     "id": 1,
     "name": {
       "zh_cn": "火炮 / 强化弹",
+      "zh_tw": "火炮 / 強化彈",
       "ja": "火砲 / 強化弾",
       "en": "Main Gun / Shell"
     },
@@ -20,6 +21,7 @@
     "id": 2,
     "name": {
       "zh_cn": "鱼雷",
+      "zh_tw": "魚雷",
       "ja": "魚雷",
       "en": "Torpedo"
     },
@@ -33,6 +35,7 @@
     "id": 3,
     "name": {
       "zh_cn": "舰载机 / 陆基战机",
+      "zh_tw": "艦載機 / 陸基戰機",
       "ja": "舰载机 / 陆基战机",
       "en": "Aircraft"
     },
@@ -56,6 +59,7 @@
     "id": 4,
     "name": {
       "zh_cn": "电探",
+      "zh_tw": "電探",
       "ja": "電探",
       "en": "Radar"
     },
@@ -69,6 +73,7 @@
     "id": 5,
     "name": {
       "zh_cn": "对空机枪 / 高射装置",
+      "zh_tw": "對空機槍 / 高射裝置",
       "ja": "対空機銃 / 高射装置",
       "en": "Anti-Aircraft Gun / Cannon"
     },
@@ -81,6 +86,7 @@
     "id": 6,
     "name": {
       "zh_cn": "爆雷 / 声纳",
+      "zh_tw": "爆雷 / 聲納",
       "ja": "爆雷 / ソナー",
       "en": "Depth charge / Sonar"
     },
@@ -94,6 +100,7 @@
     "id": 7,
     "name": {
       "zh_cn": "其他",
+      "zh_tw": "其他",
       "ja": "他の",
       "en": "Other"
     },

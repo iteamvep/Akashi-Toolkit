@@ -8,6 +8,7 @@ import com.example.utils.Utils;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import com.spreada.utils.chinese.ZHConverter;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -263,6 +264,11 @@ public class EquipGenerator {
         }
 
         specialType(list);
+
+        for (NewEquip item : list) {
+            item.getName().setZh_tw(ZHConverter.toTC(item.getName().getZh_cn()));
+            item.getIntroduction().setZh_tw(ZHConverter.toTC(item.getIntroduction().getZh_cn()));
+        }
 
         gson = new GsonBuilder()
                 .excludeFieldsWithoutExposeAnnotation()

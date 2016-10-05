@@ -4,6 +4,7 @@
     "wiki_id": "001",
     "name": {
       "zh_cn": "长门",
+      "zh_tw": "長門",
       "ja": "長門",
       "en": "Nagato"
     },
@@ -114,6 +115,7 @@
     "wiki_id": "001a",
     "name": {
       "zh_cn": "长门改",
+      "zh_tw": "長門改",
       "ja": "長門改",
       "en": "Nagato Kai"
     },
@@ -227,6 +229,7 @@
     "wiki_id": "002",
     "name": {
       "zh_cn": "陆奥",
+      "zh_tw": "陸奧",
       "ja": "陸奥",
       "en": "Mutsu"
     },
@@ -337,6 +340,7 @@
     "wiki_id": "002a",
     "name": {
       "zh_cn": "陆奥改",
+      "zh_tw": "陸奧改",
       "ja": "陸奥改",
       "en": "Mutsu Kai"
     },
@@ -450,6 +454,7 @@
     "wiki_id": "003",
     "name": {
       "zh_cn": "伊势",
+      "zh_tw": "伊勢",
       "ja": "伊勢",
       "en": "Ise"
     },
@@ -560,6 +565,7 @@
     "wiki_id": "004",
     "name": {
       "zh_cn": "日向",
+      "zh_tw": "日向",
       "ja": "日向",
       "en": "Hyuuga"
     },
@@ -670,6 +676,7 @@
     "wiki_id": "005",
     "name": {
       "zh_cn": "雪风",
+      "zh_tw": "雪風",
       "ja": "雪風",
       "en": "Yukikaze"
     },
@@ -776,6 +783,7 @@
     "wiki_id": "005a",
     "name": {
       "zh_cn": "雪风改",
+      "zh_tw": "雪風改",
       "ja": "雪風改",
       "en": "Yukikaze Kai"
     },
@@ -884,6 +892,7 @@
     "wiki_id": "006",
     "name": {
       "zh_cn": "赤城",
+      "zh_tw": "赤城",
       "ja": "赤城",
       "en": "Akagi"
     },
@@ -994,6 +1003,7 @@
     "wiki_id": "006a",
     "name": {
       "zh_cn": "赤城改",
+      "zh_tw": "赤城改",
       "ja": "赤城改",
       "en": "Akagi Kai"
     },
@@ -1104,6 +1114,7 @@
     "wiki_id": "007",
     "name": {
       "zh_cn": "加贺",
+      "zh_tw": "加賀",
       "ja": "加賀",
       "en": "Kaga"
     },
@@ -1214,6 +1225,7 @@
     "wiki_id": "007a",
     "name": {
       "zh_cn": "加贺改",
+      "zh_tw": "加賀改",
       "ja": "加賀改",
       "en": "Kaga Kai"
     },
@@ -1324,6 +1336,7 @@
     "wiki_id": "008",
     "name": {
       "zh_cn": "苍龙",
+      "zh_tw": "蒼龍",
       "ja": "蒼龍",
       "en": "Souryuu"
     },
@@ -1434,6 +1447,7 @@
     "wiki_id": "008a",
     "name": {
       "zh_cn": "苍龙改",
+      "zh_tw": "蒼龍改",
       "ja": "蒼龍改",
       "en": "Souryuu Kai"
     },
@@ -1544,6 +1558,7 @@
     "wiki_id": "009",
     "name": {
       "zh_cn": "飞龙",
+      "zh_tw": "飛龍",
       "ja": "飛龍",
       "en": "Hiryuu"
     },
@@ -1654,6 +1669,7 @@
     "wiki_id": "009a",
     "name": {
       "zh_cn": "飞龙改",
+      "zh_tw": "飛龍改",
       "ja": "飛龍改",
       "en": "Hiryuu Kai"
     },
@@ -1764,6 +1780,7 @@
     "wiki_id": "010",
     "name": {
       "zh_cn": "岛风",
+      "zh_tw": "島風",
       "ja": "島風",
       "en": "Shimakaze"
     },
@@ -1870,6 +1887,7 @@
     "wiki_id": "010a",
     "name": {
       "zh_cn": "岛风改",
+      "zh_tw": "島風改",
       "ja": "島風改",
       "en": "Shimakaze Kai"
     },
@@ -1978,6 +1996,7 @@
     "wiki_id": "011",
     "name": {
       "zh_cn": "吹雪",
+      "zh_tw": "吹雪",
       "ja": "吹雪",
       "en": "Fubuki"
     },
@@ -2084,6 +2103,7 @@
     "wiki_id": "011a",
     "name": {
       "zh_cn": "吹雪改",
+      "zh_tw": "吹雪改",
       "ja": "吹雪改",
       "en": "Fubuki Kai"
     },
@@ -2192,6 +2212,7 @@
     "wiki_id": "012",
     "name": {
       "zh_cn": "白雪",
+      "zh_tw": "白雪",
       "ja": "白雪",
       "en": "Shirayuki"
     },
@@ -2298,6 +2319,7 @@
     "wiki_id": "012a",
     "name": {
       "zh_cn": "白雪改",
+      "zh_tw": "白雪改",
       "ja": "白雪改",
       "en": "Shirayuki Kai"
     },
@@ -2406,6 +2428,7 @@
     "wiki_id": "013",
     "name": {
       "zh_cn": "初雪",
+      "zh_tw": "初雪",
       "ja": "初雪",
       "en": "Hatsuyuki"
     },
@@ -2512,6 +2535,7 @@
     "wiki_id": "013a",
     "name": {
       "zh_cn": "初雪改",
+      "zh_tw": "初雪改",
       "ja": "初雪改",
       "en": "Hatsuyuki Kai"
     },
@@ -2620,6 +2644,7 @@
     "wiki_id": "014",
     "name": {
       "zh_cn": "深雪",
+      "zh_tw": "深雪",
       "ja": "深雪",
       "en": "Miyuki"
     },
@@ -2726,6 +2751,7 @@
     "wiki_id": "014a",
     "name": {
       "zh_cn": "深雪改",
+      "zh_tw": "深雪改",
       "ja": "深雪改",
       "en": "Miyuki Kai"
     },
@@ -2834,6 +2860,7 @@
     "wiki_id": "015",
     "name": {
       "zh_cn": "丛云",
+      "zh_tw": "叢雲",
       "ja": "叢雲",
       "en": "Murakumo"
     },
@@ -2940,6 +2967,7 @@
     "wiki_id": "015a",
     "name": {
       "zh_cn": "丛云改",
+      "zh_tw": "叢雲改",
       "ja": "叢雲改",
       "en": "Murakumo Kai"
     },
@@ -3048,6 +3076,7 @@
     "wiki_id": "016",
     "name": {
       "zh_cn": "矶波",
+      "zh_tw": "磯波",
       "ja": "磯波",
       "en": "Isonami"
     },
@@ -3154,6 +3183,7 @@
     "wiki_id": "016a",
     "name": {
       "zh_cn": "矶波改",
+      "zh_tw": "磯波改",
       "ja": "磯波改",
       "en": "Isonami Kai"
     },
@@ -3262,6 +3292,7 @@
     "wiki_id": "017",
     "name": {
       "zh_cn": "绫波",
+      "zh_tw": "綾波",
       "ja": "綾波",
       "en": "Ayanami"
     },
@@ -3368,6 +3399,7 @@
     "wiki_id": "017a",
     "name": {
       "zh_cn": "绫波改",
+      "zh_tw": "綾波改",
       "ja": "綾波改",
       "en": "Ayanami Kai"
     },
@@ -3476,6 +3508,7 @@
     "wiki_id": "018",
     "name": {
       "zh_cn": "敷波",
+      "zh_tw": "敷波",
       "ja": "敷波",
       "en": "Shikinami"
     },
@@ -3582,6 +3615,7 @@
     "wiki_id": "018a",
     "name": {
       "zh_cn": "敷波改",
+      "zh_tw": "敷波改",
       "ja": "敷波改",
       "en": "Shikinami Kai"
     },
@@ -3690,6 +3724,7 @@
     "wiki_id": "019",
     "name": {
       "zh_cn": "大井",
+      "zh_tw": "大井",
       "ja": "大井",
       "en": "Ooi"
     },
@@ -3796,6 +3831,7 @@
     "wiki_id": "020",
     "name": {
       "zh_cn": "北上",
+      "zh_tw": "北上",
       "ja": "北上",
       "en": "Kitakami"
     },
@@ -3902,6 +3938,7 @@
     "wiki_id": "021",
     "name": {
       "zh_cn": "金刚",
+      "zh_tw": "金剛",
       "ja": "金剛",
       "en": "Kongou"
     },
@@ -4010,6 +4047,7 @@
     "wiki_id": "021a",
     "name": {
       "zh_cn": "金刚改",
+      "zh_tw": "金剛改",
       "ja": "金剛改",
       "en": "Kongou Kai"
     },
@@ -4120,6 +4158,7 @@
     "wiki_id": "022",
     "name": {
       "zh_cn": "比睿",
+      "zh_tw": "比睿",
       "ja": "比叡",
       "en": "Hiei"
     },
@@ -4228,6 +4267,7 @@
     "wiki_id": "022a",
     "name": {
       "zh_cn": "比睿改",
+      "zh_tw": "比睿改",
       "ja": "比叡改",
       "en": "Hiei Kai"
     },
@@ -4338,6 +4378,7 @@
     "wiki_id": "023",
     "name": {
       "zh_cn": "榛名",
+      "zh_tw": "榛名",
       "ja": "榛名",
       "en": "Haruna"
     },
@@ -4446,6 +4487,7 @@
     "wiki_id": "023a",
     "name": {
       "zh_cn": "榛名改",
+      "zh_tw": "榛名改",
       "ja": "榛名改",
       "en": "Haruna Kai"
     },
@@ -4556,6 +4598,7 @@
     "wiki_id": "024",
     "name": {
       "zh_cn": "雾岛",
+      "zh_tw": "霧島",
       "ja": "霧島",
       "en": "Kirishima"
     },
@@ -4664,6 +4707,7 @@
     "wiki_id": "024a",
     "name": {
       "zh_cn": "雾岛改",
+      "zh_tw": "霧島改",
       "ja": "霧島改",
       "en": "Kirishima Kai"
     },
@@ -4774,6 +4818,7 @@
     "wiki_id": "025",
     "name": {
       "zh_cn": "凤翔",
+      "zh_tw": "鳳翔",
       "ja": "鳳翔",
       "en": "Houshou"
     },
@@ -4880,6 +4925,7 @@
     "wiki_id": "025a",
     "name": {
       "zh_cn": "凤翔改",
+      "zh_tw": "鳳翔改",
       "ja": "鳳翔改",
       "en": "Houshou Kai"
     },
@@ -4988,6 +5034,7 @@
     "wiki_id": "026",
     "name": {
       "zh_cn": "扶桑",
+      "zh_tw": "扶桑",
       "ja": "扶桑",
       "en": "Fusou"
     },
@@ -5098,6 +5145,7 @@
     "wiki_id": "026a",
     "name": {
       "zh_cn": "扶桑改",
+      "zh_tw": "扶桑改",
       "ja": "扶桑改",
       "en": "Fusou Kai"
     },
@@ -5208,6 +5256,7 @@
     "wiki_id": "027",
     "name": {
       "zh_cn": "山城",
+      "zh_tw": "山城",
       "ja": "山城",
       "en": "Yamashiro"
     },
@@ -5318,6 +5367,7 @@
     "wiki_id": "027a",
     "name": {
       "zh_cn": "山城改",
+      "zh_tw": "山城改",
       "ja": "山城改",
       "en": "Yamashiro Kai"
     },
@@ -5428,6 +5478,7 @@
     "wiki_id": "028",
     "name": {
       "zh_cn": "天龙",
+      "zh_tw": "天龍",
       "ja": "天龍",
       "en": "Tenryuu"
     },
@@ -5534,6 +5585,7 @@
     "wiki_id": "028a",
     "name": {
       "zh_cn": "天龙改",
+      "zh_tw": "天龍改",
       "ja": "天龍改",
       "en": "Tenryuu Kai"
     },
@@ -5642,6 +5694,7 @@
     "wiki_id": "029",
     "name": {
       "zh_cn": "龙田",
+      "zh_tw": "龍田",
       "ja": "龍田",
       "en": "Tatsuta"
     },
@@ -5748,6 +5801,7 @@
     "wiki_id": "029a",
     "name": {
       "zh_cn": "龙田改",
+      "zh_tw": "龍田改",
       "ja": "龍田改",
       "en": "Tatsuta Kai"
     },
@@ -5856,6 +5910,7 @@
     "wiki_id": "030",
     "name": {
       "zh_cn": "龙骧",
+      "zh_tw": "龍驤",
       "ja": "龍驤",
       "en": "Ryuujou"
     },
@@ -5964,6 +6019,7 @@
     "wiki_id": "030a",
     "name": {
       "zh_cn": "龙骧改",
+      "zh_tw": "龍驤改",
       "ja": "龍驤改",
       "en": "Ryuujou Kai"
     },
@@ -6074,6 +6130,7 @@
     "wiki_id": "031",
     "name": {
       "zh_cn": "睦月",
+      "zh_tw": "睦月",
       "ja": "睦月",
       "en": "Mutsuki"
     },
@@ -6180,6 +6237,7 @@
     "wiki_id": "031a",
     "name": {
       "zh_cn": "睦月改",
+      "zh_tw": "睦月改",
       "ja": "睦月改",
       "en": "Mutsuki Kai"
     },
@@ -6288,6 +6346,7 @@
     "wiki_id": "032",
     "name": {
       "zh_cn": "如月",
+      "zh_tw": "如月",
       "ja": "如月",
       "en": "Kisaragi"
     },
@@ -6394,6 +6453,7 @@
     "wiki_id": "032a",
     "name": {
       "zh_cn": "如月改",
+      "zh_tw": "如月改",
       "ja": "如月改",
       "en": "Kisaragi Kai"
     },
@@ -6502,6 +6562,7 @@
     "wiki_id": "033",
     "name": {
       "zh_cn": "皋月",
+      "zh_tw": "皋月",
       "ja": "皐月",
       "en": "Satsuki"
     },
@@ -6608,6 +6669,7 @@
     "wiki_id": "033a",
     "name": {
       "zh_cn": "皋月改",
+      "zh_tw": "皋月改",
       "ja": "皐月改",
       "en": "Satsuki Kai"
     },
@@ -6716,6 +6778,7 @@
     "wiki_id": "034",
     "name": {
       "zh_cn": "文月",
+      "zh_tw": "文月",
       "ja": "文月",
       "en": "Fumiduki"
     },
@@ -6822,6 +6885,7 @@
     "wiki_id": "034a",
     "name": {
       "zh_cn": "文月改",
+      "zh_tw": "文月改",
       "ja": "文月改",
       "en": "Fumiduki Kai"
     },
@@ -6930,6 +6994,7 @@
     "wiki_id": "035",
     "name": {
       "zh_cn": "长月",
+      "zh_tw": "長月",
       "ja": "長月",
       "en": "Nagatsuki"
     },
@@ -7036,6 +7101,7 @@
     "wiki_id": "035a",
     "name": {
       "zh_cn": "长月改",
+      "zh_tw": "長月改",
       "ja": "長月改",
       "en": "Nagatsuki Kai"
     },
@@ -7144,6 +7210,7 @@
     "wiki_id": "036",
     "name": {
       "zh_cn": "菊月",
+      "zh_tw": "菊月",
       "ja": "菊月",
       "en": "Kikuduki"
     },
@@ -7250,6 +7317,7 @@
     "wiki_id": "036a",
     "name": {
       "zh_cn": "菊月改",
+      "zh_tw": "菊月改",
       "ja": "菊月改",
       "en": "Kikuduki Kai"
     },
@@ -7358,6 +7426,7 @@
     "wiki_id": "037",
     "name": {
       "zh_cn": "三日月",
+      "zh_tw": "三日月",
       "ja": "三日月",
       "en": "Mikaduki"
     },
@@ -7464,6 +7533,7 @@
     "wiki_id": "037a",
     "name": {
       "zh_cn": "三日月改",
+      "zh_tw": "三日月改",
       "ja": "三日月改",
       "en": "Mikaduki Kai"
     },
@@ -7572,6 +7642,7 @@
     "wiki_id": "038",
     "name": {
       "zh_cn": "望月",
+      "zh_tw": "望月",
       "ja": "望月",
       "en": "Mochiduki"
     },
@@ -7678,6 +7749,7 @@
     "wiki_id": "038a",
     "name": {
       "zh_cn": "望月改",
+      "zh_tw": "望月改",
       "ja": "望月改",
       "en": "Mochiduki Kai"
     },
@@ -7786,6 +7858,7 @@
     "wiki_id": "039",
     "name": {
       "zh_cn": "球磨",
+      "zh_tw": "球磨",
       "ja": "球磨",
       "en": "Kuma"
     },
@@ -7892,6 +7965,7 @@
     "wiki_id": "039a",
     "name": {
       "zh_cn": "球磨改",
+      "zh_tw": "球磨改",
       "ja": "球磨改",
       "en": "Kuma Kai"
     },
@@ -8000,6 +8074,7 @@
     "wiki_id": "040",
     "name": {
       "zh_cn": "多摩",
+      "zh_tw": "多摩",
       "ja": "多摩",
       "en": "Tama"
     },
@@ -8106,6 +8181,7 @@
     "wiki_id": "040a",
     "name": {
       "zh_cn": "多摩改",
+      "zh_tw": "多摩改",
       "ja": "多摩改",
       "en": "Tama Kai"
     },
@@ -8214,6 +8290,7 @@
     "wiki_id": "041",
     "name": {
       "zh_cn": "木曾",
+      "zh_tw": "木曾",
       "ja": "木曾",
       "en": "Kiso"
     },
@@ -8320,6 +8397,7 @@
     "wiki_id": "041a",
     "name": {
       "zh_cn": "木曾改",
+      "zh_tw": "木曾改",
       "ja": "木曾改",
       "en": "Kiso Kai"
     },
@@ -8428,6 +8506,7 @@
     "wiki_id": "042",
     "name": {
       "zh_cn": "长良",
+      "zh_tw": "長良",
       "ja": "長良",
       "en": "Nagara"
     },
@@ -8534,6 +8613,7 @@
     "wiki_id": "042a",
     "name": {
       "zh_cn": "长良改",
+      "zh_tw": "長良改",
       "ja": "長良改",
       "en": "Nagara Kai"
     },
@@ -8642,6 +8722,7 @@
     "wiki_id": "043",
     "name": {
       "zh_cn": "五十铃",
+      "zh_tw": "五十鈴",
       "ja": "五十鈴",
       "en": "Isuzu"
     },
@@ -8748,6 +8829,7 @@
     "wiki_id": "043a",
     "name": {
       "zh_cn": "五十铃改",
+      "zh_tw": "五十鈴改",
       "ja": "五十鈴改",
       "en": "Isuzu Kai"
     },
@@ -8856,6 +8938,7 @@
     "wiki_id": "044",
     "name": {
       "zh_cn": "名取",
+      "zh_tw": "名取",
       "ja": "名取",
       "en": "Natori"
     },
@@ -8962,6 +9045,7 @@
     "wiki_id": "044a",
     "name": {
       "zh_cn": "名取改",
+      "zh_tw": "名取改",
       "ja": "名取改",
       "en": "Natori Kai"
     },
@@ -9070,6 +9154,7 @@
     "wiki_id": "045",
     "name": {
       "zh_cn": "由良",
+      "zh_tw": "由良",
       "ja": "由良",
       "en": "Yura"
     },
@@ -9176,6 +9261,7 @@
     "wiki_id": "045a",
     "name": {
       "zh_cn": "由良改",
+      "zh_tw": "由良改",
       "ja": "由良改",
       "en": "Yura Kai"
     },
@@ -9284,6 +9370,7 @@
     "wiki_id": "046",
     "name": {
       "zh_cn": "川内",
+      "zh_tw": "川內",
       "ja": "川内",
       "en": "Sendai"
     },
@@ -9390,6 +9477,7 @@
     "wiki_id": "046a",
     "name": {
       "zh_cn": "川内改",
+      "zh_tw": "川內改",
       "ja": "川内改",
       "en": "Sendai Kai"
     },
@@ -9498,6 +9586,7 @@
     "wiki_id": "047",
     "name": {
       "zh_cn": "神通",
+      "zh_tw": "神通",
       "ja": "神通",
       "en": "Jintsuu"
     },
@@ -9604,6 +9693,7 @@
     "wiki_id": "047a",
     "name": {
       "zh_cn": "神通改",
+      "zh_tw": "神通改",
       "ja": "神通改",
       "en": "Jintsuu Kai"
     },
@@ -9712,6 +9802,7 @@
     "wiki_id": "048",
     "name": {
       "zh_cn": "那珂",
+      "zh_tw": "那珂",
       "ja": "那珂",
       "en": "Naka"
     },
@@ -9818,6 +9909,7 @@
     "wiki_id": "048a",
     "name": {
       "zh_cn": "那珂改",
+      "zh_tw": "那珂改",
       "ja": "那珂改",
       "en": "Naka Kai"
     },
@@ -9926,6 +10018,7 @@
     "wiki_id": "049",
     "name": {
       "zh_cn": "千岁",
+      "zh_tw": "千歲",
       "ja": "千歳",
       "en": "Chitose"
     },
@@ -10032,6 +10125,7 @@
     "wiki_id": "050",
     "name": {
       "zh_cn": "千代田",
+      "zh_tw": "千代田",
       "ja": "千代田",
       "en": "Chiyoda"
     },
@@ -10138,6 +10232,7 @@
     "wiki_id": "051",
     "name": {
       "zh_cn": "最上",
+      "zh_tw": "最上",
       "ja": "最上",
       "en": "Mogami"
     },
@@ -10246,6 +10341,7 @@
     "wiki_id": "052",
     "name": {
       "zh_cn": "古鹰",
+      "zh_tw": "古鷹",
       "ja": "古鷹",
       "en": "Furutaka"
     },
@@ -10354,6 +10450,7 @@
     "wiki_id": "052a",
     "name": {
       "zh_cn": "古鹰改",
+      "zh_tw": "古鷹改",
       "ja": "古鷹改",
       "en": "Furutaka Kai"
     },
@@ -10464,6 +10561,7 @@
     "wiki_id": "053",
     "name": {
       "zh_cn": "加古",
+      "zh_tw": "加古",
       "ja": "加古",
       "en": "Kako"
     },
@@ -10572,6 +10670,7 @@
     "wiki_id": "053a",
     "name": {
       "zh_cn": "加古改",
+      "zh_tw": "加古改",
       "ja": "加古改",
       "en": "Kako Kai"
     },
@@ -10682,6 +10781,7 @@
     "wiki_id": "054",
     "name": {
       "zh_cn": "青叶",
+      "zh_tw": "青恭弘\u003d叶 恭弘",
       "ja": "青葉",
       "en": "Aoba"
     },
@@ -10790,6 +10890,7 @@
     "wiki_id": "054a",
     "name": {
       "zh_cn": "青叶改",
+      "zh_tw": "青恭弘\u003d叶 恭弘改",
       "ja": "青葉改",
       "en": "Aoba Kai"
     },
@@ -10900,6 +11001,7 @@
     "wiki_id": "055",
     "name": {
       "zh_cn": "妙高",
+      "zh_tw": "妙高",
       "ja": "妙高",
       "en": "Myoukou"
     },
@@ -11008,6 +11110,7 @@
     "wiki_id": "055a",
     "name": {
       "zh_cn": "妙高改",
+      "zh_tw": "妙高改",
       "ja": "妙高改",
       "en": "Myoukou Kai"
     },
@@ -11118,6 +11221,7 @@
     "wiki_id": "056",
     "name": {
       "zh_cn": "那智",
+      "zh_tw": "那智",
       "ja": "那智",
       "en": "Nachi"
     },
@@ -11226,6 +11330,7 @@
     "wiki_id": "056a",
     "name": {
       "zh_cn": "那智改",
+      "zh_tw": "那智改",
       "ja": "那智改",
       "en": "Nachi Kai"
     },
@@ -11336,6 +11441,7 @@
     "wiki_id": "057",
     "name": {
       "zh_cn": "足柄",
+      "zh_tw": "足柄",
       "ja": "足柄",
       "en": "Ashigara"
     },
@@ -11444,6 +11550,7 @@
     "wiki_id": "057a",
     "name": {
       "zh_cn": "足柄改",
+      "zh_tw": "足柄改",
       "ja": "足柄改",
       "en": "Ashigara Kai"
     },
@@ -11554,6 +11661,7 @@
     "wiki_id": "058",
     "name": {
       "zh_cn": "羽黑",
+      "zh_tw": "羽黑",
       "ja": "羽黒",
       "en": "Haguro"
     },
@@ -11662,6 +11770,7 @@
     "wiki_id": "058a",
     "name": {
       "zh_cn": "羽黑改",
+      "zh_tw": "羽黑改",
       "ja": "羽黒改",
       "en": "Haguro Kai"
     },
@@ -11772,6 +11881,7 @@
     "wiki_id": "059",
     "name": {
       "zh_cn": "高雄",
+      "zh_tw": "高雄",
       "ja": "高雄",
       "en": "Takao"
     },
@@ -11880,6 +11990,7 @@
     "wiki_id": "059a",
     "name": {
       "zh_cn": "高雄改",
+      "zh_tw": "高雄改",
       "ja": "高雄改",
       "en": "Takao Kai"
     },
@@ -11990,6 +12101,7 @@
     "wiki_id": "060",
     "name": {
       "zh_cn": "爱宕",
+      "zh_tw": "愛宕",
       "ja": "愛宕",
       "en": "Atago"
     },
@@ -12098,6 +12210,7 @@
     "wiki_id": "060a",
     "name": {
       "zh_cn": "爱宕改",
+      "zh_tw": "愛宕改",
       "ja": "愛宕改",
       "en": "Atago Kai"
     },
@@ -12208,6 +12321,7 @@
     "wiki_id": "061",
     "name": {
       "zh_cn": "摩耶",
+      "zh_tw": "摩耶",
       "ja": "摩耶",
       "en": "Maya"
     },
@@ -12316,6 +12430,7 @@
     "wiki_id": "061a",
     "name": {
       "zh_cn": "摩耶改",
+      "zh_tw": "摩耶改",
       "ja": "摩耶改",
       "en": "Maya Kai"
     },
@@ -12426,6 +12541,7 @@
     "wiki_id": "062",
     "name": {
       "zh_cn": "鸟海",
+      "zh_tw": "鳥海",
       "ja": "鳥海",
       "en": "Choukai"
     },
@@ -12534,6 +12650,7 @@
     "wiki_id": "062a",
     "name": {
       "zh_cn": "鸟海改",
+      "zh_tw": "鳥海改",
       "ja": "鳥海改",
       "en": "Choukai Kai"
     },
@@ -12644,6 +12761,7 @@
     "wiki_id": "063",
     "name": {
       "zh_cn": "利根",
+      "zh_tw": "利根",
       "ja": "利根",
       "en": "Tone"
     },
@@ -12752,6 +12870,7 @@
     "wiki_id": "063a",
     "name": {
       "zh_cn": "利根改",
+      "zh_tw": "利根改",
       "ja": "利根改",
       "en": "Tone Kai"
     },
@@ -12862,6 +12981,7 @@
     "wiki_id": "064",
     "name": {
       "zh_cn": "筑摩",
+      "zh_tw": "築摩",
       "ja": "筑摩",
       "en": "Chikuma"
     },
@@ -12970,6 +13090,7 @@
     "wiki_id": "064a",
     "name": {
       "zh_cn": "筑摩改",
+      "zh_tw": "築摩改",
       "ja": "筑摩改",
       "en": "Chikuma Kai"
     },
@@ -13080,6 +13201,7 @@
     "wiki_id": "065",
     "name": {
       "zh_cn": "飞鹰",
+      "zh_tw": "飛鷹",
       "ja": "飛鷹",
       "en": "Hiyou"
     },
@@ -13190,6 +13312,7 @@
     "wiki_id": "065a",
     "name": {
       "zh_cn": "飞鹰改",
+      "zh_tw": "飛鷹改",
       "ja": "飛鷹改",
       "en": "Hiyou Kai"
     },
@@ -13300,6 +13423,7 @@
     "wiki_id": "066",
     "name": {
       "zh_cn": "隼鹰",
+      "zh_tw": "隼鷹",
       "ja": "隼鷹",
       "en": "Jun\u0027you"
     },
@@ -13410,6 +13534,7 @@
     "wiki_id": "066a",
     "name": {
       "zh_cn": "隼鹰改",
+      "zh_tw": "隼鷹改",
       "ja": "隼鷹改",
       "en": "Jun\u0027you Kai"
     },
@@ -13520,6 +13645,7 @@
     "wiki_id": "067",
     "name": {
       "zh_cn": "胧",
+      "zh_tw": "朧",
       "ja": "朧",
       "en": "Oboro"
     },
@@ -13626,6 +13752,7 @@
     "wiki_id": "067a",
     "name": {
       "zh_cn": "胧改",
+      "zh_tw": "朧改",
       "ja": "朧改",
       "en": "Oboro Kai"
     },
@@ -13734,6 +13861,7 @@
     "wiki_id": "068",
     "name": {
       "zh_cn": "曙",
+      "zh_tw": "曙",
       "ja": "曙",
       "en": "Akebono"
     },
@@ -13840,6 +13968,7 @@
     "wiki_id": "068a",
     "name": {
       "zh_cn": "曙改",
+      "zh_tw": "曙改",
       "ja": "曙改",
       "en": "Akebono Kai"
     },
@@ -13948,6 +14077,7 @@
     "wiki_id": "069",
     "name": {
       "zh_cn": "涟",
+      "zh_tw": "漣",
       "ja": "漣",
       "en": "Sazanami"
     },
@@ -14054,6 +14184,7 @@
     "wiki_id": "069a",
     "name": {
       "zh_cn": "涟改",
+      "zh_tw": "漣改",
       "ja": "漣改",
       "en": "Sazanami Kai"
     },
@@ -14162,6 +14293,7 @@
     "wiki_id": "070",
     "name": {
       "zh_cn": "潮",
+      "zh_tw": "潮",
       "ja": "潮",
       "en": "Ushio"
     },
@@ -14268,6 +14400,7 @@
     "wiki_id": "070a",
     "name": {
       "zh_cn": "潮改",
+      "zh_tw": "潮改",
       "ja": "潮改",
       "en": "Ushio Kai"
     },
@@ -14376,6 +14509,7 @@
     "wiki_id": "071",
     "name": {
       "zh_cn": "晓",
+      "zh_tw": "曉",
       "ja": "暁",
       "en": "Akatsuki"
     },
@@ -14482,6 +14616,7 @@
     "wiki_id": "071a",
     "name": {
       "zh_cn": "晓改",
+      "zh_tw": "曉改",
       "ja": "暁改",
       "en": "Akatsuki Kai"
     },
@@ -14590,6 +14725,7 @@
     "wiki_id": "072",
     "name": {
       "zh_cn": "响",
+      "zh_tw": "響",
       "ja": "響",
       "en": "Hibiki"
     },
@@ -14696,6 +14832,7 @@
     "wiki_id": "072a",
     "name": {
       "zh_cn": "响改",
+      "zh_tw": "響改",
       "ja": "響改",
       "en": "Hibiki Kai"
     },
@@ -14804,6 +14941,7 @@
     "wiki_id": "073",
     "name": {
       "zh_cn": "雷",
+      "zh_tw": "雷",
       "ja": "雷",
       "en": "Ikaduchi"
     },
@@ -14910,6 +15048,7 @@
     "wiki_id": "073a",
     "name": {
       "zh_cn": "雷改",
+      "zh_tw": "雷改",
       "ja": "雷改",
       "en": "Ikaduchi Kai"
     },
@@ -15018,6 +15157,7 @@
     "wiki_id": "074",
     "name": {
       "zh_cn": "电",
+      "zh_tw": "電",
       "ja": "電",
       "en": "Inaduma"
     },
@@ -15124,6 +15264,7 @@
     "wiki_id": "074a",
     "name": {
       "zh_cn": "电改",
+      "zh_tw": "電改",
       "ja": "電改",
       "en": "Inaduma Kai"
     },
@@ -15232,6 +15373,7 @@
     "wiki_id": "075",
     "name": {
       "zh_cn": "初春",
+      "zh_tw": "初春",
       "ja": "初春",
       "en": "Hatsuharu"
     },
@@ -15338,6 +15480,7 @@
     "wiki_id": "075a",
     "name": {
       "zh_cn": "初春改",
+      "zh_tw": "初春改",
       "ja": "初春改",
       "en": "Hatsuharu Kai"
     },
@@ -15446,6 +15589,7 @@
     "wiki_id": "076",
     "name": {
       "zh_cn": "子日",
+      "zh_tw": "子日",
       "ja": "子日",
       "en": "Nenohi"
     },
@@ -15552,6 +15696,7 @@
     "wiki_id": "076a",
     "name": {
       "zh_cn": "子日改",
+      "zh_tw": "子日改",
       "ja": "子日改",
       "en": "Nenohi Kai"
     },
@@ -15660,6 +15805,7 @@
     "wiki_id": "077",
     "name": {
       "zh_cn": "若叶",
+      "zh_tw": "若恭弘\u003d叶 恭弘",
       "ja": "若葉",
       "en": "Wakaba"
     },
@@ -15766,6 +15912,7 @@
     "wiki_id": "077a",
     "name": {
       "zh_cn": "若叶改",
+      "zh_tw": "若恭弘\u003d叶 恭弘改",
       "ja": "若葉改",
       "en": "Wakaba Kai"
     },
@@ -15874,6 +16021,7 @@
     "wiki_id": "078",
     "name": {
       "zh_cn": "初霜",
+      "zh_tw": "初霜",
       "ja": "初霜",
       "en": "Hatsushimo"
     },
@@ -15980,6 +16128,7 @@
     "wiki_id": "078a",
     "name": {
       "zh_cn": "初霜改",
+      "zh_tw": "初霜改",
       "ja": "初霜改",
       "en": "Hatsushimo Kai"
     },
@@ -16088,6 +16237,7 @@
     "wiki_id": "079",
     "name": {
       "zh_cn": "白露",
+      "zh_tw": "白露",
       "ja": "白露",
       "en": "Shiratsuyu"
     },
@@ -16194,6 +16344,7 @@
     "wiki_id": "079a",
     "name": {
       "zh_cn": "白露改",
+      "zh_tw": "白露改",
       "ja": "白露改",
       "en": "Shiratsuyu Kai"
     },
@@ -16302,6 +16453,7 @@
     "wiki_id": "080",
     "name": {
       "zh_cn": "时雨",
+      "zh_tw": "時雨",
       "ja": "時雨",
       "en": "Shigure"
     },
@@ -16408,6 +16560,7 @@
     "wiki_id": "080a",
     "name": {
       "zh_cn": "时雨改",
+      "zh_tw": "時雨改",
       "ja": "時雨改",
       "en": "Shigure Kai"
     },
@@ -16516,6 +16669,7 @@
     "wiki_id": "081",
     "name": {
       "zh_cn": "村雨",
+      "zh_tw": "村雨",
       "ja": "村雨",
       "en": "Murasame"
     },
@@ -16622,6 +16776,7 @@
     "wiki_id": "081a",
     "name": {
       "zh_cn": "村雨改",
+      "zh_tw": "村雨改",
       "ja": "村雨改",
       "en": "Murasame Kai"
     },
@@ -16730,6 +16885,7 @@
     "wiki_id": "082",
     "name": {
       "zh_cn": "夕立",
+      "zh_tw": "夕立",
       "ja": "夕立",
       "en": "Yuudachi"
     },
@@ -16836,6 +16992,7 @@
     "wiki_id": "082a",
     "name": {
       "zh_cn": "夕立改",
+      "zh_tw": "夕立改",
       "ja": "夕立改",
       "en": "Yuudachi Kai"
     },
@@ -16944,6 +17101,7 @@
     "wiki_id": "083",
     "name": {
       "zh_cn": "五月雨",
+      "zh_tw": "五月雨",
       "ja": "五月雨",
       "en": "Samidare"
     },
@@ -17050,6 +17208,7 @@
     "wiki_id": "083a",
     "name": {
       "zh_cn": "五月雨改",
+      "zh_tw": "五月雨改",
       "ja": "五月雨改",
       "en": "Samidare Kai"
     },
@@ -17158,6 +17317,7 @@
     "wiki_id": "084",
     "name": {
       "zh_cn": "凉风",
+      "zh_tw": "涼風",
       "ja": "涼風",
       "en": "Suzukaze"
     },
@@ -17264,6 +17424,7 @@
     "wiki_id": "084a",
     "name": {
       "zh_cn": "凉风改",
+      "zh_tw": "涼風改",
       "ja": "涼風改",
       "en": "Suzukaze Kai"
     },
@@ -17372,6 +17533,7 @@
     "wiki_id": "085",
     "name": {
       "zh_cn": "朝潮",
+      "zh_tw": "朝潮",
       "ja": "朝潮",
       "en": "Asashio"
     },
@@ -17478,6 +17640,7 @@
     "wiki_id": "085a",
     "name": {
       "zh_cn": "朝潮改",
+      "zh_tw": "朝潮改",
       "ja": "朝潮改",
       "en": "Asashio Kai"
     },
@@ -17586,6 +17749,7 @@
     "wiki_id": "086",
     "name": {
       "zh_cn": "大潮",
+      "zh_tw": "大潮",
       "ja": "大潮",
       "en": "Ooshio"
     },
@@ -17692,6 +17856,7 @@
     "wiki_id": "086a",
     "name": {
       "zh_cn": "大潮改",
+      "zh_tw": "大潮改",
       "ja": "大潮改",
       "en": "Ooshio Kai"
     },
@@ -17800,6 +17965,7 @@
     "wiki_id": "087",
     "name": {
       "zh_cn": "满潮",
+      "zh_tw": "滿潮",
       "ja": "満潮",
       "en": "Michishio"
     },
@@ -17906,6 +18072,7 @@
     "wiki_id": "087a",
     "name": {
       "zh_cn": "满潮改",
+      "zh_tw": "滿潮改",
       "ja": "満潮改",
       "en": "Michishio Kai"
     },
@@ -18014,6 +18181,7 @@
     "wiki_id": "088",
     "name": {
       "zh_cn": "荒潮",
+      "zh_tw": "荒潮",
       "ja": "荒潮",
       "en": "Arashio"
     },
@@ -18120,6 +18288,7 @@
     "wiki_id": "088a",
     "name": {
       "zh_cn": "荒潮改",
+      "zh_tw": "荒潮改",
       "ja": "荒潮改",
       "en": "Arashio Kai"
     },
@@ -18228,6 +18397,7 @@
     "wiki_id": "089",
     "name": {
       "zh_cn": "霰",
+      "zh_tw": "霰",
       "ja": "霰",
       "en": "Arare"
     },
@@ -18334,6 +18504,7 @@
     "wiki_id": "089a",
     "name": {
       "zh_cn": "霰改",
+      "zh_tw": "霰改",
       "ja": "霰改",
       "en": "Arare Kai"
     },
@@ -18442,6 +18613,7 @@
     "wiki_id": "090",
     "name": {
       "zh_cn": "霞",
+      "zh_tw": "霞",
       "ja": "霞",
       "en": "Kasumi"
     },
@@ -18548,6 +18720,7 @@
     "wiki_id": "090a",
     "name": {
       "zh_cn": "霞改",
+      "zh_tw": "霞改",
       "ja": "霞改",
       "en": "Kasumi Kai"
     },
@@ -18656,6 +18829,7 @@
     "wiki_id": "091",
     "name": {
       "zh_cn": "阳炎",
+      "zh_tw": "陽炎",
       "ja": "陽炎",
       "en": "Kagerou"
     },
@@ -18762,6 +18936,7 @@
     "wiki_id": "091a",
     "name": {
       "zh_cn": "阳炎改",
+      "zh_tw": "陽炎改",
       "ja": "陽炎改",
       "en": "Kagerou Kai"
     },
@@ -18870,6 +19045,7 @@
     "wiki_id": "092",
     "name": {
       "zh_cn": "不知火",
+      "zh_tw": "不知火",
       "ja": "不知火",
       "en": "Shiranui"
     },
@@ -18976,6 +19152,7 @@
     "wiki_id": "092a",
     "name": {
       "zh_cn": "不知火改",
+      "zh_tw": "不知火改",
       "ja": "不知火改",
       "en": "Shiranui Kai"
     },
@@ -19084,6 +19261,7 @@
     "wiki_id": "093",
     "name": {
       "zh_cn": "黑潮",
+      "zh_tw": "黑潮",
       "ja": "黒潮",
       "en": "Kuroshio"
     },
@@ -19190,6 +19368,7 @@
     "wiki_id": "093a",
     "name": {
       "zh_cn": "黑潮改",
+      "zh_tw": "黑潮改",
       "ja": "黒潮改",
       "en": "Kuroshio Kai"
     },
@@ -19298,6 +19477,7 @@
     "wiki_id": "094",
     "name": {
       "zh_cn": "祥凤",
+      "zh_tw": "祥鳳",
       "ja": "祥鳳",
       "en": "Shouhou"
     },
@@ -19406,6 +19586,7 @@
     "wiki_id": "094a",
     "name": {
       "zh_cn": "祥凤改",
+      "zh_tw": "祥鳳改",
       "ja": "祥鳳改",
       "en": "Shouhou Kai"
     },
@@ -19516,6 +19697,7 @@
     "wiki_id": "095",
     "name": {
       "zh_cn": "千岁改",
+      "zh_tw": "千歲改",
       "ja": "千歳改",
       "en": "Chitose Kai"
     },
@@ -19624,6 +19806,7 @@
     "wiki_id": "096",
     "name": {
       "zh_cn": "千代田改",
+      "zh_tw": "千代田改",
       "ja": "千代田改",
       "en": "Chiyoda Kai"
     },
@@ -19732,6 +19915,7 @@
     "wiki_id": "097",
     "name": {
       "zh_cn": "大井改",
+      "zh_tw": "大井改",
       "ja": "大井改",
       "en": "Ooi Kai"
     },
@@ -19838,6 +20022,7 @@
     "wiki_id": "098",
     "name": {
       "zh_cn": "北上改",
+      "zh_tw": "北上改",
       "ja": "北上改",
       "en": "Kitakami Kai"
     },
@@ -19944,6 +20129,7 @@
     "wiki_id": "099",
     "name": {
       "zh_cn": "千岁甲",
+      "zh_tw": "千歲甲",
       "ja": "千歳甲",
       "en": "Chitose A"
     },
@@ -20052,6 +20238,7 @@
     "wiki_id": "100",
     "name": {
       "zh_cn": "千代田甲",
+      "zh_tw": "千代田甲",
       "ja": "千代田甲",
       "en": "Chiyoda A"
     },
@@ -20160,6 +20347,7 @@
     "wiki_id": "101",
     "name": {
       "zh_cn": "最上改",
+      "zh_tw": "最上改",
       "ja": "最上改",
       "en": "Mogami Kai"
     },
@@ -20270,6 +20458,7 @@
     "wiki_id": "102",
     "name": {
       "zh_cn": "伊势改",
+      "zh_tw": "伊勢改",
       "ja": "伊勢改",
       "en": "Ise Kai"
     },
@@ -20380,6 +20569,7 @@
     "wiki_id": "103",
     "name": {
       "zh_cn": "日向改",
+      "zh_tw": "日向改",
       "ja": "日向改",
       "en": "Hyuuga Kai"
     },
@@ -20490,6 +20680,7 @@
     "wiki_id": "104",
     "name": {
       "zh_cn": "千岁航",
+      "zh_tw": "千歲航",
       "ja": "千歳航",
       "en": "Chitose"
     },
@@ -20598,6 +20789,7 @@
     "wiki_id": "104a",
     "name": {
       "zh_cn": "千岁航改",
+      "zh_tw": "千歲航改",
       "ja": "千歳航改",
       "en": "Chitose Kai"
     },
@@ -20708,6 +20900,7 @@
     "wiki_id": "105",
     "name": {
       "zh_cn": "千代田航",
+      "zh_tw": "千代田航",
       "ja": "千代田航",
       "en": "Chiyoda"
     },
@@ -20816,6 +21009,7 @@
     "wiki_id": "105a",
     "name": {
       "zh_cn": "千代田航改",
+      "zh_tw": "千代田航改",
       "ja": "千代田航改",
       "en": "Chiyoda Kai"
     },
@@ -20926,6 +21120,7 @@
     "wiki_id": "106",
     "name": {
       "zh_cn": "翔鹤",
+      "zh_tw": "翔鶴",
       "ja": "翔鶴",
       "en": "Shoukaku"
     },
@@ -21036,6 +21231,7 @@
     "wiki_id": "106a",
     "name": {
       "zh_cn": "翔鹤改",
+      "zh_tw": "翔鶴改",
       "ja": "翔鶴改",
       "en": "Shoukaku Kai"
     },
@@ -21146,6 +21342,7 @@
     "wiki_id": "107",
     "name": {
       "zh_cn": "瑞鹤",
+      "zh_tw": "瑞鶴",
       "ja": "瑞鶴",
       "en": "Zuikaku"
     },
@@ -21256,6 +21453,7 @@
     "wiki_id": "108",
     "name": {
       "zh_cn": "瑞鹤改",
+      "zh_tw": "瑞鶴改",
       "ja": "瑞鶴改",
       "en": "Zuikaku Kai"
     },
@@ -21366,6 +21564,7 @@
     "wiki_id": "109",
     "name": {
       "zh_cn": "鬼怒",
+      "zh_tw": "鬼怒",
       "ja": "鬼怒",
       "en": "Kinu"
     },
@@ -21472,6 +21671,7 @@
     "wiki_id": "109a",
     "name": {
       "zh_cn": "鬼怒改",
+      "zh_tw": "鬼怒改",
       "ja": "鬼怒改",
       "en": "Kinu Kai"
     },
@@ -21580,6 +21780,7 @@
     "wiki_id": "110",
     "name": {
       "zh_cn": "阿武隈",
+      "zh_tw": "阿武隈",
       "ja": "阿武隈",
       "en": "Abukuma"
     },
@@ -21691,6 +21892,7 @@
     "wiki_id": "110a",
     "name": {
       "zh_cn": "阿武隈改",
+      "zh_tw": "阿武隈改",
       "ja": "阿武隈改",
       "en": "Abukuma Kai"
     },
@@ -21799,6 +22001,7 @@
     "wiki_id": "111",
     "name": {
       "zh_cn": "夕张",
+      "zh_tw": "夕張",
       "ja": "夕張",
       "en": "Yuubari"
     },
@@ -21907,6 +22110,7 @@
     "wiki_id": "111a",
     "name": {
       "zh_cn": "夕张改",
+      "zh_tw": "夕張改",
       "ja": "夕張改",
       "en": "Yuubari Kai"
     },
@@ -22017,6 +22221,7 @@
     "wiki_id": "112",
     "name": {
       "zh_cn": "瑞凤",
+      "zh_tw": "瑞鳳",
       "ja": "瑞鳳",
       "en": "Zuihou"
     },
@@ -22125,6 +22330,7 @@
     "wiki_id": "113",
     "name": {
       "zh_cn": "瑞凤改",
+      "zh_tw": "瑞鳳改",
       "ja": "瑞鳳改",
       "en": "Zuihou Kai"
     },
@@ -22235,6 +22441,7 @@
     "wiki_id": "114",
     "name": {
       "zh_cn": "大井改二",
+      "zh_tw": "大井改二",
       "ja": "大井改二",
       "en": "Ooi Kai Ni"
     },
@@ -22343,6 +22550,7 @@
     "wiki_id": "115",
     "name": {
       "zh_cn": "北上改二",
+      "zh_tw": "北上改二",
       "ja": "北上改二",
       "en": "Kitakami Kai Ni"
     },
@@ -22451,6 +22659,7 @@
     "wiki_id": "116",
     "name": {
       "zh_cn": "三隈",
+      "zh_tw": "三隈",
       "ja": "三隈",
       "en": "Mikuma"
     },
@@ -22559,6 +22768,7 @@
     "wiki_id": "117",
     "name": {
       "zh_cn": "三隈改",
+      "zh_tw": "三隈改",
       "ja": "三隈改",
       "en": "Mikuma Kai"
     },
@@ -22669,6 +22879,7 @@
     "wiki_id": "118",
     "name": {
       "zh_cn": "初风",
+      "zh_tw": "初風",
       "ja": "初風",
       "en": "Hatsukaze"
     },
@@ -22775,6 +22986,7 @@
     "wiki_id": "118a",
     "name": {
       "zh_cn": "初风改",
+      "zh_tw": "初風改",
       "ja": "初風改",
       "en": "Hatsukaze Kai"
     },
@@ -22883,6 +23095,7 @@
     "wiki_id": "119",
     "name": {
       "zh_cn": "舞风",
+      "zh_tw": "舞風",
       "ja": "舞風",
       "en": "Maikaze"
     },
@@ -22989,6 +23202,7 @@
     "wiki_id": "119a",
     "name": {
       "zh_cn": "舞风改",
+      "zh_tw": "舞風改",
       "ja": "舞風改",
       "en": "Maikaze Kai"
     },
@@ -23097,6 +23311,7 @@
     "wiki_id": "120",
     "name": {
       "zh_cn": "衣笠",
+      "zh_tw": "衣笠",
       "ja": "衣笠",
       "en": "Kinugasa"
     },
@@ -23205,6 +23420,7 @@
     "wiki_id": "120a",
     "name": {
       "zh_cn": "衣笠改",
+      "zh_tw": "衣笠改",
       "ja": "衣笠改",
       "en": "Kinugasa Kai"
     },
@@ -23315,6 +23531,7 @@
     "wiki_id": "121",
     "name": {
       "zh_cn": "千岁航改二",
+      "zh_tw": "千歲航改二",
       "ja": "千歳航改二",
       "en": "Chitose Kai Ni"
     },
@@ -23425,6 +23642,7 @@
     "wiki_id": "122",
     "name": {
       "zh_cn": "千代田航改二",
+      "zh_tw": "千代田航改二",
       "ja": "千代田航改二",
       "en": "Chiyoda Kai Ni"
     },
@@ -23535,6 +23753,7 @@
     "wiki_id": "123",
     "name": {
       "zh_cn": "伊19",
+      "zh_tw": "伊19",
       "ja": "伊19",
       "en": "I19"
     },
@@ -23639,6 +23858,7 @@
     "wiki_id": "123a",
     "name": {
       "zh_cn": "伊19改",
+      "zh_tw": "伊19改",
       "ja": "伊19改",
       "en": "I19 Kai"
     },
@@ -23745,6 +23965,7 @@
     "wiki_id": "124",
     "name": {
       "zh_cn": "铃谷",
+      "zh_tw": "鈴谷",
       "ja": "鈴谷",
       "en": "Suzuya"
     },
@@ -23853,6 +24074,7 @@
     "wiki_id": "125",
     "name": {
       "zh_cn": "熊野",
+      "zh_tw": "熊野",
       "ja": "熊野",
       "en": "Kumano"
     },
@@ -23961,6 +24183,7 @@
     "wiki_id": "126",
     "name": {
       "zh_cn": "伊168",
+      "zh_tw": "伊168",
       "ja": "伊168",
       "en": "I168"
     },
@@ -24065,6 +24288,7 @@
     "wiki_id": "126a",
     "name": {
       "zh_cn": "伊168改",
+      "zh_tw": "伊168改",
       "ja": "伊168改",
       "en": "I168 Kai"
     },
@@ -24171,6 +24395,7 @@
     "wiki_id": "127",
     "name": {
       "zh_cn": "伊58",
+      "zh_tw": "伊58",
       "ja": "伊58",
       "en": "I58"
     },
@@ -24275,6 +24500,7 @@
     "wiki_id": "127a",
     "name": {
       "zh_cn": "伊58改",
+      "zh_tw": "伊58改",
       "ja": "伊58改",
       "en": "I58 Kai"
     },
@@ -24381,6 +24607,7 @@
     "wiki_id": "128",
     "name": {
       "zh_cn": "伊8",
+      "zh_tw": "伊8",
       "ja": "伊8",
       "en": "I8"
     },
@@ -24485,6 +24712,7 @@
     "wiki_id": "128a",
     "name": {
       "zh_cn": "伊8改",
+      "zh_tw": "伊8改",
       "ja": "伊8改",
       "en": "I8 Kai"
     },
@@ -24591,6 +24819,7 @@
     "wiki_id": "129",
     "name": {
       "zh_cn": "铃谷改",
+      "zh_tw": "鈴谷改",
       "ja": "鈴谷改",
       "en": "Suzuya Kai"
     },
@@ -24701,6 +24930,7 @@
     "wiki_id": "130",
     "name": {
       "zh_cn": "熊野改",
+      "zh_tw": "熊野改",
       "ja": "熊野改",
       "en": "Kumano Kai"
     },
@@ -24811,6 +25041,7 @@
     "wiki_id": "131",
     "name": {
       "zh_cn": "大和",
+      "zh_tw": "大和",
       "ja": "大和",
       "en": "Yamato"
     },
@@ -24924,6 +25155,7 @@
     "wiki_id": "132",
     "name": {
       "zh_cn": "秋云",
+      "zh_tw": "秋雲",
       "ja": "秋雲",
       "en": "Akigumo"
     },
@@ -25030,6 +25262,7 @@
     "wiki_id": "132a",
     "name": {
       "zh_cn": "秋云改",
+      "zh_tw": "秋雲改",
       "ja": "秋雲改",
       "en": "Akigumo Kai"
     },
@@ -25138,6 +25371,7 @@
     "wiki_id": "133",
     "name": {
       "zh_cn": "夕云",
+      "zh_tw": "夕雲",
       "ja": "夕雲",
       "en": "Yuugumo"
     },
@@ -25244,6 +25478,7 @@
     "wiki_id": "133a",
     "name": {
       "zh_cn": "夕云改",
+      "zh_tw": "夕雲改",
       "ja": "夕雲改",
       "en": "Yuugumo Kai"
     },
@@ -25352,6 +25587,7 @@
     "wiki_id": "134",
     "name": {
       "zh_cn": "卷云",
+      "zh_tw": "捲雲",
       "ja": "巻雲",
       "en": "Makigumo"
     },
@@ -25458,6 +25694,7 @@
     "wiki_id": "134a",
     "name": {
       "zh_cn": "卷云改",
+      "zh_tw": "捲雲改",
       "ja": "巻雲改",
       "en": "Makigumo Kai"
     },
@@ -25566,6 +25803,7 @@
     "wiki_id": "135",
     "name": {
       "zh_cn": "长波",
+      "zh_tw": "長波",
       "ja": "長波",
       "en": "Naganami"
     },
@@ -25672,6 +25910,7 @@
     "wiki_id": "135a",
     "name": {
       "zh_cn": "长波改",
+      "zh_tw": "長波改",
       "ja": "長波改",
       "en": "Naganami Kai"
     },
@@ -25780,6 +26019,7 @@
     "wiki_id": "136",
     "name": {
       "zh_cn": "大和改",
+      "zh_tw": "大和改",
       "ja": "大和改",
       "en": "Yamato Kai"
     },
@@ -25893,6 +26133,7 @@
     "wiki_id": "137",
     "name": {
       "zh_cn": "阿贺野",
+      "zh_tw": "阿賀野",
       "ja": "阿賀野",
       "en": "Agano"
     },
@@ -26001,6 +26242,7 @@
     "wiki_id": "137a",
     "name": {
       "zh_cn": "阿贺野改",
+      "zh_tw": "阿賀野改",
       "ja": "阿賀野改",
       "en": "Agano Kai"
     },
@@ -26109,6 +26351,7 @@
     "wiki_id": "138",
     "name": {
       "zh_cn": "能代",
+      "zh_tw": "能代",
       "ja": "能代",
       "en": "Noshiro"
     },
@@ -26217,6 +26460,7 @@
     "wiki_id": "138a",
     "name": {
       "zh_cn": "能代改",
+      "zh_tw": "能代改",
       "ja": "能代改",
       "en": "Noshiro Kai"
     },
@@ -26325,6 +26569,7 @@
     "wiki_id": "139",
     "name": {
       "zh_cn": "矢矧",
+      "zh_tw": "矢矧",
       "ja": "矢矧",
       "en": "Yahagi"
     },
@@ -26433,6 +26678,7 @@
     "wiki_id": "139a",
     "name": {
       "zh_cn": "矢矧改",
+      "zh_tw": "矢矧改",
       "ja": "矢矧改",
       "en": "Yahagi Kai"
     },
@@ -26541,6 +26787,7 @@
     "wiki_id": "140",
     "name": {
       "zh_cn": "酒匂",
+      "zh_tw": "酒匂",
       "ja": "酒匂",
       "en": "Sakawa"
     },
@@ -26649,6 +26896,7 @@
     "wiki_id": "140a",
     "name": {
       "zh_cn": "酒匂改",
+      "zh_tw": "酒匂改",
       "ja": "酒匂改",
       "en": "Sakawa Kai"
     },
@@ -26757,6 +27005,7 @@
     "wiki_id": "141",
     "name": {
       "zh_cn": "五十铃改二",
+      "zh_tw": "五十鈴改二",
       "ja": "五十鈴改二",
       "en": "Isuzu Kai Ni"
     },
@@ -26865,6 +27114,7 @@
     "wiki_id": "142",
     "name": {
       "zh_cn": "衣笠改二",
+      "zh_tw": "衣笠改二",
       "ja": "衣笠改二",
       "en": "Kinugasa Kai Ni"
     },
@@ -26975,6 +27225,7 @@
     "wiki_id": "143",
     "name": {
       "zh_cn": "武藏",
+      "zh_tw": "武藏",
       "ja": "武蔵",
       "en": "Musashi"
     },
@@ -27088,6 +27339,7 @@
     "wiki_id": "144",
     "name": {
       "zh_cn": "夕立改二",
+      "zh_tw": "夕立改二",
       "ja": "夕立改二",
       "en": "Yuudachi Kai Ni"
     },
@@ -27196,6 +27448,7 @@
     "wiki_id": "145",
     "name": {
       "zh_cn": "时雨改二",
+      "zh_tw": "時雨改二",
       "ja": "時雨改二",
       "en": "Shigure Kai Ni"
     },
@@ -27304,6 +27557,7 @@
     "wiki_id": "146",
     "name": {
       "zh_cn": "木曾改二",
+      "zh_tw": "木曾改二",
       "ja": "木曾改二",
       "en": "Kiso Kai Ni"
     },
@@ -27412,6 +27666,7 @@
     "wiki_id": "147",
     "name": {
       "zh_cn": "Верный",
+      "zh_tw": "Верный",
       "ja": "Верный",
       "en": "Hibiki"
     },
@@ -27525,6 +27780,7 @@
     "wiki_id": "148",
     "name": {
       "zh_cn": "武藏改",
+      "zh_tw": "武藏改",
       "ja": "武蔵改",
       "en": "Musashi Kai"
     },
@@ -27638,6 +27894,7 @@
     "wiki_id": "149",
     "name": {
       "zh_cn": "金刚改二",
+      "zh_tw": "金剛改二",
       "ja": "金剛改二",
       "en": "Kongou Kai Ni"
     },
@@ -27748,6 +28005,7 @@
     "wiki_id": "150",
     "name": {
       "zh_cn": "比睿改二",
+      "zh_tw": "比睿改二",
       "ja": "比叡改二",
       "en": "Hiei Kai Ni"
     },
@@ -27858,6 +28116,7 @@
     "wiki_id": "151",
     "name": {
       "zh_cn": "榛名改二",
+      "zh_tw": "榛名改二",
       "ja": "榛名改二",
       "en": "Haruna Kai Ni"
     },
@@ -27968,6 +28227,7 @@
     "wiki_id": "152",
     "name": {
       "zh_cn": "雾岛改二",
+      "zh_tw": "霧島改二",
       "ja": "霧島改二",
       "en": "Kirishima Kai Ni"
     },
@@ -28078,6 +28338,7 @@
     "wiki_id": "153",
     "name": {
       "zh_cn": "大凤",
+      "zh_tw": "大鳳",
       "ja": "大鳳",
       "en": "Taihou"
     },
@@ -28188,6 +28449,7 @@
     "wiki_id": "154",
     "name": {
       "zh_cn": "香取",
+      "zh_tw": "香取",
       "ja": "香取",
       "en": "Katori"
     },
@@ -28296,6 +28558,7 @@
     "wiki_id": "154a",
     "name": {
       "zh_cn": "香取改",
+      "zh_tw": "香取改",
       "ja": "香取改",
       "en": "Katori Kai"
     },
@@ -28406,6 +28669,7 @@
     "wiki_id": "155",
     "name": {
       "zh_cn": "伊401",
+      "zh_tw": "伊401",
       "ja": "伊401",
       "en": "I401"
     },
@@ -28510,6 +28774,7 @@
     "wiki_id": "155a",
     "name": {
       "zh_cn": "伊401改",
+      "zh_tw": "伊401改",
       "ja": "伊401改",
       "en": "I401 Kai"
     },
@@ -28616,6 +28881,7 @@
     "wiki_id": "156",
     "name": {
       "zh_cn": "大凤改",
+      "zh_tw": "大鳳改",
       "ja": "大鳳改",
       "en": "Taihou Kai"
     },
@@ -28726,6 +28992,7 @@
     "wiki_id": "157",
     "name": {
       "zh_cn": "龙骧改二",
+      "zh_tw": "龍驤改二",
       "ja": "龍驤改二",
       "en": "Ryuujou Kai Ni"
     },
@@ -28836,6 +29103,7 @@
     "wiki_id": "158",
     "name": {
       "zh_cn": "川内改二",
+      "zh_tw": "川內改二",
       "ja": "川内改二",
       "en": "Sendai Kai Ni"
     },
@@ -28944,6 +29212,7 @@
     "wiki_id": "159",
     "name": {
       "zh_cn": "神通改二",
+      "zh_tw": "神通改二",
       "ja": "神通改二",
       "en": "Jintsuu Kai Ni"
     },
@@ -29052,6 +29321,7 @@
     "wiki_id": "160",
     "name": {
       "zh_cn": "那珂改二",
+      "zh_tw": "那珂改二",
       "ja": "那珂改二",
       "en": "Naka Kai Ni"
     },
@@ -29160,6 +29430,7 @@
     "wiki_id": "161",
     "name": {
       "zh_cn": "秋津丸",
+      "zh_tw": "秋津丸",
       "ja": "あきつ丸",
       "en": "Akitsumaru"
     },
@@ -29266,6 +29537,7 @@
     "wiki_id": "163",
     "name": {
       "zh_cn": "丸输",
+      "zh_tw": "丸輸",
       "ja": "まるゆ",
       "en": "Maruyu"
     },
@@ -29366,6 +29638,7 @@
     "wiki_id": "163a",
     "name": {
       "zh_cn": "丸输改",
+      "zh_tw": "丸輸改",
       "ja": "まるゆ改",
       "en": "Maruyu Kai"
     },
@@ -29470,6 +29743,7 @@
     "wiki_id": "164",
     "name": {
       "zh_cn": "弥生",
+      "zh_tw": "彌生",
       "ja": "弥生",
       "en": "Yayoi"
     },
@@ -29576,6 +29850,7 @@
     "wiki_id": "164a",
     "name": {
       "zh_cn": "弥生改",
+      "zh_tw": "彌生改",
       "ja": "弥生改",
       "en": "Yayoi Kai"
     },
@@ -29684,6 +29959,7 @@
     "wiki_id": "165",
     "name": {
       "zh_cn": "卯月",
+      "zh_tw": "卯月",
       "ja": "卯月",
       "en": "Uduki"
     },
@@ -29790,6 +30066,7 @@
     "wiki_id": "165a",
     "name": {
       "zh_cn": "卯月改",
+      "zh_tw": "卯月改",
       "ja": "卯月改",
       "en": "Uduki Kai"
     },
@@ -29898,6 +30175,7 @@
     "wiki_id": "166",
     "name": {
       "zh_cn": "秋津丸改",
+      "zh_tw": "秋津丸改",
       "ja": "あきつ丸改",
       "en": "Akitsumaru Kai"
     },
@@ -30006,6 +30284,7 @@
     "wiki_id": "167",
     "name": {
       "zh_cn": "矶风",
+      "zh_tw": "磯風",
       "ja": "磯風",
       "en": "Isokaze"
     },
@@ -30112,6 +30391,7 @@
     "wiki_id": "167a",
     "name": {
       "zh_cn": "矶风改",
+      "zh_tw": "磯風改",
       "ja": "磯風改",
       "en": "Isokaze Kai"
     },
@@ -30220,6 +30500,7 @@
     "wiki_id": "168",
     "name": {
       "zh_cn": "浦风",
+      "zh_tw": "浦風",
       "ja": "浦風",
       "en": "Urakaze"
     },
@@ -30326,6 +30607,7 @@
     "wiki_id": "168a",
     "name": {
       "zh_cn": "浦风改",
+      "zh_tw": "浦風改",
       "ja": "浦風改",
       "en": "Urakaze Kai"
     },
@@ -30434,6 +30716,7 @@
     "wiki_id": "169",
     "name": {
       "zh_cn": "谷风",
+      "zh_tw": "穀風",
       "ja": "谷風",
       "en": "Tanikaze"
     },
@@ -30540,6 +30823,7 @@
     "wiki_id": "169a",
     "name": {
       "zh_cn": "谷风改",
+      "zh_tw": "穀風改",
       "ja": "谷風改",
       "en": "Tanikaze Kai"
     },
@@ -30648,6 +30932,7 @@
     "wiki_id": "170",
     "name": {
       "zh_cn": "浜风",
+      "zh_tw": "浜風",
       "ja": "浜風",
       "en": "Hamakaze"
     },
@@ -30754,6 +31039,7 @@
     "wiki_id": "170a",
     "name": {
       "zh_cn": "浜风改",
+      "zh_tw": "浜風改",
       "ja": "浜風改",
       "en": "Hamakaze Kai"
     },
@@ -30862,6 +31148,7 @@
     "wiki_id": "171",
     "name": {
       "zh_cn": "俾斯麦",
+      "zh_tw": "俾斯麥",
       "ja": "Bismarck",
       "en": "Bismarck"
     },
@@ -30972,6 +31259,7 @@
     "wiki_id": "172",
     "name": {
       "zh_cn": "俾斯麦改",
+      "zh_tw": "俾斯麥改",
       "ja": "Bismarck改",
       "en": "Bismarck Kai"
     },
@@ -31082,6 +31370,7 @@
     "wiki_id": "173",
     "name": {
       "zh_cn": "俾斯麦 zwei",
+      "zh_tw": "俾斯麥 zwei",
       "ja": "Bismarck zwei",
       "en": "Bismarck zwei"
     },
@@ -31192,6 +31481,7 @@
     "wiki_id": "174",
     "name": {
       "zh_cn": "Z1",
+      "zh_tw": "Z1",
       "ja": "Z1",
       "en": "Z1"
     },
@@ -31300,6 +31590,7 @@
     "wiki_id": "174a",
     "name": {
       "zh_cn": "Z1改",
+      "zh_tw": "Z1改",
       "ja": "Z1改",
       "en": "Z1 Kai"
     },
@@ -31408,6 +31699,7 @@
     "wiki_id": "175",
     "name": {
       "zh_cn": "Z3",
+      "zh_tw": "Z3",
       "ja": "Z3",
       "en": "Z3"
     },
@@ -31516,6 +31808,7 @@
     "wiki_id": "175a",
     "name": {
       "zh_cn": "Z3改",
+      "zh_tw": "Z3改",
       "ja": "Z3改",
       "en": "Z3 Kai"
     },
@@ -31624,6 +31917,7 @@
     "wiki_id": "176",
     "name": {
       "zh_cn": "欧根亲王",
+      "zh_tw": "歐根親王",
       "ja": "Prinz Eugen",
       "en": "Prinz Eugen"
     },
@@ -31732,6 +32026,7 @@
     "wiki_id": "177",
     "name": {
       "zh_cn": "欧根亲王改",
+      "zh_tw": "歐根親王改",
       "ja": "Prinz Eugen改",
       "en": "Prinz Eugen Kai"
     },
@@ -31842,6 +32137,7 @@
     "wiki_id": "178",
     "name": {
       "zh_cn": "俾斯麦 drei",
+      "zh_tw": "俾斯麥 drei",
       "ja": "Bismarck drei",
       "en": "Bismarck drei"
     },
@@ -31952,6 +32248,7 @@
     "wiki_id": "179",
     "name": {
       "zh_cn": "Z1 zwei",
+      "zh_tw": "Z1 zwei",
       "ja": "Z1 zwei",
       "en": "Z1 zwei"
     },
@@ -32060,6 +32357,7 @@
     "wiki_id": "180",
     "name": {
       "zh_cn": "Z3 zwei",
+      "zh_tw": "Z3 zwei",
       "ja": "Z3 zwei",
       "en": "Z3 zwei"
     },
@@ -32168,6 +32466,7 @@
     "wiki_id": "181",
     "name": {
       "zh_cn": "天津风",
+      "zh_tw": "天津風",
       "ja": "天津風",
       "en": "Amatsukaze"
     },
@@ -32276,6 +32575,7 @@
     "wiki_id": "181a",
     "name": {
       "zh_cn": "天津风改",
+      "zh_tw": "天津風改",
       "ja": "天津風改",
       "en": "Amatsukaze Kai"
     },
@@ -32384,6 +32684,7 @@
     "wiki_id": "182",
     "name": {
       "zh_cn": "明石",
+      "zh_tw": "明石",
       "ja": "明石",
       "en": "Akashi"
     },
@@ -32492,6 +32793,7 @@
     "wiki_id": "183",
     "name": {
       "zh_cn": "大淀",
+      "zh_tw": "大淀",
       "ja": "大淀",
       "en": "Ooyodo"
     },
@@ -32600,6 +32902,7 @@
     "wiki_id": "183a",
     "name": {
       "zh_cn": "大淀改",
+      "zh_tw": "大淀改",
       "ja": "大淀改",
       "en": "Ooyodo Kai"
     },
@@ -32710,6 +33013,7 @@
     "wiki_id": "184",
     "name": {
       "zh_cn": "大鲸",
+      "zh_tw": "大鯨",
       "ja": "大鯨",
       "en": "Taigei・ryuuhou"
     },
@@ -32818,6 +33122,7 @@
     "wiki_id": "185",
     "name": {
       "zh_cn": "龙凤",
+      "zh_tw": "龍鳳",
       "ja": "龍鳳",
       "en": "Taigei・ryuuhou"
     },
@@ -32926,6 +33231,7 @@
     "wiki_id": "186",
     "name": {
       "zh_cn": "时津风",
+      "zh_tw": "時津風",
       "ja": "時津風",
       "en": "Tokitsukaze"
     },
@@ -33032,6 +33338,7 @@
     "wiki_id": "186a",
     "name": {
       "zh_cn": "时津风改",
+      "zh_tw": "時津風改",
       "ja": "時津風改",
       "en": "Tokitsukaze Kai"
     },
@@ -33140,6 +33447,7 @@
     "wiki_id": "187",
     "name": {
       "zh_cn": "明石改",
+      "zh_tw": "明石改",
       "ja": "明石改",
       "en": "Akashi Kai"
     },
@@ -33250,6 +33558,7 @@
     "wiki_id": "188",
     "name": {
       "zh_cn": "利根改二",
+      "zh_tw": "利根改二",
       "ja": "利根改二",
       "en": "Tone Kai Ni"
     },
@@ -33360,6 +33669,7 @@
     "wiki_id": "189",
     "name": {
       "zh_cn": "筑摩改二",
+      "zh_tw": "築摩改二",
       "ja": "筑摩改二",
       "en": "Chikuma Kai Ni"
     },
@@ -33470,6 +33780,7 @@
     "wiki_id": "190",
     "name": {
       "zh_cn": "龙凤改",
+      "zh_tw": "龍鳳改",
       "ja": "龍鳳改",
       "en": "Taigei・ryuuhou Kai"
     },
@@ -33580,6 +33891,7 @@
     "wiki_id": "191",
     "name": {
       "zh_cn": "妙高改二",
+      "zh_tw": "妙高改二",
       "ja": "妙高改二",
       "en": "Myoukou Kai Ni"
     },
@@ -33690,6 +34002,7 @@
     "wiki_id": "192",
     "name": {
       "zh_cn": "那智改二",
+      "zh_tw": "那智改二",
       "ja": "那智改二",
       "en": "Nachi Kai Ni"
     },
@@ -33800,6 +34113,7 @@
     "wiki_id": "193",
     "name": {
       "zh_cn": "足柄改二",
+      "zh_tw": "足柄改二",
       "ja": "足柄改二",
       "en": "Ashigara Kai Ni"
     },
@@ -33910,6 +34224,7 @@
     "wiki_id": "194",
     "name": {
       "zh_cn": "羽黑改二",
+      "zh_tw": "羽黑改二",
       "ja": "羽黒改二",
       "en": "Haguro Kai Ni"
     },
@@ -34020,6 +34335,7 @@
     "wiki_id": "195",
     "name": {
       "zh_cn": "绫波改二",
+      "zh_tw": "綾波改二",
       "ja": "綾波改二",
       "en": "Ayanami Kai Ni"
     },
@@ -34128,6 +34444,7 @@
     "wiki_id": "196",
     "name": {
       "zh_cn": "飞龙改二",
+      "zh_tw": "飛龍改二",
       "ja": "飛龍改二",
       "en": "Hiryuu Kai Ni"
     },
@@ -34238,6 +34555,7 @@
     "wiki_id": "197",
     "name": {
       "zh_cn": "苍龙改二",
+      "zh_tw": "蒼龍改二",
       "ja": "蒼龍改二",
       "en": "Souryuu Kai Ni"
     },
@@ -34348,6 +34666,7 @@
     "wiki_id": "199",
     "name": {
       "zh_cn": "大潮改二",
+      "zh_tw": "大潮改二",
       "ja": "大潮改二",
       "en": "Ooshio Kai Ni"
     },
@@ -34460,6 +34779,7 @@
     "wiki_id": "200",
     "name": {
       "zh_cn": "阿武隈改二",
+      "zh_tw": "阿武隈改二",
       "ja": "阿武隈改二",
       "en": "Abukuma Kai Ni"
     },
@@ -34568,6 +34888,7 @@
     "wiki_id": "201",
     "name": {
       "zh_cn": "云龙",
+      "zh_tw": "雲龍",
       "ja": "雲龍",
       "en": "Unryuu"
     },
@@ -34678,6 +34999,7 @@
     "wiki_id": "202",
     "name": {
       "zh_cn": "天城",
+      "zh_tw": "天城",
       "ja": "天城",
       "en": "Amagi"
     },
@@ -34788,6 +35110,7 @@
     "wiki_id": "203",
     "name": {
       "zh_cn": "葛城",
+      "zh_tw": "葛城",
       "ja": "葛城",
       "en": "Katsuragi"
     },
@@ -34898,6 +35221,7 @@
     "wiki_id": "204",
     "name": {
       "zh_cn": "初春改二",
+      "zh_tw": "初春改二",
       "ja": "初春改二",
       "en": "Hatsuharu Kai Ni"
     },
@@ -35006,6 +35330,7 @@
     "wiki_id": "205",
     "name": {
       "zh_cn": "春雨",
+      "zh_tw": "春雨",
       "ja": "春雨",
       "en": "Harusame"
     },
@@ -35112,6 +35437,7 @@
     "wiki_id": "205a",
     "name": {
       "zh_cn": "春雨改",
+      "zh_tw": "春雨改",
       "ja": "春雨改",
       "en": "Harusame Kai"
     },
@@ -35220,6 +35546,7 @@
     "wiki_id": "206",
     "name": {
       "zh_cn": "云龙改",
+      "zh_tw": "雲龍改",
       "ja": "雲龍改",
       "en": "Unryuu Kai"
     },
@@ -35330,6 +35657,7 @@
     "wiki_id": "207",
     "name": {
       "zh_cn": "潮改二",
+      "zh_tw": "潮改二",
       "ja": "潮改二",
       "en": "Ushio Kai Ni"
     },
@@ -35438,6 +35766,7 @@
     "wiki_id": "208",
     "name": {
       "zh_cn": "隼鹰改二",
+      "zh_tw": "隼鷹改二",
       "ja": "隼鷹改二",
       "en": "Jun\u0027you Kai Ni"
     },
@@ -35548,6 +35877,7 @@
     "wiki_id": "209",
     "name": {
       "zh_cn": "早霜",
+      "zh_tw": "早霜",
       "ja": "早霜",
       "en": "Hayashimo"
     },
@@ -35654,6 +35984,7 @@
     "wiki_id": "209a",
     "name": {
       "zh_cn": "早霜改",
+      "zh_tw": "早霜改",
       "ja": "早霜改",
       "en": "Hayashimo Kai"
     },
@@ -35762,6 +36093,7 @@
     "wiki_id": "210",
     "name": {
       "zh_cn": "清霜",
+      "zh_tw": "清霜",
       "ja": "清霜",
       "en": "Kiyoshimo"
     },
@@ -35868,6 +36200,7 @@
     "wiki_id": "210a",
     "name": {
       "zh_cn": "清霜改",
+      "zh_tw": "清霜改",
       "ja": "清霜改",
       "en": "Kiyoshimo Kai"
     },
@@ -35976,6 +36309,7 @@
     "wiki_id": "211",
     "name": {
       "zh_cn": "扶桑改二",
+      "zh_tw": "扶桑改二",
       "ja": "扶桑改二",
       "en": "Fusou Kai Ni"
     },
@@ -36086,6 +36420,7 @@
     "wiki_id": "212",
     "name": {
       "zh_cn": "山城改二",
+      "zh_tw": "山城改二",
       "ja": "山城改二",
       "en": "Yamashiro Kai Ni"
     },
@@ -36196,6 +36531,7 @@
     "wiki_id": "213",
     "name": {
       "zh_cn": "朝云",
+      "zh_tw": "朝雲",
       "ja": "朝雲",
       "en": "Asagumo"
     },
@@ -36302,6 +36638,7 @@
     "wiki_id": "213a",
     "name": {
       "zh_cn": "朝云改",
+      "zh_tw": "朝雲改",
       "ja": "朝雲改",
       "en": "Asagumo Kai"
     },
@@ -36410,6 +36747,7 @@
     "wiki_id": "214",
     "name": {
       "zh_cn": "山云",
+      "zh_tw": "山雲",
       "ja": "山雲",
       "en": "Yamagumo"
     },
@@ -36516,6 +36854,7 @@
     "wiki_id": "214a",
     "name": {
       "zh_cn": "山云改",
+      "zh_tw": "山雲改",
       "ja": "山雲改",
       "en": "Yamagumo Kai"
     },
@@ -36624,6 +36963,7 @@
     "wiki_id": "215",
     "name": {
       "zh_cn": "野分",
+      "zh_tw": "野分",
       "ja": "野分",
       "en": "Nowaki"
     },
@@ -36730,6 +37070,7 @@
     "wiki_id": "215a",
     "name": {
       "zh_cn": "野分改",
+      "zh_tw": "野分改",
       "ja": "野分改",
       "en": "Nowaki Kai"
     },
@@ -36838,6 +37179,7 @@
     "wiki_id": "216",
     "name": {
       "zh_cn": "古鹰改二",
+      "zh_tw": "古鷹改二",
       "ja": "古鷹改二",
       "en": "Furutaka Kai Ni"
     },
@@ -36948,6 +37290,7 @@
     "wiki_id": "217",
     "name": {
       "zh_cn": "加古改二",
+      "zh_tw": "加古改二",
       "ja": "加古改二",
       "en": "Kako Kai Ni"
     },
@@ -37058,6 +37401,7 @@
     "wiki_id": "218",
     "name": {
       "zh_cn": "皋月改二",
+      "zh_tw": "皋月改二",
       "ja": "皐月改二",
       "en": "Satsuki Kai Ni"
     },
@@ -37170,6 +37514,7 @@
     "wiki_id": "219",
     "name": {
       "zh_cn": "初霜改二",
+      "zh_tw": "初霜改二",
       "ja": "初霜改二",
       "en": "Hatsushimo Kai Ni"
     },
@@ -37278,6 +37623,7 @@
     "wiki_id": "220",
     "name": {
       "zh_cn": "丛云改二",
+      "zh_tw": "叢雲改二",
       "ja": "叢雲改二",
       "en": "Murakumo Kai Ni"
     },
@@ -37386,6 +37732,7 @@
     "wiki_id": "221",
     "name": {
       "zh_cn": "秋月",
+      "zh_tw": "秋月",
       "ja": "秋月",
       "en": "Akiduki"
     },
@@ -37494,6 +37841,7 @@
     "wiki_id": "221a",
     "name": {
       "zh_cn": "秋月改",
+      "zh_tw": "秋月改",
       "ja": "秋月改",
       "en": "Akiduki Kai"
     },
@@ -37602,6 +37950,7 @@
     "wiki_id": "222",
     "name": {
       "zh_cn": "照月",
+      "zh_tw": "照月",
       "ja": "照月",
       "en": "Teruduki"
     },
@@ -37710,6 +38059,7 @@
     "wiki_id": "222a",
     "name": {
       "zh_cn": "照月改",
+      "zh_tw": "照月改",
       "ja": "照月改",
       "en": "Teruduki Kai"
     },
@@ -37818,6 +38168,7 @@
     "wiki_id": "223",
     "name": {
       "zh_cn": "初月",
+      "zh_tw": "初月",
       "ja": "初月",
       "en": "Hatsuduki"
     },
@@ -37926,6 +38277,7 @@
     "wiki_id": "223a",
     "name": {
       "zh_cn": "初月改",
+      "zh_tw": "初月改",
       "ja": "初月改",
       "en": "Hatsuduki Kai"
     },
@@ -38034,6 +38386,7 @@
     "wiki_id": "224",
     "name": {
       "zh_cn": "高波",
+      "zh_tw": "高波",
       "ja": "高波",
       "en": "Takanami"
     },
@@ -38140,6 +38493,7 @@
     "wiki_id": "224a",
     "name": {
       "zh_cn": "高波改",
+      "zh_tw": "高波改",
       "ja": "高波改",
       "en": "Takanami Kai"
     },
@@ -38248,6 +38602,7 @@
     "wiki_id": "225",
     "name": {
       "zh_cn": "朝霜",
+      "zh_tw": "朝霜",
       "ja": "朝霜",
       "en": "Asashimo"
     },
@@ -38354,6 +38709,7 @@
     "wiki_id": "225a",
     "name": {
       "zh_cn": "朝霜改",
+      "zh_tw": "朝霜改",
       "ja": "朝霜改",
       "en": "Asashimo Kai"
     },
@@ -38462,6 +38818,7 @@
     "wiki_id": "226",
     "name": {
       "zh_cn": "吹雪改二",
+      "zh_tw": "吹雪改二",
       "ja": "吹雪改二",
       "en": "Fubuki Kai Ni"
     },
@@ -38570,6 +38927,7 @@
     "wiki_id": "227",
     "name": {
       "zh_cn": "鸟海改二",
+      "zh_tw": "鳥海改二",
       "ja": "鳥海改二",
       "en": "Choukai Kai Ni"
     },
@@ -38680,6 +39038,7 @@
     "wiki_id": "228",
     "name": {
       "zh_cn": "摩耶改二",
+      "zh_tw": "摩耶改二",
       "ja": "摩耶改二",
       "en": "Maya Kai Ni"
     },
@@ -38790,6 +39149,7 @@
     "wiki_id": "229",
     "name": {
       "zh_cn": "天城改",
+      "zh_tw": "天城改",
       "ja": "天城改",
       "en": "Amagi Kai"
     },
@@ -38900,6 +39260,7 @@
     "wiki_id": "230",
     "name": {
       "zh_cn": "葛城改",
+      "zh_tw": "葛城改",
       "ja": "葛城改",
       "en": "Katsuragi Kai"
     },
@@ -39010,6 +39371,7 @@
     "wiki_id": "231",
     "name": {
       "zh_cn": "U-511",
+      "zh_tw": "U-511",
       "ja": "U-511",
       "en": "U-511"
     },
@@ -39114,6 +39476,7 @@
     "wiki_id": "231a",
     "name": {
       "zh_cn": "U-511改",
+      "zh_tw": "U-511改",
       "ja": "U-511改",
       "en": "U-511 Kai"
     },
@@ -39220,6 +39583,7 @@
     "wiki_id": "232",
     "name": {
       "zh_cn": "齐柏林",
+      "zh_tw": "齊柏林",
       "ja": "Graf Zeppelin",
       "en": "Graf Zeppelin"
     },
@@ -39328,6 +39692,7 @@
     "wiki_id": "232a",
     "name": {
       "zh_cn": "齐柏林改",
+      "zh_tw": "齊柏林改",
       "ja": "Graf Zeppelin改",
       "en": "Graf Zeppelin Kai"
     },
@@ -39438,6 +39803,7 @@
     "wiki_id": "234",
     "name": {
       "zh_cn": "睦月改二",
+      "zh_tw": "睦月改二",
       "ja": "睦月改二",
       "en": "Mutsuki Kai Ni"
     },
@@ -39549,6 +39915,7 @@
     "wiki_id": "235",
     "name": {
       "zh_cn": "如月改二",
+      "zh_tw": "如月改二",
       "ja": "如月改二",
       "en": "Kisaragi Kai Ni"
     },
@@ -39660,6 +40027,7 @@
     "wiki_id": "236",
     "name": {
       "zh_cn": "吕500",
+      "zh_tw": "呂500",
       "ja": "呂500",
       "en": "Yuー511・ro500"
     },
@@ -39766,6 +40134,7 @@
     "wiki_id": "237",
     "name": {
       "zh_cn": "晓改二",
+      "zh_tw": "曉改二",
       "ja": "暁改二",
       "en": "Akatsuki Kai Ni"
     },
@@ -39874,6 +40243,7 @@
     "wiki_id": "239",
     "name": {
       "zh_cn": "厌战",
+      "zh_tw": "厭戰",
       "ja": "Warspite",
       "en": "Warspite"
     },
@@ -39984,6 +40354,7 @@
     "wiki_id": "239a",
     "name": {
       "zh_cn": "厌战改",
+      "zh_tw": "厭戰改",
       "ja": "Warspite改",
       "en": "Warspite Kai"
     },
@@ -40094,6 +40465,7 @@
     "wiki_id": "240",
     "name": {
       "zh_cn": "衣阿华",
+      "zh_tw": "衣阿華",
       "ja": "Iowa",
       "en": "Iowa"
     },
@@ -40204,6 +40576,7 @@
     "wiki_id": "240a",
     "name": {
       "zh_cn": "衣阿华改",
+      "zh_tw": "衣阿華改",
       "ja": "Iowa改",
       "en": "Iowa Kai"
     },
@@ -40314,6 +40687,7 @@
     "wiki_id": "241",
     "name": {
       "zh_cn": "利托里奥",
+      "zh_tw": "利托里奧",
       "ja": "Littorio",
       "en": "Littorio"
     },
@@ -40424,6 +40798,7 @@
     "wiki_id": "242",
     "name": {
       "zh_cn": "罗马",
+      "zh_tw": "羅馬",
       "ja": "Roma",
       "en": "Roma"
     },
@@ -40534,6 +40909,7 @@
     "wiki_id": "243",
     "name": {
       "zh_cn": "利伯齐奥",
+      "zh_tw": "利伯齊奧",
       "ja": "Libeccio",
       "en": "Libeccio"
     },
@@ -40640,6 +41016,7 @@
     "wiki_id": "243a",
     "name": {
       "zh_cn": "利伯齐奥改",
+      "zh_tw": "利伯齊奧改",
       "ja": "Libeccio改",
       "en": "Libeccio Kai"
     },
@@ -40748,6 +41125,7 @@
     "wiki_id": "244",
     "name": {
       "zh_cn": "鹫座",
+      "zh_tw": "鷲座",
       "ja": "Aquila",
       "en": "Aquila"
     },
@@ -40856,6 +41234,7 @@
     "wiki_id": "244a",
     "name": {
       "zh_cn": "鹫座改",
+      "zh_tw": "鷲座改",
       "ja": "Aquila改",
       "en": "Aquila Kai"
     },
@@ -40966,6 +41345,7 @@
     "wiki_id": "245",
     "name": {
       "zh_cn": "秋津洲",
+      "zh_tw": "秋津洲",
       "ja": "秋津洲",
       "en": "Akitsushima"
     },
@@ -41072,6 +41452,7 @@
     "wiki_id": "246",
     "name": {
       "zh_cn": "意大利",
+      "zh_tw": "意大利",
       "ja": "Italia",
       "en": "Italia"
     },
@@ -41182,6 +41563,7 @@
     "wiki_id": "247",
     "name": {
       "zh_cn": "罗马改",
+      "zh_tw": "羅馬改",
       "ja": "Roma改",
       "en": "Roma Kai"
     },
@@ -41292,6 +41674,7 @@
     "wiki_id": "248",
     "name": {
       "zh_cn": "扎拉",
+      "zh_tw": "扎拉",
       "ja": "Zara",
       "en": "Zara"
     },
@@ -41400,6 +41783,7 @@
     "wiki_id": "248a",
     "name": {
       "zh_cn": "扎拉改",
+      "zh_tw": "扎拉改",
       "ja": "Zara改",
       "en": "Zara Kai"
     },
@@ -41514,6 +41898,7 @@
     "wiki_id": "249",
     "name": {
       "zh_cn": "波拉",
+      "zh_tw": "波拉",
       "ja": "Pola",
       "en": "Pola"
     },
@@ -41622,6 +42007,7 @@
     "wiki_id": "249a",
     "name": {
       "zh_cn": "波拉改",
+      "zh_tw": "波拉改",
       "ja": "Pola改",
       "en": "Pola Kai"
     },
@@ -41736,6 +42122,7 @@
     "wiki_id": "250",
     "name": {
       "zh_cn": "秋津洲改",
+      "zh_tw": "秋津洲改",
       "ja": "秋津洲改",
       "en": "Akitsushima Kai"
     },
@@ -41844,6 +42231,7 @@
     "wiki_id": "251",
     "name": {
       "zh_cn": "瑞穗",
+      "zh_tw": "瑞穗",
       "ja": "瑞穂",
       "en": "Mizuho"
     },
@@ -41950,6 +42338,7 @@
     "wiki_id": "251a",
     "name": {
       "zh_cn": "瑞穗改",
+      "zh_tw": "瑞穗改",
       "ja": "瑞穂改",
       "en": "Mizuho Kai"
     },
@@ -42058,6 +42447,7 @@
     "wiki_id": "252",
     "name": {
       "zh_cn": "冲波",
+      "zh_tw": "衝波",
       "ja": "沖波",
       "en": "Okinami"
     },
@@ -42164,6 +42554,7 @@
     "wiki_id": "252a",
     "name": {
       "zh_cn": "冲波改",
+      "zh_tw": "衝波改",
       "ja": "沖波改",
       "en": "Okinami Kai"
     },
@@ -42272,6 +42663,7 @@
     "wiki_id": "253",
     "name": {
       "zh_cn": "风云",
+      "zh_tw": "風雲",
       "ja": "風雲",
       "en": "Kazagumo"
     },
@@ -42378,6 +42770,7 @@
     "wiki_id": "253a",
     "name": {
       "zh_cn": "风云改",
+      "zh_tw": "風雲改",
       "ja": "風雲改",
       "en": "Kazagumo Kai"
     },
@@ -42486,6 +42879,7 @@
     "wiki_id": "254",
     "name": {
       "zh_cn": "岚‎‎",
+      "zh_tw": "嵐‎‎",
       "ja": "嵐",
       "en": "Arashi"
     },
@@ -42592,6 +42986,7 @@
     "wiki_id": "254a",
     "name": {
       "zh_cn": "岚‎‎改",
+      "zh_tw": "嵐‎‎改",
       "ja": "嵐改",
       "en": "Arashi Kai"
     },
@@ -42700,6 +43095,7 @@
     "wiki_id": "255",
     "name": {
       "zh_cn": "萩风‎",
+      "zh_tw": "萩風‎",
       "ja": "萩風",
       "en": "Hagikaze"
     },
@@ -42806,6 +43202,7 @@
     "wiki_id": "255a",
     "name": {
       "zh_cn": "萩风‎改",
+      "zh_tw": "萩風‎改",
       "ja": "萩風改",
       "en": "Hagikaze Kai"
     },
@@ -42914,6 +43311,7 @@
     "wiki_id": "256",
     "name": {
       "zh_cn": "亲潮",
+      "zh_tw": "親潮",
       "ja": "親潮",
       "en": "Oyashio"
     },
@@ -43020,6 +43418,7 @@
     "wiki_id": "256a",
     "name": {
       "zh_cn": "亲潮改",
+      "zh_tw": "親潮改",
       "ja": "親潮改",
       "en": "Oyashio Kai"
     },
@@ -43128,6 +43527,7 @@
     "wiki_id": "258",
     "name": {
       "zh_cn": "海风",
+      "zh_tw": "海風",
       "ja": "海風",
       "en": "Umikaze"
     },
@@ -43234,6 +43634,7 @@
     "wiki_id": "258a",
     "name": {
       "zh_cn": "海风改",
+      "zh_tw": "海風改",
       "ja": "海風改",
       "en": "Umikaze Kai"
     },
@@ -43342,6 +43743,7 @@
     "wiki_id": "259",
     "name": {
       "zh_cn": "江风",
+      "zh_tw": "江風",
       "ja": "江風",
       "en": "Kawakaze"
     },
@@ -43448,6 +43850,7 @@
     "wiki_id": "259a",
     "name": {
       "zh_cn": "江风改",
+      "zh_tw": "江風改",
       "ja": "江風改",
       "en": "Kawakaze Kai"
     },
@@ -43556,6 +43959,7 @@
     "wiki_id": "260",
     "name": {
       "zh_cn": "速吸",
+      "zh_tw": "速吸",
       "ja": "速吸",
       "en": "Hayasui"
     },
@@ -43662,6 +44066,7 @@
     "wiki_id": "260a",
     "name": {
       "zh_cn": "速吸改",
+      "zh_tw": "速吸改",
       "ja": "速吸改",
       "en": "Hayasui Kai"
     },
@@ -43770,6 +44175,7 @@
     "wiki_id": "261",
     "name": {
       "zh_cn": "翔鹤改二",
+      "zh_tw": "翔鶴改二",
       "ja": "翔鶴改二",
       "en": "Shoukaku Kai Ni"
     },
@@ -43880,6 +44286,7 @@
     "wiki_id": "262",
     "name": {
       "zh_cn": "瑞鹤改二",
+      "zh_tw": "瑞鶴改二",
       "ja": "瑞鶴改二",
       "en": "Zuikaku Kai Ni"
     },
@@ -43990,6 +44397,7 @@
     "wiki_id": "263",
     "name": {
       "zh_cn": "朝潮改二",
+      "zh_tw": "朝潮改二",
       "ja": "朝潮改二",
       "en": "Asashio Kai Ni"
     },
@@ -44098,6 +44506,7 @@
     "wiki_id": "264",
     "name": {
       "zh_cn": "霞改二",
+      "zh_tw": "霞改二",
       "ja": "霞改二",
       "en": "Kasumi Kai Ni"
     },
@@ -44211,6 +44620,7 @@
     "wiki_id": "265",
     "name": {
       "zh_cn": "鹿岛",
+      "zh_tw": "鹿島",
       "ja": "鹿島",
       "en": "Kashima"
     },
@@ -44319,6 +44729,7 @@
     "wiki_id": "265a",
     "name": {
       "zh_cn": "鹿岛改",
+      "zh_tw": "鹿島改",
       "ja": "鹿島改",
       "en": "Kashima Kai"
     },
@@ -44429,6 +44840,7 @@
     "wiki_id": "266",
     "name": {
       "zh_cn": "翔鹤改二甲",
+      "zh_tw": "翔鶴改二甲",
       "ja": "翔鶴改二甲",
       "en": "Shoukaku Kai Ni A"
     },
@@ -44539,6 +44951,7 @@
     "wiki_id": "267",
     "name": {
       "zh_cn": "瑞鹤改二甲",
+      "zh_tw": "瑞鶴改二甲",
       "ja": "瑞鶴改二甲",
       "en": "Zuikaku Kai Ni A"
     },
@@ -44649,6 +45062,7 @@
     "wiki_id": "268",
     "name": {
       "zh_cn": "朝潮改二丁",
+      "zh_tw": "朝潮改二丁",
       "ja": "朝潮改二丁",
       "en": "Asashio Kai Ni D"
     },
@@ -44761,6 +45175,7 @@
     "wiki_id": "269",
     "name": {
       "zh_cn": "江风改二",
+      "zh_tw": "江風改二",
       "ja": "江風改二",
       "en": "Kawakaze Kai Ni"
     },
@@ -44872,6 +45287,7 @@
     "wiki_id": "270",
     "name": {
       "zh_cn": "霞改二乙",
+      "zh_tw": "霞改二乙",
       "ja": "霞改二乙",
       "en": "Kasumi Kai Ni B"
     },
@@ -44985,6 +45401,7 @@
     "wiki_id": "271",
     "name": {
       "zh_cn": "神风",
+      "zh_tw": "神風",
       "ja": "神風",
       "en": "Kamikaze"
     },
@@ -45091,6 +45508,7 @@
     "wiki_id": "273",
     "name": {
       "zh_cn": "春风",
+      "zh_tw": "春風",
       "ja": "春風",
       "en": "Harukaze"
     },
@@ -45197,6 +45615,7 @@
     "wiki_id": "273a",
     "name": {
       "zh_cn": "春风改",
+      "zh_tw": "春風改",
       "ja": "春風改",
       "en": "Harukaze Kai"
     },
@@ -45305,6 +45724,7 @@
     "wiki_id": "276",
     "name": {
       "zh_cn": "神风改",
+      "zh_tw": "神風改",
       "ja": "神風改",
       "en": "Kamikaze Kai"
     },
@@ -45413,6 +45833,7 @@
     "wiki_id": "281",
     "name": {
       "zh_cn": "水无月",
+      "zh_tw": "水無月",
       "ja": "水無月",
       "en": "Minaduki"
     },
@@ -45519,6 +45940,7 @@
     "wiki_id": "281a",
     "name": {
       "zh_cn": "水无月改",
+      "zh_tw": "水無月改",
       "ja": "水無月改",
       "en": "Minaduki Kai"
     },
@@ -45627,6 +46049,7 @@
     "wiki_id": "283",
     "name": {
       "zh_cn": "伊26",
+      "zh_tw": "伊26",
       "ja": "伊26",
       "en": "I26"
     },
@@ -45733,6 +46156,7 @@
     "wiki_id": "283a",
     "name": {
       "zh_cn": "伊26改",
+      "zh_tw": "伊26改",
       "ja": "伊26改",
       "en": "I26 Kai"
     },
@@ -45839,6 +46263,7 @@
     "wiki_id": "286",
     "name": {
       "zh_cn": "浦波",
+      "zh_tw": "浦波",
       "ja": "浦波",
       "en": "Uranami"
     },
@@ -45945,6 +46370,7 @@
     "wiki_id": "286a",
     "name": {
       "zh_cn": "浦波改",
+      "zh_tw": "浦波改",
       "ja": "浦波改",
       "en": "Uranami Kai"
     },
@@ -46051,6 +46477,7 @@
     "wiki_id": "501",
     "name": {
       "zh_cn": "驱逐I级 ",
+      "zh_tw": "驅逐I級 ",
       "ja": "駆逐イ級 ",
       "en": ""
     },
@@ -46106,6 +46533,7 @@
     "wiki_id": "514",
     "name": {
       "zh_cn": "驱逐I级 elite",
+      "zh_tw": "驅逐I級 elite",
       "ja": "駆逐イ級 elite",
       "en": ""
     },
@@ -46161,6 +46589,7 @@
     "wiki_id": "564",
     "name": {
       "zh_cn": "驱逐I级 flagship",
+      "zh_tw": "驅逐I級 flagship",
       "ja": "駆逐イ級 flagship",
       "en": ""
     },
@@ -46218,6 +46647,7 @@
     "wiki_id": "575",
     "name": {
       "zh_cn": "驱逐I级 后期型",
+      "zh_tw": "驅逐I級 後期型",
       "ja": "駆逐イ級 后期型",
       "en": ""
     },
@@ -46275,6 +46705,7 @@
     "wiki_id": "621",
     "name": {
       "zh_cn": "驱逐I级 elite",
+      "zh_tw": "驅逐I級 elite",
       "ja": "駆逐イ級 elite",
       "en": ""
     },
@@ -46332,6 +46763,7 @@
     "wiki_id": "502",
     "name": {
       "zh_cn": "驱逐RO级 ",
+      "zh_tw": "驅逐RO級 ",
       "ja": "駆逐ロ級 ",
       "en": ""
     },
@@ -46387,6 +46819,7 @@
     "wiki_id": "515",
     "name": {
       "zh_cn": "驱逐RO级 elite",
+      "zh_tw": "驅逐RO級 elite",
       "ja": "駆逐ロ級 elite",
       "en": ""
     },
@@ -46442,6 +46875,7 @@
     "wiki_id": "552",
     "name": {
       "zh_cn": "驱逐RO级flagship flagship",
+      "zh_tw": "驅逐RO級flagship flagship",
       "ja": "null flagship",
       "en": ""
     },
@@ -46499,6 +46933,7 @@
     "wiki_id": "576",
     "name": {
       "zh_cn": "驱逐RO级 后期型",
+      "zh_tw": "驅逐RO級 後期型",
       "ja": "駆逐ロ級 后期型",
       "en": ""
     },
@@ -46556,6 +46991,7 @@
     "wiki_id": "622",
     "name": {
       "zh_cn": "驱逐RO级 elite",
+      "zh_tw": "驅逐RO級 elite",
       "ja": "駆逐ロ級 elite",
       "en": ""
     },
@@ -46613,6 +47049,7 @@
     "wiki_id": "503",
     "name": {
       "zh_cn": "驱逐HA级 ",
+      "zh_tw": "驅逐HA級 ",
       "ja": "駆逐ハ級 ",
       "en": ""
     },
@@ -46668,6 +47105,7 @@
     "wiki_id": "516",
     "name": {
       "zh_cn": "驱逐HA级 elite",
+      "zh_tw": "驅逐HA級 elite",
       "ja": "駆逐ハ級 elite",
       "en": ""
     },
@@ -46723,6 +47161,7 @@
     "wiki_id": "553",
     "name": {
       "zh_cn": "驱逐HA级 flagship",
+      "zh_tw": "驅逐HA級 flagship",
       "ja": "駆逐ハ級 flagship",
       "en": ""
     },
@@ -46780,6 +47219,7 @@
     "wiki_id": "577",
     "name": {
       "zh_cn": "驱逐HA级 后期型",
+      "zh_tw": "驅逐HA級 後期型",
       "ja": "駆逐ハ級 后期型",
       "en": ""
     },
@@ -46837,6 +47277,7 @@
     "wiki_id": "623",
     "name": {
       "zh_cn": "驱逐HA级 elite",
+      "zh_tw": "驅逐HA級 elite",
       "ja": "駆逐ハ級 elite",
       "en": ""
     },
@@ -46894,6 +47335,7 @@
     "wiki_id": "504",
     "name": {
       "zh_cn": "驱逐NI级 ",
+      "zh_tw": "驅逐NI級 ",
       "ja": "駆逐二級 ",
       "en": ""
     },
@@ -46949,6 +47391,7 @@
     "wiki_id": "517",
     "name": {
       "zh_cn": "驱逐NI级 elite",
+      "zh_tw": "驅逐NI級 elite",
       "ja": "駆逐二級 elite",
       "en": ""
     },
@@ -47004,6 +47447,7 @@
     "wiki_id": "578",
     "name": {
       "zh_cn": "驱逐NI级 后期型",
+      "zh_tw": "驅逐NI級 後期型",
       "ja": "駆逐二級 后期型",
       "en": ""
     },
@@ -47061,6 +47505,7 @@
     "wiki_id": "624",
     "name": {
       "zh_cn": "驱逐NI级 elite",
+      "zh_tw": "驅逐NI級 elite",
       "ja": "駆逐二級 elite",
       "en": ""
     },
@@ -47118,6 +47563,7 @@
     "wiki_id": "505",
     "name": {
       "zh_cn": "轻巡HO级 ",
+      "zh_tw": "輕巡HO級 ",
       "ja": "軽巡ホ級 ",
       "en": ""
     },
@@ -47173,6 +47619,7 @@
     "wiki_id": "518",
     "name": {
       "zh_cn": "轻巡HO级 elite",
+      "zh_tw": "輕巡HO級 elite",
       "ja": "軽巡ホ級 elite",
       "en": ""
     },
@@ -47228,6 +47675,7 @@
     "wiki_id": "554",
     "name": {
       "zh_cn": "轻巡HO级 flagship",
+      "zh_tw": "輕巡HO級 flagship",
       "ja": "軽巡ホ級 flagship",
       "en": ""
     },
@@ -47285,6 +47733,7 @@
     "wiki_id": "506",
     "name": {
       "zh_cn": "轻巡HE级 ",
+      "zh_tw": "輕巡HE級 ",
       "ja": "軽巡ヘ級 ",
       "en": ""
     },
@@ -47340,6 +47789,7 @@
     "wiki_id": "519",
     "name": {
       "zh_cn": "轻巡HE级 elite",
+      "zh_tw": "輕巡HE級 elite",
       "ja": "軽巡ヘ級 elite",
       "en": ""
     },
@@ -47395,6 +47845,7 @@
     "wiki_id": "555",
     "name": {
       "zh_cn": "轻巡HE级 flagship",
+      "zh_tw": "輕巡HE級 flagship",
       "ja": "軽巡ヘ級 flagship",
       "en": ""
     },
@@ -47454,6 +47905,7 @@
     "wiki_id": "507",
     "name": {
       "zh_cn": "轻巡TO级 ",
+      "zh_tw": "輕巡TO級 ",
       "ja": "軽巡ト級 ",
       "en": ""
     },
@@ -47511,6 +47963,7 @@
     "wiki_id": "520",
     "name": {
       "zh_cn": "轻巡TO级 elite",
+      "zh_tw": "輕巡TO級 elite",
       "ja": "軽巡ト級 elite",
       "en": ""
     },
@@ -47568,6 +48021,7 @@
     "wiki_id": "591",
     "name": {
       "zh_cn": "轻巡TSU级 ",
+      "zh_tw": "輕巡TSU級 ",
       "ja": "軽巡ツ級 ",
       "en": ""
     },
@@ -47627,6 +48081,7 @@
     "wiki_id": "592",
     "name": {
       "zh_cn": "轻巡TSU级 elite",
+      "zh_tw": "輕巡TSU級 elite",
       "ja": "軽巡ツ級 elite",
       "en": ""
     },
@@ -47686,6 +48141,7 @@
     "wiki_id": "508",
     "name": {
       "zh_cn": "雷巡CHI级 ",
+      "zh_tw": "雷巡CHI級 ",
       "ja": "雷巡チ級 ",
       "en": ""
     },
@@ -47743,6 +48199,7 @@
     "wiki_id": "521",
     "name": {
       "zh_cn": "雷巡CHI级 elite",
+      "zh_tw": "雷巡CHI級 elite",
       "ja": "雷巡チ級 elite",
       "en": ""
     },
@@ -47800,6 +48257,7 @@
     "wiki_id": "559",
     "name": {
       "zh_cn": "雷巡CHI级 flagship",
+      "zh_tw": "雷巡CHI級 flagship",
       "ja": "雷巡チ級 flagship",
       "en": ""
     },
@@ -47857,6 +48315,7 @@
     "wiki_id": "509",
     "name": {
       "zh_cn": "重巡RI级 ",
+      "zh_tw": "重巡RI級 ",
       "ja": "重巡リ級 ",
       "en": ""
     },
@@ -47914,6 +48373,7 @@
     "wiki_id": "522",
     "name": {
       "zh_cn": "重巡RI级 elite",
+      "zh_tw": "重巡RI級 elite",
       "ja": "重巡リ級 elite",
       "en": ""
     },
@@ -47973,6 +48433,7 @@
     "wiki_id": "527",
     "name": {
       "zh_cn": "重巡RI级 flagship",
+      "zh_tw": "重巡RI級 flagship",
       "ja": "重巡リ級 flagship",
       "en": ""
     },
@@ -48032,6 +48493,7 @@
     "wiki_id": "566",
     "name": {
       "zh_cn": "重巡RI级 改flagship",
+      "zh_tw": "重巡RI級 改flagship",
       "ja": "重巡リ級 改flagship",
       "en": ""
     },
@@ -48091,6 +48553,7 @@
     "wiki_id": "594",
     "name": {
       "zh_cn": "重巡NE级 ",
+      "zh_tw": "重巡NE級 ",
       "ja": "重巡ネ級 ",
       "en": ""
     },
@@ -48150,6 +48613,7 @@
     "wiki_id": "595",
     "name": {
       "zh_cn": "重巡NE级 elite",
+      "zh_tw": "重巡NE級 elite",
       "ja": "重巡ネ級 elite",
       "en": ""
     },
@@ -48209,6 +48673,7 @@
     "wiki_id": "511",
     "name": {
       "zh_cn": "战舰RU级 ",
+      "zh_tw": "戰艦RU級 ",
       "ja": "戦艦ル級 ",
       "en": ""
     },
@@ -48266,6 +48731,7 @@
     "wiki_id": "524",
     "name": {
       "zh_cn": "战舰RU级 elite",
+      "zh_tw": "戰艦RU級 elite",
       "ja": "戦艦ル級 elite",
       "en": ""
     },
@@ -48325,6 +48791,7 @@
     "wiki_id": "529",
     "name": {
       "zh_cn": "战舰RU级 flagship",
+      "zh_tw": "戰艦RU級 flagship",
       "ja": "戦艦ル級 flagship",
       "en": ""
     },
@@ -48384,6 +48851,7 @@
     "wiki_id": "567",
     "name": {
       "zh_cn": "战舰RU级 改flagship",
+      "zh_tw": "戰艦RU級 改flagship",
       "ja": "戦艦ル級 改flagship",
       "en": ""
     },
@@ -48443,6 +48911,7 @@
     "wiki_id": "541",
     "name": {
       "zh_cn": "战舰TA级 ",
+      "zh_tw": "戰艦TA級 ",
       "ja": "戦艦タ級 ",
       "en": ""
     },
@@ -48502,6 +48971,7 @@
     "wiki_id": "542",
     "name": {
       "zh_cn": "战舰TA级 elite",
+      "zh_tw": "戰艦TA級 elite",
       "ja": "戦艦タ級 elite",
       "en": ""
     },
@@ -48561,6 +49031,7 @@
     "wiki_id": "543",
     "name": {
       "zh_cn": "战舰TA级 flagship",
+      "zh_tw": "戰艦TA級 flagship",
       "ja": "戦艦タ級 flagship",
       "en": ""
     },
@@ -48620,6 +49091,7 @@
     "wiki_id": "561",
     "name": {
       "zh_cn": "战舰RE级 ",
+      "zh_tw": "戰艦RE級 ",
       "ja": "戦艦レ級 ",
       "en": ""
     },
@@ -48679,6 +49151,7 @@
     "wiki_id": "562",
     "name": {
       "zh_cn": "战舰RE级 elite",
+      "zh_tw": "戰艦RE級 elite",
       "ja": "戦艦レ級 elite",
       "en": ""
     },
@@ -48738,6 +49211,7 @@
     "wiki_id": "510",
     "name": {
       "zh_cn": "轻母NU级 ",
+      "zh_tw": "輕母NU級 ",
       "ja": "軽母ヌ級 ",
       "en": ""
     },
@@ -48795,6 +49269,7 @@
     "wiki_id": "523",
     "name": {
       "zh_cn": "轻母NU级 elite",
+      "zh_tw": "輕母NU級 elite",
       "ja": "軽母ヌ級 elite",
       "en": ""
     },
@@ -48852,6 +49327,7 @@
     "wiki_id": "560",
     "name": {
       "zh_cn": "轻母NU级 flagship",
+      "zh_tw": "輕母NU級 flagship",
       "ja": "軽母ヌ級 flagship",
       "en": ""
     },
@@ -48911,6 +49387,7 @@
     "wiki_id": "512",
     "name": {
       "zh_cn": "空母WO级 ",
+      "zh_tw": "空母WO級 ",
       "ja": "空母ヲ級 ",
       "en": ""
     },
@@ -48968,6 +49445,7 @@
     "wiki_id": "525",
     "name": {
       "zh_cn": "空母WO级 elite",
+      "zh_tw": "空母WO級 elite",
       "ja": "空母ヲ級 elite",
       "en": ""
     },
@@ -49025,6 +49503,7 @@
     "wiki_id": "528",
     "name": {
       "zh_cn": "空母WO级 flagship",
+      "zh_tw": "空母WO級 flagship",
       "ja": "空母ヲ級 flagship",
       "en": ""
     },
@@ -49082,6 +49561,7 @@
     "wiki_id": "579",
     "name": {
       "zh_cn": "空母WO级 flagship",
+      "zh_tw": "空母WO級 flagship",
       "ja": "空母ヲ級 flagship",
       "en": ""
     },
@@ -49139,6 +49619,7 @@
     "wiki_id": "614",
     "name": {
       "zh_cn": "空母WO级 flagship",
+      "zh_tw": "空母WO級 flagship",
       "ja": "空母ヲ級 flagship",
       "en": ""
     },
@@ -49196,6 +49677,7 @@
     "wiki_id": "615",
     "name": {
       "zh_cn": "空母WO级 flagship",
+      "zh_tw": "空母WO級 flagship",
       "ja": "空母ヲ級 flagship",
       "en": ""
     },
@@ -49253,6 +49735,7 @@
     "wiki_id": "565",
     "name": {
       "zh_cn": "空母WO级 改flagship",
+      "zh_tw": "空母WO級 改flagship",
       "ja": "空母ヲ級 改flagship",
       "en": ""
     },
@@ -49312,6 +49795,7 @@
     "wiki_id": "616",
     "name": {
       "zh_cn": "空母WO级 改flagship",
+      "zh_tw": "空母WO級 改flagship",
       "ja": "空母ヲ級 改flagship",
       "en": ""
     },
@@ -49369,6 +49853,7 @@
     "wiki_id": "617",
     "name": {
       "zh_cn": "空母WO级 改flagship",
+      "zh_tw": "空母WO級 改flagship",
       "ja": "空母ヲ級 改flagship",
       "en": ""
     },
@@ -49426,6 +49911,7 @@
     "wiki_id": "618",
     "name": {
       "zh_cn": "空母WO级 改flagship",
+      "zh_tw": "空母WO級 改flagship",
       "ja": "空母ヲ級 改flagship",
       "en": ""
     },
@@ -49483,6 +49969,7 @@
     "wiki_id": "513",
     "name": {
       "zh_cn": "输送WA级 ",
+      "zh_tw": "輸送WA級 ",
       "ja": "輸送ワ級 ",
       "en": ""
     },
@@ -49532,6 +50019,7 @@
     "wiki_id": "526",
     "name": {
       "zh_cn": "输送WA级 elite",
+      "zh_tw": "輸送WA級 elite",
       "ja": "輸送ワ級 elite",
       "en": ""
     },
@@ -49589,6 +50077,7 @@
     "wiki_id": "558",
     "name": {
       "zh_cn": "输送WA级 flagship",
+      "zh_tw": "輸送WA級 flagship",
       "ja": "輸送ワ級 flagship",
       "en": ""
     },
@@ -49646,6 +50135,7 @@
     "wiki_id": "530",
     "name": {
       "zh_cn": "潜水KA级 ",
+      "zh_tw": "潜水KA級 ",
       "ja": "潜水カ級 ",
       "en": ""
     },
@@ -49701,6 +50191,7 @@
     "wiki_id": "532",
     "name": {
       "zh_cn": "潜水KA级 elite",
+      "zh_tw": "潜水KA級 elite",
       "ja": "潜水カ級 elite",
       "en": ""
     },
@@ -49758,6 +50249,7 @@
     "wiki_id": "534",
     "name": {
       "zh_cn": "潜水KA级 flagship",
+      "zh_tw": "潜水KA級 flagship",
       "ja": "潜水カ級 flagship",
       "en": ""
     },
@@ -49815,6 +50307,7 @@
     "wiki_id": "531",
     "name": {
       "zh_cn": "潜水YO级 ",
+      "zh_tw": "潜水YO級 ",
       "ja": "潜水ヨ級 ",
       "en": ""
     },
@@ -49870,6 +50363,7 @@
     "wiki_id": "533",
     "name": {
       "zh_cn": "潜水YO级 elite",
+      "zh_tw": "潜水YO級 elite",
       "ja": "潜水ヨ級 elite",
       "en": ""
     },
@@ -49927,6 +50421,7 @@
     "wiki_id": "535",
     "name": {
       "zh_cn": "潜水YO级 flagship",
+      "zh_tw": "潜水YO級 flagship",
       "ja": "潜水ヨ級 flagship",
       "en": ""
     },
@@ -49984,6 +50479,7 @@
     "wiki_id": "570",
     "name": {
       "zh_cn": "潜水SO级 ",
+      "zh_tw": "潜水SO級 ",
       "ja": "潜水ソ級 ",
       "en": ""
     },
@@ -50039,6 +50535,7 @@
     "wiki_id": "571",
     "name": {
       "zh_cn": "潜水SO级 elite",
+      "zh_tw": "潜水SO級 elite",
       "ja": "潜水ソ級 elite",
       "en": ""
     },
@@ -50096,6 +50593,7 @@
     "wiki_id": "572",
     "name": {
       "zh_cn": "潜水SO级 flagship",
+      "zh_tw": "潜水SO級 flagship",
       "ja": "潜水ソ級 flagship",
       "en": ""
     },
@@ -50153,6 +50651,7 @@
     "wiki_id": "536",
     "name": {
       "zh_cn": "浮游要塞 ",
+      "zh_tw": "浮遊要塞 ",
       "ja": "浮遊要塞 ",
       "en": ""
     },
@@ -50210,6 +50709,7 @@
     "wiki_id": "537",
     "name": {
       "zh_cn": "浮游要塞 ",
+      "zh_tw": "浮遊要塞 ",
       "ja": "浮遊要塞 ",
       "en": ""
     },
@@ -50267,6 +50767,7 @@
     "wiki_id": "538",
     "name": {
       "zh_cn": "浮游要塞 ",
+      "zh_tw": "浮遊要塞 ",
       "ja": "浮遊要塞 ",
       "en": ""
     },
@@ -50324,6 +50825,7 @@
     "wiki_id": "549",
     "name": {
       "zh_cn": "护卫要塞 ",
+      "zh_tw": "護衛要塞 ",
       "ja": "null ",
       "en": ""
     },
@@ -50381,6 +50883,7 @@
     "wiki_id": "550",
     "name": {
       "zh_cn": "护卫要塞 ",
+      "zh_tw": "護衛要塞 ",
       "ja": "null ",
       "en": ""
     },
@@ -50438,6 +50941,7 @@
     "wiki_id": "551",
     "name": {
       "zh_cn": "护卫要塞 ",
+      "zh_tw": "護衛要塞 ",
       "ja": "null ",
       "en": ""
     },
@@ -50495,6 +50999,7 @@
     "wiki_id": "637",
     "name": {
       "zh_cn": "PT小鬼群 ",
+      "zh_tw": "PT小鬼群 ",
       "ja": "PT小鬼群 ",
       "en": ""
     },
@@ -50550,6 +51055,7 @@
     "wiki_id": "638",
     "name": {
       "zh_cn": "PT小鬼群 ",
+      "zh_tw": "PT小鬼群 ",
       "ja": "PT小鬼群 ",
       "en": ""
     },
@@ -50605,6 +51111,7 @@
     "wiki_id": "639",
     "name": {
       "zh_cn": "PT小鬼群 ",
+      "zh_tw": "PT小鬼群 ",
       "ja": "PT小鬼群 ",
       "en": ""
     },
@@ -50660,6 +51167,7 @@
     "wiki_id": "640",
     "name": {
       "zh_cn": "PT小鬼群 ",
+      "zh_tw": "PT小鬼群 ",
       "ja": "PT小鬼群 ",
       "en": ""
     },
@@ -50715,6 +51223,7 @@
     "wiki_id": "539",
     "name": {
       "zh_cn": "泊地栖鬼 ",
+      "zh_tw": "泊地棲鬼 ",
       "ja": "泊地棲鬼 ",
       "en": ""
     },
@@ -50772,6 +51281,7 @@
     "wiki_id": "540",
     "name": {
       "zh_cn": "泊地栖姬 ",
+      "zh_tw": "泊地棲姬 ",
       "ja": "泊地棲姫 ",
       "en": ""
     },
@@ -50829,6 +51339,7 @@
     "wiki_id": "544",
     "name": {
       "zh_cn": "装甲空母鬼 ",
+      "zh_tw": "裝甲空母鬼 ",
       "ja": "装甲空母鬼 ",
       "en": ""
     },
@@ -50886,6 +51397,7 @@
     "wiki_id": "545",
     "name": {
       "zh_cn": "装甲空母姬 ",
+      "zh_tw": "裝甲空母姬 ",
       "ja": "装甲空母姫 ",
       "en": ""
     },
@@ -50943,6 +51455,7 @@
     "wiki_id": "546",
     "name": {
       "zh_cn": "南方栖鬼 ",
+      "zh_tw": "南方棲鬼 ",
       "ja": "南方棲鬼 ",
       "en": ""
     },
@@ -51000,6 +51513,7 @@
     "wiki_id": "547",
     "name": {
       "zh_cn": "南方栖战鬼 ",
+      "zh_tw": "南方棲戰鬼 ",
       "ja": "南方棲戦鬼 ",
       "en": ""
     },
@@ -51057,6 +51571,7 @@
     "wiki_id": "548",
     "name": {
       "zh_cn": "南方栖战姬 ",
+      "zh_tw": "南方棲戰姬 ",
       "ja": "南方棲戦姫 ",
       "en": ""
     },
@@ -51114,6 +51629,7 @@
     "wiki_id": "557",
     "name": {
       "zh_cn": "战舰栖姬 ",
+      "zh_tw": "戰艦棲姬 ",
       "ja": "戦艦棲姫 ",
       "en": ""
     },
@@ -51173,6 +51689,7 @@
     "wiki_id": "585",
     "name": {
       "zh_cn": "空母栖鬼 ",
+      "zh_tw": "空母棲鬼 ",
       "ja": "空母棲鬼 ",
       "en": ""
     },
@@ -51232,6 +51749,7 @@
     "wiki_id": "586",
     "name": {
       "zh_cn": "空母栖姬 ",
+      "zh_tw": "空母棲姬 ",
       "ja": "空母棲姫 ",
       "en": ""
     },
@@ -51291,6 +51809,7 @@
     "wiki_id": "597",
     "name": {
       "zh_cn": "驱逐栖姬 ",
+      "zh_tw": "驅逐棲姬 ",
       "ja": "駆逐棲姫 ",
       "en": ""
     },
@@ -51348,6 +51867,7 @@
     "wiki_id": "598",
     "name": {
       "zh_cn": "驱逐栖姬 最终形态",
+      "zh_tw": "驅逐棲姬 最終形態",
       "ja": "駆逐棲姫 最终形态",
       "en": ""
     },
@@ -51405,6 +51925,7 @@
     "wiki_id": "599",
     "name": {
       "zh_cn": "空母水鬼 ",
+      "zh_tw": "空母水鬼 ",
       "ja": "空母水鬼 ",
       "en": ""
     },
@@ -51464,6 +51985,7 @@
     "wiki_id": "600",
     "name": {
       "zh_cn": "空母水鬼 最终形态",
+      "zh_tw": "空母水鬼 最終形態",
       "ja": "空母水鬼 最终形态",
       "en": ""
     },
@@ -51523,6 +52045,7 @@
     "wiki_id": "601",
     "name": {
       "zh_cn": "轻巡栖鬼 ",
+      "zh_tw": "輕巡棲鬼 ",
       "ja": "軽巡棲鬼 ",
       "en": ""
     },
@@ -51582,6 +52105,7 @@
     "wiki_id": "602",
     "name": {
       "zh_cn": "轻巡栖鬼 最终形态",
+      "zh_tw": "輕巡棲鬼 最終形態",
       "ja": "軽巡棲鬼 最终形态",
       "en": ""
     },
@@ -51641,6 +52165,7 @@
     "wiki_id": "603",
     "name": {
       "zh_cn": "战舰水鬼 ",
+      "zh_tw": "戰艦水鬼 ",
       "ja": "戦艦水鬼 ",
       "en": ""
     },
@@ -51700,6 +52225,7 @@
     "wiki_id": "604",
     "name": {
       "zh_cn": "战舰水鬼 ",
+      "zh_tw": "戰艦水鬼 ",
       "ja": "戦艦水鬼 ",
       "en": ""
     },
@@ -51759,6 +52285,7 @@
     "wiki_id": "625",
     "name": {
       "zh_cn": "水母栖姬 ",
+      "zh_tw": "水母棲姬 ",
       "ja": "水母棲姫 ",
       "en": ""
     },
@@ -51818,6 +52345,7 @@
     "wiki_id": "626",
     "name": {
       "zh_cn": "水母栖姬 ",
+      "zh_tw": "水母棲姬 ",
       "ja": "水母棲姫 ",
       "en": ""
     },
@@ -51877,6 +52405,7 @@
     "wiki_id": "627",
     "name": {
       "zh_cn": "水母栖姬 ",
+      "zh_tw": "水母棲姬 ",
       "ja": "水母棲姫 ",
       "en": ""
     },
@@ -51936,6 +52465,7 @@
     "wiki_id": "628",
     "name": {
       "zh_cn": "防空栖姬 ",
+      "zh_tw": "防空棲姬 ",
       "ja": "防空棲姫 ",
       "en": ""
     },
@@ -51993,6 +52523,7 @@
     "wiki_id": "629",
     "name": {
       "zh_cn": "防空栖姬 ",
+      "zh_tw": "防空棲姬 ",
       "ja": "防空棲姫 ",
       "en": ""
     },
@@ -52050,6 +52581,7 @@
     "wiki_id": "630",
     "name": {
       "zh_cn": "防空栖姬 ",
+      "zh_tw": "防空棲姬 ",
       "ja": "防空棲姫 ",
       "en": ""
     },
@@ -52107,6 +52639,7 @@
     "wiki_id": "641",
     "name": {
       "zh_cn": "轻巡栖姬 ",
+      "zh_tw": "輕巡棲姬 ",
       "ja": "軽巡栖姫 ",
       "en": ""
     },
@@ -52166,6 +52699,7 @@
     "wiki_id": "642",
     "name": {
       "zh_cn": "轻巡栖姬 ",
+      "zh_tw": "輕巡棲姬 ",
       "ja": "軽巡栖姫 ",
       "en": ""
     },
@@ -52225,6 +52759,7 @@
     "wiki_id": "643",
     "name": {
       "zh_cn": "轻巡栖姬 ",
+      "zh_tw": "輕巡棲姬 ",
       "ja": "軽巡栖姫 ",
       "en": ""
     },
@@ -52284,6 +52819,7 @@
     "wiki_id": "644",
     "name": {
       "zh_cn": "潜水栖姬 ",
+      "zh_tw": "潜水棲姬 ",
       "ja": "潜水棲姫 ",
       "en": ""
     },
@@ -52341,6 +52877,7 @@
     "wiki_id": "645",
     "name": {
       "zh_cn": "潜水栖姬 ",
+      "zh_tw": "潜水棲姬 ",
       "ja": "潜水棲姫 ",
       "en": ""
     },
@@ -52398,6 +52935,7 @@
     "wiki_id": "646",
     "name": {
       "zh_cn": "潜水栖姬 ",
+      "zh_tw": "潜水棲姬 ",
       "ja": "潜水棲姫 ",
       "en": ""
     },
@@ -52455,6 +52993,7 @@
     "wiki_id": "647",
     "name": {
       "zh_cn": "驱逐水鬼 ",
+      "zh_tw": "驅逐水鬼 ",
       "ja": "駆逐水鬼 ",
       "en": ""
     },
@@ -52514,6 +53053,7 @@
     "wiki_id": "648",
     "name": {
       "zh_cn": "驱逐水鬼 ",
+      "zh_tw": "驅逐水鬼 ",
       "ja": "駆逐水鬼 ",
       "en": ""
     },
@@ -52573,6 +53113,7 @@
     "wiki_id": "649",
     "name": {
       "zh_cn": "驱逐水鬼 ",
+      "zh_tw": "驅逐水鬼 ",
       "ja": "駆逐水鬼 ",
       "en": ""
     },
@@ -52632,6 +53173,7 @@
     "wiki_id": "676",
     "name": {
       "zh_cn": "驱逐水鬼 ",
+      "zh_tw": "驅逐水鬼 ",
       "ja": "駆逐水鬼 ",
       "en": ""
     },
@@ -52691,6 +53233,7 @@
     "wiki_id": "677",
     "name": {
       "zh_cn": "驱逐水鬼 ",
+      "zh_tw": "驅逐水鬼 ",
       "ja": "駆逐水鬼 ",
       "en": ""
     },
@@ -52750,6 +53293,7 @@
     "wiki_id": "678",
     "name": {
       "zh_cn": "驱逐水鬼 ",
+      "zh_tw": "驅逐水鬼 ",
       "ja": "駆逐水鬼 ",
       "en": ""
     },
@@ -52809,6 +53353,7 @@
     "wiki_id": "659",
     "name": {
       "zh_cn": "重巡栖姬 ",
+      "zh_tw": "重巡棲姬 ",
       "ja": "重巡棲姫 ",
       "en": ""
     },
@@ -52868,6 +53413,7 @@
     "wiki_id": "660",
     "name": {
       "zh_cn": "重巡栖姬 ",
+      "zh_tw": "重巡棲姬 ",
       "ja": "重巡棲姫 ",
       "en": ""
     },
@@ -52927,6 +53473,7 @@
     "wiki_id": "661",
     "name": {
       "zh_cn": "重巡栖姬 ",
+      "zh_tw": "重巡棲姬 ",
       "ja": "重巡棲姫 ",
       "en": ""
     },
@@ -52986,6 +53533,7 @@
     "wiki_id": "662",
     "name": {
       "zh_cn": "重巡栖姬 ",
+      "zh_tw": "重巡棲姬 ",
       "ja": "重巡棲姫 ",
       "en": ""
     },
@@ -53045,6 +53593,7 @@
     "wiki_id": "663",
     "name": {
       "zh_cn": "重巡栖姬 ",
+      "zh_tw": "重巡棲姬 ",
       "ja": "重巡棲姫 ",
       "en": ""
     },
@@ -53104,6 +53653,7 @@
     "wiki_id": "664",
     "name": {
       "zh_cn": "重巡栖姬 ",
+      "zh_tw": "重巡棲姬 ",
       "ja": "重巡棲姫 ",
       "en": ""
     },
@@ -53163,6 +53713,7 @@
     "wiki_id": "673",
     "name": {
       "zh_cn": "驱逐古鬼 ",
+      "zh_tw": "驅逐古鬼 ",
       "ja": "駆逐古鬼 ",
       "en": ""
     },
@@ -53222,6 +53773,7 @@
     "wiki_id": "674",
     "name": {
       "zh_cn": "驱逐古鬼 ",
+      "zh_tw": "驅逐古鬼 ",
       "ja": "駆逐古鬼 ",
       "en": ""
     },
@@ -53281,6 +53833,7 @@
     "wiki_id": "675",
     "name": {
       "zh_cn": "驱逐古鬼 ",
+      "zh_tw": "驅逐古鬼 ",
       "ja": "駆逐古鬼 ",
       "en": ""
     },
@@ -53340,6 +53893,7 @@
     "wiki_id": "692",
     "name": {
       "zh_cn": "驱逐古姬 ",
+      "zh_tw": "驅逐古姬 ",
       "ja": "駆逐古姫 ",
       "en": ""
     },
@@ -53399,6 +53953,7 @@
     "wiki_id": "693",
     "name": {
       "zh_cn": "潜水夏姬 flagship",
+      "zh_tw": "潜水夏姬 flagship",
       "ja": "潜水夏姫 flagship",
       "en": ""
     },
@@ -53456,6 +54011,7 @@
     "wiki_id": "694",
     "name": {
       "zh_cn": "潜水夏姬 flagship",
+      "zh_tw": "潜水夏姬 flagship",
       "ja": "潜水夏姫 flagship",
       "en": ""
     },
@@ -53513,6 +54069,7 @@
     "wiki_id": "695",
     "name": {
       "zh_cn": "潜水夏姬 flagship",
+      "zh_tw": "潜水夏姬 flagship",
       "ja": "潜水夏姫 flagship",
       "en": ""
     },
@@ -53570,6 +54127,7 @@
     "wiki_id": "696",
     "name": {
       "zh_cn": "战舰夏姬 ",
+      "zh_tw": "戰艦夏姬 ",
       "ja": "戦艦夏姫 ",
       "en": ""
     },
@@ -53629,6 +54187,7 @@
     "wiki_id": "697",
     "name": {
       "zh_cn": "战舰夏姬 ",
+      "zh_tw": "戰艦夏姬 ",
       "ja": "戦艦夏姫 ",
       "en": ""
     },
@@ -53688,6 +54247,7 @@
     "wiki_id": "698",
     "name": {
       "zh_cn": "战舰夏姬 ",
+      "zh_tw": "戰艦夏姬 ",
       "ja": "戦艦夏姫 ",
       "en": ""
     },
@@ -53747,6 +54307,7 @@
     "wiki_id": "705",
     "name": {
       "zh_cn": "重巡夏姬 ",
+      "zh_tw": "重巡夏姬 ",
       "ja": "重巡夏姫 ",
       "en": ""
     },
@@ -53806,6 +54367,7 @@
     "wiki_id": "706",
     "name": {
       "zh_cn": "重巡夏姬 ",
+      "zh_tw": "重巡夏姬 ",
       "ja": "重巡夏姫 ",
       "en": ""
     },
@@ -53865,6 +54427,7 @@
     "wiki_id": "707",
     "name": {
       "zh_cn": "重巡夏姬 ",
+      "zh_tw": "重巡夏姬 ",
       "ja": "重巡夏姫 ",
       "en": ""
     },
@@ -53924,6 +54487,7 @@
     "wiki_id": "556",
     "name": {
       "zh_cn": "飞行场姬 ",
+      "zh_tw": "飛行場姬 ",
       "ja": "飛行場姫 ",
       "en": ""
     },
@@ -53983,6 +54547,7 @@
     "wiki_id": "573",
     "name": {
       "zh_cn": "港湾栖姬 ",
+      "zh_tw": "港灣棲姬 ",
       "ja": "港湾棲姫 ",
       "en": ""
     },
@@ -54042,6 +54607,7 @@
     "wiki_id": "613",
     "name": {
       "zh_cn": "港湾栖姬 ",
+      "zh_tw": "港灣棲姬 ",
       "ja": "港湾棲姫 ",
       "en": ""
     },
@@ -54101,6 +54667,7 @@
     "wiki_id": "574",
     "name": {
       "zh_cn": "离岛栖鬼 ",
+      "zh_tw": "離島棲鬼 ",
       "ja": "離島棲鬼 ",
       "en": ""
     },
@@ -54160,6 +54727,7 @@
     "wiki_id": "581",
     "name": {
       "zh_cn": "北方栖姬 ",
+      "zh_tw": "北方棲姬 ",
       "ja": "北方棲姫 ",
       "en": ""
     },
@@ -54219,6 +54787,7 @@
     "wiki_id": "582",
     "name": {
       "zh_cn": "北方栖姬 ",
+      "zh_tw": "北方棲姬 ",
       "ja": "北方棲姫 ",
       "en": ""
     },
@@ -54278,6 +54847,7 @@
     "wiki_id": "587",
     "name": {
       "zh_cn": "北方栖姬 ",
+      "zh_tw": "北方棲姬 ",
       "ja": "北方棲姫 ",
       "en": ""
     },
@@ -54337,6 +54907,7 @@
     "wiki_id": "588",
     "name": {
       "zh_cn": "北方栖姬 ",
+      "zh_tw": "北方棲姬 ",
       "ja": "北方棲姫 ",
       "en": ""
     },
@@ -54396,6 +54967,7 @@
     "wiki_id": "589",
     "name": {
       "zh_cn": "北方栖姬 ",
+      "zh_tw": "北方棲姬 ",
       "ja": "北方棲姫 ",
       "en": ""
     },
@@ -54455,6 +55027,7 @@
     "wiki_id": "590",
     "name": {
       "zh_cn": "北方栖姬 ",
+      "zh_tw": "北方棲姬 ",
       "ja": "北方棲姫 ",
       "en": ""
     },
@@ -54514,6 +55087,7 @@
     "wiki_id": "583",
     "name": {
       "zh_cn": "中间栖姬 ",
+      "zh_tw": "中間棲姬 ",
       "ja": "中間棲姫 ",
       "en": ""
     },
@@ -54575,6 +55149,7 @@
     "wiki_id": "584",
     "name": {
       "zh_cn": "中间栖姬 ",
+      "zh_tw": "中間棲姬 ",
       "ja": "中間棲姫 ",
       "en": ""
     },
@@ -54636,6 +55211,7 @@
     "wiki_id": "605",
     "name": {
       "zh_cn": "港湾水鬼 ",
+      "zh_tw": "港灣水鬼 ",
       "ja": "港湾水鬼 ",
       "en": ""
     },
@@ -54695,6 +55271,7 @@
     "wiki_id": "606",
     "name": {
       "zh_cn": "港湾水鬼 ",
+      "zh_tw": "港灣水鬼 ",
       "ja": "港湾水鬼 ",
       "en": ""
     },
@@ -54754,6 +55331,7 @@
     "wiki_id": "607",
     "name": {
       "zh_cn": "港湾水鬼 ",
+      "zh_tw": "港灣水鬼 ",
       "ja": "港湾水鬼 ",
       "en": ""
     },
@@ -54813,6 +55391,7 @@
     "wiki_id": "608",
     "name": {
       "zh_cn": "港湾水鬼 ",
+      "zh_tw": "港灣水鬼 ",
       "ja": "港湾水鬼 ",
       "en": ""
     },
@@ -54872,6 +55451,7 @@
     "wiki_id": "609",
     "name": {
       "zh_cn": "泊地水鬼 ",
+      "zh_tw": "泊地水鬼 ",
       "ja": "泊地水鬼 ",
       "en": ""
     },
@@ -54931,6 +55511,7 @@
     "wiki_id": "610",
     "name": {
       "zh_cn": "泊地水鬼 ",
+      "zh_tw": "泊地水鬼 ",
       "ja": "泊地水鬼 ",
       "en": ""
     },
@@ -54990,6 +55571,7 @@
     "wiki_id": "611",
     "name": {
       "zh_cn": "泊地水鬼 ",
+      "zh_tw": "泊地水鬼 ",
       "ja": "泊地水鬼 ",
       "en": ""
     },
@@ -55049,6 +55631,7 @@
     "wiki_id": "612",
     "name": {
       "zh_cn": "泊地水鬼 ",
+      "zh_tw": "泊地水鬼 ",
       "ja": "泊地水鬼 ",
       "en": ""
     },
@@ -55108,6 +55691,7 @@
     "wiki_id": "653",
     "name": {
       "zh_cn": "集积地栖姬 ",
+      "zh_tw": "集積地棲姬 ",
       "ja": "集積地棲姫 ",
       "en": ""
     },
@@ -55167,6 +55751,7 @@
     "wiki_id": "654",
     "name": {
       "zh_cn": "集积地栖姬 ",
+      "zh_tw": "集積地棲姬 ",
       "ja": "集積地棲姫 ",
       "en": ""
     },
@@ -55226,6 +55811,7 @@
     "wiki_id": "655",
     "name": {
       "zh_cn": "集积地栖姬 ",
+      "zh_tw": "集積地棲姬 ",
       "ja": "集積地棲姫 ",
       "en": ""
     },
@@ -55285,6 +55871,7 @@
     "wiki_id": "656",
     "name": {
       "zh_cn": "集积地栖姬-坏 ",
+      "zh_tw": "集積地棲姬-壞 ",
       "ja": "集積地棲姫-壊 ",
       "en": ""
     },
@@ -55344,6 +55931,7 @@
     "wiki_id": "657",
     "name": {
       "zh_cn": "集积地栖姬-坏 ",
+      "zh_tw": "集積地棲姬-壞 ",
       "ja": "集積地棲姫-壊 ",
       "en": ""
     },
@@ -55403,6 +55991,7 @@
     "wiki_id": "658",
     "name": {
       "zh_cn": "集积地栖姬-坏 ",
+      "zh_tw": "集積地棲姬-壞 ",
       "ja": "集積地棲姫-壊 ",
       "en": ""
     },
@@ -55462,6 +56051,7 @@
     "wiki_id": "668",
     "name": {
       "zh_cn": "离岛栖姬 ",
+      "zh_tw": "離島棲姬 ",
       "ja": "離島棲姫 ",
       "en": ""
     },
@@ -55521,6 +56111,7 @@
     "wiki_id": "669",
     "name": {
       "zh_cn": "离岛栖姬 ",
+      "zh_tw": "離島棲姬 ",
       "ja": "離島棲姫 ",
       "en": ""
     },
@@ -55580,6 +56171,7 @@
     "wiki_id": "670",
     "name": {
       "zh_cn": "离岛栖姬 ",
+      "zh_tw": "離島棲姬 ",
       "ja": "離島棲姫 ",
       "en": ""
     },
@@ -55639,6 +56231,7 @@
     "wiki_id": "671",
     "name": {
       "zh_cn": "离岛栖姬 ",
+      "zh_tw": "離島棲姬 ",
       "ja": "離島棲姫 ",
       "en": ""
     },
@@ -55698,6 +56291,7 @@
     "wiki_id": "672",
     "name": {
       "zh_cn": "离岛栖姬 ",
+      "zh_tw": "離島棲姬 ",
       "ja": "離島棲姫 ",
       "en": ""
     },
@@ -55757,6 +56351,7 @@
     "wiki_id": "679",
     "name": {
       "zh_cn": "彼岸栖姬 ",
+      "zh_tw": "彼岸棲姬 ",
       "ja": "リコリス棲姫 ",
       "en": ""
     },
@@ -55816,6 +56411,7 @@
     "wiki_id": "680",
     "name": {
       "zh_cn": "彼岸栖姬 ",
+      "zh_tw": "彼岸棲姬 ",
       "ja": "リコリス棲姫 ",
       "en": ""
     },
@@ -55875,6 +56471,7 @@
     "wiki_id": "681",
     "name": {
       "zh_cn": "彼岸栖姬 ",
+      "zh_tw": "彼岸棲姬 ",
       "ja": "リコリス棲姫 ",
       "en": ""
     },
@@ -55934,6 +56531,7 @@
     "wiki_id": "682",
     "name": {
       "zh_cn": "彼岸栖姬 ",
+      "zh_tw": "彼岸棲姬 ",
       "ja": "リコリス棲姫 ",
       "en": ""
     },
@@ -55993,6 +56591,7 @@
     "wiki_id": "683",
     "name": {
       "zh_cn": "彼岸栖姬 ",
+      "zh_tw": "彼岸棲姬 ",
       "ja": "リコリス棲姫 ",
       "en": ""
     },
@@ -56052,6 +56651,7 @@
     "wiki_id": "684",
     "name": {
       "zh_cn": "中枢栖姬 ",
+      "zh_tw": "中樞棲姬 ",
       "ja": "中枢棲姫 ",
       "en": ""
     },
@@ -56111,6 +56711,7 @@
     "wiki_id": "685",
     "name": {
       "zh_cn": "中枢栖姬 ",
+      "zh_tw": "中樞棲姬 ",
       "ja": "中枢棲姫 ",
       "en": ""
     },
@@ -56170,6 +56771,7 @@
     "wiki_id": "686",
     "name": {
       "zh_cn": "中枢栖姬 ",
+      "zh_tw": "中樞棲姬 ",
       "ja": "中枢棲姫 ",
       "en": ""
     },
@@ -56229,6 +56831,7 @@
     "wiki_id": "687",
     "name": {
       "zh_cn": "中枢栖姬-坏 ",
+      "zh_tw": "中樞棲姬-壞 ",
       "ja": "中枢棲姫-壊 ",
       "en": ""
     },
@@ -56288,6 +56891,7 @@
     "wiki_id": "688",
     "name": {
       "zh_cn": "中枢栖姬-坏 ",
+      "zh_tw": "中樞棲姬-壞 ",
       "ja": "中枢棲姫-壊 ",
       "en": ""
     },
@@ -56347,6 +56951,7 @@
     "wiki_id": "689",
     "name": {
       "zh_cn": "中枢栖姬-坏 ",
+      "zh_tw": "中樞棲姬-壞 ",
       "ja": "中枢棲姫-壊 ",
       "en": ""
     },

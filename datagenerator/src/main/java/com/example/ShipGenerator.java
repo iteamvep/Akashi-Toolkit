@@ -17,6 +17,7 @@ import com.github.promeg.pinyinhelper.Pinyin;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import com.spreada.utils.chinese.ZHConverter;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -157,6 +158,10 @@ public class ShipGenerator {
         }
 
         addEnemyShip();
+
+        for (Ship2 item : getList()) {
+            item.getName().setZh_tw(ZHConverter.toTC(item.getName().getZh_cn()));
+        }
 
         Gson gson = new GsonBuilder()
                 .excludeFieldsWithoutExposeAnnotation()

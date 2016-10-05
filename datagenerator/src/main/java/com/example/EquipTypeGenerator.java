@@ -6,6 +6,7 @@ import com.example.model.EquipTypeParent;
 import com.example.model.MultiLanguageEntry;
 import com.example.network.RetrofitAPI;
 import com.example.utils.Utils;
+import com.spreada.utils.chinese.ZHConverter;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -159,12 +160,17 @@ public class EquipTypeGenerator {
         parent.add(new EquipTypeParent(6, new MultiLanguageEntry("爆雷 / 声纳", "爆雷 / ソナー", "Depth charge / Sonar")));
         parent.add(new EquipTypeParent(7, new MultiLanguageEntry("其他", "他の", "Other")));
 
+        for (EquipTypeParent item : parent) {
+            item.getName().setZh_tw(ZHConverter.toTC(item.getName().getZh_cn()));
+        }
+
         for (APIEquipType item : apiList) {
             EquipType equipType = new EquipType();
             equipType.setId(item.getId());
             equipType.setName(new MultiLanguageEntry());
             equipType.getName().setJa(item.getName());
             equipType.getName().setZh_cn(item.getChineseName());
+            equipType.getName().setZh_tw(ZHConverter.toTC(item.getChineseName()));
             equipType.getName().setEn(ENGLISH_NAME.get(item.getId()));
             equipType.setParent(PARENT.get(item.getId()));
             list.add(equipType);
