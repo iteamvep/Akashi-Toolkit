@@ -12,18 +12,11 @@ import android.webkit.MimeTypeMap;
 import com.bumptech.glide.load.model.GlideUrl;
 import com.bumptech.glide.load.model.LazyHeaders;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Locale;
 
-import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.StaticData;
 
 import static rikka.akashitoolkit.support.ApiConstParam.Language.EN;
@@ -153,10 +146,10 @@ public class Utils {
                         return Locale.TRADITIONAL_CHINESE.toString();
                 }
             case "ja":
-                return Locale.JAPAN.toString();
+                return Locale.JAPANESE.toString();
+            default:
+                return Locale.ENGLISH.toString();
         }
-
-        return Locale.ENGLISH.toString();
     }
 
     public static int getDefaultDataLanguage() {
