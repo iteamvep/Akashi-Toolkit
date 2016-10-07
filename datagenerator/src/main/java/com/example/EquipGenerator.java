@@ -265,9 +265,38 @@ public class EquipGenerator {
 
         specialType(list);
 
+        // 繁中
         for (NewEquip item : list) {
             item.getName().setZh_tw(ZHConverter.toTC(item.getName().getZh_cn()));
             item.getIntroduction().setZh_tw(ZHConverter.toTC(item.getIntroduction().getZh_cn()));
+        }
+
+        // 英语
+        String page;
+        Retrofit retrofit2 = new Retrofit.Builder()
+                .baseUrl("http://en.kancollewiki.net/")
+                .build();
+
+        RetrofitAPI.KancollewikiService service2 = retrofit2.create(RetrofitAPI.KancollewikiService.class);
+        page = service2.getPage("Equipment", "raw").execute().body().string();
+        page += service2.getPage("List_of_equipment_used_by_the_enemy", "raw").execute().body().string();
+
+        for (NewEquip item : list) {
+            Pattern p = Pattern.compile(String.format("%d\\n.+\\n.+\\[\\[(.+)]]", item.getId()));
+            Matcher m2 = p.matcher(page);
+            if (m2.find()) {
+                item.getName().setEn(m2.group(1).trim());
+                System.out.println(m2.group(1).trim());
+            } else {
+                p = Pattern.compile(String.format("%d\\n.+\\n.+\\n\\|(.+)", item.getId()));
+                m2 = p.matcher(page);
+                if (m2.find()) {
+                    item.getName().setEn(m2.group(1).trim());
+                    System.out.println(m2.group(1).trim());
+                } else {
+                    System.out.println("!!!" + item.getName().getJa());
+                }
+            }
         }
 
         gson = new GsonBuilder()

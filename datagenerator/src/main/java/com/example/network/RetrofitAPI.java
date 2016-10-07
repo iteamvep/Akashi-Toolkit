@@ -55,4 +55,9 @@ public class RetrofitAPI {
         @GET("/index.php")
         Call<ResponseBody> getPage(@Query("title") String title, @Query("action") String action);
     }
+
+    public interface KancollewikiService {
+        @GET("/index.php")
+        Call<ResponseBody> getPage(@Query("title") String title, @Query("action") String action);
+    }
 }
