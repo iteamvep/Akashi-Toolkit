@@ -28,6 +28,12 @@
 
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+
+        <item name="listPreferredItemPaddingLeft">@dimen/abc_list_item_padding_horizontal_material
+        </item>
+        <item name="listPreferredItemPaddingRight">
+            @dimen/abc_list_item_padding_horizontal_material
+        </item>
     </style>
 
     <style name="AppTheme.BottomSheet.Modal" parent="android:Widget">

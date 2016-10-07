@@ -12,7 +12,7 @@ android {
         minSdkVersion 16
         targetSdkVersion 24
         versionCode gitCommitCount
-        versionName "0.10.1"
+        versionName "0.10.3"
 
         vectorDrawables.useSupportLibrary = true
 
@@ -92,7 +92,7 @@ dependencies {
     //compile 'com.github.RikkaW:DayNight-Theme:v1.0.13'
     compile (name:'daynightmode-release', ext:'aar')
 
-    compile 'com.github.RikkaW:MaterialPreference:v1.2.1'
+    compile 'com.github.RikkaW:MaterialPreference:v1.3'
     compile 'com.github.RikkaW:MiniDrawer:v0.0.6'
 
     chinaCompile 'cn.leancloud.android:avoscloud-sdk:v3.14.1'
