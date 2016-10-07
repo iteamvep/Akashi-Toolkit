@@ -20,7 +20,7 @@ public class Statistics {
 
     public static synchronized void init(Application application) {
         AVOSCloud.initialize(application, BuildConfig.LEANCLOUD_APP_ID, BuildConfig.LEANCLOUD_APP_KEY);
-        //AVAnalytics.enableCrashReport(application, true);
+        AVAnalytics.enableCrashReport(application, true);
 
         sTracker = getDefaultTracker(application);
     }

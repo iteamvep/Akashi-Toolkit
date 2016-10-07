@@ -116,7 +116,7 @@ public class ExpeditionGenerator {
     }
 
     private static void getRequire(String originStr) throws IOException {
-        Pattern r = Pattern.compile("\\{\\{远征需求表\\|编号 =(\\d+)\\|日文名字 =.+\\|中文名字 =.+\\|耗时 =.+\\|舰队总等级 =(\\d*)\\|旗舰等级 =(\\d*)\\|最低舰娘数 =(\\d*)\\|必要舰娘 =(.*)\\|输送桶 =(.*)\\|燃料消耗 =(-?\\d*)\\|弹药消耗 =(-?\\d*)}}".replace(" ", ""));
+        Pattern r = Pattern.compile("\\{\\{远征需求表\\|编号 =(\\d+)\\|日文名字 =.+\\|中文名字 =.+\\|耗时 =.+\\|舰队总等级 =(\\d*)\\|旗舰等级 =(\\d*)\\|最低舰娘数 =(\\d*)\\|必要舰娘 =(.*)\\|输送桶 =(.*)\\|燃料消耗 =(-?\\d*).*\\|弹药消耗 =(-?\\d*)}}".replace(" ", ""));
         Matcher m = r.matcher(originStr);
 
         while (m.find()) {

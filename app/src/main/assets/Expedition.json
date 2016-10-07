@@ -1033,11 +1033,19 @@
       "award": "开发资材x2"
     },
     "require": {
-      "totalLevel": 0,
-      "flagshipLevel": 0,
-      "minShips": 0,
-      "consume": [],
-      "consumeString": []
+      "totalLevel": 200,
+      "flagshipLevel": 50,
+      "minShips": 6,
+      "essentialShip": "轻巡\u003cb\u003e(必须旗舰)\u003c/b\u003e 驱逐*4",
+      "bucket": "",
+      "consume": [
+        -9,
+        -6
+      ],
+      "consumeString": [
+        "-9",
+        "-6"
+      ]
     }
   },
   {
