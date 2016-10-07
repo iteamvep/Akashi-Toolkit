@@ -2,7 +2,6 @@ package rikka.akashitoolkit;
 
 import moe.xing.daynightmode.DayNightMode;
 import rikka.akashitoolkit.cache.DiskCacheProvider;
-import rikka.akashitoolkit.model.EquipTypeParent;
 import rikka.akashitoolkit.model.MultiLanguageEntry;
 import rikka.akashitoolkit.staticdata.EquipList;
 import rikka.akashitoolkit.staticdata.EquipTypeList;

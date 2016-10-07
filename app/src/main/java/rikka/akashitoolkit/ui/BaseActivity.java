@@ -104,9 +104,8 @@ public abstract class BaseActivity extends BaseDayNightModeActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             recreate();
         } else {
-            startActivity(this.getNightModeChangedRestartActivityIntent());
-            finish();
-            overridePendingTransition(0, 0);
+            getWindow().setWindowAnimations(moe.xing.daynightmode.R.style.AnimationFadeInOut);
+            recreate();
         }
     }
 }
