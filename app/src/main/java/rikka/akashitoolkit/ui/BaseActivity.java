@@ -68,7 +68,7 @@ public abstract class BaseActivity extends BaseDayNightModeActivity {
     protected void onResume() {
         super.onResume();
         if (!Locale.getDefault().getLanguage().equals(mLocale)) {
-            fakeRecreate();
+            doRecreate();
             return;
         }
 
@@ -100,7 +100,7 @@ public abstract class BaseActivity extends BaseDayNightModeActivity {
         }
     }
 
-    public void fakeRecreate() {
+    public void doRecreate() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             recreate();
         } else {

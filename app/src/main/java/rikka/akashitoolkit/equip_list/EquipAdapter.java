@@ -21,8 +21,10 @@ import rikka.akashitoolkit.otto.DataListRebuiltFinished;
 import rikka.akashitoolkit.otto.ItemSelectAction;
 import rikka.akashitoolkit.staticdata.EquipList;
 import rikka.akashitoolkit.staticdata.EquipTypeList;
+import rikka.akashitoolkit.support.ApiConstParam;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.ui.BaseItemDisplayActivity;
+import rikka.akashitoolkit.utils.Utils;
 import rikka.akashitoolkit.viewholder.SimpleTitleDividerViewHolder;
 
 /**
@@ -127,8 +129,12 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewH
     private void bindViewHolder(final EquipViewHolder holder, int position) {
         Equip item = (Equip) getItem(position);
 
-        holder.mName.setText(String.format(item.isBookmarked() ? "%s ★" : "%s",
-                item.getName().get()));
+        holder.mName.setText(item.getName().get(ApiConstParam.Language.JA));
+        if (Utils.isJapanese(holder.itemView.getContext())) {
+            holder.mNameTranslate.setVisibility(View.GONE);
+        } else {
+            holder.mNameTranslate.setText(item.getName().get());
+        }
 
         EquipTypeList.setIntoImageView(holder.mIcon, item.getIcon());
 

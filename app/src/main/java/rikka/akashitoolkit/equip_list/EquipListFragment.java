@@ -4,12 +4,17 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.squareup.otto.Subscribe;
+
 import rikka.akashitoolkit.MainActivity;
 import rikka.akashitoolkit.R;
+import rikka.akashitoolkit.otto.BusProvider;
+import rikka.akashitoolkit.otto.DataChangedAction;
 import rikka.akashitoolkit.ui.fragments.BaseShowHideFragment;
 
 /**
@@ -19,6 +24,7 @@ import rikka.akashitoolkit.ui.fragments.BaseShowHideFragment;
 public class EquipListFragment extends BaseShowHideFragment {
 
     private String mTitle;
+    private RecyclerView.Adapter mAdapter;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -38,6 +44,10 @@ public class EquipListFragment extends BaseShowHideFragment {
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(new EquipAdapter(getArguments()));
+
+        BusProvider.instance().register(this);
+
+        mAdapter = recyclerView.getAdapter();
     }
 
     @Override
@@ -46,6 +56,20 @@ public class EquipListFragment extends BaseShowHideFragment {
 
         if (getActivity() instanceof MainActivity) {
             ((MainActivity) getActivity()).getSupportActionBar().setTitle(mTitle);
+        }
+    }
+
+    @Override
+    public void onDestroyView() {
+        BusProvider.instance().unregister(this);
+        super.onDestroyView();
+    }
+
+    @Subscribe
+    public void dataChanged(DataChangedAction action) {
+        if (action.getClassName().equals("any")
+                || action.getClassName().equals(this.getClass().getSimpleName())) {
+            mAdapter.notifyDataSetChanged();
         }
     }
 }

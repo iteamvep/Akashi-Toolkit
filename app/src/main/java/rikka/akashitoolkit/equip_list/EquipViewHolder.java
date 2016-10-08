@@ -10,13 +10,15 @@ import android.widget.TextView;
  */
 public class EquipViewHolder extends RecyclerView.ViewHolder {
 
-    public TextView mName;
-    public ImageView mIcon;
+    public final TextView mNameTranslate;
+    public final TextView mName;
+    public final ImageView mIcon;
 
     public EquipViewHolder(View itemView) {
         super(itemView);
 
-        mName = (TextView) itemView.findViewById(android.R.id.title);
+        mName = (TextView) itemView.findViewById(android.R.id.text1);
+        mNameTranslate = (TextView) itemView.findViewById(android.R.id.text2);
         mIcon = (ImageView) itemView.findViewById(android.R.id.icon);
     }
 }

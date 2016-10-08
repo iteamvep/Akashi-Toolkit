@@ -43,15 +43,15 @@ public class MultiLanguageEntry {
         return get();
     }
 
-    public String get() {
-        return get(language);
-    }
-
     /**
      * 得到根据当前语言设置决定的文本
      *
      * @return 根据当前语言设置决定的文本
      */
+
+    public String get() {
+        return get(language);
+    }
 
     public String get(int language) {
         String s;

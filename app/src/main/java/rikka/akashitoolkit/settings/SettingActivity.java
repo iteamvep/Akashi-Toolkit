@@ -10,10 +10,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -22,7 +20,6 @@ import java.util.Locale;
 
 import moe.xing.daynightmode.BaseDayNightModeActivity;
 import moe.xing.daynightmode.DayNightMode;
-import rikka.akashitoolkit.BuildConfig;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.model.MultiLanguageEntry;
 import rikka.akashitoolkit.otto.BusProvider;
@@ -35,12 +32,10 @@ import rikka.akashitoolkit.support.StaticData;
 import rikka.akashitoolkit.ui.BaseActivity;
 import rikka.akashitoolkit.utils.FlavorsUtils;
 import rikka.akashitoolkit.utils.Utils;
-import rikka.materialpreference.DropDownPreference;
 import rikka.materialpreference.ListPreference;
 import rikka.materialpreference.Preference;
 import rikka.materialpreference.PreferenceCategory;
 import rikka.materialpreference.PreferenceFragment;
-import rikka.materialpreference.PreferenceViewHolder;
 
 public class SettingActivity extends BaseActivity {
 
@@ -249,7 +244,7 @@ public class SettingActivity extends BaseActivity {
                     getListView().postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            ((BaseActivity) getActivity()).fakeRecreate();
+                            ((BaseActivity) getActivity()).doRecreate();
                         }
                     }, 300);
                     break;

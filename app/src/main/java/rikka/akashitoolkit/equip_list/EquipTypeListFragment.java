@@ -12,12 +12,16 @@ import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 
+import com.squareup.otto.Subscribe;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.SimpleAdapter;
 import rikka.akashitoolkit.model.EquipTypeParent;
+import rikka.akashitoolkit.otto.BusProvider;
+import rikka.akashitoolkit.otto.DataChangedAction;
 import rikka.akashitoolkit.staticdata.EquipTypeParentList;
 import rikka.akashitoolkit.ui.fragments.BaseDrawerItemFragment;
 import rikka.akashitoolkit.ui.fragments.IBackFragment;
@@ -29,6 +33,7 @@ import rikka.akashitoolkit.ui.fragments.IBackFragment;
 public class EquipTypeListFragment extends BaseDrawerItemFragment implements SimpleAdapter.Listener, IBackFragment {
 
     private RecyclerView mRecyclerView;
+    private SimpleAdapter<String> mAdapter;
     private String mTitle;
 
     @Nullable
@@ -41,15 +46,21 @@ public class EquipTypeListFragment extends BaseDrawerItemFragment implements Sim
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        SimpleAdapter<String> adapter = new SimpleAdapter<>(R.layout.item_ship_type);
-        mRecyclerView.setAdapter(adapter);
+        mAdapter = new SimpleAdapter<>(R.layout.item_ship_type);
+        mRecyclerView.setAdapter(mAdapter);
+        setAdapterData(mAdapter);
 
+        mAdapter.setOnItemClickListener(this);
+
+        BusProvider.instance().register(this);
+    }
+
+    public void setAdapterData(SimpleAdapter<String> adapter) {
         List<String> list = new ArrayList<>();
         for (EquipTypeParent item : EquipTypeParentList.getList()) {
             list.add(item.getName().get());
         }
         adapter.setItemList(list);
-        adapter.setOnItemClickListener(this);
     }
 
     @Override
@@ -103,6 +114,19 @@ public class EquipTypeListFragment extends BaseDrawerItemFragment implements Sim
             setToolbarTitle(mTitle);
         } else {
             setToolbarTitle(R.string.equip);
+        }
+    }
+
+    @Override
+    public void onDestroyView() {
+        BusProvider.instance().unregister(this);
+        super.onDestroyView();
+    }
+
+    @Subscribe
+    public void dataChanged(DataChangedAction action) {
+        if (action.getClassName().equals("any")) {
+            setAdapterData(mAdapter);
         }
     }
 }
