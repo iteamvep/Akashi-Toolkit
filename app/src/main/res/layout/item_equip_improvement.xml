@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/cardBackground"
     android:foreground="?attr/selectableItemBackground"
     android:orientation="horizontal"
@@ -52,11 +53,13 @@
 
     </LinearLayout>
 
-    <CheckBox
+    <rikka.akashitoolkit.ui.widget.CheckBoxCompat
         android:id="@android:id/checkbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        tools:button="@drawable/btn_bookmark_material_anim_32dp"/>
+        app:buttonCompat="@drawable/btn_bookmark_material_anim_32dp"
+        tools:button="@drawable/btn_bookmark_material_anim_32dp"
+        app:buttonDrawableTint="@color/control_checkable_material"/>
 
 </android.support.design.internal.ForegroundLinearLayout>

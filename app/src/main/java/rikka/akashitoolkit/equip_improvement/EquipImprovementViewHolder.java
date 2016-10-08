@@ -3,10 +3,6 @@ package rikka.akashitoolkit.equip_improvement;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.os.Build;
-import android.support.v4.graphics.drawable.DrawableCompat;
-import android.support.v7.content.res.AppCompatResources;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.CheckBox;
@@ -20,7 +16,6 @@ import rikka.akashitoolkit.model.Equip;
 import rikka.akashitoolkit.model.EquipImprovement;
 import rikka.akashitoolkit.otto.BookmarkItemChanged;
 import rikka.akashitoolkit.otto.BusProvider;
-import rikka.akashitoolkit.res.AppCompatStateListDrawableResource;
 import rikka.akashitoolkit.staticdata.EquipList;
 import rikka.akashitoolkit.staticdata.EquipTypeList;
 import rikka.akashitoolkit.support.Settings;
@@ -46,14 +41,6 @@ public class EquipImprovementViewHolder extends RecyclerView.ViewHolder implemen
         mShip = (TextView) itemView.findViewById(android.R.id.summary);
         mImageView = (ImageView) itemView.findViewById(android.R.id.icon);
         mCheckBox = (CheckBox) itemView.findViewById(android.R.id.checkbox);
-
-        Drawable dr = AppCompatStateListDrawableResource
-                .getStateListDrawable(itemView.getContext(), R.drawable.btn_bookmark_material_anim_32dp);
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-            DrawableCompat.setTintList(dr, AppCompatResources.getColorStateList(itemView.getContext(), R.color.control_checkable_material));
-        }
-        mCheckBox.setButtonDrawable(dr);
-
     }
 
     @Override

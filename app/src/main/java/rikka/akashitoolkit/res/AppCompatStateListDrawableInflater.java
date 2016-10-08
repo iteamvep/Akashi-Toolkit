@@ -1,5 +1,6 @@
 package rikka.akashitoolkit.res;
 
+import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.drawable.AnimatedStateListDrawable;
@@ -10,6 +11,7 @@ import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.graphics.drawable.VectorDrawableCompat;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.util.AttributeSet;
 import android.util.StateSet;
 import android.util.Xml;
@@ -32,8 +34,10 @@ public class AppCompatStateListDrawableInflater {
     }
 
     @NonNull
-    public static Drawable createFromXml(@NonNull Resources r, @NonNull XmlPullParser parser,
-                                         @Nullable Resources.Theme theme) throws XmlPullParserException, IOException {
+    public static Drawable createFromXml(@NonNull Resources r,
+                                         @NonNull XmlPullParser parser,
+                                         @Nullable Resources.Theme theme,
+                                         @Nullable ColorStateList tint) throws XmlPullParserException, IOException {
         final AttributeSet attrs = Xml.asAttributeSet(parser);
 
         int type;
@@ -46,13 +50,15 @@ public class AppCompatStateListDrawableInflater {
             throw new XmlPullParserException("No start tag found");
         }
 
-        return createFromXmlInner(r, parser, attrs, theme);
+        return createFromXmlInner(r, parser, attrs, theme, tint);
     }
 
     @NonNull
     private static Drawable createFromXmlInner(@NonNull Resources r,
-                                               @NonNull XmlPullParser parser, @NonNull AttributeSet attrs,
-                                               @Nullable Resources.Theme theme)
+                                               @NonNull XmlPullParser parser,
+                                               @NonNull AttributeSet attrs,
+                                               @Nullable Resources.Theme theme,
+                                               @Nullable ColorStateList tint)
             throws XmlPullParserException, IOException {
         final String name = parser.getName();
         if (!name.equals("animated-selector") && !name.equals("selector")) {
@@ -60,11 +66,12 @@ public class AppCompatStateListDrawableInflater {
                     parser.getPositionDescription() + ": invalid animated state list drawable tag " + name);
         }
 
-        return inflate(r, parser, attrs, theme);
+        return inflate(r, parser, attrs, theme, tint);
     }
 
     private static Drawable inflate(@NonNull Resources r, @NonNull XmlPullParser parser,
-                                    @NonNull AttributeSet attrs, @Nullable Resources.Theme theme)
+                                    @NonNull AttributeSet attrs, @Nullable Resources.Theme theme,
+                                    @Nullable ColorStateList tint)
             throws XmlPullParserException, IOException {
         final int innerDepth = parser.getDepth() + 1;
         int depth;
@@ -83,20 +90,24 @@ public class AppCompatStateListDrawableInflater {
                 continue;
             }
 
-            Drawable innerDrawable;
+            Drawable dr;
             TypedArray a;
 
             switch (parser.getName()) {
                 case "item":
                     a = obtainAttributes(r, theme, attrs, R.styleable.AnimatedStateListDrawableItem);
-                    innerDrawable = null;
+                    dr = null;
                     int id = 0;
                     if (a.hasValue(R.styleable.AnimatedStateListDrawableItem_android_drawable)) {
                         if (Build.VERSION.SDK_INT >= 21) {
-                            innerDrawable = a.getDrawable(R.styleable.AnimatedStateListDrawableItem_android_drawable);
+                            dr = a.getDrawable(R.styleable.AnimatedStateListDrawableItem_android_drawable);
                         } else {
                             int resId = a.getResourceId(R.styleable.AnimatedStateListDrawableItem_android_drawable, 0);
-                            innerDrawable = VectorDrawableCompat.create(r, resId, theme);
+                            dr = VectorDrawableCompat.create(r, resId, theme);
+                        }
+
+                        if (tint != null && dr != null) {
+                            DrawableCompat.setTintList(dr, tint);
                         }
                     }
                     if (a.hasValue(R.styleable.AnimatedStateListDrawableItem_android_id)) {
@@ -120,24 +131,24 @@ public class AppCompatStateListDrawableInflater {
                     stateSpec = StateSet.trimStateSet(stateSpec, j);
 
                     if (Build.VERSION.SDK_INT >= 21) {
-                        if (innerDrawable == null) {
+                        if (dr == null) {
                             throw new XmlPullParserException(
                                     parser.getPositionDescription() + ": drawable is null");
                         }
-                        ((AnimatedStateListDrawable) drawable).addState(stateSpec, innerDrawable, id);
+                        ((AnimatedStateListDrawable) drawable).addState(stateSpec, dr, id);
                     } else {
-                        ((StateListDrawable) drawable).addState(stateSpec, innerDrawable);
+                        ((StateListDrawable) drawable).addState(stateSpec, dr);
                     }
                     break;
                 case "transition":
                     if (Build.VERSION.SDK_INT >= 21) {
                         a = obtainAttributes(r, theme, attrs, R.styleable.AnimatedStateListDrawableTransition);
 
-                        innerDrawable = null;
+                        dr = null;
                         int fromId = 0, toId = 0;
                         boolean reversible = false;
                         if (a.hasValue(R.styleable.AnimatedStateListDrawableTransition_android_drawable)) {
-                            innerDrawable = a.getDrawable(R.styleable.AnimatedStateListDrawableTransition_android_drawable);
+                            dr = a.getDrawable(R.styleable.AnimatedStateListDrawableTransition_android_drawable);
                         }
                         if (a.hasValue(R.styleable.AnimatedStateListDrawableTransition_android_fromId)) {
                             fromId = a.getResourceId(R.styleable.AnimatedStateListDrawableTransition_android_fromId, 0);
@@ -151,11 +162,16 @@ public class AppCompatStateListDrawableInflater {
 
                         a.recycle();
 
-                        if (innerDrawable == null || !(innerDrawable instanceof AnimatedVectorDrawable)) {
+                        if (dr == null || !(dr instanceof AnimatedVectorDrawable)) {
                             throw new XmlPullParserException(
                                     parser.getPositionDescription() + ": drawable is null or not AnimatedVectorDrawable");
                         }
-                        ((AnimatedStateListDrawable) drawable).addTransition(fromId, toId, (AnimatedVectorDrawable) innerDrawable, reversible);
+
+                        if (tint != null) {
+                            DrawableCompat.setTintList(dr, tint);
+                        }
+
+                        ((AnimatedStateListDrawable) drawable).addTransition(fromId, toId, (AnimatedVectorDrawable) dr, reversible);
                     }
                     break;
             }

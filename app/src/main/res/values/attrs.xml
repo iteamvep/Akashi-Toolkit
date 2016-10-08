@@ -44,4 +44,9 @@
         <attr name="android:toId"/>
         <attr name="android:reversible"/>
     </declare-styleable>
+
+    <declare-styleable name="CheckBoxCompat">
+        <attr name="buttonCompat" format="reference"/>
+        <attr name="buttonDrawableTint" format="reference"/>
+    </declare-styleable>
 </resources>
