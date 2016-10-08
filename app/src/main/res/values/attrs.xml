@@ -32,4 +32,16 @@
         <attr name="android:foreground"/>
         <attr name="foregroundInsidePadding"/>
     </declare-styleable>
+
+    <declare-styleable name="AnimatedStateListDrawableItem">
+        <attr name="android:id"/>
+        <attr name="android:drawable"/>
+    </declare-styleable>
+
+    <declare-styleable name="AnimatedStateListDrawableTransition">
+        <attr name="android:drawable"/>
+        <attr name="android:fromId"/>
+        <attr name="android:toId"/>
+        <attr name="android:reversible"/>
+    </declare-styleable>
 </resources>
