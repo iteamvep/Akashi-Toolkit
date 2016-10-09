@@ -141,7 +141,7 @@ public class MessageFragment extends BaseRefreshFragment<CheckUpdate> {
     }
 
     private void addUpdateCard(final CheckUpdate.UpdateEntity entity) {
-        if (FlavorsUtils.isPlay()) {
+        if (FlavorsUtils.isPlay() && !BuildConfig.DEBUG) {
             return;
         }
 

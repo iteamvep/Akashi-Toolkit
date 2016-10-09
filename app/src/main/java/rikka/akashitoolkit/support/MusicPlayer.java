@@ -29,7 +29,7 @@ public class MusicPlayer {
 
         // so bad
         if (path.startsWith("http://kc.6candy.com/")) {
-            path = path.replace("http://kc.6candy.com/", "https://kc.6candy.com/");
+            path = path.replace("http://kc.6candy.com/", "https://upload.kcwiki.moe/");
         }
 
         DiskCache diskCache = DiskCacheProvider.get();

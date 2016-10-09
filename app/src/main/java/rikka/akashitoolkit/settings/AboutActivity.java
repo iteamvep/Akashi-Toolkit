@@ -53,19 +53,19 @@ public class AboutActivity extends BaseActivity {
                     fragment).commit();
         }
 
-        mDonateHelper = new DonateHelper(this);
+        //mDonateHelper = new DonateHelper(this);
     }
 
-    @Override
+    /*@Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (!mDonateHelper.onActivityResult(requestCode, resultCode, data)) {
             super.onActivityResult(requestCode, resultCode, data);
         }
-    }
+    }*/
 
     @Override
     protected void onDestroy() {
-        mDonateHelper.onDestroy();
+        //mDonateHelper.onDestroy();
         super.onDestroy();
     }
 
@@ -124,7 +124,7 @@ public class AboutActivity extends BaseActivity {
                 }
             });
 
-            findPreference("donate").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            /*findPreference("donate").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 @Override
                 public boolean onPreferenceClick(Preference preference) {
                     if (((AboutActivity) getActivity()).mDonateHelper.isSuccess()) {
@@ -165,7 +165,7 @@ public class AboutActivity extends BaseActivity {
                     }
                     return false;
                 }
-            });
+            });*/
 
             findPreference("donate_alipay").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 @Override

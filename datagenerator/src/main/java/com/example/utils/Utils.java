@@ -117,7 +117,7 @@ public class Utils {
     }
 
     public static String getKCWikiFileUrl(String fileName) {
-        return getKCWikiFileUrl("kc.6candy.com", fileName);
+        return getKCWikiFileUrl("upload.kcwiki.moe", fileName);
     }
 
     public static String getKCWikiFileUrl(String host, String fileName) {
