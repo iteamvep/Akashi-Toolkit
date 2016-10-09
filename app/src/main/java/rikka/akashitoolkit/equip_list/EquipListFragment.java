@@ -4,10 +4,10 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 
 import com.squareup.otto.Subscribe;
 
@@ -21,10 +21,10 @@ import rikka.akashitoolkit.ui.fragments.BaseShowHideFragment;
  * Created by Rikka on 2016/10/4.
  */
 
-public class EquipListFragment extends BaseShowHideFragment {
+public class EquipListFragment extends BaseShowHideFragment implements CompoundButton.OnCheckedChangeListener {
 
     private String mTitle;
-    private RecyclerView.Adapter mAdapter;
+    private EquipAdapter mAdapter;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -43,11 +43,10 @@ public class EquipListFragment extends BaseShowHideFragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(new EquipAdapter(getArguments()));
+        mAdapter = new EquipAdapter(getArguments());
+        recyclerView.setAdapter(mAdapter);
 
         BusProvider.instance().register(this);
-
-        mAdapter = recyclerView.getAdapter();
     }
 
     @Override
@@ -55,7 +54,11 @@ public class EquipListFragment extends BaseShowHideFragment {
         super.onShow();
 
         if (getActivity() instanceof MainActivity) {
-            ((MainActivity) getActivity()).getSupportActionBar().setTitle(mTitle);
+            MainActivity activity = (MainActivity) getActivity();
+            activity.getSupportActionBar().setTitle(mTitle);
+            //activity.getSwitch().setOnCheckedChangeListener(this);
+
+            mAdapter.setBookmarked(activity.getSwitch().isChecked());
         }
     }
 
@@ -71,5 +74,11 @@ public class EquipListFragment extends BaseShowHideFragment {
                 || action.getClassName().equals(this.getClass().getSimpleName())) {
             mAdapter.notifyDataSetChanged();
         }
+    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        mAdapter.setBookmarked(isChecked);
+        mAdapter.rebuildDataList();
     }
 }

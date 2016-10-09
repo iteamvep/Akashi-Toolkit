@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 
 import java.util.List;
 
@@ -138,6 +139,8 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewH
 
         EquipTypeList.setIntoImageView(holder.mIcon, item.getIcon());
 
+        holder.mCheckBox.setChecked(item.isBookmarked());
+
         if (!mSelectMode) {
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -166,9 +169,26 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewH
                     }
                 }
             });
+            holder.mCheckBox.setVisibility(View.GONE);
         }
 
         if (!mEnemyMode && !mSelectMode) {
+            holder.mCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton v, boolean isChecked) {
+                    Equip item = (Equip) getItem(holder.getAdapterPosition());
+
+                    item.setBookmarked(isChecked);
+
+                    Settings.instance(v.getContext())
+                            .putBoolean(String.format("equip_%d", item.getId()), item.isBookmarked());
+
+                    showToast(v.getContext(), item.isBookmarked());
+
+                    //notifyItemChanged(holder.getAdapterPosition());
+                }
+            });
+
             holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
                 @SuppressLint("DefaultLocale")
                 @Override
@@ -182,7 +202,9 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewH
 
                     showToast(v.getContext(), item.isBookmarked());
 
-                    notifyItemChanged(holder.getAdapterPosition());
+                    holder.mCheckBox.setChecked(item.isBookmarked());
+
+                    //notifyItemChanged(holder.getAdapterPosition());
 
                     return true;
                 }
@@ -204,6 +226,7 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewH
 
         if (holder instanceof EquipViewHolder) {
             ((EquipViewHolder) holder).mIcon.setTag(null);
+            ((EquipViewHolder) holder).mCheckBox.setOnCheckedChangeListener(null);
         }
     }
 }

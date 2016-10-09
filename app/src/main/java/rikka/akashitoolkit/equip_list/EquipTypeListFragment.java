@@ -1,9 +1,13 @@
 package rikka.akashitoolkit.equip_list;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v4.view.animation.FastOutSlowInInterpolator;
+import android.support.v4.widget.TextViewCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -17,6 +21,7 @@ import com.squareup.otto.Subscribe;
 import java.util.ArrayList;
 import java.util.List;
 
+import rikka.akashitoolkit.MainActivity;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.SimpleAdapter;
 import rikka.akashitoolkit.model.EquipTypeParent;
@@ -25,6 +30,8 @@ import rikka.akashitoolkit.otto.DataChangedAction;
 import rikka.akashitoolkit.staticdata.EquipTypeParentList;
 import rikka.akashitoolkit.ui.fragments.BaseDrawerItemFragment;
 import rikka.akashitoolkit.ui.fragments.IBackFragment;
+import rikka.akashitoolkit.utils.Utils;
+import rikka.akashitoolkit.viewholder.SimpleTitleViewHolder;
 
 /**
  * Created by Rikka on 2016/10/4.
@@ -36,6 +43,21 @@ public class EquipTypeListFragment extends BaseDrawerItemFragment implements Sim
     private SimpleAdapter<String> mAdapter;
     private String mTitle;
 
+    /*@Override
+    protected boolean getSwitchVisible() {
+        return true;
+    }*/
+
+    private static final int ICON[] = new int[]{
+            R.drawable.system_icon_03_24dp,
+            R.drawable.system_icon_05_24dp,
+            R.drawable.system_icon_06_24dp,
+            R.drawable.system_icon_11_24dp,
+            R.drawable.system_icon_15_24dp,
+            R.drawable.system_icon_17_24dp,
+            R.drawable.system_icon_26_24dp
+    };
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -46,7 +68,16 @@ public class EquipTypeListFragment extends BaseDrawerItemFragment implements Sim
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        mAdapter = new SimpleAdapter<>(R.layout.item_ship_type);
+        mAdapter = new SimpleAdapter<String>(R.layout.item_ship_type) {
+            @Override
+            public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+                super.onBindViewHolder(holder, position);
+                Drawable dr = ContextCompat.getDrawable(holder.itemView.getContext(), ICON[position]);
+                dr.setBounds(0, 0, Utils.dpToPx(24), Utils.dpToPx(24));
+                DrawableCompat.setTint(dr, ContextCompat.getColor(holder.itemView.getContext(), R.color.text));
+                TextViewCompat.setCompoundDrawablesRelative(((SimpleTitleViewHolder) holder).mTitle, dr, null, null, null);
+            }
+        };
         mRecyclerView.setAdapter(mAdapter);
         setAdapterData(mAdapter);
 
