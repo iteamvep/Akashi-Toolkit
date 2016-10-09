@@ -8,10 +8,10 @@
         android:title="@string/data_feedback"
         android:summary="@string/feedback_summary"/>
 
-    <Preference
+    <!--<Preference
         android:key="donate"
         android:title="@string/donate"
-        android:summary="@string/donate_via_google_play"/>
+        android:summary="@string/donate_via_google_play"/>-->
 
     <Preference
         android:key="donate_alipay"
