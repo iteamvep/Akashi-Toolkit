@@ -57005,5 +57005,365 @@
       "bomb": 0,
       "accuracy": 0
     }
+  },
+  {
+    "id": 699,
+    "wiki_id": "699",
+    "name": {
+      "zh_cn": "港湾夏姬 ",
+      "zh_tw": "港灣夏姬 ",
+      "ja": "港灣夏姫 ",
+      "en": ""
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        552,
+        552,
+        561,
+        561
+      ],
+      "space": [
+        0,
+        0,
+        81,
+        81
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 170,
+      "armor": 147,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 170,
+      "hp": 500,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": -170,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": -170,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 700,
+    "wiki_id": "700",
+    "name": {
+      "zh_cn": "港湾夏姬 ",
+      "zh_tw": "港灣夏姬 ",
+      "ja": "港灣夏姫 ",
+      "en": ""
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        552,
+        552,
+        562,
+        561
+      ],
+      "space": [
+        0,
+        0,
+        88,
+        81
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 180,
+      "armor": 158,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 188,
+      "hp": 600,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": -180,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": -188,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 701,
+    "wiki_id": "701",
+    "name": {
+      "zh_cn": "港湾夏姬 ",
+      "zh_tw": "港灣夏姬 ",
+      "ja": "港灣夏姫 ",
+      "en": ""
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        552,
+        552,
+        562,
+        562
+      ],
+      "space": [
+        0,
+        0,
+        88,
+        88
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 188,
+      "armor": 167,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 200,
+      "hp": 700,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": -188,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": -200,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 702,
+    "wiki_id": "702",
+    "name": {
+      "zh_cn": "港湾夏姬-坏 ",
+      "zh_tw": "港灣夏姬-壞 ",
+      "ja": "港灣夏姫-壊 ",
+      "en": ""
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        552,
+        552,
+        561,
+        561
+      ],
+      "space": [
+        0,
+        0,
+        81,
+        81
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 170,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 170,
+      "hp": 444,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": -170,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": -170,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 703,
+    "wiki_id": "703",
+    "name": {
+      "zh_cn": "港湾夏姬-坏 ",
+      "zh_tw": "港灣夏姬-壞 ",
+      "ja": "港灣夏姫-壊 ",
+      "en": ""
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        552,
+        552,
+        562,
+        561
+      ],
+      "space": [
+        0,
+        0,
+        96,
+        81
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 180,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 188,
+      "hp": 544,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": -180,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": -188,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
+  },
+  {
+    "id": 704,
+    "wiki_id": "704",
+    "name": {
+      "zh_cn": "港湾夏姬-坏 ",
+      "zh_tw": "港灣夏姬-壞 ",
+      "ja": "港灣夏姫-壊 ",
+      "en": ""
+    },
+    "stype": 10,
+    "ctype": 0,
+    "cnum": 0,
+    "rarity": 0,
+    "build_time": 0,
+    "equip": {
+      "slots": 4,
+      "id": [
+        552,
+        552,
+        562,
+        562
+      ],
+      "space": [
+        0,
+        0,
+        108,
+        96
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 0,
+      "aa": 188,
+      "armor": 214,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 200,
+      "hp": 644,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": -188,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": -200,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    }
   }
 ]

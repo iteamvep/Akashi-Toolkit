@@ -45,7 +45,7 @@ public class ShipDetailVoiceViewHolder extends RecyclerView.ViewHolder implement
         mTextJa.setText(data.getJp());
         mTextZh.setText(data.getZh());
 
-        mTextJa.setVisibility(Utils.isJapanese(itemView.getContext()) ? View.GONE : View.VISIBLE);
+        mTextZh.setVisibility(Utils.isJapanese(itemView.getContext()) ? View.GONE : View.VISIBLE);
 
         if (data.getVoiceId() == 22) {
             setTextViewMode(true);

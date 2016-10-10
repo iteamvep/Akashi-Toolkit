@@ -149,6 +149,12 @@ public class ShipGenerator {
             addToShipClassList(shipClassList, ship.getClassType(), ship.get中文名());
         }
 
+        for (Ship2 ship : getList()) {
+            if (ship.getClassType() == 0) {
+                System.out.println("No class: " + ship.get中文名());
+            }
+        }
+
         addExtraEquipType();
 
         for (Ship2 ship : getList()) {
@@ -410,6 +416,12 @@ public class ShipGenerator {
             shipClass.setCtype(type);
 
             switch (shipName) {
+                case "雪风":
+                    shipClass.setName("阳炎级");
+                    break;
+                case "大井":
+                    shipClass.setName("球磨级");
+                    break;
                 case "Z1":
                     shipClass.setName("Zerstörer1934级");
                     break;
