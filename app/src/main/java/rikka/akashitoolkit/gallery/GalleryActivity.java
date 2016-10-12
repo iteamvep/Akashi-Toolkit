@@ -90,20 +90,18 @@ public class GalleryActivity extends AppCompatActivity {
 
         adapter.setItemBackgroundColor(ContextCompat.getColor(this, R.color.windowBackground));
 
-        GridLayoutManager layoutManager = new GridLayoutManager(this, mSpanCount);
+        final GridLayoutManager layoutManager = new GridLayoutManager(this, mSpanCount);
 
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.content_container);
+        final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.content_container);
         recyclerView.setBackgroundColor(ContextCompat.getColor(this, R.color.cardBackground));
 
-        recyclerView.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+        recyclerView.post(new Runnable() {
             @Override
-            public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
-                mItemSize = (v.getWidth() - Utils.dpToPx(1) * (mSpanCount - 1)) / mSpanCount;
+            public void run() {
+                mItemSize = (recyclerView.getWidth() - Utils.dpToPx(1) * (mSpanCount - 1)) / mSpanCount;
                 adapter.setNames(mNames);
                 adapter.setUrls(mUrls);
                 adapter.notifyDataSetChanged();
-
-                v.removeOnLayoutChangeListener(this);
             }
         });
 
