@@ -34,15 +34,13 @@ public class FleetListViewHolder extends RecyclerView.ViewHolder implements Item
     public boolean swipe;
 
     public void setImageSize() {
-        mRecyclerView.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+        mRecyclerView.post(new Runnable() {
             @Override
-            public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
-                mItemSize = (v.getWidth() - (Utils.dpToPx(4) * (SPAN_COUNT - 1))) / SPAN_COUNT;
+            public void run() {
+                mItemSize = (mRecyclerView.getWidth() - (Utils.dpToPx(4) * (SPAN_COUNT - 1))) / SPAN_COUNT;
                 mItemHeight = (int) (mItemSize * 0.25);
                 mItemWidth = mItemSize;
                 mRecyclerView.getAdapter().notifyDataSetChanged();
-
-                v.removeOnLayoutChangeListener(this);
             }
         });
 
@@ -92,11 +90,6 @@ public class FleetListViewHolder extends RecyclerView.ViewHolder implements Item
                 }
             }
         });
-
-        // TODO replace as text?
-        if (FlavorsUtils.shouldSafeCheck()) {
-            mRecyclerView.setVisibility(View.GONE);
-        }
     }
 
     @Override

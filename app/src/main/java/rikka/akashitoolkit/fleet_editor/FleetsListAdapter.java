@@ -19,6 +19,7 @@ import rikka.akashitoolkit.model.Ship;
 import rikka.akashitoolkit.staticdata.ShipList;
 import rikka.akashitoolkit.ui.widget.EditTextAlertDialog;
 import rikka.akashitoolkit.ui.widget.ListBottomSheetDialog;
+import rikka.akashitoolkit.utils.FlavorsUtils;
 import rikka.akashitoolkit.utils.Utils;
 
 /**
@@ -63,8 +64,23 @@ public class FleetsListAdapter extends BaseItemTouchHelperAdapter<FleetListViewH
             }
             sb.append(String.format(context.getString(R.string.fleet_consume), item.getFuel(), item.getAmmo()));
 
-            holder.mSummary.setText(sb.toString());
+            // TODO make it more good looking
+            if (FlavorsUtils.shouldSafeCheck()) {
+                sb.append("\n\n");
+                for (Fleet.Ship s : item.getShips()) {
+                    Ship ship = ShipList.findItemById(s.getId());
+                    if (ship != null) {
+                        sb.append(ship.getName().get(false)).append(" Lv.").append(s.getLevel()).append("\n");
+                    }
+                }
+            }
+
+            holder.mSummary.setText(sb.toString().trim());
             holder.mRecyclerView.setVisibility(View.VISIBLE);
+        }
+
+        if (FlavorsUtils.shouldSafeCheck()) {
+            holder.mRecyclerView.setVisibility(View.GONE);
         }
 
         ((GalleryAdapter) holder.mRecyclerView.getAdapter()).setUrls(urls);
