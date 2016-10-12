@@ -11,7 +11,7 @@ import rikka.akashitoolkit.utils.FlavorsUtils;
 // TODO 改为和 Event 那个一样的？
 public class CheckUpdate {
 
-    public static final int API_VERSION = 1;
+    public static final int API_VERSION = 2;
 
     /**
      * versionCode : 7
