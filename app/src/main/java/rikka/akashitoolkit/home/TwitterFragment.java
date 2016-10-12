@@ -38,6 +38,7 @@ import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.PreferenceChangedAction;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.gallery.GalleryActivity;
+import rikka.akashitoolkit.utils.FlavorsUtils;
 import rikka.akashitoolkit.utils.NetworkUtils;
 
 /**
@@ -340,6 +341,10 @@ public class TwitterFragment extends Fragment implements TwitterAdapter.Listener
 
     @Override
     public void onAvatarLongClick() {
+        if (FlavorsUtils.shouldSafeCheck()) {
+            return;
+        }
+
         if (mAvatars == null || mAvatars.getArchives() == null) {
             Toast.makeText(getContext(), "Download not finished or failed.", Toast.LENGTH_SHORT).show();
             return;

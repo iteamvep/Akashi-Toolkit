@@ -35,6 +35,7 @@ import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.model.Twitter;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.ui.widget.MySpannableFactory;
+import rikka.akashitoolkit.utils.FlavorsUtils;
 import rikka.akashitoolkit.utils.HtmlUtils;
 import rikka.akashitoolkit.utils.Utils;
 
@@ -82,6 +83,10 @@ public class TwitterShareDialogFragment extends DialogFragment implements Dialog
             Glide.with(context)
                     .load(url)
                     .into(holder.avatar);
+        }
+
+        if (FlavorsUtils.shouldSafeCheck()) {
+            holder.avatar.setVisibility(View.GONE);
         }
 
         holder.content.setText(HtmlUtils.fromHtml(data.getJp()));

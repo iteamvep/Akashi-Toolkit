@@ -22,6 +22,7 @@ import rikka.akashitoolkit.adapter.BaseRecyclerAdapter;
 import rikka.akashitoolkit.gallery.ImagesActivity;
 import rikka.akashitoolkit.model.Twitter;
 import rikka.akashitoolkit.ui.widget.MySpannableFactory;
+import rikka.akashitoolkit.utils.FlavorsUtils;
 import rikka.akashitoolkit.utils.HtmlUtils;
 
 import static rikka.akashitoolkit.support.ApiConstParam.TwitterContentLanguage.JP_AND_ZH;
@@ -90,6 +91,10 @@ public class TwitterAdapter extends BaseRecyclerAdapter<TwitterAdapter.ViewHolde
 
             holder.mAvatar.setOnClickListener(mAvatarOnClickListener);
             holder.mAvatar.setOnLongClickListener(mAvatarOnLongClickListener);
+        }
+
+        if (FlavorsUtils.shouldSafeCheck()) {
+            holder.mAvatar.setVisibility(View.GONE);
         }
 
         holder.mName.setText("「艦これ」開発/運営");

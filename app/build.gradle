@@ -12,7 +12,7 @@ android {
         minSdkVersion 16
         targetSdkVersion 24
         versionCode gitCommitCount
-        versionName "0.11.4"
+        versionName "0.12.0"
 
         vectorDrawables.useSupportLibrary = true
 
@@ -69,17 +69,17 @@ android {
     applicationVariants.all { variant ->
         variant.outputs.each { output ->
             if (output.outputFile != null && output.outputFile.name.endsWith('.apk')) {
+                String f = "${output.outputFile.parent}/akashitoolkit-${variant.versionCode}";
+
                 if (variant.buildType.name.startsWith("googlePlay")) {
-                    output.outputFile = file("${output.outputFile.parent}/akashitoolkit" +
-                            "-${variant.versionCode}" +
-                            "-googleplay" +
-                            ".apk")
-                } else {
-                    output.outputFile = file("${output.outputFile.parent}/akashitoolkit" +
-                            "-${variant.versionCode}" +
-                            "-${variant.flavorName}" +
-                            ".apk")
+                    f += "-googleplay";
+                } else if (variant.flavorName.equals("firebase")) {
+                    f += "-firebase";
                 }
+
+                f += ".apk";
+
+                output.outputFile = file(f)
             }
         }
     }

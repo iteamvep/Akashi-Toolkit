@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.gallery.GalleryAdapter;
+import rikka.akashitoolkit.utils.FlavorsUtils;
 import rikka.akashitoolkit.utils.Utils;
 import rikka.akashitoolkit.viewholder.ItemTouchHelperViewHolder;
 
@@ -91,6 +92,11 @@ public class FleetListViewHolder extends RecyclerView.ViewHolder implements Item
                 }
             }
         });
+
+        // TODO replace as text?
+        if (FlavorsUtils.shouldSafeCheck()) {
+            mRecyclerView.setVisibility(View.GONE);
+        }
     }
 
     @Override
