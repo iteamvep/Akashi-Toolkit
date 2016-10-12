@@ -22,6 +22,7 @@ import rikka.akashitoolkit.tools.SendReportActivity;
 import rikka.akashitoolkit.ui.BaseActivity;
 import rikka.akashitoolkit.utils.AlipayDonateUtils;
 import rikka.akashitoolkit.utils.ClipBoardUtils;
+import rikka.akashitoolkit.utils.FlavorsUtils;
 import rikka.akashitoolkit.utils.Utils;
 import rikka.materialpreference.Preference;
 import rikka.materialpreference.PreferenceFragment;
@@ -113,13 +114,13 @@ public class AboutActivity extends BaseActivity {
                 public boolean onPreferenceClick(Preference preference) {
                     SendReportActivity.sendEmail(getActivity(),
                             "Akashi Toolkit 反馈",
-                            String.format("系统版本: %s (API %d)\n设备型号: %s\n设备制造商: %s\n应用版本: %d\n是否为 Google Play 版: %s",
+                            String.format("系统版本: %s (API %d)\n设备型号: %s\n设备制造商: %s\n应用版本: %d\nFlavors: %s",
                                     Build.VERSION.RELEASE,
                                     Build.VERSION.SDK_INT,
                                     Build.MODEL,
                                     Build.MANUFACTURER,
                                     StaticData.instance(getActivity()).versionCode,
-                                    BuildConfig.isGooglePlay ? "是" : "否"));
+                                    BuildConfig.FLAVOR));
                     return false;
                 }
             });
@@ -175,7 +176,7 @@ public class AboutActivity extends BaseActivity {
                 }
             });
 
-            if (BuildConfig.isGooglePlay
+            if (FlavorsUtils.isPlay()
                     && !Utils.isPackageInstalled(getActivity(), AlipayDonateUtils.PACKAGENAME_ALIPAY)) {
                 ((PreferenceScreen) findPreference("screen")).removePreference(findPreference("donate_alipay"));
             }

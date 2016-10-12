@@ -21,23 +21,26 @@
             android:enabled="true"
             android:exported="false"/>
 
-        <service android:name="com.avos.avoscloud.PushService"
-                 android:exported="false"/>
+        <service
+            android:name="com.avos.avoscloud.PushService"
+            android:exported="false"/>
 
         <receiver android:name="com.avos.avoscloud.AVBroadcastReceiver">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <action android:name="android.intent.action.USER_PRESENT" />
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
             </intent-filter>
         </receiver>
 
-        <receiver android:name=".receiver.PushReceiver" android:exported="false">
+        <receiver
+            android:name=".receiver.PushReceiver"
+            android:exported="false">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <action android:name="android.intent.action.USER_PRESENT" />
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-                <action android:name="rikka.akashitool.PUSH_MESSAGE" />
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="rikka.akashitool.PUSH_MESSAGE"/>
             </intent-filter>
         </receiver>
     </application>

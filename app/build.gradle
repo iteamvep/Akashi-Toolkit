@@ -12,7 +12,7 @@ android {
         minSdkVersion 16
         targetSdkVersion 24
         versionCode gitCommitCount
-        versionName "0.11.3"
+        versionName "0.11.4"
 
         vectorDrawables.useSupportLibrary = true
 
@@ -38,36 +38,48 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
 
+        googlePlayRelease {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            applicationIdSuffix '.lite'
+        }
+
         debug {
             applicationIdSuffix '.debug'
         }
     }
 
     productFlavors {
-        china {
-            buildConfigField "boolean", "isGooglePlay", "false"
+        leancloud {
         }
 
-        play {
-            buildConfigField "boolean", "isGooglePlay", "true"
+        firebase {
         }
     }
 
-    sourceSets.china {
-        manifest.srcFile 'src/china/AndroidManifest.xml'
+    sourceSets.leancloud {
+        manifest.srcFile 'src/leancloud/AndroidManifest.xml'
     }
 
-    sourceSets.play {
-        manifest.srcFile 'src/play/AndroidManifest.xml'
+    sourceSets.firebase {
+        manifest.srcFile 'src/firebase/AndroidManifest.xml'
     }
 
     applicationVariants.all { variant ->
         variant.outputs.each { output ->
             if (output.outputFile != null && output.outputFile.name.endsWith('.apk')) {
-                output.outputFile = file("${output.outputFile.parent}/akashitoolkit" +
-                        "-${variant.versionCode}" +
-                        "-${variant.flavorName.toLowerCase()}" +
-                        ".apk")
+                if (variant.buildType.name.startsWith("googlePlay")) {
+                    output.outputFile = file("${output.outputFile.parent}/akashitoolkit" +
+                            "-${variant.versionCode}" +
+                            "-googleplay" +
+                            ".apk")
+                } else {
+                    output.outputFile = file("${output.outputFile.parent}/akashitoolkit" +
+                            "-${variant.versionCode}" +
+                            "-${variant.flavorName}" +
+                            ".apk")
+                }
             }
         }
     }
@@ -95,18 +107,20 @@ dependencies {
     compile 'com.github.RikkaW:MaterialPreference:v1.3'
     compile 'com.github.RikkaW:MiniDrawer:v0.0.6'
 
-    chinaCompile 'cn.leancloud.android:avoscloud-sdk:v3.14.5'
-    chinaCompile 'cn.leancloud.android:avoscloud-push:v3.14.5@aar'
-    chinaCompile 'cn.leancloud.android:avoscloud-statistics:v3.14.5@aar'
-    chinaCompile 'cn.leancloud.android:Java-WebSocket:1.3.2-leancloud'
-    chinaCompile 'com.google.protobuf:protobuf-java:2.6.1'
+    leancloudCompile 'cn.leancloud.android:avoscloud-sdk:v3.14.5'
+    leancloudCompile 'cn.leancloud.android:avoscloud-push:v3.14.5@aar'
+    leancloudCompile 'cn.leancloud.android:avoscloud-statistics:v3.14.5@aar'
+    leancloudCompile 'cn.leancloud.android:Java-WebSocket:1.3.2-leancloud'
+    leancloudCompile 'com.google.protobuf:protobuf-java:2.6.1'
 
-    playCompile "com.google.firebase:firebase-messaging:9.6.1"
-    playCompile "com.google.firebase:firebase-crash:9.6.1"
+    firebaseCompile 'com.google.android.gms:play-services-base:9.6.1'
+    firebaseCompile 'com.google.firebase:firebase-core:9.6.1'
+    firebaseCompile "com.google.firebase:firebase-messaging:9.6.1"
+    firebaseCompile "com.google.firebase:firebase-crash:9.6.1"
 
     compile 'com.github.chrisbanes:PhotoView:1.2.6'
 
-    compile 'com.google.android.gms:play-services-analytics:9.6.1'
+    //compile 'com.google.android.gms:play-services-analytics:9.6.1'
 
     compile 'io.reactivex:rxjava:1.1.2'
     compile 'io.reactivex:rxandroid:1.1.0'

@@ -1,12 +1,9 @@
 package rikka.akashitoolkit.service;
 
-import android.content.Intent;
 import android.util.Log;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
-
-import org.json.JSONObject;
 
 import java.util.Map;
 

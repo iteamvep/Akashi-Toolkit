@@ -30,7 +30,7 @@ public class Push {
     }
 
     private static boolean checkPlayServices(final Activity activity) {
-        if (!isPlayStoreInstalled(activity)) {
+        /*if (!isPlayStoreInstalled(activity)) {
             new AlertDialog.Builder(activity)
                     .setTitle(R.string.play_service_check_google_play_not_installed)
                     .setMessage(R.string.play_service_check_reason)
@@ -46,7 +46,7 @@ public class Push {
                     .show();
 
             return false;
-        }
+        }*/
 
         GoogleApiAvailability apiAvailability = GoogleApiAvailability.getInstance();
         int resultCode = apiAvailability.isGooglePlayServicesAvailable(activity);
