@@ -8,10 +8,10 @@
         android:title="@string/data_feedback"
         android:summary="@string/feedback_summary"/>
 
-    <!--<Preference
+    <Preference
         android:key="donate"
         android:title="@string/donate"
-        android:summary="@string/donate_via_google_play"/>-->
+        android:summary="@string/donate_via_google_play"/>
 
     <Preference
         android:key="donate_alipay"
@@ -46,6 +46,16 @@
         android:key="qq_group"
         android:title="@string/qq_group"
         android:summary="437033068">
+
+    </Preference>
+
+    <Preference
+        android:title="Homepage"
+        android:summary="http://app.kcwiki.moe/">
+
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="http://app.kcwiki.moe/"/>
 
     </Preference>
 

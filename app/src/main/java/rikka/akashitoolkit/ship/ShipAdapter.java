@@ -33,6 +33,7 @@ import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.StaticData;
 import rikka.akashitoolkit.ui.BaseItemDisplayActivity;
 import rikka.akashitoolkit.ui.widget.LinearLayoutManager;
+import rikka.akashitoolkit.utils.FlavorsUtils;
 import rikka.akashitoolkit.utils.Utils;
 import rx.Observable;
 import rx.Observer;
@@ -277,6 +278,10 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
         String banner = mEnemy ?
                 Utils.getKCWikiFileUrl(String.format("ShinkaiSeikan%dBanner.png", item.getId())) : Utils.getKCWikiFileUrl(String.format("KanMusu%sBanner.jpg", item.getWikiId()));
         boolean showBanner = Settings.instance(context).getBoolean(Settings.SHOW_SHIP_BANNER, true);
+
+        if (FlavorsUtils.shouldSafeCheck()) {
+            showBanner = false;
+        }
 
         if (!mEnemy) {
             ShipClass shipClass = ShipClassList.findItemById(mActivity, item.getClassType());

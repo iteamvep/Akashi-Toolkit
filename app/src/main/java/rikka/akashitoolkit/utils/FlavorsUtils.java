@@ -24,6 +24,6 @@ public class FlavorsUtils {
      * @return 返回是否需要“安全”检查
      */
     public static boolean shouldSafeCheck() {
-        return true;
+        return isPlay() && true;
     }
 }

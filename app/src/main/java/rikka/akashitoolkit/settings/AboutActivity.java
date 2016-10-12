@@ -54,19 +54,27 @@ public class AboutActivity extends BaseActivity {
                     fragment).commit();
         }
 
-        //mDonateHelper = new DonateHelper(this);
+        if (FlavorsUtils.isPlay()) {
+            mDonateHelper = new DonateHelper(this);
+        }
     }
 
-    /*@Override
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (!mDonateHelper.onActivityResult(requestCode, resultCode, data)) {
+        if (FlavorsUtils.isPlay()) {
+            if (!mDonateHelper.onActivityResult(requestCode, resultCode, data)) {
+                super.onActivityResult(requestCode, resultCode, data);
+            }
+        } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
-    }*/
+    }
 
     @Override
     protected void onDestroy() {
-        //mDonateHelper.onDestroy();
+        if (FlavorsUtils.isPlay()) {
+            mDonateHelper.onDestroy();
+        }
         super.onDestroy();
     }
 
@@ -125,48 +133,53 @@ public class AboutActivity extends BaseActivity {
                 }
             });
 
-            /*findPreference("donate").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-                @Override
-                public boolean onPreferenceClick(Preference preference) {
-                    if (((AboutActivity) getActivity()).mDonateHelper.isSuccess()) {
-                        final DonateHelper.OnPurchaseSuccessListener listener = new DonateHelper.OnPurchaseSuccessListener() {
-                            @Override
-                            public void onSuccess(String sku) {
-                                if (isVisible()) {
-                                    Toast.makeText(getActivity(), R.string.donate_gp_thanks, Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        };
-                        new AlertDialog.Builder(getActivity())
-                                .setItems(new CharSequence[]{"1 USD", "2 USD", "5 USD", "10 USD"}, new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        switch (which) {
-                                            case 0:
-                                                ((AboutActivity) getActivity()).mDonateHelper.start(getActivity(), DonateHelper.SKU_DONATE_1, listener);
-                                                break;
-                                            case 1:
-                                                ((AboutActivity) getActivity()).mDonateHelper.start(getActivity(), DonateHelper.SKU_DONATE_2, listener);
-                                                break;
-                                            case 2:
-                                                ((AboutActivity) getActivity()).mDonateHelper.start(getActivity(), DonateHelper.SKU_DONATE_5, listener);
-                                                break;
-                                            case 3:
-                                                ((AboutActivity) getActivity()).mDonateHelper.start(getActivity(), DonateHelper.SKU_DONATE_10, listener);
-                                                break;
-                                        }
+            if (FlavorsUtils.isPlay()) {
+                findPreference("donate").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                    @Override
+                    public boolean onPreferenceClick(Preference preference) {
+                        if (((AboutActivity) getActivity()).mDonateHelper.isSuccess()) {
+                            final DonateHelper.OnPurchaseSuccessListener listener = new DonateHelper.OnPurchaseSuccessListener() {
+                                @Override
+                                public void onSuccess(String sku) {
+                                    if (isVisible()) {
+                                        Toast.makeText(getActivity(), R.string.donate_gp_thanks, Toast.LENGTH_SHORT).show();
                                     }
-                                })
-                                .show();
-                    } else {
-                        new AlertDialog.Builder(getActivity())
-                                .setMessage(R.string.donate_gp_set_up_failed)
-                                .setPositiveButton(android.R.string.ok, null)
-                                .show();
+                                }
+                            };
+                            new AlertDialog.Builder(getActivity())
+                                    .setItems(new CharSequence[]{"1 USD", "2 USD", "5 USD", "10 USD"}, new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            switch (which) {
+                                                case 0:
+                                                    ((AboutActivity) getActivity()).mDonateHelper.start(getActivity(), DonateHelper.SKU_DONATE_1, listener);
+                                                    break;
+                                                case 1:
+                                                    ((AboutActivity) getActivity()).mDonateHelper.start(getActivity(), DonateHelper.SKU_DONATE_2, listener);
+                                                    break;
+                                                case 2:
+                                                    ((AboutActivity) getActivity()).mDonateHelper.start(getActivity(), DonateHelper.SKU_DONATE_5, listener);
+                                                    break;
+                                                case 3:
+                                                    ((AboutActivity) getActivity()).mDonateHelper.start(getActivity(), DonateHelper.SKU_DONATE_10, listener);
+                                                    break;
+                                            }
+                                        }
+                                    })
+                                    .show();
+                        } else {
+                            new AlertDialog.Builder(getActivity())
+                                    .setMessage(R.string.donate_gp_set_up_failed)
+                                    .setPositiveButton(android.R.string.ok, null)
+                                    .show();
+                        }
+                        return false;
                     }
-                    return false;
-                }
-            });*/
+                });
+            } else {
+                ((PreferenceScreen) findPreference("screen")).removePreference(findPreference("donate"));
+            }
+
 
             findPreference("donate_alipay").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 @Override

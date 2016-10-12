@@ -251,7 +251,7 @@ public class ShipDetailActivity extends BaseItemDisplayActivity {
     }
 
     private void downloadShipVoice() {
-        if (FlavorsUtils.shouldSafeCheck() && FlavorsUtils.isPlay()) {
+        if (FlavorsUtils.shouldSafeCheck()) {
             return;
         }
 

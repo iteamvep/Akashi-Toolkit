@@ -36,6 +36,7 @@ import rikka.materialpreference.ListPreference;
 import rikka.materialpreference.Preference;
 import rikka.materialpreference.PreferenceCategory;
 import rikka.materialpreference.PreferenceFragment;
+import rikka.materialpreference.PreferenceScreen;
 
 public class SettingActivity extends BaseActivity {
 
@@ -105,6 +106,8 @@ public class SettingActivity extends BaseActivity {
 
             if (FlavorsUtils.isPlay()) {
                 ((PreferenceCategory) findPreference("update")).removePreference(findPreference(Settings.UPDATE_CHECK_CHANNEL));
+                ((PreferenceCategory) findPreference("ui")).removePreference(findPreference("show_ship_banner"));
+
             }
 
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {

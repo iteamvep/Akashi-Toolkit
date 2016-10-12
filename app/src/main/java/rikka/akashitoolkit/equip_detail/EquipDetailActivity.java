@@ -58,6 +58,7 @@ import rikka.akashitoolkit.support.StaticData;
 import rikka.akashitoolkit.ui.BaseItemDisplayActivity;
 import rikka.akashitoolkit.gallery.ImagesActivity;
 import rikka.akashitoolkit.tools.SendReportActivity;
+import rikka.akashitoolkit.utils.FlavorsUtils;
 import rikka.akashitoolkit.utils.KCStringFormatter;
 import rikka.akashitoolkit.utils.Utils;
 
@@ -646,7 +647,7 @@ public class EquipDetailActivity extends BaseItemDisplayActivity {
 
     @SuppressLint("DefaultLocale")
     private void addIllustration(ViewGroup parent) {
-        if (mIsEnemy) {
+        if (mIsEnemy || FlavorsUtils.shouldSafeCheck()) {
             return;
         }
 
