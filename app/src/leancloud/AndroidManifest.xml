@@ -2,9 +2,6 @@
 <manifest package="rikka.akashitoolkit"
           xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- Get permission for reliable local dispatching on non-Google Play devices. -->
-    <uses-permission android:name="android.permission.WAKE_LOCK"/>
-
     <application>
         <!-- Register AnalyticsReceiver and AnalyticsService to support background
          dispatching on non-Google Play devices. -->
