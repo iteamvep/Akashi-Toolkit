@@ -13,7 +13,9 @@ import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.animation.FastOutSlowInInterpolator;
+import android.support.v7.view.menu.ShowableListMenu;
 import android.support.v7.widget.AppCompatDrawableManager;
+import android.support.v7.widget.ForwardingListener;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
@@ -326,6 +328,8 @@ public class ShipDetailActivity extends BaseItemDisplayActivity {
         return mItem.getName().get();
     }
 
+    private PopupMenu mPopupMenu;
+
     private void setupAppbar() {
         setToolBar(mToolbar);
 
@@ -338,35 +342,38 @@ public class ShipDetailActivity extends BaseItemDisplayActivity {
             return;
         }
 
-        mToolbar.findViewById(R.id.content_container).setOnClickListener(new View.OnClickListener() {
+        final View anchor = mToolbar.findViewById(R.id.content_container);
+        mPopupMenu = new PopupMenu(this, anchor);
+
+        Ship cur = mItem;
+        while (cur.getRemodel().getFromId() != 0) {
+            cur = ShipList.findItemById(this, cur.getRemodel().getFromId());
+        }
+        mPopupMenu.getMenu().add(0, cur.getId(), 0, cur.getName().get());
+
+        int i = 1;
+        while (cur.getRemodel().getToId() != 0 &&
+                cur.getRemodel().getToId() != cur.getRemodel().getFromId()) {
+            cur = ShipList.findItemById(cur.getRemodel().getToId());
+            mPopupMenu.getMenu().add(0, cur.getId(), i, cur.getName().get());
+            i++;
+        }
+        mPopupMenu.setGravity(Gravity.TOP);
+
+        mPopupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                int[] position = new int[]{Utils.dpToPx(48 + 4) + anchor.getWidth() / 2, mAppBarLayout.getHeight() / 2 + Utils.dpToPx(24)};
+                setItem(item.getItemId(), position);
+                return false;
+            }
+        });
+
+        anchor.setOnTouchListener(mPopupMenu.getDragToOpenListener());
+        anchor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
-                PopupMenu popupMenu = new PopupMenu(ShipDetailActivity.this, v);
-
-                Ship cur = mItem;
-                while (cur.getRemodel().getFromId() != 0) {
-                    cur = ShipList.findItemById(v.getContext(), cur.getRemodel().getFromId());
-                }
-                popupMenu.getMenu().add(0, cur.getId(), 0, cur.getName().get());
-
-                int i = 1;
-                while (cur.getRemodel().getToId() != 0 &&
-                        cur.getRemodel().getToId() != cur.getRemodel().getFromId()) {
-                    cur = ShipList.findItemById(v.getContext(), cur.getRemodel().getToId());
-                    popupMenu.getMenu().add(0, cur.getId(), i, cur.getName().get());
-                    i++;
-                }
-                popupMenu.setGravity(Gravity.TOP);
-                popupMenu.show();
-
-                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem item) {
-                        int[] position = new int[]{Utils.dpToPx(48 + 4) + v.getWidth() / 2, mAppBarLayout.getHeight() / 2 + Utils.dpToPx(24)};
-                        setItem(item.getItemId(), position);
-                        return false;
-                    }
-                });
+                mPopupMenu.show();
             }
         });
     }
