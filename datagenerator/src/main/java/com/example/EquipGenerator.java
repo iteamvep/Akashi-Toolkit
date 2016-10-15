@@ -286,16 +286,50 @@ public class EquipGenerator {
             Matcher m2 = p.matcher(page);
             if (m2.find()) {
                 item.getName().setEn(m2.group(1).trim());
-                System.out.println(m2.group(1).trim());
+                System.out.println(item.getId() + " " + m2.group(1).trim());
             } else {
                 p = Pattern.compile(String.format("%d\\n.+\\n.+\\n\\|(.+)", item.getId()));
                 m2 = p.matcher(page);
                 if (m2.find()) {
                     item.getName().setEn(m2.group(1).trim());
-                    System.out.println(m2.group(1).trim());
+                    System.out.println(item.getId() + " " + m2.group(1).trim());
                 } else {
                     System.out.println("!!!" + item.getName().getJa());
                 }
+            }
+
+            if (item.getId() == 15) {
+                item.getName().setEn("61cm Quad O² Torpedo Mount");
+            } else if (item.getId() == 58) {
+                item.getName().setEn("61cm Quint O² Torpedo Mount");
+            } else if (item.getId() == 67) {
+                item.getName().setEn("53cm Hull-mount O² Torpedoes");
+            } else if (item.getId() == 125) {
+                item.getName().setEn("61cm Triple O² Torpedo Mount");
+            } else if (item.getId() == 108) {
+                item.getName().setEn("Skilled Carrier-based Aircraft Maintenance Personnel");
+            } else if (item.getId() == 83) {
+                item.getName().setEn("Tenzan (931 Air Group)");
+            } else if (item.getId() == 104) {
+                item.getName().setEn("35.6cm Twin Gun Mount (Dazzle Camouflage)");
+            } else if (item.getId() == 109) {
+                item.getName().setEn("Zero Fighter Type 52 Type C (601 Air Group)");
+            } else if (item.getId() == 116) {
+                item.getName().setEn("Type 1 Armor-Piercing (AP) Shell");
+            } else if (item.getId() == 122) {
+                item.getName().setEn("10cm Twin High-angle Mount + Anti-Aircraft Fire Director");
+            } else if (item.getId() == 127) {
+                item.getName().setEn("Prototype FaT Type 95 O² Torpedo Kai");
+            } else if (item.getId() == 130) {
+                item.getName().setEn("12.7cm Twin High-angle Mount + Type 94 Anti-Aircraft Fire Director");
+            } else if (item.getId() == 131) {
+                item.getName().setEn("25mm Triple Autocannon Mount (Concentrated Deployment)");
+            } else if (item.getId() == 179) {
+                item.getName().setEn("Prototype 61cm Sextuple O² Torpedo Mount");
+            } else if (item.getId() == 515) {
+                item.getName().setEn("High-speed Abyssal Torpedo / 22inch Torpedo Mk.II");
+            } else if (item.getId() == 536) {
+                item.getName().setEn("Deteriorated AP Shell");
             }
         }
 

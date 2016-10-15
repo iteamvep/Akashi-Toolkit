@@ -1215,7 +1215,7 @@
       "zh_cn": "61cm四连装(酸素)鱼雷",
       "zh_tw": "61cm四連裝(酸素)魚雷",
       "ja": "61cm四連装(酸素)魚雷",
-      "en": "61cm Quad O2 Torpedo Mount|61cm Quad O\u003csub\u003e2\u003c/sub\u003e Torpedo Mount"
+      "en": "61cm Quad O² Torpedo Mount"
     },
     "introduction": {
       "zh_cn": "以大威力和长射程为荣的秘密武器【九三式酸素鱼雷】。\n这一必杀的酸素鱼雷四联装水雷武器的决定版，正是这四联装【酸素鱼雷】发射管。\n新型的主力驱逐舰和各种巡洋舰都有搭载，构成了夜战等的最大的雷装战力。",
@@ -4320,7 +4320,7 @@
       "zh_cn": "61cm五连装(酸素)鱼雷",
       "zh_tw": "61cm五連裝(酸素)魚雷",
       "ja": "61cm五連装(酸素)魚雷",
-      "en": "61cm Quint O2 Torpedo Mount|61cm Quint O\u003csub\u003e2\u003c/sub\u003e Torpedo Mount"
+      "en": "61cm Quint O² Torpedo Mount"
     },
     "introduction": {
       "zh_cn": "以威力大、射程长为傲的秘密兵器[九三式氧气魚雷]\n把这种必杀的氧气鱼雷五连装而成得水雷兵装的最终武器，就是这个五连装氧气鱼雷。\n曾搭载于重雷装驱逐舰岛风之上。大井和超级北上大人在看着这里!",
@@ -4987,7 +4987,7 @@
       "zh_cn": "53cm舰首(酸素)鱼雷",
       "zh_tw": "53cm艦首(酸素)魚雷",
       "ja": "53cm艦首(酸素)魚雷",
-      "en": "53cm Hull-mount O2 Torpedoes|53cm Hull-mount O\u003csub\u003e2\u003c/sub\u003e Torpedoes"
+      "en": "53cm Hull-mount O² Torpedoes"
     },
     "introduction": {
       "zh_cn": "这是装备在伊号潜水艇舰首的潜水艇主兵器。\n相较于水上舰艇搭载的直径稍小，以长射程和高威力自豪的氧气鱼雷。\n对大型舰船也可能造成很大的损害。",
@@ -5929,7 +5929,7 @@
       "zh_cn": "天山(九三一空)",
       "zh_tw": "天山(九三一空)",
       "ja": "天山(九三一空)",
-      "en": "Tenzan (931 Air Group)|Tenzan\u0026nbsp;(931 Air Group)"
+      "en": "Tenzan (931 Air Group)"
     },
     "introduction": {
       "zh_cn": "登场稍迟的名舰上攻击机\"天山\"\n由善于将机体用于对潜哨戒、对潜压制和对舰攻击的九三一航空队所属的装备了\"天山\"的飞行部队",
@@ -7233,7 +7233,7 @@
       "zh_cn": "35.6cm连装炮(迷彩)",
       "zh_tw": "35.6cm連裝炮(迷彩)",
       "ja": "35.6cm連装砲(ダズル迷彩)",
-      "en": "35.6cm Twin Gun Mount (Dazzle Camouflage)|35.6cm Twin Gun Mount\u003cbr /\u003e(Dazzle Camouflage)"
+      "en": "35.6cm Twin Gun Mount (Dazzle Camouflage)"
     },
     "introduction": {
       "zh_cn": "金刚型高速战舰「榛名」前部主炮的最终形态\n虽然无法保证其有效性，但还是加上了竖条斑马条纹的眩晕迷彩涂装。\n在守卫吴港一战中，即使已经无法继续航行，也依旧满载了三式弹迎击着来袭的敌机，战斗到了最后一刻。",
@@ -7571,7 +7571,7 @@
       "zh_cn": "熟练舰载机整备员",
       "zh_tw": "熟練艦載機整備員",
       "ja": "熟練艦載機整備員",
-      "en": "Skilled Carrier-based Aircraft Maintenance Personnel|Skilled Carrier-based Aircraft\u003cbr /\u003eMaintenance Personnel"
+      "en": "Skilled Carrier-based Aircraft Maintenance Personnel"
     },
     "introduction": {
       "zh_cn": "能够对舰载机进行整备以让其发挥120%能力的整备组员。\n搭载了舰载机的航空母舰上有她们在的话，该航母出击的攻击队能力会有显著提高。\n如果感觉炮击战\u003cref\u003e原文中的第一次攻击队指的是开幕空袭，然而游戏中受火力影响只是炮击战阶段的攻击，因此翻译时改为了炮击战\u003c/ref\u003e阶段的空袭威力不足的话，请务必让她们助你一臂之力！",
@@ -7618,7 +7618,7 @@
       "zh_cn": "零战52型丙(六〇一空)",
       "zh_tw": "零戰52型丙(六〇一空)",
       "ja": "零戦52型丙(六〇一空)",
-      "en": "Zero Fighter Type 52 Type C (601 Air Group)|Zero Fighter Type 52\u003cbr /\u003eType C (601 Air Group)"
+      "en": "Zero Fighter Type 52 Type C (601 Air Group)"
     },
     "introduction": {
       "zh_cn": "零战最终的量产型「零式舰上战斗机52型丙」。\n在火力与防御上有了较大的强化，也因此丧失了不少的机动性。\n配置了该机种的六零一航空队，将作为再组建的空母机动部队的制空战斗力量而活跃。",
@@ -8043,7 +8043,7 @@
       "zh_cn": "一式撤甲弹",
       "zh_tw": "一式撤甲彈",
       "ja": "一式徹甲弾",
-      "en": "Type 1_AP_Shell|Type 1 Armor-Piercing (AP) Shell"
+      "en": "Type 1 Armor-Piercing (AP) Shell"
     },
     "introduction": {
       "zh_cn": "",
@@ -8657,7 +8657,7 @@
       "zh_cn": "10cm连装高角炮+高射装置",
       "zh_tw": "10cm連裝高角炮+高射裝置",
       "ja": "10cm連装高角砲+高射装置",
-      "en": "10cm Twin High-angle Mount + Anti-Aircraft Fire Director|10cm Twin High-angle Mount +\u003cbr /\u003eAnti-Aircraft Fire Director"
+      "en": "10cm Twin High-angle Mount + Anti-Aircraft Fire Director"
     },
     "introduction": {
       "zh_cn": "10CM连装高角炮与94式高射装置组合起来形成的舰队防空系统。\n量产性较低，并且与各国列强的同类武装相比亦并不出彩。\n但是长10CM炮与高射装置这个组合作为舰队的保护伞依旧活跃在战场上。",
@@ -8805,7 +8805,7 @@
     },
     "introduction": {
       "zh_cn": "第三帝国开发的舰载用雷达。\n作为产于科学力世界第一的国度的电子武装…虽然不想承认，但是确实在性能上远超我们联合舰队使用的电探。\n主要使用与巡洋舰以上的大型舰艇上。",
-      "zh_tw": "第三帝國開發的艦載用雷達。\n作為產於科學力世界第一的國度的电子武裝…雖然不想承認，但是確實在性能上遠超我們聯合艦隊使用的電探。\n主要使用與巡洋艦以上的大型艦艇上。",
+      "zh_tw": "第三帝國開發的艦載用雷達。\n作為產於科學力世界第一的國度的電子武裝…雖然不想承認，但是確實在性能上遠超我們聯合艦隊使用的電探。\n主要使用與巡洋艦以上的大型艦艇上。",
       "ja": "かの国で開発された艦載用レーダー(電探)です。\n科学の国の電子兵装、残念ながら、我が連合艦隊に装備された電探よりスペックは高いです。\n主に巡洋艦以上の大型艦艇に搭載されました。",
       "en": ""
     },
@@ -8848,7 +8848,7 @@
       "zh_cn": "61cm三连装(酸素)鱼雷",
       "zh_tw": "61cm三連裝(酸素)魚雷",
       "ja": "61cm三連装(酸素)魚雷",
-      "en": "61cm_Triple_(Oxygen)_Torpedo_Mount|61cm Triple O\u003csub\u003e2\u003c/sub\u003e Torpedo Mount"
+      "en": "61cm Triple O² Torpedo Mount"
     },
     "introduction": {
       "zh_cn": "为了替换老旧化的53CM鱼雷而开发的后继型大型61CM鱼雷。\n其三联装发射管版的，作为驱逐舰的主力武装搭载在特型驱逐舰「吹雪」型上了。\n而改良版的本武装，则是把装填的鱼雷改为了「九三式酸素鱼雷」。",
@@ -8995,7 +8995,7 @@
       "zh_cn": "试制FaT仕样九五式酸素鱼雷改",
       "zh_tw": "試製FaT仕樣九五式酸素魚雷改",
       "ja": "試製FaT仕様九五式酸素魚雷改",
-      "en": "Prototype FaT Type 95 Oxygen Torpedo Kai|Prototype FaT Type 95 O\u003csub\u003e2\u003c/sub\u003e Torpedo Kai"
+      "en": "Prototype FaT Type 95 O² Torpedo Kai"
     },
     "introduction": {
       "zh_cn": "第三帝国开发的黑科技。搭载了陀螺机构，能在直线航行与自动转向间转换。\n实现了在向敌舰发射后可以进行名为「FaT航行轨迹」移动方式的试制潜艇用酸素鱼雷。\nU-boat上亦拥有这种技术，是用于阻碍敌方舰队，制压航路的特殊试制鱼雷。",
@@ -9136,7 +9136,7 @@
     },
     "introduction": {
       "zh_cn": "工作在水上战斗舰的熟练观察员\n在不断的训练中获得的优秀的肉眼观察能力与索敌能力在特定情况下能有非常大的作用。\n在敌方舰队电子战设备充实的情况下，在夜战中能给我方水上舰队带来很大的帮助。",
-      "zh_tw": "工作在水上戰鬥艦的熟練觀察員\n在不斷的訓練中獲得的優秀的肉眼觀察能力與索敵能力在特定情況下能有非常大的作用。\n在敵方艦隊电子戰設備充實的情況下，在夜戰中能給我方水上艦隊帶來很大的幫助。",
+      "zh_tw": "工作在水上戰鬥艦的熟練觀察員\n在不斷的訓練中獲得的優秀的肉眼觀察能力與索敵能力在特定情況下能有非常大的作用。\n在敵方艦隊電子戰設備充實的情況下，在夜戰中能給我方水上艦隊帶來很大的幫助。",
       "ja": "水上戦闘艦に配備可能な熟練見張員です。\nその鍛え抜かれた肉眼視力による偵察力・索敵力は状況によっては大きな威力を発揮し、\n敵艦隊のレーダー兵装が充実するまでは、特に夜戦などで水上艦隊の攻撃力を支えました。",
       "en": ""
     },
@@ -9179,7 +9179,7 @@
       "zh_cn": "12.7cm连装高角炮+高射装置",
       "zh_tw": "12.7cm連裝高角炮+高射裝置",
       "ja": "12.7cm連装高角砲+高射装置",
-      "en": "12.7cm Twin High-angle Mount + Type 94 Anti-Aircraft Fire Director|12.7cm Twin High-angle Mount\u003cbr /\u003e+ Type 94 Anti-Aircraft Fire Director"
+      "en": "12.7cm Twin High-angle Mount + Type 94 Anti-Aircraft Fire Director"
     },
     "introduction": {
       "zh_cn": "搭载炸巡洋舰以的大型舰的标准对空武装：12.7CM连装高角炮，\n与「94式高射装置」组合在一起形成的舰队防空系统。虽然射速与炮台回转速度上的问题使得运用起来有难度。\n但是高角炮+高射装置这样的防空组合作为舰队的伞来说是十分重要的武装。",
@@ -9226,7 +9226,7 @@
       "zh_cn": "25mm三连装机铳 集中配备",
       "zh_tw": "25mm三連裝機銃 集中配備",
       "ja": "25mm三連装機銃 集中配備",
-      "en": "25mm Triple Autocannon Mount (Concentrated Deployment)|25mm Triple Autocannon Mount\u003cbr /\u003e(Concentrated Deployment)"
+      "en": "25mm Triple Autocannon Mount (Concentrated Deployment)"
     },
     "introduction": {
       "zh_cn": "为了对抗日益严峻的敌方航空战力威胁，将三联装25MM高角机枪进行了集中配置，\n形成了一种刺猬一般的对空机枪武装。原本有着精度尴尬，枪身容易过热的等缺点25MM机枪，\n集中在一起来运用倒也不失是一种优秀的单舰防空手段。",
@@ -10901,7 +10901,7 @@
     },
     "introduction": {
       "zh_cn": "那位因拥有压倒性空战技术而出名的岩本小队长所在的、配备了「零式舰上战斗机21型」的舰战队\n零战那优秀的狗斗能力以及续航能力，加上驾驶员出色的技术，展现了压倒性的威力。\n珊瑚海海战开始起就一直守护着「瑞鹤」的天空",
-      "zh_tw": "那位因擁有壓倒性空戰技術而出名的岩本小隊長所在的、配備了「零式艦上戰鬥機21型」的艦戰隊\n零戰那優秀的狗斗能力以及續航能力，加上駕駛員出色的技術，展現了壓倒性的威力。\n珊瑚海海戰開始起就一直守護着「瑞鶴」的天空",
+      "zh_tw": "那位因擁有壓倒性空戰技術而出名的岩本小隊長所在的、配備了「零式艦上戰鬥機21型」的艦戰隊\n零戰那優秀的空戰能力以及續航能力，加上駕駛員出色的技術，展現了壓倒性的威力。\n珊瑚海海戰開始起就一直守護着「瑞鶴」的天空",
       "ja": "圧倒的な空戦技量を誇る岩本小隊長を擁する「零式艦上戦闘機21型」装備の艦戦隊です。\n零戦の優れた格闘戦能力と長大な航続距離、そして搭乗員の高い技量で圧倒的な強さを誇ります。\n開戦から珊瑚海海戦まで「瑞鶴」の上空を護りました。",
       "en": ""
     },
@@ -12351,7 +12351,7 @@
       "zh_cn": "试制61cm六连装(酸素)鱼雷",
       "zh_tw": "試製61cm六連裝(酸素)魚雷",
       "ja": "試製61cm六連装(酸素)魚雷",
-      "en": "Prototype 61cm Sextuple (Oxygen) Torpedo Mount"
+      "en": "Prototype 61cm Sextuple O² Torpedo Mount"
     },
     "introduction": {
       "zh_cn": "拥有大威力长射程的秘密兵器“九三式氧气鱼雷”。最大限度的整合了氧气鱼雷的必杀（特性），\n每一只旧型驱逐舰为增进雷击火力也都配备了试制型六连装“氧气鱼雷”的发射管。\n（该装备）计划在（IJN）后期的新型驱逐舰上进行搭载。",
@@ -13130,6 +13130,14 @@
           2,
           8
         ],
+        "item3": [
+          8,
+          15,
+          6,
+          12,
+          2,
+          49
+        ],
         "ship": [
           [
             439
@@ -13146,13 +13154,17 @@
           [
             439
           ]
+        ],
+        "upgrade": [
+          192,
+          0
         ]
       }
     ],
     "status": {
       "research": 0,
-      "improvement": 0,
-      "upgrade": 0,
+      "improvement": 1,
+      "upgrade": 1,
       "rank": 0
     }
   },
@@ -13243,9 +13255,53 @@
       19,
       2
     ],
+    "improvements": [
+      {
+        "remark": "",
+        "cost": [
+          28,
+          320,
+          420,
+          40
+        ],
+        "item": [
+          4,
+          6,
+          3,
+          5,
+          1,
+          8
+        ],
+        "item2": [
+          6,
+          8,
+          4,
+          7,
+          2,
+          8
+        ],
+        "ship": [
+          [],
+          [],
+          [
+            439
+          ],
+          [
+            439
+          ],
+          [
+            439
+          ],
+          [
+            439
+          ],
+          []
+        ]
+      }
+    ],
     "status": {
       "research": 0,
-      "improvement": 0,
+      "improvement": 1,
       "upgrade": 0,
       "rank": 0
     }
@@ -13732,7 +13788,7 @@
       "zh_cn": "高速深海鱼雷/22英寸鱼雷后期型",
       "zh_tw": "高速深海魚雷/22英寸魚雷後期型",
       "ja": "高速深海魚雷/22inch魚雷後期型",
-      "en": "High-speed Abyssal Torpedo/\u003cbr /\u003e22inch Torpedo Mk.II"
+      "en": "High-speed Abyssal Torpedo / 22inch Torpedo Mk.II"
     },
     "introduction": {
       "zh_cn": "",
@@ -14446,7 +14502,7 @@
       "zh_cn": "劣化撤甲弹",
       "zh_tw": "劣化撤甲彈",
       "ja": "劣化徹甲弾",
-      "en": "\u003cspan style\u003d\"text-align:center;\"\u003eDeteriorated AP Shell\u003c/span\u003e"
+      "en": "Deteriorated AP Shell"
     },
     "introduction": {
       "zh_cn": "",
