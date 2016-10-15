@@ -2,6 +2,7 @@ package rikka.akashitoolkit.quest;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -23,16 +24,18 @@ import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.Statistics;
 import rikka.akashitoolkit.MainActivity;
 import rikka.akashitoolkit.ui.fragments.BaseSearchFragment;
+import rikka.akashitoolkit.ui.fragments.ISwitchFragment;
+import rikka.akashitoolkit.ui.widget.IconSwitchCompat;
+import rikka.akashitoolkit.ui.widget.SimpleDrawerView;
 import rikka.akashitoolkit.utils.Utils;
 import rikka.akashitoolkit.ui.widget.CheckBoxGroup;
 
 /**
  * Created by Rikka on 2016/3/6.
  */
-public class QuestDisplayFragment extends BaseSearchFragment implements CheckBoxGroup.OnCheckedChangeListener {
+public class QuestDisplayFragment extends BaseSearchFragment implements CheckBoxGroup.OnCheckedChangeListener, ISwitchFragment {
     private ViewPager mViewPager;
     private ViewPagerStateAdapter[] mViewPagerStateAdapter;
-    private MainActivity mActivity;
     private int mType;
     private int mFlag = -1;
     private int mJumpToQuestIndex = -1;
@@ -48,18 +51,41 @@ public class QuestDisplayFragment extends BaseSearchFragment implements CheckBox
     }
 
     @Override
-    protected boolean getRightDrawerLock() {
-        return false;
-    }
+    protected boolean onSetRightDrawer(SimpleDrawerView drawer) {
+        drawer.removeAllViews();
+        drawer.addTitle(getString(R.string.action_filter));
+        drawer.addDividerHead();
+        CheckBoxGroup cbg = new CheckBoxGroup(getContext());
+        cbg.addItem(getString(R.string.quest_normal));
+        cbg.addItem(getString(R.string.quest_daily));
+        cbg.addItem(getString(R.string.quest_weekly));
+        cbg.addItem(getString(R.string.quest_monthly));
+        cbg.setOnCheckedChangeListener(this);
+        cbg.setChecked(mFlag);
+        cbg.setPadding(0, Utils.dpToPx(4), 0, Utils.dpToPx(4));
 
-    @Override
-    protected boolean getTabLayoutVisible() {
+        drawer.addView(cbg);
         return true;
     }
 
     @Override
-    protected boolean getSwitchVisible() {
+    protected boolean onSetTabLayout(TabLayout tabLayout) {
+        tabLayout.setupWithViewPager(mViewPager);
         return true;
+    }
+
+    @Override
+    protected boolean onSetSwitch(IconSwitchCompat switchView) {
+        return true;
+    }
+
+
+    @Override
+    public void onSwitchCheckedChanged(boolean isChecked) {
+        mBookmarked = isChecked;
+
+        BusProvider.instance().post(
+                new BookmarkAction.Changed(QuestFragment.TAG, mBookmarked));
     }
 
     @Override
@@ -72,42 +98,7 @@ public class QuestDisplayFragment extends BaseSearchFragment implements CheckBox
 
         setUpViewPager(isSearching() ? 1 : 0);
 
-        mActivity.getTabLayout().setupWithViewPager(mViewPager);
-        mActivity.getSupportActionBar().setTitle(getString(R.string.quest));
-
-        mActivity.getRightDrawerContent().removeAllViews();
-        mActivity.getRightDrawerContent().addTitle(getString(R.string.action_filter));
-        mActivity.getRightDrawerContent().addDividerHead();
-        CheckBoxGroup cbg = new CheckBoxGroup(getContext());
-        cbg.addItem(getString(R.string.quest_normal));
-        cbg.addItem(getString(R.string.quest_daily));
-        cbg.addItem(getString(R.string.quest_weekly));
-        cbg.addItem(getString(R.string.quest_monthly));
-        cbg.setOnCheckedChangeListener(this);
-        cbg.setChecked(mFlag);
-        cbg.setPadding(0, Utils.dpToPx(4), 0, Utils.dpToPx(4));
-
-        mActivity.getRightDrawerContent().addView(cbg);
-
-        ((MainActivity) getActivity()).getSwitch().setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                mBookmarked = buttonView.isChecked();
-
-                BusProvider.instance().post(
-                        new BookmarkAction.Changed(QuestFragment.TAG, mBookmarked));
-
-                Settings
-                        .instance(getContext())
-                        .putBoolean(Settings.QUEST_BOOKMARKED, mBookmarked);
-            }
-        });
-
-        mBookmarked = Settings
-                .instance(getContext())
-                .getBoolean(Settings.QUEST_BOOKMARKED, false);
-
-        ((MainActivity) getActivity()).getSwitch().setChecked(mBookmarked, true);
+        setToolbarTitle(getString(R.string.quest));
 
         Statistics.onFragmentStart("QuestDisplayFragment");
     }
@@ -164,15 +155,15 @@ public class QuestDisplayFragment extends BaseSearchFragment implements CheckBox
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mActivity = (MainActivity) getActivity();
+        return inflater.inflate(R.layout.content_viewpager, container, false);
+    }
 
-        View view = inflater.inflate(R.layout.content_viewpager, container, false);
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         mViewPager = (ViewPager) view.findViewById(R.id.view_pager);
         mViewPagerStateAdapter = new ViewPagerStateAdapter[2];
         mViewPagerStateAdapter[0] = getAdapter(0);
         mViewPagerStateAdapter[1] = getAdapter(1);
-
-        return view;
     }
 
     private void setUpViewPager(int type) {

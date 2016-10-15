@@ -15,13 +15,13 @@ import rikka.akashitoolkit.MainActivity;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.DataChangedAction;
-import rikka.akashitoolkit.ui.fragments.BaseShowHideFragment;
+import rikka.akashitoolkit.ui.fragments.SaveVisibilityFragment;
 
 /**
  * Created by Rikka on 2016/10/4.
  */
 
-public class EquipListFragment extends BaseShowHideFragment implements CompoundButton.OnCheckedChangeListener {
+public class EquipListFragment extends SaveVisibilityFragment implements CompoundButton.OnCheckedChangeListener {
 
     private String mTitle;
     private EquipAdapter mAdapter;

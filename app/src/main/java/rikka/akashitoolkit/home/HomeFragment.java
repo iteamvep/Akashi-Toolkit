@@ -13,16 +13,28 @@ import android.view.ViewGroup;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.ViewPagerAdapter;
-import rikka.akashitoolkit.ui.fragments.BaseDrawerItemFragment;
+import rikka.akashitoolkit.ui.fragments.DrawerFragment;
 
 /**
  * Created by Rikka on 2016/6/11.
  */
-public class HomeFragment extends BaseDrawerItemFragment {
+public class HomeFragment extends DrawerFragment {
     private ViewPager mViewPager;
 
     @Override
-    protected boolean getTabLayoutVisible() {
+    protected boolean onSetTabLayout(TabLayout tabLayout) {
+        tabLayout.setupWithViewPager(mViewPager);
+        tabLayout.setTabMode(TabLayout.MODE_FIXED);
+        tabLayout.setPadding(0, 0, 0, 0);
+
+        if (tabLayout.getTabAt(0).getIcon() == null) {
+            tabLayout.getTabAt(0).setIcon(R.drawable.ic_nav_twitter_24dp);
+            tabLayout.getTabAt(1).setIcon(R.drawable.ic_explore_black_24dp);
+            tabLayout.getTabAt(2).setIcon(R.drawable.ic_nav_new_24dp);
+            DrawableCompat.setTintList(tabLayout.getTabAt(0).getIcon(), tabLayout.getTabTextColors());
+            DrawableCompat.setTintList(tabLayout.getTabAt(1).getIcon(), tabLayout.getTabTextColors());
+            DrawableCompat.setTintList(tabLayout.getTabAt(2).getIcon(), tabLayout.getTabTextColors());
+        }
         return true;
     }
 
@@ -30,20 +42,7 @@ public class HomeFragment extends BaseDrawerItemFragment {
     public void onShow() {
         super.onShow();
 
-        mActivity.getTabLayout().setupWithViewPager(mViewPager);
-        mActivity.getTabLayout().setTabMode(TabLayout.MODE_FIXED);
-        mActivity.getTabLayout().setPadding(0, 0, 0, 0);
-
-        if (mActivity.getTabLayout().getTabAt(0).getIcon() == null) {
-            mActivity.getTabLayout().getTabAt(0).setIcon(R.drawable.ic_nav_twitter_24dp);
-            mActivity.getTabLayout().getTabAt(1).setIcon(R.drawable.ic_explore_black_24dp);
-            mActivity.getTabLayout().getTabAt(2).setIcon(R.drawable.ic_nav_new_24dp);
-            DrawableCompat.setTintList(mActivity.getTabLayout().getTabAt(0).getIcon(), mActivity.getTabLayout().getTabTextColors());
-            DrawableCompat.setTintList(mActivity.getTabLayout().getTabAt(1).getIcon(), mActivity.getTabLayout().getTabTextColors());
-            DrawableCompat.setTintList(mActivity.getTabLayout().getTabAt(2).getIcon(), mActivity.getTabLayout().getTabTextColors());
-        }
-
-        mActivity.getSupportActionBar().setTitle(getString(R.string.app_name));
+        setToolbarTitle(getString(R.string.app_name));
     }
 
     @Override
@@ -68,17 +67,15 @@ public class HomeFragment extends BaseDrawerItemFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.content_viewpager, container, false);
+        return inflater.inflate(R.layout.content_viewpager, container, false);
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         mViewPager = (ViewPager) view.findViewById(R.id.view_pager);
         mViewPager.setAdapter(getAdapter());
         mViewPager.setOffscreenPageLimit(3);
         mViewPager.setCurrentItem(1);
-
-        /*if (!isHiddenBeforeSaveInstanceState()) {
-            onShow();
-        }*/
-
-        return view;
     }
 
     private ViewPagerAdapter getAdapter() {

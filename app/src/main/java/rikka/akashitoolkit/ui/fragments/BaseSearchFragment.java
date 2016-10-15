@@ -16,7 +16,7 @@ import rikka.akashitoolkit.R;
 /**
  * Created by Rikka on 2016/4/4.
  */
-public abstract class BaseSearchFragment extends BaseDrawerItemFragment {
+public abstract class BaseSearchFragment extends DrawerFragment {
 
     private String mKeyword;
     private boolean mIsSearching;

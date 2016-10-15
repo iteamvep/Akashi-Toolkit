@@ -13,16 +13,16 @@ import rikka.akashitoolkit.adapter.ViewPagerStateAdapter;
 import rikka.akashitoolkit.equip_list.EquipListFragment;
 import rikka.akashitoolkit.ship.ShipFragment;
 import rikka.akashitoolkit.support.Statistics;
-import rikka.akashitoolkit.ui.fragments.BaseDrawerItemFragment;
+import rikka.akashitoolkit.ui.fragments.DrawerFragment;
 
 /**
  * Created by Rikka on 2016/6/13.
  */
-public class EnemyDisplayFragment extends BaseDrawerItemFragment {
+public class EnemyDisplayFragment extends DrawerFragment {
     private ViewPager mViewPager;
 
     @Override
-    protected boolean getTabLayoutVisible() {
+    protected boolean onSetTabLayout(TabLayout tabLayout) {
         return true;
     }
 

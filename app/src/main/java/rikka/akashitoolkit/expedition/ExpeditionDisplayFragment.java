@@ -21,7 +21,9 @@ import java.util.List;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.support.Statistics;
-import rikka.akashitoolkit.ui.fragments.BaseDrawerItemFragment;
+import rikka.akashitoolkit.ui.fragments.DrawerFragment;
+import rikka.akashitoolkit.ui.fragments.ISwitchFragment;
+import rikka.akashitoolkit.ui.widget.IconSwitchCompat;
 import rikka.akashitoolkit.ui.widget.RadioButtonGroup;
 import rikka.akashitoolkit.ui.widget.SimpleDrawerView;
 import rikka.akashitoolkit.utils.Utils;
@@ -29,17 +31,13 @@ import rikka.akashitoolkit.utils.Utils;
 /**
  * Created by Rikka on 2016/3/14.
  */
-public class ExpeditionDisplayFragment extends BaseDrawerItemFragment implements RadioButtonGroup.OnCheckedChangeListener {
+public class ExpeditionDisplayFragment extends DrawerFragment implements RadioButtonGroup.OnCheckedChangeListener, ISwitchFragment {
     private ExpeditionAdapter mAdapter;
 
     @Override
-    public void onShow() {
-        super.onShow();
+    protected boolean onSetRightDrawer(SimpleDrawerView drawer) {
+        drawer.removeAllViews();
 
-        mActivity.getSupportActionBar().setTitle(getString(R.string.expedition));
-        mActivity.getRightDrawerContent().removeAllViews();
-
-        Statistics.onFragmentStart("ExpeditionDisplayFragment");
 
         NestedScrollView scrollView = new NestedScrollView(getContext());
         scrollView.setLayoutParams(new NestedScrollView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
@@ -82,18 +80,20 @@ public class ExpeditionDisplayFragment extends BaseDrawerItemFragment implements
 
         scrollView.addView(body);
 
-        mActivity.getRightDrawerContent().addTitle(R.string.action_filter);
-        mActivity.getRightDrawerContent().addDividerHead();
-        mActivity.getRightDrawerContent().addView(scrollView);
+        drawer.addTitle(R.string.action_filter);
+        drawer.addDividerHead();
+        drawer.addView(scrollView);
 
-        mActivity.getSwitch().setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton button, boolean checked) {
-                mAdapter.setBookmarked(checked);
-                mAdapter.rebuildDataList();
-            }
-        });
-        mActivity.getSwitch().setChecked(false);
+        return true;
+    }
+
+    @Override
+    public void onShow() {
+        super.onShow();
+
+        setToolbarTitle(getString(R.string.expedition));
+
+        Statistics.onFragmentStart("ExpeditionDisplayFragment");
     }
 
     @Override
@@ -224,20 +224,25 @@ public class ExpeditionDisplayFragment extends BaseDrawerItemFragment implements
     }
 
     @Override
-    protected boolean getRightDrawerLock() {
-        return false;
+    protected boolean onSetSwitch(IconSwitchCompat switchView) {
+        return true;
     }
 
+
     @Override
-    protected boolean getSwitchVisible() {
-        return true;
+    public void onSwitchCheckedChanged(boolean isChecked) {
+        mAdapter.setBookmarked(isChecked);
+        mAdapter.rebuildDataList();
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.content_recycler, container, false);
+        return inflater.inflate(R.layout.content_recycler, container, false);
+    }
 
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         mAdapter = new ExpeditionAdapter(getContext(), mActivity.getSwitch().isChecked());
         recyclerView.setAdapter(mAdapter);
@@ -250,11 +255,5 @@ public class ExpeditionDisplayFragment extends BaseDrawerItemFragment implements
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.cardBackground));
-
-        /*if (!isHiddenBeforeSaveInstanceState()) {
-            onShow();
-        }*/
-
-        return view;
     }
 }

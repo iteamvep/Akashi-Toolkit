@@ -41,13 +41,12 @@ import rikka.akashitoolkit.quest.QuestDisplayFragment;
 import rikka.akashitoolkit.settings.AboutActivity;
 import rikka.akashitoolkit.settings.SettingActivity;
 import rikka.akashitoolkit.ship.ShipDisplayFragment;
-import rikka.akashitoolkit.ship_list.ShipListFragment;
 import rikka.akashitoolkit.support.Push;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.StaticData;
 import rikka.akashitoolkit.tools.ToolsFragment;
 import rikka.akashitoolkit.ui.BaseActivity;
-import rikka.akashitoolkit.ui.fragments.BaseDrawerItemFragment;
+import rikka.akashitoolkit.ui.fragments.DrawerFragment;
 import rikka.akashitoolkit.ui.fragments.IBackFragment;
 import rikka.akashitoolkit.ui.widget.IconSwitchCompat;
 import rikka.akashitoolkit.ui.widget.SimpleDrawerView;
@@ -322,8 +321,8 @@ public class MainActivity extends BaseActivity
         Fragment to = mFragmentMap.get(id);
         if (to == null) {
             to = instanceFragment(id);
-            if (!(to instanceof BaseDrawerItemFragment)) {
-                throw new RuntimeException("must be subclass of BaseDrawerItemFragment");
+            if (!(to instanceof DrawerFragment)) {
+                throw new RuntimeException("must be subclass of DrawerFragment");
             }
             mFragmentMap.put(id, to);
         }

@@ -2,6 +2,7 @@ package rikka.akashitoolkit.map;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,12 +18,12 @@ import rikka.akashitoolkit.otto.DataChangedAction;
 import rikka.akashitoolkit.staticdata.MapTypeList;
 import rikka.akashitoolkit.support.Statistics;
 import rikka.akashitoolkit.MainActivity;
-import rikka.akashitoolkit.ui.fragments.BaseDrawerItemFragment;
+import rikka.akashitoolkit.ui.fragments.DrawerFragment;
 
 /**
  * Created by Rikka on 2016/4/9.
  */
-public class MapDisplayFragment extends BaseDrawerItemFragment {
+public class MapDisplayFragment extends DrawerFragment {
     private ViewPager mViewPager;
 
     protected Object mBusEventListener;
@@ -47,7 +48,7 @@ public class MapDisplayFragment extends BaseDrawerItemFragment {
     }
 
     @Override
-    protected boolean getTabLayoutVisible() {
+    protected boolean onSetTabLayout(TabLayout tabLayout) {
         return true;
     }
 

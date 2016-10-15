@@ -12,13 +12,13 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.home.IRefresh;
-import rikka.akashitoolkit.ui.fragments.BaseDrawerItemFragment;
+import rikka.akashitoolkit.ui.fragments.DrawerFragment;
 import rikka.akashitoolkit.ui.widget.RecyclerView;
 
 /**
  * Created by Rikka on 2016/8/31.
  */
-public abstract class BaseEventFragment<T> extends BaseDrawerItemFragment implements IRefresh<T> {
+public abstract class BaseEventFragment<T> extends DrawerFragment implements IRefresh<T> {
 
     protected SwipeRefreshLayout mSwipeRefreshLayout;
     protected RecyclerView mRecyclerView;

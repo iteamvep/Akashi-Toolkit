@@ -21,14 +21,13 @@ import com.squareup.otto.Subscribe;
 import java.util.ArrayList;
 import java.util.List;
 
-import rikka.akashitoolkit.MainActivity;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.SimpleAdapter;
 import rikka.akashitoolkit.model.EquipTypeParent;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.DataChangedAction;
 import rikka.akashitoolkit.staticdata.EquipTypeParentList;
-import rikka.akashitoolkit.ui.fragments.BaseDrawerItemFragment;
+import rikka.akashitoolkit.ui.fragments.DrawerFragment;
 import rikka.akashitoolkit.ui.fragments.IBackFragment;
 import rikka.akashitoolkit.utils.Utils;
 import rikka.akashitoolkit.viewholder.SimpleTitleViewHolder;
@@ -37,16 +36,11 @@ import rikka.akashitoolkit.viewholder.SimpleTitleViewHolder;
  * Created by Rikka on 2016/10/4.
  */
 
-public class EquipTypeListFragment extends BaseDrawerItemFragment implements SimpleAdapter.Listener, IBackFragment {
+public class EquipTypeListFragment extends DrawerFragment implements SimpleAdapter.Listener, IBackFragment {
 
     private RecyclerView mRecyclerView;
     private SimpleAdapter<String> mAdapter;
     private String mTitle;
-
-    /*@Override
-    protected boolean getSwitchVisible() {
-        return true;
-    }*/
 
     private static final int ICON[] = new int[]{
             R.drawable.system_icon_03_24dp,

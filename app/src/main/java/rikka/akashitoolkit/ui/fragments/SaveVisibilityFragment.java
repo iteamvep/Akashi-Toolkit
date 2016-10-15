@@ -9,7 +9,7 @@ import android.support.v4.app.Fragment;
  * 会在 onSaveInstanceState 里保存是否可见
  */
 
-public class BaseShowHideFragment extends Fragment {
+public class SaveVisibilityFragment extends Fragment {
 
     private static final String VISIBLE = "VISIBLE";
 

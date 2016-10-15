@@ -17,12 +17,12 @@ import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.Statistics;
 import rikka.akashitoolkit.fleet_editor.FleetListActivity;
 import rikka.akashitoolkit.MainActivity;
-import rikka.akashitoolkit.ui.fragments.BaseDrawerItemFragment;
+import rikka.akashitoolkit.ui.fragments.DrawerFragment;
 
 /**
  * Created by Rikka on 2016/4/9.
  */
-public class ToolsFragment extends BaseDrawerItemFragment {
+public class ToolsFragment extends DrawerFragment {
     @Override
     public void onShow() {
         super.onShow();

@@ -19,14 +19,14 @@ import rikka.akashitoolkit.adapter.SimpleAdapter;
 import rikka.akashitoolkit.expedition.ExpeditionDisplayFragment;
 import rikka.akashitoolkit.model.ShipType;
 import rikka.akashitoolkit.staticdata.ShipTypeList;
-import rikka.akashitoolkit.ui.fragments.BaseDrawerItemFragment;
+import rikka.akashitoolkit.ui.fragments.DrawerFragment;
 import rikka.akashitoolkit.ui.fragments.IBackFragment;
 
 /**
  * Created by Rikka on 2016/10/4.
  */
 
-public class ShipListFragment extends BaseDrawerItemFragment implements SimpleAdapter.Listener, IBackFragment {
+public class ShipListFragment extends DrawerFragment implements SimpleAdapter.Listener, IBackFragment {
 
     private RecyclerView mRecyclerView;
 

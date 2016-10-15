@@ -2,6 +2,7 @@ package rikka.akashitoolkit.equip_improvement;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,12 +21,14 @@ import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.Statistics;
 import rikka.akashitoolkit.MainActivity;
-import rikka.akashitoolkit.ui.fragments.BaseDrawerItemFragment;
+import rikka.akashitoolkit.ui.fragments.DrawerFragment;
+import rikka.akashitoolkit.ui.fragments.ISwitchFragment;
+import rikka.akashitoolkit.ui.widget.IconSwitchCompat;
 
 /**
  * Created by Rikka on 2016/3/17.
  */
-public class EquipImprovementDisplayFragment extends BaseDrawerItemFragment {
+public class EquipImprovementDisplayFragment extends DrawerFragment implements ISwitchFragment {
     private ViewPager mViewPager;
     private int mDay;
     private boolean mBookmarked;
@@ -38,12 +41,14 @@ public class EquipImprovementDisplayFragment extends BaseDrawerItemFragment {
     }
 
     @Override
-    protected boolean getTabLayoutVisible() {
+    protected boolean onSetTabLayout(TabLayout tabLayout) {
+        tabLayout.setupWithViewPager(mViewPager);
+
         return true;
     }
 
     @Override
-    protected boolean getSwitchVisible() {
+    protected boolean onSetSwitch(IconSwitchCompat switchView) {
         return true;
     }
 
@@ -51,18 +56,12 @@ public class EquipImprovementDisplayFragment extends BaseDrawerItemFragment {
     public void onShow() {
         super.onShow();
 
-        MainActivity activity = ((MainActivity) getActivity());
-        activity.getTabLayout().setupWithViewPager(mViewPager);
-        activity.getSupportActionBar().setTitle(getString(R.string.item_improvement));
+        setToolbarTitle(getString(R.string.item_improvement));
         mViewPager.setCurrentItem(mDay);
 
-        ((MainActivity) getActivity()).getSwitch().setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        /*((MainActivity) getActivity()).getSwitch().setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                mBookmarked = buttonView.isChecked();
-
-                BusProvider.instance().post(
-                        new BookmarkAction.Changed(EquipImprovementFragment.TAG, mBookmarked));
 
                 Settings
                         .instance(getContext())
@@ -74,7 +73,7 @@ public class EquipImprovementDisplayFragment extends BaseDrawerItemFragment {
                 .instance(getContext())
                 .getBoolean(Settings.EQUIP_IMPROVEMENT_BOOKMARKED, false);
 
-        ((MainActivity) getActivity()).getSwitch().setChecked(mBookmarked, true);
+        ((MainActivity) getActivity()).getSwitch().setChecked(mBookmarked, true);*/
 
         Statistics.onFragmentStart("EquipImprovementDisplayFragment");
     }
@@ -102,6 +101,7 @@ public class EquipImprovementDisplayFragment extends BaseDrawerItemFragment {
             }
         };
 
+        // TODO 每次 onShow 时都重新设置标题
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeZone(TimeZone.getTimeZone("GMT+9:00"));
         mDay = calendar.get(Calendar.DAY_OF_WEEK) - 1;
@@ -118,7 +118,6 @@ public class EquipImprovementDisplayFragment extends BaseDrawerItemFragment {
         adapter.addFragment(EquipImprovementFragment.class, getDayName(dayNames, 5, mDay));
         adapter.addFragment(EquipImprovementFragment.class, getDayName(dayNames, 6, mDay));
 
-
         return adapter;
     }
 
@@ -127,5 +126,13 @@ public class EquipImprovementDisplayFragment extends BaseDrawerItemFragment {
             return dayNames[day + 1] + " " + getString(R.string.today);
         }
         return dayNames[day + 1];
+    }
+
+    @Override
+    public void onSwitchCheckedChanged(boolean isChecked) {
+        mBookmarked = isChecked;
+
+        BusProvider.instance().post(
+                new BookmarkAction.Changed(EquipImprovementFragment.TAG, mBookmarked));
     }
 }

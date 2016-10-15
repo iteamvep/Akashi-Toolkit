@@ -2,6 +2,7 @@ package rikka.akashitoolkit.ship;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.NestedScrollView;
@@ -31,6 +32,8 @@ import rikka.akashitoolkit.support.Statistics;
 import rikka.akashitoolkit.MainActivity;
 import rikka.akashitoolkit.ui.fragments.BaseSearchFragment;
 import rikka.akashitoolkit.ui.fragments.BookmarkNoItemFragment;
+import rikka.akashitoolkit.ui.fragments.ISwitchFragment;
+import rikka.akashitoolkit.ui.widget.IconSwitchCompat;
 import rikka.akashitoolkit.utils.Utils;
 import rikka.akashitoolkit.ui.widget.CheckBoxGroup;
 import rikka.akashitoolkit.ui.widget.RadioButtonGroup;
@@ -40,9 +43,8 @@ import rikka.akashitoolkit.ui.widget.UnScrollableViewPager;
 /**
  * Created by Rikka on 2016/3/30.
  */
-public class ShipDisplayFragment extends BaseSearchFragment {
+public class ShipDisplayFragment extends BaseSearchFragment implements ISwitchFragment {
     private ViewPager mViewPager;
-    private MainActivity mActivity;
     private int mFlag;
     private int mFinalVersion;
     private int mSpeed;
@@ -191,7 +193,7 @@ public class ShipDisplayFragment extends BaseSearchFragment {
         mScrollView.setClipToPadding(false);
         mScrollView.addView(body);
 
-        mActivity.getSwitch().setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        /*mActivity.getSwitch().setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 int checked = buttonView.isChecked() ? 1 : 0;
@@ -208,7 +210,7 @@ public class ShipDisplayFragment extends BaseSearchFragment {
                     mViewPager.setCurrentItem(0, false);
                 }
             }
-        });
+        });*/
 
         mActivity.getRightDrawerContent().addView(mScrollView);
     }
@@ -248,13 +250,38 @@ public class ShipDisplayFragment extends BaseSearchFragment {
     }
 
     @Override
-    protected boolean getRightDrawerLock() {
+    protected boolean onSetRightDrawer(SimpleDrawerView drawer) {
+        setDrawerView();
+        postSetDrawerView();
+        return true;
+    }
+
+    @Override
+    protected boolean onSetTabLayout(TabLayout tabLayout) {
+        tabLayout.setupWithViewPager(mViewPager);
         return false;
     }
 
     @Override
-    protected boolean getSwitchVisible() {
+    protected boolean onSetSwitch(IconSwitchCompat switchView) {
         return true;
+    }
+
+    @Override
+    public void onSwitchCheckedChanged(boolean isChecked) {
+        int checked = isChecked ? 1 : 0;
+
+        BusProvider.instance().post(
+                new BookmarkAction.Changed(ShipFragment.TAG, checked > 0));
+
+        mBookmarked = checked > 0;
+        /*Settings
+                .instance(getContext())
+                .putBoolean(Settings.SHIP_BOOKMARKED, checked > 0);*/
+
+        if (mViewPager.getCurrentItem() == 1 && !mBookmarked) {
+            mViewPager.setCurrentItem(0, false);
+        }
     }
 
     @Override
@@ -275,12 +302,7 @@ public class ShipDisplayFragment extends BaseSearchFragment {
 
         BusProvider.instance().post(new ShipAction.KeywordChanged(null));
 
-        MainActivity activity = ((MainActivity) getActivity());
-        activity.getTabLayout().setupWithViewPager(mViewPager);
-        activity.getSupportActionBar().setTitle(getString(R.string.ship));
-
-        setDrawerView();
-        postSetDrawerView();
+        setToolbarTitle(getString(R.string.ship));
 
         Statistics.onFragmentStart("ShipDisplayFragment");
     }
@@ -341,17 +363,13 @@ public class ShipDisplayFragment extends BaseSearchFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mActivity = (MainActivity) getActivity();
+        return inflater.inflate(R.layout.content_unscrollable_viewpager, container, false);
+    }
 
-        View view = inflater.inflate(R.layout.content_unscrollable_viewpager, container, false);
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         mViewPager = (UnScrollableViewPager) view.findViewById(R.id.view_pager);
         mViewPager.setAdapter(getAdapter());
-
-        /*if (!isHiddenBeforeSaveInstanceState()) {
-            onShow();
-        }*/
-
-        return view;
     }
 
     private ViewPagerAdapter getAdapter() {
