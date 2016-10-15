@@ -113,4 +113,14 @@ public class EquipList {
         }
         return null;
     }
+
+    public static Equip findItemById(int id) {
+        for (Equip item :
+                sList) {
+            if (item.getId() == id) {
+                return item;
+            }
+        }
+        return null;
+    }
 }

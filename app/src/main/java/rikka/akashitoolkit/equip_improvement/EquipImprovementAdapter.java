@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
@@ -87,6 +89,8 @@ public class EquipImprovementAdapter extends BaseBookmarkRecyclerAdapter<EquipIm
             protected void onPostExecute(Void aVoid) {
                 clearItemList();
 
+                List<Data> list = new ArrayList<>();
+
                 for (EquipImprovement item :
                         EquipImprovementList.get(mActivity)) {
 
@@ -150,9 +154,19 @@ public class EquipImprovementAdapter extends BaseBookmarkRecyclerAdapter<EquipIm
                                 .getBoolean(String.format("equip_improve_%d", item.getId()), false));
 
                         if (!requireBookmarked() || item.isBookmarked()) {
-                            addItem(generateItemId(item), 0, new Data(sb.toString(), item));
+                            list.add(new Data(sb.toString(), item));
                         }
                     }
+                }
+                Collections.sort(list, new Comparator<Data>() {
+                    @Override
+                    public int compare(Data o1, Data o2) {
+                        return EquipList.findItemById(o1.data.getId()).getIcon() - EquipList.findItemById(o2.data.getId()).getIcon();
+                    }
+                });
+
+                for (Data i : list) {
+                    addItem(generateItemId(i.data), 0, i);
                 }
                 notifyDataSetChanged();
             }
