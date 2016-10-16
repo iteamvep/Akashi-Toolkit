@@ -141,6 +141,10 @@ public class EquipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewH
 
         holder.mCheckBox.setChecked(item.isBookmarked());
 
+        if (mEnemyMode) {
+            holder.mCheckBox.setVisibility(View.GONE);
+        }
+
         if (!mSelectMode) {
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
