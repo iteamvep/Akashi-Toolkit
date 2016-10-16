@@ -9,6 +9,7 @@ import rikka.akashitoolkit.staticdata.EquipTypeParentList;
 import rikka.akashitoolkit.staticdata.ShipList;
 import rikka.akashitoolkit.staticdata.Subtitle;
 import rikka.akashitoolkit.support.Settings;
+import rikka.akashitoolkit.support.StaticData;
 import rikka.akashitoolkit.support.Statistics;
 import rikka.akashitoolkit.utils.NetworkUtils;
 

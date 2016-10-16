@@ -38,6 +38,11 @@ import rikka.materialpreference.PreferenceCategory;
 import rikka.materialpreference.PreferenceFragment;
 import rikka.materialpreference.PreferenceScreen;
 
+import static rikka.akashitoolkit.support.ApiConstParam.Language.EN;
+import static rikka.akashitoolkit.support.ApiConstParam.Language.JA;
+import static rikka.akashitoolkit.support.ApiConstParam.Language.ZH_CN;
+import static rikka.akashitoolkit.support.ApiConstParam.Language.ZH_TW;
+
 public class SettingActivity extends BaseActivity {
 
     @Override
@@ -154,7 +159,20 @@ public class SettingActivity extends BaseActivity {
                     Locale.ENGLISH.getDisplayName()});
             dropDownPreference.setEntryValues(new CharSequence[]{"0", "3", "1", "2"});
             if (dropDownPreference.getValue() == null) {
-                dropDownPreference.setValueIndex(Utils.getDefaultDataLanguage());
+                switch (Utils.getDefaultDataLanguage()) {
+                    case ZH_CN:
+                        dropDownPreference.setValueIndex(0);
+                        break;
+                    case ZH_TW:
+                        dropDownPreference.setValueIndex(1);
+                        break;
+                    case JA:
+                        dropDownPreference.setValueIndex(2);
+                        break;
+                    case EN:
+                        dropDownPreference.setValueIndex(3);
+                        break;
+                }
             }
 
             final ListPreference dropDownPreference2 = (ListPreference) findPreference(Settings.APP_LANGUAGE);

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 
 import rikka.akashitoolkit.support.Settings;
+import rikka.akashitoolkit.utils.Utils;
 
 import static rikka.akashitoolkit.support.ApiConstParam.Language.EN;
 import static rikka.akashitoolkit.support.ApiConstParam.Language.JA;
@@ -25,7 +26,7 @@ public class MultiLanguageEntry {
     public static boolean titleUseJa = true;
 
     public static void init(Context context) {
-        language = Settings.instance(context).getIntFromString(Settings.DATA_LANGUAGE, ZH_CN);
+        language = Settings.instance(context).getIntFromString(Settings.DATA_LANGUAGE, Utils.getDefaultDataLanguage());
     }
 
     public MultiLanguageEntry() {
