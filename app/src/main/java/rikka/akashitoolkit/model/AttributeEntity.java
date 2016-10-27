@@ -81,7 +81,7 @@ public class AttributeEntity {
         AttributeEntity n = new AttributeEntity();
 
         n.aa = aa + o.aa;
-        n.armor = armor + o.aa;
+        n.armor = armor + o.armor;
         n.asw = asw + o.asw;
         n.evasion = evasion + o.evasion;
         n.fire = fire + o.fire;
