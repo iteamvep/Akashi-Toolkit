@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:tools="http://schemas.android.com/tools"
+           xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:shortcutId="twitter"
+        android:enabled="true"
+        android:icon="@drawable/ic_qu_twitter_launcher"
+        android:shortcutShortLabel="@string/official_twitter"
+        android:shortcutLongLabel="@string/official_twitter"
+        android:shortcutDisabledMessage="@string/official_twitter"
+        tools:ignore="UnusedAttribute">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="moe.kcwiki.akashitoolkit.lite"
+            android:targetClass="rikka.akashitoolkit.TwitterActivity"/>
+        <!-- If your shortcut is associated with multiple intents, include them
+             here. The last intent in the list is what the user sees when they
+             launch this shortcut. -->
+        <categories android:name="android.shortcut.conversation"/>
+    </shortcut>
+    <!-- Specify more shortcuts here. -->
+</shortcuts>

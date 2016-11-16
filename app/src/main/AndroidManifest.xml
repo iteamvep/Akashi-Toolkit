@@ -32,6 +32,10 @@
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts"/>
         </activity>
         <activity
             android:name=".settings.SettingActivity"
@@ -121,26 +125,27 @@
             android:label="@string/fleet_edit"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
-
         <activity
             android:name=".gallery.GalleryActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
-
         <activity
             android:name=".voice.VoiceActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
-
         <activity
             android:name=".fleet_editor.ShipSelectActivity"
             android:label="@string/ship_select"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
-
         <activity
             android:name=".fleet_editor.EquipSelectActivity"
             android:label="@string/equip_select"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".TwitterActivity"
+            android:label="@string/official_twitter"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
     </application>
