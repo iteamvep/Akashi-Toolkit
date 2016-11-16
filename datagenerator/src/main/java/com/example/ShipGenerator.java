@@ -42,14 +42,31 @@ import static com.example.utils.Utils.objectToJsonFile;
  * Created by Rikka on 2016/9/17.
  */
 public class ShipGenerator {
+
+    private static final boolean USE_ONLINE_DATA = true;
+
     private static WanaKanaJava wkj = new WanaKanaJava(false);
     private static Start2 start2;
     private static List<ShipClass> shipClassList = new ArrayList<>();
 
     static {
-        try {
-            start2 = new Gson().fromJson(new FileReader("datagenerator/api_start2.json"), Start2.class);
-        } catch (FileNotFoundException ignored) {
+        if (USE_ONLINE_DATA) {
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl("https://api.kcwiki.moe")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+
+            RetrofitAPI.Start2Service service = retrofit.create(RetrofitAPI.Start2Service.class);
+            try {
+                start2 = service.get().execute().body();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            try {
+                start2 = new Gson().fromJson(new FileReader("datagenerator/api_start2.json"), Start2.class);
+            } catch (FileNotFoundException ignored) {
+            }
         }
     }
 
@@ -185,14 +202,18 @@ public class ShipGenerator {
         if (sShipList != null) {
             return sShipList;
         }
-        /*Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://zh.kcwiki.moe/")
-                .build();
+        Reader reader;
+        if (USE_ONLINE_DATA) {
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl("https://zh.kcwiki.moe/")
+                    .build();
 
-        RetrofitAPI.KcwikiService service = retrofit.create(RetrofitAPI.KcwikiService.class);
-        ResponseBody body = service.getPage("模块:舰娘数据", "raw").execute().body();
-        Reader reader = body.charStream();*/
-        Reader reader = new FileReader("datagenerator/ship.lua");
+            RetrofitAPI.KcwikiService service = retrofit.create(RetrofitAPI.KcwikiService.class);
+            ResponseBody body = service.getPage("模块:舰娘数据", "raw").execute().body();
+            reader = body.charStream();
+        } else {
+            reader = new FileReader("datagenerator/ship.lua");
+        }
 
         int count = 0;
         StringBuilder sb = new StringBuilder();
@@ -262,6 +283,10 @@ public class ShipGenerator {
         str = str.replace("\"space\":{}", "\"space\":[]")
                 .replace("\"id\":{}", "\"id\":[]");
 
+        if (str.contains("\"Mist01")) {
+            str = str.substring(0, str.indexOf("\"Mist01") - 2) + "]";
+        }
+
         sShipList = new Gson().fromJson(str, ShipList.class);
         return sShipList;
     }
@@ -283,20 +308,23 @@ public class ShipGenerator {
     }
 
     private static List<NewShip> getAPIShipList() throws IOException {
-        /*Gson gson = new GsonBuilder()
-                .create();
+        if (USE_ONLINE_DATA) {
+            Gson gson = new GsonBuilder()
+                    .create();
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://api.kcwiki.moe")
-                .addConverterFactory(GsonConverterFactory.create(gson))
-                .build();
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl("https://api.kcwiki.moe")
+                    .addConverterFactory(GsonConverterFactory.create(gson))
+                    .build();
 
-        RetrofitAPI.ShipService service = retrofit.create(RetrofitAPI.ShipService.class);
-        return service.getDetail().execute().body();*/
-        return new Gson().fromJson(
-                new FileReader(new File("datagenerator/ships_detail.json")),
-                new TypeToken<List<NewShip>>() {
-                }.getType());
+            RetrofitAPI.ShipService service = retrofit.create(RetrofitAPI.ShipService.class);
+            return service.getDetail().execute().body();
+        } else {
+            return new Gson().fromJson(
+                    new FileReader(new File("datagenerator/ships_detail.json")),
+                    new TypeToken<List<NewShip>>() {
+                    }.getType());
+        }
     }
 
     private static String getRomaji(Ship2 item) {

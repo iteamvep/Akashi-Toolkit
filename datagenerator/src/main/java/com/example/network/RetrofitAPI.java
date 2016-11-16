@@ -3,6 +3,7 @@ package com.example.network;
 import com.example.model.APIEquipType;
 import com.example.model.APIShipType;
 import com.example.model.NewShip;
+import com.example.model.Start2;
 
 import java.util.List;
 
@@ -43,6 +44,31 @@ public class RetrofitAPI {
          */
         @GET("/slotitems/type")
         Call<List<APIEquipType>> getTypes();
+    }
+
+    public interface Start2Service {
+        /**
+         * 返回api_start2.json的最新原始数据
+         * http://api.kcwiki.moe/start2
+         */
+        @GET("/start2")
+        Call<Start2> get();
+
+        /**
+         * 可以根据版本号（其实就是上传该start2数据更新的日期）来获得不同时间的start2数据
+         * 例如http://api.kcwiki.moe/start2/20160623
+         */
+        @GET("/start2/{version}")
+        Call<Start2> get(@Path("version") int id);
+
+        /**
+         * 返回服务器中保存的 start2 数据列表（以版本号标识，即如20160623的日期）
+         * http://api.kcwiki.moe/start2/archives
+         *
+         * 返回格式：['20160523', ...]
+         */
+        /*@GET("/start2")
+        Call<> getArchives();*/
     }
 
 

@@ -41,7 +41,7 @@ public class SeasonalGalleryGenerator {
         if (m.find()) {
             list.add(new Gallery(
                     m.group(1).replace("File:", "").replace("文件:", "").trim(),
-                    m.group(2).replaceAll("\\[\\[.+\\|(.+)]]", "$1").replace(" ", "").trim()));
+                    m.group(2).replaceAll("\\[\\[(.+)]].+\\|.+]]", "$1")/*.replace(" ", "")*/.trim()));
         } else {
             m = GALLERY_PATTERN2.matcher(line);
             if (m.find()) {

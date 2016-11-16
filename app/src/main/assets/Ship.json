@@ -21713,11 +21713,11 @@
       ]
     },
     "remodel": {
-      "blueprint": false,
+      "blueprint": true,
       "catapult": false,
       "from_id": 113,
-      "to_id": 0,
-      "level": 0,
+      "to_id": 487,
+      "level": 75,
       "cost": [
         0,
         0
@@ -29397,7 +29397,7 @@
       "evasion": 0,
       "fire": 46,
       "hp": 0,
-      "luck": 56,
+      "luck": 71,
       "los": 0,
       "torpedo": 56,
       "bomb": 0,
@@ -30467,7 +30467,7 @@
       "evasion": 0,
       "fire": 36,
       "hp": 0,
-      "luck": 59,
+      "luck": 63,
       "los": 0,
       "torpedo": 51,
       "bomb": 0,
@@ -34411,7 +34411,7 @@
       "evasion": 0,
       "fire": 55,
       "hp": 0,
-      "luck": 37,
+      "luck": 41,
       "los": 0,
       "torpedo": 57,
       "bomb": 0,
@@ -35733,7 +35733,7 @@
       "evasion": 0,
       "fire": 42,
       "hp": 0,
-      "luck": 48,
+      "luck": 51,
       "los": 0,
       "torpedo": 55,
       "bomb": 0,
@@ -38353,7 +38353,7 @@
       "evasion": 0,
       "fire": 35,
       "hp": 0,
-      "luck": 44,
+      "luck": 63,
       "los": 0,
       "torpedo": 30,
       "bomb": 0,
@@ -44718,7 +44718,7 @@
       "accuracy": 0
     },
     "get": {
-      "drop": -1,
+      "drop": 1,
       "remodel": 0,
       "build": -1,
       "build_time": 70
@@ -46472,6 +46472,115 @@
       "remodel": 0,
       "build": -1,
       "build_time": -1
+    }
+  },
+  {
+    "id": 487,
+    "wiki_id": "287",
+    "name": {
+      "zh_cn": "鬼怒改二",
+      "zh_tw": "鬼怒改二",
+      "ja": "鬼怒改二",
+      "en": "Kinu Kai Ni"
+    },
+    "stype": 3,
+    "ctype": 20,
+    "cnum": 5,
+    "rarity": 7,
+    "name_for_search": "鬼怒改二,きぬ,Kinu Kai Ni,鬼怒改二,guinugaier",
+    "build_time": 75,
+    "broken": [
+      2,
+      2,
+      0,
+      0
+    ],
+    "power_up": [
+      1,
+      2,
+      2,
+      2
+    ],
+    "consume": [
+      25,
+      30
+    ],
+    "painter": "コニシ",
+    "cv": "野水伊織",
+    "equip": {
+      "slots": 3,
+      "id": [
+        91,
+        131,
+        68
+      ],
+      "space": [
+        1,
+        1,
+        1
+      ]
+    },
+    "remodel": {
+      "blueprint": false,
+      "catapult": false,
+      "from_id": 289,
+      "to_id": 0,
+      "level": 0,
+      "cost": [
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 10,
+      "aa": 41,
+      "armor": 29,
+      "asw": 49,
+      "evasion": 44,
+      "fire": 15,
+      "hp": 45,
+      "luck": 17,
+      "los": 15,
+      "torpedo": 28,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 42,
+      "armor": 39,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 40,
+      "hp": 0,
+      "luck": 55,
+      "los": 0,
+      "torpedo": 54,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_99": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 36,
+      "evasion": 38,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 45,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "get": {
+      "drop": -1,
+      "remodel": 0,
+      "build": -1,
+      "build_time": 75
     }
   },
   {
