@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 
 import com.squareup.otto.Subscribe;
 
+import rikka.akashitoolkit.BuildConfig;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.BaseRecyclerAdapter;
 import rikka.akashitoolkit.adapter.Listener;
@@ -206,7 +207,12 @@ public class MessageAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHolder,
         holder.mPositiveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(data.getUrl()));
+                Intent intent;
+                if (BuildConfig.FLAVOR.equals("firebase")) {
+                    intent = new Intent(Intent.ACTION_VIEW, Uri.parse(data.getUrl2()));
+                } else {
+                    intent = new Intent(Intent.ACTION_VIEW, Uri.parse(data.getUrl()));
+                }
                 v.getContext().startActivity(intent);
             }
         });

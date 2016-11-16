@@ -86,6 +86,7 @@ public class CheckUpdate {
         private int versionCode;
         private String versionName;
         private String url;
+        private String url2;
         private LocaleMultiLanguageEntry change;
 
         public int getVersionCode() {
@@ -98,6 +99,10 @@ public class CheckUpdate {
 
         public String getUrl() {
             return url;
+        }
+
+        public String getUrl2() {
+            return url2;
         }
 
         public MultiLanguageEntry getChange() {
