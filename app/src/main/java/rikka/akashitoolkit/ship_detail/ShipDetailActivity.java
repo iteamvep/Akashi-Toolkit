@@ -6,9 +6,11 @@ import android.annotation.TargetApi;
 import android.content.Intent;
 import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.ColorRes;
+import android.support.customtabs.CustomTabsIntent;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.content.ContextCompat;
@@ -41,6 +43,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import rikka.akashitoolkit.R;
+import rikka.akashitoolkit.chromecustomtabs.CustomTabActivityHelper;
 import rikka.akashitoolkit.model.Ship;
 import rikka.akashitoolkit.model.ShipClass;
 import rikka.akashitoolkit.model.ShipVoice;
@@ -411,6 +414,16 @@ public class ShipDetailActivity extends BaseItemDisplayActivity {
                                 StaticData.instance(this).versionCode,
                                 getTaskDescriptionLabel()));
                 break;
+            case R.id.action_kcwiki:
+                CustomTabsIntent.Builder intentBuilder = new CustomTabsIntent.Builder();
+
+                int color = ContextCompat.getColor(this, R.color.colorPrimary);
+                intentBuilder.setToolbarColor(color);
+                intentBuilder.setShowTitle(true);
+                intentBuilder.addDefaultShareMenuItem();
+                intentBuilder.enableUrlBarHiding();
+
+                CustomTabActivityHelper.openCustomTab(this, intentBuilder.build(), Uri.parse(String.format("https://zh.kcwiki.moe/wiki/%s", mItem.getName().getZhCN())), new CustomTabActivityHelper.ExternalBrowserFallback());
         }
         return super.onOptionsItemSelected(item);
     }
@@ -448,13 +461,17 @@ public class ShipDetailActivity extends BaseItemDisplayActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.ship_display, menu);
+        getMenuInflater().inflate(R.menu.ship_detail, menu);
 
         if (!mItem.isEnemy()) {
             menu.findItem(R.id.action_bookmark).setIcon(
                     AppCompatDrawableManager.get().getDrawable(this, mItem.isBookmarked() ? R.drawable.ic_bookmark_24dp : R.drawable.ic_bookmark_border_24dp));
         } else {
             menu.findItem(R.id.action_bookmark).setVisible(false);
+        }
+
+        if (mItem.isEnemy()) {
+            menu.findItem(R.id.action_kcwiki).setVisible(false);
         }
 
         return true;

@@ -326,4 +326,6 @@
 
     <string name="setting_category_language">語言</string>
     <string name="setting_category_ui">外观</string>
+
+    <string name="view_on_kcwiki">在舰娘百科查看</string>
 </resources>

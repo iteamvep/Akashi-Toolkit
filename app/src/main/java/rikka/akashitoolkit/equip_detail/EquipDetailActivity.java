@@ -4,9 +4,11 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Rect;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.StringRes;
+import android.support.customtabs.CustomTabsIntent;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.content.ContextCompat;
@@ -42,6 +44,7 @@ import java.util.List;
 import java.util.Map;
 
 import rikka.akashitoolkit.R;
+import rikka.akashitoolkit.chromecustomtabs.CustomTabActivityHelper;
 import rikka.akashitoolkit.gallery.GalleryAdapter;
 import rikka.akashitoolkit.model.Equip;
 import rikka.akashitoolkit.model.EquipImprovement;
@@ -287,6 +290,17 @@ public class EquipDetailActivity extends BaseItemDisplayActivity {
                 mToast.show();
 
                 break;
+            case R.id.action_kcwiki:
+                CustomTabsIntent.Builder intentBuilder = new CustomTabsIntent.Builder();
+
+                int color = ContextCompat.getColor(this, R.color.colorPrimary);
+                intentBuilder.setToolbarColor(color);
+                intentBuilder.setShowTitle(true);
+                intentBuilder.addDefaultShareMenuItem();
+                intentBuilder.enableUrlBarHiding();
+
+                CustomTabActivityHelper.openCustomTab(this, intentBuilder.build(), Uri.parse(String.format("https://zh.kcwiki.moe/wiki/%s", mItem.getName().getZhCN())), new CustomTabActivityHelper.ExternalBrowserFallback());
+
         }
         return super.onOptionsItemSelected(item);
     }
@@ -703,7 +717,7 @@ public class EquipDetailActivity extends BaseItemDisplayActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.ship_display, menu);
+        getMenuInflater().inflate(R.menu.ship_detail, menu);
 
         if (!mIsEnemy) {
             if (mItem2 == null) {
@@ -715,6 +729,10 @@ public class EquipDetailActivity extends BaseItemDisplayActivity {
             }
         } else {
             menu.findItem(R.id.action_bookmark).setVisible(false);
+        }
+
+        if (mItem.isEnemy()) {
+            menu.findItem(R.id.action_kcwiki).setVisible(false);
         }
 
         return true;
