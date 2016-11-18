@@ -35,7 +35,7 @@
     <string name="twitter_grid_layout">マルチカラムビュー</string>
     <string name="twitter_grid_layout_summary">二列表示</string>
     <string name="twitter_history_avatars">アバター履歴</string>
-    <string name="twitter_view_on_twitter">View on Twitter</string>
+    <string name="twitter_view_on_twitter">Twitterで開く</string>
 
     <string name="ship">艦娘</string>
 
@@ -58,7 +58,7 @@
     <string name="item_improvement">改修</string>
     <string name="reset_read">既読メッセージをリセット</string>
     <string name="got_it">了解</string>
-    <string name="not_now">嫌～</string>
+    <string name="not_now">いや～</string>
     <string name="ignore_update">嫌だ (今回のアップデートを無視)</string>
     <string name="download">ダウンロード</string>
     <string name="reset_read_summary">既読メッセージとアップデート通知をリセット</string>
@@ -151,15 +151,15 @@
     <string name="ranking">戦果検索</string>
 
     <string name="feedback_summary">フィードバックを送信</string>
-    <string name="donate">Donate developer</string>
-    <string name="donate_alipay">Donate developer (via Alipay)</string>
+    <string name="donate">開発者に寄付</string>
+    <string name="donate_alipay">開発者に寄付(Alipay経由)</string>
     <string name="telegram_group">Telegram グループ</string>
     <string name="telegram_group_join">クリックして参加 (もしこのアプリの開発に興味があれば)</string>
     <string name="qq_group">QQグループ</string>
     <string name="source_code">ソースコード</string>
 
     <string name="send_via">送信経由</string>
-    <string name="no_mail_app">メールアプリがないの様子</string>
+    <string name="no_mail_app">メールアプリ無さそう</string>
 
     <string name="copied_to_clipboard_format">%s クリップボードにコピーしています</string>
     <string name="copied_to_clipboard">クリップボードにコピーしました</string>
@@ -290,43 +290,43 @@
 
     <string name="event">イベント</string>
 
-    <string name="donate_via_google_play">Donate via Google Play</string>
+    <string name="donate_via_google_play">Google Playで寄付</string>
 
-    <string name="donate_gp_thanks">Thank you for your support</string>
-    <string name="donate_gp_set_up_failed">Setting up in-app billing failed, probably Google Play not installed.</string>
+    <string name="donate_gp_thanks">ご協力くださいまして誠にありがとうございます</string>
+    <string name="donate_gp_set_up_failed">･ﾟ( ﾉд`ﾟ)ない！Google Playがインストールされていない！</string>
 
-    <string name="donate_alipay_thanks">Thank you for your support</string>
-    <string name="donate_alipay_not_installed">Alipay not installed</string>
-    <string name="donate_alipay_disabled">Alipay disabled</string>
+    <string name="donate_alipay_thanks">ﾟ ∀ﾟ)ノ感謝だぜ☆</string>
+    <string name="donate_alipay_not_installed">(`ε´ )Alipayがインストールされていない</string>
+    <string name="donate_alipay_disabled">(´∀((☆ミつAlipayが無効されている</string>
 
-    <string name="share_as_image">Share by image</string>
-    <string name="preview">Preview</string>
+    <string name="share_as_image">画像でシェア</string>
+    <string name="preview">プレビュー</string>
 
-    <string name="send_via_akashi_toolkit">via Akashi Toolkit</string>
+    <string name="send_via_akashi_toolkit">明石工具一式で送信</string>
 
-    <string name="share_no_footer">No footer sharing</string>
-    <string name="share_no_footer_summary">Do not add footer when sharing image</string>
+    <string name="share_no_footer">フッターの共有を禁止</string>
+    <string name="share_no_footer_summary">画像でシェアするとき、フッターの共有を禁止</string>
 
-    <string name="res_fuel">Fuel</string>
-    <string name="res_ammo">Ammo</string>
-    <string name="res_steel">Steel</string>
-    <string name="res_bauxite">Bauxite</string>
+    <string name="res_fuel">燃料</string>
+    <string name="res_ammo">弾薬</string>
+    <string name="res_steel">鋼材</string>
+    <string name="res_bauxite">ボーキサイト</string>
 
-    <string name="share_via">Share via</string>
+    <string name="share_via">シェア経由</string>
 
-    <string name="home_card_voice_summary">%d voices</string>
+    <string name="home_card_voice_summary">%d ボイス</string>
 
-    <string name="ship_detail_illustrator_cv">画师 &amp; 声优</string>
-    <string name="ship_detail_consume_break_modernization">Consume &amp; Breaking &amp; Modernization</string>
-    <string name="ship_detail_get">Getting</string>
+    <string name="ship_detail_illustrator_cv">イラスト &amp; 声優</string>
+    <string name="ship_detail_consume_break_modernization">消費量 &amp; 解体 &amp; 近代化改修</string>
+    <string name="ship_detail_get">入手方法</string>
 
-    <string name="play_service_check_google_play_not_installed">Google Play not installed</string>
-    <string name="play_service_check_reason">You are now using Google Play version, however Google Play is not installed on your device.\nThis version have no built-in update feature, we recommend that switch to non-Google Play version.</string>
-    <string name="play_service_check_ignore">Ignore</string>
-    <string name="play_service_check_download_non_play_version">Download non-Google Play version</string>
+    <string name="play_service_check_google_play_not_installed">Google Playがインストールされていません</string>
+    <string name="play_service_check_reason">このアプリはGoogle Playバージョンです、このデバイスではGoogle Playがインストールされていません\nこのバージョンではアプリのアップデート機能が動作しませんので、非Google Playに変更するのがおすすめです</string>
+    <string name="play_service_check_ignore">構わん！</string>
+    <string name="play_service_check_download_non_play_version">非Google Playバージョンをインストール</string>
 
-    <string name="setting_category_language">Language</string>
-    <string name="setting_category_ui">Appearance</string>
+    <string name="setting_category_language">言語</string>
+    <string name="setting_category_ui">外観</string>
 
     <string name="view_on_kcwiki">View on kcwiki</string>
 </resources>
