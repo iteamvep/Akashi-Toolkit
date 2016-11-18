@@ -14,13 +14,16 @@ import rikka.akashitoolkit.otto.BookmarkAction;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.QuestAction;
 import rikka.akashitoolkit.ui.fragments.BaseDisplayFragment;
+import rikka.akashitoolkit.ui.fragments.IRecycledViewPoolFragment;
 import rikka.akashitoolkit.ui.widget.BaseRecyclerViewItemDecoration;
 
 /**
  * Created by Rikka on 2016/3/6.
  */
-public class QuestFragment extends BaseDisplayFragment<QuestAdapter> {
+public class QuestFragment extends BaseDisplayFragment<QuestAdapter> implements IRecycledViewPoolFragment {
     public static final String TAG = "QuestFragment";
+
+    private RecyclerView.RecycledViewPool mPool;
 
     private boolean mSearching;
 
@@ -66,9 +69,11 @@ public class QuestFragment extends BaseDisplayFragment<QuestAdapter> {
     public void onPostCreateView(RecyclerView recyclerView) {
         super.onPostCreateView(recyclerView);
 
+        Log.d(TAG, "QAQ" + mType);
+        ((LinearLayoutManager) recyclerView.getLayoutManager()).setRecycleChildrenOnDetach(true);
+        recyclerView.setRecycledViewPool(mPool);
         recyclerView.setItemAnimator(null);
         recyclerView.addItemDecoration(new BaseRecyclerViewItemDecoration(getContext()));
-        recyclerView.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.cardBackground));
         if (mJumpIndex != -1 && mJumpType == mType) {
             jumpTo(mJumpIndex);
         }
@@ -123,5 +128,10 @@ public class QuestFragment extends BaseDisplayFragment<QuestAdapter> {
 
         getAdapter().setBookmarked(action.isBookmarked());
         getAdapter().rebuildDataList();
+    }
+
+    @Override
+    public void setRecycledViewPool(RecyclerView.RecycledViewPool pool) {
+        mPool = pool;
     }
 }
