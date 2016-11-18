@@ -346,15 +346,11 @@ public class ImagesActivity extends BaseActivity implements View.OnClickListener
 
                         File picturePath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
                         File imagePath = new File(picturePath, "AkashiToolkit");
-                        File image = new File(imagePath, data.filename);
+                        //File image = new File(imagePath, data.filename);
 
-                        final Intent intent = new Intent(Intent.ACTION_VIEW, data.uri);
+                        final Intent intent = new Intent(Intent.ACTION_VIEW);
                         intent.setType("image/*");
-                        /*Uri uri = FileProvider.getUriForFile(
-                                context, "rikka.akashitoolkit.fileprovider", image);
-
-                        intent.setUrls(uri);*/
-
+                        intent.setData(data.uri);
                         intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
 
                         List<ResolveInfo> resInfoList = context.getPackageManager().queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
