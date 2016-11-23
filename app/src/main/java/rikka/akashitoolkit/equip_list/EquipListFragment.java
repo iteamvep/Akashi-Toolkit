@@ -16,13 +16,14 @@ import rikka.akashitoolkit.MainActivity;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.DataChangedAction;
+import rikka.akashitoolkit.ui.fragments.ISwitchFragment;
 import rikka.akashitoolkit.ui.fragments.SaveVisibilityFragment;
 
 /**
  * Created by Rikka on 2016/10/4.
  */
 
-public class EquipListFragment extends SaveVisibilityFragment implements CompoundButton.OnCheckedChangeListener {
+public class EquipListFragment extends SaveVisibilityFragment implements CompoundButton.OnCheckedChangeListener, ISwitchFragment {
 
     private String mTitle;
     private EquipAdapter mAdapter;
@@ -54,6 +55,7 @@ public class EquipListFragment extends SaveVisibilityFragment implements Compoun
     public void onShow() {
         super.onShow();
 
+        // 如果是在舰队编辑的装备选择里不需要更改标题
         if (getActivity() instanceof MainActivity && !TextUtils.isEmpty(mTitle)) {
             MainActivity activity = (MainActivity) getActivity();
             activity.getSupportActionBar().setTitle(mTitle);
@@ -79,6 +81,12 @@ public class EquipListFragment extends SaveVisibilityFragment implements Compoun
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        mAdapter.setBookmarked(isChecked);
+        mAdapter.rebuildDataList();
+    }
+
+    @Override
+    public void onSwitchCheckedChanged(boolean isChecked) {
         mAdapter.setBookmarked(isChecked);
         mAdapter.rebuildDataList();
     }

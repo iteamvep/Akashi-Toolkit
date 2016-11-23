@@ -29,6 +29,7 @@ import rikka.akashitoolkit.otto.DataChangedAction;
 import rikka.akashitoolkit.staticdata.EquipTypeParentList;
 import rikka.akashitoolkit.ui.fragments.DrawerFragment;
 import rikka.akashitoolkit.ui.fragments.IBackFragment;
+import rikka.akashitoolkit.ui.widget.IconSwitchCompat;
 import rikka.akashitoolkit.utils.Utils;
 import rikka.akashitoolkit.viewholder.SimpleTitleViewHolder;
 
@@ -146,6 +147,11 @@ public class EquipTypeListFragment extends DrawerFragment implements SimpleAdapt
     public void onDestroyView() {
         BusProvider.instance().unregister(this);
         super.onDestroyView();
+    }
+
+    @Override
+    protected boolean onSetSwitch(IconSwitchCompat switchView) {
+        return true;
     }
 
     @Subscribe

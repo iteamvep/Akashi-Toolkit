@@ -5,8 +5,12 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.widget.CompoundButton;
+
+import java.util.List;
 
 import rikka.akashitoolkit.MainActivity;
 import rikka.akashitoolkit.ui.widget.IconSwitchCompat;
@@ -14,6 +18,8 @@ import rikka.akashitoolkit.ui.widget.SimpleDrawerView;
 
 /**
  * Created by Rikka on 2016/3/10.
+ *
+ * MainActivity 中 Drawer 中的项目使用的 Fragment
  */
 
 public abstract class DrawerFragment extends SaveVisibilityFragment {
@@ -34,9 +40,25 @@ public abstract class DrawerFragment extends SaveVisibilityFragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 mSwitchChecked = isChecked;
-                if (DrawerFragment.this instanceof ISwitchFragment) {
-                    ISwitchFragment f = (ISwitchFragment) DrawerFragment.this;
-                    f.onSwitchCheckedChanged(isChecked);
+                callListener(DrawerFragment.this, isChecked);
+
+                callChildListener(getChildFragmentManager(), isChecked);
+            }
+
+            private void callChildListener(FragmentManager fm, boolean isChecked) {
+                List<Fragment> fragments = fm.getFragments();
+                if (fragments != null && fragments.size() > 0) {
+                    for (Fragment f : fragments) {
+                        callChildListener(f.getChildFragmentManager(), isChecked);
+                        callListener(f, isChecked);
+                    }
+                }
+            }
+
+            private void callListener(Fragment f, boolean isChecked) {
+                if (f instanceof ISwitchFragment) {
+                    ISwitchFragment _f = (ISwitchFragment) f;
+                    _f.onSwitchCheckedChanged(isChecked);
                 }
             }
         });
