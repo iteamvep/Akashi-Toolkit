@@ -70,8 +70,10 @@ public abstract class DrawerFragment extends SaveVisibilityFragment {
                 List<Fragment> fragments = fm.getFragments();
                 if (fragments != null && fragments.size() > 0) {
                     for (Fragment f : fragments) {
-                        callChildListener(f.getChildFragmentManager(), isChecked);
-                        callListener(f, isChecked);
+                        if (f != null) {
+                            callChildListener(f.getChildFragmentManager(), isChecked);
+                            callListener(f, isChecked);
+                        }
                     }
                 }
             }
