@@ -41,7 +41,6 @@ public class EquipTypeListFragment extends DrawerFragment implements SimpleAdapt
 
     private RecyclerView mRecyclerView;
     private SimpleAdapter<String> mAdapter;
-    private String mTitle;
 
     private static final int ICON[] = new int[]{
             R.drawable.system_icon_03_24dp,
@@ -91,11 +90,9 @@ public class EquipTypeListFragment extends DrawerFragment implements SimpleAdapt
 
     @Override
     public void OnClick(int position) {
-        mTitle = EquipTypeParentList.getList().get(position).getName().get();
-
         Fragment fragment = new EquipListFragment();
         Bundle bundle = new Bundle();
-        bundle.putString("TITLE", mTitle);
+        bundle.putString("TITLE", EquipTypeParentList.getList().get(position).getName().get());
         bundle.putIntegerArrayList(EquipAdapter.ARG_TYPE_IDS, (ArrayList<Integer>) EquipTypeParentList.getList().get(position).getChild());
         fragment.setArguments(bundle);
 
@@ -137,7 +134,9 @@ public class EquipTypeListFragment extends DrawerFragment implements SimpleAdapt
         super.onShow();
 
         if (getChildFragmentManager().getBackStackEntryCount() > 0) {
-            setToolbarTitle(mTitle);
+            if (getChildFragmentManager().getFragments().get(0) != null) {
+                setToolbarTitle(getChildFragmentManager().getFragments().get(0).getArguments().getString("TITLE"));
+            }
         } else {
             setToolbarTitle(R.string.equip);
         }
