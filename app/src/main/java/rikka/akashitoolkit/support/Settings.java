@@ -20,17 +20,11 @@ public class Settings {
     public static final String TWITTER_GRID_LAYOUT = "twitter_grid_layout";
     public static final String LAST_DRAWER_ITEM_ID = "last_drawer_item_id";
     public static final String UPDATE_CHECK_CHANNEL = "update_check_channel";
-    public static final String MESSAGE_READ_STATUS = "message_read_status";
     public static final String QUEST_FILTER = "quest_filter";
     public static final String SHIP_FILTER = "ship_filter";
     public static final String SHIP_FINAL_VERSION = "ship_show_final_version";
     public static final String SHIP_SPEED = "ship_show_speed";
     public static final String SHIP_SORT = "ship_show_sort";
-
-    public static final String SHIP_BOOKMARKED = "ship_show_bookmarked";
-    public static final String EQUIP_BOOKMARKED = "equip_show_bookmarked";
-    public static final String EQUIP_IMPROVEMENT_BOOKMARKED = "equip_i_show_bookmarked";
-    public static final String QUEST_BOOKMARKED = "quest_show_bookmarked";
 
     public static final String APP_LANGUAGE = "app_language";
 
@@ -38,9 +32,6 @@ public class Settings {
     public static final String DATA_TITLE_LANGUAGE = "data_title_language";
 
     public static final String DOWNLOAD_WIFI_ONLY = "download_wifi_only";
-
-    public static final String SENT_TOKEN_TO_SERVER = "sentTokenToServer";
-    public static final String REGISTRATION_COMPLETE = "registrationComplete";
 
     public static final String NOTIFICATION_SOUND = "notification_sound";
     public static final String NOTIFICATION_PRIORITY = "notification_priority";

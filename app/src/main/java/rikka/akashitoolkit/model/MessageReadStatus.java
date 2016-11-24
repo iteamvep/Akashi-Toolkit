@@ -1,5 +1,8 @@
 package rikka.akashitoolkit.model;
 
+import com.google.gson.annotations.Expose;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -7,27 +10,51 @@ import java.util.List;
  */
 public class MessageReadStatus {
 
-    /**
-     * versionCode : 7
-     * messageId : [-1,0,1]
-     */
+    public MessageReadStatus() {
+        readMessageId = new ArrayList<>();
+        ids = new ArrayList<>();
+    }
 
+    @Expose
     private int versionCode;
-    private List<Long> messageId;
+    @Expose
+    private List<Long> readMessageId;
+    private List<Long> ids;
+
+    public void addId(long id) {
+        ids.add(id);
+    }
+
+    public void addReadId(long id) {
+        if (!readMessageId.contains(id)) {
+            readMessageId.add(id);
+        }
+    }
+
+    public void clearId() {
+        ids.clear();
+    }
+
+    public void clearReadIdNotExisted() {
+        List<Long> _messageId = new ArrayList<>();
+        for (Long id : readMessageId) {
+            if (ids.contains(id)) {
+                _messageId.add(id);
+            }
+        }
+        readMessageId.clear();
+        readMessageId.addAll(_messageId);
+    }
 
     public void setVersionCode(int versionCode) {
         this.versionCode = versionCode;
-    }
-
-    public void setMessageId(List<Long> messageId) {
-        this.messageId = messageId;
     }
 
     public int getVersionCode() {
         return versionCode;
     }
 
-    public List<Long> getMessageId() {
-        return messageId;
+    public boolean isIdRead(long id) {
+        return readMessageId.contains(id);
     }
 }

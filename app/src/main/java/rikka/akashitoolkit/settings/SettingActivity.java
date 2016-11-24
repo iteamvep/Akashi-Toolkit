@@ -30,6 +30,7 @@ import rikka.akashitoolkit.support.ApiConstParam;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.StaticData;
 import rikka.akashitoolkit.ui.BaseActivity;
+import rikka.akashitoolkit.utils.FileUtils;
 import rikka.akashitoolkit.utils.FlavorsUtils;
 import rikka.akashitoolkit.utils.Utils;
 import rikka.materialpreference.ListPreference;
@@ -99,8 +100,7 @@ public class SettingActivity extends BaseActivity {
             findPreference("reset_read").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 @Override
                 public boolean onPreferenceClick(Preference preference) {
-                    Settings.instance(getActivity())
-                            .putString(Settings.MESSAGE_READ_STATUS, "");
+                    FileUtils.deleteFile(getContext().getCacheDir().getAbsolutePath() + "/json/messages_read_status.json");
 
                     BusProvider.instance()
                             .post(new ReadStatusResetAction());

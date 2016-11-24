@@ -10,9 +10,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.squareup.otto.Subscribe;
 
-import java.util.ArrayList;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.List;
 
 import retrofit2.Call;
@@ -29,6 +34,7 @@ import rikka.akashitoolkit.otto.PreferenceChangedAction;
 import rikka.akashitoolkit.otto.ReadStatusResetAction;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.StaticData;
+import rikka.akashitoolkit.utils.FileUtils;
 import rikka.akashitoolkit.utils.FlavorsUtils;
 import rikka.akashitoolkit.utils.NetworkUtils;
 
@@ -59,22 +65,25 @@ public class MessageFragment extends BaseRefreshFragment<CheckUpdate> {
     }
 
     private void loadReadStatus() {
-        mMessageReadStatus = Settings
-                .instance(getContext())
-                .getGSON(Settings.MESSAGE_READ_STATUS, MessageReadStatus.class);
-
+        File f = new File(getContext().getCacheDir().getAbsoluteFile() + "/json/messages_read_status.json");
+        if (f.exists()) {
+            try {
+                mMessageReadStatus = new Gson().fromJson(new FileReader(f), MessageReadStatus.class);
+            } catch (FileNotFoundException ignored) {
+            }
+        }
         if (mMessageReadStatus == null) {
             mMessageReadStatus = new MessageReadStatus();
-        }
-
-        if (mMessageReadStatus.getMessageId() == null) {
-            mMessageReadStatus.setMessageId(new ArrayList<Long>());
         }
     }
 
     private void saveReadStatus() {
-        Settings.instance(getContext())
-                .putGSON(Settings.MESSAGE_READ_STATUS, mMessageReadStatus);
+        mMessageReadStatus.clearReadIdNotExisted();
+
+        String json = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create().toJson(mMessageReadStatus);
+        FileUtils.saveStreamToCacheFile(getContext(),
+                new ByteArrayInputStream(json.getBytes()),
+                "/json/messages_read_status.json");
     }
 
     @Override
@@ -104,7 +113,7 @@ public class MessageFragment extends BaseRefreshFragment<CheckUpdate> {
             public void OnRemove(int position, Object data) {
                 switch (mAdapter.getItemViewType(position)) {
                     case 0:
-                        mMessageReadStatus.getMessageId().add(mAdapter.getItemId(position));
+                        mMessageReadStatus.addReadId(mAdapter.getItemId(position));
                         break;
                     case 1:
                         mMessageReadStatus.setVersionCode(((CheckUpdate.UpdateEntity) data).getVersionCode());
@@ -119,6 +128,7 @@ public class MessageFragment extends BaseRefreshFragment<CheckUpdate> {
 
     @Override
     public void onSuccess(@NonNull CheckUpdate data) {
+        mMessageReadStatus.clearId();
         mAdapter.clearItemList();
 
         addLocalCard();
@@ -179,15 +189,17 @@ public class MessageFragment extends BaseRefreshFragment<CheckUpdate> {
                 }
             }
 
+            mMessageReadStatus.addId(entity.getId());
+
             // skip message that read
-            if (mMessageReadStatus.getMessageId().indexOf(entity.getId()) != -1) {
+            if (mMessageReadStatus.isIdRead(entity.getId())) {
                 continue;
             }
 
             if (entity.isShowFirst()) {
                 mAdapter.addItem(MessageAdapter.TYPE_MESSAGE, entity, 0);
             } else {
-                mAdapter.addItem(MessageAdapter.TYPE_MESSAGE, entity);
+                mAdapter.addItem(MessageAdapter.TYPE_MESSAGE, entity, -1);
             }
         }
     }
@@ -212,10 +224,7 @@ public class MessageFragment extends BaseRefreshFragment<CheckUpdate> {
 
     @Subscribe
     public void readStatusReset(ReadStatusResetAction action) {
-        if (mMessageReadStatus != null) {
-            mMessageReadStatus.setMessageId(new ArrayList<Long>());
-            mMessageReadStatus.setVersionCode(0);
-        }
+        mMessageReadStatus = new MessageReadStatus();
 
         onRefresh(true);
 
@@ -227,7 +236,6 @@ public class MessageFragment extends BaseRefreshFragment<CheckUpdate> {
         switch (action.getKey()) {
             case Settings.UPDATE_CHECK_CHANNEL:
                 if (mMessageReadStatus != null) {
-                    mMessageReadStatus.setMessageId(new ArrayList<Long>());
                     mMessageReadStatus.setVersionCode(0);
                 }
 

@@ -62,6 +62,7 @@ public class EquipListFragment extends SaveVisibilityFragment implements Compoun
             //activity.getSwitch().setOnCheckedChangeListener(this);
 
             mAdapter.setBookmarked(activity.getSwitch().isChecked());
+            mAdapter.rebuildDataList();
         }
     }
 
