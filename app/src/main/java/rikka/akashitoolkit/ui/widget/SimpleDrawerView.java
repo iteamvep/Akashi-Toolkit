@@ -52,13 +52,13 @@ public class SimpleDrawerView extends LinearLayout {
     }
 
     public View addTitle(String title) {
-        if (getChildCount() != 0) {
+        /*if (getChildCount() != 0) {
             View view = new View(getContext());
             view.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 1));
             view.setBackgroundResource(R.drawable.preference_list_divider_material);
 
             addView(view);
-        }
+        }*/
 
         View view = LayoutInflater.from(getContext()).inflate(R.layout.drawer_title, this, false);
         TextView textView = (TextView) view.findViewById(R.id.textView);

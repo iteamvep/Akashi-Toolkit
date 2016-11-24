@@ -14,7 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.CompoundButton;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 
@@ -51,84 +51,49 @@ public class ShipDisplayFragment extends BaseSearchFragment implements ISwitchFr
     private int mSort;
     private boolean mBookmarked;
 
-    private CheckBoxGroup[] mCheckBoxGroups = new CheckBoxGroup[3];
-    private RadioButtonGroup[] mRadioButtonGroups = new RadioButtonGroup[3];
-    private Spinner mSpinner;
-    private NestedScrollView mScrollView;
-
-    private void setDrawerView() {
-        mActivity.getRightDrawerContent().removeAllViews();
-        //mActivity.getRightDrawerContent().addTitle("排序"/*getString(R.string.sort)*/);
-        //mActivity.getRightDrawerContent().addDividerHead();
-
-        //mActivity.getRightDrawerContent().addTitle(getString(R.string.action_filter));
-        //mActivity.getRightDrawerContent().addDividerHead();
-
+    @Override
+    protected View onCreateRightDrawerContentView(@Nullable Bundle savedInstanceState) {
         SimpleDrawerView body = new SimpleDrawerView(getContext());
+
+        body.setOrientation(LinearLayout.VERTICAL);
+        body.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
         body.addTitle(getString(R.string.sort));
         body.addDivider();
 
-        View view = LayoutInflater.from(getActivity()).inflate(R.layout.drawer_item_spinner, body, false);
-        mSpinner = (Spinner) view.findViewById(R.id.spinner);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(),
-                R.layout.drawer_item_spinner_item, new String[]{getString(R.string.ship_type), getString(R.string.ship_class)});
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        mSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        RadioButtonGroup sort = new RadioButtonGroup(getContext());
+        sort.addItem(R.string.ship_type);
+        sort.addItem(R.string.ship_class);
+        sort.setOnCheckedChangeListener(new RadioButtonGroup.OnCheckedChangeListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (mSort == position) {
-                    return;
-                }
-
-                mSort = position;
+            public void onCheckedChanged(View view, int checked) {
+                mSort = checked;
 
                 Settings
                         .instance(getContext())
                         .putInt(Settings.SHIP_SORT, mSort);
 
                 BusProvider.instance().post(new ShipAction.SortChangeAction(mSort));
-                //BusProvider.instance().post(new DataChangedAction("ShipFragment"));
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
             }
         });
 
-        mSpinner.setAdapter(adapter);
-        body.addView(view);
+        mSort = Settings
+                .instance(getContext())
+                .getInt(Settings.SHIP_SORT, 0);
+
+        sort.setChecked(mSort);
+
+        body.addView(sort);
+        body.addDivider();
 
         body.addTitle(getString(R.string.action_filter));
         body.addDivider();
 
-        body.setOrientation(LinearLayout.VERTICAL);
-        body.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-
-        /*mCheckBoxGroups[0] = new CheckBoxGroup(getContext());
-        mCheckBoxGroups[0].addItem("仅收藏");
-        mCheckBoxGroups[0].setOnCheckedChangeListener(new CheckBoxGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(View view, int checked) {
-                BusProvider.instance().post(new ShipAction.OnlyBookmarkedChangeAction(checked > 0));
-
-                mBookmarked = checked > 0;
-                Settings
-                        .instance(getContext())
-                        .putBoolean(Settings.SHIP_BOOKMARKED, checked > 0);
-            }
-        });
-
-        body.addView(mCheckBoxGroups[0]);
-        body.addDivider();*/
-
-        mRadioButtonGroups[0] = new RadioButtonGroup(getContext());
-        mRadioButtonGroups[0].addItem(R.string.all);
-        mRadioButtonGroups[0].addItem(R.string.not_remodel);
-        mRadioButtonGroups[0].addItem(R.string.final_remodel);
-        mRadioButtonGroups[0].setOnCheckedChangeListener(new RadioButtonGroup.OnCheckedChangeListener() {
+        RadioButtonGroup remodel = new RadioButtonGroup(getContext());
+        remodel.addItem(R.string.all);
+        remodel.addItem(R.string.not_remodel);
+        remodel.addItem(R.string.final_remodel);
+        remodel.setOnCheckedChangeListener(new RadioButtonGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(View view, int checked) {
                 BusProvider.instance().post(new ShipAction.ShowFinalVersionChangeAction(checked));
@@ -140,13 +105,19 @@ public class ShipDisplayFragment extends BaseSearchFragment implements ISwitchFr
             }
         });
 
-        body.addView(mRadioButtonGroups[0]);
+        mFinalVersion = Settings
+                .instance(getContext())
+                .getInt(Settings.SHIP_FINAL_VERSION, 1);
+
+        remodel.setChecked(mFinalVersion);
+
+        body.addView(remodel);
         body.addDivider();
 
-        mCheckBoxGroups[1] = new CheckBoxGroup(getContext());
-        mCheckBoxGroups[1].addItem(R.string.speed_slow);
-        mCheckBoxGroups[1].addItem(R.string.speed_fast);
-        mCheckBoxGroups[1].setOnCheckedChangeListener(new CheckBoxGroup.OnCheckedChangeListener() {
+        CheckBoxGroup speed = new CheckBoxGroup(getContext());
+        speed.addItem(R.string.speed_slow);
+        speed.addItem(R.string.speed_fast);
+        speed.setOnCheckedChangeListener(new CheckBoxGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(View view, int checked) {
                 BusProvider.instance().post(new ShipAction.SpeedChangeAction(checked));
@@ -159,10 +130,16 @@ public class ShipDisplayFragment extends BaseSearchFragment implements ISwitchFr
         });
 
 
-        body.addView(mCheckBoxGroups[1]);
+        body.addView(speed);
         body.addDivider();
 
-        mCheckBoxGroups[2] = new CheckBoxGroup(getContext());
+        mSpeed = Settings
+                .instance(getContext())
+                .getInt(Settings.SHIP_SPEED, 0);
+
+        speed.setChecked(mSpeed);
+
+        CheckBoxGroup type = new CheckBoxGroup(getContext());
 
         for (ShipType shipType :
                 ShipTypeList.get(getActivity())) {
@@ -170,10 +147,10 @@ public class ShipDisplayFragment extends BaseSearchFragment implements ISwitchFr
                 continue;
             }
 
-            mCheckBoxGroups[2].addItem(String.format("%s (%s)", shipType.getName().get(), shipType.getShortX()), shipType.getId());
+            type.addItem(String.format("%s (%s)", shipType.getName().get(), shipType.getShortX()), shipType.getId());
         }
 
-        mCheckBoxGroups[2].setOnCheckedChangeListener(new CheckBoxGroup.OnCheckedChangeListener() {
+        type.setOnCheckedChangeListener(new CheckBoxGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(View view, int checked) {
                 BusProvider.instance().post(new ShipAction.TypeChangeAction(checked));
@@ -185,75 +162,21 @@ public class ShipDisplayFragment extends BaseSearchFragment implements ISwitchFr
             }
         });
 
-        body.addView(mCheckBoxGroups[2]);
-
-        mScrollView = new NestedScrollView(getContext());
-        mScrollView.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-        mScrollView.setPadding(0, Utils.dpToPx(4), 0, Utils.dpToPx(4));
-        mScrollView.setClipToPadding(false);
-        mScrollView.addView(body);
-
-        /*mActivity.getSwitch().setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                int checked = buttonView.isChecked() ? 1 : 0;
-
-                BusProvider.instance().post(
-                        new BookmarkAction.Changed(ShipFragment.TAG, checked > 0));
-
-                mBookmarked = checked > 0;
-                Settings
-                        .instance(getContext())
-                        .putBoolean(Settings.SHIP_BOOKMARKED, checked > 0);
-
-                if (mViewPager.getCurrentItem() == 1 && !mBookmarked) {
-                    mViewPager.setCurrentItem(0, false);
-                }
-            }
-        });*/
-
-        mActivity.getRightDrawerContent().addView(mScrollView);
-    }
-
-    private void postSetDrawerView() {
-        mSort = Settings
-                .instance(getContext())
-                .getInt(Settings.SHIP_SORT, 0);
-
-        mSpinner.setSelection(mSort);
-
-        mFinalVersion = Settings
-                .instance(getContext())
-                .getInt(Settings.SHIP_FINAL_VERSION, 1);
-
-        mRadioButtonGroups[0].setChecked(mFinalVersion);
-
-        mBookmarked = Settings
-                .instance(getContext())
-                .getBoolean(Settings.SHIP_BOOKMARKED, false);
-
-        ((MainActivity) getActivity()).getSwitch().setChecked(mBookmarked, true);
-        //mCheckBoxGroups[0].setChecked(mBookmarked ? 1 : 0);
-
-        mSpeed = Settings
-                .instance(getContext())
-                .getInt(Settings.SHIP_SPEED, 0);
-
-        mCheckBoxGroups[1].setChecked(mSpeed);
+        body.addView(type);
 
         mFlag = Settings
                 .instance(getContext())
                 .getInt(Settings.SHIP_FILTER, 0);
 
-        mCheckBoxGroups[2].setChecked(mFlag);
+        type.setChecked(mFlag);
 
-    }
+        NestedScrollView scrollView = new NestedScrollView(getContext());
+        scrollView.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        scrollView.setPadding(0, Utils.dpToPx(4), 0, Utils.dpToPx(4));
+        scrollView.setClipToPadding(false);
+        scrollView.addView(body);
 
-    @Override
-    protected boolean onSetRightDrawer(SimpleDrawerView drawer) {
-        setDrawerView();
-        postSetDrawerView();
-        return true;
+        return scrollView;
     }
 
     @Override
@@ -370,6 +293,8 @@ public class ShipDisplayFragment extends BaseSearchFragment implements ISwitchFr
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         mViewPager = (UnScrollableViewPager) view.findViewById(R.id.view_pager);
         mViewPager.setAdapter(getAdapter());
+
+        super.onViewCreated(view, savedInstanceState);
     }
 
     private ViewPagerAdapter getAdapter() {

@@ -8,13 +8,13 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.CompoundButton;
 
 import java.util.List;
 
 import rikka.akashitoolkit.MainActivity;
 import rikka.akashitoolkit.ui.widget.IconSwitchCompat;
-import rikka.akashitoolkit.ui.widget.SimpleDrawerView;
 
 /**
  * Created by Rikka on 2016/3/10.
@@ -29,12 +29,33 @@ public abstract class DrawerFragment extends SaveVisibilityFragment {
     protected MainActivity mActivity;
     private boolean mSwitchChecked;
     private boolean mCallListener;
+    private View mDrawerContent;
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        if (mDrawerContent == null) {
+            mDrawerContent = onCreateRightDrawerContentView(savedInstanceState);
+        }
+
+        setDrawerContent();
+    }
+
+    private void setDrawerContent() {
+        if (mDrawerContent != null) {
+            mActivity.getRightDrawerContainer().removeAllViews();
+            if (mDrawerContent.getParent() != null && mDrawerContent.getParent() instanceof ViewGroup) {
+                ((ViewGroup) mDrawerContent.getParent()).removeView(mDrawerContent);
+            }
+            mActivity.getRightDrawerContainer().addView(mDrawerContent);
+        }
+    }
 
     public void onShow() {
         super.onShow();
 
         mActivity.getTabLayout().setVisibility(onSetTabLayout(mActivity.getTabLayout()) ? View.VISIBLE : View.GONE);
-        mActivity.setRightDrawerLocked(!onSetRightDrawer(mActivity.getRightDrawerContent()));
         mActivity.getSwitch().setVisibility(onSetSwitch(mActivity.getSwitch()) ? View.VISIBLE : View.GONE);
         mActivity.getSwitch().setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -64,6 +85,9 @@ public abstract class DrawerFragment extends SaveVisibilityFragment {
         });
 
         mActivity.getSwitch().setChecked(mSwitchChecked, mCallListener);
+
+        mActivity.setRightDrawerLocked(mDrawerContent == null);
+        setDrawerContent();
     }
 
     @Override
@@ -95,13 +119,12 @@ public abstract class DrawerFragment extends SaveVisibilityFragment {
     }
 
     /**
-     * 把设置 MainActivity 的右侧 Drawer 的代码写到这里
+     * 如果返回不为 null 则表示有右侧 drawer
      *
-     * @param drawer SimpleDrawerView
-     * @return 是否启用右侧 Drawer
+     * @return 右侧 Drawer 内 View
      */
-    protected boolean onSetRightDrawer(SimpleDrawerView drawer) {
-        return false;
+    protected View onCreateRightDrawerContentView(@Nullable Bundle savedInstanceState) {
+        return null;
     }
 
     /**
@@ -124,6 +147,7 @@ public abstract class DrawerFragment extends SaveVisibilityFragment {
     @Override
     public void onDetach() {
         mActivity = null;
+        mDrawerContent = null;
 
         super.onDetach();
     }
@@ -142,5 +166,4 @@ public abstract class DrawerFragment extends SaveVisibilityFragment {
             mActivity.getSupportActionBar().setTitle(title);
         }
     }
-
 }

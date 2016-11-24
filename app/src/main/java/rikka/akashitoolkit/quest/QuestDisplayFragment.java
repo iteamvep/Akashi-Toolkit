@@ -13,6 +13,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 
 import com.squareup.otto.Subscribe;
 
@@ -55,10 +57,12 @@ public class QuestDisplayFragment extends BaseSearchFragment implements CheckBox
     }
 
     @Override
-    protected boolean onSetRightDrawer(SimpleDrawerView drawer) {
-        drawer.removeAllViews();
+    protected View onCreateRightDrawerContentView(@Nullable Bundle savedInstanceState) {
+        SimpleDrawerView drawer = new SimpleDrawerView(getContext());
+        drawer.setOrientation(LinearLayout.VERTICAL);
         drawer.addTitle(getString(R.string.action_filter));
         drawer.addDividerHead();
+
         CheckBoxGroup cbg = new CheckBoxGroup(getContext());
         cbg.addItem(getString(R.string.quest_normal));
         cbg.addItem(getString(R.string.quest_daily));
@@ -69,7 +73,7 @@ public class QuestDisplayFragment extends BaseSearchFragment implements CheckBox
         cbg.setPadding(0, Utils.dpToPx(4), 0, Utils.dpToPx(4));
 
         drawer.addView(cbg);
-        return true;
+        return drawer;
     }
 
     @Override
@@ -169,6 +173,8 @@ public class QuestDisplayFragment extends BaseSearchFragment implements CheckBox
         mViewPagerStateAdapter = new ViewPagerAdapter[2];
         mViewPagerStateAdapter[0] = getAdapter(0);
         mViewPagerStateAdapter[1] = getAdapter(1);
+
+        super.onViewCreated(view, savedInstanceState);
     }
 
     private void setUpViewPager(int type) {

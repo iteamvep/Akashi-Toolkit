@@ -13,7 +13,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 
 import java.util.ArrayList;
@@ -32,13 +31,12 @@ import rikka.akashitoolkit.utils.Utils;
  * Created by Rikka on 2016/3/14.
  */
 public class ExpeditionDisplayFragment extends DrawerFragment implements RadioButtonGroup.OnCheckedChangeListener, ISwitchFragment {
+
     private ExpeditionAdapter mAdapter;
+    private RadioButtonGroup mRadioButtonGroup;
 
     @Override
-    protected boolean onSetRightDrawer(SimpleDrawerView drawer) {
-        drawer.removeAllViews();
-
-
+    protected View onCreateRightDrawerContentView(@Nullable Bundle savedInstanceState) {
         NestedScrollView scrollView = new NestedScrollView(getContext());
         scrollView.setLayoutParams(new NestedScrollView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         scrollView.setClipToPadding(false);
@@ -49,42 +47,47 @@ public class ExpeditionDisplayFragment extends DrawerFragment implements RadioBu
         body.setLayoutParams(new SimpleDrawerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         body.setPadding(0, Utils.dpToPx(4), 0, Utils.dpToPx(4));
 
-        RadioButtonGroup radioButtonGroup;
-        radioButtonGroup = new RadioButtonGroup(getContext());
-        radioButtonGroup.addItem(R.string.all); // 0
-        radioButtonGroup.addDivider();
-        radioButtonGroup.addTitle("在线时推荐远征组合");
-        radioButtonGroup.addItem("综合类1"); // 1
-        radioButtonGroup.addItem("综合类2"); // 2
-        radioButtonGroup.addItem("综合类3"); // 3
-        radioButtonGroup.addItem("桶最大化"); // 4
-        radioButtonGroup.addItem("油最大化"); // 5
-        radioButtonGroup.addItem("弹最大化"); // 6
-        radioButtonGroup.addItem("钢最大化"); // 7
-        radioButtonGroup.addItem("铝最大化"); // 8
-        radioButtonGroup.addDivider();
-        radioButtonGroup.addTitle("不在线/睡觉时推荐远征组合");
-        radioButtonGroup.addItem("3小时综合"); // 9
-        radioButtonGroup.addItem("9小时综合"); // 10
-        radioButtonGroup.addItem("9小时油最大化"); // 11
-        radioButtonGroup.addItem("9小时弹最大化"); // 12
-        radioButtonGroup.addItem("9小时钢最大化"); // 13
-        radioButtonGroup.addItem("9小时铝最大化"); // 14
-        radioButtonGroup.addItem("経験値最大化"); // 15
-        radioButtonGroup.addItem("维护跑油"); // 16
-        radioButtonGroup.addItem("维护跑铝"); // 17
-        radioButtonGroup.setOnCheckedChangeListener(this);
-        radioButtonGroup.setChecked(0);
+        mRadioButtonGroup = new RadioButtonGroup(getContext());
+        mRadioButtonGroup.addItem(R.string.all); // 0
+        mRadioButtonGroup.addDivider();
+        mRadioButtonGroup.addTitle("在线时推荐远征组合");
+        mRadioButtonGroup.addItem("综合类1"); // 1
+        mRadioButtonGroup.addItem("综合类2"); // 2
+        mRadioButtonGroup.addItem("综合类3"); // 3
+        mRadioButtonGroup.addItem("桶最大化"); // 4
+        mRadioButtonGroup.addItem("油最大化"); // 5
+        mRadioButtonGroup.addItem("弹最大化"); // 6
+        mRadioButtonGroup.addItem("钢最大化"); // 7
+        mRadioButtonGroup.addItem("铝最大化"); // 8
+        mRadioButtonGroup.addDivider();
+        mRadioButtonGroup.addTitle("不在线/睡觉时推荐远征组合");
+        mRadioButtonGroup.addItem("3小时综合"); // 9
+        mRadioButtonGroup.addItem("9小时综合"); // 10
+        mRadioButtonGroup.addItem("9小时油最大化"); // 11
+        mRadioButtonGroup.addItem("9小时弹最大化"); // 12
+        mRadioButtonGroup.addItem("9小时钢最大化"); // 13
+        mRadioButtonGroup.addItem("9小时铝最大化"); // 14
+        mRadioButtonGroup.addItem("経験値最大化"); // 15
+        mRadioButtonGroup.addItem("维护跑油"); // 16
+        mRadioButtonGroup.addItem("维护跑铝"); // 17
+        mRadioButtonGroup.setOnCheckedChangeListener(this);
+        mRadioButtonGroup.setId(android.R.id.content);
 
-        body.addView(radioButtonGroup);
+        if (savedInstanceState == null) {
+            mRadioButtonGroup.setChecked(0);
+        }
+
+        body.addView(mRadioButtonGroup);
 
         scrollView.addView(body);
 
+        SimpleDrawerView drawer = new SimpleDrawerView(getContext());
+        drawer.setOrientation(LinearLayout.VERTICAL);
         drawer.addTitle(R.string.action_filter);
         drawer.addDividerHead();
         drawer.addView(scrollView);
 
-        return true;
+        return drawer;
     }
 
     @Override
@@ -192,6 +195,13 @@ public class ExpeditionDisplayFragment extends DrawerFragment implements RadioBu
     }
 
     @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+
+        mRadioButtonGroup = null;
+    }
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -237,7 +247,7 @@ public class ExpeditionDisplayFragment extends DrawerFragment implements RadioBu
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.content_recycler, container, false);
     }
 
@@ -255,5 +265,7 @@ public class ExpeditionDisplayFragment extends DrawerFragment implements RadioBu
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.cardBackground));
+
+        super.onViewCreated(view, savedInstanceState);
     }
 }

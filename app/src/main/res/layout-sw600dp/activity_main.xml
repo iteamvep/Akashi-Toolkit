@@ -85,7 +85,7 @@
     </android.support.design.widget.CoordinatorLayout>
 
     <android.support.design.internal.ScrimInsetsFrameLayout
-        android:id="@+id/nav_view_right_out"
+        android:id="@+id/nav_view_right"
         android:layout_width="300dp"
         android:layout_height="match_parent"
         android:layout_gravity="end"
@@ -95,14 +95,6 @@
         android:fitsSystemWindows="false"
         android:focusable="true"
         app:insetForeground="#4000">
-
-        <rikka.akashitoolkit.ui.widget.SimpleDrawerView
-            android:id="@+id/nav_view_right"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-        </rikka.akashitoolkit.ui.widget.SimpleDrawerView>
 
     </android.support.design.internal.ScrimInsetsFrameLayout>
 
