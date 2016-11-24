@@ -136,40 +136,4 @@ public class Utils {
         String extension = MimeTypeMap.getFileExtensionFromUrl(fileUrl);
         return MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension);
     }
-
-    public static String getDefaultSettingFromLocale() {
-        switch (Locale.getDefault().getLanguage()) {
-            case "zh":
-                switch (Locale.getDefault().getCountry()) {
-                    case "CN":
-                        return Locale.SIMPLIFIED_CHINESE.toString();
-                    default:
-                        return Locale.TRADITIONAL_CHINESE.toString();
-                }
-            case "ja":
-                return Locale.JAPANESE.toString();
-            default:
-                return Locale.ENGLISH.toString();
-        }
-    }
-
-    public static int getDefaultDataLanguage() {
-        switch (Locale.getDefault().getLanguage()) {
-            case "zh":
-                switch (Locale.getDefault().getCountry()) {
-                    case "CN":
-                        return ZH_CN;
-                    default:
-                        return ZH_TW;
-                }
-            case "ja":
-                return JA;
-            default:
-                return EN;
-        }
-    }
-
-    public static boolean isJapanese(Context context) {
-        return StaticData.instance(context).dataLanguage == JA;
-    }
 }

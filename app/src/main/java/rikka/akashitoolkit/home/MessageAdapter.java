@@ -96,7 +96,6 @@ public class MessageAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHolder,
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         switch (viewType) {
             case TYPE_MESSAGE:
-                return new MessageViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.card_message, parent, false));
             case TYPE_MESSAGE_UPDATE:
                 return new MessageViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.card_message, parent, false));
             case TYPE_DAILY_EQUIP:

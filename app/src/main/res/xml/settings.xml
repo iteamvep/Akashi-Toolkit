@@ -82,6 +82,12 @@
     <PreferenceCategory
         android:title="@string/category_notification">
 
+        <MultiSelectListPreference
+            android:key="notification_topics"
+            android:title="@string/push_subscribed_topics"
+            android:entries="@array/push_topics"
+            android:entryValues="@array/push_topics_value"/>
+
         <SwitchPreference
             android:key="notification_sound"
             android:title="@string/notification_sound"

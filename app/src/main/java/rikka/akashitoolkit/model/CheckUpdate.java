@@ -2,6 +2,8 @@ package rikka.akashitoolkit.model;
 
 import java.util.List;
 
+import rikka.akashitoolkit.BuildConfig;
+import rikka.akashitoolkit.support.StaticData;
 import rikka.akashitoolkit.utils.FlavorsUtils;
 
 /**
@@ -118,13 +120,16 @@ public class CheckUpdate {
         private int min_api;
         private int max_api;
 
+        private int min_version;
+        private int max_version;
+
         /**
          * 根据 API 版本，是否是 Play 版 / 国内版决定是否显示
          *
          * @return 是否显示
          */
         public boolean shouldShow() {
-            return !((max_api != 0 && API_VERSION > max_api) || (min_api != 0 && API_VERSION < min_api)) && !(only_china && FlavorsUtils.isPlay()) && !(only_play && !FlavorsUtils.isPlay());
+            return !((max_api != 0 && BuildConfig.VERSION_CODE > max_api) || (min_version != 0 && BuildConfig.VERSION_CODE < min_version)) && !((max_api != 0 && API_VERSION > max_api) || (min_api != 0 && API_VERSION < min_api)) && !(only_china && FlavorsUtils.isPlay()) && !(only_play && !FlavorsUtils.isPlay());
         }
 
         private LocaleMultiLanguageEntry title;

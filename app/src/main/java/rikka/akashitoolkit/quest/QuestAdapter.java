@@ -29,6 +29,7 @@ import rikka.akashitoolkit.staticdata.QuestList;
 import rikka.akashitoolkit.staticdata.ShipList;
 import rikka.akashitoolkit.staticdata.ShipTypeList;
 import rikka.akashitoolkit.support.Settings;
+import rikka.akashitoolkit.utils.LocaleUtils;
 import rikka.akashitoolkit.utils.Utils;
 
 /**
@@ -236,7 +237,7 @@ public class QuestAdapter extends BaseBookmarkRecyclerAdapter<QuestViewHolder, Q
             holder.mType[viewType].setText(mContext.getString(R.string.quest_new));
         }
 
-        if (!Utils.isJapanese(mContext) && quest.getNote() != null && quest.getNote().length() > 0) {
+        if (!LocaleUtils.isDataLanguageJapanese(mContext) && quest.getNote() != null && quest.getNote().length() > 0) {
             holder.mNote.setVisibility(View.VISIBLE);
 
             Spanned htmlDescription = Html.fromHtml(quest.getNote());

@@ -5,6 +5,8 @@ import android.content.SharedPreferences;
 
 import com.google.gson.Gson;
 
+import java.util.Set;
+
 /**
  * Created by Rikka on 2016/5/12.
  */
@@ -84,5 +86,9 @@ public class BaseSetting {
 
     public <T> T getGSON(String key, Class<T> c) {
         return new Gson().fromJson(mPrefs.getString(key, ""), c);
+    }
+
+    public Set<String> getStringSet(String key, Set<String> defValue) {
+        return mPrefs.getStringSet(key, defValue);
     }
 }

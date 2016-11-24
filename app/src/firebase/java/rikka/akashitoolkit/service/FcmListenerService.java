@@ -4,8 +4,12 @@ import android.util.Log;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
+import com.google.gson.Gson;
 
 import java.util.Map;
+
+import rikka.akashitoolkit.model.PushMessage;
+import rikka.akashitoolkit.support.PushHandler;
 
 /**
  * Created by Rikka on 2016/5/3.
@@ -19,25 +23,31 @@ public class FcmListenerService extends FirebaseMessagingService {
         String from = message.getFrom();
 
         Log.d(TAG, "From: " + from);
-        Log.d(TAG, "Message: " + message);
 
         sendNotification(message.getData());
     }
 
     private void sendNotification(Map<String, String> data) {
-        /*int id;
-        try {
-            id = Integer.parseInt(data.getString("id"));
-        } catch (Exception e) {
-            id = 0;
-        }*/
+        StringBuilder sb = new StringBuilder();
+        sb.append("{");
+        for (Map.Entry<String, String> e : data.entrySet()) {
+            sb.append("\"").append(e.getKey()).append("\"");
+            if (e.getValue().startsWith("{")) {
+                sb.append(":").append(e.getValue());
 
-        /*PushHandler.sendNotification(getApplicationContext(),
-                id,
-                data.getString("title"),
-                data.getString("message"),
-                data.getString("activity"),
-                data.getString("extra"),
-                data.getString("extra2"));*/
+            } else {
+                sb.append(":").append("\"").append(e.getValue()).append("\"");
+            }
+            sb.append(",");
+        }
+        if (data.entrySet().size() > 0) {
+            sb.deleteCharAt(sb.length() - 1);
+        }
+        sb.append("}");
+
+        PushMessage message = new Gson().fromJson(sb.toString(), PushMessage.class);
+        if (message != null) {
+            PushHandler.sendNotification(getApplicationContext(), message);
+        }
     }
 }

@@ -12,7 +12,7 @@ android {
         minSdkVersion 16
         targetSdkVersion 25
         versionCode gitCommitCount
-        versionName "0.12.5"
+        versionName "0.13.0"
 
         vectorDrawables.useSupportLibrary = true
 

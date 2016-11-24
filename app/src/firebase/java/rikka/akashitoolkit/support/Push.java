@@ -13,6 +13,11 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.firebase.messaging.FirebaseMessaging;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import rikka.akashitoolkit.BuildConfig;
+import rikka.akashitoolkit.MainActivity;
 import rikka.akashitoolkit.R;
 
 /**
@@ -21,11 +26,27 @@ import rikka.akashitoolkit.R;
 public class Push {
     private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
 
-    public static void init(final Activity activity) {
-        if (checkPlayServices(activity)) {
-            FirebaseMessaging.getInstance().subscribeToTopic("all");
-            // TODO option
-            FirebaseMessaging.getInstance().subscribeToTopic("news");
+    public static void init(Activity activity) {
+        if (!checkPlayServices(activity)) {
+            return;
+        }
+
+        resetSubscribedChannels(activity);
+    }
+
+    public static void resetSubscribedChannels(Context context) {
+        String[] topics = context.getResources().getStringArray(R.array.push_topics_value);
+        Set<String> subscribed = Settings.instance().getStringSet(Settings.PUSH_TOPICS, new HashSet<String>());
+        for (String s : subscribed) {
+            FirebaseMessaging.getInstance().subscribeToTopic(s);
+        }
+        for (String s : topics) {
+            if (!subscribed.contains(s)) {
+                FirebaseMessaging.getInstance().unsubscribeFromTopic(s);
+            }
+        }
+        if (BuildConfig.DEBUG) {
+            FirebaseMessaging.getInstance().subscribeToTopic("debug");
         }
     }
 

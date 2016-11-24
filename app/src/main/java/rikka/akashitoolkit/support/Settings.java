@@ -49,6 +49,8 @@ public class Settings {
 
     public static final String SHARE_NO_FOOTER = "share_no_footer";
 
+    public static final String PUSH_TOPICS = "push_topics";
+
     private static BaseSetting sInstance;
 
     public static synchronized BaseSetting instance(Context context) {

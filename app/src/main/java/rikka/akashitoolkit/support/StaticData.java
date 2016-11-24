@@ -5,6 +5,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 
 import rikka.akashitoolkit.R;
+import rikka.akashitoolkit.utils.LocaleUtils;
 import rikka.akashitoolkit.utils.Utils;
 
 /**
@@ -24,7 +25,7 @@ public class StaticData {
     private StaticData(Context context) {
         dataLanguage = Settings
                 .instance(context)
-                .getIntFromString(Settings.DATA_LANGUAGE, Utils.getDefaultDataLanguage());
+                .getIntFromString(Settings.DATA_LANGUAGE, LocaleUtils.getDefaultDataLanguage());
 
         if (!init) {
             try {

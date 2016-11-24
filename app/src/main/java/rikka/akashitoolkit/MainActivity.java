@@ -113,17 +113,6 @@ public class MainActivity extends BaseActivity
                 .instance(this)
                 .getInt(Settings.LAST_DRAWER_ITEM_ID, R.id.nav_home);
 
-        if (getIntent() != null && getIntent().getBooleanExtra(EXTRA_FROM_NOTIFICATION, false)) {
-            String extra = getIntent().getStringExtra(EXTRA_EXTRA);
-            if (extra != null) {
-                switch (extra) {
-                    case "nav_home":
-                        id = R.id.nav_home;
-                        break;
-                }
-            }
-        }
-
         if (savedInstanceState != null) {
             findFragmentByNavId(mFragmentArray, R.id.nav_home);
             findFragmentByNavId(mFragmentArray, R.id.nav_new);

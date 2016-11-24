@@ -9,6 +9,7 @@ import java.io.IOException;
 import rikka.akashitoolkit.model.ShipVoice;
 import rikka.akashitoolkit.support.MusicPlayer;
 import rikka.akashitoolkit.ui.widget.MyPasswordTransformationMethod;
+import rikka.akashitoolkit.utils.LocaleUtils;
 import rikka.akashitoolkit.utils.Utils;
 import rikka.akashitoolkit.viewholder.IBindViewHolder;
 
@@ -45,7 +46,7 @@ public class ShipDetailVoiceViewHolder extends RecyclerView.ViewHolder implement
         mTextJa.setText(data.getJp());
         mTextZh.setText(data.getZh());
 
-        mTextZh.setVisibility(Utils.isJapanese(itemView.getContext()) ? View.GONE : View.VISIBLE);
+        mTextZh.setVisibility(LocaleUtils.isDataLanguageJapanese(itemView.getContext()) ? View.GONE : View.VISIBLE);
 
         if (data.getVoiceId() == 22) {
             setTextViewMode(true);

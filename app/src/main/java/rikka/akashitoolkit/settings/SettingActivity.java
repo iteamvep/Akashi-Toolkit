@@ -27,17 +27,17 @@ import rikka.akashitoolkit.otto.DataChangedAction;
 import rikka.akashitoolkit.otto.PreferenceChangedAction;
 import rikka.akashitoolkit.otto.ReadStatusResetAction;
 import rikka.akashitoolkit.support.ApiConstParam;
+import rikka.akashitoolkit.support.Push;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.StaticData;
 import rikka.akashitoolkit.ui.BaseActivity;
 import rikka.akashitoolkit.utils.FileUtils;
 import rikka.akashitoolkit.utils.FlavorsUtils;
-import rikka.akashitoolkit.utils.Utils;
+import rikka.akashitoolkit.utils.LocaleUtils;
 import rikka.materialpreference.ListPreference;
 import rikka.materialpreference.Preference;
 import rikka.materialpreference.PreferenceCategory;
 import rikka.materialpreference.PreferenceFragment;
-import rikka.materialpreference.PreferenceScreen;
 
 import static rikka.akashitoolkit.support.ApiConstParam.Language.EN;
 import static rikka.akashitoolkit.support.ApiConstParam.Language.JA;
@@ -159,7 +159,7 @@ public class SettingActivity extends BaseActivity {
                     Locale.ENGLISH.getDisplayName()});
             dropDownPreference.setEntryValues(new CharSequence[]{"0", "3", "1", "2"});
             if (dropDownPreference.getValue() == null) {
-                switch (Utils.getDefaultDataLanguage()) {
+                switch (LocaleUtils.getDefaultDataLanguage()) {
                     case ZH_CN:
                         dropDownPreference.setValueIndex(0);
                         break;
@@ -189,7 +189,7 @@ public class SettingActivity extends BaseActivity {
                     Locale.ENGLISH.toString()
             });
             if (dropDownPreference2.getValue() == null) {
-                dropDownPreference2.setValue(Settings.instance(getActivity()).getString(Settings.APP_LANGUAGE, Utils.getDefaultSettingFromLocale()));
+                dropDownPreference2.setValue(Settings.instance(getActivity()).getString(Settings.APP_LANGUAGE, LocaleUtils.getDefaultLocale()));
             }
         }
 
@@ -268,6 +268,9 @@ public class SettingActivity extends BaseActivity {
                             ((BaseActivity) getActivity()).doRecreate();
                         }
                     }, 300);
+                    break;
+                case Settings.PUSH_TOPICS:
+                    Push.resetSubscribedChannels(getContext().getApplicationContext());
                     break;
             }
 

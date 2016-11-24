@@ -55,4 +55,16 @@
         <item>100</item>
         <item>50</item>
     </string-array>
+
+    <string-array name="push_topics" translatable="false">
+        <item>@string/push_topic_game_news</item>
+        <item>@string/push_topic_kcwiki</item>
+        <item>@string/push_topic_other</item>
+    </string-array>
+
+    <string-array name="push_topics_value" translatable="false">
+        <item>news</item>
+        <item>kcwiki</item>
+        <item>other</item>
+    </string-array>
 </resources>

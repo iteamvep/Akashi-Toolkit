@@ -8,6 +8,7 @@ import java.io.IOException;
 
 import rikka.akashitoolkit.model.ShipVoice;
 import rikka.akashitoolkit.support.MusicPlayer;
+import rikka.akashitoolkit.utils.LocaleUtils;
 import rikka.akashitoolkit.utils.Utils;
 import rikka.akashitoolkit.viewholder.IBindViewHolder;
 
@@ -35,7 +36,7 @@ public class VoiceViewHolder extends RecyclerView.ViewHolder implements IBindVie
         mTextJa.setText(data.getJp());
         mTextZh.setText(data.getZh());
 
-        mTextJa.setVisibility(Utils.isJapanese(itemView.getContext()) ? View.GONE : View.VISIBLE);
+        mTextJa.setVisibility(LocaleUtils.isDataLanguageJapanese(itemView.getContext()) ? View.GONE : View.VISIBLE);
 
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override

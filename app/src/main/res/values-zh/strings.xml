@@ -328,4 +328,10 @@
     <string name="setting_category_ui">外观</string>
 
     <string name="view_on_kcwiki">在舰娘百科查看</string>
+
+    <string name="push_subscribed_topics">接收的推送内容</string>
+
+    <string name="push_topic_game_news">游戏消息 (游戏维护通知等)</string>
+    <string name="push_topic_kcwiki">kcwiki 消息 (词条更新等)</string>
+    <string name="push_topic_other">其他</string>
 </resources>

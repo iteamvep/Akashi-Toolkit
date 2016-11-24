@@ -16,7 +16,7 @@ import moe.xing.daynightmode.BaseDayNightModeActivity;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.Statistics;
-import rikka.akashitoolkit.utils.Utils;
+import rikka.akashitoolkit.utils.LocaleUtils;
 
 /**
  * Created by Rikka on 2016/3/6.
@@ -36,7 +36,7 @@ public abstract class BaseActivity extends BaseDayNightModeActivity {
     }
 
     public void setLocale() {
-        switch (Settings.instance(this).getString(Settings.APP_LANGUAGE, Utils.getDefaultSettingFromLocale())) {
+        switch (Settings.instance(this).getString(Settings.APP_LANGUAGE, LocaleUtils.getDefaultLocale())) {
             case "zh_CN":
                 Locale.setDefault(Locale.SIMPLIFIED_CHINESE);
                 break;
