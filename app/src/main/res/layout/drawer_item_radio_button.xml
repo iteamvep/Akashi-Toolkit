@@ -9,7 +9,7 @@
               android:orientation="horizontal">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@android:id/text1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -18,7 +18,7 @@
         android:textSize="14sp"
         tools:text="Title"/>
 
-    <android.support.v7.widget.AppCompatRadioButton
+    <RadioButton
         android:id="@+id/radio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

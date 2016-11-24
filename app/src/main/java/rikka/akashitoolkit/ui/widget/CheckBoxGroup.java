@@ -1,6 +1,8 @@
 package rikka.akashitoolkit.ui.widget;
 
 import android.content.Context;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.support.annotation.StringRes;
 import android.support.v4.util.ArrayMap;
 import android.view.LayoutInflater;
@@ -65,6 +67,7 @@ public class CheckBoxGroup extends LinearLayout {
 
         final CheckBox checkBox = (CheckBox) view.findViewById(R.id.checkBox);
         checkBox.setChecked(false);
+        checkBox.setId(NO_ID);
 
         view.setOnClickListener(new OnClickListener() {
             @Override
@@ -122,5 +125,60 @@ public class CheckBoxGroup extends LinearLayout {
         if (mOnCheckedChangeListener != null) {
             mOnCheckedChangeListener.onCheckedChanged(this, mChecked);
         }
+    }
+
+
+    @Override
+    protected Parcelable onSaveInstanceState() {
+        SavedState state = new SavedState(super.onSaveInstanceState());
+        state.index = mChecked;
+
+        return state;
+    }
+
+    @Override
+    public void onRestoreInstanceState(Parcelable state) {
+        if (!(state instanceof SavedState)) {
+            super.onRestoreInstanceState(state);
+            return;
+        }
+
+        final SavedState ss = (SavedState) state;
+        super.onRestoreInstanceState(ss.getSuperState());
+
+        if (ss.index != -1) {
+            setChecked(ss.index);
+        }
+    }
+
+    public static class SavedState extends BaseSavedState {
+        int index;
+
+        public SavedState(Parcel source) {
+            super(source);
+            index = source.readInt();
+        }
+
+        public SavedState(Parcelable superState) {
+            super(superState);
+        }
+
+        @Override
+        public void writeToParcel(Parcel out, int flags) {
+            super.writeToParcel(out, flags);
+            out.writeInt(index);
+        }
+
+        public static final Creator<SavedState> CREATOR = new Creator<SavedState>() {
+            @Override
+            public SavedState createFromParcel(Parcel source) {
+                return new SavedState(source);
+            }
+
+            @Override
+            public SavedState[] newArray(int size) {
+                return new SavedState[size];
+            }
+        };
     }
 }

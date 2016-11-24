@@ -91,7 +91,7 @@ public class CountdownTextView extends AppCompatTextView {
         state.isCountdown = mIsCountdown;
         state.endTime = mEndTime;
 
-        return super.onSaveInstanceState();
+        return state;
     }
 
     @Override
