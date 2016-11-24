@@ -143,7 +143,7 @@ public class MainActivity extends BaseActivity
 
             for (int i = 0; i < mFragmentArray.size(); i++) {
                 int key = mFragmentArray.keyAt(i);
-                if (key == id) {
+                if (key != id) {
                     trans.hide(mFragmentArray.get(key));
                 }
             }
