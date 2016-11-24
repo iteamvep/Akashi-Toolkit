@@ -6,28 +6,22 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.StringRes;
-import android.support.design.internal.ScrimInsetsFrameLayout;
 import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.util.SparseArrayCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.graphics.drawable.DrawerArrowDrawable;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
+import android.widget.FrameLayout;
 
 import com.squareup.otto.Subscribe;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import rikka.akashitoolkit.enemy.EnemyDisplayFragment;
 import rikka.akashitoolkit.equip_improvement.EquipImprovementDisplayFragment;
@@ -50,7 +44,6 @@ import rikka.akashitoolkit.ui.BaseActivity;
 import rikka.akashitoolkit.ui.fragments.DrawerFragment;
 import rikka.akashitoolkit.ui.fragments.IBackFragment;
 import rikka.akashitoolkit.ui.widget.IconSwitchCompat;
-import rikka.akashitoolkit.ui.widget.SimpleDrawerView;
 import rikka.minidrawer.MiniDrawerLayout;
 
 public class MainActivity extends BaseActivity
@@ -60,16 +53,14 @@ public class MainActivity extends BaseActivity
     private AppBarLayout mAppBarLayout;
     private TabLayout mTabLayout;
     private NavigationView mNavigationView;
+    private FrameLayout mNavigationViewRight;
     private MiniDrawerLayout mMiniDrawerLayout;
-    private ScrimInsetsFrameLayout mNavigationViewRight;
     private DrawerLayout mDrawerLayout;
-    private CoordinatorLayout mCoordinatorLayout;
     private IconSwitchCompat mSwitch;
 
-    private Map<Integer, Fragment> mFragmentMap;
+    private SparseArrayCompat<Fragment> mFragmentArray;
 
     private int mLastDrawerItemId;
-    private SimpleDrawerView mRightDrawerContent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,8 +78,6 @@ public class MainActivity extends BaseActivity
         getSupportActionBar().setTitle(R.string.app_name);
 
         mAppBarLayout = (AppBarLayout) findViewById(R.id.appBarLayout);
-
-        mCoordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinatorLayout);
 
         mTabLayout = (TabLayout) findViewById(R.id.tab_layout);
         //mTabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
@@ -116,10 +105,9 @@ public class MainActivity extends BaseActivity
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
-        mNavigationViewRight = (ScrimInsetsFrameLayout) findViewById(R.id.nav_view_right_out);
-        mRightDrawerContent = (SimpleDrawerView) findViewById(R.id.nav_view_right);
+        mNavigationViewRight = (FrameLayout) findViewById(R.id.nav_view_right);
 
-        mFragmentMap = new HashMap<>();
+        mFragmentArray = new SparseArrayCompat<>();
 
         int id = Settings
                 .instance(this)
@@ -132,37 +120,31 @@ public class MainActivity extends BaseActivity
                     case "nav_home":
                         id = R.id.nav_home;
                         break;
-                    /*case "nav_twitter":
-                        id = R.id.nav_twitter;
-                        break;
-                    case "nav_new":
-                        id = R.id.nav_new;*/
-                    //break;
                 }
             }
         }
 
         if (savedInstanceState != null) {
-            findFragmentByNavId(mFragmentMap, R.id.nav_home);
-            /*findFragmentByNavId(mFragmentMap, R.id.nav_twitter);*/
-            findFragmentByNavId(mFragmentMap, R.id.nav_new);
-            findFragmentByNavId(mFragmentMap, R.id.nav_equip_improve);
-            findFragmentByNavId(mFragmentMap, R.id.nav_enemy);
-            findFragmentByNavId(mFragmentMap, R.id.nav_equip);
-            findFragmentByNavId(mFragmentMap, R.id.nav_quest);
-            findFragmentByNavId(mFragmentMap, R.id.nav_map);
-            findFragmentByNavId(mFragmentMap, R.id.nav_ship);
-            findFragmentByNavId(mFragmentMap, R.id.nav_expedition);
-            findFragmentByNavId(mFragmentMap, R.id.nav_tools);
+            findFragmentByNavId(mFragmentArray, R.id.nav_home);
+            findFragmentByNavId(mFragmentArray, R.id.nav_new);
+            findFragmentByNavId(mFragmentArray, R.id.nav_equip_improve);
+            findFragmentByNavId(mFragmentArray, R.id.nav_enemy);
+            findFragmentByNavId(mFragmentArray, R.id.nav_equip);
+            findFragmentByNavId(mFragmentArray, R.id.nav_quest);
+            findFragmentByNavId(mFragmentArray, R.id.nav_map);
+            findFragmentByNavId(mFragmentArray, R.id.nav_ship);
+            findFragmentByNavId(mFragmentArray, R.id.nav_expedition);
+            findFragmentByNavId(mFragmentArray, R.id.nav_tools);
 
             mLastDrawerItemId = id;
 
             FragmentTransaction trans = getSupportFragmentManager()
                     .beginTransaction();
 
-            for (Map.Entry<Integer, Fragment> entry : mFragmentMap.entrySet()) {
-                if (entry.getKey() != id) {
-                    trans.hide(entry.getValue());
+            for (int i = 0; i < mFragmentArray.size(); i++) {
+                int key = mFragmentArray.keyAt(i);
+                if (key == id) {
+                    trans.hide(mFragmentArray.get(key));
                 }
             }
             trans.commit();
@@ -170,7 +152,6 @@ public class MainActivity extends BaseActivity
         } else {
             switch (id) {
                 case R.id.nav_home:
-                /*case R.id.nav_twitter:*/
                 case R.id.nav_new:
                 case R.id.nav_enemy:
                 case R.id.nav_equip_improve:
@@ -195,8 +176,8 @@ public class MainActivity extends BaseActivity
         }
     }
 
-    public SimpleDrawerView getRightDrawerContent() {
-        return mRightDrawerContent;
+    public FrameLayout getRightDrawerContainer() {
+        return mNavigationViewRight;
     }
 
     public IconSwitchCompat getSwitch() {
@@ -314,18 +295,18 @@ public class MainActivity extends BaseActivity
             mAppBarLayout.setExpanded(true, false);
         //}
 
-        Fragment from = mFragmentMap.get(mLastDrawerItemId);
+        Fragment from = mFragmentArray.get(mLastDrawerItemId);
         mLastDrawerItemId = id;
         Settings.instance(this)
                 .putInt(Settings.LAST_DRAWER_ITEM_ID, id);
 
-        Fragment to = mFragmentMap.get(id);
+        Fragment to = mFragmentArray.get(id);
         if (to == null) {
             to = instanceFragment(id);
             if (!(to instanceof DrawerFragment)) {
                 throw new RuntimeException("must be subclass of DrawerFragment");
             }
-            mFragmentMap.put(id, to);
+            mFragmentArray.put(id, to);
         }
 
         switchFragment(from, to, generateFragmentTAG(id));
@@ -335,8 +316,6 @@ public class MainActivity extends BaseActivity
         switch (id) {
             case R.id.nav_home:
                 return new HomeFragment();
-            /*case R.id.nav_twitter:
-                return new TwitterFragment();*/
             case R.id.nav_new:
                 return new EventFragment();
             case R.id.nav_enemy:
@@ -359,7 +338,7 @@ public class MainActivity extends BaseActivity
         return new HomeFragment();
     }
 
-    private void findFragmentByNavId(Map<Integer, Fragment> map, int id) {
+    private void findFragmentByNavId(SparseArrayCompat<Fragment> map, int id) {
         Fragment fragment = getSupportFragmentManager().findFragmentByTag(generateFragmentTAG(id));
         if (fragment != null) {
             map.put(id, fragment);
@@ -383,16 +362,6 @@ public class MainActivity extends BaseActivity
         }
 
         transaction.commit();
-    }
-
-    public void showSnackbar(@StringRes int resId, @Snackbar.Duration int duration) {
-        Snackbar.make(mCoordinatorLayout, resId, duration)
-                .show();
-    }
-
-    public void showSnackbar(CharSequence text, @Snackbar.Duration int duration) {
-        Snackbar.make(mCoordinatorLayout, text, duration)
-                .show();
     }
 
     @Override
