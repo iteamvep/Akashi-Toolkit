@@ -46584,6 +46584,880 @@
     }
   },
   {
+    "id": 369,
+    "wiki_id": "257a",
+    "name": {
+      "zh_cn": "山风改",
+      "zh_tw": "山風改",
+      "ja": "山風改",
+      "en": "Yamakaze Kai"
+    },
+    "stype": 2,
+    "ctype": 23,
+    "cnum": 8,
+    "rarity": 5,
+    "name_for_search": "山風改,やまかぜ,Yamakaze Kai,山风改,shanfenggai",
+    "build_time": 22,
+    "broken": [
+      1,
+      2,
+      0,
+      0
+    ],
+    "power_up": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "consume": [
+      15,
+      20
+    ],
+    "painter": "玖条イチソ",
+    "cv": "",
+    "equip": {
+      "slots": 3,
+      "id": [
+        63,
+        46,
+        44
+      ],
+      "space": [
+        -1,
+        -1,
+        -1
+      ]
+    },
+    "remodel": {
+      "blueprint": false,
+      "catapult": false,
+      "from_id": 457,
+      "to_id": 0,
+      "level": 0,
+      "cost": [
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 10,
+      "aa": 15,
+      "armor": 14,
+      "asw": 47,
+      "evasion": 64,
+      "fire": 13,
+      "hp": 30,
+      "luck": 8,
+      "los": 22,
+      "torpedo": 28,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 34,
+      "armor": 34,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 38,
+      "hp": 0,
+      "luck": 51,
+      "los": 0,
+      "torpedo": 54,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_99": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 22,
+      "evasion": 24,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 20,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "get": {
+      "drop": -1,
+      "remodel": 0,
+      "build": -1,
+      "build_time": 22
+    }
+  },
+  {
+    "id": 372,
+    "wiki_id": "291a",
+    "name": {
+      "zh_cn": "塔斯特司令官改",
+      "zh_tw": "塔斯特司令官改",
+      "ja": "Commandant Teste改",
+      "en": "Commandant Teste Kai"
+    },
+    "stype": 16,
+    "ctype": 70,
+    "cnum": 1,
+    "rarity": 7,
+    "name_for_search": "Commandant Teste改,コマンダン・テスト,Commandant Teste Kai,塔斯特司令官改,tasitesilingguangai",
+    "build_time": 140,
+    "broken": [
+      3,
+      4,
+      6,
+      6
+    ],
+    "power_up": [
+      2,
+      0,
+      1,
+      3
+    ],
+    "consume": [
+      40,
+      50
+    ],
+    "painter": "",
+    "cv": "",
+    "equip": {
+      "slots": 4,
+      "id": [
+        194,
+        -1,
+        -1,
+        -1
+      ],
+      "space": [
+        12,
+        12,
+        7,
+        7
+      ]
+    },
+    "remodel": {
+      "blueprint": false,
+      "catapult": false,
+      "from_id": 491,
+      "to_id": 0,
+      "level": 0,
+      "cost": [
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 5,
+      "aa": 20,
+      "armor": 26,
+      "asw": 0,
+      "evasion": 20,
+      "fire": 32,
+      "hp": 43,
+      "luck": 20,
+      "los": 32,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 28,
+      "armor": 30,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 26,
+      "hp": 0,
+      "luck": 68,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_99": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": -20,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": -32,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "get": {
+      "drop": -1,
+      "remodel": 0,
+      "build": -1,
+      "build_time": 140
+    }
+  },
+  {
+    "id": 457,
+    "wiki_id": "257",
+    "name": {
+      "zh_cn": "山风",
+      "zh_tw": "山風",
+      "ja": "山風",
+      "en": "Yamakaze"
+    },
+    "stype": 2,
+    "ctype": 23,
+    "cnum": 8,
+    "rarity": 4,
+    "name_for_search": "山風,やまかぜ,Yamakaze,山风,shanfeng",
+    "build_time": 22,
+    "broken": [
+      1,
+      1,
+      0,
+      0
+    ],
+    "power_up": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "consume": [
+      15,
+      20
+    ],
+    "painter": "玖条イチソ ",
+    "cv": "",
+    "equip": {
+      "slots": 2,
+      "id": [
+        2,
+        -1
+      ],
+      "space": [
+        -1,
+        -1
+      ]
+    },
+    "remodel": {
+      "blueprint": false,
+      "catapult": false,
+      "from_id": 0,
+      "to_id": 369,
+      "level": 45,
+      "cost": [
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 10,
+      "aa": 8,
+      "armor": 6,
+      "asw": 19,
+      "evasion": 42,
+      "fire": 11,
+      "hp": 16,
+      "luck": 6,
+      "los": 5,
+      "torpedo": 24,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 30,
+      "armor": 13,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 20,
+      "hp": 0,
+      "luck": 33,
+      "los": 0,
+      "torpedo": 45,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_99": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": -19,
+      "evasion": -42,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": -5,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "get": {
+      "drop": -1,
+      "remodel": 0,
+      "build": -1,
+      "build_time": 22
+    }
+  },
+  {
+    "id": 491,
+    "wiki_id": "291",
+    "name": {
+      "zh_cn": "塔斯特司令官",
+      "zh_tw": "塔斯特司令官",
+      "ja": "Commandant Teste",
+      "en": "Commandant Teste"
+    },
+    "stype": 16,
+    "ctype": 70,
+    "cnum": 1,
+    "rarity": 6,
+    "name_for_search": "Commandant Teste,コマンダン・テスト,Commandant Teste,塔斯特司令官,tasitesilingguan",
+    "build_time": 140,
+    "broken": [
+      3,
+      4,
+      6,
+      6
+    ],
+    "power_up": [
+      2,
+      0,
+      1,
+      3
+    ],
+    "consume": [
+      35,
+      40
+    ],
+    "painter": "",
+    "cv": "",
+    "equip": {
+      "slots": 3,
+      "id": [
+        194,
+        -1,
+        -1
+      ],
+      "space": [
+        12,
+        7,
+        7
+      ]
+    },
+    "remodel": {
+      "blueprint": false,
+      "catapult": false,
+      "from_id": 0,
+      "to_id": 372,
+      "level": 40,
+      "cost": [
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 5,
+      "aa": 18,
+      "armor": 24,
+      "asw": 0,
+      "evasion": 20,
+      "fire": 28,
+      "hp": 42,
+      "luck": 17,
+      "los": 32,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 22,
+      "armor": 26,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 20,
+      "hp": 0,
+      "luck": 62,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_99": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": -20,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": -32,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "get": {
+      "drop": -1,
+      "remodel": 0,
+      "build": -1,
+      "build_time": 140
+    }
+  },
+  {
+    "id": 370,
+    "wiki_id": "272a",
+    "name": {
+      "zh_cn": "朝风改",
+      "zh_tw": "朝風改",
+      "ja": "朝風改",
+      "en": "Asakaze Kai"
+    },
+    "stype": 2,
+    "ctype": 66,
+    "cnum": 2,
+    "rarity": 5,
+    "name_for_search": "朝風改,あさかぜ,Asakaze Kai,朝风改,chaofenggai",
+    "build_time": 18,
+    "broken": [
+      1,
+      1,
+      0,
+      0
+    ],
+    "power_up": [
+      1,
+      1,
+      0,
+      0
+    ],
+    "consume": [
+      15,
+      15
+    ],
+    "painter": "",
+    "cv": "",
+    "equip": {
+      "slots": 3,
+      "id": [
+        1,
+        174,
+        44
+      ],
+      "space": [
+        -1,
+        -1,
+        -1
+      ]
+    },
+    "remodel": {
+      "blueprint": false,
+      "catapult": false,
+      "from_id": 472,
+      "to_id": 0,
+      "level": 0,
+      "cost": [
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 10,
+      "aa": 10,
+      "armor": 10,
+      "asw": 17,
+      "evasion": 0,
+      "fire": 8,
+      "hp": 23,
+      "luck": 14,
+      "los": 28,
+      "torpedo": 14,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 42,
+      "armor": 27,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 34,
+      "hp": 0,
+      "luck": 74,
+      "los": 0,
+      "torpedo": 55,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_99": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": -17,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": -28,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "get": {
+      "drop": -1,
+      "remodel": 0,
+      "build": -1,
+      "build_time": 18
+    }
+  },
+  {
+    "id": 433,
+    "wiki_id": "233",
+    "name": {
+      "zh_cn": "萨拉托加",
+      "zh_tw": "薩拉托加",
+      "ja": "Saratoga",
+      "en": "Saratoga"
+    },
+    "stype": 11,
+    "ctype": 999,
+    "cnum": 2,
+    "rarity": 6,
+    "name_for_search": "Saratoga,サラトガ,Saratoga,萨拉托加,salatuojia",
+    "build_time": 330,
+    "broken": [
+      9,
+      16,
+      10,
+      10
+    ],
+    "power_up": [
+      2,
+      0,
+      4,
+      5
+    ],
+    "consume": [
+      65,
+      70
+    ],
+    "painter": "-10086",
+    "cv": "-10086",
+    "equip": {
+      "slots": 4,
+      "id": [
+        197,
+        196,
+        -1,
+        -1
+      ],
+      "space": [
+        27,
+        19,
+        19,
+        15
+      ]
+    },
+    "remodel": {
+      "blueprint": false,
+      "catapult": false,
+      "from_id": 0,
+      "to_id": 438,
+      "level": 40,
+      "cost": [
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 2,
+      "speed": 10,
+      "aa": 36,
+      "armor": 40,
+      "asw": 0,
+      "evasion": 21,
+      "fire": 30,
+      "hp": 83,
+      "luck": 25,
+      "los": 40,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 37,
+      "armor": 23,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 15,
+      "hp": 0,
+      "luck": 50,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_99": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 21,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 28,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "get": {
+      "drop": -1,
+      "remodel": 0,
+      "build": -1,
+      "build_time": 330
+    }
+  },
+  {
+    "id": 438,
+    "wiki_id": "238",
+    "name": {
+      "zh_cn": "萨拉托加改",
+      "zh_tw": "薩拉托加改",
+      "ja": "Saratoga改",
+      "en": "Saratoga Kai"
+    },
+    "stype": 11,
+    "ctype": 999,
+    "cnum": 2,
+    "rarity": 7,
+    "name_for_search": "Saratoga改,サラトガ,Saratoga Kai,萨拉托加改,salatuojiagai",
+    "build_time": 330,
+    "broken": [
+      12,
+      18,
+      18,
+      18
+    ],
+    "power_up": [
+      0,
+      0,
+      5,
+      6
+    ],
+    "consume": [
+      85,
+      90
+    ],
+    "painter": "",
+    "cv": "",
+    "equip": {
+      "slots": 4,
+      "id": [
+        198,
+        195,
+        -1,
+        -1
+      ],
+      "space": [
+        36,
+        18,
+        18,
+        18
+      ]
+    },
+    "remodel": {
+      "blueprint": false,
+      "catapult": false,
+      "from_id": 433,
+      "to_id": 0,
+      "level": 0,
+      "cost": [
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 10,
+      "aa": 52,
+      "armor": 48,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 88,
+      "luck": 35,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 41,
+      "armor": 35,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 53,
+      "hp": 0,
+      "luck": 50,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_99": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 53,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 80,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "get": {
+      "drop": -1,
+      "remodel": 0,
+      "build": -1,
+      "build_time": 330
+    }
+  },
+  {
+    "id": 472,
+    "wiki_id": "272",
+    "name": {
+      "zh_cn": "朝风",
+      "zh_tw": "朝風",
+      "ja": "朝風",
+      "en": "Asakaze"
+    },
+    "stype": 2,
+    "ctype": 66,
+    "cnum": 2,
+    "rarity": 4,
+    "name_for_search": "朝風,あさかぜ,Asakaze,朝风,chaofeng",
+    "build_time": 18,
+    "broken": [
+      1,
+      1,
+      0,
+      0
+    ],
+    "power_up": [
+      1,
+      1,
+      0,
+      0
+    ],
+    "consume": [
+      15,
+      15
+    ],
+    "painter": "",
+    "cv": "",
+    "equip": {
+      "slots": 2,
+      "id": [
+        1,
+        174
+      ],
+      "space": [
+        -1,
+        -1
+      ]
+    },
+    "remodel": {
+      "blueprint": false,
+      "catapult": false,
+      "from_id": 0,
+      "to_id": 370,
+      "level": 50,
+      "cost": [
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 10,
+      "aa": 6,
+      "armor": 5,
+      "asw": 17,
+      "evasion": 37,
+      "fire": 5,
+      "hp": 12,
+      "luck": 13,
+      "los": 6,
+      "torpedo": 12,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 21,
+      "armor": 12,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 24,
+      "hp": 0,
+      "luck": 59,
+      "los": 0,
+      "torpedo": 25,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_99": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": -17,
+      "evasion": -37,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": -6,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "get": {
+      "drop": -1,
+      "remodel": 0,
+      "build": -1,
+      "build_time": 18
+    }
+  },
+  {
     "id": 501,
     "wiki_id": "501",
     "name": {

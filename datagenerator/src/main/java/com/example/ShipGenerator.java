@@ -74,10 +74,10 @@ public class ShipGenerator {
         for (Ship2 ship : getList()) {
             NewShip apiShip = getAPIShip(ship.getId());
 
-            ship.getName().setJa(ship.get日文名());
-            ship.getName().setZh_cn(ship.get中文名());
-            ship.getName().setEn(getRomaji(ship));
-            ship.setNameForSearch(getNameForSearch(ship));
+            ship.getName().setJa(ship.get日文名().trim());
+            ship.getName().setZh_cn(ship.get中文名().trim());
+            ship.getName().setEn(getRomaji(ship).trim());
+            ship.setNameForSearch(getNameForSearch(ship).trim());
 
             ship.setClassNum(apiShip.getClassNum());
             ship.setClassType(apiShip.getClassType());
@@ -163,8 +163,22 @@ public class ShipGenerator {
                 ship.setClassNum(s.getClassNum());
                 ship.setClassType(s.getClassType());
             }
-            addToShipClassList(shipClassList, ship.getClassType(), ship.get中文名());
+            if (ship.getClassType() != 0) {
+                addToShipClassList(shipClassList, ship.getClassType(), ship.get中文名());
+            }
         }
+
+        // 临时补充数据中暂无的
+        getList().getByName("朝风").setClassType(66);
+        getList().getByName("朝风").setClassNum(2);
+        getList().getByName("朝风改").setClassType(66);
+        getList().getByName("朝风改").setClassNum(2);
+
+        getList().getByName("萨拉托加").setClassType(999);
+        getList().getByName("萨拉托加").setClassNum(2);
+        getList().getByName("萨拉托加改").setClassType(999);
+        getList().getByName("萨拉托加改").setClassNum(2);
+        addToShipClassList(shipClassList, 999, "列克星敦");
 
         for (Ship2 ship : getList()) {
             if (ship.getClassType() == 0) {
@@ -284,7 +298,8 @@ public class ShipGenerator {
                 .replace("\"id\":{}", "\"id\":[]");
 
         if (str.contains("\"Mist01")) {
-            str = str.substring(0, str.indexOf("\"Mist01") - 2) + "]";
+            str = str.substring(0, str.indexOf("\"Mist01") - 1)
+                    + str.substring(str.indexOf("\"wiki_id\":\"257a\"") - 2);
         }
 
         sShipList = new Gson().fromJson(str, ShipList.class);
@@ -510,6 +525,9 @@ public class ShipGenerator {
                     break;
                 case "厌战":
                     shipClass.setName("伊丽莎白女王级");
+                    break;
+                case "塔斯特司令官改":
+                    shipClass.setName("C.Teste级");
                     break;
                 default:
                     shipClass.setName(shipName + "级");

@@ -20,7 +20,7 @@ public class PushReceiver extends BroadcastReceiver {
             if (intent.getAction().equals("rikka.akashitool.PUSH_MESSAGE")) {
                 PushMessage message = new Gson().fromJson(intent.getExtras().getString("com.avos.avoscloud.Data"), PushMessage.class);
                 if (message != null) {
-                    PushHandler.sendNotification(getApplicationContext(), message);
+                    PushHandler.sendNotification(context.getApplicationContext(), message);
                 }
             }
         } catch (Exception ignored) {
