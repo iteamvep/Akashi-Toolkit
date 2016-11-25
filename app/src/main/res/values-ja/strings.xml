@@ -335,4 +335,7 @@
     <string name="push_topic_game_news">Game news</string>
     <string name="push_topic_kcwiki">Kcwiki messages</string>
     <string name="push_topic_other">Others</string>
+
+    <string name="reset_alarm">Reset alarm</string>
+
 </resources>

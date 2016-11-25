@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import rikka.akashitoolkit.BuildConfig;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.ChangeNavigationDrawerItemAction;
@@ -76,6 +77,9 @@ public class MessageExpeditionViewHolder extends RecyclerView.ViewHolder {
                     Context context = view.getContext();
                     if (!textView.isCounting()) {
                         long time = System.currentTimeMillis() + (expedition.getTime() - 1) * 1000 * 60;
+                        if (BuildConfig.DEBUG) {
+                            time = System.currentTimeMillis() + (expedition.getTime() - 1) * 1000;
+                        }
                         textView.setEndTime(time);
                         Settings.instance(context).putLong(String.format("expedition_time_%d", expedition.getId()), time);
                         setAlarm(context, time, expedition.getId());
@@ -115,7 +119,7 @@ public class MessageExpeditionViewHolder extends RecyclerView.ViewHolder {
         mContainer.addView(view);
     }
 
-    private void setAlarm(Context context, long time, int id) {
+    public static void setAlarm(Context context, long time, int id) {
         // avoid same alarm?
         cancelAlarm(context, id);
 
@@ -132,7 +136,7 @@ public class MessageExpeditionViewHolder extends RecyclerView.ViewHolder {
         }
     }
 
-    private void cancelAlarm(Context context, int id) {
+    private static void cancelAlarm(Context context, int id) {
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(context, ExpeditionAlarmReceiver.class);
         intent.putExtra("ExpeditionAlarmReceiver_ID", id);

@@ -23,7 +23,7 @@ import rikka.akashitoolkit.ui.BaseActivity;
 import rikka.akashitoolkit.utils.AlipayDonateUtils;
 import rikka.akashitoolkit.utils.ClipBoardUtils;
 import rikka.akashitoolkit.utils.FlavorsUtils;
-import rikka.akashitoolkit.utils.Utils;
+import rikka.akashitoolkit.utils.PackageUtils;
 import rikka.materialpreference.Preference;
 import rikka.materialpreference.PreferenceFragment;
 import rikka.materialpreference.PreferenceScreen;
@@ -190,7 +190,7 @@ public class AboutActivity extends BaseActivity {
             });
 
             if (FlavorsUtils.isPlay()
-                    && !Utils.isPackageInstalled(getActivity(), AlipayDonateUtils.PACKAGENAME_ALIPAY)) {
+                    && !PackageUtils.isInstalled(getActivity(), AlipayDonateUtils.PACKAGENAME_ALIPAY)) {
                 ((PreferenceScreen) findPreference("screen")).removePreference(findPreference("donate_alipay"));
             }
 

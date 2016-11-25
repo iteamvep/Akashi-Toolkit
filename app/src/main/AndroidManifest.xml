@@ -119,6 +119,7 @@
         </activity>
 
         <receiver android:name=".receiver.ExpeditionAlarmReceiver"/>
+        <receiver android:name=".receiver.ExpeditionAlarmResetReceiver"/>
 
         <activity
             android:name=".fleet_editor.FleetEditActivity"

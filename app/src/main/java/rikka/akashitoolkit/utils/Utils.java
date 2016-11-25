@@ -115,23 +115,6 @@ public class Utils {
         return sb.toString();
     }
 
-    public static boolean isPackageInstalled(Context context, String packageName) {
-        try {
-            context.getPackageManager().getPackageInfo(packageName, PackageManager.GET_ACTIVITIES);
-            return true;
-        } catch (PackageManager.NameNotFoundException e) {
-            return false;
-        }
-    }
-
-    public static boolean isPackageEnabled(Context context, String packageName) {
-        try {
-            return context.getPackageManager().getApplicationInfo(packageName, 0).enabled;
-        } catch (PackageManager.NameNotFoundException e) {
-            return false;
-        }
-    }
-
     public static String getMimeType(String fileUrl) {
         String extension = MimeTypeMap.getFileExtensionFromUrl(fileUrl);
         return MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension);

@@ -37,7 +37,7 @@ public class PushHandler {
     }
 
     public static void sendNotification(Context context, int id, String title, String message, String uri) {
-        if (title == null) {
+        if (TextUtils.isEmpty(title)) {
             title = context.getString(R.string.app_name);
         }
 

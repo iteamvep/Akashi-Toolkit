@@ -15,7 +15,7 @@ public class AlipayDonateUtils {
     public static String PACKAGENAME_ALIPAY = "com.eg.android.AlipayGphone";
 
     public static void startActivity(Context context) {
-        if (!Utils.isPackageInstalled(context, PACKAGENAME_ALIPAY)) {
+        if (!PackageUtils.isInstalled(context, PACKAGENAME_ALIPAY)) {
             String text = String.format("%s\n%s",
                     context.getString(R.string.donate_alipay_not_installed),
                     String.format(context.getString(R.string.copied_to_clipboard_format), "rikka@xing.moe"));
@@ -25,7 +25,7 @@ public class AlipayDonateUtils {
             return;
         }
 
-        if (!Utils.isPackageEnabled(context, PACKAGENAME_ALIPAY)) {
+        if (!PackageUtils.isEnabled(context, PACKAGENAME_ALIPAY)) {
             String text = String.format("%s\n%s",
                     context.getString(R.string.donate_alipay_disabled),
                     String.format(context.getString(R.string.copied_to_clipboard_format), "rikka@xing.moe"));
