@@ -339,4 +339,7 @@
 
     <string name="view_detail">查看详情</string>
 
+    <string name="push_introduction">介绍新的推送功能</string>
+    <string name="push_introduction_content">我们会为您准备诸如游戏维护提醒，舰娘百科词条更新等内容。\n为了不对您造成打扰，您需要先选择您想要的内容。\n\n您可以随时设置中更改您想要接收的通知内容。</string>
+    <string name="push_introduction_choose">选择您感兴趣内容</string>
 </resources>

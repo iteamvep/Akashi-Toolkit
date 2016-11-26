@@ -49,7 +49,7 @@ public class Settings {
 
     public static final String SHARE_NO_FOOTER = "share_no_footer";
 
-    public static final String PUSH_TOPICS = "push_topics";
+    public static final String PUSH_TOPICS = "notification_topics";
 
     private static BaseSetting sInstance;
 

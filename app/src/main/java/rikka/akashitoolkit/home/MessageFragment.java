@@ -112,11 +112,14 @@ public class MessageFragment extends BaseRefreshFragment<CheckUpdate> {
             @Override
             public void OnRemove(int position, Object data) {
                 switch (mAdapter.getItemViewType(position)) {
-                    case 0:
+                    case MessageAdapter.TYPE_MESSAGE:
                         mMessageReadStatus.addReadId(mAdapter.getItemId(position));
                         break;
-                    case 1:
+                    case MessageAdapter.TYPE_MESSAGE_UPDATE:
                         mMessageReadStatus.setVersionCode(((CheckUpdate.UpdateEntity) data).getVersionCode());
+                        break;
+                    case MessageAdapter.TYPE_PUSH_INTRO:
+                        mMessageReadStatus.setShowPushIntro(false);
                         break;
                 }
 
@@ -148,6 +151,9 @@ public class MessageFragment extends BaseRefreshFragment<CheckUpdate> {
     private void addLocalCard() {
         mAdapter.addItem(MessageAdapter.TYPE_DAILY_EQUIP, null, 0);
         mAdapter.addItem(MessageAdapter.TYPE_EXPEDITION_NOTIFY, null, 0);
+        if (mMessageReadStatus.showPushIntro()) {
+            mAdapter.addItem(MessageAdapter.TYPE_PUSH_INTRO, null, 0);
+        }
     }
 
     private void addUpdateCard(final CheckUpdate.UpdateEntity entity) {

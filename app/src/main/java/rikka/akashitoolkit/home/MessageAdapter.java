@@ -2,19 +2,26 @@ package rikka.akashitoolkit.home;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.CountDownTimer;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.text.format.DateUtils;
 import android.text.method.LinkMovementMethod;
+import android.util.ArraySet;
 import android.util.Log;
+import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.squareup.otto.Subscribe;
+
+import java.util.HashSet;
+import java.util.Set;
 
 import rikka.akashitoolkit.BuildConfig;
 import rikka.akashitoolkit.R;
@@ -23,6 +30,8 @@ import rikka.akashitoolkit.adapter.Listener;
 import rikka.akashitoolkit.model.CheckUpdate;
 import rikka.akashitoolkit.otto.BookmarkItemChanged;
 import rikka.akashitoolkit.otto.BusProvider;
+import rikka.akashitoolkit.support.Push;
+import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.utils.HtmlUtils;
 
 import static rikka.akashitoolkit.support.ApiConstParam.Message.ACTION_VIEW_BUTTON;
@@ -42,6 +51,7 @@ public class MessageAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHolder,
     public static final int TYPE_DAILY_EQUIP = 2;
     public static final int TYPE_EXPEDITION_NOTIFY = 3;
     public static final int TYPE_VOTE = 4;
+    public static final int TYPE_PUSH_INTRO = 5;
 
     private Listener mListener;
 
@@ -97,6 +107,7 @@ public class MessageAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHolder,
         switch (viewType) {
             case TYPE_MESSAGE:
             case TYPE_MESSAGE_UPDATE:
+            case TYPE_PUSH_INTRO:
                 return new MessageViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.card_message, parent, false));
             case TYPE_DAILY_EQUIP:
                 return new MessageEquipViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.card_message_equip, parent, false));
@@ -262,6 +273,55 @@ public class MessageAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHolder,
         holder.setContent();
     }
 
+    private void bindViewHolder(final MessageViewHolder holder) {
+        holder.mSummary.setVisibility(View.GONE);
+        holder.mTitle.setText(R.string.push_introduction);
+        holder.mContent.setText(R.string.push_introduction_content);
+
+        holder.mPositiveButton.setText(R.string.push_introduction_choose);
+        holder.mPositiveButton.setVisibility(View.VISIBLE);
+        holder.mPositiveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Context context = view.getContext();
+
+                new AlertDialog.Builder(context)
+                        .setTitle(R.string.push_introduction_choose)
+                        .setMultiChoiceItems(R.array.push_topics, null, null)
+                        .setNegativeButton(android.R.string.cancel, null)
+                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                AlertDialog dialog = (AlertDialog) dialogInterface;
+                                String[] values = dialog.getContext().getResources().getStringArray(R.array.push_topics_value);
+                                SparseBooleanArray bool = dialog.getListView().getCheckedItemPositions();
+
+                                Set<String> set = new HashSet<>();
+                                for (int j = 0; j < values.length; j++) {
+                                    if (bool.get(j)) {
+                                        set.add(values[j]);
+                                    }
+                                }
+                                Settings.instance().putStringSet(Settings.PUSH_TOPICS, set);
+                                Push.resetSubscribedChannels(dialog.getContext());
+
+                                remove(holder.getAdapterPosition());
+                            }
+                        })
+                        .show();
+            }
+        });
+
+        holder.mNegativeButton.setText(R.string.got_it);
+        holder.mNegativeButton.setVisibility(View.VISIBLE);
+        holder.mNegativeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                remove(holder.getAdapterPosition());
+            }
+        });
+    }
+
     @SuppressLint("DefaultLocale")
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position) {
@@ -278,6 +338,8 @@ public class MessageAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHolder,
             case TYPE_EXPEDITION_NOTIFY:
                 bindViewHolder((MessageExpeditionViewHolder) holder, position);
                 break;
+            case TYPE_PUSH_INTRO:
+                bindViewHolder((MessageViewHolder) holder);
         }
     }
 

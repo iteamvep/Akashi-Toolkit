@@ -19,6 +19,9 @@ public class MessageReadStatus {
     private int versionCode;
     @Expose
     private List<Long> readMessageId;
+    @Expose
+    private boolean pushIntro;
+
     private List<Long> ids;
 
     public void addId(long id) {
@@ -56,5 +59,13 @@ public class MessageReadStatus {
 
     public boolean isIdRead(long id) {
         return readMessageId.contains(id);
+    }
+
+    public boolean showPushIntro() {
+        return !pushIntro;
+    }
+
+    public void setShowPushIntro(boolean show) {
+        this.pushIntro = !show;
     }
 }

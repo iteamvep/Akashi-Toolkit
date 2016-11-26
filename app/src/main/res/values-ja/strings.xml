@@ -340,4 +340,7 @@
 
     <string name="view_detail">View detail</string>
 
+    <string name="push_introduction">Introduction our new push feature</string>
+    <string name="push_introduction_content">We will provide you notification like game maintenance, kcwiki entries updated.\nTo not disturb you, you need to choose which topic you want to receive.\n\nYou can change your choice in settings any time.</string>
+    <string name="push_introduction_choose">Choose topics you like</string>
 </resources>

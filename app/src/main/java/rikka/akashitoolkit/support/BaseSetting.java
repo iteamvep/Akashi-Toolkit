@@ -91,4 +91,11 @@ public class BaseSetting {
     public Set<String> getStringSet(String key, Set<String> defValue) {
         return mPrefs.getStringSet(key, defValue);
     }
+
+    public BaseSetting putStringSet(String key, Set<String> value) {
+        mPrefs.edit()
+                .putStringSet(key, value)
+                .apply();
+        return this;
+    }
 }
