@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
+    android:fitsSystemWindows="true"
+    tools:background="#000">
 
     <android.support.design.widget.CoordinatorLayout
         android:id="@+id/coordinatorLayout"
@@ -44,33 +45,80 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|start"
+            android:gravity="bottom"
             android:layout_margin="@dimen/fab_margin"
             android:orientation="horizontal"
             app:layout_behavior="rikka.akashitoolkit.ui.widget.ShowAboveSnackbarBehavior">
 
-            <TextView
-                android:id="@+id/textView"
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@android:color/white"
-                android:textSize="42sp"
-                tools:text="1"/>
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="/"
-                android:textColor="@android:color/white"
-                android:textSize="21sp"
-                tools:ignore="HardcodedText"/>
+                <TextView
+                    android:id="@android:id/text1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:textSize="42sp"
+                    tools:text="1"/>
 
-            <TextView
-                android:id="@+id/textView2"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="/"
+                    android:textColor="@android:color/white"
+                    android:textSize="21sp"
+                    tools:ignore="HardcodedText"/>
+
+                <TextView
+                    android:id="@android:id/text2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:textSize="21sp"
+                    tools:text="9"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@android:id/button1"
+                android:background="?attr/selectableItemBackground"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@android:color/white"
-                android:textSize="21sp"
-                tools:text="9"/>
+                android:layout_height="match_parent"
+                android:layout_marginStart="24dp"
+                android:layout_marginLeft="24dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:layout_gravity="bottom"
+                    android:maxLines="1"
+                    android:text="@string/view_detail"
+                    android:fontFamily="sans-serif-condensed"
+                    tools:text="打开"/>
+
+                <TextView
+                    android:id="@android:id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    android:gravity="bottom"
+                    android:maxLines="1"
+                    android:layout_gravity="bottom"
+                    android:fontFamily="sans-serif-medium"
+                    tools:text="睦月改二"/>
+
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -83,4 +131,5 @@
             app:srcCompat="@drawable/ic_get_app_24dp"/>
 
     </android.support.design.widget.CoordinatorLayout>
+
 </android.support.design.internal.ScrimInsetsFrameLayout>

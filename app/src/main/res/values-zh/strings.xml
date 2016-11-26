@@ -337,4 +337,6 @@
 
     <string name="reset_alarm">重置提醒</string>
 
+    <string name="view_detail">查看详情</string>
+
 </resources>

@@ -41,6 +41,12 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHold
     private int mImageHeight;
     private ImageView.ScaleType mImageScaleType;
 
+    public interface OnItemClickListener {
+        void onItemClicked(View v, int position);
+    }
+
+    private OnItemClickListener mOnClickListener;
+
     public GalleryAdapter() {
         this(R.layout.item_illustrations);
 
@@ -56,6 +62,10 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHold
 
         mImageWidth = mImageHeight = -1;
         mImageScaleType = null;
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        mOnClickListener = listener;
     }
 
     public void setItemBackgroundColor(@ColorInt int color) {
@@ -105,6 +115,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHold
         return new ViewHolder(itemView);
     }
 
+    // TODO remove this
     public void onItemClicked(View v, List<String> data, int position) {
 
     }
@@ -127,6 +138,9 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHold
             @Override
             public void onClick(View v) {
                 onItemClicked(v, mUrls, holder.getLayoutPosition());
+                if (mOnClickListener != null) {
+                    mOnClickListener.onItemClicked(v, holder.getLayoutPosition());
+                }
             }
         });
 

@@ -338,4 +338,6 @@
 
     <string name="reset_alarm">Reset alarm</string>
 
+    <string name="view_detail">View detail</string>
+
 </resources>

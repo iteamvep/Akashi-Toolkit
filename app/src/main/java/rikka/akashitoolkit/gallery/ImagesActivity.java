@@ -59,6 +59,10 @@ import java.util.concurrent.ExecutionException;
 
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.adapter.ViewPagerStateAdapter;
+import rikka.akashitoolkit.equip_detail.EquipDetailActivity;
+import rikka.akashitoolkit.ship_detail.ShipDetailActivity;
+import rikka.akashitoolkit.staticdata.EquipList;
+import rikka.akashitoolkit.staticdata.ShipList;
 import rikka.akashitoolkit.ui.BaseActivity;
 import rikka.akashitoolkit.utils.FileUtils;
 import rikka.akashitoolkit.utils.Utils;
@@ -72,6 +76,9 @@ public class ImagesActivity extends BaseActivity implements View.OnClickListener
     public static final String EXTRA_TITLE = "EXTRA_TITLE";
     public static final String EXTRA_DOWNLOADABLE = "EXTRA_DOWNLOADABLE";
 
+    public static final String EXTRA_IDS = "EXTRA_IDS";
+    public static final String EXTRA_TYPE = "EXTRA_TYPE";
+
     private List<String> mList;
     private int mPosition;
     private AsyncTask mDownloadTask;
@@ -79,8 +86,8 @@ public class ImagesActivity extends BaseActivity implements View.OnClickListener
     private boolean mDownloadable;
 
     private FloatingActionButton mFAB;
-    private TextView mTextView;
-    private TextView mTextView2;
+    private TextView mCurrent;
+    private TextView mText;
     private CoordinatorLayout mCoordinatorLayout;
 
     public static void start(Context context, String url) {
@@ -106,11 +113,26 @@ public class ImagesActivity extends BaseActivity implements View.OnClickListener
         context.startActivity(intent);
     }
 
+    public static void start(Context context, List<String> url, int position, String title, List<Integer> ids, int actionType) {
+        Intent intent = new Intent(context, ImagesActivity.class);
+        intent.putStringArrayListExtra(ImagesActivity.EXTRA_URL, (ArrayList<String>) url);
+        intent.putExtra(ImagesActivity.EXTRA_POSITION, position);
+        intent.putExtra(ImagesActivity.EXTRA_TITLE, title);
+
+        intent.putIntegerArrayListExtra(EXTRA_IDS, (ArrayList<Integer>) ids);
+        intent.putExtra(EXTRA_TYPE, actionType);
+        context.startActivity(intent);
+    }
+
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image_display);
+
+        mList = getIntent().getStringArrayListExtra(EXTRA_URL);
+        mPosition = getIntent().getIntExtra(EXTRA_POSITION, 0);
+        mDownloadable = getIntent().getBooleanExtra(EXTRA_DOWNLOADABLE, true);
 
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) {
             setTaskDescription(new ActivityManager.TaskDescription(getIntent().getStringExtra(EXTRA_TITLE), null, ContextCompat.getColor(this, R.color.background)));
@@ -119,21 +141,41 @@ public class ImagesActivity extends BaseActivity implements View.OnClickListener
         mCoordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinatorLayout);
 
         mFAB = (FloatingActionButton) findViewById(R.id.fab);
-        mFAB.setOnClickListener(this);
-        mFAB.setVisibility(View.GONE);
+        //mFAB.setOnClickListener(this);
+        //mFAB.setVisibility(View.GONE);
 
-        mTextView = (TextView) findViewById(R.id.textView);
-        mTextView2 = (TextView) findViewById(R.id.textView2);
+        mCurrent = (TextView) findViewById(android.R.id.text1);
+        mText = (TextView) findViewById(android.R.id.title);
 
-        mList = getIntent().getStringArrayListExtra(EXTRA_URL);
-        mPosition = getIntent().getIntExtra(EXTRA_POSITION, 0);
+        View open = findViewById(android.R.id.button1);
+        final int buttonType = getIntent().getIntExtra(EXTRA_TYPE, 0);
+        final List<Integer> ids = getIntent().getIntegerArrayListExtra(EXTRA_IDS);
+        if (buttonType != 0) {
+            if (buttonType == 1) {
+                mText.setText(ShipList.findItemById(ids.get(mPosition)).getName().get());
+            } else {
+                mText.setText(EquipList.findItemById(ids.get(mPosition)).getName().get());
+            }
+
+            open.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (buttonType == 1) {
+                        Intent intent = new Intent(ImagesActivity.this, ShipDetailActivity.class);
+                        intent.putExtra(ShipDetailActivity.EXTRA_ITEM_ID, ids.get(mPosition));
+                        ShipDetailActivity.start(ImagesActivity.this, intent);
+                    }
+                }
+            });
+        } else {
+            open.setVisibility(View.GONE);
+        }
+
         if (mPosition == -1) {
             Log.e(TAG, "position is -1, set to 0");
             mPosition = 0;
         }
         mIsDownloaded = new boolean[mList.size()];
-
-        mDownloadable = getIntent().getBooleanExtra(EXTRA_DOWNLOADABLE, true);
 
         for (String s : mList) {
             Log.d(getClass().getSimpleName(), s);
@@ -143,8 +185,10 @@ public class ImagesActivity extends BaseActivity implements View.OnClickListener
             findViewById(R.id.content_container).setVisibility(View.GONE);
         }
 
-        mTextView.setText(Integer.toString(mPosition + 1));
-        mTextView2.setText(Integer.toString(mList.size()));
+        mCurrent.setText(Integer.toString(mPosition + 1));
+
+        TextView count = (TextView) findViewById(android.R.id.text2);
+        count.setText(Integer.toString(mList.size()));
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
         ViewPagerStateAdapter adapter = new ViewPagerStateAdapter(getSupportFragmentManager()) {
@@ -168,8 +212,14 @@ public class ImagesActivity extends BaseActivity implements View.OnClickListener
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
                 if (position != mPosition) {
-                    mTextView.setText(Integer.toString(position + 1));
+                    mCurrent.setText(Integer.toString(position + 1));
                     setFAB();
+
+                    if (buttonType == 1) {
+                        mText.setText(ShipList.findItemById(ids.get(position)).getName().get());
+                    } else if (buttonType == 2) {
+                        mText.setText(EquipList.findItemById(ids.get(position)).getName().get());
+                    }
                 }
                 mPosition = position;
             }

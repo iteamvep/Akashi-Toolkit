@@ -168,6 +168,8 @@ public class Event extends ArrayList<Event.Container> {
         List<String> urls;
         // TODO support multi language ?
         List<String> names;
+        List<Integer> ids;
+        int action_type;
 
         public List<String> getUrls() {
             return urls;
@@ -175,6 +177,14 @@ public class Event extends ArrayList<Event.Container> {
 
         public List<String> getNames() {
             return names;
+        }
+
+        public List<Integer> getIds() {
+            return ids;
+        }
+
+        public int getActionType() {
+            return action_type;
         }
     }
 

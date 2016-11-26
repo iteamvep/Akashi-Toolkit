@@ -336,4 +336,6 @@
     <string name="push_topic_other">Others</string>
 
     <string name="reset_alarm">Reset alarm</string>
+
+    <string name="view_detail">View detail</string>
 </resources>

@@ -29,6 +29,9 @@ public class GalleryActivity extends AppCompatActivity {
     public static final String EXTRA_NAME = "EXTRA_NAME";
     public static final String EXTRA_TITLE = "EXTRA_TITLE";
 
+    public static final String EXTRA_IDS = "EXTRA_IDS";
+    public static final String EXTRA_TYPE = "EXTRA_TYPE";
+
     public static void start(Context context, List<String> url, String title) {
         Intent intent = new Intent(context, GalleryActivity.class);
         intent.putStringArrayListExtra(EXTRA_URL, (ArrayList<String>) url);
@@ -44,10 +47,24 @@ public class GalleryActivity extends AppCompatActivity {
         context.startActivity(intent);
     }
 
+    public static void start(Context context, List<String> url, List<String> name, String title, List<Integer> ids, int actionType) {
+        Intent intent = new Intent(context, GalleryActivity.class);
+        intent.putStringArrayListExtra(EXTRA_URL, (ArrayList<String>) url);
+        intent.putStringArrayListExtra(EXTRA_NAME, (ArrayList<String>) name);
+        intent.putExtra(EXTRA_TITLE, title);
+
+        intent.putIntegerArrayListExtra(EXTRA_IDS, (ArrayList<Integer>) ids);
+        intent.putExtra(EXTRA_TYPE, actionType);
+        context.startActivity(intent);
+    }
+
     private int mItemSize;
     private int mSpanCount;
     private List<String> mUrls;
     private List<String> mNames;
+
+    private ArrayList<Integer> mIds;
+    private int mActionType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,10 +91,17 @@ public class GalleryActivity extends AppCompatActivity {
         mUrls = getIntent().getStringArrayListExtra(EXTRA_URL);
         mNames = getIntent().getStringArrayListExtra(EXTRA_NAME);
 
+        mIds = getIntent().getIntegerArrayListExtra(EXTRA_IDS);
+        mActionType = getIntent().getIntExtra(EXTRA_TYPE, 0);
+
         final GalleryAdapter adapter = new GalleryAdapter(R.layout.item_gallery_image) {
             @Override
             public void onItemClicked(View v, List<String> data, int position) {
-                ImagesActivity.start(v.getContext(), data, position, null);
+                if (mActionType == 0) {
+                    ImagesActivity.start(v.getContext(), data, position, null);
+                } else {
+                    ImagesActivity.start(v.getContext(), data, position, null, mIds, mActionType);
+                }
             }
 
             @Override

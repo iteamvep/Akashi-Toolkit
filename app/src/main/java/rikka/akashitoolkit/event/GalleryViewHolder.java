@@ -34,6 +34,7 @@ public class GalleryViewHolder extends RecyclerView.ViewHolder implements IBindV
     public TextView mSummary;
     public TextView mContent;
     public RecyclerView mRecyclerView;
+    public GalleryAdapter mAdapter;
     public Button mButton;
 
     public int mItemSize;
@@ -68,12 +69,7 @@ public class GalleryViewHolder extends RecyclerView.ViewHolder implements IBindV
         mRecyclerView.getLayoutManager().setAutoMeasureEnabled(true);
         mRecyclerView.setNestedScrollingEnabled(false);
 
-        mRecyclerView.setAdapter(new GalleryAdapter(R.layout.item_gallery_image) {
-            @Override
-            public void onItemClicked(View v, List<String> data, int position) {
-                ImagesActivity.start(v.getContext(), data, position, null);
-            }
-
+        mAdapter = new GalleryAdapter(R.layout.item_gallery_image) {
             @Override
             public void onBindViewHolder(ViewHolder holder, int position) {
                 super.onBindViewHolder(holder, position);
@@ -84,7 +80,8 @@ public class GalleryViewHolder extends RecyclerView.ViewHolder implements IBindV
             public int getItemCount() {
                 return super.getItemCount() > MAX_IMAGE ? MAX_IMAGE : super.getItemCount();
             }
-        });
+        };
+        mRecyclerView.setAdapter(mAdapter);
     }
 
     @Override
@@ -96,6 +93,8 @@ public class GalleryViewHolder extends RecyclerView.ViewHolder implements IBindV
         final String content = data.getContent().get();
         final List<String> urls = data.getUrls();
         final List<String> names = data.getNames();
+        final List<Integer> ids = data.getIds();
+        final int action_type = data.getActionType();
 
         mTitle.setText(title);
         mSummary.setText(summary);
@@ -108,11 +107,7 @@ public class GalleryViewHolder extends RecyclerView.ViewHolder implements IBindV
             @Override
             public void onClick(View v) {
                 Context context = v.getContext();
-                /*List<String> list = new ArrayList<>();
-                for (LocaleMultiLanguageEntry entry : names) {
-                    list.add(entry.get());
-                }*/
-                GalleryActivity.start(context, urls, names/*list*/, title);
+                GalleryActivity.start(context, urls, names, title, ids, action_type);
             }
         });
         mButton.setVisibility(TextUtils.isEmpty(content) ? View.VISIBLE : View.GONE);
@@ -121,7 +116,13 @@ public class GalleryViewHolder extends RecyclerView.ViewHolder implements IBindV
             mButton.setText(String.format(context.getString(R.string.view_all_format),
                     urls.size() - GalleryViewHolder.MAX_IMAGE));
         }
-        ((GalleryAdapter) mRecyclerView.getAdapter()).setUrls(urls);
+        mAdapter.setUrls(urls);
+        mAdapter.setOnItemClickListener(new GalleryAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClicked(View v, int position) {
+                ImagesActivity.start(v.getContext(), urls, position, null, ids, action_type);
+            }
+        });
 
         Log.d(TAG, title + " gallery size " + urls.size() + " item width " + mItemSize);
 
