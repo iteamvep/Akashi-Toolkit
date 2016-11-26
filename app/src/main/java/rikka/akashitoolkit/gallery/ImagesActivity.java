@@ -167,7 +167,7 @@ public class ImagesActivity extends BaseActivity implements View.OnClickListener
                     } else {
                         Intent intent = new Intent(ImagesActivity.this, EquipDetailActivity.class);
                         intent.putExtra(EquipDetailActivity.EXTRA_ITEM_ID, ids.get(mPosition));
-                        ShipDetailActivity.start(ImagesActivity.this, intent);
+                        EquipDetailActivity.start(ImagesActivity.this, intent);
                     }
                 }
             });
