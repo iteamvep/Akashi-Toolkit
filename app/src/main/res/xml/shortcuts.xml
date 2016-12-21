@@ -13,10 +13,20 @@
             android:action="android.intent.action.VIEW"
             android:targetPackage="moe.kcwiki.akashitoolkit"
             android:targetClass="rikka.akashitoolkit.TwitterActivity"/>
-        <!-- If your shortcut is associated with multiple intents, include them
-             here. The last intent in the list is what the user sees when they
-             launch this shortcut. -->
         <categories android:name="android.shortcut.conversation"/>
     </shortcut>
-    <!-- Specify more shortcuts here. -->
+    <shortcut
+        android:shortcutId="fleet"
+        android:enabled="true"
+        android:icon="@drawable/ic_qu_fleet_launcher"
+        android:shortcutShortLabel="@string/fleets"
+        android:shortcutLongLabel="@string/fleets"
+        android:shortcutDisabledMessage="@string/fleets"
+        tools:ignore="UnusedAttribute">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="moe.kcwiki.akashitoolkit"
+            android:targetClass="rikka.akashitoolkit.fleet_editor.FleetListActivity"/>
+        <categories android:name="android.shortcut.conversation"/>
+    </shortcut>
 </shortcuts>

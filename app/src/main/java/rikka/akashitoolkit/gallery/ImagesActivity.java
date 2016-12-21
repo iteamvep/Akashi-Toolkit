@@ -5,6 +5,7 @@ import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.ActivityManager;
+import android.app.AppOpsManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -22,6 +23,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.AppOpsManagerCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.provider.DocumentFile;
@@ -141,8 +143,8 @@ public class ImagesActivity extends BaseActivity implements View.OnClickListener
         mCoordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinatorLayout);
 
         mFAB = (FloatingActionButton) findViewById(R.id.fab);
-        //mFAB.setOnClickListener(this);
-        //mFAB.setVisibility(View.GONE);
+        mFAB.setOnClickListener(this);
+        mFAB.setVisibility(View.GONE);
 
         mCurrent = (TextView) findViewById(android.R.id.text1);
         mText = (TextView) findViewById(android.R.id.title);

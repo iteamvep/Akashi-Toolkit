@@ -51,7 +51,9 @@ public class FleetListActivity extends BaseActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(R.string.fleets);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        if (getIntent().getAction() == null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

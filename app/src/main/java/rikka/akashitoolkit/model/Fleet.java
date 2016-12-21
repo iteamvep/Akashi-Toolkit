@@ -275,7 +275,8 @@ public class Fleet {
                     break;
                 }
 
-                if (e.init(context) && e.getEquip() != null && getShip().getShipType().canEquip(e.getEquip())) {
+                if (e.init(context) && e.getEquip() != null
+                        && (getShip().getShipType().canEquip(e.getEquip()) || getShip().getExtraEquipType().contains(e.getEquip().getType()))) {
                     equipList.add(e);
                 } else {
                     equipList.add(new Fleet.Ship.Equip());
@@ -399,6 +400,7 @@ public class Fleet {
         aircraftLevelBonus.put(8, new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0});        // 艦上攻撃機
         aircraftLevelBonus.put(11, new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0});       // 水上爆撃機
         aircraftLevelBonus.put(45, new int[]{0, 0, 2, 5, 9, 14, 14, 22, 22});   // 水上戦闘機
+        aircraftLevelBonus.put(57, new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0});       // 噴式景雲改 / 橘花改
 
         equipRank = new String[]{"", "|", "||", "|||", "\\", "\\\\", "\\\\\\", ">>"};
     }

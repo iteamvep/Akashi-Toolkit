@@ -93,9 +93,9 @@ public class TwitterAdapter extends BaseRecyclerAdapter<TwitterAdapter.ViewHolde
             holder.mAvatar.setOnLongClickListener(mAvatarOnLongClickListener);
         }
 
-        if (FlavorsUtils.shouldSafeCheck()) {
+        /*if (FlavorsUtils.shouldSafeCheck()) {
             holder.mAvatar.setVisibility(View.GONE);
-        }
+        }*/
 
         holder.mName.setText("「艦これ」開発/運営");
         holder.mName.setOnClickListener(new View.OnClickListener() {

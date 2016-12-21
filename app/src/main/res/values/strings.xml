@@ -257,7 +257,7 @@
     <string name="ship_select">Ship select</string>
     <string name="equip_select">Equip select</string>
 
-    <string name="fleet_fp">FP</string>
+    <string name="fleet_fp">Fighter power</string>
 
     <string name="fleet_select_ship">Select ship…</string>
     <string name="fleet_change_equip_attr">Edit attribute</string>

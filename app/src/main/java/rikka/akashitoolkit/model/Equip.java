@@ -163,14 +163,15 @@ public class Equip extends BaseDataModel {
 
     public boolean isAircraft() {
         return type[3] == 6 || type[3] == 7 || type[3] == 8 || type[3] == 9 || type[3] == 10
-                || type[3] == 21 || type[3] == 22 || type[3] == 33 || type[3] == 37 || type[3] == 38;
+                || type[3] == 21 || type[3] == 22 || type[3] == 33 || type[3] == 37 || type[3] == 38
+                || type[2] == 57;
     }
 
     /**
      * @return 是否为舰载机
      */
     public boolean isCarrierBasedAircraft() {
-        return type[3] == 6 || type[3] == 7 || type[3] == 8;
+        return type[3] == 6 || type[3] == 7 || type[3] == 8 || type[2] == 57;
     }
 
     /**

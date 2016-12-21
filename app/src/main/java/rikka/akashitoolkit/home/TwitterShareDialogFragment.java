@@ -85,9 +85,9 @@ public class TwitterShareDialogFragment extends DialogFragment implements Dialog
                     .into(holder.avatar);
         }
 
-        if (FlavorsUtils.shouldSafeCheck()) {
+        /*if (FlavorsUtils.shouldSafeCheck()) {
             holder.avatar.setVisibility(View.GONE);
-        }
+        }*/
 
         holder.content.setText(HtmlUtils.fromHtml(data.getJp()));
 

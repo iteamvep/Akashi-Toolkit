@@ -176,6 +176,7 @@ public class FleetEquipAdapter extends BaseItemTouchHelperAdapter<FleetEquipView
             getItem(position).setRank(0);
             getItem(position).setStar(0);
             notifyItemChanged(position);
+            resetParent();
         }
     }
 

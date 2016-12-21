@@ -68,6 +68,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="/"
+                    android:paddingLeft="1dp"
+                    android:paddingRight="1dp"
                     android:textColor="@android:color/white"
                     android:textSize="21sp"
                     tools:ignore="HardcodedText"/>
