@@ -441,6 +441,9 @@ public class ShipGenerator {
         getList().getByName("皋月改二").getExtraEquipType().add(46);
 
         getList().getByName("Верный").getExtraEquipType().add(46); // 追加装甲(中型)
+
+        getList().getByName("翔鹤改二甲").getExtraEquipType().add(57); // 喷气战斗轰炸机
+        getList().getByName("瑞鹤改二甲").getExtraEquipType().add(57);
     }
 
     private static boolean isShipClassExist(List<ShipClass> list, int type) {

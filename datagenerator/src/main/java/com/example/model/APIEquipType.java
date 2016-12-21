@@ -11,6 +11,13 @@ public class APIEquipType {
     private int id;
     private String chinese_name;
 
+    public APIEquipType(int show_flg, String name, int id, String chinese_name) {
+        this.show_flg = show_flg;
+        this.name = name;
+        this.id = id;
+        this.chinese_name = chinese_name;
+    }
+
     public int getShowFlag() {
         return show_flg;
     }

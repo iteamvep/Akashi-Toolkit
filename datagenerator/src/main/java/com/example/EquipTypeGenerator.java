@@ -84,6 +84,7 @@ public class EquipTypeGenerator {
         PARENT.put(46, TYPE_OTHER);
         PARENT.put(47, TYPE_AIRCRAFT);
         PARENT.put(48, TYPE_AIRCRAFT);
+        PARENT.put(57, TYPE_AIRCRAFT);
         PARENT.put(93, TYPE_RADAR);
         PARENT.put(94, TYPE_AIRCRAFT);
 
@@ -136,6 +137,7 @@ public class EquipTypeGenerator {
         ENGLISH_NAME.put(46, "Special Amphibious Tank");
         ENGLISH_NAME.put(47, "Land-based Attack Aircraft");
         ENGLISH_NAME.put(48, "Interceptor Fighter");
+        ENGLISH_NAME.put(57, "Jet-powered Fighter-Bomber");
         ENGLISH_NAME.put(93, "Large Radar (II)");
         ENGLISH_NAME.put(94, "Carrier-based Reconnaissance Aircraft (II)");
     }
@@ -148,6 +150,8 @@ public class EquipTypeGenerator {
 
         RetrofitAPI.SlotItemService service = retrofit.create(RetrofitAPI.SlotItemService.class);
         List<APIEquipType> apiList = service.getTypes().execute().body();
+
+        apiList.add(new APIEquipType(1, "噴式戦闘爆撃機", 57, "喷气式战斗轰炸机"));
 
         List<EquipType> list = new ArrayList<>();
         List<EquipTypeParent> parent = new ArrayList<>();

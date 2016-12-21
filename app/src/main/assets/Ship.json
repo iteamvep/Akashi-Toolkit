@@ -23259,12 +23259,12 @@
       "speed": 10,
       "aa": 16,
       "armor": 14,
-      "asw": 27,
-      "evasion": 47,
+      "asw": 35,
+      "evasion": 55,
       "fire": 12,
       "hp": 32,
       "luck": 12,
-      "los": 8,
+      "los": 14,
       "torpedo": 28,
       "bomb": 0,
       "accuracy": 0
@@ -23289,12 +23289,12 @@
       "speed": 0,
       "aa": 0,
       "armor": 0,
-      "asw": 37,
-      "evasion": 42,
+      "asw": 29,
+      "evasion": 34,
       "fire": 0,
       "hp": 0,
       "luck": 0,
-      "los": 31,
+      "los": 25,
       "torpedo": 0,
       "bomb": 0,
       "accuracy": 0
@@ -44944,7 +44944,10 @@
       "remodel": 0,
       "build": -1,
       "build_time": 360
-    }
+    },
+    "extra_equip_type": [
+      57
+    ]
   },
   {
     "id": 467,
@@ -45055,7 +45058,10 @@
       "remodel": 0,
       "build": -1,
       "build_time": 360
-    }
+    },
+    "extra_equip_type": [
+      57
+    ]
   },
   {
     "id": 468,
@@ -46534,30 +46540,30 @@
     "attr": {
       "range": 1,
       "speed": 10,
-      "aa": 41,
-      "armor": 29,
-      "asw": 49,
-      "evasion": 44,
-      "fire": 15,
+      "aa": 67,
+      "armor": 41,
+      "asw": 76,
+      "evasion": 72,
+      "fire": 40,
       "hp": 45,
       "luck": 17,
-      "los": 15,
-      "torpedo": 28,
+      "los": 49,
+      "torpedo": 61,
       "bomb": 0,
       "accuracy": 0
     },
     "attr_max": {
       "range": 0,
       "speed": 0,
-      "aa": 42,
-      "armor": 39,
+      "aa": 16,
+      "armor": 27,
       "asw": 0,
       "evasion": 0,
-      "fire": 40,
+      "fire": 15,
       "hp": 0,
       "luck": 55,
       "los": 0,
-      "torpedo": 54,
+      "torpedo": 21,
       "bomb": 0,
       "accuracy": 0
     },
@@ -46566,12 +46572,12 @@
       "speed": 0,
       "aa": 0,
       "armor": 0,
-      "asw": 36,
-      "evasion": 38,
+      "asw": 9,
+      "evasion": 10,
       "fire": 0,
       "hp": 0,
       "luck": 0,
-      "los": 45,
+      "los": 11,
       "torpedo": 0,
       "bomb": 0,
       "accuracy": 0
@@ -46615,7 +46621,7 @@
       20
     ],
     "painter": "玖条イチソ",
-    "cv": "",
+    "cv": "橋本ちなみ",
     "equip": {
       "slots": 3,
       "id": [
@@ -46723,8 +46729,8 @@
       40,
       50
     ],
-    "painter": "",
-    "cv": "",
+    "painter": "アキラ",
+    "cv": "谷边由美",
     "equip": {
       "slots": 4,
       "id": [
@@ -46835,7 +46841,7 @@
       20
     ],
     "painter": "玖条イチソ ",
-    "cv": "",
+    "cv": "橋本ちなみ",
     "equip": {
       "slots": 2,
       "id": [
@@ -46941,8 +46947,8 @@
       35,
       40
     ],
-    "painter": "",
-    "cv": "",
+    "painter": "アキラ",
+    "cv": "谷边由美",
     "equip": {
       "slots": 3,
       "id": [
@@ -47050,8 +47056,8 @@
       15,
       15
     ],
-    "painter": "",
-    "cv": "",
+    "painter": "パセリ",
+    "cv": "伊藤静",
     "equip": {
       "slots": 3,
       "id": [
@@ -47159,8 +47165,8 @@
       65,
       70
     ],
-    "painter": "-10086",
-    "cv": "-10086",
+    "painter": "しずまよしのり",
+    "cv": "伊藤静",
     "equip": {
       "slots": 4,
       "id": [
@@ -47270,8 +47276,8 @@
       85,
       90
     ],
-    "painter": "",
-    "cv": "",
+    "painter": "しずまよしのり",
+    "cv": "伊藤静",
     "equip": {
       "slots": 4,
       "id": [
@@ -47301,14 +47307,14 @@
     "attr": {
       "range": 1,
       "speed": 10,
-      "aa": 52,
-      "armor": 48,
+      "aa": 66,
+      "armor": 54,
       "asw": 0,
-      "evasion": 0,
-      "fire": 0,
+      "evasion": 35,
+      "fire": 18,
       "hp": 88,
       "luck": 35,
-      "los": 0,
+      "los": 60,
       "torpedo": 0,
       "bomb": 0,
       "accuracy": 0
@@ -47316,11 +47322,11 @@
     "attr_max": {
       "range": 0,
       "speed": 0,
-      "aa": 41,
-      "armor": 35,
+      "aa": 27,
+      "armor": 29,
       "asw": 0,
       "evasion": 0,
-      "fire": 53,
+      "fire": 35,
       "hp": 0,
       "luck": 50,
       "los": 0,
@@ -47334,11 +47340,11 @@
       "aa": 0,
       "armor": 0,
       "asw": 0,
-      "evasion": 53,
+      "evasion": 18,
       "fire": 0,
       "hp": 0,
       "luck": 0,
-      "los": 80,
+      "los": 20,
       "torpedo": 0,
       "bomb": 0,
       "accuracy": 0
@@ -47381,8 +47387,8 @@
       15,
       15
     ],
-    "painter": "",
-    "cv": "",
+    "painter": "パセリ",
+    "cv": "伊藤静",
     "equip": {
       "slots": 2,
       "id": [

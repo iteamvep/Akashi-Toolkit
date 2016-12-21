@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -42,13 +43,14 @@ public class EquipGenerator {
         //Reader reader = new FileReader(new File("datagenerator/equip.lua"));
 
         int count = 0;
+        boolean comment = false;
         StringBuilder sb = new StringBuilder();
         for (int c = reader.read(); c != -1; c = reader.read()) {
             if ((char) c == '{') {
                 count++;
             }
 
-            if (count > 0) {
+            if (count > 0 && !comment) {
                 sb.append((char) c);
             }
 
@@ -74,8 +76,12 @@ public class EquipGenerator {
         }
 
         str = sb.toString()
+                .replaceAll("--(.+)--", "")
+
                 .replace("\r\n", "\n")
                 .replace("\r", "")
+
+                .replaceAll("\\[\"ネ\\(Ne\\)式引擎\"][^.]+\\}\\n", "")
 
                 .replace("\t", "")
                 .replace("\"?\"", "\"0\"")
@@ -112,7 +118,11 @@ public class EquipGenerator {
                 .replace("\"短\"", "1")
                 .replace("\"中\"", "2")
                 .replace("\"长\"", "3")
-                .replace("\"超长\"", "4");
+                .replace("\"超长\"", "4")
+
+                .replaceAll("长/(\\d)", "$1")
+
+                .replace(",1,\"ネ(Ne)式引擎\"", "");
 
         Gson gson = new GsonBuilder()
                 .create();
@@ -121,6 +131,8 @@ public class EquipGenerator {
 
         List<NewEquip> list = gson.fromJson(new StringReader(str), new TypeToken<List<NewEquip>>() {
         }.getType());
+
+        list.removeAll(Collections.singleton(null));
 
         for (NewEquip item : list) {
             item.setRarity(item.get稀有度().length());

@@ -498,5 +498,15 @@
       "en": "Carrier-based Reconnaissance Aircraft (II)"
     },
     "parent": 3
+  },
+  {
+    "id": 57,
+    "name": {
+      "zh_cn": "喷气式战斗轰炸机",
+      "zh_tw": "噴氣式戰鬥轟炸機",
+      "ja": "噴式戦闘爆撃機",
+      "en": "Jet-powered Fighter-Bomber"
+    },
+    "parent": 3
   }
 ]
