@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -41,7 +42,7 @@ import rikka.akashitoolkit.ui.widget.CheckBoxGroup;
  */
 public class QuestDisplayFragment extends BaseSearchFragment implements CheckBoxGroup.OnCheckedChangeListener, ISwitchFragment {
     private ViewPager mViewPager;
-    private ViewPagerAdapter[] mViewPagerStateAdapter;
+    private PagerAdapter[] mViewPagerStateAdapter;
     private int mType;
     private int mFlag = -1;
     private int mJumpToQuestIndex = -1;
@@ -170,7 +171,7 @@ public class QuestDisplayFragment extends BaseSearchFragment implements CheckBox
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         mViewPager = (ViewPager) view.findViewById(R.id.view_pager);
         mViewPager.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.cardBackground));
-        mViewPagerStateAdapter = new ViewPagerAdapter[2];
+        mViewPagerStateAdapter = new PagerAdapter[2];
         mViewPagerStateAdapter[0] = getAdapter(0);
         mViewPagerStateAdapter[1] = getAdapter(1);
 
@@ -184,11 +185,11 @@ public class QuestDisplayFragment extends BaseSearchFragment implements CheckBox
         mType = type;
     }
 
-    private ViewPagerAdapter getAdapter(int type) {
-        ViewPagerAdapter adapter;
+    private ViewPagerStateAdapter getAdapter(int type) {
+        ViewPagerStateAdapter adapter;
 
         if (type == 0) {
-            adapter = new RecycledViewPoolViewPagerAdapter(getChildFragmentManager()) {
+            adapter = new ViewPagerStateAdapter(getChildFragmentManager()) {
                 @Override
                 public Bundle getArgs(int position) {
                     Bundle bundle = new Bundle();
@@ -212,7 +213,7 @@ public class QuestDisplayFragment extends BaseSearchFragment implements CheckBox
             adapter.addFragment(QuestFragment.class, "工廠");
             adapter.addFragment(QuestFragment.class, "改裝");
         } else {
-            adapter = new RecycledViewPoolViewPagerAdapter(getChildFragmentManager()) {
+            adapter = new ViewPagerStateAdapter(getChildFragmentManager()) {
                 @Override
                 public Bundle getArgs(int position) {
                     Bundle bundle = new Bundle();
