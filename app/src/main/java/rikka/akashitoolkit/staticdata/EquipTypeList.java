@@ -104,7 +104,10 @@ public class EquipTypeList {
             R.drawable.system_icon_06_24dp,
             R.drawable.system_icon_06_24dp,
             R.drawable.system_icon_06_24dp,
-            R.drawable.system_icon_06_24dp  // 40
+            R.drawable.system_icon_06_24dp, // 40
+
+            R.drawable.system_icon_10_24dp,
+            R.drawable.system_icon_11_24dp,
     };
 
     private static int[][] COLOR = {
@@ -157,7 +160,10 @@ public class EquipTypeList {
                     R.color.material_light_blue_500,
                     R.color.material_green_500,
                     R.color.material_cyan_300,
-                    R.color.material_cyan_300
+                    R.color.material_cyan_300, // 40
+
+                    R.color.material_amber_500,
+                    R.color.material_light_blue_300
             },
             {
                     0,
@@ -208,7 +214,10 @@ public class EquipTypeList {
                     R.color.material_light_blue_200,
                     R.color.material_green_200,
                     R.color.material_cyan_200,
-                    R.color.material_cyan_200
+                    R.color.material_cyan_200, // 40
+
+                    R.color.material_amber_200,
+                    R.color.material_light_blue_200
             }
     };
 

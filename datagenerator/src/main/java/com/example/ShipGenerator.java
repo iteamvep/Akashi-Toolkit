@@ -169,16 +169,27 @@ public class ShipGenerator {
         }
 
         // 临时补充数据中暂无的
-        getList().getByName("朝风").setClassType(66);
-        getList().getByName("朝风").setClassNum(2);
-        getList().getByName("朝风改").setClassType(66);
-        getList().getByName("朝风改").setClassNum(2);
+        getList().getByName("松风").setClassType(66);
+        getList().getByName("松风").setClassNum(4);
+        getList().getByName("松风改").setClassType(66);
+        getList().getByName("松风改").setClassNum(4);
 
-        getList().getByName("萨拉托加").setClassType(999);
-        getList().getByName("萨拉托加").setClassNum(2);
-        getList().getByName("萨拉托加改").setClassType(999);
-        getList().getByName("萨拉托加改").setClassNum(2);
-        addToShipClassList(shipClassList, 999, "列克星敦");
+        getList().getByName("藤波").setClassType(38);
+        getList().getByName("藤波").setClassNum(11);
+        getList().getByName("藤波改").setClassType(38);
+        getList().getByName("藤波改").setClassNum(11);
+
+        shipClassList.add(new ShipClass("巡潜甲型改2", 999));
+
+        getList().getByName("伊13").setClassType(999);
+        getList().getByName("伊13").setClassNum(13);
+        getList().getByName("伊13改").setClassType(999);
+        getList().getByName("伊13改").setClassNum(13);
+
+        getList().getByName("伊14").setClassType(999);
+        getList().getByName("伊14").setClassNum(14);
+        getList().getByName("伊14改").setClassType(999);
+        getList().getByName("伊14改").setClassNum(14);
 
         for (Ship2 ship : getList()) {
             if (ship.getClassType() == 0) {
@@ -190,7 +201,7 @@ public class ShipGenerator {
 
         for (Ship2 ship : getList()) {
             if (ship.getClassType() == 0 || ship.getClassNum() == 0) {
-                System.out.println(ship.get中文名());
+                System.out.println("No class / class num: " + ship.get中文名());
             }
         }
 
@@ -531,6 +542,9 @@ public class ShipGenerator {
                     break;
                 case "塔斯特司令官改":
                     shipClass.setName("C.Teste级");
+                    break;
+                case "萨拉托加":
+                    shipClass.setName("列克星敦级");
                     break;
                 default:
                     shipClass.setName(shipName + "级");

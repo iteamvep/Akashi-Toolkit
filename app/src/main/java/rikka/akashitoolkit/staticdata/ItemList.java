@@ -17,6 +17,10 @@ public class ItemList {
 
     private static List<Item> sList;
 
+    public static void init(Context context) {
+        get(context);
+    }
+
     public static synchronized List<Item> get(Context context) {
         if (sList == null) {
             sList = new BaseGSONList<Item>() {
@@ -32,6 +36,15 @@ public class ItemList {
         sList = null;
     }
 
+    public static Item findItemById(int id) {
+        for (Item item :
+                sList) {
+            if (item.getId() == id) {
+                return item;
+            }
+        }
+        return null;
+    }
     public static Item findItemById(Context context, int id) {
         for (Item item:
                 get(context)) {

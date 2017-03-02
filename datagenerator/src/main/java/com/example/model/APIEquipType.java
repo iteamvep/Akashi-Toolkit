@@ -49,4 +49,12 @@ public class APIEquipType {
     public void setChinesName(String chinese_name) {
         this.chinese_name = chinese_name;
     }
+
+    @Override
+    public String toString() {
+        return "APIEquipType{" +
+                "id=" + id +
+                ", chinese_name='" + chinese_name + '\'' +
+                '}';
+    }
 }

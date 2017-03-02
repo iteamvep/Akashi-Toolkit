@@ -480,6 +480,46 @@
     "parent": 3
   },
   {
+    "id": 56,
+    "name": {
+      "zh_cn": "喷式战斗机",
+      "zh_tw": "噴式戰鬥機",
+      "ja": "噴式戦闘機",
+      "en": "Jet-powered Fighter"
+    },
+    "parent": 3
+  },
+  {
+    "id": 57,
+    "name": {
+      "zh_cn": "喷式战斗爆击机",
+      "zh_tw": "噴式戰鬥爆擊機",
+      "ja": "噴式戦闘爆撃機",
+      "en": "Jet-powered Fighter-Bomber"
+    },
+    "parent": 3
+  },
+  {
+    "id": 58,
+    "name": {
+      "zh_cn": "喷式攻击机",
+      "zh_tw": "噴式攻擊機",
+      "ja": "噴式攻撃機",
+      "en": "Jet-powered Bomber"
+    },
+    "parent": 3
+  },
+  {
+    "id": 59,
+    "name": {
+      "zh_cn": "喷式侦察机",
+      "zh_tw": "噴式偵察機",
+      "ja": "噴式偵察機",
+      "en": "Jet-powered Reconnaissance Aircraft"
+    },
+    "parent": 3
+  },
+  {
     "id": 93,
     "name": {
       "zh_cn": "大型电探（II）",
@@ -500,13 +540,13 @@
     "parent": 3
   },
   {
-    "id": 57,
+    "id": 51,
     "name": {
-      "zh_cn": "喷气式战斗轰炸机",
-      "zh_tw": "噴氣式戰鬥轟炸機",
-      "ja": "噴式戦闘爆撃機",
-      "en": "Jet-powered Fighter-Bomber"
+      "zh_cn": "潜水艇装备",
+      "zh_tw": "潜水艇裝備",
+      "ja": "潛水艦裝備",
+      "en": "Submarine Equipment"
     },
-    "parent": 3
+    "parent": 7
   }
 ]

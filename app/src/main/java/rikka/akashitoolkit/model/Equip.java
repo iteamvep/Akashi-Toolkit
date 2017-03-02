@@ -241,4 +241,12 @@ public class Equip extends BaseDataModel {
     public boolean isEnemy() {
         return getId() >= 500;
     }
+
+    @Override
+    public String toString() {
+        return "Equip{" +
+                "id=" + getId() +
+                ", name='" + name.getZhCN() + '\'' +
+                '}';
+    }
 }

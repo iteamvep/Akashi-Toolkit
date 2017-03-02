@@ -2,14 +2,12 @@ package rikka.akashitoolkit.quest;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
 import com.squareup.otto.Subscribe;
 
-import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.otto.BookmarkAction;
 import rikka.akashitoolkit.otto.BusProvider;
 import rikka.akashitoolkit.otto.QuestAction;
@@ -62,14 +60,13 @@ public class QuestFragment extends BaseDisplayFragment<QuestAdapter> implements 
             bookmarked = args.getBoolean("BOOKMARKED");
         }
 
-        setAdapter(new QuestAdapter(getContext(), mType, flag, mSearching, latest, bookmarked));
+        setAdapter(new QuestAdapter(getContext().getApplicationContext(), mSearching, mType, flag, latest, bookmarked));
     }
 
     @Override
     public void onPostCreateView(RecyclerView recyclerView) {
         super.onPostCreateView(recyclerView);
 
-        Log.d(TAG, "QAQ" + mType);
         ((LinearLayoutManager) recyclerView.getLayoutManager()).setRecycleChildrenOnDetach(true);
         recyclerView.setRecycledViewPool(mPool);
         recyclerView.setItemAnimator(null);
@@ -81,19 +78,16 @@ public class QuestFragment extends BaseDisplayFragment<QuestAdapter> implements 
 
     @Subscribe
     public void questFilterChanged(QuestAction.FilterChanged action) {
-        getAdapter().setFilterFlag(action.getFlag());
+        getAdapter().getHelper().setKey(QuestAdapter.FILTER_PERIOD_FLAG, action.getFlag(), false);
+        getAdapter().setItemList(getAdapter().getHelper().getFilteredData());
     }
 
     @Subscribe
     public void questFilterChanged(QuestAction.KeywordChanged action) {
-        if (getAdapter().isSearching()) {
-            getAdapter().setKeyword(action.getKeyword());
+        if (getAdapter().getHelper().isSearching()) {
+            getAdapter().getHelper().setKeyword(action.getKeyword());
+            getAdapter().setItemList(getAdapter().getHelper().getFilteredData());
         }
-    }
-
-    @Subscribe
-    public void isSearchingChanged(QuestAction.IsSearchingChanged action) {
-        getAdapter().setSearching(action.isSearching());
     }
 
     @Subscribe

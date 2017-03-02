@@ -6,7 +6,9 @@ import rikka.akashitoolkit.model.MultiLanguageEntry;
 import rikka.akashitoolkit.staticdata.EquipList;
 import rikka.akashitoolkit.staticdata.EquipTypeList;
 import rikka.akashitoolkit.staticdata.EquipTypeParentList;
+import rikka.akashitoolkit.staticdata.ItemList;
 import rikka.akashitoolkit.staticdata.ShipList;
+import rikka.akashitoolkit.staticdata.ShipTypeList;
 import rikka.akashitoolkit.staticdata.Subtitle;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.StaticData;
@@ -31,6 +33,9 @@ public class Application extends android.app.Application {
 
         // so bad to avoid ConcurrentModificationException
         ShipList.init(this);
+        ShipTypeList.init(this);
+
+        ItemList.init(this);
 
         EquipTypeParentList.init(this);
         EquipTypeList.init(this);

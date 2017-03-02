@@ -2,12 +2,14 @@ package rikka.akashitoolkit.staticdata;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.util.Log;
 
 import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import rikka.akashitoolkit.BuildConfig;
 import rikka.akashitoolkit.model.Equip;
 import rikka.akashitoolkit.model.EquipTypeParent;
 import rikka.akashitoolkit.model.Ship;
@@ -30,6 +32,7 @@ public class EquipList {
             sList = new BaseGSONList<Equip>() {
                 @Override
                 public void afterRead(List<Equip> list) {
+                    filter(list);
                     setType(list);
                     sort(list);
                     setBookmarked(context, list);
@@ -41,14 +44,37 @@ public class EquipList {
     }
 
     private static void setType(List<Equip> list) {
-        for (Equip equip : list) {
-            equip.setEquipType(EquipTypeList.get(equip.getTypes()[2]));
-            equip.setEquipTypeParent(EquipTypeParentList.get(equip.getEquipType().getParent()));
+        if (BuildConfig.DEBUG) {
+            for (Equip equip : list) {
+                try {
+                    equip.setEquipType(EquipTypeList.get(equip.getTypes()[2]));
+                    equip.setEquipTypeParent(EquipTypeParentList.get(equip.getEquipType().getParent()));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    Log.e("EquipList", equip.toString());
+                }
+            }
+        } else {
+            for (Equip equip : list) {
+                equip.setEquipType(EquipTypeList.get(equip.getTypes()[2]));
+                equip.setEquipTypeParent(EquipTypeParentList.get(equip.getEquipType().getParent()));
+            }
         }
     }
 
     public static synchronized void clear() {
         sList = null;
+    }
+
+    private static void filter(List<Equip> list) {
+        List<Equip> newList = new ArrayList<>();
+        for (Equip e : list) {
+            if (e.getId() != 209) {
+                newList.add(e);
+            }
+        }
+        list.clear();
+        list.addAll(newList);
     }
 
     private static void makeEquippedShipList(Context context, List<Equip> list) {

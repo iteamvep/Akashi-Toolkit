@@ -25,7 +25,7 @@
         tools:ignore="UnusedAttribute">
         <intent
             android:action="android.intent.action.VIEW"
-            android:targetPackage="moe.kcwiki.akashitoolkit"
+            android:targetPackage="moe.kcwiki.akashitoolkit.lite"
             android:targetClass="rikka.akashitoolkit.fleet_editor.FleetListActivity"/>
         <categories android:name="android.shortcut.conversation"/>
     </shortcut>

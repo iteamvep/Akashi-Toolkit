@@ -17,6 +17,10 @@ public class ShipTypeList {
 
     private static List<ShipType> sList;
 
+    public static void init(Context context) {
+        get(context);
+    }
+
     public static synchronized List<ShipType> get(Context context) {
         if (sList == null) {
             sList = new BaseGSONList<ShipType>().get(context, FILE_NAME, new TypeToken<ArrayList<ShipType>>() {}.getType());
@@ -26,6 +30,10 @@ public class ShipTypeList {
 
     public static synchronized void clear() {
         sList = null;
+    }
+
+    public static ShipType findItemById(int id) {
+        return findItemById(id, sList);
     }
 
     public static ShipType findItemById(Context context, int id) {

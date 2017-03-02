@@ -10508,13 +10508,13 @@
       "range": 2,
       "speed": 10,
       "aa": 18,
-      "armor": 32,
+      "armor": 40,
       "asw": 0,
-      "evasion": 38,
+      "evasion": 47,
       "fire": 36,
       "hp": 48,
       "luck": 10,
-      "los": 12,
+      "los": 21,
       "torpedo": 18,
       "bomb": 0,
       "accuracy": 0
@@ -10523,7 +10523,7 @@
       "range": 0,
       "speed": 0,
       "aa": 41,
-      "armor": 38,
+      "armor": 30,
       "asw": 0,
       "evasion": 0,
       "fire": 34,
@@ -10540,11 +10540,11 @@
       "aa": 0,
       "armor": 0,
       "asw": 0,
-      "evasion": 37,
+      "evasion": 28,
       "fire": 0,
       "hp": 0,
       "luck": 0,
-      "los": 37,
+      "los": 28,
       "torpedo": 0,
       "bomb": 0,
       "accuracy": 0
@@ -18330,11 +18330,11 @@
       ]
     },
     "remodel": {
-      "blueprint": false,
+      "blueprint": true,
       "catapult": false,
       "from_id": 98,
-      "to_id": 0,
-      "level": 0,
+      "to_id": 490,
+      "level": 67,
       "cost": [
         0,
         0
@@ -27524,7 +27524,7 @@
       "evasion": 0,
       "fire": 46,
       "hp": 0,
-      "luck": 29,
+      "luck": 38,
       "los": 0,
       "torpedo": 56,
       "bomb": 0,
@@ -34411,9 +34411,9 @@
       "evasion": 0,
       "fire": 55,
       "hp": 0,
-      "luck": 41,
+      "luck": 44,
       "los": 0,
-      "torpedo": 57,
+      "torpedo": 58,
       "bomb": 0,
       "accuracy": 0
     },
@@ -35727,11 +35727,11 @@
     "attr_max": {
       "range": 0,
       "speed": 0,
-      "aa": 50,
+      "aa": 52,
       "armor": 41,
       "asw": 0,
       "evasion": 0,
-      "fire": 42,
+      "fire": 43,
       "hp": 0,
       "luck": 51,
       "los": 0,
@@ -37574,7 +37574,7 @@
       "asw": 28,
       "evasion": 64,
       "fire": 12,
-      "hp": 31,
+      "hp": 32,
       "luck": 53,
       "los": 11,
       "torpedo": 28,
@@ -37588,7 +37588,7 @@
       "armor": 37,
       "asw": 0,
       "evasion": 0,
-      "fire": 41,
+      "fire": 43,
       "hp": 0,
       "luck": 47,
       "los": 0,
@@ -41774,7 +41774,7 @@
     "get": {
       "drop": -1,
       "remodel": 0,
-      "build": -1,
+      "build": 1,
       "build_time": 70
     }
   },
@@ -46590,6 +46590,115 @@
     }
   },
   {
+    "id": 490,
+    "wiki_id": "290",
+    "name": {
+      "zh_cn": "荒潮改二",
+      "zh_tw": "荒潮改二",
+      "ja": "荒潮改二",
+      "en": "Arashio Kai Ni"
+    },
+    "stype": 2,
+    "ctype": 18,
+    "cnum": 4,
+    "rarity": 7,
+    "name_for_search": "荒潮改二,あらしお,Arashio Kai Ni,荒潮改二,huangchaogaier",
+    "build_time": 67,
+    "broken": [
+      1,
+      2,
+      0,
+      0
+    ],
+    "power_up": [
+      2,
+      2,
+      1,
+      1
+    ],
+    "consume": [
+      5,
+      10
+    ],
+    "painter": "コニシ",
+    "cv": "宮川若菜",
+    "equip": {
+      "slots": 3,
+      "id": [
+        68,
+        74,
+        15
+      ],
+      "space": [
+        0,
+        0,
+        0
+      ]
+    },
+    "remodel": {
+      "blueprint": false,
+      "catapult": false,
+      "from_id": 251,
+      "to_id": 0,
+      "level": 0,
+      "cost": [
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 10,
+      "aa": 22,
+      "armor": 35,
+      "asw": 26,
+      "evasion": 50,
+      "fire": 19,
+      "hp": 31,
+      "luck": 17,
+      "los": 11,
+      "torpedo": 33,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 48,
+      "armor": 17,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 50,
+      "hp": 0,
+      "luck": 54,
+      "los": 0,
+      "torpedo": 55,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_99": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 33,
+      "evasion": 40,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 41,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "get": {
+      "drop": -1,
+      "remodel": 0,
+      "build": -1,
+      "build_time": 67
+    }
+  },
+  {
     "id": 369,
     "wiki_id": "257a",
     "name": {
@@ -46793,11 +46902,11 @@
       "aa": 0,
       "armor": 0,
       "asw": 0,
-      "evasion": -20,
+      "evasion": 24,
       "fire": 0,
       "hp": 0,
       "luck": 0,
-      "los": -32,
+      "los": 56,
       "torpedo": 0,
       "bomb": 0,
       "accuracy": 0
@@ -47088,7 +47197,7 @@
       "aa": 10,
       "armor": 10,
       "asw": 17,
-      "evasion": 0,
+      "evasion": 69,
       "fire": 8,
       "hp": 23,
       "luck": 14,
@@ -47117,12 +47226,12 @@
       "speed": 0,
       "aa": 0,
       "armor": 0,
-      "asw": -17,
-      "evasion": 0,
+      "asw": 51,
+      "evasion": 19,
       "fire": 0,
       "hp": 0,
       "luck": 0,
-      "los": -28,
+      "los": 19,
       "torpedo": 0,
       "bomb": 0,
       "accuracy": 0
@@ -47144,7 +47253,7 @@
       "en": "Saratoga"
     },
     "stype": 11,
-    "ctype": 999,
+    "ctype": 69,
     "cnum": 2,
     "rarity": 6,
     "name_for_search": "Saratoga,サラトガ,Saratoga,萨拉托加,salatuojia",
@@ -47255,7 +47364,7 @@
       "en": "Saratoga Kai"
     },
     "stype": 11,
-    "ctype": 999,
+    "ctype": 69,
     "cnum": 2,
     "rarity": 7,
     "name_for_search": "Saratoga改,サラトガ,Saratoga Kai,萨拉托加改,salatuojiagai",
@@ -47461,6 +47570,981 @@
       "remodel": 0,
       "build": -1,
       "build_time": 18
+    }
+  },
+  {
+    "id": 371,
+    "wiki_id": "274a",
+    "name": {
+      "zh_cn": "松风改",
+      "zh_tw": "松風改",
+      "ja": "松風改",
+      "en": "Matsukaze Kai"
+    },
+    "stype": 2,
+    "ctype": 66,
+    "cnum": 4,
+    "rarity": 5,
+    "name_for_search": "松風改,まつかぜ,Matsukaze Kai,松风改,songfenggai",
+    "build_time": 18,
+    "broken": [
+      1,
+      1,
+      0,
+      0
+    ],
+    "power_up": [
+      1,
+      1,
+      0,
+      0
+    ],
+    "consume": [
+      15,
+      15
+    ],
+    "painter": "未知",
+    "cv": "未知",
+    "equip": {
+      "slots": 3,
+      "id": [
+        1,
+        46,
+        44
+      ],
+      "space": [
+        -1,
+        -1,
+        -1
+      ]
+    },
+    "remodel": {
+      "blueprint": false,
+      "catapult": false,
+      "from_id": 474,
+      "to_id": 0,
+      "level": 0,
+      "cost": [
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 10,
+      "aa": 10,
+      "armor": 10,
+      "asw": 45,
+      "evasion": 68,
+      "fire": 7,
+      "hp": 23,
+      "luck": 12,
+      "los": 28,
+      "torpedo": 14,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 40,
+      "armor": 27,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 32,
+      "hp": 0,
+      "luck": 72,
+      "los": 0,
+      "torpedo": 54,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_99": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 25,
+      "evasion": 19,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 19,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "get": {
+      "drop": -1,
+      "remodel": 0,
+      "build": -1,
+      "build_time": 18
+    }
+  },
+  {
+    "id": 373,
+    "wiki_id": "285a",
+    "name": {
+      "zh_cn": "藤波改",
+      "zh_tw": "藤波改",
+      "ja": "藤波改",
+      "en": "Fujinami Kai"
+    },
+    "stype": 2,
+    "ctype": 38,
+    "cnum": 11,
+    "rarity": 5,
+    "name_for_search": "藤波改,ふじなみ,Fujinami Kai,藤波改,tengbogai",
+    "build_time": 24,
+    "broken": [
+      1,
+      2,
+      0,
+      0
+    ],
+    "power_up": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "consume": [
+      15,
+      20
+    ],
+    "painter": "藤川",
+    "cv": "未知",
+    "equip": {
+      "slots": 3,
+      "id": [
+        28,
+        106,
+        39
+      ],
+      "space": [
+        -1,
+        -1,
+        -1
+      ]
+    },
+    "remodel": {
+      "blueprint": false,
+      "catapult": false,
+      "from_id": 485,
+      "to_id": 0,
+      "level": 0,
+      "cost": [
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 10,
+      "aa": 18,
+      "armor": 14,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 12,
+      "hp": 32,
+      "luck": 11,
+      "los": 0,
+      "torpedo": 27,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 40,
+      "armor": 35,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 40,
+      "hp": 0,
+      "luck": 46,
+      "los": 0,
+      "torpedo": 52,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_99": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 66,
+      "evasion": 89,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 56,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "get": {
+      "drop": -1,
+      "remodel": 0,
+      "build": -1,
+      "build_time": 24
+    }
+  },
+  {
+    "id": 374,
+    "wiki_id": "294a",
+    "name": {
+      "zh_cn": "伊13改",
+      "zh_tw": "伊13改",
+      "ja": "伊13改",
+      "en": "I13 Kai"
+    },
+    "stype": 14,
+    "ctype": 999,
+    "cnum": 13,
+    "rarity": 7,
+    "name_for_search": "伊13改,い13,I13 Kai,伊13改,yigai",
+    "build_time": 200,
+    "broken": [
+      1,
+      2,
+      2,
+      2
+    ],
+    "power_up": [
+      0,
+      1,
+      1,
+      1
+    ],
+    "consume": [
+      20,
+      15
+    ],
+    "painter": "未知",
+    "cv": "今村彩夏",
+    "equip": {
+      "slots": 3,
+      "id": [
+        211,
+        -1,
+        -1
+      ],
+      "space": [
+        2,
+        1,
+        0
+      ]
+    },
+    "remodel": {
+      "blueprint": false,
+      "catapult": false,
+      "from_id": 494,
+      "to_id": 0,
+      "level": 0,
+      "cost": [
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 5,
+      "aa": 0,
+      "armor": 5,
+      "asw": 0,
+      "evasion": 27,
+      "fire": 2,
+      "hp": 21,
+      "luck": 8,
+      "los": 26,
+      "torpedo": 36,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 19,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 7,
+      "hp": 0,
+      "luck": 51,
+      "los": 0,
+      "torpedo": 36,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_99": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": -27,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": -26,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "get": {
+      "drop": -1,
+      "remodel": 0,
+      "build": -1,
+      "build_time": 200
+    }
+  },
+  {
+    "id": 375,
+    "wiki_id": "295a",
+    "name": {
+      "zh_cn": "伊14改",
+      "zh_tw": "伊14改",
+      "ja": "伊14改",
+      "en": "I14 Kai"
+    },
+    "stype": 14,
+    "ctype": 999,
+    "cnum": 14,
+    "rarity": 7,
+    "name_for_search": "伊14改,い14,I14 Kai,伊14改,yigai",
+    "build_time": 200,
+    "broken": [
+      1,
+      2,
+      2,
+      2
+    ],
+    "power_up": [
+      0,
+      1,
+      1,
+      1
+    ],
+    "consume": [
+      20,
+      15
+    ],
+    "painter": "未知",
+    "cv": "今村彩夏",
+    "equip": {
+      "slots": 3,
+      "id": [
+        62,
+        -1,
+        -1
+      ],
+      "space": [
+        2,
+        1,
+        0
+      ]
+    },
+    "remodel": {
+      "blueprint": false,
+      "catapult": false,
+      "from_id": 495,
+      "to_id": 0,
+      "level": 0,
+      "cost": [
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 5,
+      "aa": 0,
+      "armor": 5,
+      "asw": 0,
+      "evasion": 32,
+      "fire": 6,
+      "hp": 22,
+      "luck": 20,
+      "los": 27,
+      "torpedo": 46,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 19,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 6,
+      "hp": 0,
+      "luck": 39,
+      "los": 0,
+      "torpedo": 22,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_99": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": -32,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": -27,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "get": {
+      "drop": -1,
+      "remodel": 0,
+      "build": -1,
+      "build_time": 200
+    }
+  },
+  {
+    "id": 474,
+    "wiki_id": "274",
+    "name": {
+      "zh_cn": "松风",
+      "zh_tw": "松風",
+      "ja": "松風",
+      "en": "Matsukaze"
+    },
+    "stype": 2,
+    "ctype": 66,
+    "cnum": 4,
+    "rarity": 4,
+    "name_for_search": "松風,まつかぜ,Matsukaze,松风,songfeng",
+    "build_time": 18,
+    "broken": [
+      1,
+      1,
+      0,
+      0
+    ],
+    "power_up": [
+      1,
+      1,
+      0,
+      0
+    ],
+    "consume": [
+      15,
+      15
+    ],
+    "painter": "未知",
+    "cv": "未知",
+    "equip": {
+      "slots": 2,
+      "id": [
+        1,
+        174
+      ],
+      "space": [
+        -1,
+        -1
+      ]
+    },
+    "remodel": {
+      "blueprint": false,
+      "catapult": false,
+      "from_id": 0,
+      "to_id": 371,
+      "level": 50,
+      "cost": [
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 10,
+      "aa": 5,
+      "armor": 5,
+      "asw": 26,
+      "evasion": 46,
+      "fire": 5,
+      "hp": 12,
+      "luck": 12,
+      "los": 9,
+      "torpedo": 12,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 20,
+      "armor": 12,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 23,
+      "hp": 0,
+      "luck": 58,
+      "los": 0,
+      "torpedo": 26,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_99": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": -26,
+      "evasion": -46,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 9,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "get": {
+      "drop": -1,
+      "remodel": 0,
+      "build": -1,
+      "build_time": 18
+    }
+  },
+  {
+    "id": 485,
+    "wiki_id": "285",
+    "name": {
+      "zh_cn": "藤波",
+      "zh_tw": "藤波",
+      "ja": "藤波",
+      "en": "Fujinami"
+    },
+    "stype": 2,
+    "ctype": 38,
+    "cnum": 11,
+    "rarity": 4,
+    "name_for_search": "藤波,ふじなみ,Fujinami,藤波,tengbo",
+    "build_time": 24,
+    "broken": [
+      1,
+      1,
+      0,
+      0
+    ],
+    "power_up": [
+      0,
+      1,
+      0,
+      1
+    ],
+    "consume": [
+      15,
+      20
+    ],
+    "painter": "藤川",
+    "cv": "未知",
+    "equip": {
+      "slots": 2,
+      "id": [
+        2,
+        39
+      ],
+      "space": [
+        -1,
+        -1
+      ]
+    },
+    "remodel": {
+      "blueprint": false,
+      "catapult": false,
+      "from_id": 0,
+      "to_id": 373,
+      "level": 30,
+      "cost": [
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 10,
+      "aa": 12,
+      "armor": 6,
+      "asw": 26,
+      "evasion": 46,
+      "fire": 10,
+      "hp": 16,
+      "luck": 9,
+      "los": 9,
+      "torpedo": 24,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 30,
+      "armor": 13,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 21,
+      "hp": 0,
+      "luck": 40,
+      "los": 0,
+      "torpedo": 45,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_99": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": -26,
+      "evasion": -46,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": -9,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "get": {
+      "drop": -1,
+      "remodel": 0,
+      "build": -1,
+      "build_time": 24
+    }
+  },
+  {
+    "id": 494,
+    "wiki_id": "294",
+    "name": {
+      "zh_cn": "伊13",
+      "zh_tw": "伊13",
+      "ja": "伊13",
+      "en": "I13"
+    },
+    "stype": 14,
+    "ctype": 999,
+    "cnum": 13,
+    "rarity": 5,
+    "name_for_search": "伊13,い13,I13,伊13,yi",
+    "build_time": 200,
+    "broken": [
+      1,
+      2,
+      2,
+      2
+    ],
+    "power_up": [
+      0,
+      1,
+      1,
+      1
+    ],
+    "consume": [
+      20,
+      15
+    ],
+    "painter": "未知",
+    "cv": "今村彩夏",
+    "equip": {
+      "slots": 2,
+      "id": [
+        -1,
+        -1
+      ],
+      "space": [
+        2,
+        0
+      ]
+    },
+    "remodel": {
+      "blueprint": false,
+      "catapult": false,
+      "from_id": 0,
+      "to_id": 374,
+      "level": 45,
+      "cost": [
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 5,
+      "aa": 0,
+      "armor": 5,
+      "asw": 0,
+      "evasion": 11,
+      "fire": 2,
+      "hp": 18,
+      "luck": 6,
+      "los": 13,
+      "torpedo": 36,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 19,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 7,
+      "hp": 0,
+      "luck": 33,
+      "los": 0,
+      "torpedo": 36,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_99": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 25,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 30,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "get": {
+      "drop": -1,
+      "remodel": 0,
+      "build": -1,
+      "build_time": 200
+    }
+  },
+  {
+    "id": 495,
+    "wiki_id": "295",
+    "name": {
+      "zh_cn": "伊14",
+      "zh_tw": "伊14",
+      "ja": "伊14",
+      "en": "I14"
+    },
+    "stype": 14,
+    "ctype": 999,
+    "cnum": 14,
+    "rarity": 6,
+    "name_for_search": "伊14,い14,I14,伊14,yi",
+    "build_time": 200,
+    "broken": [
+      1,
+      2,
+      2,
+      2
+    ],
+    "power_up": [
+      0,
+      1,
+      1,
+      1
+    ],
+    "consume": [
+      15,
+      15
+    ],
+    "painter": "未知",
+    "cv": "今村彩夏",
+    "equip": {
+      "slots": 2,
+      "id": [
+        -1,
+        -1
+      ],
+      "space": [
+        2,
+        0
+      ]
+    },
+    "remodel": {
+      "blueprint": false,
+      "catapult": false,
+      "from_id": 0,
+      "to_id": 375,
+      "level": 45,
+      "cost": [
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 1,
+      "speed": 5,
+      "aa": 0,
+      "armor": 5,
+      "asw": 0,
+      "evasion": 14,
+      "fire": 2,
+      "hp": 18,
+      "luck": 24,
+      "los": 14,
+      "torpedo": 27,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 17,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 7,
+      "hp": 0,
+      "luck": 40,
+      "los": 0,
+      "torpedo": 39,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_99": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 25,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 32,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "get": {
+      "drop": -1,
+      "remodel": 0,
+      "build": -1,
+      "build_time": 200
+    }
+  },
+  {
+    "id": 448,
+    "wiki_id": "296",
+    "name": {
+      "zh_cn": "扎拉 due",
+      "zh_tw": "扎拉 due",
+      "ja": "Zara due",
+      "en": "Zara due"
+    },
+    "stype": 5,
+    "ctype": 64,
+    "cnum": 1,
+    "rarity": 6,
+    "name_for_search": "Zara due,ザラ,Zara due,扎拉 due,zhala",
+    "build_time": 70,
+    "broken": [
+      4,
+      10,
+      5,
+      5
+    ],
+    "power_up": [
+      4,
+      0,
+      2,
+      3
+    ],
+    "consume": [
+      50,
+      80
+    ],
+    "painter": "じじ",
+    "cv": "赤﨑千夏",
+    "equip": {
+      "slots": 4,
+      "id": [
+        164,
+        162,
+        72,
+        -1
+      ],
+      "space": [
+        6,
+        3,
+        3,
+        3
+      ]
+    },
+    "remodel": {
+      "blueprint": false,
+      "catapult": false,
+      "from_id": 0,
+      "to_id": 358,
+      "level": 40,
+      "cost": [
+        0,
+        0
+      ]
+    },
+    "attr": {
+      "range": 3,
+      "speed": 10,
+      "aa": 35,
+      "armor": 57,
+      "asw": 0,
+      "evasion": -10010,
+      "fire": 55,
+      "hp": 62,
+      "luck": 17,
+      "los": -10010,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_max": {
+      "range": 0,
+      "speed": 0,
+      "aa": 55,
+      "armor": 30,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 33,
+      "hp": 0,
+      "luck": 53,
+      "los": 0,
+      "torpedo": 48,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "attr_99": {
+      "range": 0,
+      "speed": 0,
+      "aa": 0,
+      "armor": 0,
+      "asw": 0,
+      "evasion": 0,
+      "fire": 0,
+      "hp": 0,
+      "luck": 0,
+      "los": 0,
+      "torpedo": 0,
+      "bomb": 0,
+      "accuracy": 0
+    },
+    "get": {
+      "drop": -1,
+      "remodel": 0,
+      "build": -1,
+      "build_time": 70
     }
   },
   {
