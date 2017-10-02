@@ -43,7 +43,7 @@ import static com.example.utils.Utils.objectToJsonFile;
  */
 public class ShipGenerator {
 
-    private static final boolean USE_ONLINE_DATA = false;
+    private static final boolean USE_ONLINE_DATA = true;
 
     private static WanaKanaJava wkj = new WanaKanaJava(false);
     private static Start2 start2;
@@ -230,7 +230,7 @@ public class ShipGenerator {
         Reader reader;
         if (USE_ONLINE_DATA) {
             Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl("https://zh.kcwiki.moe/")
+                    .baseUrl("https://zh.kcwiki.org/")
                     .build();
 
             RetrofitAPI.KcwikiService service = retrofit.create(RetrofitAPI.KcwikiService.class);
@@ -303,7 +303,9 @@ public class ShipGenerator {
                 .replace("\"掉落\"", "\"drop\"")
                 //.replace("\"改造\"", "\"remodel2\"")
                 .replace("\"建造\"", "\"build\"")
-                .replace("\"时间\"", "\"build_time\"");
+                .replace("\"时间\"", "\"build_time\"")
+
+        .replace("\"稀有度\":\"\"", "\"稀有度\":7");
 
         str = str.replace("\"space\":{}", "\"space\":[]")
                 .replace("\"id\":{}", "\"id\":[]");
@@ -581,7 +583,7 @@ public class ShipGenerator {
     private static void addEnemyShip() throws IOException {
         //getList()
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://zh.kcwiki.moe/")
+                .baseUrl("https://zh.kcwiki.org/")
                 .build();
 
         RetrofitAPI.KcwikiService service = retrofit.create(RetrofitAPI.KcwikiService.class);
