@@ -17,8 +17,8 @@ android {
         vectorDrawables.useSupportLibrary = true
 
         buildConfigField "String", "BASE64_PUBLIC_KEY", "\"\""
-        buildConfigField "String", "LEANCLOUD_APP_ID", "\"I6L7nhXfvpQhLbpUe6n0U5G2-gzGzoHsz\""
-        buildConfigField "String", "LEANCLOUD_APP_KEY", "\"6pV4ANNIR4XQWwEQOKOEL48d\""
+        buildConfigField "String", "LEANCLOUD_APP_ID", "\"\""
+        buildConfigField "String", "LEANCLOUD_APP_KEY", "\"\""
 
         buildConfigField "long", "TIMESTAMP", System.currentTimeMillis() + "L"
     }
