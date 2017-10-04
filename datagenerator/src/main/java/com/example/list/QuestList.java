@@ -21,7 +21,7 @@ public class QuestList {
     public static List<Quest> get() {
         if (sList == null) {
             try {
-                sList = new Gson().fromJson(new JsonReader(new FileReader("app/src/main/assets/Equip.json")), new TypeToken<List<Quest>>() {
+                sList = new Gson().fromJson(new JsonReader(new FileReader("L:/NetBeans/NetBeansProjects/Akashi-Toolkit/src/json/Equip.json")), new TypeToken<List<Quest>>() {
                 }.getType());
             } catch (FileNotFoundException e) {
                 e.printStackTrace();

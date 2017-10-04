@@ -81,19 +81,20 @@ public class QuestGenerator {
                     after.add(quest.getCode());
             }
         }
-
+            
+        
         for (Quest item : list) {
             item.getContent().setZh_tw(ZHConverter.toTC(item.getContent().getZh_cn()));
             item.getTitle().setZh_tw(ZHConverter.toTC(item.getTitle().getZh_cn()));
         }
 
-        objectToJsonFile(list, "app/src/main/assets/Quest.json");
-        objectToJsonFile(mItemList, "app/src/main/assets/Item.json");
+        objectToJsonFile(list, "L:/NetBeans/NetBeansProjects/Akashi-Toolkit/src/json/Quest.json");
+        objectToJsonFile(mItemList, "L:/NetBeans/NetBeansProjects/Akashi-Toolkit/src/json/Item.json");
     }
 
     private static List<String> getLines() throws IOException {
         System.out.println("getInputStream..");
-        String originStr = Utils.streamToString(getUrlStream("https://zh.kcwiki.moe/index.php?title=%E4%BB%BB%E5%8A%A1&action=raw"));
+        String originStr = Utils.streamToString(getUrlStream("https://zh.kcwiki.org/index.php?title=%E4%BB%BB%E5%8A%A1&action=raw"));
         System.out.println("finished..");
         originStr = originStr.replaceAll("\n", "").replaceAll("\r", "");
 

@@ -38,7 +38,7 @@ public class RetrofitAPI {
     public interface SlotItemService {
         /**
          * 返回装备类型信息（基于api_mst_slotitem_equiptype）
-         * http://api.kcwiki.moe/slotitems/type
+         * http://api.kcwiki.org/slotitems/type
          *
          * @return 列表
          */
@@ -49,21 +49,21 @@ public class RetrofitAPI {
     public interface Start2Service {
         /**
          * 返回api_start2.json的最新原始数据
-         * http://api.kcwiki.moe/start2
+         * http://api.kcwiki.org/start2
          */
         @GET("/start2")
         Call<Start2> get();
 
         /**
          * 可以根据版本号（其实就是上传该start2数据更新的日期）来获得不同时间的start2数据
-         * 例如http://api.kcwiki.moe/start2/20160623
+         * 例如http://api.kcwiki.org/start2/20160623
          */
         @GET("/start2/{version}")
         Call<Start2> get(@Path("version") int id);
 
         /**
          * 返回服务器中保存的 start2 数据列表（以版本号标识，即如20160623的日期）
-         * http://api.kcwiki.moe/start2/archives
+         * http://api.kcwiki.org/start2/archives
          *
          * 返回格式：['20160523', ...]
          */

@@ -26,11 +26,11 @@ public class ExpeditionGenerator {
 
     public static void main(String[] args) throws IOException {
         /*System.out.println("getInputStream..");
-        String originStr = Utils.streamToString(getUrlStream("https://zh.kcwiki.moe/index.php?title=远征列表&action=raw"));
+        String originStr = Utils.streamToString(getUrlStream("https://zh.kcwiki.org/index.php?title=远征列表&action=raw"));
         System.out.println("finished..");*/
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://zh.kcwiki.moe/")
+                .baseUrl("https://zh.kcwiki.org/")
                 .build();
 
         RetrofitAPI.KcwikiService service = retrofit.create(RetrofitAPI.KcwikiService.class);
@@ -51,12 +51,12 @@ public class ExpeditionGenerator {
         for (Expedition e : list) {
             System.out.println(e);
         }
-
+        
         for (Expedition e : list) {
             e.getName().setZh_tw(ZHConverter.toTC(e.getName().getZh_cn()));
         }
-
-        objectToJsonFile(list, "app/src/main/assets/Expedition.json");
+        
+        objectToJsonFile(list, "L:/NetBeans/NetBeansProjects/Akashi-Toolkit/src/json/Expedition.json");
     }
 
   private static void getReward(String originStr) throws IOException {

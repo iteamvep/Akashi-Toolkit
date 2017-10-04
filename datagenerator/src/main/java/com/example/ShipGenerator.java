@@ -1,6 +1,11 @@
 package com.example;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.TypeReference;
 import com.example.list.EquipList;
+import com.example.list.ShipList;
 import com.example.model.APIShipType;
 import com.example.model.AttrEntity;
 import com.example.model.NewEquip;
@@ -37,6 +42,8 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 import static com.example.utils.Utils.objectToJsonFile;
+import java.io.BufferedReader;
+import static javafx.scene.input.KeyCode.T;
 
 /**
  * Created by Rikka on 2016/9/17.
@@ -52,7 +59,7 @@ public class ShipGenerator {
     static {
         if (USE_ONLINE_DATA) {
             Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl("https://api.kcwiki.moe")
+                    .baseUrl("https://api.kcwiki.org")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
 
@@ -64,7 +71,7 @@ public class ShipGenerator {
             }
         } else {
             try {
-                start2 = new Gson().fromJson(new FileReader("datagenerator/api_start2.json"), Start2.class);
+                start2 = new Gson().fromJson(new FileReader("L:/NetBeans/NetBeansProjects/Akashi-Toolkit/src/api_start2.json"), Start2.class);
             } catch (FileNotFoundException ignored) {
             }
         }
@@ -206,19 +213,19 @@ public class ShipGenerator {
         }
 
         addEnemyShip();
-
+        
         for (Ship2 item : getList()) {
             item.getName().setZh_tw(ZHConverter.toTC(item.getName().getZh_cn()));
         }
-
+        
         Gson gson = new GsonBuilder()
                 .excludeFieldsWithoutExposeAnnotation()
                 .create();
 
         String str = gson.toJson(getList());
 
-        objectToJsonFile(str, "app/src/main/assets/Ship.json");
-        objectToJsonFile(shipClassList, "app/src/main/assets/ShipClass.json");
+        objectToJsonFile(str, "L:/NetBeans/NetBeansProjects/Akashi-Toolkit/src/json/Ship.json");
+        objectToJsonFile(shipClassList, "L:/NetBeans/NetBeansProjects/Akashi-Toolkit/src/json/ShipClass.json");
     }
 
     private static ShipList sShipList;
@@ -237,7 +244,7 @@ public class ShipGenerator {
             ResponseBody body = service.getPage("模块:舰娘数据", "raw").execute().body();
             reader = body.charStream();
         } else {
-            reader = new FileReader("datagenerator/ship.lua");
+            reader = new FileReader("L:\\NetBeans\\NetBeansProjects\\Akashi-Toolkit\\src/ship.lua");
         }
 
         int count = 0;
@@ -271,7 +278,7 @@ public class ShipGenerator {
                 sb.append((char) c);
             }
         }
-
+        
         str = sb.toString()
                 .replace("\r\n", "\n")
                 .replace("\r", "")
@@ -286,6 +293,38 @@ public class ShipGenerator {
         } else {
             str = "[" + str.substring(1, str.length() - 1) + "]";
         }
+        
+        
+        //除错
+        BufferedReader br=new BufferedReader(new StringReader(str));
+        String line;
+        sb = new StringBuilder();
+        while((line = br.readLine()) != null) {
+            if(line.contains("初期装备")){
+                String[] arr = null;
+                //System.out.println(line);
+                if(line.contains("[")){
+                    arr = line.substring(line.indexOf("[")+1,line.length()-1).split(",");
+                }
+                String arrstr = "";
+                if(line.contains("{}")) {
+                    line = "\"初期装备\":[]";
+                }else{
+                    for(int i = 0 ; i < arr.length ; i++) {
+                        if(i != 0 ) {
+                            arrstr = arrstr + ",";
+                        }
+                        //System.out.println(line);
+                        arrstr = arrstr + Integer.parseInt(arr[i]);
+                    }
+                    line = "\"初期装备\":["+ arrstr +"]";
+                }
+                //System.out.println(line);
+            }
+            sb.append(line);
+        }
+        str = sb.toString();
+        //com.example.utils.RWFile.writeLog(str);
 
         str = str.replace("\"id\"", "\"wiki_id\"")
                 .replace("\"ID\"", "\"id\"")
@@ -304,8 +343,7 @@ public class ShipGenerator {
                 //.replace("\"改造\"", "\"remodel2\"")
                 .replace("\"建造\"", "\"build\"")
                 .replace("\"时间\"", "\"build_time\"")
-
-        .replace("\"稀有度\":\"\"", "\"稀有度\":7");
+		.replace("\"稀有度\":\"\"", "\"稀有度\":7");
 
         str = str.replace("\"space\":{}", "\"space\":[]")
                 .replace("\"id\":{}", "\"id\":[]");
@@ -314,8 +352,17 @@ public class ShipGenerator {
             str = str.substring(0, str.indexOf("\"Mist01") - 1)
                     + str.substring(str.indexOf("\"wiki_id\":\"257a\"") - 2);
         }
-
+        //com.example.utils.RWFile.writeLog(str);
+        JSONArray jarr = JSON.parseArray(str);
+        //str = JSON.toJSONString(jarr);
+        
+        for(Object jobj:jarr){
+            String jstr = JSON.toJSONString(jobj);
+            System.out.println(jstr+"\r\n");
+            Object obj = new Gson().fromJson(jstr, Ship2.class);
+        }
         sShipList = new Gson().fromJson(str, ShipList.class);
+        //sShipList = JSON.parseObject(str);
         return sShipList;
     }
 
@@ -325,7 +372,10 @@ public class ShipGenerator {
         if (sApiShipList == null) {
             sApiShipList = getAPIShipList();
         }
-
+        
+        if(id > 500 && id < 800){
+            id = Integer.valueOf("1" +id);
+        }
         for (NewShip item : sApiShipList) {
             if (item.getId() == id) {
                 return item;
@@ -341,7 +391,8 @@ public class ShipGenerator {
                     .create();
 
             Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl("https://api.kcwiki.moe")
+                    //.baseUrl("https://api.kcwiki.org")
+                    .baseUrl("http://api.kcwiki.moe/ships/detail")
                     .addConverterFactory(GsonConverterFactory.create(gson))
                     .build();
 
@@ -349,7 +400,7 @@ public class ShipGenerator {
             return service.getDetail().execute().body();
         } else {
             return new Gson().fromJson(
-                    new FileReader(new File("datagenerator/ships_detail.json")),
+                    new FileReader(new File("L:/NetBeans/NetBeansProjects/Akashi-Toolkit/src/ships_detail.json")),
                     new TypeToken<List<NewShip>>() {
                     }.getType());
         }

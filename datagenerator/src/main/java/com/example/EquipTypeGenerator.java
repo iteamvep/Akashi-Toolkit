@@ -152,7 +152,7 @@ public class EquipTypeGenerator {
 
     public static void main(String[] args) throws IOException {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://api.kcwiki.moe")
+                .baseUrl("https://api.kcwiki.org")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -171,10 +171,12 @@ public class EquipTypeGenerator {
         parent.add(new EquipTypeParent(5, new MultiLanguageEntry("对空机枪 / 高射装置", "対空機銃 / 高射装置", "Anti-Aircraft Gun / Cannon")));
         parent.add(new EquipTypeParent(6, new MultiLanguageEntry("爆雷 / 声纳", "爆雷 / ソナー", "Depth charge / Sonar")));
         parent.add(new EquipTypeParent(7, new MultiLanguageEntry("其他", "他の", "Other")));
-
+        
+        
         for (EquipTypeParent item : parent) {
             item.getName().setZh_tw(ZHConverter.toTC(item.getName().getZh_cn()));
-        }
+        }  
+                
 
         for (APIEquipType item : apiList) {
             EquipType equipType = new EquipType();
@@ -182,7 +184,9 @@ public class EquipTypeGenerator {
             equipType.setName(new MultiLanguageEntry());
             equipType.getName().setJa(item.getName());
             equipType.getName().setZh_cn(item.getChineseName());
+            
             equipType.getName().setZh_tw(ZHConverter.toTC(item.getChineseName()));
+            
             equipType.getName().setEn(ENGLISH_NAME.get(item.getId()));
             equipType.setParent(PARENT.get(item.getId()));
             list.add(equipType);
@@ -192,7 +196,7 @@ public class EquipTypeGenerator {
             parent.get(item.getParent() - 1).getChild().add(item.getId());
         }
 
-        Utils.objectToJsonFile(list, "app/src/main/assets/EquipType.json");
-        Utils.objectToJsonFile(parent, "app/src/main/assets/EquipTypeParent.json");
+        Utils.objectToJsonFile(list, "L:/NetBeans/NetBeansProjects/Akashi-Toolkit/src/json/EquipType.json");
+        Utils.objectToJsonFile(parent, "L:/NetBeans/NetBeansProjects/Akashi-Toolkit/src/json/EquipTypeParent.json");
     }
 }

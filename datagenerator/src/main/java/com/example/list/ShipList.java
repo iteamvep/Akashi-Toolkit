@@ -18,7 +18,7 @@ public class ShipList {
     public static List<Ship> get() {
         if (sList == null) {
             try {
-                sList = new Gson().fromJson(new JsonReader(new FileReader("app/src/main/assets/Ship.json")), new TypeToken<List<Ship>>() {
+                sList = new Gson().fromJson(new JsonReader(new FileReader("L:/NetBeans/NetBeansProjects/Akashi-Toolkit/src/json/Ship.json")), new TypeToken<List<Ship>>() {
                 }.getType());
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
