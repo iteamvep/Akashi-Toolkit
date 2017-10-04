@@ -10,4 +10,5 @@ dependencies {
     compile 'com.squareup.retrofit2:retrofit:2.2.0'
     compile 'com.squareup.retrofit2:converter-gson:2.2.0'
     compile 'com.github.promeg:tinypinyin:1.0.0'
+    compile 'com.alibaba:fastjson:1.2.16'
 }
