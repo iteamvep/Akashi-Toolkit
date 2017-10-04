@@ -274,17 +274,19 @@ public class MessageAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHolder,
     }
 
     private void bindViewHolder(final MessageViewHolder holder) {
+
         holder.mSummary.setVisibility(View.GONE);
         holder.mTitle.setText(R.string.push_introduction);
         holder.mContent.setText(R.string.push_introduction_content);
 
-        holder.mPositiveButton.setText(R.string.push_introduction_choose);
+       // holder.mPositiveButton.setText(R.string.push_introduction_choose);
         holder.mPositiveButton.setVisibility(View.VISIBLE);
+
+        /*
         holder.mPositiveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Context context = view.getContext();
-
                 new AlertDialog.Builder(context)
                         .setTitle(R.string.push_introduction_choose)
                         .setMultiChoiceItems(R.array.push_topics, null, null)
@@ -310,7 +312,9 @@ public class MessageAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHolder,
                         })
                         .show();
             }
+
         });
+        */
 
         holder.mNegativeButton.setText(R.string.got_it);
         holder.mNegativeButton.setVisibility(View.VISIBLE);
@@ -320,6 +324,7 @@ public class MessageAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHolder,
                 remove(holder.getAdapterPosition());
             }
         });
+
     }
 
     @SuppressLint("DefaultLocale")

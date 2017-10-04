@@ -43,7 +43,7 @@ import static com.example.utils.Utils.objectToJsonFile;
  */
 public class ShipGenerator {
 
-    private static final boolean USE_ONLINE_DATA = true;
+    private static final boolean USE_ONLINE_DATA = false;
 
     private static WanaKanaJava wkj = new WanaKanaJava(false);
     private static Start2 start2;

@@ -120,7 +120,7 @@ public class EquipDetailActivity extends BaseItemDisplayActivity {
             mItem2 = null;
         }
 
-        mIsEnemy = id >= 500;
+        mIsEnemy = id >= 500 ;
 
         mItem = EquipList.findItemById(this, id);
         if (mItem == null) {

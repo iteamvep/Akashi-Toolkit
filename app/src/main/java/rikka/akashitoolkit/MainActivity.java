@@ -21,6 +21,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
+//import com.google.firebase.FirebaseApp;
 import com.squareup.otto.Subscribe;
 
 import rikka.akashitoolkit.enemy.EnemyDisplayFragment;
@@ -67,7 +68,9 @@ public class MainActivity extends BaseActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        /*
         Push.init(this);
+        */
 
         getWindow().setBackgroundDrawable(new ColorDrawable(ContextCompat.getColor(this, R.color.background)));
 

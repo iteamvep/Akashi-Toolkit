@@ -3,6 +3,10 @@
 buildscript {
     repositories {
         jcenter()
+        //这里是 LeanCloud 的包仓库
+        maven {
+            url "http://mvn.leancloud.cn/nexus/content/repositories/public"
+        }
         google()
     }
     dependencies {
@@ -20,7 +24,9 @@ allprojects {
         jcenter()
         google()
         maven { url "https://jitpack.io" }
-        maven { url "http://mvn.leancloud.cn/nexus/content/repositories/releases" }
+        maven {
+            url "http://mvn.leancloud.cn/nexus/content/repositories/public"
+        }
         mavenLocal()
         flatDir { dirs 'libs' }
     }

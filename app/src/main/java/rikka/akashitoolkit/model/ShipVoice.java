@@ -40,6 +40,9 @@ public class ShipVoice {
     }
 
     public void setUrl(String url) {
+        if(url.contains("kcwiki.moe")) {
+            url.replace("kcwiki.moe","kcwiki.org");
+        }
         this.url = url;
     }
 
