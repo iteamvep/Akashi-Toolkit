@@ -21,7 +21,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
-import com.google.firebase.FirebaseApp;
+//import com.google.firebase.FirebaseApp;
 import com.squareup.otto.Subscribe;
 
 import rikka.akashitoolkit.enemy.EnemyDisplayFragment;
