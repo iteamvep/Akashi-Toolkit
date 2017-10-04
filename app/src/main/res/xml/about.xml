@@ -20,7 +20,8 @@
 
     <Preference
         android:key="version"
-        android:title="@string/version"/>
+        android:title="@string/version"
+        android:summary="测试版本  beta0.1"/>
 
     <Preference
         android:title="@string/data_source"
@@ -51,11 +52,11 @@
 
     <Preference
         android:title="Homepage"
-        android:summary="http://app.kcwiki.moe/">
+        android:summary="http://app.kcwiki.org/">
 
         <intent
             android:action="android.intent.action.VIEW"
-            android:data="http://app.kcwiki.moe/"/>
+            android:data="http://app.kcwiki.org/"/>
 
     </Preference>
 

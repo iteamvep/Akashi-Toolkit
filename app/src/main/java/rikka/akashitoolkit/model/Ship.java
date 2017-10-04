@@ -223,7 +223,7 @@ public class Ship extends BaseDataModel {
     }
 
     public boolean isEnemy() {
-        return getId() >= 500;
+        return (getId() >= 1500 && getId() < 1800) ;
     }
 
     private String painter;
