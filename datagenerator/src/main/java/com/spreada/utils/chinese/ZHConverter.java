@@ -28,8 +28,8 @@ public class ZHConverter {
     private static final String[] propertyFiles = new String[2];
 
     static {
-        propertyFiles[TRADITIONAL] = "datagenerator/zh2Hant.properties";
-        propertyFiles[SIMPLIFIED] = "datagenerator/zh2Hans.properties";
+        propertyFiles[TRADITIONAL] = "L:\\NetBeans\\NetBeansProjects\\Akashi-Toolkit\\src\\properties/zh2Hant.properties";
+        propertyFiles[SIMPLIFIED] = "L:\\NetBeans\\NetBeansProjects\\Akashi-Toolkit\\src\\properties/zh2Hans.properties";
     }
 
     /**

@@ -19,7 +19,7 @@ public class EquipList {
     public static List<NewEquip> get() {
         if (sList == null) {
             try {
-                sList = new Gson().fromJson(new JsonReader(new FileReader("app/src/main/assets/Equip.json")), new TypeToken<List<NewEquip>>() {
+                sList = new Gson().fromJson(new JsonReader(new FileReader("L:/NetBeans/NetBeansProjects/Akashi-Toolkit/src/json/Equip.json")), new TypeToken<List<NewEquip>>() {
                 }.getType());
             } catch (FileNotFoundException e) {
                 e.printStackTrace();

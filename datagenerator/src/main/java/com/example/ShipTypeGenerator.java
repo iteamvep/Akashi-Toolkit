@@ -52,11 +52,11 @@ public class ShipTypeGenerator {
     }
 
     public static void main(String[] args) throws IOException, NoSuchFieldException, IllegalAccessException {
-        List<ShipType> list = new Gson().fromJson(new JsonReader(new FileReader("app/src/main/assets/ShipType.json")), new TypeToken<List<ShipType>>() {
+        List<ShipType> list = new Gson().fromJson(new JsonReader(new FileReader("L:/NetBeans/NetBeansProjects/Akashi-Toolkit/src/json/ShipType.json")), new TypeToken<List<ShipType>>() {
         }.getType());
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://api.kcwiki.moe")
+                .baseUrl("https://api.kcwiki.org")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -74,11 +74,13 @@ public class ShipTypeGenerator {
         for (ShipType shipType : list) {
             shipType.getName().setJa(shipType.getName().getJa().trim());
             shipType.getName().setZh_cn(shipType.getName().getZh_cn().trim());
+           
             shipType.getName().setZh_tw(ZHConverter.toTC(shipType.getName().getZh_cn().trim()));
+            
             shipType.getName().setEn(ENGLISH_NAME.get(shipType.getId()));
         }
 
-        Utils.objectToJsonFile(list, "app/src/main/assets/ShipType.json");
+        Utils.objectToJsonFile(list, "L:/NetBeans/NetBeansProjects/Akashi-Toolkit/src/json/ShipType.json");
     }
 
     private static void parse(ShipType shipType, APIShipType apiShipType) throws NoSuchFieldException, IllegalAccessException {

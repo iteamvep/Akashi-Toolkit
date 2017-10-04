@@ -1,5 +1,9 @@
 package com.example;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.TypeReference;
 import com.example.model.EquipImprovement;
 import com.example.model.MultiLanguageEntry;
 import com.example.model.NewEquip;
@@ -12,6 +16,7 @@ import com.spreada.utils.chinese.ZHConverter;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
@@ -21,10 +26,14 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import okhttp3.ResponseBody;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 import retrofit2.Retrofit;
 
 /**
@@ -32,16 +41,22 @@ import retrofit2.Retrofit;
  */
 public class EquipGenerator {
     public static void main(String[] args) throws IOException {
+        
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://zh.kcwiki.moe/")
+                .baseUrl("https://zh.kcwiki.org/")
                 .build();
 
         RetrofitAPI.KcwikiService service = retrofit.create(RetrofitAPI.KcwikiService.class);
         ResponseBody body = service.getPage("模块:舰娘装备数据改", "raw").execute().body();
         Reader reader = body.charStream();
-
-        //Reader reader = new FileReader(new File("datagenerator/equip.lua"));
-
+        
+        //Reader reader = new FileReader(new File("L:\\NetBeans\\NetBeansProjects\\Akashi-Toolkit\\src\\equip.lua"));
+        /*
+        Document doc = Jsoup.connect("https://zh.kcwiki.org/wiki/%E6%A8%A1%E5%9D%97:%E8%88%B0%E5%A8%98%E8%A3%85%E5%A4%87%E6%95%B0%E6%8D%AE%E6%94%B9")
+                    .timeout(3000)
+                    .get();
+        Reader reader = new StringReader(doc.html());
+        */
         int count = 0;
         boolean comment = false;
         StringBuilder sb = new StringBuilder();
@@ -61,7 +76,8 @@ public class EquipGenerator {
 
         String str = sb.toString()
                 .substring(2);
-
+        
+        com.example.utils.RWFile.writeLog(JSON.toJSONString(str));
         reader = new StringReader(str);
         sb = new StringBuilder();
         boolean skipSpace = true;
@@ -126,14 +142,27 @@ public class EquipGenerator {
 
         Gson gson = new GsonBuilder()
                 .create();
-
+        
         str = "[" + str.substring(1, str.length() - 1) + "]";
-
+        /*
+        JSONArray jarr = JSON.parseArray(str);
+        List<NewEquip> list = new ArrayList<>();
+        for(Object obj:jarr) {
+            JSONObject jobj = (JSONObject) obj;
+            NewEquip entity= JSONObject.toJavaObject(jobj,NewEquip.class);
+            list.add(entity);
+        }
+        */
+        //List<NewEquip> list = JSON.parseObject(str, new TypeReference<List<NewEquip>>(){}.getType());
+        JSONArray jarr = JSON.parseArray(str);
+        com.example.utils.RWFile.writeLog(JSON.toJSONString(jarr));
+        
         List<NewEquip> list = gson.fromJson(new StringReader(str), new TypeToken<List<NewEquip>>() {
         }.getType());
-
+        
         list.removeAll(Collections.singleton(null));
-
+        com.example.utils.RWFile.writeLog(JSON.toJSONString(list));
+        
         for (NewEquip item : list) {
             item.setRarity(item.get稀有度().length());
             item.setName(new MultiLanguageEntry());
@@ -151,7 +180,7 @@ public class EquipGenerator {
 
             // 增加一个生成装备改修json的东西
             addEquipImprovement(item, item.getImprovements());
-
+            new File("L:\\NetBeans\\NetBeansProjects\\Akashi-Toolkit\\datagenerator/data/equips/").mkdirs();
             File file = new File("datagenerator/data/equips/" + item.getNameCN().replace("/", "_") + ".txt");
             if (!file.exists()) {
                 try {
@@ -278,11 +307,13 @@ public class EquipGenerator {
         specialType(list);
 
         // 繁中
+        
         for (NewEquip item : list) {
             item.getName().setZh_tw(ZHConverter.toTC(item.getName().getZh_cn()));
             item.getIntroduction().setZh_tw(ZHConverter.toTC(item.getIntroduction().getZh_cn()));
         }
-
+        
+        
         // 英语
         String page;
         Retrofit retrofit2 = new Retrofit.Builder()
@@ -377,9 +408,9 @@ public class EquipGenerator {
                 .replace("\"熟练\"", "\"rank\"");
 
 
-        Utils.objectToJsonFile(str, "app/src/main/assets/Equip.json");
+        Utils.objectToJsonFile(str, "L:/NetBeans/NetBeansProjects/Akashi-Toolkit/src/json/Equip.json");
 
-        Utils.objectToJsonFile(equipImprovementList, "app/src/main/assets/EquipImprovement.json");
+        Utils.objectToJsonFile(equipImprovementList, "L:/NetBeans/NetBeansProjects/Akashi-Toolkit/src/json/EquipImprovement.json");
     }
 
     private static void specialType(List<NewEquip> list) {
