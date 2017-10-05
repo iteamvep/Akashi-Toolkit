@@ -219,7 +219,7 @@ public class MessageFragment extends BaseRefreshFragment<CheckUpdate> {
     public void onRefresh(Call<CheckUpdate> call, boolean force_cache) {
         Retrofit retrofit = new Retrofit.Builder()
                 .client(NetworkUtils.getClient(force_cache))
-                .baseUrl("https://app.kcwiki.org/")
+                .baseUrl("https://app.kcwiki.moe/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
