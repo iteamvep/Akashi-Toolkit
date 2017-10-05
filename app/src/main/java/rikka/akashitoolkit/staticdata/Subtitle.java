@@ -32,7 +32,7 @@ public class Subtitle {
         final String version = Settings.instance(context).getString(Settings.SUBTITLE_VERSION, "-1");
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://api.kcwiki.moe")
+                .baseUrl("https://acc.kcwiki.org")
                 .client(NetworkUtils.getCacheClient())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();

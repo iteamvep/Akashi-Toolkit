@@ -140,10 +140,12 @@ public class MapActivity extends BaseItemDisplayActivity {
             ViewGroup parent;
             parent = (ViewGroup) addCell(mContentContainer, "路线分歧").findViewById(R.id.content_container);
             addBranch(parent);
+            /*
             parent = (ViewGroup) addCell(mContentContainer, "敌舰配置").findViewById(R.id.content_container);
             addPoint(parent);
             parent = (ViewGroup) addCell(mContentContainer, "掉落").findViewById(R.id.content_container);
             addDrop(parent);
+            */
         } catch (NullPointerException e) {
             e.printStackTrace();
         }

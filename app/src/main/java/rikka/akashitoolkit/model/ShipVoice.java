@@ -8,7 +8,7 @@ public class ShipVoice {
     /**
      * zh : 我是睦月！一鼓作气向前冲吧！
      * jp : 睦月です。はりきって、まいりましょー！
-     * url : http://upload.kcwiki.moe/commons/a/a1/031-Intro.mp3
+     * url : http://upload.kcwiki.org/commons/a/a1/031-Intro.mp3
      * scene : 入手/登入时
      * voiceId : 1
      */

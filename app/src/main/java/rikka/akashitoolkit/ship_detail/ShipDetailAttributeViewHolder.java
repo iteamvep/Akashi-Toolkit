@@ -70,7 +70,7 @@ public class ShipDetailAttributeViewHolder extends AttributeViewHolder implement
     }
 
     /**
-     * 使用来自 https://zh.kcwiki.moe/wiki/深海栖舰列表 的数据
+     * 使用来自 https://zh.kcwiki.org/wiki/深海栖舰列表 的数据
      * 原文 "/"前后数值表示："面板火力或雷装/计入装备后火力或雷装"
      *
      * @param adapter Adapter

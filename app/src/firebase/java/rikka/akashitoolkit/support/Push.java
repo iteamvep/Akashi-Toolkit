@@ -58,7 +58,7 @@ public class Push {
                     .setPositiveButton(R.string.play_service_check_download_non_play_version, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://app.kcwiki.moe/")));
+                            activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://app.kcwiki.org/")));
                             activity.finish();
                         }
                     })

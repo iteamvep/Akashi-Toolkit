@@ -79,6 +79,7 @@
 
     </PreferenceCategory>
 
+    <!--
     <PreferenceCategory
         android:title="@string/category_notification">
 
@@ -102,7 +103,7 @@
             android:defaultValue="0"/>
 
     </PreferenceCategory>
-
+-->
     <PreferenceCategory
         android:key="twitter"
         android:title="@string/category_twitter">
@@ -161,11 +162,14 @@
             android:title="@string/reset_read"
             android:summary="@string/reset_read_summary"/>
 
-        <!--<Preference
+        <!--
+        //此条已被原作者注释掉
+        <Preference
             android:key="delete_downloaded_date"
             android:title="@string/delete_downloaded_date"
             android:summary="@string/delete_downloaded_date_summary"/>-->
 
     </PreferenceCategory>
+
 
 </PreferenceScreen>

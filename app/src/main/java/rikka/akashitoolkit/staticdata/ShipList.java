@@ -62,7 +62,7 @@ public class ShipList {
     private static void setBookmarked(Context context, List<Ship> list) {
         for (Ship ship :
                 list) {
-            if (ship.getId() > 500) {
+            if (ship.getId() >= 1500 &&  ship.getId() < 1800) {
                 continue;
             }
 

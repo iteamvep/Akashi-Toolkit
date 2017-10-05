@@ -106,7 +106,7 @@ public class AboutActivity extends BaseActivity {
             } catch (PackageManager.NameNotFoundException e) {
                 e.printStackTrace();
             }
-
+            /*
             findPreference("qq_group").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 @Override
                 public boolean onPreferenceClick(Preference preference) {
@@ -115,7 +115,7 @@ public class AboutActivity extends BaseActivity {
                     return false;
                 }
             });
-
+            */
             findPreference("feedback").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 @SuppressLint("DefaultLocale")
                 @Override
@@ -133,6 +133,7 @@ public class AboutActivity extends BaseActivity {
                 }
             });
 
+            /*
             if (FlavorsUtils.isPlay()) {
                 findPreference("donate").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                     @Override
@@ -180,7 +181,6 @@ public class AboutActivity extends BaseActivity {
                 ((PreferenceScreen) findPreference("screen")).removePreference(findPreference("donate"));
             }
 
-
             findPreference("donate_alipay").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 @Override
                 public boolean onPreferenceClick(Preference preference) {
@@ -193,6 +193,7 @@ public class AboutActivity extends BaseActivity {
                     && !PackageUtils.isInstalled(getActivity(), AlipayDonateUtils.PACKAGENAME_ALIPAY)) {
                 ((PreferenceScreen) findPreference("screen")).removePreference(findPreference("donate_alipay"));
             }
+            */
 
             findPreference("version").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 @Override

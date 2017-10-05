@@ -96,8 +96,10 @@ public class MessageAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHolder,
         switch (viewType) {
             case TYPE_MESSAGE:
             case TYPE_MESSAGE_UPDATE:
+            /*
             case TYPE_PUSH_INTRO:
                 return new MessageViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.card_message, parent, false));
+            */
             case TYPE_DAILY_EQUIP:
                 return new MessageEquipViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.card_message_equip, parent, false));
             case TYPE_EXPEDITION_NOTIFY:
@@ -263,7 +265,7 @@ public class MessageAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHolder,
     }
 
     private void bindViewHolder(final MessageViewHolder holder) {
-
+        /*
         holder.mSummary.setVisibility(View.GONE);
         holder.mTitle.setText(R.string.push_introduction);
         holder.mContent.setText(R.string.push_introduction_content);
@@ -271,7 +273,7 @@ public class MessageAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHolder,
        // holder.mPositiveButton.setText(R.string.push_introduction_choose);
         holder.mPositiveButton.setVisibility(View.VISIBLE);
 
-        /*
+
         holder.mPositiveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -303,7 +305,7 @@ public class MessageAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHolder,
             }
 
         });
-        */
+
 
         holder.mNegativeButton.setText(R.string.got_it);
         holder.mNegativeButton.setVisibility(View.VISIBLE);
@@ -313,7 +315,7 @@ public class MessageAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHolder,
                 remove(holder.getAdapterPosition());
             }
         });
-
+        */
     }
 
     @SuppressLint("DefaultLocale")

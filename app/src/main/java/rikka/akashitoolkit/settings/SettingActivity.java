@@ -111,7 +111,6 @@ public class SettingActivity extends BaseActivity {
             if (FlavorsUtils.isPlay()) {
                 ((PreferenceCategory) findPreference("update")).removePreference(findPreference(Settings.UPDATE_CHECK_CHANNEL));
                 ((PreferenceCategory) findPreference("ui")).removePreference(findPreference("show_ship_banner"));
-
             }
 
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
@@ -268,9 +267,11 @@ public class SettingActivity extends BaseActivity {
                         }
                     }, 300);
                     break;
+                /*
                 case Settings.PUSH_TOPICS:
                     //Push.resetSubscribedChannels(getContext().getApplicationContext());
                     break;
+                */
             }
 
             BusProvider

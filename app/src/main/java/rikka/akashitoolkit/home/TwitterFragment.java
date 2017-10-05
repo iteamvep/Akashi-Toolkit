@@ -217,7 +217,7 @@ public class TwitterFragment extends Fragment implements TwitterAdapter.Listener
     private void refresh(final int count, boolean force_cache) {
         Retrofit retrofit = new Retrofit.Builder()
                 .client(NetworkUtils.getClient(force_cache))
-                .baseUrl("https://api.kcwiki.moe/")
+                .baseUrl("https://acc.kcwiki.org/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

@@ -15,6 +15,7 @@ public class AlipayDonateUtils {
     public static String PACKAGENAME_ALIPAY = "com.eg.android.AlipayGphone";
 
     public static void startActivity(Context context) {
+        /*
         if (!PackageUtils.isInstalled(context, PACKAGENAME_ALIPAY)) {
             String text = String.format("%s\n%s",
                     context.getString(R.string.donate_alipay_not_installed),
@@ -39,5 +40,6 @@ public class AlipayDonateUtils {
 
         context.startActivity(new Intent(Intent.ACTION_VIEW,
                 Uri.parse("alipayqr://platformapi/startapp?saId=10000007&qrcode=https%3A%2F%2Fqr.alipay.com%2Faex09499ycmvzsfbkbswl7e")));
+                */
     }
 }
