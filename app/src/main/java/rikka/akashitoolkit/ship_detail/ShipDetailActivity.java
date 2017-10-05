@@ -265,7 +265,7 @@ public class ShipDetailActivity extends BaseItemDisplayActivity {
         }
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://api.kcwiki.moe")
+                .baseUrl("https://acc.kcwiki.org")
                 .client(NetworkUtils.getClient(Subtitle.shouldUseCache()))
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
@@ -423,7 +423,7 @@ public class ShipDetailActivity extends BaseItemDisplayActivity {
                 intentBuilder.addDefaultShareMenuItem();
                 intentBuilder.enableUrlBarHiding();
 
-                CustomTabActivityHelper.openCustomTab(this, intentBuilder.build(), Uri.parse(String.format("https://zh.kcwiki.moe/wiki/%s", mItem.getName().getZhCN())), new CustomTabActivityHelper.ExternalBrowserFallback());
+                CustomTabActivityHelper.openCustomTab(this, intentBuilder.build(), Uri.parse(String.format("https://zh.kcwiki.org/wiki/%s", mItem.getName().getZhCN())), new CustomTabActivityHelper.ExternalBrowserFallback());
         }
         return super.onOptionsItemSelected(item);
     }

@@ -131,6 +131,8 @@ public class MessageFragment extends BaseRefreshFragment<CheckUpdate> {
 
     @Override
     public void onSuccess(@NonNull CheckUpdate data) {
+        //不显示消息
+
         mMessageReadStatus.clearId();
         mAdapter.clearItemList();
 
@@ -141,6 +143,7 @@ public class MessageFragment extends BaseRefreshFragment<CheckUpdate> {
         /*checkDataUpdate(data.getData());*/
 
         mAdapter.notifyDataSetChanged();
+
     }
 
     @Override
@@ -181,6 +184,7 @@ public class MessageFragment extends BaseRefreshFragment<CheckUpdate> {
             return;
         }
 
+
         for (final CheckUpdate.MessagesEntity entity :
                 list) {
             // do not add card should not show
@@ -208,13 +212,14 @@ public class MessageFragment extends BaseRefreshFragment<CheckUpdate> {
                 mAdapter.addItem(MessageAdapter.TYPE_MESSAGE, entity, -1);
             }
         }
+
     }
 
     @Override
     public void onRefresh(Call<CheckUpdate> call, boolean force_cache) {
         Retrofit retrofit = new Retrofit.Builder()
                 .client(NetworkUtils.getClient(force_cache))
-                .baseUrl("http://app.kcwiki.moe/")
+                .baseUrl("https://app.kcwiki.org/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

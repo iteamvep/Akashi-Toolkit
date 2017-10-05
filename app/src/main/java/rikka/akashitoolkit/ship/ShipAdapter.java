@@ -191,12 +191,14 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
                 });
     }
 
+    //检查是否为深海栖舰
     private boolean check(Ship item) {
         if (mEnemy) {
-            return item.getId() > 500;
+            return (item.getId() >= 1500 &&  item.getId() < 1800);
+            //return item.getId() >= 500;
         }
 
-        if (item.getId() > 500) {
+        if (item.getId() >= 1500 &&  item.getId() < 1800) {
             return false;
         }
 
@@ -274,9 +276,10 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
         holder.mTitle.setText(String.format(item.isBookmarked() ? "%s ★" : "%s",
                 item.getName().get()));
 
+        //敌舰横幅
         @SuppressLint("DefaultLocale")
         String banner = mEnemy ?
-                Utils.getKCWikiFileUrl(String.format("ShinkaiSeikan%dBanner.png", item.getId())) : Utils.getKCWikiFileUrl(String.format("KanMusu%sBanner.jpg", item.getWikiId()));
+                Utils.getKCWikiFileUrl(String.format("ShinkaiSeikan%dBanner.png", String.valueOf(item.getId()).substring(1,String.valueOf(item.getId()).length()))) : Utils.getKCWikiFileUrl(String.format("KanMusu%sBanner.jpg", item.getWikiId().substring(1,item.getWikiId().length())));
         boolean showBanner = Settings.instance(context).getBoolean(Settings.SHOW_SHIP_BANNER, true);
 
         if (FlavorsUtils.shouldSafeCheck()) {

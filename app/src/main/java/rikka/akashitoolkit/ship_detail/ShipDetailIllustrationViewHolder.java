@@ -55,7 +55,8 @@ public class ShipDetailIllustrationViewHolder extends IllustrationViewHolder imp
                 list.add(Utils.getKCWikiFileUrl(String.format("KanMusu%sIllust.png", data.getWikiId().replace("a", ""))));
                 list.add(Utils.getKCWikiFileUrl(String.format("KanMusu%sDmgIllust.png", data.getWikiId().replace("a", ""))));
             } else {
-                list.add(Utils.getKCWikiFileUrl(String.format("ShinkaiSeikan%s.png", data.getWikiId())));
+                //敌舰立绘
+                list.add(Utils.getKCWikiFileUrl(String.format("ShinkaiSeikan%s.png", data.getWikiId().substring(1,data.getWikiId().length()))));
             }
         }
 

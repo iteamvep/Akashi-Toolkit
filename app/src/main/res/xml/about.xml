@@ -3,11 +3,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:key="screen">
 
+
     <Preference
         android:key="feedback"
         android:title="@string/data_feedback"
         android:summary="@string/feedback_summary"/>
 
+    <!--
     <Preference
         android:key="donate"
         android:title="@string/donate"
@@ -17,6 +19,7 @@
         android:key="donate_alipay"
         android:title="@string/donate_alipay"
         android:summary="rikka@xing.moe"/>
+    -->
 
     <Preference
         android:key="version"
@@ -29,10 +32,11 @@
 
         <intent
             android:action="android.intent.action.VIEW"
-            android:data="https://zh.kcwiki.moe/wiki/%E8%88%B0%E5%A8%98%E7%99%BE%E7%A7%91"/>
+            android:data="https://zh.kcwiki.org/wiki/%E8%88%B0%E5%A8%98%E7%99%BE%E7%A7%91"/>
 
     </Preference>
 
+    <!--
     <Preference
         android:title="@string/telegram_group"
         android:summary="@string/telegram_group_join">
@@ -49,14 +53,15 @@
         android:summary="437033068">
 
     </Preference>
+    -->
 
     <Preference
-        android:title="Homepage"
-        android:summary="http://app.kcwiki.org/">
+        android:title="@string/homepage"
+        android:summary="https://app.kcwiki.org/">
 
         <intent
             android:action="android.intent.action.VIEW"
-            android:data="http://app.kcwiki.org/"/>
+            android:data="https://app.kcwiki.org/"/>
 
     </Preference>
 

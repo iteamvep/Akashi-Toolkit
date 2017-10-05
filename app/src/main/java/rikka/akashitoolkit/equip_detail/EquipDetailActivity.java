@@ -299,7 +299,7 @@ public class EquipDetailActivity extends BaseItemDisplayActivity {
                 intentBuilder.addDefaultShareMenuItem();
                 intentBuilder.enableUrlBarHiding();
 
-                CustomTabActivityHelper.openCustomTab(this, intentBuilder.build(), Uri.parse(String.format("https://zh.kcwiki.moe/wiki/%s", mItem.getName().getZhCN())), new CustomTabActivityHelper.ExternalBrowserFallback());
+                CustomTabActivityHelper.openCustomTab(this, intentBuilder.build(), Uri.parse(String.format("https://zh.kcwiki.org/wiki/%s", mItem.getName().getZhCN())), new CustomTabActivityHelper.ExternalBrowserFallback());
 
         }
         return super.onOptionsItemSelected(item);

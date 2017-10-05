@@ -155,6 +155,7 @@
     <string name="telegram_group">Telegram group</string>
     <string name="telegram_group_join">Click to join (if you want to help develop)</string>
     <string name="qq_group">QQ group</string>
+    <string name="homepage">Homepage</string>
     <string name="source_code">Source code</string>
 
     <string name="send_via">Send via</string>
@@ -339,10 +340,9 @@
 
     <string name="view_detail">View detail</string>
 
-    <string name="push_introduction">Introduction our new push feature</string>
     <!--
+    <string name="push_introduction">Introduction our new push feature</string>
     <string name="push_introduction_content">We will provide you notification like game maintenance, kcwiki entries updated.\nTo not disturb you, you need to choose which topic you want to receive.\n\nYou can change your choice in settings any time.</string>
-    -->
-    <string name="push_introduction_content">此功能暂时被关闭。</string>
     <string name="push_introduction_choose">Choose topics</string>
+    -->
 </resources>

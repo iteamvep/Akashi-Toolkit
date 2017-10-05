@@ -61,8 +61,10 @@ public class MessageReadStatus {
         return readMessageId.contains(id);
     }
 
+    //关掉显示Introduction our new push feature
     public boolean showPushIntro() {
-        return !pushIntro;
+        //return !pushIntro;
+        return false;
     }
 
     public void setShowPushIntro(boolean show) {
