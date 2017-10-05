@@ -37,7 +37,6 @@ import rikka.akashitoolkit.quest.QuestDisplayFragment;
 import rikka.akashitoolkit.settings.AboutActivity;
 import rikka.akashitoolkit.settings.SettingActivity;
 import rikka.akashitoolkit.ship.ShipDisplayFragment;
-import rikka.akashitoolkit.support.Push;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.StaticData;
 import rikka.akashitoolkit.tools.ToolsFragment;

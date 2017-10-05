@@ -27,7 +27,6 @@ import rikka.akashitoolkit.otto.DataChangedAction;
 import rikka.akashitoolkit.otto.PreferenceChangedAction;
 import rikka.akashitoolkit.otto.ReadStatusResetAction;
 import rikka.akashitoolkit.support.ApiConstParam;
-import rikka.akashitoolkit.support.Push;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.StaticData;
 import rikka.akashitoolkit.ui.BaseActivity;
@@ -270,7 +269,7 @@ public class SettingActivity extends BaseActivity {
                     break;
                 /*
                 case Settings.PUSH_TOPICS:
-                    Push.resetSubscribedChannels(getContext().getApplicationContext());
+                    //Push.resetSubscribedChannels(getContext().getApplicationContext());
                     break;
                 */
             }
