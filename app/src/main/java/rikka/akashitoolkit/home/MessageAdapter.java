@@ -2,26 +2,17 @@ package rikka.akashitoolkit.home;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.CountDownTimer;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
-import android.text.Html;
 import android.text.format.DateUtils;
 import android.text.method.LinkMovementMethod;
-import android.util.ArraySet;
-import android.util.Log;
-import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.squareup.otto.Subscribe;
-
-import java.util.HashSet;
-import java.util.Set;
 
 import rikka.akashitoolkit.BuildConfig;
 import rikka.akashitoolkit.R;
@@ -30,8 +21,6 @@ import rikka.akashitoolkit.adapter.Listener;
 import rikka.akashitoolkit.model.CheckUpdate;
 import rikka.akashitoolkit.otto.BookmarkItemChanged;
 import rikka.akashitoolkit.otto.BusProvider;
-import rikka.akashitoolkit.support.Push;
-import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.utils.HtmlUtils;
 
 import static rikka.akashitoolkit.support.ApiConstParam.Message.ACTION_VIEW_BUTTON;

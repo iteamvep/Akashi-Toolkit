@@ -51,20 +51,20 @@ android {
     }
 
     productFlavors {
-        leancloud {
+        /*leancloud {
         }
 
         firebase {
-        }
+        }*/
     }
 
-    sourceSets.leancloud {
+    /*sourceSets.leancloud {
         manifest.srcFile 'src/leancloud/AndroidManifest.xml'
     }
 
     sourceSets.firebase {
         manifest.srcFile 'src/firebase/AndroidManifest.xml'
-    }
+    }*/
 
     applicationVariants.all { variant ->
         variant.outputs.each { output ->
@@ -111,22 +111,22 @@ dependencies {
 
     compile ('com.android.support:support-v4:21.0.3')
 
-    leancloudCompile ('cn.leancloud.android:avoscloud-sdk:v4.4.4')
+    /*leancloudCompile ('cn.leancloud.android:avoscloud-sdk:v4.4.4')
     leancloudCompile ('cn.leancloud.android:avoscloud-push:v4.4.4@aar'){transitive = true}
-    leancloudCompile ('cn.leancloud.android:avoscloud-statistics:v4.4.4')
+    leancloudCompile ('cn.leancloud.android:avoscloud-statistics:v4.4.4')*/
     /*
     leancloudCompile 'cn.leancloud.android:avoscloud-sdk:v3.14.5'
     leancloudCompile 'cn.leancloud.android:avoscloud-push:v3.14.5@aar'
     leancloudCompile 'cn.leancloud.android:avoscloud-statistics:v3.14.5@aar'
     */
-    leancloudCompile 'cn.leancloud.android:Java-WebSocket:1.3.2-leancloud'
-    leancloudCompile 'com.google.protobuf:protobuf-java:3.0.0'
+    /*leancloudCompile 'cn.leancloud.android:Java-WebSocket:1.3.2-leancloud'
+    leancloudCompile 'com.google.protobuf:protobuf-java:3.0.0'*/
 
 
-    firebaseCompile "com.google.android.gms:play-services-base:$firebaseLibraryVersion"
+    /*firebaseCompile "com.google.android.gms:play-services-base:$firebaseLibraryVersion"
     firebaseCompile "com.google.firebase:firebase-core:$firebaseLibraryVersion"
     firebaseCompile "com.google.firebase:firebase-messaging:$firebaseLibraryVersion"
-    firebaseCompile "com.google.firebase:firebase-crash:$firebaseLibraryVersion"
+    firebaseCompile "com.google.firebase:firebase-crash:$firebaseLibraryVersion"*/
 
     compile 'com.github.chrisbanes:PhotoView:1.2.6'
 
