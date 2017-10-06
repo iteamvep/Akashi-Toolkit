@@ -2,8 +2,6 @@ package com.example;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
-import com.alibaba.fastjson.TypeReference;
 import com.example.model.EquipImprovement;
 import com.example.model.MultiLanguageEntry;
 import com.example.model.NewEquip;
@@ -16,7 +14,6 @@ import com.spreada.utils.chinese.ZHConverter;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
@@ -26,14 +23,10 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import okhttp3.ResponseBody;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
 import retrofit2.Retrofit;
 
 /**

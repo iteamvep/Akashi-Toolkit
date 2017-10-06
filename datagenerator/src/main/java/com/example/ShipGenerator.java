@@ -2,11 +2,7 @@ package com.example;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
-import com.alibaba.fastjson.TypeReference;
 import com.example.list.EquipList;
-import com.example.list.ShipList;
-import com.example.model.APIShipType;
 import com.example.model.AttrEntity;
 import com.example.model.NewEquip;
 import com.example.model.NewShip;
@@ -24,6 +20,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import com.spreada.utils.chinese.ZHConverter;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -42,8 +39,6 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 import static com.example.utils.Utils.objectToJsonFile;
-import java.io.BufferedReader;
-import static javafx.scene.input.KeyCode.T;
 
 /**
  * Created by Rikka on 2016/9/17.
