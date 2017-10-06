@@ -1,36 +1,25 @@
 package rikka.akashitoolkit.settings;
 
 import android.annotation.SuppressLint;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Toast;
 
 import rikka.akashitoolkit.BuildConfig;
 import rikka.akashitoolkit.R;
-import rikka.akashitoolkit.billing.DonateHelper;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.StaticData;
 import rikka.akashitoolkit.tools.SendReportActivity;
 import rikka.akashitoolkit.ui.BaseActivity;
-import rikka.akashitoolkit.utils.AlipayDonateUtils;
-import rikka.akashitoolkit.utils.ClipBoardUtils;
-import rikka.akashitoolkit.utils.FlavorsUtils;
-import rikka.akashitoolkit.utils.PackageUtils;
 import rikka.materialpreference.Preference;
 import rikka.materialpreference.PreferenceFragment;
-import rikka.materialpreference.PreferenceScreen;
 
 public class AboutActivity extends BaseActivity {
-
-    DonateHelper mDonateHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,29 +42,6 @@ public class AboutActivity extends BaseActivity {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment,
                     fragment).commit();
         }
-
-        if (FlavorsUtils.isPlay()) {
-            mDonateHelper = new DonateHelper(this);
-        }
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (FlavorsUtils.isPlay()) {
-            if (!mDonateHelper.onActivityResult(requestCode, resultCode, data)) {
-                super.onActivityResult(requestCode, resultCode, data);
-            }
-        } else {
-            super.onActivityResult(requestCode, resultCode, data);
-        }
-    }
-
-    @Override
-    protected void onDestroy() {
-        if (FlavorsUtils.isPlay()) {
-            mDonateHelper.onDestroy();
-        }
-        super.onDestroy();
     }
 
     @Override
