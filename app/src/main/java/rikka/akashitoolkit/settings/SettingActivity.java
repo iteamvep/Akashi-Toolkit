@@ -18,6 +18,10 @@ import com.bumptech.glide.Glide;
 
 import java.util.Locale;
 
+import moe.shizuku.preference.ListPreference;
+import moe.shizuku.preference.Preference;
+import moe.shizuku.preference.PreferenceCategory;
+import moe.shizuku.preference.PreferenceFragment;
 import moe.xing.daynightmode.BaseDayNightModeActivity;
 import moe.xing.daynightmode.DayNightMode;
 import rikka.akashitoolkit.R;
@@ -33,10 +37,6 @@ import rikka.akashitoolkit.ui.BaseActivity;
 import rikka.akashitoolkit.utils.FileUtils;
 import rikka.akashitoolkit.utils.FlavorsUtils;
 import rikka.akashitoolkit.utils.LocaleUtils;
-import rikka.materialpreference.ListPreference;
-import rikka.materialpreference.Preference;
-import rikka.materialpreference.PreferenceCategory;
-import rikka.materialpreference.PreferenceFragment;
 
 import static rikka.akashitoolkit.support.ApiConstParam.Language.EN;
 import static rikka.akashitoolkit.support.ApiConstParam.Language.JA;

@@ -10,14 +10,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import moe.shizuku.preference.Preference;
+import moe.shizuku.preference.PreferenceFragment;
 import rikka.akashitoolkit.BuildConfig;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.support.Settings;
 import rikka.akashitoolkit.support.StaticData;
 import rikka.akashitoolkit.tools.SendReportActivity;
 import rikka.akashitoolkit.ui.BaseActivity;
-import rikka.materialpreference.Preference;
-import rikka.materialpreference.PreferenceFragment;
 
 public class AboutActivity extends BaseActivity {
 
