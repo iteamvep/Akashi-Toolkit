@@ -32,11 +32,11 @@ android {
 
         vectorDrawables.useSupportLibrary = true
 
-        buildConfigField "String", "BASE64_PUBLIC_KEY", "\"\""
-        buildConfigField "String", "LEANCLOUD_APP_ID", "\"\""
-        buildConfigField "String", "LEANCLOUD_APP_KEY", "\"\""
-
         buildConfigField "long", "TIMESTAMP", System.currentTimeMillis() + "L"
+    }
+
+    signingConfigs {
+        sign
     }
 
     lintOptions {
@@ -45,11 +45,15 @@ android {
 
     buildTypes {
         release {
+            signingConfig signingConfigs.sign
+
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
 
         googlePlayRelease {
+            signingConfig signingConfigs.sign
+
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 
@@ -57,6 +61,8 @@ android {
         }
 
         debug {
+            signingConfig signingConfigs.sign
+
             applicationIdSuffix '.debug'
         }
     }
@@ -113,6 +119,8 @@ dependencies {
 
     compile 'com.github.rubensousa:gravitysnaphelper:0.1'
     compile('com.crashlytics.sdk.android:crashlytics:2.6.8@aar') {
-        transitive = true;
+        transitive = true
     }
 }
+
+apply from: rootProject.file('signing.gradle')
