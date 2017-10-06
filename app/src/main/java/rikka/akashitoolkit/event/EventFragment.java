@@ -79,7 +79,7 @@ public class EventFragment extends BaseEventFragment<Event> {
     @Override
     public void onRefresh(Call<Event> call, boolean force_cache) {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://app.kcwiki.moe/")
+                .baseUrl("https://app.kcwiki.org/")
                 .client(NetworkUtils.getClient(force_cache))
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
