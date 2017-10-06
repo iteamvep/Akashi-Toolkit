@@ -23,6 +23,10 @@
             android:name="rikka.akashitoolkit.support.AppGlideModule"
             android:value="GlideModule"/>
 
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="14724a50f9b4697ae7e68998e3a3004758c84b56" />
+
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
