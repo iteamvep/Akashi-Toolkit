@@ -6,5 +6,6 @@
 .DS_Store
 /build
 /captures
+/datagenerator
 .idea
 gradle.properties
