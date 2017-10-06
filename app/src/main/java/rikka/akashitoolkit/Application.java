@@ -1,6 +1,8 @@
 package rikka.akashitoolkit;
 
 import com.crashlytics.android.Crashlytics;
+import com.crashlytics.android.core.CrashlyticsCore;
+
 import io.fabric.sdk.android.Fabric;
 import moe.xing.daynightmode.DayNightMode;
 import rikka.akashitoolkit.cache.DiskCacheProvider;
@@ -26,7 +28,11 @@ public class Application extends android.app.Application {
     public void onCreate() {
         super.onCreate();
 
-        Fabric.with(this, new Crashlytics());
+        Crashlytics crashlyticsKit = new Crashlytics.Builder()
+                .core(new CrashlyticsCore.Builder().disabled(BuildConfig.DEBUG).build())
+                .build();
+
+        Fabric.with(this, crashlyticsKit);
 
         DayNightMode.setDefaultNightMode(
                 Settings.instance(this)
