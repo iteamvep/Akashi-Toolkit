@@ -279,7 +279,7 @@ public class ShipAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.ViewHo
         //敌舰横幅
         @SuppressLint("DefaultLocale")
         String banner = mEnemy ?
-                Utils.getKCWikiFileUrl(String.format("ShinkaiSeikan%dBanner.png", String.valueOf(item.getId()).substring(1,String.valueOf(item.getId()).length()))) : Utils.getKCWikiFileUrl(String.format("KanMusu%sBanner.jpg", item.getWikiId().substring(1,item.getWikiId().length())));
+                Utils.getKCWikiFileUrl(String.format("ShinkaiSeikan%dBanner.png", item.getId() - 1000 )) : Utils.getKCWikiFileUrl(String.format("KanMusu%sBanner.jpg", item.getWikiId()));
         boolean showBanner = Settings.instance(context).getBoolean(Settings.SHOW_SHIP_BANNER, true);
 
         if (FlavorsUtils.shouldSafeCheck()) {
