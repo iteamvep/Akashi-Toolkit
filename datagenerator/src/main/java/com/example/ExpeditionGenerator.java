@@ -2,7 +2,6 @@ package com.example;
 
 import com.example.model.Expedition;
 import com.example.network.RetrofitAPI;
-import com.example.utils.Utils;
 import com.spreada.utils.chinese.ZHConverter;
 
 import java.io.IOException;
@@ -15,7 +14,6 @@ import java.util.regex.Pattern;
 import okhttp3.ResponseBody;
 import retrofit2.Retrofit;
 
-import static com.example.utils.Utils.getUrlStream;
 import static com.example.utils.Utils.objectToJsonFile;
 
 /**

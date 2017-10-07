@@ -1,20 +1,13 @@
 package com.example;
 
 import com.example.model.ShipVoice;
-import com.example.utils.Utils;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import static com.example.utils.Utils.getUrlStream;
 
 public class SeasonalVoice {
 
