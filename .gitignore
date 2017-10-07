@@ -10,3 +10,4 @@
 gradle.properties
 signing.gradle
 signing.properties
+app/fabric.properties
