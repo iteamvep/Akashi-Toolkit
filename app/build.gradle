@@ -124,6 +124,8 @@ dependencies {
     compile('com.crashlytics.sdk.android:crashlytics:2.6.8@aar') {
         transitive = true
     }
+
+    compile 'moe.shizuku.fontprovider:api:1.1.2'
 }
 
 apply from: rootProject.file('signing.gradle')
