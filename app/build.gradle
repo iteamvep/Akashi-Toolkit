@@ -128,4 +128,4 @@ dependencies {
     compile 'moe.shizuku.fontprovider:api:1.1.2'
 }
 
-apply from: rootProject.file('signing.gradle')
+//apply from: rootProject.file('signing.gradle')
