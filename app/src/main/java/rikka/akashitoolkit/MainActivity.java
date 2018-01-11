@@ -21,7 +21,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
-//import com.google.firebase.FirebaseApp;
 import com.squareup.otto.Subscribe;
 
 import rikka.akashitoolkit.enemy.EnemyDisplayFragment;
@@ -67,27 +66,23 @@ public class MainActivity extends BaseActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /*
-        Push.init(this);
-        */
-
         getWindow().setBackgroundDrawable(new ColorDrawable(ContextCompat.getColor(this, R.color.background)));
 
-        mSwitch = (IconSwitchCompat) findViewById(R.id.switch_bookmark);
+        mSwitch = findViewById(R.id.switch_bookmark);
 
-        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        mToolbar = findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle(R.string.app_name);
 
-        mAppBarLayout = (AppBarLayout) findViewById(R.id.appBarLayout);
+        mAppBarLayout = findViewById(R.id.appBarLayout);
 
-        mTabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        mTabLayout = findViewById(R.id.tab_layout);
         //mTabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
 
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerLayout = findViewById(R.id.drawer_layout);
 
         if (!StaticData.instance(this).isTablet) {
-            mNavigationView = (NavigationView) findViewById(R.id.nav_view);
+            mNavigationView = findViewById(R.id.nav_view);
             mNavigationView.setNavigationItemSelectedListener(this);
             mNavigationView.setCheckedItem(R.id.nav_home);
 
@@ -96,7 +91,7 @@ public class MainActivity extends BaseActivity
             mDrawerLayout.addDrawerListener(toggle);
             toggle.syncState();
         } else {
-            mMiniDrawerLayout = (MiniDrawerLayout) findViewById(R.id.mini_drawer_layout);
+            mMiniDrawerLayout = findViewById(R.id.mini_drawer_layout);
             mMiniDrawerLayout.setNavigationItemSelectedListener(this);
             mMiniDrawerLayout.setCheckedItem(R.id.nav_home);
 
@@ -107,7 +102,7 @@ public class MainActivity extends BaseActivity
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
-        mNavigationViewRight = (FrameLayout) findViewById(R.id.nav_view_right);
+        mNavigationViewRight = findViewById(R.id.nav_view_right);
 
         mFragmentArray = new SparseArrayCompat<>();
 

@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -22,8 +23,6 @@ import moe.shizuku.preference.ListPreference;
 import moe.shizuku.preference.Preference;
 import moe.shizuku.preference.PreferenceCategory;
 import moe.shizuku.preference.PreferenceFragment;
-import moe.xing.daynightmode.BaseDayNightModeActivity;
-import moe.xing.daynightmode.DayNightMode;
 import rikka.akashitoolkit.R;
 import rikka.akashitoolkit.model.MultiLanguageEntry;
 import rikka.akashitoolkit.otto.BusProvider;
@@ -212,7 +211,7 @@ public class SettingActivity extends BaseActivity {
                     int mode = Integer.parseInt(sharedPreferences.getString(key, "0"));
 
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                        if (mode == DayNightMode.MODE_NIGHT_FOLLOW_SYSTEM) {
+                        if (mode == AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM) {
                             new AlertDialog.Builder(getActivity(), R.style.AppTheme_Dialog_Alert)
                                     .setMessage(R.string.night_mode_require_restart)
                                     .setNegativeButton(R.string.continue_use, null)
@@ -224,7 +223,7 @@ public class SettingActivity extends BaseActivity {
                                     })
                                     .show();
                             break;
-                        } else if (mode == DayNightMode.MODE_NIGHT_AUTO &&
+                        }/* else if (mode == DayNightMode.MODE_NIGHT_AUTO &&
                                 ((UiModeManager) getActivity().getSystemService(Context.UI_MODE_SERVICE))
                                         .getNightMode() == UiModeManager.MODE_NIGHT_AUTO) {
                             new AlertDialog.Builder(getActivity(), R.style.AppTheme_Dialog_Alert)
@@ -232,10 +231,10 @@ public class SettingActivity extends BaseActivity {
                                     .setPositiveButton(android.R.string.ok, null)
                                     .show();
                             break;
-                        }
+                        }*/
                     }
 
-                    ((BaseDayNightModeActivity) getActivity()).setNightMode(mode);
+                    AppCompatDelegate.setDefaultNightMode(mode);
                     break;
                 case Settings.DATA_LANGUAGE:
                     int language = Integer.parseInt(
