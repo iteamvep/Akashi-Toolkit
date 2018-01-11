@@ -61,11 +61,11 @@ android {
 
     applicationVariants.all { variant ->
         variant.outputs.all {
-            String name =  "akashi-toolkit-"
+            String name = "akashi-toolkit-"
             if (variant.buildType.name.startsWith("googlePlay")) {
-                name += "-googleplay"
+                name += "-googleplay-"
             }
-            name+= + variant.versionCode + ".apk"
+            name += variant.versionCode + ".apk"
             outputFileName = name
         }
     }
