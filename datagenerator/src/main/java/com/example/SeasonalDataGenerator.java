@@ -42,8 +42,9 @@ public class SeasonalDataGenerator {
             }
             seasons.put(link.ownText(), link.attr("href"));
         }
+        /*//set proxy
         System.setProperty("http.proxyHost", "127.0.0.1");
-        System.setProperty("http.proxyPort", "1090");
+        System.setProperty("http.proxyPort", "1090");*/
         
         for(String season:seasons.keySet()) {
             Document doc = null;
@@ -138,16 +139,16 @@ public class SeasonalDataGenerator {
                 illustrationType = items.get(i).select(".gallerytext").select("p").first().ownText();
             }
             if(items.get(i).select(".gallerytext").select("p").isEmpty()){
-                title = illustrationType;
+                title = strFilter(illustrationType);
             } else if (items.get(i).select(".gallerytext").select("a").isEmpty()){
                 System.out.println(items.get(i).html());
                 illustrationType = items.get(i).select(".gallerytext").select("p").first().ownText();
-                title = illustrationType;
+                title = strFilter(illustrationType);
             } else {
                 shipHref = items.get(i).select(".gallerytext").select("a").first().attr("href");
                 shipName = items.get(i).select(".gallerytext").select("a").first().ownText();
                 illustrationType = items.get(i).select(".gallerytext").select("p").first().ownText();
-                title = shipName + " " + illustrationType;
+                title = strFilter(shipName + " " + illustrationType);
             }
             
             
@@ -270,6 +271,13 @@ public class SeasonalDataGenerator {
         }
         
         return voiceDataMap;
+    }
+    
+    public String strFilter(String str) {
+        String regEx = "[`~!@#$%^&*()\\-+={}':;,\\[\\].<>/?￥%…（）_+|【】‘；：”“’。，、？\\s]";
+        Pattern p = Pattern.compile(regEx);
+        Matcher m = p.matcher(str);
+        return m.replaceAll("").trim();
     }
     
     public static void main(String[] args) {

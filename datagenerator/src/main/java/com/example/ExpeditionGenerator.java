@@ -15,6 +15,10 @@ import okhttp3.ResponseBody;
 import retrofit2.Retrofit;
 
 import static com.example.utils.Utils.objectToJsonFile;
+import java.io.File;
+import java.io.FileReader;
+import java.util.Collections;
+import java.util.Comparator;
 
 /**
  * Created by Rikka on 2016/6/15.
@@ -32,8 +36,9 @@ public class ExpeditionGenerator {
                 .build();
 
         RetrofitAPI.KcwikiService service = retrofit.create(RetrofitAPI.KcwikiService.class);
-        ResponseBody body = service.getPage("远征列表", "raw").execute().body();
-        Reader reader = body.charStream();
+        //ResponseBody body = service.getPage("远征列表", "raw").execute().body();
+        //Reader reader = body.charStream();
+        Reader reader = new FileReader(new File("L:\\NetBeans\\NetBeansProjects\\Akashi-Toolkit\\src\\远征列表.txt"));
 
         StringBuilder sb = new StringBuilder();
         for (int c = reader.read(); c != -1; c = reader.read()) {
@@ -43,6 +48,7 @@ public class ExpeditionGenerator {
 
         originStr = originStr.replaceAll("<span style=\"color:#f00\">([^<]*)</span>", "<b>$1</b>").replaceAll("\\s*=\\s*", "=");
         originStr = originStr.replace("<b>请参见</b><br />[[经验值和头衔#远征32:远洋练习航海经验|'''远征32相关''']]", "(基础经验值＋僚舰加成) ×等级补正");
+        originStr = originStr.replace("A1", "9").replace("A2", "10").replace("A3", "11").replace("originStr", "17").replace("B2", "18");
         getReward(originStr);
         getRequire(originStr);
 
@@ -54,6 +60,14 @@ public class ExpeditionGenerator {
             e.getName().setZh_tw(ZHConverter.toTC(e.getName().getZh_cn()));
         }
         
+        Collections.sort(list, new Comparator (){
+            @Override
+            public int compare(Object o1, Object o2) {
+                Expedition e1 = (Expedition) o1;
+                Expedition e2 = (Expedition) o2;
+                return e1.getId() - e2.getId();
+            }
+        });
         objectToJsonFile(list, "L:/NetBeans/NetBeansProjects/Akashi-Toolkit/src/json/Expedition.json");
     }
 
@@ -101,9 +115,9 @@ public class ExpeditionGenerator {
     }
 
     private static int getType(int id) {
-        if (id <= 8)
+        if (id <= 11)
             return 0;
-        else if (id <= 16)
+        else if (id <= 18)
             return 1;
         else if (id <= 24)
             return 2;
