@@ -152,7 +152,7 @@ public class EquipTypeGenerator {
 
     public static void main(String[] args) throws IOException {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://api.kcwiki.org")
+                .baseUrl("https://acc.kcwiki.org")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

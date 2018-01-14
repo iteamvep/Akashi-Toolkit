@@ -11,12 +11,16 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import com.spreada.utils.chinese.ZHConverter;
+import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
+import static java.lang.Thread.sleep;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -27,6 +31,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import okhttp3.ResponseBody;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 import retrofit2.Retrofit;
 
 /**
@@ -35,21 +41,25 @@ import retrofit2.Retrofit;
 public class EquipGenerator {
     public static void main(String[] args) throws IOException {
         
+        //System.setProperty("http.proxyHost", "127.0.0.1");
+        //System.setProperty("http.proxyPort", "8888");
+        
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://zh.kcwiki.org/")
                 .build();
-
-        RetrofitAPI.KcwikiService service = retrofit.create(RetrofitAPI.KcwikiService.class);
-        ResponseBody body = service.getPage("模块:舰娘装备数据改", "raw").execute().body();
-        Reader reader = body.charStream();
         
-        //Reader reader = new FileReader(new File("L:\\NetBeans\\NetBeansProjects\\Akashi-Toolkit\\src\\equip.lua"));
-        /*
-        Document doc = Jsoup.connect("https://zh.kcwiki.org/wiki/%E6%A8%A1%E5%9D%97:%E8%88%B0%E5%A8%98%E8%A3%85%E5%A4%87%E6%95%B0%E6%8D%AE%E6%94%B9")
+        RetrofitAPI.KcwikiService service = retrofit.create(RetrofitAPI.KcwikiService.class);
+        //ResponseBody body = service.getPage("模块:舰娘装备数据改", "raw").execute().body();
+        //Reader reader = body.charStream();
+        //System.out.println(body.string());
+        //https://zh.kcwiki.org/index.php?title=%E6%A8%A1%E5%9D%97:%E8%88%B0%E5%A8%98%E8%A3%85%E5%A4%87%E6%95%B0%E6%8D%AE%E6%94%B9&action=raw
+        Reader reader = new FileReader(new File("L:\\NetBeans\\NetBeansProjects\\Akashi-Toolkit\\src\\装备.txt"));
+        
+        /*Document doc = Jsoup.connect("https://zh.kcwiki.org/index.php?title=%E6%A8%A1%E5%9D%97:%E8%88%B0%E5%A8%98%E8%A3%85%E5%A4%87%E6%95%B0%E6%8D%AE%E6%94%B9&action=raw")
                     .timeout(3000)
                     .get();
-        Reader reader = new StringReader(doc.html());
-        */
+        Reader reader = new StringReader(doc.html());*/
+        
         int count = 0;
         boolean comment = false;
         StringBuilder sb = new StringBuilder();
@@ -70,7 +80,7 @@ public class EquipGenerator {
         String str = sb.toString()
                 .substring(2);
         
-        com.example.utils.RWFile.writeLog(JSON.toJSONString(str));
+        com.example.utils.RWFile.writeLog(JSON.toJSONString(str),null);
         reader = new StringReader(str);
         sb = new StringBuilder();
         boolean skipSpace = true;
@@ -148,13 +158,13 @@ public class EquipGenerator {
         */
         //List<NewEquip> list = JSON.parseObject(str, new TypeReference<List<NewEquip>>(){}.getType());
         JSONArray jarr = JSON.parseArray(str);
-        com.example.utils.RWFile.writeLog(JSON.toJSONString(jarr));
+        com.example.utils.RWFile.writeLog(JSON.toJSONString(jarr),null);
         
         List<NewEquip> list = gson.fromJson(new StringReader(str), new TypeToken<List<NewEquip>>() {
         }.getType());
         
         list.removeAll(Collections.singleton(null));
-        com.example.utils.RWFile.writeLog(JSON.toJSONString(list));
+        com.example.utils.RWFile.writeLog(JSON.toJSONString(list),null);
         
         for (NewEquip item : list) {
             item.setRarity(item.get稀有度().length());
@@ -177,10 +187,41 @@ public class EquipGenerator {
             File file = new File("datagenerator/data/equips/" + item.getNameCN().replace("/", "_") + ".txt");
             if (!file.exists()) {
                 try {
-                    body = service.getPage(item.getNameCN(), "raw").execute().body();
-                    Utils.writeStreamToFile(body.byteStream(), file.getPath());
+                    //body = service.getPage(item.getNameCN(), "raw").execute().body();
+                    String name = item.getNameCN();
+                    if (name.contains("单装机枪")){}
+                        //name = name.replace("单装机枪", "单装机铳");
+                    String url = java.net.URLEncoder.encode(name,"utf-8");
+                    Document doc = null;
+                    try{
+                        doc = Jsoup.connect("https://zh.kcwiki.org/index.php?title="+ url +"&action=raw")
+                    .timeout(3000)
+                    .get();
+                    } catch (Exception ignored) {
+                        continue;
+                    }
+                    if (doc == null)
+                        continue;
+                    if(doc.html().contains("重定向")){
+                        int start = doc.html().indexOf("[[");
+                        int end = doc.html().indexOf("]]");
+                        name = doc.html().substring(start+2, end);
+                        url = java.net.URLEncoder.encode(name,"utf-8");
+                        try{
+                            doc = Jsoup.connect("https://zh.kcwiki.org/index.php?title="+ url +"&action=raw")
+                        .timeout(3000)
+                        .get();
+                        } catch (Exception ignored) {
+                            continue;
+                        }
+                    }
+                    
+                    item.getName().setZh_cn(name);
+                    sleep(500);
+                    Utils.writeStreamToFile(new ByteArrayInputStream(doc.html().getBytes()), file.getPath());
                     //System.out.println();
                 } catch (Exception ignored) {
+                    ignored.printStackTrace();
                     System.out.print(item.getNameCN());
                     System.out.println(" 炸裂了");
                     continue;
@@ -207,10 +248,14 @@ public class EquipGenerator {
         }
 
         // 敌舰数据
-        reader = service.getPage("深海栖舰装备", "raw").execute().body().charStream();
+        //reader = service.getPage("深海栖舰装备", "raw").execute().body().charStream();
+        //https://zh.kcwiki.org/index.php?title=%E6%A8%A1%E5%9D%97:%E6%B7%B1%E6%B5%B7%E8%A3%85%E5%A4%87%E6%95%B0%E6%8D%AE&action=raw
+        BufferedReader reader1 = new BufferedReader(new FileReader(new File("L:\\NetBeans\\NetBeansProjects\\Akashi-Toolkit\\src\\深海装备.txt")));
+        String a;
         sb = new StringBuilder();
-        for (int c = reader.read(); c != -1; c = reader.read()) {
-            sb.append((char) c);
+        while((a=reader1.readLine())!=null) {
+             sb.append(a);
+             sb.append("\n");
         }
         str = sb.toString()
                 .replace("=短\"", "1")
@@ -408,7 +453,7 @@ public class EquipGenerator {
 
     private static void specialType(List<NewEquip> list) {
         findByName("试制51cm连装炮", list).getTypes()[2] = 38; // 大口径主砲(II)
-        findByName("试制景云(舰侦型)", list).getTypes()[2] = 94; // 艦上偵察機(II)
+        findByName("试制景云（舰侦型）", list).getTypes()[2] = 94; // 艦上偵察機(II)
     }
 
     private static List<EquipImprovement> equipImprovementList = new ArrayList<>();

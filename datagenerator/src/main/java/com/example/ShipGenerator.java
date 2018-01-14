@@ -39,6 +39,9 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 import static com.example.utils.Utils.objectToJsonFile;
+import java.io.InputStreamReader;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 
 /**
  * Created by Rikka on 2016/9/17.
@@ -54,7 +57,7 @@ public class ShipGenerator {
     static {
         if (USE_ONLINE_DATA) {
             Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl("https://api.kcwiki.org")
+                    .baseUrl("https://acc.kcwiki.org")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
 
@@ -125,6 +128,9 @@ public class ShipGenerator {
             attr.setLOS(ship.get数据().get索敌().get(1) - ship.get数据().get索敌().get(0));
 
             Ship2.RemodelEntity remodel = new Ship2.RemodelEntity();
+            if(ship.get中文名().equals("佐渡")){
+                System.out.print(wkj);
+            }
             remodel.setToId(apiShip.getAfter_ship_id());
             remodel.setLevel(apiShip.getAfter_lv());
             remodel.setCost(new int[]{ship.getAfter_bull(), ship.getAfter_fuel()});
@@ -171,7 +177,7 @@ public class ShipGenerator {
         }
 
         // 临时补充数据中暂无的
-        getList().getByName("松风").setClassType(66);
+        /*getList().getByName("松风").setClassType(66);
         getList().getByName("松风").setClassNum(4);
         getList().getByName("松风改").setClassType(66);
         getList().getByName("松风改").setClassNum(4);
@@ -192,6 +198,89 @@ public class ShipGenerator {
         getList().getByName("伊14").setClassNum(14);
         getList().getByName("伊14改").setClassType(999);
         getList().getByName("伊14改").setClassNum(14);
+        
+        
+        getList().getByName("铃谷航改二").setClassType(getList().getByName("最上").getClassType());
+        getList().getByName("熊野航改二").setClassType(getList().getByName("最上").getClassType());
+        getList().getByName("铃谷航改二").setClassNum(3);
+        getList().getByName("熊野航改二").setClassNum(4);
+        
+        shipClassList.add(new ShipClass("Гангут", 997));
+        getList().getByName("甘古特").setClassType(997);
+        getList().getByName("十月革命").setClassType(997);
+        getList().getByName("甘古特два").setClassType(997);
+        getList().getByName("甘古特").setClassNum(1);
+        getList().getByName("十月革命").setClassNum(1);
+        getList().getByName("甘古特два").setClassNum(1);
+        
+        
+        shipClassList.add(new ShipClass("Queen Elizabeth", 998));
+        getList().getByName("皇家方舟").setClassType(998);
+        getList().getByName("皇家方舟改").setClassType(998);
+        getList().getByName("皇家方舟").setClassNum(1);
+        getList().getByName("皇家方舟改").setClassNum(1);
+        
+        
+        shipClassList.add(new ShipClass("列克星敦", 995));
+        getList().getByName("萨拉托加Mk.II Mod.2").setClassType(995);
+        getList().getByName("萨拉托加Mk.II Mod.2").setClassNum(2);
+        
+        shipClassList.add(new ShipClass("占守", 992));
+        getList().getByName("占守").setClassType(992);
+        getList().getByName("占守改").setClassType(992);
+        getList().getByName("国后").setClassType(992);
+        getList().getByName("国后改").setClassType(992);
+        getList().getByName("占守").setClassNum(1);
+        getList().getByName("占守改").setClassNum(1);
+        getList().getByName("国后").setClassNum(2);
+        getList().getByName("国后改").setClassNum(2);
+        
+        shipClassList.add(new ShipClass("择捉", 991));
+        getList().getByName("择捉").setClassType(991);
+        getList().getByName("择捉改").setClassType(991);
+        getList().getByName("佐渡").setClassType(991);
+        getList().getByName("佐渡改").setClassType(991);
+        getList().getByName("对马").setClassType(991);
+        getList().getByName("对马改").setClassType(991);
+        getList().getByName("松轮").setClassType(991);
+        getList().getByName("松轮改").setClassType(991);
+        getList().getByName("择捉").setClassNum(1);
+        getList().getByName("择捉改").setClassNum(1);
+        getList().getByName("佐渡").setClassNum(3);
+        getList().getByName("佐渡改").setClassNum(3);
+        getList().getByName("对马").setClassNum(7);
+        getList().getByName("对马改").setClassNum(7);
+        getList().getByName("松轮").setClassNum(2);
+        getList().getByName("松轮改").setClassNum(2);
+        
+        shipClassList.add(new ShipClass("春日丸", 994));
+        getList().getByName("春日丸").setClassType(994);
+        getList().getByName("大鹰").setClassType(994);
+        getList().getByName("大鹰改").setClassType(994);
+        getList().getByName("大鹰改二").setClassType(994);
+        getList().getByName("春日丸").setClassNum(1);
+        getList().getByName("大鹰").setClassNum(1);
+        getList().getByName("大鹰改").setClassNum(1);
+        getList().getByName("大鹰改二").setClassNum(1);
+        
+        shipClassList.add(new ShipClass("马可尼", 993));
+        getList().getByName("路易吉·托雷利").setClassType(993);
+        getList().getByName("路易吉·托雷利改").setClassType(993);
+        getList().getByName("UIT-25").setClassType(993);
+        getList().getByName("路易吉·托雷利").setClassNum(4);
+        getList().getByName("路易吉·托雷利改").setClassNum(4);
+        getList().getByName("UIT-25").setClassNum(4);
+        
+        shipClassList.add(new ShipClass("501", 990));
+        getList().getByName("伊504").setClassType(990);
+        getList().getByName("伊504").setClassNum(4);
+        
+        getList().getByName("凉月").setClassType(getList().getByName("秋月").getClassType());
+        getList().getByName("凉月改").setClassType(getList().getByName("秋月").getClassType());
+        getList().getByName("凉月").setClassNum(3);
+        getList().getByName("凉月改").setClassNum(3);*/
+        
+        
 
         for (Ship2 ship : getList()) {
             if (ship.getClassType() == 0) {
@@ -239,6 +328,7 @@ public class ShipGenerator {
             ResponseBody body = service.getPage("模块:舰娘数据", "raw").execute().body();
             reader = body.charStream();
         } else {
+            //https://zh.kcwiki.org/index.php?title=%E6%A8%A1%E5%9D%97:%E8%88%B0%E5%A8%98%E6%95%B0%E6%8D%AE&action=raw
             reader = new FileReader("L:\\NetBeans\\NetBeansProjects\\Akashi-Toolkit\\src/ship.lua");
         }
 
@@ -347,17 +437,15 @@ public class ShipGenerator {
             str = str.substring(0, str.indexOf("\"Mist01") - 1)
                     + str.substring(str.indexOf("\"wiki_id\":\"257a\"") - 2);
         }
-        //com.example.utils.RWFile.writeLog(str);
         JSONArray jarr = JSON.parseArray(str);
-        //str = JSON.toJSONString(jarr);
-        
+        //only for debug
         for(Object jobj:jarr){
             String jstr = JSON.toJSONString(jobj);
             System.out.println(jstr+"\r\n");
             Object obj = new Gson().fromJson(jstr, Ship2.class);
         }
+        
         sShipList = new Gson().fromJson(str, ShipList.class);
-        //sShipList = JSON.parseObject(str);
         return sShipList;
     }
 
@@ -368,9 +456,9 @@ public class ShipGenerator {
             sApiShipList = getAPIShipList();
         }
         
-        if(id > 500 && id < 800){
+        /*if(id > 500 && id < 800){
             id = Integer.valueOf("1" +id);
-        }
+        }*/
         for (NewShip item : sApiShipList) {
             if (item.getId() == id) {
                 return item;
@@ -386,14 +474,14 @@ public class ShipGenerator {
                     .create();
 
             Retrofit retrofit = new Retrofit.Builder()
-                    //.baseUrl("https://api.kcwiki.org")
-                    .baseUrl("http://api.kcwiki.moe/ships/detail")
+                    .baseUrl("https://acc.kcwiki.org")
                     .addConverterFactory(GsonConverterFactory.create(gson))
                     .build();
 
             RetrofitAPI.ShipService service = retrofit.create(RetrofitAPI.ShipService.class);
             return service.getDetail().execute().body();
         } else {
+            //http://acc.kcwiki.org/ships/detail
             return new Gson().fromJson(
                     new FileReader(new File("L:/NetBeans/NetBeansProjects/Akashi-Toolkit/src/ships_detail.json")),
                     new TypeToken<List<NewShip>>() {
@@ -633,9 +721,22 @@ public class ShipGenerator {
                 .build();
 
         RetrofitAPI.KcwikiService service = retrofit.create(RetrofitAPI.KcwikiService.class);
-        ResponseBody body = service.getPage("深海栖舰列表", "raw").execute().body();
-        String str = body.string();
-
+        //ResponseBody body = service.getPage("深海栖舰列表", "raw").execute().body();
+        //String str = body.string();
+        BufferedReader reader = new BufferedReader(new FileReader(new File("L:\\NetBeans\\NetBeansProjects\\Akashi-Toolkit\\src\\深海栖舰列表.txt")));
+        String a;
+        StringBuilder b = new StringBuilder();
+        while((a=reader.readLine())!=null) {
+             b.append(a);
+             b.append("\n");
+        }
+        String str = b.toString();
+        /*Document doc = Jsoup.connect("https://zh.kcwiki.org/index.php?title=%E6%B7%B1%E6%B5%B7%E6%A0%96%E8%88%B0%E5%88%97%E8%A1%A8&action=raw")
+                    .timeout(3000)
+                    .get();
+        String str = doc.html();*/
+        
+        
         Map<String, String> map = new HashMap<>();
         Matcher m;
         m = ENEMY_LINE_START.matcher(str);
@@ -650,6 +751,7 @@ public class ShipGenerator {
             if (line.contains("编号=mist")) {
                 continue;
             }
+            
 
             Ship2 ship = new Ship2();
             getList().add(ship);
@@ -666,6 +768,7 @@ public class ShipGenerator {
                 } else {
                     value = "";
                 }
+                //System.out.println(key);
                 parseEnemyShip(ship, map, key.trim(), value.trim());
 
                 if (ship.getId() != 0 && ship.getType() == 0) {
@@ -683,6 +786,9 @@ public class ShipGenerator {
     private static void parseEnemyShip(Ship2 ship, Map<String, String> map, String key, String value) {
         switch (key) {
             case "编号":
+                if(!value.startsWith("1")){
+                    value = "1" + value;
+                }
                 ship.setId(Utils.stringToInt(value));
                 ship.setWikiId(value);
                 break;
@@ -769,7 +875,15 @@ public class ShipGenerator {
                             id = 568;
                             break;
                     }
+                    if(ship.getEquip() == null || slot >= ship.getEquip().getId().length) {
+                        System.out.print(wkj);
+                    }
+                    try{
                     ship.getEquip().getId()[slot] = id;
+                    }catch(Exception e){
+                        e.printStackTrace();
+                          System.out.print(wkj);  
+                            }
                 } else {
                     if (slot < ship.getEquip().getId().length)
                         ship.getEquip().getId()[slot] = equip.getId();
