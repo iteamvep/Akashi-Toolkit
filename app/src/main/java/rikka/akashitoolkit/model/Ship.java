@@ -6,6 +6,9 @@ import java.util.List;
  * Created by Rikka on 2016/6/28.
  */
 public class Ship extends BaseDataModel {
+
+    public static final int MAX_LEVEL = 165;
+
     private String wiki_id;
     private MultiLanguageEntry name;
     private int stype;

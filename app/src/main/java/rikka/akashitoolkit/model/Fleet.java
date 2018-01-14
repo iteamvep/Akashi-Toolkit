@@ -255,11 +255,10 @@ public class Fleet {
             setShip(ship);
             setSlots(ship.getEquip().getSpace());
 
-            // level should be 1 to 155
             if (getLevel() < 1) {
                 setLevel(1);
-            } else if (getLevel() > 155) {
-                setLevel(155);
+            } else if (getLevel() > rikka.akashitoolkit.model.Ship.MAX_LEVEL) {
+                setLevel(rikka.akashitoolkit.model.Ship.MAX_LEVEL);
             }
 
             // check equips
