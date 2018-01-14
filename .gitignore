@@ -10,3 +10,4 @@
 gradle.properties
 signing.properties
 app/fabric.properties
+app/release/output.json
