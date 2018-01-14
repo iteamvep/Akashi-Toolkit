@@ -248,7 +248,7 @@ public class FleetAdapter extends BaseItemTouchHelperAdapter<FleetViewHolder, Fl
 
     @Override
     public int getItemCount() {
-        return super.getItemCount() < 6 ? super.getItemCount() + 1 : super.getItemCount();
+        return super.getItemCount() < Fleet.MAX_SIZE ? super.getItemCount() + 1 : super.getItemCount();
     }
 
     @Override

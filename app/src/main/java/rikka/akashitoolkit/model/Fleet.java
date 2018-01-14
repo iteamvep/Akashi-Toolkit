@@ -17,6 +17,9 @@ import rikka.akashitoolkit.staticdata.ShipList;
  * Created by Rikka on 2016/7/29.
  */
 public class Fleet {
+
+    public static final int MAX_SIZE = 7;
+
     @Expose
     String name;
     @Expose
@@ -344,7 +347,7 @@ public class Fleet {
 
         List<Fleet.Ship> shipList = new ArrayList<>();
         for (Fleet.Ship s : getShips()) {
-            if (shipList.size() >= 6) {
+            if (shipList.size() >= MAX_SIZE) {
                 return;
             }
 

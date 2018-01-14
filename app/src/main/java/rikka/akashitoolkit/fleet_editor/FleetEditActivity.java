@@ -189,7 +189,7 @@ public class FleetEditActivity extends AppCompatActivity {
                 Log.d(TAG, "add ship position: " + mCurrentEditingPosition
                         /*+ " ship: " + mFleet.getShips().toString()*/);
 
-                if (mFleet.getShips().size() != 6) {
+                if (mFleet.getShips().size() != Fleet.MAX_SIZE) {
                     mAdapter.notifyItemInserted(mCurrentEditingPosition);
                 } else {
                     mAdapter.notifyItemChanged(mCurrentEditingPosition);
