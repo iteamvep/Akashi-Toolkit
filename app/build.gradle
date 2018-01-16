@@ -33,6 +33,12 @@ android {
 
     signingConfigs {
         sign
+        config {
+            storeFile file('C:/Users/cyn19/.android/debug1.jks')
+            keyAlias 'debug'
+            keyPassword 'woshicyn'
+            storePassword 'woshicyn'
+        }
     }
 
     lintOptions {
@@ -41,20 +47,18 @@ android {
 
     buildTypes {
         release {
-            signingConfig signingConfigs.sign
+            signingConfig signingConfigs.debug
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-
         googlePlayRelease {
             signingConfig signingConfigs.sign
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             applicationIdSuffix '.lite'
         }
-
         debug {
-            signingConfig signingConfigs.sign
+            signingConfig signingConfigs.config
             applicationIdSuffix '.debug'
         }
     }
@@ -72,7 +76,7 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     testImplementation 'junit:junit:4.12'
     implementation "com.android.support:appcompat-v7:$supportLibraryVersion"
     implementation "com.android.support:recyclerview-v7:$supportLibraryVersion"
