@@ -97,6 +97,9 @@ public class Event extends ArrayList<Event.Container> {
                 case TYPE_URL:
                     object = gson.fromJson(json, Event.Url.class);
                     break;
+                case TYPE_VOICE:
+                    object = gson.fromJson(json, Event.Voices.class);
+                    break;
                 default:
                     Log.e("Event", "unhandled: " + json);
                     error = true;
