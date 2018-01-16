@@ -58,7 +58,7 @@ public class VoicesViewHolder extends RecyclerView.ViewHolder implements IBindVi
 
         int count = 0;
         for (Event.Voices.Voice voice : data.getVoices()) {
-            list.add(String.format("%s (%d)", voice.getType(), voice.getVoice().size()));
+            list.add(String.format("%s (%d)", voice.getType().get(), voice.getVoice().size()));
             count += voice.getVoice().size();
         }
 
