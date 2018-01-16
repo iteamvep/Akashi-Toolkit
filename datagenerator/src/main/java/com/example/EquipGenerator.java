@@ -287,6 +287,7 @@ public class EquipGenerator {
             if (m2.find())
                 equip.getName().setJa(m2.group(1).trim());
 
+            // TODO: 把图标当成了类别，需要fix
             m2 = Pattern.compile("图标=(\\d+)").matcher(str);
             if (m2.find()) {
                 int type = Utils.stringToInt(m2.group(1));
