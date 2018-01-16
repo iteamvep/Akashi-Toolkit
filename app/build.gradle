@@ -33,12 +33,6 @@ android {
 
     signingConfigs {
         sign
-        config {
-            storeFile file('C:/Users/cyn19/.android/debug1.jks')
-            keyAlias 'debug'
-            keyPassword 'woshicyn'
-            storePassword 'woshicyn'
-        }
     }
 
     lintOptions {
@@ -47,18 +41,20 @@ android {
 
     buildTypes {
         release {
-            signingConfig signingConfigs.debug
+            signingConfig signingConfigs.sign
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+
         googlePlayRelease {
             signingConfig signingConfigs.sign
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             applicationIdSuffix '.lite'
         }
+
         debug {
-            signingConfig signingConfigs.config
+            signingConfig signingConfigs.sign
             applicationIdSuffix '.debug'
         }
     }
