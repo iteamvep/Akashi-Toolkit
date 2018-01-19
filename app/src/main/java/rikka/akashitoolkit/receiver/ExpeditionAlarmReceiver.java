@@ -2,6 +2,7 @@ package rikka.akashitoolkit.receiver;
 
 import android.annotation.SuppressLint;
 import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
@@ -32,13 +33,23 @@ public class ExpeditionAlarmReceiver extends BroadcastReceiver {
             NotificationManager notificationManager =
                     (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
+            // notification channel
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                CharSequence name = context.getString(R.string.expedition_notify);
+                NotificationChannel channel = new NotificationChannel("expedition", name, NotificationManager.IMPORTANCE_HIGH);
+                channel.enableLights(true);
+                channel.setLightColor(ContextCompat.getColor(context, R.color.material_pink_500));
+                channel.enableVibration(true);
+                notificationManager.createNotificationChannel(channel);
+            }
+
             Settings.instance(context).putLong(String.format("expedition_time_%d", id), 0);
 
             Intent i = new Intent(context, ExpeditionAlarmResetReceiver.class);
             i.putExtra("ExpeditionAlarmReceiver_ID", id);
             PendingIntent actionIntent = PendingIntent.getBroadcast(context, id, i, PendingIntent.FLAG_CANCEL_CURRENT);
 
-            NotificationCompat.Builder builder = new NotificationCompat.Builder(context)
+            NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "expedition")
                     .setSmallIcon(R.mipmap.ic_launcher_flower)
                     .setGroup("expedition")
                     .setColor(ContextCompat.getColor(context, R.color.material_pink_500))
@@ -63,7 +74,7 @@ public class ExpeditionAlarmReceiver extends BroadcastReceiver {
 
             // group
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                builder = new NotificationCompat.Builder(context)
+                builder = new NotificationCompat.Builder(context, "expedition")
                         .setSmallIcon(R.mipmap.ic_launcher_flower)
                         .setColor(ContextCompat.getColor(context, R.color.material_pink_500))
                         .setShowWhen(true)
