@@ -17,6 +17,9 @@ import rikka.akashitoolkit.staticdata.ShipList;
  * Created by Rikka on 2016/7/29.
  */
 public class Fleet {
+
+    public static final int MAX_SIZE = 7;
+
     @Expose
     String name;
     @Expose
@@ -252,11 +255,10 @@ public class Fleet {
             setShip(ship);
             setSlots(ship.getEquip().getSpace());
 
-            // level should be 1 to 155
             if (getLevel() < 1) {
                 setLevel(1);
-            } else if (getLevel() > 155) {
-                setLevel(155);
+            } else if (getLevel() > rikka.akashitoolkit.model.Ship.MAX_LEVEL) {
+                setLevel(rikka.akashitoolkit.model.Ship.MAX_LEVEL);
             }
 
             // check equips
@@ -344,7 +346,7 @@ public class Fleet {
 
         List<Fleet.Ship> shipList = new ArrayList<>();
         for (Fleet.Ship s : getShips()) {
-            if (shipList.size() >= 6) {
+            if (shipList.size() >= MAX_SIZE) {
                 return;
             }
 

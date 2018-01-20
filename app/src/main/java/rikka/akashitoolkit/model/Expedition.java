@@ -151,7 +151,7 @@ public class Expedition extends BaseDataModel {
         private int minShips;
         private String essentialShip;
         private String bucket;
-        private List<Integer> consume;
+        private List<Double> consume;
         private List<String> consumeString;
 
         public int getTotalLevel() {
@@ -194,11 +194,11 @@ public class Expedition extends BaseDataModel {
             this.bucket = bucket;
         }
 
-        public List<Integer> getConsume() {
+        public List<Double> getConsume() {
             return consume;
         }
 
-        public void setConsume(List<Integer> consume) {
+        public void setConsume(List<Double> consume) {
             this.consume = consume;
         }
 

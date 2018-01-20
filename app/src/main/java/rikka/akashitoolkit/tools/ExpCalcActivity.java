@@ -2,7 +2,6 @@ package rikka.akashitoolkit.tools;
 
 import android.os.Build;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
@@ -15,6 +14,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import rikka.akashitoolkit.R;
+import rikka.akashitoolkit.model.Ship;
 import rikka.akashitoolkit.ui.BaseActivity;
 
 public class ExpCalcActivity extends BaseActivity {
@@ -65,7 +65,8 @@ public class ExpCalcActivity extends BaseActivity {
             1290000, 1329000, 1372000, 1419000, 1470000, 1525000, 1584000, 1647000, 1714000, 1785000,
             1860000, 1940000, 2025000, 2115000, 2210000, 2310000, 2415000, 2525000, 2640000, 2760000,
             2887000, 3021000, 3162000, 3310000, 3465000, 3628000, 3799000, 3978000, 4165000, 4360000, // Lv.150
-            4564000, 4777000, 4999000, 5230000, 5470000 // Lv.155
+            4564000, 4777000, 4999000, 5230000, 5470000, 5720000, 5780000, 5860000, 5970000, 6120000,
+            6320000, 6580000, 6910000, 7320000, 7820000                                               // Lv.165
     };
 
     private Spinner mSpinnerMap;
@@ -215,7 +216,7 @@ public class ExpCalcActivity extends BaseActivity {
     }
 
     private void calc() {
-        if (mCurLv < 1 || mCurLv > 155 || mTargetLv > 155 || mTargetLv < 1 || mCurLv > mTargetLv) {
+        if (mCurLv < 1 || mCurLv > Ship.MAX_LEVEL || mTargetLv > Ship.MAX_LEVEL || mTargetLv < 1 || mCurLv > mTargetLv) {
             mTextViewResult.setText(R.string.exp_calc_error);
             return;
         }
