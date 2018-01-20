@@ -113,7 +113,13 @@ public class ExpeditionAdapter extends BaseBookmarkRecyclerAdapter<RecyclerView.
         Context context = holder.itemView.getContext();
         Expedition item = (Expedition) getItem(position);
 
-        holder.mTitle.setText(String.format(item.isBookmarked() ? "%d %s ★" : "%d %s", item.getId(), item.getName().get()));
+        String code = item.getId() + "";
+        if (item.getId() > 1000) {
+            int offset = item.getId() / 1000 - 1;
+            code = (new StringBuffer()).append((char) ('A' + offset)).append(item.getId() % 1000).toString();
+        }
+
+        holder.mTitle.setText(String.format(item.isBookmarked() ? "%s %s ★" : "%s %s", code, item.getName().get()));
         holder.mTime.setText(Html.fromHtml(item.getTimeString()));
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
