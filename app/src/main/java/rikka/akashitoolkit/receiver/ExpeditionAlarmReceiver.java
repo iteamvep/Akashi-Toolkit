@@ -1,7 +1,6 @@
 package rikka.akashitoolkit.receiver;
 
 import android.annotation.SuppressLint;
-import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -56,7 +55,7 @@ public class ExpeditionAlarmReceiver extends BroadcastReceiver {
                     .setContentTitle(context.getString(R.string.expedition_finished))
                     .setContentText(expedition.getName().get())
                     .setPriority(NotificationCompat.PRIORITY_HIGH)
-                    .setDefaults(Notification.DEFAULT_VIBRATE | Notification.DEFAULT_SOUND)
+                    .setDefaults(NotificationCompat.DEFAULT_VIBRATE | NotificationCompat.DEFAULT_SOUND)
                     .setLights(ContextCompat.getColor(context, R.color.material_pink_500), 1000, 1000)
                     .setAutoCancel(true)
                     .setShowWhen(true)
@@ -81,7 +80,8 @@ public class ExpeditionAlarmReceiver extends BroadcastReceiver {
                         .setWhen(System.currentTimeMillis())
                         .setGroup("expedition")
                         .setGroupSummary(true)
-                        .setContentIntent(contentIntent);
+                        .setContentIntent(contentIntent)
+                        .setGroupAlertBehavior(NotificationCompat.GROUP_ALERT_CHILDREN);
 
                 notificationManager.notify(10000, builder.build());
             }
