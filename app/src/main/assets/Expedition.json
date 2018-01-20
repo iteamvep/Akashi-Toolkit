@@ -376,25 +376,17 @@
       ]
     },
     "require": {
-      "totalLevel": 0,
-      "flagshipLevel": 3,
+      "totalLevel": 10,
+      "flagshipLevel": 5,
       "minShips": 4,
-      "essentialShip": "轻巡*1 驱逐*2",
+      "essentialShip": "驱逐/海防*3",
       "bucket": "",
       "consume": [
-        -3,
-        0,
-        -3,
-        0,
-        -5,
+        -3.5,
         0
       ],
       "consumeString": [
-        "-3",
-        "",
-        "-3",
-        "",
-        "-5",
+        "-3.5",
         ""
       ]
     }
@@ -425,21 +417,21 @@
         0,
         10
       ],
-      "award": "开发资材x1"
+      "award": "开发资材x1 高速修复材x1"
     },
     "require": {
       "totalLevel": 0,
-      "flagshipLevel": 3,
+      "flagshipLevel": 20,
       "minShips": 3,
-      "essentialShip": "轻巡*2",
+      "essentialShip": "驱逐/海防*4且舰队总对潜＞180 总对空＞70",
       "bucket": "",
       "consume": [
-        -3,
-        0
+        -5,
+        -2
       ],
       "consumeString": [
-        "-3",
-        ""
+        "-2",
+        "-2"
       ]
     }
   },
@@ -469,21 +461,21 @@
         60,
         60
       ],
-      "award": "高速修复材x1"
+      "award": "高速修复材x1 开发资材x2"
     },
     "require": {
       "totalLevel": 0,
-      "flagshipLevel": 6,
+      "flagshipLevel": 35,
       "minShips": 4,
-      "essentialShip": "驱逐*2",
+      "essentialShip": "轻巡x1驱逐/海防x4 或 驱逐x1-2 海防3-4",
       "bucket": "",
       "consume": [
-        -5,
-        0
+        -6.5,
+        -3.5
       ],
       "consumeString": [
-        "-5",
-        ""
+        "-6.5",
+        "-3.5"
       ]
     }
   },
