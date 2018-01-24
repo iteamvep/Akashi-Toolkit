@@ -1,1 +1,1976 @@
-[{"id":1,"name":{"zh_cn":"练习航海","zh_tw":"練習航海","ja":"練習航海","en":""},"time":15,"type":0,"timeString":"00:15","reward":{"playerXP":"10","shipXP":"10","resourceString":["","30\u003cbr\u003e120/h","",""],"resource":[0,30,0,0]},"require":{"totalLevel":0,"flagshipLevel":1,"minShips":2,"essentialShip":"任意","bucket":"","consume":[-3,0],"consumeString":["-3",""]}},{"id":2,"name":{"zh_cn":"长距离练习航海","zh_tw":"長距離練習航海","ja":"長距離練習航海","en":""},"time":30,"type":0,"timeString":"00:30","reward":{"playerXP":"20","shipXP":"15","resourceString":["","100\u003cbr\u003e\u003cb\u003e200/h\u003c/b\u003e","30\u003cbr\u003e60/h",""],"resource":[0,100,30,0],"award":"\u003cb\u003e高速修复材x1\u003c/b\u003e"},"require":{"totalLevel":0,"flagshipLevel":2,"minShips":4,"essentialShip":"任意","bucket":"","consume":[-5,0],"consumeString":["-5",""]}},{"id":3,"name":{"zh_cn":"警备任务","zh_tw":"警備任務","ja":"警備任務","en":""},"time":20,"type":0,"timeString":"00:20","reward":{"playerXP":"30","shipXP":"30","resourceString":["30\u003cbr\u003e90/h","30\u003cbr\u003e90/h","40\u003cbr\u003e\u003cb\u003e120/h\u003c/b\u003e",""],"resource":[30,30,40,0]},"require":{"totalLevel":0,"flagshipLevel":3,"minShips":3,"essentialShip":"任意","bucket":"","consume":[-3,-2],"consumeString":["-3","-2"]}},{"id":4,"name":{"zh_cn":"对潜警戒任务","zh_tw":"對潛警戒任務","ja":"対潜警戒任務","en":""},"time":50,"type":0,"timeString":"00:50","reward":{"playerXP":"30","shipXP":"40","resourceString":["","60\u003cbr\u003e72/h","",""],"resource":[0,60,0,0],"award":"\u003cb\u003e高速修复材x1\u003c/b\u003e"},"require":{"totalLevel":0,"flagshipLevel":3,"minShips":3,"essentialShip":"轻巡*1 驱逐*2","bucket":"","consume":[-5,0],"consumeString":["-5",""]}},{"id":5,"name":{"zh_cn":"海上护卫任务","zh_tw":"海上護衛任務","ja":"海上護衛任務","en":""},"time":90,"type":0,"timeString":"01:30","reward":{"playerXP":"40","shipXP":"40","resourceString":["200\u003cbr\u003e\u003cb\u003e133/h\u003c/b\u003e","200\u003cbr\u003e\u003cb\u003e133/h\u003c/b\u003e","20\u003cbr\u003e13/h","20\u003cbr\u003e13/h"],"resource":[200,200,20,20]},"require":{"totalLevel":0,"flagshipLevel":3,"minShips":4,"essentialShip":"轻巡*1 驱逐*2","bucket":"","consume":[-5,0],"consumeString":["-5",""]}},{"id":6,"name":{"zh_cn":"防空射击演习","zh_tw":"防空射擊演習","ja":"防空射撃演習","en":""},"time":40,"type":0,"timeString":"00:40","reward":{"playerXP":"30","shipXP":"50","resourceString":["","","","80\u003cbr\u003e\u003cb\u003e120/h\u003c/b\u003e"],"resource":[0,0,0,80],"award":"家具箱（小）x1"},"require":{"totalLevel":0,"flagshipLevel":4,"minShips":4,"essentialShip":"任意","bucket":"","consume":[-3,-2],"consumeString":["-3","-2"]}},{"id":7,"name":{"zh_cn":"观舰式排演","zh_tw":"觀艦式排演","ja":"観艦式予行","en":""},"time":60,"type":0,"timeString":"01:00","reward":{"playerXP":"60","shipXP":"120","resourceString":["","","50\u003cbr\u003e50/h","30\u003cbr\u003e30/h"],"resource":[0,0,50,30],"award":"高速建造材x1"},"require":{"totalLevel":0,"flagshipLevel":5,"minShips":6,"essentialShip":"任意","bucket":"","consume":[-5,0],"consumeString":["-5",""]}},{"id":8,"name":{"zh_cn":"观舰式","zh_tw":"觀艦式","ja":"観艦式","en":""},"time":180,"type":0,"timeString":"03:00","reward":{"playerXP":"120","shipXP":"140","resourceString":["50\u003cbr\u003e17/h","100\u003cbr\u003e33/h","50\u003cbr\u003e17/h","50\u003cbr\u003e17/h"],"resource":[50,100,50,50],"award":"高速建造材x2"},"require":{"totalLevel":0,"flagshipLevel":6,"minShips":6,"essentialShip":"任意","bucket":"","consume":[-5,-2],"consumeString":["-5","-2"]}},{"id":9,"name":{"zh_cn":"油轮护卫任务","zh_tw":"油輪護衛任務","ja":"タンカー護衛任務","en":""},"time":240,"type":1,"timeString":"\u003cb\u003e04:00\u003c/b\u003e","reward":{"playerXP":"60","shipXP":"60","resourceString":["350\u003cbr\u003e88/h","","",""],"resource":[350,0,0,0],"award":"家具箱（小）x1"},"require":{"totalLevel":0,"flagshipLevel":3,"minShips":4,"essentialShip":"轻巡*1 驱逐*2","bucket":"","consume":[-5,0],"consumeString":["-5",""]}},{"id":10,"name":{"zh_cn":"强行侦察任务","zh_tw":"強行偵察任務","ja":"強行偵察任務","en":""},"time":90,"type":1,"timeString":"01:30","reward":{"playerXP":"40","shipXP":"50","resourceString":["","50\u003cbr\u003e33/h","","30\u003cbr\u003e20/h"],"resource":[0,50,0,30],"award":"高速修复材x1"},"require":{"totalLevel":0,"flagshipLevel":3,"minShips":3,"essentialShip":"轻巡*2","bucket":"","consume":[-3,0],"consumeString":["-3",""]}},{"id":11,"name":{"zh_cn":"铝土运送任务","zh_tw":"鋁土運送任務","ja":"ボーキサイト輸送任務","en":""},"time":300,"type":1,"timeString":"\u003cb\u003e05:00\u003c/b\u003e","reward":{"playerXP":"40","shipXP":"40","resourceString":["","","","250\u003cbr\u003e50/h"],"resource":[0,0,0,250],"award":"家具箱（小）x1"},"require":{"totalLevel":0,"flagshipLevel":6,"minShips":4,"essentialShip":"驱逐*2","bucket":"","consume":[-5,0],"consumeString":["-5",""]}},{"id":12,"name":{"zh_cn":"资源运送任务","zh_tw":"資源運送任務","ja":"資源輸送任務","en":""},"time":480,"type":1,"timeString":"08:00","reward":{"playerXP":"60","shipXP":"50","resourceString":["50\u003cbr\u003e6/h","250\u003cbr\u003e31/h","200\u003cbr\u003e25/h","50\u003cbr\u003e6/h"],"resource":[50,250,200,50],"award":"家具箱（中）x1"},"require":{"totalLevel":0,"flagshipLevel":4,"minShips":4,"essentialShip":"驱逐*2","bucket":"","consume":[-5,0],"consumeString":["-5",""]}},{"id":13,"name":{"zh_cn":"鼠输送作战","zh_tw":"鼠輸送作戰","ja":"鼠輸送作戦","en":""},"time":240,"type":1,"timeString":"\u003cb\u003e04:00\u003c/b\u003e","reward":{"playerXP":"70","shipXP":"60","resourceString":["240\u003cbr\u003e60/h","300\u003cbr\u003e75/h","",""],"resource":[240,300,0,0],"award":"高速修复材x2"},"require":{"totalLevel":0,"flagshipLevel":5,"minShips":6,"essentialShip":"轻巡*1 驱逐*4","bucket":"","consume":[-5,-4],"consumeString":["-5","-4"]}},{"id":14,"name":{"zh_cn":"围困陆战队撤退运送任务","zh_tw":"圍困陸戰隊撤退運送任務","ja":"包囲陸戦隊撤収作戦","en":""},"time":360,"type":1,"timeString":"06:00","reward":{"playerXP":"90","shipXP":"100","resourceString":["","240\u003cbr\u003e40/h","200\u003cbr\u003e33/h",""],"resource":[0,240,200,0],"award":"高速修复材x1"},"require":{"totalLevel":0,"flagshipLevel":6,"minShips":6,"essentialShip":"轻巡*1 驱逐*3","bucket":"","consume":[-5,0],"consumeString":["-5",""]}},{"id":15,"name":{"zh_cn":"诱饵机动部队支援作战","zh_tw":"誘餌機動部隊支援作戰","ja":"囮機動部隊支援作戦","en":""},"time":720,"type":1,"timeString":"12:00","reward":{"playerXP":"100","shipXP":"160","resourceString":["","","300\u003cbr\u003e25/h","\u003cb\u003e400\u003c/b\u003e\u003cbr\u003e33/h"],"resource":[0,0,300,0],"award":"家具箱（大）x1"},"require":{"totalLevel":0,"flagshipLevel":8,"minShips":6,"essentialShip":"空母*2 驱逐*2","bucket":"","consume":[-5,-4],"consumeString":["-5","-4"]}},{"id":16,"name":{"zh_cn":"舰队决战护卫作战","zh_tw":"艦隊決戰護衛作戰","ja":"艦隊決戦援護作戦","en":""},"time":900,"type":1,"timeString":"15:00","reward":{"playerXP":"120","shipXP":"200","resourceString":["\u003cb\u003e500\u003c/b\u003e\u003cbr\u003e33/h","\u003cb\u003e500\u003c/b\u003e\u003cbr\u003e33/h","200\u003cbr\u003e13/h","200\u003cbr\u003e13/h"],"resource":[0,0,200,200],"award":"高速建造材x2"},"require":{"totalLevel":0,"flagshipLevel":10,"minShips":6,"essentialShip":"轻巡*1 驱逐*2","bucket":"","consume":[-5,-4],"consumeString":["-5","-4"]}},{"id":17,"name":{"zh_cn":"敌基地侦察作战","zh_tw":"敵基地偵察作戰","ja":"敵地偵察作戦","en":""},"time":45,"type":2,"timeString":"00:45","reward":{"playerXP":"30","shipXP":"40","resourceString":["70\u003cbr\u003e93/h","70\u003cbr\u003e93/h","50\u003cbr\u003e67/h",""],"resource":[70,70,50,0]},"require":{"totalLevel":0,"flagshipLevel":20,"minShips":6,"essentialShip":"轻巡*1 驱逐*3","bucket":"","consume":[-3,-4],"consumeString":["-3","-4"]}},{"id":18,"name":{"zh_cn":"舰载机运送作战","zh_tw":"艦載機運送作戰","ja":"航空機輸送作戦","en":""},"time":300,"type":2,"timeString":"05:00","reward":{"playerXP":"60","shipXP":"60","resourceString":["","","300\u003cbr\u003e60/h","100\u003cbr\u003e20/h"],"resource":[0,0,300,100]},"require":{"totalLevel":0,"flagshipLevel":15,"minShips":6,"essentialShip":"空母*3 驱逐*2 (軽母,水母可)","bucket":"","consume":[-5,-2],"consumeString":["-5","-2"]}},{"id":19,"name":{"zh_cn":"北号作战","zh_tw":"北號作戰","ja":"北号作戦","en":""},"time":360,"type":2,"timeString":"\u003cb\u003e06:00\u003c/b\u003e","reward":{"playerXP":"60","shipXP":"70","resourceString":["\u003cb\u003e400\u003c/b\u003e\u003cbr\u003e67/h","","50\u003cbr\u003e9/h","30\u003cbr\u003e5/h"],"resource":[0,0,50,30],"award":"家具箱（小）x1"},"require":{"totalLevel":0,"flagshipLevel":20,"minShips":6,"essentialShip":"航战*2 驱逐*2","bucket":"","consume":[-5,-4],"consumeString":["-5","-4"]}},{"id":20,"name":{"zh_cn":"潜水艇戒备任务","zh_tw":"潜水艇戒備任務","ja":"潜水艦哨戒任務","en":""},"time":120,"type":2,"timeString":"02:00","reward":{"playerXP":"40","shipXP":"50","resourceString":["","","150\u003cbr\u003e75/h",""],"resource":[0,0,150,0],"award":"开发资材x1"},"require":{"totalLevel":0,"flagshipLevel":1,"minShips":2,"essentialShip":"轻巡*1 潜艇*1","bucket":"","consume":[-5,-4],"consumeString":["-5","-4"]}},{"id":21,"name":{"zh_cn":"北方鼠输送作战","zh_tw":"北方鼠輸送作戰","ja":"北方鼠輸送作戦","en":""},"time":140,"type":2,"timeString":"02:20","reward":{"playerXP":"45","shipXP":"55","resourceString":["320\u003cbr\u003e\u003cb\u003e137/h\u003c/b\u003e","270\u003cbr\u003e\u003cb\u003e116/h\u003c/b\u003e","",""],"resource":[320,270,0,0],"award":"家具箱（小）x1"},"require":{"totalLevel":30,"flagshipLevel":15,"minShips":5,"essentialShip":"轻巡*1 驱逐*4","bucket":"至少3个舰娘 各携带1个桶","consume":[-8,-7],"consumeString":["-8","-7"]}},{"id":22,"name":{"zh_cn":"舰队演习","zh_tw":"艦隊演習","ja":"艦隊演習","en":""},"time":180,"type":2,"timeString":"03:00","reward":{"playerXP":"45","shipXP":"\u003cb\u003e400\u003c/b\u003e","resourceString":["","10\u003cbr\u003e3/h","",""],"resource":[0,10,0,0]},"require":{"totalLevel":45,"flagshipLevel":30,"minShips":6,"essentialShip":"重巡*1 轻巡*1 驱逐*2","bucket":"","consume":[-8,-7],"consumeString":["-8","-7"]}},{"id":23,"name":{"zh_cn":"航空战舰运用演习","zh_tw":"航空戰艦運用演習","ja":"航空戦艦運用演習","en":""},"time":240,"type":2,"timeString":"04:00","reward":{"playerXP":"70","shipXP":"\u003cb\u003e420\u003c/b\u003e","resourceString":["","20\u003cbr\u003e5/h","","100\u003cbr\u003e25/h"],"resource":[0,20,0,100]},"require":{"totalLevel":200,"flagshipLevel":50,"minShips":6,"essentialShip":"航战*2 驱逐*2","bucket":"","consume":[-8,-8],"consumeString":["-8","-8"]}},{"id":24,"name":{"zh_cn":"北方航路海上护卫","zh_tw":"北方航路海上護衛","ja":"北方航路海上護衛","en":""},"time":500,"type":2,"timeString":"\u003cb\u003e08:20\u003c/b\u003e","reward":{"playerXP":"65","shipXP":"?","resourceString":["\u003cb\u003e500\u003c/b\u003e\u003cbr\u003e60/h","","","150\u003cbr\u003e18/h"],"resource":[0,0,0,150],"award":"开发资材x2"},"require":{"totalLevel":200,"flagshipLevel":50,"minShips":6,"essentialShip":"轻巡\u003cb\u003e(必须旗舰)\u003c/b\u003e 驱逐*4","bucket":"","consume":[-9,-6],"consumeString":["-9","-6"]}},{"id":25,"name":{"zh_cn":"通商破坏作战","zh_tw":"通商破壞作戰","ja":"通商破壊作戦","en":""},"time":2400,"type":3,"timeString":"40:00","reward":{"playerXP":"80","shipXP":"180","resourceString":["\u003cb\u003e900\u003c/b\u003e\u003cbr\u003e23/h","","500\u003cbr\u003e13/h",""],"resource":[0,0,500,0]},"require":{"totalLevel":0,"flagshipLevel":25,"minShips":4,"essentialShip":"重巡*2 驱逐*2","bucket":"","consume":[-5,-8],"consumeString":["-5","-8"]}},{"id":26,"name":{"zh_cn":"敌母港空袭作战","zh_tw":"敵母港空襲作戰","ja":"敵母港空襲作戦","en":""},"time":4800,"type":3,"timeString":"80:00","reward":{"playerXP":"150","shipXP":"200","resourceString":["","","","\u003cb\u003e900\u003c/b\u003e\u003cbr\u003e11/h"],"resource":[0,0,0,0],"award":"高速修复材x3"},"require":{"totalLevel":0,"flagshipLevel":30,"minShips":4,"essentialShip":"空母*1 轻巡*1 驱逐*2","bucket":"","consume":[-8,-8],"consumeString":["-8","-8"]}},{"id":27,"name":{"zh_cn":"潜水艇通商破坏作战","zh_tw":"潜水艇通商破壞作戰","ja":"潜水艦通商破壊作戦","en":""},"time":1200,"type":3,"timeString":"20:00","reward":{"playerXP":"80","shipXP":"60","resourceString":["","","\u003cb\u003e800\u003c/b\u003e\u003cbr\u003e40/h",""],"resource":[0,0,0,0],"award":"开发资材x1"},"require":{"totalLevel":0,"flagshipLevel":1,"minShips":2,"essentialShip":"潜艇*2","bucket":"","consume":[-8,-8],"consumeString":["-8","-8"]}},{"id":28,"name":{"zh_cn":"西方海域封锁作战","zh_tw":"西方海域封鎖作戰","ja":"西方海域封鎖作戦","en":""},"time":1500,"type":3,"timeString":"25:00","reward":{"playerXP":"100","shipXP":"140","resourceString":["","","\u003cb\u003e900\u003c/b\u003e\u003cbr\u003e36/h","350\u003cbr\u003e14/h"],"resource":[0,0,0,350],"award":"开发资材x2"},"require":{"totalLevel":0,"flagshipLevel":30,"minShips":3,"essentialShip":"潜艇*3","bucket":"","consume":[-8,-8],"consumeString":["-8","-8"]}},{"id":29,"name":{"zh_cn":"潜水艇派遣演习","zh_tw":"潜水艇派遣演習","ja":"潜水艦派遣演習","en":""},"time":1440,"type":3,"timeString":"24:00","reward":{"playerXP":"100","shipXP":"100","resourceString":["","","","100\u003cbr\u003e4/h"],"resource":[0,0,0,100],"award":"开发资材x1"},"require":{"totalLevel":0,"flagshipLevel":50,"minShips":3,"essentialShip":"潜艇*3","bucket":"","consume":[-9,-4],"consumeString":["-9","-4"]}},{"id":30,"name":{"zh_cn":"潜水艇派遣作战","zh_tw":"潜水艇派遣作戰","ja":"潜水艦派遣作戦","en":""},"time":2880,"type":3,"timeString":"48:00","reward":{"playerXP":"100","shipXP":"150","resourceString":["","","","100\u003cbr\u003e2/h"],"resource":[0,0,0,100],"award":"开发资材x3"},"require":{"totalLevel":0,"flagshipLevel":55,"minShips":4,"essentialShip":"潜艇*4","bucket":"","consume":[-9,-7],"consumeString":["-9","-7"]}},{"id":31,"name":{"zh_cn":"和海外舰的接触","zh_tw":"和海外艦的接觸","ja":"海外艦との接触","en":""},"time":120,"type":3,"timeString":"02:00","reward":{"playerXP":"50","shipXP":"50","resourceString":["","30\u003cbr\u003e15/h","",""],"resource":[0,30,0,0],"award":"家具箱（小）x1"},"require":{"totalLevel":200,"flagshipLevel":60,"minShips":4,"essentialShip":"潜艇*4","bucket":"","consume":[-5,0],"consumeString":["-5",""]}},{"id":32,"name":{"zh_cn":"远洋练习航海","zh_tw":"遠洋練習航海","ja":"遠洋練習航海","en":""},"time":1440,"type":3,"timeString":"24:00","reward":{"playerXP":"300","shipXP":"(基础经验值＋僚舰加成) ×等级补正","resourceString":["50\u003cbr\u003e2/h","50\u003cbr\u003e2/h","50\u003cbr\u003e2/h","50\u003cbr\u003e2/h"],"resource":[50,50,50,50]},"require":{"totalLevel":0,"flagshipLevel":5,"minShips":3,"essentialShip":"练巡\u003cb\u003e(必须旗舰)\u003c/b\u003e 驱逐*2","bucket":"","consume":[-9,-3],"consumeString":["-9","-3"]}},{"id":33,"name":{"zh_cn":"前线部队支援任务","zh_tw":"前線部隊支援任務","ja":"前衛支援任務","en":""},"time":15,"type":4,"timeString":"00:15","reward":{"playerXP":"","shipXP":"","resourceString":["","","",""],"resource":[0,0,0,0]},"require":{"totalLevel":0,"flagshipLevel":0,"minShips":2,"essentialShip":"驱逐*2","bucket":"","consume":[0,0],"consumeString":["",""]}},{"id":34,"name":{"zh_cn":"舰队决战支援任务","zh_tw":"艦隊決戰支援任務","ja":"艦隊決戦支援任務","en":""},"time":30,"type":4,"timeString":"00:30","reward":{"playerXP":"","shipXP":"","resourceString":["","","",""],"resource":[0,0,0,0]},"require":{"totalLevel":0,"flagshipLevel":0,"minShips":2,"essentialShip":"驱逐*2","bucket":"","consume":[0,0],"consumeString":["",""]}},{"id":35,"name":{"zh_cn":"MO作战","zh_tw":"MO作戰","ja":"MO作戦","en":""},"time":420,"type":4,"timeString":"\u003cb\u003e07:00\u003c/b\u003e","reward":{"playerXP":"100","shipXP":"100","resourceString":["","","\u003cb\u003e240\u003c/b\u003e\u003cbr\u003e34/h","\u003cb\u003e280\u003c/b\u003e\u003cbr\u003e40/h"],"resource":[0,0,0,0],"award":"家具箱（小）x2"},"require":{"totalLevel":0,"flagshipLevel":40,"minShips":6,"essentialShip":"空/轻/水母*2 重巡*1 驱逐*1","bucket":"","consume":[-8,-8],"consumeString":["-8","-8"]}},{"id":36,"name":{"zh_cn":"水上飞机基地建设","zh_tw":"水上飛機基地建設","ja":"水上機基地建設","en":""},"time":540,"type":4,"timeString":"\u003cb\u003e09:00\u003c/b\u003e","reward":{"playerXP":"100","shipXP":"100","resourceString":["\u003cb\u003e480\u003c/b\u003e\u003cbr\u003e53/h","","\u003cb\u003e200\u003c/b\u003e\u003cbr\u003e22/h","\u003cb\u003e200\u003c/b\u003e\u003cbr\u003e22/h"],"resource":[0,0,0,0],"award":"家具箱（中）x2"},"require":{"totalLevel":0,"flagshipLevel":30,"minShips":6,"essentialShip":"水母*2 轻巡*1 驱逐*1","bucket":"","consume":[-8,-8],"consumeString":["-8","-8"]}},{"id":37,"name":{"zh_cn":"东京急行","zh_tw":"東京急行","ja":"東京急行","en":""},"time":165,"type":4,"timeString":"02:45","reward":{"playerXP":"50","shipXP":"65","resourceString":["","380\u003cbr\u003e\u003cb\u003e135/h\u003c/b\u003e","270\u003cbr\u003e\u003cb\u003e102/h\u003c/b\u003e",""],"resource":[0,380,270,0],"award":"家具箱（小）x1"},"require":{"totalLevel":200,"flagshipLevel":50,"minShips":6,"essentialShip":"轻巡*1 驱逐*5","bucket":"至少4个舰娘 各携带1个桶","consume":[-8,-8],"consumeString":["-8","-8"]}},{"id":38,"name":{"zh_cn":"东京急行(二)","zh_tw":"東京急行(二)","ja":"東京急行(弐)","en":""},"time":175,"type":4,"timeString":"02:55","reward":{"playerXP":"50","shipXP":"70","resourceString":["420\u003cbr\u003e\u003cb\u003e144/h\u003c/b\u003e","","200\u003cbr\u003e\u003cb\u003e69/h\u003c/b\u003e",""],"resource":[420,0,200,0],"award":"家具箱（小）x1"},"require":{"totalLevel":240,"flagshipLevel":65,"minShips":6,"essentialShip":"驱逐*5","bucket":"至少4个舰娘 各携带2个桶","consume":[-8,-8],"consumeString":["-8","-8"]}},{"id":39,"name":{"zh_cn":"远洋潜水艇作战","zh_tw":"遠洋潜水艇作戰","ja":"遠洋潜水艦作戦","en":""},"time":1800,"type":4,"timeString":"30:00","reward":{"playerXP":"130","shipXP":"160","resourceString":["","","300\u003cbr\u003e10/h",""],"resource":[0,0,300,0],"award":"高速修复材x2"},"require":{"totalLevel":180,"flagshipLevel":3,"minShips":5,"essentialShip":"[[大鲸]] 潜艇*4","bucket":"","consume":[-9,-9],"consumeString":["-9","-9"]}},{"id":40,"name":{"zh_cn":"水上机前线运输","zh_tw":"水上機前線運輸","ja":"水上機前線輸送","en":""},"time":410,"type":4,"timeString":"\u003cb\u003e06:50\u003c/b\u003e","reward":{"playerXP":"60","shipXP":"140","resourceString":["\u003cb\u003e300\u003c/b\u003e\u003cbr\u003e43/h","\u003cb\u003e300\u003c/b\u003e\u003cbr\u003e43/h","","100\u003cbr\u003e13/h"],"resource":[0,0,0,100],"award":"家具箱（小）x3"},"require":{"totalLevel":150,"flagshipLevel":25,"minShips":6,"essentialShip":"轻巡\u003cb\u003e(必须旗舰)\u003c/b\u003e 水母*2 驱逐*2","bucket":"","consume":[-8,-7],"consumeString":["-8","-7"]}},{"id":101,"name":{"zh_cn":"兵站强化任务","zh_tw":"兵站強化任務","ja":"兵站強化任務","en":""},"time":25,"type":0,"timeString":"00:25","reward":{"playerXP":"15","shipXP":"20","resourceString":["45\u003cbr\u003e108/h","45\u003cbr\u003e108/h","",""],"resource":[45,45,0,0]},"require":{"totalLevel":10,"flagshipLevel":5,"minShips":4,"essentialShip":"驱逐/海防*3 ","bucket":"","consume":[-3,0,-3,0],"consumeString":["-3","","-3",""]}},{"id":102,"name":{"zh_cn":"海峡警备任务","zh_tw":"海峽警備任務","ja":"海峡警備行動","en":""},"time":55,"type":0,"timeString":"00:55","reward":{"playerXP":"40","shipXP":"45","resourceString":["70\u003cbr\u003e76/h","40\u003cbr\u003e43/h","","10\u003cbr\u003e11/h"],"resource":[70,40,0,10],"award":"开发资材x1"},"require":{"totalLevel":0,"flagshipLevel":0,"minShips":0,"consume":[],"consumeString":[]}},{"id":103,"name":{"zh_cn":"长时间对潜警戒","zh_tw":"長時間對潛警戒","ja":"長時間対潜警戒","en":""},"time":135,"type":0,"timeString":"02:15","reward":{"playerXP":"55","shipXP":"70","resourceString":["120\u003cbr\u003e53/h","","60\u003cbr\u003e27/h","60\u003cbr\u003e27/h"],"resource":[120,0,60,60],"award":"高速修复材x1"},"require":{"totalLevel":0,"flagshipLevel":0,"minShips":0,"consume":[],"consumeString":[]}},{"id":201,"name":{"zh_cn":"南西方面航空侦察作战","zh_tw":"南西方面航空偵察作戰","ja":"南西方面航空偵察作戦","en":""},"time":35,"type":1,"timeString":"00:35","reward":{"playerXP":"35","shipXP":"40","resourceString":["","","10\u003cbr\u003e17/h","30\u003cbr\u003e51/h"],"resource":[0,0,10,30],"award":"家具箱（小）x1"},"require":{"totalLevel":0,"flagshipLevel":0,"minShips":0,"consume":[],"consumeString":[]}},{"id":202,"name":{"zh_cn":"敌方泊地强袭反击作战","zh_tw":"敵方泊地強襲反擊作戰","ja":"敵泊地強襲反撃作戦","en":""},"time":520,"type":1,"timeString":"08:40","reward":{"playerXP":"","shipXP":"","resourceString":["","","",""],"resource":[0,0,0,0],"award":"开发资材x2"},"require":{"totalLevel":0,"flagshipLevel":0,"minShips":6,"essentialShip":"重巡1只轻巡1只，其余驱逐？","bucket":"","consume":[0,0,0,0],"consumeString":["","","",""]}}]
+[
+  {
+    "id": 1,
+    "name": {
+      "zh_cn": "练习航海",
+      "zh_tw": "練習航海",
+      "ja": "練習航海",
+      "en": ""
+    },
+    "time": 15,
+    "type": 0,
+    "timeString": "00:15",
+    "reward": {
+      "playerXP": "10",
+      "shipXP": "10",
+      "resourceString": [
+        "",
+        "30<br>120/h",
+        "",
+        ""
+      ],
+      "resource": [
+        0,
+        30,
+        0,
+        0
+      ]
+    },
+    "require": {
+      "totalLevel": 0,
+      "flagshipLevel": 1,
+      "minShips": 2,
+      "essentialShip": "任意",
+      "bucket": "",
+      "consume": [
+        -3,
+        0
+      ],
+      "consumeString": [
+        "-3",
+        ""
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "name": {
+      "zh_cn": "长距离练习航海",
+      "zh_tw": "長距離練習航海",
+      "ja": "長距離練習航海",
+      "en": ""
+    },
+    "time": 30,
+    "type": 0,
+    "timeString": "00:30",
+    "reward": {
+      "playerXP": "20",
+      "shipXP": "15",
+      "resourceString": [
+        "",
+        "100<br><b>200/h</b>",
+        "30<br>60/h",
+        ""
+      ],
+      "resource": [
+        0,
+        100,
+        30,
+        0
+      ],
+      "award": "<b>高速修复材x1</b>"
+    },
+    "require": {
+      "totalLevel": 0,
+      "flagshipLevel": 2,
+      "minShips": 4,
+      "essentialShip": "任意",
+      "bucket": "",
+      "consume": [
+        -5,
+        0
+      ],
+      "consumeString": [
+        "-5",
+        ""
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "name": {
+      "zh_cn": "警备任务",
+      "zh_tw": "警備任務",
+      "ja": "警備任務",
+      "en": ""
+    },
+    "time": 20,
+    "type": 0,
+    "timeString": "00:20",
+    "reward": {
+      "playerXP": "30",
+      "shipXP": "30",
+      "resourceString": [
+        "30<br>90/h",
+        "30<br>90/h",
+        "40<br><b>120/h</b>",
+        ""
+      ],
+      "resource": [
+        30,
+        30,
+        40,
+        0
+      ]
+    },
+    "require": {
+      "totalLevel": 0,
+      "flagshipLevel": 3,
+      "minShips": 3,
+      "essentialShip": "任意",
+      "bucket": "",
+      "consume": [
+        -3,
+        -2
+      ],
+      "consumeString": [
+        "-3",
+        "-2"
+      ]
+    }
+  },
+  {
+    "id": 4,
+    "name": {
+      "zh_cn": "对潜警戒任务",
+      "zh_tw": "對潛警戒任務",
+      "ja": "対潜警戒任務",
+      "en": ""
+    },
+    "time": 50,
+    "type": 0,
+    "timeString": "00:50",
+    "reward": {
+      "playerXP": "30",
+      "shipXP": "40",
+      "resourceString": [
+        "",
+        "60<br>72/h",
+        "",
+        ""
+      ],
+      "resource": [
+        0,
+        60,
+        0,
+        0
+      ],
+      "award": "<b>高速修复材x1</b>"
+    },
+    "require": {
+      "totalLevel": 0,
+      "flagshipLevel": 3,
+      "minShips": 3,
+      "essentialShip": "轻巡*1 驱逐*2",
+      "bucket": "",
+      "consume": [
+        -5,
+        0
+      ],
+      "consumeString": [
+        "-5",
+        ""
+      ]
+    }
+  },
+  {
+    "id": 5,
+    "name": {
+      "zh_cn": "海上护卫任务",
+      "zh_tw": "海上護衛任務",
+      "ja": "海上護衛任務",
+      "en": ""
+    },
+    "time": 90,
+    "type": 0,
+    "timeString": "01:30",
+    "reward": {
+      "playerXP": "40",
+      "shipXP": "40",
+      "resourceString": [
+        "200<br><b>133/h</b>",
+        "200<br><b>133/h</b>",
+        "20<br>13/h",
+        "20<br>13/h"
+      ],
+      "resource": [
+        200,
+        200,
+        20,
+        20
+      ]
+    },
+    "require": {
+      "totalLevel": 0,
+      "flagshipLevel": 3,
+      "minShips": 4,
+      "essentialShip": "轻巡*1 驱逐*2",
+      "bucket": "",
+      "consume": [
+        -5,
+        0
+      ],
+      "consumeString": [
+        "-5",
+        ""
+      ]
+    }
+  },
+  {
+    "id": 6,
+    "name": {
+      "zh_cn": "防空射击演习",
+      "zh_tw": "防空射擊演習",
+      "ja": "防空射撃演習",
+      "en": ""
+    },
+    "time": 40,
+    "type": 0,
+    "timeString": "00:40",
+    "reward": {
+      "playerXP": "30",
+      "shipXP": "50",
+      "resourceString": [
+        "",
+        "",
+        "",
+        "80<br><b>120/h</b>"
+      ],
+      "resource": [
+        0,
+        0,
+        0,
+        80
+      ],
+      "award": "家具箱（小）x1"
+    },
+    "require": {
+      "totalLevel": 0,
+      "flagshipLevel": 4,
+      "minShips": 4,
+      "essentialShip": "任意",
+      "bucket": "",
+      "consume": [
+        -3,
+        -2
+      ],
+      "consumeString": [
+        "-3",
+        "-2"
+      ]
+    }
+  },
+  {
+    "id": 7,
+    "name": {
+      "zh_cn": "观舰式排演",
+      "zh_tw": "觀艦式排演",
+      "ja": "観艦式予行",
+      "en": ""
+    },
+    "time": 60,
+    "type": 0,
+    "timeString": "01:00",
+    "reward": {
+      "playerXP": "60",
+      "shipXP": "120",
+      "resourceString": [
+        "",
+        "",
+        "50<br>50/h",
+        "30<br>30/h"
+      ],
+      "resource": [
+        0,
+        0,
+        50,
+        30
+      ],
+      "award": "高速建造材x1"
+    },
+    "require": {
+      "totalLevel": 0,
+      "flagshipLevel": 5,
+      "minShips": 6,
+      "essentialShip": "任意",
+      "bucket": "",
+      "consume": [
+        -5,
+        0
+      ],
+      "consumeString": [
+        "-5",
+        ""
+      ]
+    }
+  },
+  {
+    "id": 8,
+    "name": {
+      "zh_cn": "观舰式",
+      "zh_tw": "觀艦式",
+      "ja": "観艦式",
+      "en": ""
+    },
+    "time": 180,
+    "type": 0,
+    "timeString": "03:00",
+    "reward": {
+      "playerXP": "120",
+      "shipXP": "140",
+      "resourceString": [
+        "50<br>17/h",
+        "100<br>33/h",
+        "50<br>17/h",
+        "50<br>17/h"
+      ],
+      "resource": [
+        50,
+        100,
+        50,
+        50
+      ],
+      "award": "高速建造材x2"
+    },
+    "require": {
+      "totalLevel": 0,
+      "flagshipLevel": 6,
+      "minShips": 6,
+      "essentialShip": "任意",
+      "bucket": "",
+      "consume": [
+        -5,
+        -2
+      ],
+      "consumeString": [
+        "-5",
+        "-2"
+      ]
+    }
+  },
+  {
+    "id": 1001,
+    "name": {
+      "zh_cn": "兵站强化任务",
+      "zh_tw": "兵站強化任務",
+      "ja": "兵站強化任務",
+      "en": ""
+    },
+    "time": 25,
+    "type": 0,
+    "timeString": "00:25",
+    "reward": {
+      "playerXP": "15",
+      "shipXP": "20",
+      "resourceString": [
+        "45<br>108/h",
+        "45<br>108/h",
+        "",
+        ""
+      ],
+      "resource": [
+        45,
+        45,
+        0,
+        0
+      ]
+    },
+    "require": {
+      "totalLevel": 10,
+      "flagshipLevel": 5,
+      "minShips": 4,
+      "essentialShip": "驱逐/海防*3",
+      "bucket": "",
+      "consume": [
+        -3.5,
+        0
+      ],
+      "consumeString": [
+        "-3.5",
+        ""
+      ]
+    }
+  },
+  {
+    "id": 1002,
+    "name": {
+      "zh_cn": "海峡警备任务",
+      "zh_tw": "海峽警備任務",
+      "ja": "海峡警備行動",
+      "en": ""
+    },
+    "time": 55,
+    "type": 0,
+    "timeString": "00:55",
+    "reward": {
+      "playerXP": "40",
+      "shipXP": "45",
+      "resourceString": [
+        "70<br>76/h",
+        "40<br>43/h",
+        "",
+        "10<br>11/h"
+      ],
+      "resource": [
+        70,
+        40,
+        0,
+        10
+      ],
+      "award": "开发资材x1 高速修复材x1"
+    },
+    "require": {
+      "totalLevel": 0,
+      "flagshipLevel": 20,
+      "minShips": 3,
+      "essentialShip": "驱逐/海防*4且舰队总对潜＞180 总对空＞70",
+      "bucket": "",
+      "consume": [
+        -5,
+        -2
+      ],
+      "consumeString": [
+        "-2",
+        "-2"
+      ]
+    }
+  },
+  {
+    "id": 1003,
+    "name": {
+      "zh_cn": "长时间对潜警戒",
+      "zh_tw": "長時間對潛警戒",
+      "ja": "長時間対潜警戒",
+      "en": ""
+    },
+    "time": 135,
+    "type": 0,
+    "timeString": "02:15",
+    "reward": {
+      "playerXP": "55",
+      "shipXP": "70",
+      "resourceString": [
+        "120<br>53/h",
+        "",
+        "60<br>27/h",
+        "60<br>27/h"
+      ],
+      "resource": [
+        120,
+        0,
+        60,
+        60
+      ],
+      "award": "高速修复材x1 开发资材x2"
+    },
+    "require": {
+      "totalLevel": 0,
+      "flagshipLevel": 35,
+      "minShips": 4,
+      "essentialShip": "轻巡x1驱逐/海防x4 或 驱逐x1-2 海防3-4",
+      "bucket": "",
+      "consume": [
+        -6.5,
+        -3.5
+      ],
+      "consumeString": [
+        "-6.5",
+        "-3.5"
+      ]
+    }
+  },
+  {
+    "id": 9,
+    "name": {
+      "zh_cn": "油轮护卫任务",
+      "zh_tw": "油輪護衛任務",
+      "ja": "タンカー護衛任務",
+      "en": ""
+    },
+    "time": 240,
+    "type": 1,
+    "timeString": "<b>04:00</b>",
+    "reward": {
+      "playerXP": "60",
+      "shipXP": "60",
+      "resourceString": [
+        "350<br>88/h",
+        "",
+        "",
+        ""
+      ],
+      "resource": [
+        350,
+        0,
+        0,
+        0
+      ],
+      "award": "家具箱（小）x1"
+    },
+    "require": {
+      "totalLevel": 0,
+      "flagshipLevel": 3,
+      "minShips": 4,
+      "essentialShip": "轻巡*1 驱逐*2",
+      "bucket": "",
+      "consume": [
+        -5,
+        0
+      ],
+      "consumeString": [
+        "-5",
+        ""
+      ]
+    }
+  },
+  {
+    "id": 10,
+    "name": {
+      "zh_cn": "强行侦察任务",
+      "zh_tw": "強行偵察任務",
+      "ja": "強行偵察任務",
+      "en": ""
+    },
+    "time": 90,
+    "type": 1,
+    "timeString": "01:30",
+    "reward": {
+      "playerXP": "40",
+      "shipXP": "50",
+      "resourceString": [
+        "",
+        "50<br>33/h",
+        "",
+        "30<br>20/h"
+      ],
+      "resource": [
+        0,
+        50,
+        0,
+        30
+      ],
+      "award": "高速修复材x1"
+    },
+    "require": {
+      "totalLevel": 0,
+      "flagshipLevel": 3,
+      "minShips": 3,
+      "essentialShip": "轻巡*2",
+      "bucket": "",
+      "consume": [
+        -3,
+        0
+      ],
+      "consumeString": [
+        "-3",
+        ""
+      ]
+    }
+  },
+  {
+    "id": 11,
+    "name": {
+      "zh_cn": "铝土运送任务",
+      "zh_tw": "鋁土運送任務",
+      "ja": "ボーキサイト輸送任務",
+      "en": ""
+    },
+    "time": 300,
+    "type": 1,
+    "timeString": "<b>05:00</b>",
+    "reward": {
+      "playerXP": "40",
+      "shipXP": "40",
+      "resourceString": [
+        "",
+        "",
+        "",
+        "250<br>50/h"
+      ],
+      "resource": [
+        0,
+        0,
+        0,
+        250
+      ],
+      "award": "家具箱（小）x1"
+    },
+    "require": {
+      "totalLevel": 0,
+      "flagshipLevel": 6,
+      "minShips": 4,
+      "essentialShip": "驱逐*2",
+      "bucket": "",
+      "consume": [
+        -5,
+        0
+      ],
+      "consumeString": [
+        "-5",
+        ""
+      ]
+    }
+  },
+  {
+    "id": 12,
+    "name": {
+      "zh_cn": "资源运送任务",
+      "zh_tw": "資源運送任務",
+      "ja": "資源輸送任務",
+      "en": ""
+    },
+    "time": 480,
+    "type": 1,
+    "timeString": "08:00",
+    "reward": {
+      "playerXP": "60",
+      "shipXP": "50",
+      "resourceString": [
+        "50<br>6/h",
+        "250<br>31/h",
+        "200<br>25/h",
+        "50<br>6/h"
+      ],
+      "resource": [
+        50,
+        250,
+        200,
+        50
+      ],
+      "award": "家具箱（中）x1"
+    },
+    "require": {
+      "totalLevel": 0,
+      "flagshipLevel": 4,
+      "minShips": 4,
+      "essentialShip": "驱逐*2",
+      "bucket": "",
+      "consume": [
+        -5,
+        0
+      ],
+      "consumeString": [
+        "-5",
+        ""
+      ]
+    }
+  },
+  {
+    "id": 13,
+    "name": {
+      "zh_cn": "鼠输送作战",
+      "zh_tw": "鼠輸送作戰",
+      "ja": "鼠輸送作戦",
+      "en": ""
+    },
+    "time": 240,
+    "type": 1,
+    "timeString": "<b>04:00</b>",
+    "reward": {
+      "playerXP": "70",
+      "shipXP": "60",
+      "resourceString": [
+        "240<br>60/h",
+        "300<br>75/h",
+        "",
+        ""
+      ],
+      "resource": [
+        240,
+        300,
+        0,
+        0
+      ],
+      "award": "高速修复材x2"
+    },
+    "require": {
+      "totalLevel": 0,
+      "flagshipLevel": 5,
+      "minShips": 6,
+      "essentialShip": "轻巡*1 驱逐*4",
+      "bucket": "",
+      "consume": [
+        -5,
+        -4
+      ],
+      "consumeString": [
+        "-5",
+        "-4"
+      ]
+    }
+  },
+  {
+    "id": 14,
+    "name": {
+      "zh_cn": "围困陆战队撤退运送任务",
+      "zh_tw": "圍困陸戰隊撤退運送任務",
+      "ja": "包囲陸戦隊撤収作戦",
+      "en": ""
+    },
+    "time": 360,
+    "type": 1,
+    "timeString": "06:00",
+    "reward": {
+      "playerXP": "90",
+      "shipXP": "100",
+      "resourceString": [
+        "",
+        "240<br>40/h",
+        "200<br>33/h",
+        ""
+      ],
+      "resource": [
+        0,
+        240,
+        200,
+        0
+      ],
+      "award": "高速修复材x1"
+    },
+    "require": {
+      "totalLevel": 0,
+      "flagshipLevel": 6,
+      "minShips": 6,
+      "essentialShip": "轻巡*1 驱逐*3",
+      "bucket": "",
+      "consume": [
+        -5,
+        0
+      ],
+      "consumeString": [
+        "-5",
+        ""
+      ]
+    }
+  },
+  {
+    "id": 15,
+    "name": {
+      "zh_cn": "诱饵机动部队支援作战",
+      "zh_tw": "誘餌機動部隊支援作戰",
+      "ja": "囮機動部隊支援作戦",
+      "en": ""
+    },
+    "time": 720,
+    "type": 1,
+    "timeString": "12:00",
+    "reward": {
+      "playerXP": "100",
+      "shipXP": "160",
+      "resourceString": [
+        "",
+        "",
+        "300<br>25/h",
+        "<b>400</b><br>33/h"
+      ],
+      "resource": [
+        0,
+        0,
+        300,
+        0
+      ],
+      "award": "家具箱（大）x1"
+    },
+    "require": {
+      "totalLevel": 0,
+      "flagshipLevel": 8,
+      "minShips": 6,
+      "essentialShip": "空母*2 驱逐*2",
+      "bucket": "",
+      "consume": [
+        -5,
+        -4
+      ],
+      "consumeString": [
+        "-5",
+        "-4"
+      ]
+    }
+  },
+  {
+    "id": 16,
+    "name": {
+      "zh_cn": "舰队决战护卫作战",
+      "zh_tw": "艦隊決戰護衛作戰",
+      "ja": "艦隊決戦援護作戦",
+      "en": ""
+    },
+    "time": 900,
+    "type": 1,
+    "timeString": "15:00",
+    "reward": {
+      "playerXP": "120",
+      "shipXP": "200",
+      "resourceString": [
+        "<b>500</b><br>33/h",
+        "<b>500</b><br>33/h",
+        "200<br>13/h",
+        "200<br>13/h"
+      ],
+      "resource": [
+        0,
+        0,
+        200,
+        200
+      ],
+      "award": "高速建造材x2"
+    },
+    "require": {
+      "totalLevel": 0,
+      "flagshipLevel": 10,
+      "minShips": 6,
+      "essentialShip": "轻巡*1 驱逐*2",
+      "bucket": "",
+      "consume": [
+        -5,
+        -4
+      ],
+      "consumeString": [
+        "-5",
+        "-4"
+      ]
+    }
+  },
+  {
+    "id": 2001,
+    "name": {
+      "zh_cn": "敌基地侦察作战",
+      "zh_tw": "敵基地偵察作戰",
+      "ja": "敵地偵察作戦",
+      "en": ""
+    },
+    "time": 45,
+    "type": 1,
+    "timeString": "00:45",
+    "reward": {
+      "playerXP": "30",
+      "shipXP": "40",
+      "resourceString": [
+        "70<br>93/h",
+        "70<br>93/h",
+        "50<br>67/h",
+        ""
+      ],
+      "resource": [
+        70,
+        70,
+        50,
+        0
+      ]
+    },
+    "require": {
+      "totalLevel": 0,
+      "flagshipLevel": 20,
+      "minShips": 6,
+      "essentialShip": "轻巡*1 驱逐*3",
+      "bucket": "",
+      "consume": [
+        -3,
+        -4
+      ],
+      "consumeString": [
+        "-3",
+        "-4"
+      ]
+    }
+  },
+  {
+    "id": 2002,
+    "name": {
+      "zh_cn": "敌方泊地强袭反击作战",
+      "zh_tw": "敵方泊地強襲反擊作戰",
+      "ja": "敵泊地強襲反撃作戦",
+      "en": ""
+    },
+    "time": 520,
+    "type": 1,
+    "timeString": "08:40",
+    "reward": {
+      "playerXP": "",
+      "shipXP": "",
+      "resourceString": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "resource": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "award": "开发资材x2"
+    },
+    "require": {
+      "totalLevel": 0,
+      "flagshipLevel": 15,
+      "minShips": 6,
+      "essentialShip": "空母*3 驱逐*2 (軽母,水母可)",
+      "bucket": "",
+      "consume": [
+        0,
+        0,
+        0,
+        0,
+        -5,
+        -2
+      ],
+      "consumeString": [
+        "",
+        "",
+        "",
+        "",
+        "-5",
+        "-2"
+      ]
+    }
+  },
+  {
+    "id": 17,
+    "name": {
+      "zh_cn": "敌基地侦察作战",
+      "zh_tw": "敵基地偵察作戰",
+      "ja": "敵地偵察作戦",
+      "en": ""
+    },
+    "time": 45,
+    "type": 2,
+    "timeString": "00:45",
+    "reward": {
+      "playerXP": "30",
+      "shipXP": "40",
+      "resourceString": [
+        "70<br>93/h",
+        "70<br>93/h",
+        "50<br>67/h",
+        ""
+      ],
+      "resource": [
+        70,
+        70,
+        50,
+        0
+      ]
+    },
+    "require": {
+      "totalLevel": 0,
+      "flagshipLevel": 20,
+      "minShips": 6,
+      "essentialShip": "轻巡*1 驱逐*3",
+      "bucket": "",
+      "consume": [
+        -3,
+        -4
+      ],
+      "consumeString": [
+        "-3",
+        "-4"
+      ]
+    }
+  },
+  {
+    "id": 18,
+    "name": {
+      "zh_cn": "舰载机运送作战",
+      "zh_tw": "艦載機運送作戰",
+      "ja": "航空機輸送作戦",
+      "en": ""
+    },
+    "time": 300,
+    "type": 2,
+    "timeString": "05:00",
+    "reward": {
+      "playerXP": "60",
+      "shipXP": "60",
+      "resourceString": [
+        "",
+        "",
+        "300<br>60/h",
+        "100<br>20/h"
+      ],
+      "resource": [
+        0,
+        0,
+        300,
+        100
+      ]
+    },
+    "require": {
+      "totalLevel": 0,
+      "flagshipLevel": 15,
+      "minShips": 6,
+      "essentialShip": "空母*3 驱逐*2 (軽母,水母可)",
+      "bucket": "",
+      "consume": [
+        -5,
+        -2
+      ],
+      "consumeString": [
+        "-5",
+        "-2"
+      ]
+    }
+  },
+  {
+    "id": 19,
+    "name": {
+      "zh_cn": "北号作战",
+      "zh_tw": "北號作戰",
+      "ja": "北号作戦",
+      "en": ""
+    },
+    "time": 360,
+    "type": 2,
+    "timeString": "<b>06:00</b>",
+    "reward": {
+      "playerXP": "60",
+      "shipXP": "70",
+      "resourceString": [
+        "<b>400</b><br>67/h",
+        "",
+        "50<br>9/h",
+        "30<br>5/h"
+      ],
+      "resource": [
+        0,
+        0,
+        50,
+        30
+      ],
+      "award": "家具箱（小）x1"
+    },
+    "require": {
+      "totalLevel": 0,
+      "flagshipLevel": 20,
+      "minShips": 6,
+      "essentialShip": "航战*2 驱逐*2",
+      "bucket": "",
+      "consume": [
+        -5,
+        -4
+      ],
+      "consumeString": [
+        "-5",
+        "-4"
+      ]
+    }
+  },
+  {
+    "id": 20,
+    "name": {
+      "zh_cn": "潜水艇戒备任务",
+      "zh_tw": "潜水艇戒備任務",
+      "ja": "潜水艦哨戒任務",
+      "en": ""
+    },
+    "time": 120,
+    "type": 2,
+    "timeString": "02:00",
+    "reward": {
+      "playerXP": "40",
+      "shipXP": "50",
+      "resourceString": [
+        "",
+        "",
+        "150<br>75/h",
+        ""
+      ],
+      "resource": [
+        0,
+        0,
+        150,
+        0
+      ],
+      "award": "开发资材x1"
+    },
+    "require": {
+      "totalLevel": 0,
+      "flagshipLevel": 1,
+      "minShips": 2,
+      "essentialShip": "轻巡*1 潜艇*1",
+      "bucket": "",
+      "consume": [
+        -5,
+        -4
+      ],
+      "consumeString": [
+        "-5",
+        "-4"
+      ]
+    }
+  },
+  {
+    "id": 21,
+    "name": {
+      "zh_cn": "北方鼠输送作战",
+      "zh_tw": "北方鼠輸送作戰",
+      "ja": "北方鼠輸送作戦",
+      "en": ""
+    },
+    "time": 140,
+    "type": 2,
+    "timeString": "02:20",
+    "reward": {
+      "playerXP": "45",
+      "shipXP": "55",
+      "resourceString": [
+        "320<br><b>137/h</b>",
+        "270<br><b>116/h</b>",
+        "",
+        ""
+      ],
+      "resource": [
+        320,
+        270,
+        0,
+        0
+      ],
+      "award": "家具箱（小）x1"
+    },
+    "require": {
+      "totalLevel": 30,
+      "flagshipLevel": 15,
+      "minShips": 5,
+      "essentialShip": "轻巡*1 驱逐*4",
+      "bucket": "至少3个舰娘 各携带1个桶",
+      "consume": [
+        -8,
+        -7
+      ],
+      "consumeString": [
+        "-8",
+        "-7"
+      ]
+    }
+  },
+  {
+    "id": 22,
+    "name": {
+      "zh_cn": "舰队演习",
+      "zh_tw": "艦隊演習",
+      "ja": "艦隊演習",
+      "en": ""
+    },
+    "time": 180,
+    "type": 2,
+    "timeString": "03:00",
+    "reward": {
+      "playerXP": "45",
+      "shipXP": "<b>400</b>",
+      "resourceString": [
+        "",
+        "10<br>3/h",
+        "",
+        ""
+      ],
+      "resource": [
+        0,
+        10,
+        0,
+        0
+      ]
+    },
+    "require": {
+      "totalLevel": 45,
+      "flagshipLevel": 30,
+      "minShips": 6,
+      "essentialShip": "重巡*1 轻巡*1 驱逐*2",
+      "bucket": "",
+      "consume": [
+        -8,
+        -7
+      ],
+      "consumeString": [
+        "-8",
+        "-7"
+      ]
+    }
+  },
+  {
+    "id": 23,
+    "name": {
+      "zh_cn": "航空战舰运用演习",
+      "zh_tw": "航空戰艦運用演習",
+      "ja": "航空戦艦運用演習",
+      "en": ""
+    },
+    "time": 240,
+    "type": 2,
+    "timeString": "04:00",
+    "reward": {
+      "playerXP": "70",
+      "shipXP": "<b>420</b>",
+      "resourceString": [
+        "",
+        "20<br>5/h",
+        "",
+        "100<br>25/h"
+      ],
+      "resource": [
+        0,
+        20,
+        0,
+        100
+      ]
+    },
+    "require": {
+      "totalLevel": 200,
+      "flagshipLevel": 50,
+      "minShips": 6,
+      "essentialShip": "航战*2 驱逐*2",
+      "bucket": "",
+      "consume": [
+        -8,
+        -8
+      ],
+      "consumeString": [
+        "-8",
+        "-8"
+      ]
+    }
+  },
+  {
+    "id": 24,
+    "name": {
+      "zh_cn": "北方航路海上护卫",
+      "zh_tw": "北方航路海上護衛",
+      "ja": "北方航路海上護衛",
+      "en": ""
+    },
+    "time": 500,
+    "type": 2,
+    "timeString": "<b>08:20</b>",
+    "reward": {
+      "playerXP": "65",
+      "shipXP": "?",
+      "resourceString": [
+        "<b>500</b><br>60/h",
+        "",
+        "",
+        "150<br>18/h"
+      ],
+      "resource": [
+        0,
+        0,
+        0,
+        150
+      ],
+      "award": "开发资材x2"
+    },
+    "require": {
+      "totalLevel": 200,
+      "flagshipLevel": 50,
+      "minShips": 6,
+      "essentialShip": "轻巡<b>(必须旗舰)</b> 驱逐*4",
+      "bucket": "",
+      "consume": [
+        -9,
+        -6
+      ],
+      "consumeString": [
+        "-9",
+        "-6"
+      ]
+    }
+  },
+  {
+    "id": 25,
+    "name": {
+      "zh_cn": "通商破坏作战",
+      "zh_tw": "通商破壞作戰",
+      "ja": "通商破壊作戦",
+      "en": ""
+    },
+    "time": 2400,
+    "type": 3,
+    "timeString": "40:00",
+    "reward": {
+      "playerXP": "80",
+      "shipXP": "180",
+      "resourceString": [
+        "<b>900</b><br>23/h",
+        "",
+        "500<br>13/h",
+        ""
+      ],
+      "resource": [
+        0,
+        0,
+        500,
+        0
+      ]
+    },
+    "require": {
+      "totalLevel": 0,
+      "flagshipLevel": 25,
+      "minShips": 4,
+      "essentialShip": "重巡*2 驱逐*2",
+      "bucket": "",
+      "consume": [
+        -5,
+        -8
+      ],
+      "consumeString": [
+        "-5",
+        "-8"
+      ]
+    }
+  },
+  {
+    "id": 26,
+    "name": {
+      "zh_cn": "敌母港空袭作战",
+      "zh_tw": "敵母港空襲作戰",
+      "ja": "敵母港空襲作戦",
+      "en": ""
+    },
+    "time": 4800,
+    "type": 3,
+    "timeString": "80:00",
+    "reward": {
+      "playerXP": "150",
+      "shipXP": "200",
+      "resourceString": [
+        "",
+        "",
+        "",
+        "<b>900</b><br>11/h"
+      ],
+      "resource": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "award": "高速修复材x3"
+    },
+    "require": {
+      "totalLevel": 0,
+      "flagshipLevel": 30,
+      "minShips": 4,
+      "essentialShip": "空母*1 轻巡*1 驱逐*2",
+      "bucket": "",
+      "consume": [
+        -8,
+        -8
+      ],
+      "consumeString": [
+        "-8",
+        "-8"
+      ]
+    }
+  },
+  {
+    "id": 27,
+    "name": {
+      "zh_cn": "潜水艇通商破坏作战",
+      "zh_tw": "潜水艇通商破壞作戰",
+      "ja": "潜水艦通商破壊作戦",
+      "en": ""
+    },
+    "time": 1200,
+    "type": 3,
+    "timeString": "20:00",
+    "reward": {
+      "playerXP": "80",
+      "shipXP": "60",
+      "resourceString": [
+        "",
+        "",
+        "<b>800</b><br>40/h",
+        ""
+      ],
+      "resource": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "award": "开发资材x1"
+    },
+    "require": {
+      "totalLevel": 0,
+      "flagshipLevel": 1,
+      "minShips": 2,
+      "essentialShip": "潜艇*2",
+      "bucket": "",
+      "consume": [
+        -8,
+        -8
+      ],
+      "consumeString": [
+        "-8",
+        "-8"
+      ]
+    }
+  },
+  {
+    "id": 28,
+    "name": {
+      "zh_cn": "西方海域封锁作战",
+      "zh_tw": "西方海域封鎖作戰",
+      "ja": "西方海域封鎖作戦",
+      "en": ""
+    },
+    "time": 1500,
+    "type": 3,
+    "timeString": "25:00",
+    "reward": {
+      "playerXP": "100",
+      "shipXP": "140",
+      "resourceString": [
+        "",
+        "",
+        "<b>900</b><br>36/h",
+        "350<br>14/h"
+      ],
+      "resource": [
+        0,
+        0,
+        0,
+        350
+      ],
+      "award": "开发资材x2"
+    },
+    "require": {
+      "totalLevel": 0,
+      "flagshipLevel": 30,
+      "minShips": 3,
+      "essentialShip": "潜艇*3",
+      "bucket": "",
+      "consume": [
+        -8,
+        -8
+      ],
+      "consumeString": [
+        "-8",
+        "-8"
+      ]
+    }
+  },
+  {
+    "id": 29,
+    "name": {
+      "zh_cn": "潜水艇派遣演习",
+      "zh_tw": "潜水艇派遣演習",
+      "ja": "潜水艦派遣演習",
+      "en": ""
+    },
+    "time": 1440,
+    "type": 3,
+    "timeString": "24:00",
+    "reward": {
+      "playerXP": "100",
+      "shipXP": "100",
+      "resourceString": [
+        "",
+        "",
+        "",
+        "100<br>4/h"
+      ],
+      "resource": [
+        0,
+        0,
+        0,
+        100
+      ],
+      "award": "开发资材x1"
+    },
+    "require": {
+      "totalLevel": 0,
+      "flagshipLevel": 50,
+      "minShips": 3,
+      "essentialShip": "潜艇*3",
+      "bucket": "",
+      "consume": [
+        -9,
+        -4
+      ],
+      "consumeString": [
+        "-9",
+        "-4"
+      ]
+    }
+  },
+  {
+    "id": 30,
+    "name": {
+      "zh_cn": "潜水艇派遣作战",
+      "zh_tw": "潜水艇派遣作戰",
+      "ja": "潜水艦派遣作戦",
+      "en": ""
+    },
+    "time": 2880,
+    "type": 3,
+    "timeString": "48:00",
+    "reward": {
+      "playerXP": "100",
+      "shipXP": "150",
+      "resourceString": [
+        "",
+        "",
+        "",
+        "100<br>2/h"
+      ],
+      "resource": [
+        0,
+        0,
+        0,
+        100
+      ],
+      "award": "开发资材x3"
+    },
+    "require": {
+      "totalLevel": 0,
+      "flagshipLevel": 55,
+      "minShips": 4,
+      "essentialShip": "潜艇*4",
+      "bucket": "",
+      "consume": [
+        -9,
+        -7
+      ],
+      "consumeString": [
+        "-9",
+        "-7"
+      ]
+    }
+  },
+  {
+    "id": 31,
+    "name": {
+      "zh_cn": "和海外舰的接触",
+      "zh_tw": "和海外艦的接觸",
+      "ja": "海外艦との接触",
+      "en": ""
+    },
+    "time": 120,
+    "type": 3,
+    "timeString": "02:00",
+    "reward": {
+      "playerXP": "50",
+      "shipXP": "50",
+      "resourceString": [
+        "",
+        "30<br>15/h",
+        "",
+        ""
+      ],
+      "resource": [
+        0,
+        30,
+        0,
+        0
+      ],
+      "award": "家具箱（小）x1"
+    },
+    "require": {
+      "totalLevel": 200,
+      "flagshipLevel": 60,
+      "minShips": 4,
+      "essentialShip": "潜艇*4",
+      "bucket": "",
+      "consume": [
+        -5,
+        0
+      ],
+      "consumeString": [
+        "-5",
+        ""
+      ]
+    }
+  },
+  {
+    "id": 32,
+    "name": {
+      "zh_cn": "远洋练习航海",
+      "zh_tw": "遠洋練習航海",
+      "ja": "遠洋練習航海",
+      "en": ""
+    },
+    "time": 1440,
+    "type": 3,
+    "timeString": "24:00",
+    "reward": {
+      "playerXP": "300",
+      "shipXP": "(基础经验值＋僚舰加成) ×等级补正",
+      "resourceString": [
+        "50<br>2/h",
+        "50<br>2/h",
+        "50<br>2/h",
+        "50<br>2/h"
+      ],
+      "resource": [
+        50,
+        50,
+        50,
+        50
+      ]
+    },
+    "require": {
+      "totalLevel": 0,
+      "flagshipLevel": 5,
+      "minShips": 3,
+      "essentialShip": "练巡<b>(必须旗舰)</b> 驱逐*2",
+      "bucket": "",
+      "consume": [
+        -9,
+        -3
+      ],
+      "consumeString": [
+        "-9",
+        "-3"
+      ]
+    }
+  },
+  {
+    "id": 33,
+    "name": {
+      "zh_cn": "前线部队支援任务",
+      "zh_tw": "前線部隊支援任務",
+      "ja": "前衛支援任務",
+      "en": ""
+    },
+    "time": 15,
+    "type": 4,
+    "timeString": "00:15",
+    "reward": {
+      "playerXP": "",
+      "shipXP": "",
+      "resourceString": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "resource": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "require": {
+      "totalLevel": 0,
+      "flagshipLevel": 0,
+      "minShips": 2,
+      "essentialShip": "驱逐*2",
+      "bucket": "",
+      "consume": [
+        0,
+        0
+      ],
+      "consumeString": [
+        "",
+        ""
+      ]
+    }
+  },
+  {
+    "id": 34,
+    "name": {
+      "zh_cn": "舰队决战支援任务",
+      "zh_tw": "艦隊決戰支援任務",
+      "ja": "艦隊決戦支援任務",
+      "en": ""
+    },
+    "time": 30,
+    "type": 4,
+    "timeString": "00:30",
+    "reward": {
+      "playerXP": "",
+      "shipXP": "",
+      "resourceString": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "resource": [
+        0,
+        0,
+        0
+      ]
+    },
+    "require": {
+      "totalLevel": 0,
+      "flagshipLevel": 0,
+      "minShips": 2,
+      "essentialShip": "驱逐*2",
+      "bucket": "",
+      "consume": [
+        0,
+        0
+      ],
+      "consumeString": [
+        "",
+        ""
+      ]
+    }
+  },
+  {
+    "id": 35,
+    "name": {
+      "zh_cn": "MO作战",
+      "zh_tw": "MO作戰",
+      "ja": "MO作戦",
+      "en": ""
+    },
+    "time": 420,
+    "type": 4,
+    "timeString": "<b>07:00</b>",
+    "reward": {
+      "playerXP": "100",
+      "shipXP": "100",
+      "resourceString": [
+        "",
+        "",
+        "<b>240</b><br>34/h",
+        "<b>280</b><br>40/h"
+      ],
+      "resource": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "award": "家具箱（小）x2"
+    },
+    "require": {
+      "totalLevel": 0,
+      "flagshipLevel": 40,
+      "minShips": 6,
+      "essentialShip": "空/轻/水母*2 重巡*1 驱逐*1",
+      "bucket": "",
+      "consume": [
+        -8,
+        -8
+      ],
+      "consumeString": [
+        "-8",
+        "-8"
+      ]
+    }
+  },
+  {
+    "id": 36,
+    "name": {
+      "zh_cn": "水上飞机基地建设",
+      "zh_tw": "水上飛機基地建設",
+      "ja": "水上機基地建設",
+      "en": ""
+    },
+    "time": 540,
+    "type": 4,
+    "timeString": "<b>09:00</b>",
+    "reward": {
+      "playerXP": "100",
+      "shipXP": "100",
+      "resourceString": [
+        "<b>480</b><br>53/h",
+        "",
+        "<b>200</b><br>22/h",
+        "<b>200</b><br>22/h"
+      ],
+      "resource": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "award": "家具箱（中）x2"
+    },
+    "require": {
+      "totalLevel": 0,
+      "flagshipLevel": 30,
+      "minShips": 6,
+      "essentialShip": "水母*2 轻巡*1 驱逐*1",
+      "bucket": "",
+      "consume": [
+        -8,
+        -8
+      ],
+      "consumeString": [
+        "-8",
+        "-8"
+      ]
+    }
+  },
+  {
+    "id": 37,
+    "name": {
+      "zh_cn": "东京急行",
+      "zh_tw": "東京急行",
+      "ja": "東京急行",
+      "en": ""
+    },
+    "time": 165,
+    "type": 4,
+    "timeString": "02:45",
+    "reward": {
+      "playerXP": "50",
+      "shipXP": "65",
+      "resourceString": [
+        "",
+        "380<br><b>135/h</b>",
+        "270<br><b>102/h</b>",
+        ""
+      ],
+      "resource": [
+        0,
+        380,
+        270,
+        0
+      ],
+      "award": "家具箱（小）x1"
+    },
+    "require": {
+      "totalLevel": 200,
+      "flagshipLevel": 50,
+      "minShips": 6,
+      "essentialShip": "轻巡*1 驱逐*5",
+      "bucket": "至少4个舰娘 各携带1个桶",
+      "consume": [
+        -8,
+        -8
+      ],
+      "consumeString": [
+        "-8",
+        "-8"
+      ]
+    }
+  },
+  {
+    "id": 38,
+    "name": {
+      "zh_cn": "东京急行(二)",
+      "zh_tw": "東京急行(二)",
+      "ja": "東京急行(弐)",
+      "en": ""
+    },
+    "time": 175,
+    "type": 4,
+    "timeString": "02:55",
+    "reward": {
+      "playerXP": "50",
+      "shipXP": "70",
+      "resourceString": [
+        "420<br><b>144/h</b>",
+        "",
+        "200<br><b>69/h</b>",
+        ""
+      ],
+      "resource": [
+        420,
+        0,
+        200,
+        0
+      ],
+      "award": "家具箱（小）x1"
+    },
+    "require": {
+      "totalLevel": 240,
+      "flagshipLevel": 65,
+      "minShips": 6,
+      "essentialShip": "驱逐*5",
+      "bucket": "至少4个舰娘 各携带2个桶",
+      "consume": [
+        -8,
+        -8
+      ],
+      "consumeString": [
+        "-8",
+        "-8"
+      ]
+    }
+  },
+  {
+    "id": 39,
+    "name": {
+      "zh_cn": "远洋潜水艇作战",
+      "zh_tw": "遠洋潜水艇作戰",
+      "ja": "遠洋潜水艦作戦",
+      "en": ""
+    },
+    "time": 1800,
+    "type": 4,
+    "timeString": "30:00",
+    "reward": {
+      "playerXP": "130",
+      "shipXP": "160",
+      "resourceString": [
+        "",
+        "",
+        "300<br>10/h",
+        ""
+      ],
+      "resource": [
+        0,
+        0,
+        300,
+        0
+      ],
+      "award": "高速修复材x2"
+    },
+    "require": {
+      "totalLevel": 180,
+      "flagshipLevel": 3,
+      "minShips": 5,
+      "essentialShip": "[[大鲸]] 潜艇*4",
+      "bucket": "",
+      "consume": [
+        -9,
+        -9
+      ],
+      "consumeString": [
+        "-9",
+        "-9"
+      ]
+    }
+  },
+  {
+    "id": 40,
+    "name": {
+      "zh_cn": "水上机前线运输",
+      "zh_tw": "水上機前線運輸",
+      "ja": "水上機前線輸送",
+      "en": ""
+    },
+    "time": 410,
+    "type": 4,
+    "timeString": "<b>06:50</b>",
+    "reward": {
+      "playerXP": "60",
+      "shipXP": "140",
+      "resourceString": [
+        "<b>300</b><br>43/h",
+        "<b>300</b><br>43/h",
+        "",
+        "100<br>13/h"
+      ],
+      "resource": [
+        0,
+        0,
+        0,
+        100
+      ],
+      "award": "家具箱（小）x3"
+    },
+    "require": {
+      "totalLevel": 150,
+      "flagshipLevel": 25,
+      "minShips": 6,
+      "essentialShip": "轻巡<b>(必须旗舰)</b> 水母*2 驱逐*2",
+      "bucket": "",
+      "consume": [
+        -8,
+        -7
+      ],
+      "consumeString": [
+        "-8",
+        "-7"
+      ]
+    }
+  }
+]
