@@ -11,80 +11,39 @@ $json = array();
 
 $data = null;
 $data['type'] = $TYPE_TITLE;
-$data['object']['title']['zh_cn'] = "2017年秋刀鱼祭典";
-$data['object']['content']['zh_cn'] = "开展为期约两周的秋刀鱼打捞活动，在特定海域可以获得秋刀鱼并完成相关任务。";
+$data['object']['title']['zh_cn'] = "2018年冬季活动";
+$data['object']['content']['zh_cn'] = "捷号決戦！邀撃、レイテ沖海戦(後篇)";
 array_push($json, $data);
 
 $data = null;
 $data['type'] = $TYPE_URL;
 $data['object']['title']['zh_cn'] = "详细攻略";
 $data['object']['content']['zh_cn'] = "";
-$data['object']['url'] = "https://zh.kcwiki.org/wiki/%E5%AD%A3%E8%8A%82%E6%80%A7/2017%E5%B9%B4%E7%A7%8B%E5%88%80%E9%B1%BC%E7%A5%AD%E5%85%B8#.E6.89.93.E6.8D.9E.E6.94.BB.E7.95.A5";
-$data['object']['url_text']['zh_cn'] = "攻略:2017年秋刀鱼祭典";
+$data['object']['url_text']['zh_cn'] = "kcwiki:2018年冬季活动";
+$data['object']['url'] = "https://zh.kcwiki.org/wiki/2018%E5%B9%B4%E5%86%AC%E5%AD%A3%E6%B4%BB%E5%8A%A8";
 array_push($json, $data);
 
 $data = null;
 $data['type'] = $TYPE_TITLE;
-$data['object']['title']['zh_cn'] = "活动海域";
-$data['object']['content']['zh_cn'] = "稀有掉落";
+$data['object']['title']['zh_cn'] = "活动原型";
+$data['object']['content']['zh_cn'] = "莱特湾海战";
 array_push($json, $data);
 
 $data = null;
 $data['type'] = $TYPE_CONTENT;
-$data['object']['title']['zh_cn'] = "占守";
-$data['object']['content']['zh_cn'] = "掉落点: 
-3-3-G(Boss)
-3-4-E(Boss)
-3-5-K(Boss)
+$data['object']['title']['zh_cn'] = "概述";
+$data['object']['content']['zh_cn'] = "莱特湾海战发生于1944年10月20日，到10月26日结束，是当时发生在菲律宾周围日本联合舰队与美国海军和澳大利亚海军组成的联合国军之间一系列的海战的总称。这些海战从前到后可以大概分为：巴拉望水道海战、锡布延海战、苏里高海峡海战、恩加尼奥角海战、萨马岛海战。
 
-目前只有S胜利掉落报告
-";
-array_push($json, $data);
-
-$data = null;
-$data['type'] = $TYPE_CONTENT;
-$data['object']['title']['zh_cn'] = "国后";
-$data['object']['content']['zh_cn'] = "掉落点: 
-3-2-H(Boss)
-3-5-K(Boss)
-6-5-J
-6-5-M(Boss)
-
-3-5-K(Boss)与6-5-M(Boss)存在A胜利掉落报告
-";
-array_push($json, $data);
-
-$data = null;
-$data['type'] = $TYPE_CONTENT;
-$data['object']['title']['zh_cn'] = "择捉";
-$data['object']['content']['zh_cn'] = "掉落点:
-1-6-B
-3-5-K(Boss)
-6-1-K(Boss)
-
-6-1-K(Boss)存在A胜利掉落报告
-";
-array_push($json, $data);
-
-$data = null;
-$data['type'] = $TYPE_CONTENT;
-$data['object']['title']['zh_cn'] = "松轮";
-$data['object']['content']['zh_cn'] = "掉落点:
-1-5-I(Boss)
-6-1-K(Boss)
-6-5-M(Boss)
-
-目前只有S胜利掉落报告。
-根据官推，1-5掉落应为一号机限定
+上下6天之内，在这场美军称作KING II行动，日方称作捷一号作战的海战中。日本联合舰队投入了尚能执行任务的舰艇中的多数；美国海军也投入了其在太平洋上活动的大半军舰。双方总计投入21艘航空母舰、21艘战列舰、170艘驱逐舰与近2,000架飞机。因此，莱特湾海战凭借其规模之大、参战舰艇之多、作战范围之广，获得了史上最大规模海战的称呼。
 ";
 array_push($json, $data);
 
 $data = null;
 $data['type'] = $TYPE_URL;
-$data['object']['title']['zh_cn'] = "秋刀鱼掉落统计";
-$data['object']['content']['zh_cn'] = "POI2017年秋刀鱼活动统计";
-$data['object']['url'] = "https://db.kcwiki.org/event-sanma2017";
-$data['object']['url_text']['zh_cn'] = "2017年秋刀鱼祭典";
+$data['object']['title']['zh_cn'] = "掉落统计";
+$data['object']['content']['zh_cn'] = "POI2018年冬季活动统计";
+$data['object']['url'] = "https://db.kcwiki.org/drop/";
+$data['object']['url_text']['zh_cn'] = "poi-statistics掉落统计";
 array_push($json, $data);
 
 echo json_encode($json);
